@@ -1,0 +1,35 @@
+name: Feature request
+description: Propose an improvement to skills, host support, documentation, or tooling.
+body:
+  - type: markdown
+    attributes:
+      value: Search existing issues before submitting. Describe the outcome you need, even if you do not have an implementation in mind.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Who encounters this problem, and in what situation? Include the affected host or skill when relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe the behavior you want and a concrete example of success.
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: Suggested approach
+      description: If you have an approach in mind, describe its scope and any compatibility constraints.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and workarounds
+      description: What have you tried or considered, and where does it fall short?
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add related issues, examples, or references that help explain the request.

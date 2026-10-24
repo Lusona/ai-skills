@@ -1,0 +1,20 @@
+{
+  "name": "lusona-ai-skills",
+  "interface": {
+    "displayName": "Lusona AI Skills"
+  },
+  "plugins": [
+    {
+      "name": "lusona",
+      "source": {
+        "source": "local",
+        "path": "./plugins/lusona"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

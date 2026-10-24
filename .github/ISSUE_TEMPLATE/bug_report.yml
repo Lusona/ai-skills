@@ -1,0 +1,63 @@
+name: Bug report
+description: Report a problem with a skill, installation, documentation, or tooling.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search existing issues before submitting. Remove credentials, private code,
+        and personal data from prompts, transcripts, and logs.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the problem and which skill, command, or document it affects.
+    validations:
+      required: true
+  - type: dropdown
+    id: host
+    attributes:
+      label: Host
+      options:
+        - Claude Code
+        - Codex
+        - Xcode
+        - Other
+        - Not host-specific
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Versions and installation
+      description: Include OS, host version, agent/model if relevant, Lusona version or commit, and installation method. Use unknown where needed.
+      placeholder: |
+        OS:
+        Host and version:
+        Agent/model:
+        Lusona version or commit:
+        Installation method (GitHub, local checkout, or package):
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include the command or prompt, relevant project setup, and a minimal example. Say if the behavior is intermittent.
+      placeholder: |
+        1. Install or open...
+        2. Run this command or send this prompt...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should happen in this example?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, transcript, or screenshots
+      description: Include a short excerpt that shows the failure and any workaround you found.
