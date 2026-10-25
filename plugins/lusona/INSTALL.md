@@ -138,6 +138,12 @@ beside it. Extract the ZIP into a durable location, then register the extracted
 `lusona-ai-skills` directory using the local installation commands above. The package
 includes both hosts' manifests, skills, and bundled resources; it excludes project records.
 
+## Vercel skills installer
+
+Vercel Skills (`npx skills@latest`) is not supported. It installs individual skill
+directories without the shared resources Lusona requires. Use the native plugin
+installation for [Claude Code](#claude-code), [Codex](#codex), or [Xcode](#xcode).
+
 ## Updates
 
 For a CLI GitHub installation, refresh the marketplace and update the plugin:

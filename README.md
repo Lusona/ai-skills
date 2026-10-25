@@ -1,5 +1,8 @@
 # Lusona AI Skills
 
+> [!WARNING]
+> Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
+
 Lusona helps an AI agent carry a requested outcome through understanding, action, and
 verification. You set the outcome, constraints, and authority. The agent chooses the next
 useful action from the evidence, continues authorized work, and asks when it needs your
