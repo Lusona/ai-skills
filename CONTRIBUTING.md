@@ -35,6 +35,10 @@ retain any required third-party notices.
   workflow instructions refers to the consuming project.
 - Keep consuming-project records and generated packages out of your contribution.
   Use repository-local `tmp/` for scratch files and package output.
+- Keep the Spanish, German, Simplified Chinese, and Japanese READMEs in sync with
+  `README.md` when changing public documentation. Use natural technical prose in
+  each language; preserve command names, paths, and authorization rules. Check
+  translated section links and keep the language links in each README.
 - Keep the native manifests' plugin names and versions aligned. Coordinate release
   version changes with maintainers rather than bumping versions for each pull request.
 

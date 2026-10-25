@@ -69,7 +69,10 @@ def build(output):
         shutil.copy2(source / name, destination)
     for name in ('skills', 'templates', 'scripts', 'references'):
         shutil.copytree(source / name, plugin / name)
-    for relative in (*CATALOGS, Path('README.md'), Path('CONTRIBUTING.md'), Path('LICENSE'), Path('scripts/package.py')):
+    for relative in (*CATALOGS, *(Path(name) for name in (
+        'README.md', 'README.es.md', 'README.de.md', 'README.zh-CN.md', 'README.ja.md',
+        'CONTRIBUTING.md', 'LICENSE', 'scripts/package.py',
+    ))):
         destination = catalog / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / relative, destination)

@@ -1,5 +1,7 @@
 # Lusona AI Skills
 
+[English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
+
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
 
