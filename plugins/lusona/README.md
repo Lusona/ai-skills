@@ -1,5 +1,7 @@
 # Lusona workflow
 
+Read why we built Lusona AI Skills: [When the workflow became another job](https://github.com/lusona/ai-skills/blob/main/docs/articles/why.md).
+
 ## Loading rules
 
 All roles must read Work loop, Contract, References, Questions and next actions, TDD, Review
@@ -39,8 +41,22 @@ step. Selecting a task does not authorize its whole change.
 
 Treat follow-ups as steering the active task unless the user explicitly cancels or replaces it,
 or requests an incompatible new objective. Preserve the original objective and completed progress
-while honoring explicit scope changes. Reconcile affected worker assignments, evidence, and
-records within existing authority.
+while honoring explicit scope changes.
+
+When new evidence undermines an accepted decision, identify the decision, conflicting evidence,
+and affected assumptions; reopen the relevant question within the Contract's authority boundaries.
+After an authorized change, reconcile affected assignments, owning records, and handoffs within
+write authority. Preserve superseded rationale as history where useful; report records needing
+another owner's correction. Resume from the revised decision; a stale dependent record does not
+reinstate the superseded choice. Continue independent authorized work.
+
+When bounded work exposes a concrete gap relevant to an established goal, relate the evidence
+and uncertainty to that goal, distinguish a current blocker from a separate proposed outcome,
+and name the smallest next action. Retain findings under [retention](references/retention.md)
+within write authority; read-only work reports them without saving. Findings do not expand
+execution authority or active batch membership. Report relevant known gaps without implying that
+finishing the assignment achieves the larger goal; do not invent requirements or audit the whole
+product after every task.
 
 Outside a batch, a correction round is one bounded correction or diagnostic experiment for
 an observed failing check or review finding, followed by its agreed verification. The initial

@@ -20,6 +20,12 @@ evidence, measurements, decisions, and activity narration out of the queue. Iceb
 remain open and retain evidence under the [queue rules](queue.md); parking
 is separate from completion and historical archival.
 
+During authorized tracked work, keep unresolved supported goal-relevant outcomes discoverable
+when the current assignment closes: link an existing open item or add a distinct proposal under
+the queue rules. Reference the owning evidence once; do not leave the only next action buried
+in completed work. Retain evidence, uncertainty, and a next action; deferred proposals need a
+reason or revisit condition. A proposal does not authorize execution or join an active batch.
+
 Record each fact once. New change records own accepted scope, acceptance criteria, explicit
 TDD, optional execution steps, verification evidence, and one current handoff replaced as work
 progresses. Preserve established ownership for existing separate specs and plans. ADRs own
@@ -33,8 +39,9 @@ for useful exploration decisions, open questions, investigations, measurements, 
 without an existing owner; an Ideas item needs no premature spec. Link notes from the queue
 or owning record when available. Retain facts
 needed to resume, explain a decision, reproduce a result, or avoid repeating investigation;
-omit routine narration. Correct refuted findings beside the original claim. If a fact gains
-a change record or ADR owner, replace the notes copy with a link.
+omit routine narration. Correct refuted findings beside the original claim and revise the
+resulting recommendation. If a fact gains a change record or ADR owner, replace the notes copy
+with a link.
 
 Consolidate ordinary evidence, queue, and handoff edits at meaningful boundaries and before
 an intentional handoff, including when pausing or finishing work. Write only changed facts;

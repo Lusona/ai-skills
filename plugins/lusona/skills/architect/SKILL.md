@@ -63,8 +63,8 @@ Apply the practices relevant to the selected decision; they are not a required a
 - Inspect relevant components, interfaces, data ownership, and tests. Distinguish existing
   architecture from proposed design; do not invent code, paths, or constraints for a new product.
 - Compare alternatives only for consequential tradeoffs; reuse established boundaries.
-  Check open design questions against accepted constraints first: do not reopen an answered
-  question or silently change a criterion to fit a preferred design.
+  Check open design questions against accepted constraints first. With unchanged evidence
+  and intent, reuse settled decisions; do not silently change a criterion to fit a preferred design.
 - Preserve accepted constraints and TDD decisions. Make technical decisions within existing
   authority; ask through the permitted native question tool when a consequential choice exceeds it.
   Focus on consequential contracts and boundaries; include implementation details only when they

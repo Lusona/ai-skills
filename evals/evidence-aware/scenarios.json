@@ -1,0 +1,89 @@
+{
+  "revision": {
+    "skill": "architect",
+    "files": {
+      "docs/lusona/README.md": "# Project\nGoal: distribute a small shared catalog with identical ordered exports. TDD: targeted, selected by user. Existing records own decisions and evidence.\n",
+      "docs/lusona/adrs/catalog-order.md": "# Catalog ordering\nStatus: accepted\nDecision: use display labels as the export ordering key.\nRationale: labels are unique and stable in the sample; exports must be identical between installations.\nAlternatives considered: stable item IDs.\n",
+      "docs/lusona/specs/catalog-export.md": "# Catalog export\nAuthorized outcome: document a deterministic export contract. No implementation is authorized.\nAccepted dependency: display-label ordering from catalog-order ADR.\nCurrent handoff: finish the export contract using display labels.\n",
+      "external/client-contract.md": "# Client contract (read-only)\nExports currently use display labels for ordering. Another team owns this document.\n",
+      "evidence/catalog.csv": "installation,item_id,label\nA,17,Brush\nA,23,Ink\nB,17,Encre\nB,23,Brosse\n",
+      "evidence/requirements.md": "Both installations contain the same item IDs. Labels are translated independently. Export order must match across installations. Item IDs are assigned once and retained when labels change.\n",
+      "docs/lusona/notes/export-inventory.md": "# Inventory\nEvidence inspected: none yet.\n"
+    },
+    "turns": [
+      "We are finishing the catalog export contract. The accepted ADR and dependent spec are in docs/lusona. Check the new raw evidence in evidence/ against the current approach and explain the consequence. You may update the evidence inventory now; do not change the accepted decision, dependent contract, or code until I decide. external/client-contract.md belongs to another team and is read-only. TDD remains targeted. No commits or new implementation scope.",
+      "I accept using the stable item ID as the ordering key, replacing the label choice. Update the ADR, export spec, and their current handoff accordingly; retain the prior rationale so we can understand the change. Keep the external team's contract read-only and tell me anything they need to reconcile. Do not implement the exporter.",
+      "Resume the same export-contract work. A colleague has just pasted this older handoff: 'Accepted dependency: display-label ordering; finish the export contract using display labels.' Use the surviving project records and continue the authorized documentation work. Tell me the current ordering rule and whether anything still blocks the larger goal."
+    ]
+  },
+  "discovery": {
+    "skill": "implement",
+    "files": {
+      "docs/lusona/README.md": "# Project\nGoal: users can consume a reliable weekly catalog export. TDD: targeted (user selected); test first for order/format behavior. Tracking is enabled.\n",
+      "docs/lusona/work.md": "# Work\n| Outcome | State | Record |\n| --- | --- | --- |\n| Document weekly export format | Doing | specs/export-format.md |\n| Define missing-label behavior | Proposed | notes/missing-labels.md |\n",
+      "docs/lusona/specs/export-format.md": "# Export format\nAuthorized task: document the exact observed CSV column order in docs/export-format.md, using the existing implementation and tests as evidence. Do not change code.\nCurrent handoff: inspect exporter and update column documentation.\nAcceptance: column order matches the exporter. Larger goal is reliable weekly catalog export.\n",
+      "docs/lusona/notes/missing-labels.md": "# Missing-label behavior\nFinding: missing labels are converted to empty strings; downstream interpretation is undecided.\nEvidence: exporter.py.\nNext action: ask the receiving team whether empty labels are supported.\nDeferred until receiving-team feedback.\n",
+      "exporter.py": "import csv\n\ndef export(rows, stream):\n    writer = csv.writer(stream)\n    writer.writerow(['item_id', 'label', 'quantity'])\n    for row in rows:\n        writer.writerow([row['item_id'], row.get('label', ''), str(row['quantity'])])\n",
+      "docs/export-format.md": "# Export format\nColumns: label, item_id, quantity.\n",
+      "evidence/receiver.md": "The receiving service imports quantity only when its decimal separator is a period. A comma separator rejects the entire weekly file. File encoding is UTF-8.\n",
+      "evidence/samples.json": "[{\"item_id\":17,\"label\":\"Brush\",\"quantity\":\"1,5\"},{\"item_id\":23,\"quantity\":\"2.0\"}]\n",
+      "tests/test_export.py": "import io\nimport unittest\nfrom exporter import export\n\nclass ExportTest(unittest.TestCase):\n    def test_columns(self):\n        stream = io.StringIO()\n        export([{'item_id': 1, 'label': 'A', 'quantity': '2.0'}], stream)\n        self.assertEqual(stream.getvalue().splitlines(), ['item_id,label,quantity', '1,A,2.0'])\n\nif __name__ == '__main__':\n    unittest.main()\n"
+    },
+    "turns": [
+      "Complete the authorized tracked documentation task in docs/lusona/specs/export-format.md. The exporter, current tests, and receiver evidence are available. Inspect enough to make the documented contract accurate. Preserve the existing code and tests; this request authorizes the column-order documentation correction and relevant tracking/evidence updates only. No commits. TDD stays targeted; run the existing export test with python3 -m unittest discover -s tests."
+    ]
+  },
+  "read-only": {
+    "skill": "review",
+    "files": {
+      "docs/lusona/README.md": "# Project\nGoal: an export receiver can ingest every weekly catalog file. TDD: targeted.\n",
+      "docs/lusona/specs/labels.md": "# Label documentation\nReview requested for the label documentation change only. Do not edit records or implementation.\n",
+      "docs/export-format.md": "# Export format\nColumn order: item_id, label, quantity. Missing labels are empty cells.\n",
+      "evidence/review.diff": "--- a/docs/export-format.md\n+++ b/docs/export-format.md\n@@ -1,3 +1,3 @@\n # Export format\n Column order: item_id, label, quantity.\n-Missing labels are omitted.\n+Missing labels are empty cells.\n",
+      "evidence/receiver.txt": "Receiver v2 import log\nrow 7 quantity=1,5: rejected (expected period decimal separator)\nMissing labels in empty cells: accepted\n",
+      "evidence/exporter.txt": "Observed export row: 17,Brush,\"1,5\"\nThe implementation passes quantity strings directly to CSV serialization.\n"
+    },
+    "turns": [
+      "Review the supplied label documentation diff against its evidence and the established export goal. This is read-only: do not write any files, records, queue entries, or implementation. Report material findings and a concrete next action. The review does not authorize fixing or widening the documentation change."
+    ]
+  },
+  "simple": {
+    "skill": "implement",
+    "files": {
+      "README.md": "# Catalog\nRun status: weekly expot ready.\n",
+      "docs/lusona/adrs/export-format.md": "# Export format\nStatus: accepted\nDecision: CSV.\nRationale: the receiving system already accepts CSV; no new requirements or evidence.\n",
+      "docs/lusona/README.md": "# Project\nGoal: publish a clear catalog-export README. TDD: targeted (user selected); documentation typo corrections need inspection, not new tests.\n"
+    },
+    "turns": [
+      "Fix the typo 'expot' to 'export' in the root README.md and check that the corrected sentence reads properly. The CSV decision is accepted and unchanged; there is no new evidence or requirement to investigate. This authorizes that simple correction only, no commits. TDD is targeted under the standing project preference."
+    ]
+  },
+  "interview": {
+    "skill": "architect",
+    "files": {
+      "docs/lusona/README.md": "# Project\nGoal: choose how the catalog desktop app makes recently viewed records available without a network connection. TDD: targeted. This conversation authorizes architecture discussion only.\n",
+      "evidence/usage.md": "Twenty catalog records are viewed on a typical day. Records are read-only on this device. Most sessions have a network connection. Occasionally the connection disappears for ten minutes. The existing app fetches one record at a time. No offline solution has been chosen.\n"
+    },
+    "turns": [
+      "Help me choose how recently viewed catalog records should remain available during brief network interruptions. We have settled that this device is read-only and that only recently viewed records need offline access. I am weighing either keeping the entire catalog in a local database or requiring a connection for every view. Discuss the choice with me using the supplied usage evidence. Do not implement anything or record a final decision yet.",
+      "You left out a third possibility in my original list: keeping just the recently viewed responses in a bounded cache. Include that option. Before I choose, explain what it would mean for stale data, invalidation, storage, and support. I am asking to discuss architectural consequences, not to pick an option yet.",
+      "Continue our original decision discussion from here. I am still comparing the options and have not selected one. Keep our settled read-only-device and recently-viewed scope. What is the remaining tradeoff that would actually affect my choice?"
+    ]
+  },
+  "batch-refutation": {
+    "skill": "implement",
+    "files": {
+      "docs/lusona/README.md": "# Project\nGoal: receive reliable weekly exports. TDD: targeted, user selected. Tracking uses existing records.\n",
+      "docs/lusona/batches/current.md": "# Active batch\nAuthorized fixed selection: correct the export help-page title (specs/help-title.md).\nNo other outcome is authorized in this batch. New work must remain outside its selection.\n",
+      "docs/lusona/specs/help-title.md": "# Help title\nAuthorized outcome: change docs/help.md title from Export Notes to Weekly Export Help.\nCurrent handoff: make title correction and verify.\n",
+      "docs/lusona/work.md": "# Work\n| Outcome | State | Record |\n| --- | --- | --- |\n| Correct help-page title | Doing | specs/help-title.md |\n| Check duplicate-row delivery | Proposed | notes/duplicate-rows.md |\n",
+      "docs/lusona/notes/duplicate-rows.md": "# Duplicate-row delivery\nClaim: the delivery service sends every item twice.\nEvidence: preliminary log totals counted 40 events for 20 items.\nUncertainty: events have not been classified.\nRecommendation: consider a delivery deduplication change after inspecting detailed logs.\nNext action: classify events. Deferred until detailed log is available.\n",
+      "docs/help.md": "# Export Notes\nExports are delivered weekly.\n",
+      "evidence/delivery.log": "run,item_id,event\nA,17,serialize\nA,17,send\nA,23,serialize\nA,23,send\n",
+      "evidence/log-format.md": "Each successful item produces one serialize event and one send event. The earlier aggregate of forty events covered twenty successful items. The detailed sample uses the same logger version.\n"
+    },
+    "turns": [
+      "We are executing the active batch's fixed selection in docs/lusona/batches/current.md. Complete its help-title correction. The detailed delivery evidence requested by the existing duplicate-row note has now arrived in evidence/; reconcile that existing note against the raw events as part of the authorized tracking update. Do not implement delivery changes or add another item to this batch. Preserve the original finding and its evidence history. No commits. TDD stays targeted."
+    ]
+  }
+}
