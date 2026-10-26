@@ -71,7 +71,7 @@ def build(output):
         shutil.copytree(source / name, plugin / name)
     for relative in (*CATALOGS, *(Path(name) for name in (
         'README.md', 'README.es.md', 'README.de.md', 'README.zh-CN.md', 'README.ja.md',
-        'CONTRIBUTING.md', 'LICENSE', 'scripts/package.py',
+        'CONTRIBUTING.md', 'LICENSE', 'scripts/package.py', 'docs/articles/why.md',
     ))):
         destination = catalog / relative
         destination.parent.mkdir(parents=True, exist_ok=True)

@@ -2,23 +2,25 @@
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-> [!WARNING]
-> Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
-
 Lusona helps an AI agent carry a requested outcome through understanding, action, and
 verification. You set the outcome, constraints, and authority. The agent chooses the next
 useful action from the evidence, continues authorized work, and asks when it needs your
 input or permission.
 
-For Claude Code, Codex, and [Xcode 27 coding agents](plugins/lusona/INSTALL.md#xcode) · Checked-out source version **1.0.0**
+For Claude Code, Codex, and [Xcode 27 coding agents](plugins/lusona/INSTALL.md#xcode) · Checked-out source version **1.1.0**
+
+> [!WARNING]
+> Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
+
+Read why we built Lusona AI Skills: [When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/).
 
 This README describes the source in this checkout. GitHub installation uses committed,
 pushed sources; local changes do not establish a published release.
 
 ## Index
 
-- [Choose a command](#choose-a-command)
 - [Start with an outcome](#start-with-an-outcome)
+- [Choose a command](#choose-a-command)
 - [Installation](#installation)
 - [How the work continues](#how-the-work-continues)
 - [Questions and evidence](#questions-and-evidence)
@@ -29,39 +31,10 @@ pushed sources; local changes do not establish a published release.
 - [License](#license)
 - [Development](#development)
 
-## Choose a command
-
-Choose the responsibility you need. You can start with any command whose scope fits your
-request; the agent carries accepted decisions forward and uses other responsibilities as
-needed within your authority. There is no required sequence.
-
-In Claude Code, invoke `/lusona:<command>`. In Codex, select the Lusona skill from the
-skill UI. In Xcode, type `/` in an agent conversation and select the installed skill.
-[Install Lusona](#installation) before using these commands.
-
-| Command | Use it to |
-| --- | --- |
-| [explore](plugins/lusona/skills/explore/SKILL.md) | Develop understanding, possibilities, and preferences through discussion |
-| [status](plugins/lusona/skills/status/SKILL.md) | Assess current progress, all known remaining work, and the next action |
-| [frame-product](plugins/lusona/skills/frame-product/SKILL.md) | Establish users, the problem, desired outcomes, and product boundaries |
-| [map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md) | Map capabilities, dependencies, and delivery order |
-| [specify](plugins/lusona/skills/specify/SKILL.md) | Agree one change's behavior, constraints, acceptance criteria, and TDD policy |
-| [architect](plugins/lusona/skills/architect/SKILL.md) | Resolve consequential design, contract, and ownership decisions |
-| [investigate](plugins/lusona/skills/investigate/SKILL.md) | Establish causes, facts, or feasibility through evidence and experiments |
-| [implement](plugins/lusona/skills/implement/SKILL.md) | Plan and deliver an authorized behavior change or bug fix |
-| [review](plugins/lusona/skills/review/SKILL.md) | Assess an actual diff for defects and verification gaps |
-| [refactor](plugins/lusona/skills/refactor/SKILL.md) | Improve existing code's structure while preserving behavior and compatibility |
-| [batch](plugins/lusona/skills/batch/SKILL.md) | Coordinate several selected outcomes under explicit unattended-work authority |
-
-Use **investigate** to establish what happens and why; use **architect** to decide consequential
-technical boundaries and tradeoffs. Use **refactor** for a concrete structural problem with
-stable behavior, and **implement** for changed behavior or a defect correction. Routine design
-choices stay within implementation or refactoring. A completed investigation or design decision
-does not authorize a production change.
-
 ## Start with an outcome
 
-For a defined change, use `/lusona:implement` in Claude Code or select `implement` in Codex:
+For a defined change, use `/lusona:implement` in Claude Code or select `implement` in Codex.
+Include your test-driven development (TDD) policy in the request:
 
 > Add invitation expiry after seven days. Preserve existing accepted invitations.
 > Done means: invitations older than seven days are rejected, accepted invitations are
@@ -69,7 +42,7 @@ For a defined change, use `/lusona:implement` in Claude Code or select `implemen
 > Verify locally; do not deploy. Ask if a consequential decision blocks the change.
 
 Give the outcome, what done means, and the limits of the agent's authority. The agent handles
-necessary planning and continues through eligible increments without another command.
+necessary planning and continues through the authorized steps without another command.
 You receive the result, verification evidence, and unresolved decisions or limitations.
 
 Choose TDD explicitly in the request or through a standing preference:
@@ -87,8 +60,8 @@ Other starting points:
 > **explore:** Help me compare invitation links and email-only invitations. Explain the
 > consequences for our support team before we choose. Keep this discussion in chat; do not save files.
 
-> **investigate:** Find why expired invitations still work in this reproduction. Run useful
-> distinguishing experiments and report the evidence. Do not change production behavior.
+> **investigate:** Find why expired invitations still work in this reproduction. Run experiments
+> that distinguish between possible causes and report the evidence. Do not change production behavior.
 
 > **implement, plan only:** Propose an approach for invitation expiry and its verification.
 > Do not edit implementation or dependencies.
@@ -99,6 +72,34 @@ Other starting points:
 Discussion, specifications, plans, architecture decisions, and review do not grant implementation
 authority. A clear implementation or refactoring request can proceed without a separate
 `specify` command once its scope, TDD policy, and prerequisites are settled.
+
+## Choose a command
+
+Choose the command that fits your request. The agent carries accepted decisions forward
+and uses other skills as needed within the authority you grant. There is no required sequence.
+
+In Claude Code, invoke `/lusona:<command>`. In Codex, select the Lusona skill from the
+skill UI. In Xcode, type `/` in an agent conversation and select the installed skill.
+[Install Lusona](#installation) before using these commands.
+
+| Command | Use it to |
+| --- | --- |
+| [explore](plugins/lusona/skills/explore/SKILL.md) | Develop understanding, possibilities, and preferences through discussion |
+| [status](plugins/lusona/skills/status/SKILL.md) | Assess current progress, all known remaining work, and the next action |
+| [frame-product](plugins/lusona/skills/frame-product/SKILL.md) | Establish users, the problem, desired outcomes, and product boundaries |
+| [map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md) | Map capabilities, dependencies, and delivery order |
+| [specify](plugins/lusona/skills/specify/SKILL.md) | Agree on one change's behavior, constraints, acceptance criteria, and TDD policy |
+| [architect](plugins/lusona/skills/architect/SKILL.md) | Resolve consequential design, contract, and ownership decisions |
+| [investigate](plugins/lusona/skills/investigate/SKILL.md) | Establish causes, facts, or feasibility through evidence and experiments |
+| [implement](plugins/lusona/skills/implement/SKILL.md) | Plan and deliver an authorized behavior change or bug fix |
+| [review](plugins/lusona/skills/review/SKILL.md) | Assess an actual diff for defects and verification gaps |
+| [refactor](plugins/lusona/skills/refactor/SKILL.md) | Improve existing code's structure while preserving behavior and compatibility |
+| [batch](plugins/lusona/skills/batch/SKILL.md) | Coordinate several selected outcomes under explicit unattended-work authority |
+
+Use **investigate** to establish what happens and why; use **architect** to decide consequential
+technical boundaries and tradeoffs. Use **refactor** for a concrete structural problem with
+stable behavior, and **implement** for changed behavior or a defect correction. Routine design
+choices stay within implementation or refactoring.
 
 ## Installation
 
@@ -169,29 +170,25 @@ to the affected work; independent authorized work can continue while another par
   leaves the outcome active. Silence supplies no decision or permission.
 - **Pause:** Stop affected work when you request a pause, a necessary input or capability is
   unavailable, authority is missing, or a correction limit applies. State the exact resumption
-  conditions. Your requested pause requires your resumption; other pauses require the missing
-  prerequisite, evidence, or authority specified by the applicable boundary. A checkpoint alone
-  supplies none of these.
+  conditions. If you request a pause, the agent waits for you to resume the work. Other pauses
+  end when the stated prerequisite, evidence, or authority is available. Saving a checkpoint
+  does not satisfy these conditions.
 - **Complete:** Finish the whole authorized scope, acceptance criteria, required checks, required
   independent review, and any required human acceptance or delivery. Passing tests alone does
   not establish completion. A failed or unrun required check prevents a completion claim.
+
+Asking and pausing can overlap: the agent may ask for what it needs to resume paused work.
+In either case, it states what it needs and continues any independent authorized work.
 
 You control scope and consequential decisions. The agent settles routine details within your
 constraints and asks before changing accepted outcomes or taking destructive action beyond
 its authority. Independent review is required by user/repository rules and for security
 boundaries, persistent data, shared contracts, or several coordinated writers.
 
-For example, an investigator runs another experiment when it can distinguish remaining causes.
-If the investigator needs your reproduction build, the agent asks for it and continues any
-independent inspection. When no useful independent work remains, it awaits that build. A confirmed
-cause can complete the diagnosis while a production fix still needs implementation authority and TDD.
-
-The agent revises routine approaches from evidence while preserving accepted scope and criteria.
-Outside a batch, after two consecutive correction rounds without material progress, it stops
-repeating affected corrections and reports the evidence. Below four total rounds, a materially
-different approach can proceed within authority when new evidence or a changed prerequisite supports
-it. After four total rounds, further correction requires your decision. Batches use their recorded
-repair budget. See the [correction rules](plugins/lusona/README.md#work-loop) for counting and resumption.
+The agent revises its approach as it gathers evidence, while preserving accepted scope and
+criteria. If corrections stop producing progress, it reports the evidence and the conditions
+for continuing. Correction limits determine when it must ask for your decision; batches use
+an agreed repair budget. See the [correction rules](plugins/lusona/README.md#work-loop).
 
 The main agent coordinates questions, assignments, integration, and verification. It delegates
 substantive product and engineering work to specialists with appropriate personas and models;
@@ -206,30 +203,29 @@ understanding. It answers direct questions first, reuses settled answers, and as
 consequential uncertainty. Your expertise changes explanation depth, while evidence and decision
 requirements still apply.
 
-During exploration, you can develop understanding or preferences without choosing a direction.
-The agent uses concrete scenarios and tradeoffs while another exchange can change the requested
-understanding or next action. During investigation, it tests hypotheses while another experiment
-can distinguish causes. It ends inquiry when further exchanges or experiments would not change
-the requested outcome or justified next action; when missing evidence blocks progress, it names
-that evidence rather than claiming certainty.
+During exploration, the agent uses concrete scenarios and tradeoffs to help you understand
+your options without requiring a decision. It continues while another exchange could improve
+your understanding or change the next action. During investigation, it runs further experiments
+when they could distinguish between possible causes. If missing evidence blocks progress,
+the agent identifies what it needs.
 
-For example, an experienced maintainer who has supplied compatibility constraints need not answer
-them again. A reader unfamiliar with a migration choice gets an explanation of its consequences
+For example, an experienced maintainer who has supplied compatibility constraints need not
+repeat them. A reader unfamiliar with a migration choice gets an explanation of its consequences
 before the agent asks for a preference. See [intent interviews](plugins/lusona/references/interviews.md).
 
 ## Recovery and resumption
 
 Authorized work includes minimal local recovery records when safe resumption or ownership
-coordination needs them, within permitted writes and your restrictions. Disposable conversation
-needs no file. The agent reuses an existing owner or the smallest suitable notes/change record,
-saving changed facts at meaningful boundaries and before an intentional handoff.
+coordination needs them, within permitted writes and your restrictions. The agent saves no file
+for a conversation that needs no retained context. Otherwise, it updates the existing record
+for the work or uses the smallest suitable notes or change record. It saves changed facts at
+meaningful boundaries and before a handoff.
 
 A recovery record retains the outcome, authority and TDD source, accepted decisions, useful
 evidence, material open questions, ownership, correction counts when applicable, and the next
-action. Exploration can retain decisions and questions without a spec or queue. Implement and
-refactor can create a change record when needed; neither requires a detour through Specify.
-Recording context does not select TDD, authorize implementation, enroll work in a queue, or
-complete the outcome.
+action. Exploration can retain decisions and questions without a spec or queue. `implement` and
+`refactor` can create a change record when needed; neither requires a separate `specify` command.
+Saving a recovery record does not enroll work in a queue.
 
 Read-only, no-save, and destination restrictions take precedence. If saving is prohibited or
 unavailable, the agent supplies a conversational handoff and states the recovery limitation.
@@ -251,7 +247,8 @@ within its authority.
 Lusona is trying a shared format for substantive assessments and handoffs: **Result**,
 **Evidence**, and **Next action**. Pair the result with **✅ Complete**, **🔄 In progress**,
 **❓ Needs input**, or **⏸ Paused**, using words to preserve the meaning. Lead with a blocking
-question or approval when needed. Ordinary dialogue, questions, and brief updates stay natural.
+question or request for approval when needed. Ordinary dialogue, questions, and brief updates
+stay natural.
 
 Illustrative handoff, not evidence of work performed:
 
@@ -263,16 +260,12 @@ Illustrative handoff, not evidence of work performed:
 > **Next action:** You can authorize the timestamp correction and select its TDD policy;
 > the agent can then implement and verify that bounded fix.
 
-Status describes the response or authorized outcome: completing a diagnosis does not complete
-its proposed fix. At a handoff, the next action identifies its owner, required inputs, and
-remaining authority. At completion, it can be **None for this request**.
+At a handoff, the next action identifies who will take it, what inputs they need, and what
+authorization remains outstanding. At completion, it can be **None for this request**.
 
-Status tables use **Outcome | State | Remaining work**, retaining blockers and dependencies.
-Comparison tables use useful columns such as **Option | Benefit | Tradeoff**. Specialized tables
-and saved record schemas retain their purpose. Your requested format and host constraints take
-precedence; supported text and formatting preserve the same meaning when glyphs or tables are
-unsuitable. This presentation convention is a provisional trial; behavior across hosts has not
-been established. See [review and communication](plugins/lusona/README.md#review-and-communication).
+Your requested format and host constraints take precedence. This presentation convention is
+a trial; behavior across hosts has not been established. See
+[review and communication](plugins/lusona/README.md#review-and-communication) for formatting details.
 
 ## Reference
 
