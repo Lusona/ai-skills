@@ -1,5 +1,5 @@
 <a id="lusona-ai-skills"></a>
-# Lusona AI Skills
+# Lusona Skills
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
@@ -10,7 +10,7 @@ Lusona 帮助 AI 智能体理解你的需求、执行工作并验证结果，达
 > [!WARNING]
 > 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#installation)。
 
-了解我们为什么开发 Lusona AI Skills：[When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/)（英文）。
+了解我们为什么开发 Lusona Skills：[When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/)（英文）。
 
 本 README 介绍当前工作副本中的源码。通过 GitHub 安装时使用的是已提交并推送的源码；本地修改不代表已发布版本。
 
@@ -108,7 +108,7 @@ codex plugin add lusona@lusona-ai-skills
 <a id="xcode"></a>
 ### Cursor
 
-打开 **Customize > From GitHub Repository**，输入 `https://github.com/lusona/ai-skills`，然后安装 **lusona**。[Cursor 安装步骤](INSTALL.md#cursor)包含最新官方文档链接和测试状态。
+打开 **Customize > From GitHub Repository**，输入 `https://github.com/lusona/ai-skills`，然后安装 **Lusona Skills**。[Cursor 安装步骤](INSTALL.md#cursor)包含最新官方文档链接和测试状态。
 
 ### Xcode
 

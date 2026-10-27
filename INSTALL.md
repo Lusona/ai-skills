@@ -1,8 +1,11 @@
-# Install Lusona
+# Install Lusona Skills
 
 Lusona provides eleven product and engineering workflow skills for Claude Code,
 Codex, Cursor, and Xcode's coding agents. For CLI installation, use the `lusona` plugin from the `lusona-ai-skills` marketplace in the
 public [lusona/ai-skills repository](https://github.com/lusona/ai-skills).
+
+The display name is **Lusona Skills**. The plugin identifier and Claude Code
+command namespace remain `lusona`, for example `/lusona:status`.
 
 ## Requirements
 
@@ -56,7 +59,7 @@ For marketplace configuration options, see the [OpenAI plugin documentation](htt
 
 1. Open **Customize** in Cursor's sidebar and choose **From GitHub Repository**.
 2. Enter `https://github.com/lusona/ai-skills` to import the marketplace.
-3. Find **lusona**, select **Install**, and choose project or user scope.
+3. Find **Lusona Skills**, select **Install**, and choose project or user scope.
 4. Start a new Agent chat in your project. Type `/`, search for Lusona's `status`
    skill, and select it to explain the workflow or assess current work.
 

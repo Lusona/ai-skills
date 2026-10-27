@@ -1,8 +1,20 @@
 {
   "name": "lusona",
+  "displayName": "Lusona Skills",
   "version": "1.1.0",
   "license": "MIT",
   "description": "Iterative product and engineering work with explicit outcomes, evidence, authorization, TDD, and bounded batch coordination.",
+  "keywords": [
+    "product-development",
+    "software-engineering",
+    "workflow",
+    "planning",
+    "architecture",
+    "tdd",
+    "code-review",
+    "refactoring",
+    "multi-agent"
+  ],
   "author": {
     "name": "Lusona"
   },

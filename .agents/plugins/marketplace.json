@@ -1,7 +1,7 @@
 {
   "name": "lusona-ai-skills",
   "interface": {
-    "displayName": "Lusona AI Skills"
+    "displayName": "Lusona Skills"
   },
   "plugins": [
     {

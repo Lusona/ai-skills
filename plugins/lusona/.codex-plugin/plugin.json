@@ -3,12 +3,23 @@
   "version": "1.1.0",
   "license": "MIT",
   "description": "Iterative product and engineering work with explicit outcomes, evidence, authorization, TDD, and bounded batch coordination.",
+  "keywords": [
+    "product-development",
+    "software-engineering",
+    "workflow",
+    "planning",
+    "architecture",
+    "tdd",
+    "code-review",
+    "refactoring",
+    "multi-agent"
+  ],
   "author": {
     "name": "Lusona"
   },
   "skills": "./skills/",
   "interface": {
-    "displayName": "Lusona",
+    "displayName": "Lusona Skills",
     "shortDescription": "Understand, act, check, and continue.",
     "longDescription": "Eleven responsibilities available throughout an evidence-driven work loop. Interview for intent and understanding; explore, specify, architect, investigate, implement, and review within explicit authority, with combined change records, bounded delegation, and resumable batches.",
     "developerName": "Lusona",

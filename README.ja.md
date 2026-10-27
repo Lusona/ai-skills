@@ -1,4 +1,4 @@
-# Lusona AI Skills
+# Lusona Skills
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
@@ -11,7 +11,7 @@ Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディン
 > [!WARNING]
 > Lusona のインストールには Vercel Skills（`npx skills@latest`）を使わず、[ホスト標準のプラグイン機能](#installation)を使ってください。
 
-Lusona AI Skills を開発した背景：[When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/)（英語）。
+Lusona Skills を開発した背景：[When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/)（英語）。
 
 この README は、チェックアウトしたソースの内容を説明しています。GitHub からのインストールには、
 コミットしてプッシュしたソースを使います。ローカルの変更だけでは、公開リリースにはなりません。
@@ -129,7 +129,7 @@ codex plugin add lusona@lusona-ai-skills
 <a id="xcode"></a>
 ### Cursor
 
-**Customize > From GitHub Repository** を開き、`https://github.com/lusona/ai-skills` を入力して **lusona** をインストールします。[Cursor のインストール手順](INSTALL.md#cursor)に、最新の公式ドキュメントへのリンクとテスト状況を記載しています。
+**Customize > From GitHub Repository** を開き、`https://github.com/lusona/ai-skills` を入力して **Lusona Skills** をインストールします。[Cursor のインストール手順](INSTALL.md#cursor)に、最新の公式ドキュメントへのリンクとテスト状況を記載しています。
 
 ### Xcode
 

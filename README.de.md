@@ -1,4 +1,4 @@
-# Lusona AI Skills
+# Lusona Skills
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
@@ -12,7 +12,7 @@ Für Claude Code, Codex, [Cursor](INSTALL.md#cursor) und [Programmieragenten in 
 > [!WARNING]
 > Installiere Lusona nicht mit Vercel Skills (`npx skills@latest`); nutze die [Installation als natives Plugin](#installation).
 
-Warum wir Lusona AI Skills entwickelt haben: [When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/) (auf Englisch).
+Warum wir Lusona Skills entwickelt haben: [When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/) (auf Englisch).
 
 Diese README beschreibt den Stand dieser Arbeitskopie. Bei der Installation über GitHub
 wird der Stand verwendet, der per Commit gespeichert und ins Remote-Repository gepusht wurde.
@@ -140,7 +140,7 @@ codex plugin add lusona@lusona-ai-skills
 <a id="xcode"></a>
 ### Cursor
 
-Öffne **Customize > From GitHub Repository**, gib `https://github.com/lusona/ai-skills` ein und installiere **lusona**. Die [Cursor-Anleitung](INSTALL.md#cursor) verlinkt die aktuelle Cursor-Dokumentation und nennt den Teststatus.
+Öffne **Customize > From GitHub Repository**, gib `https://github.com/lusona/ai-skills` ein und installiere **Lusona Skills**. Die [Cursor-Anleitung](INSTALL.md#cursor) verlinkt die aktuelle Cursor-Dokumentation und nennt den Teststatus.
 
 ### Xcode
 

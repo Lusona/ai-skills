@@ -1,4 +1,4 @@
-# Lusona workflow
+# Lusona Skills workflow
 
 ## Loading rules
 

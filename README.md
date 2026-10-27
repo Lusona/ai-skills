@@ -1,4 +1,4 @@
-# Lusona AI Skills
+# Lusona Skills
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
@@ -12,7 +12,7 @@ For Claude Code, Codex, [Cursor](INSTALL.md#cursor), and [Xcode 27 coding agents
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
 
-Read why we built Lusona AI Skills: [When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/).
+Read why we built Lusona Skills: [When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/).
 
 This README describes the source in this checkout. GitHub installation uses committed,
 pushed sources; local changes do not establish a published release.
@@ -123,7 +123,7 @@ codex plugin add lusona@lusona-ai-skills
 ### Cursor
 
 Open **Customize > From GitHub Repository**, enter `https://github.com/lusona/ai-skills`,
-then install **lusona** for your project or user. In Agent chat, type `/` to find
+then install **Lusona Skills** for your project or user. In Agent chat, type `/` to find
 Lusona's skills. See the [Cursor installation steps](INSTALL.md#cursor)
 for links to Cursor's current documentation and testing status.
 

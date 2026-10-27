@@ -1,14 +1,14 @@
-# Lusona AI Skills terms of use
+# Lusona Skills terms of use
 
-Last updated: October 26, 2026
+Last updated: October 27, 2026
 
-These terms describe the use of Lusona AI Skills, the open-source workflow plugin
+These terms describe the use of Lusona Skills, the open-source workflow plugin
 maintained by Lusona LLC, including its instructions, templates, documentation,
 and helper scripts.
 
 ## Open-source license
 
-Lusona AI Skills is provided under the [MIT License](LICENSE). That license governs
+Lusona Skills is provided under the [MIT License](LICENSE). That license governs
 your rights to use, copy, modify, distribute, and sublicense the software, including
 its notice requirements. These terms do not restrict rights granted by the MIT
 License. If these terms conflict with the license, the license controls.

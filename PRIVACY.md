@@ -1,8 +1,8 @@
-# Lusona AI Skills privacy policy
+# Lusona Skills privacy policy
 
-Last updated: October 26, 2026
+Last updated: October 27, 2026
 
-This policy describes data handling by Lusona AI Skills, the open-source workflow
+This policy describes data handling by Lusona Skills, the open-source workflow
 plugin maintained by Lusona LLC. It covers the plugin and information you choose
 to share with its maintainers for support. Your coding-agent provider, GitHub,
 and any other services you use have their own privacy policies.
