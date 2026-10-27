@@ -5,7 +5,7 @@
 
 Lusona 帮助 AI 智能体理解你的需求、执行工作并验证结果，达成你设定的目标。你确定目标、约束和授权范围。智能体根据已有证据决定下一步，继续完成授权范围内的工作，并在需要你的意见或许可时提问。
 
-适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor) 和 [Xcode 27 编程智能体](INSTALL.md#xcode) · 当前工作副本的源码版本：**1.1.0**
+适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor) 和 [Xcode 27 编程智能体](INSTALL.md#xcode) · 当前工作副本的源码版本：**1.1.1**
 
 > [!WARNING]
 > 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#installation)。
