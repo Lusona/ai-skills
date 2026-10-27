@@ -7,5 +7,9 @@
     "name": "Lusona"
   },
   "skills": "./skills/",
-  "repository": "https://github.com/Lusona/ai-skills"
+  "repository": "https://github.com/Lusona/ai-skills",
+  "homepage": "https://github.com/Lusona/ai-skills",
+  "documentationUrl": "https://github.com/Lusona/ai-skills/blob/main/README.md",
+  "supportUrl": "https://github.com/Lusona/ai-skills/issues",
+  "privacyPolicyUrl": "https://github.com/Lusona/ai-skills/blob/main/PRIVACY.md"
 }

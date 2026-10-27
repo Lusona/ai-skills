@@ -277,6 +277,7 @@ a trial; behavior across hosts has not been established. See
 ## Reference
 
 - [Installation and removal](INSTALL.md)
+- [Privacy policy](PRIVACY.md)
 - [Workflow contract and work loop](plugins/lusona/README.md#work-loop)
 - [Skill selection and terminology](plugins/lusona/references/workflow-guide.md)
 - [TDD policy and sequencing](plugins/lusona/references/tdd.md)
