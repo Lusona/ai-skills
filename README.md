@@ -293,6 +293,8 @@ Skills, templates, documentation, and scripts are available under the [MIT Licen
 Canonical workflow sources live in `plugins/lusona/`. Consuming-project data belongs under that
 project's `docs/lusona/`; the empty queue structure is `templates/work.md`.
 
+Plugin record helpers use Bash or PowerShell; see [runtime requirements](plugins/lusona/INSTALL.md#requirements). Python 3 remains a development requirement for packaging and Python evaluations, not for ordinary plugin use.
+
 ```bash
 claude plugin validate plugins/lusona
 claude plugin validate .claude-plugin/marketplace.json

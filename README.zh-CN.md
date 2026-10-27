@@ -223,6 +223,8 @@ Lusona 正在试用统一的格式来报告评估结论和交接工作：**结�
 
 工作流的正式源文件位于 `plugins/lusona/`。使用该插件的项目应将自身数据放在该项目的 `docs/lusona/` 下；空队列结构见 `templates/work.md`。
 
+插件的记录创建脚本使用 Bash 或 PowerShell，详见[运行环境要求](plugins/lusona/INSTALL.md#requirements)。构建软件包和运行 Python 评估仍需 Python 3，日常使用插件则不需要。
+
 ```bash
 claude plugin validate plugins/lusona
 claude plugin validate .claude-plugin/marketplace.json

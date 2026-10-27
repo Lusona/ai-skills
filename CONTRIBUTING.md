@@ -70,6 +70,16 @@ For changes to the work-record helper, run its behavioral checks:
 bash scripts/test-work-record.sh
 ```
 
+Run the PowerShell helper's behavioral checks in Windows PowerShell 5.1 or PowerShell 7:
+
+```powershell
+powershell.exe -NoProfile -File scripts/test-work-record.ps1
+```
+
+Use `pwsh` instead of `powershell.exe` for PowerShell 7. Both helpers share templates
+and must preserve the command and file-safety contract. Test native Windows separately
+from PowerShell on macOS/Linux; passing on one platform does not establish the others.
+
 For script behavior changes, add or update tests that exercise the affected behavior.
 Choose and state a TDD policy (`none`, `targeted`, or `strict`); verification remains
 required with `none`. Documentation changes need relevant content and link checks.

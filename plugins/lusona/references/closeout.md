@@ -15,13 +15,20 @@ owns archived state; change records and notes do not duplicate it. Reopening an 
 and current state ownership to the queue with a backlink to its historical completion entry;
 leave that entry as a historical fact. Read history only when relevant to the selected work.
 
-Use the bundled [work-record helper](../scripts/work-record.sh) for history names, dates,
+Use the bundled work-record helper ([Bash](../scripts/work-record.sh) or
+[PowerShell](../scripts/work-record.ps1)) for history names, dates,
 and initial structure. Resolve its path from the loaded plugin, not the consuming repository's
 current directory; from a skill it is `../../scripts/work-record.sh`.
+Follow [shell selection and invocation](work-record.md) for PowerShell paths and commands.
 
 ```bash
 bash /resolved/plugin/scripts/work-record.sh history-path 2026-09-10
 bash /resolved/plugin/scripts/work-record.sh init-history /absolute/project/root 2026-09-10
+```
+
+```powershell
+powershell.exe -NoProfile -File "C:\resolved\plugin\scripts\work-record.ps1" history-path 2026-09-10
+powershell.exe -NoProfile -File "C:\resolved\plugin\scripts\work-record.ps1" init-history "C:\project" 2026-09-10
 ```
 
 History uses month-local week numbers: 01 for days 1–7, 02 for 8–14, 03 for 15–21,

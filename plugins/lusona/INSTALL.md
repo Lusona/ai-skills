@@ -10,6 +10,11 @@ public [lusona/ai-skills repository](https://github.com/lusona/ai-skills).
 - For Xcode installation: Xcode 27 with a coding agent enabled in Intelligence settings.
 - Network access to GitHub for installation and updates from the repository.
 
+Creating workflow records uses the bundled Bash or PowerShell helper. Use Bash in a
+Unix or WSL shell, or Windows PowerShell 5.1 / PowerShell 7 in a native Windows shell;
+see [helper invocation](references/work-record.md). Python is required only for
+building packages and running the repository's Python evaluations, not for plugin use.
+
 The commands below use HTTPS, so you do not need GitHub credentials to download the
 public repository. If you prefer SSH and have GitHub SSH access configured, substitute
 `git@github.com:lusona/ai-skills.git` for the HTTPS URL.

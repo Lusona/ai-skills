@@ -50,13 +50,20 @@ authorization, blockers, ownership changes, and required
 batch recovery state when needed for safe continuation. These saves are working-tree edits,
 not commit boundaries; group them under the [commit procedure](commits.md).
 
-Use the bundled [work-record helper](../scripts/work-record.sh) for initial notes structure.
+Use the bundled work-record helper ([Bash](../scripts/work-record.sh) or
+[PowerShell](../scripts/work-record.ps1)) for initial notes structure.
 Resolve its path from the loaded plugin, not the consuming repository's current directory;
 from a skill it is `../../scripts/work-record.sh`.
+Follow [shell selection and invocation](work-record.md) for PowerShell paths and commands.
 
 ```bash
 bash /resolved/plugin/scripts/work-record.sh slug "Work item title"
 bash /resolved/plugin/scripts/work-record.sh init-notes /absolute/project/root work-item-title
+```
+
+```powershell
+powershell.exe -NoProfile -File "C:\resolved\plugin\scripts\work-record.ps1" slug "Work item title"
+powershell.exe -NoProfile -File "C:\resolved\plugin\scripts\work-record.ps1" init-notes "C:\project" work-item-title
 ```
 
 Reuse an existing item slug; use `slug` for new names. Pass an explicit project root for

@@ -299,6 +299,8 @@ Lusona では、詳しい評価の報告や引き継ぎに、**結果**、**根�
 ワークフローの正式なソースは `plugins/lusona/` にあります。利用先プロジェクトのデータは、
 そのプロジェクトの `docs/lusona/` に置きます。空のキュー構造は `templates/work.md` にあります。
 
+プラグインの記録作成ヘルパーは Bash または PowerShell を使います。[実行環境の要件](plugins/lusona/INSTALL.md#requirements)を参照してください。パッケージ作成と Python による評価には引き続き Python 3 が必要ですが、通常のプラグイン利用には不要です。
+
 ```bash
 claude plugin validate plugins/lusona
 claude plugin validate .claude-plugin/marketplace.json

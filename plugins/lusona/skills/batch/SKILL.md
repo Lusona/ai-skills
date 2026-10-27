@@ -29,7 +29,9 @@ not a second implementation workflow or a background execution guarantee.
   reuse settled decisions and verified results only while their inputs still match.
 - Create `docs/lusona/batches/<batch-slug>.md` in the consuming project from
   [the batch template](../../templates/batch.md). Derive the slug with
-  [the existing helper](../../scripts/work-record.sh), using its `slug` command. Check for
+  the bundled helper ([Bash](../../scripts/work-record.sh) or
+  [PowerShell](../../scripts/work-record.ps1)), using its `slug` command and the
+  [available shell](../../references/work-record.md). Check for
   existence first: reuse only an explicitly selected continuation, otherwise select a distinct
   suffix. Give each entry a stable local ID such as B1, including Ideas without specs.
   Link eventual owning records; membership IDs are neither queue states nor authority.

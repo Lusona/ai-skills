@@ -341,6 +341,8 @@ Los archivos originales del flujo de trabajo están en `plugins/lusona/`. Cada p
 utiliza el plugin guarda sus propios datos en `docs/lusona/`; la plantilla de una cola vacía
 está en `templates/work.md`.
 
+Los asistentes para crear registros del plugin usan Bash o PowerShell; consulta los [requisitos de ejecución](plugins/lusona/INSTALL.md#requirements). Python 3 sigue siendo necesario para crear paquetes y ejecutar las evaluaciones en Python, pero no para el uso habitual del plugin.
+
 ```bash
 claude plugin validate plugins/lusona
 claude plugin validate .claude-plugin/marketplace.json

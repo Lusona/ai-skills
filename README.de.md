@@ -343,6 +343,8 @@ Die maßgeblichen Workflow-Quellen liegen in `plugins/lusona/`. Projektdaten geh
 `docs/lusona/` des Projekts, das Lusona nutzt. Die Vorlage für eine leere Warteschlange liegt
 in `templates/work.md`.
 
+Die Hilfsskripte für Projektdokumente verwenden Bash oder PowerShell; siehe [Laufzeitanforderungen](plugins/lusona/INSTALL.md#requirements). Python 3 wird weiterhin für die Paketerstellung und Python-Evaluationen benötigt, jedoch nicht für die normale Plugin-Nutzung.
+
 ```bash
 claude plugin validate plugins/lusona
 claude plugin validate .claude-plugin/marketplace.json
