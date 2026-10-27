@@ -68,7 +68,8 @@ def build(output):
     plugin.mkdir(parents=True)
     # Explicit selection excludes consuming projects and their live queues.
     for name in ('README.md', 'INSTALL.md', 'LICENSE', '.codex-plugin/plugin.json',
-                 '.claude-plugin/plugin.json', '.cursor-plugin/plugin.json'):
+                 '.claude-plugin/plugin.json', '.claude-plugin/icon.png',
+                 '.cursor-plugin/plugin.json'):
         destination = plugin / name
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source / name, destination)
@@ -76,7 +77,7 @@ def build(output):
         shutil.copytree(source / name, plugin / name)
     for relative in (*CATALOGS, *(Path(name) for name in (
         'README.md', 'README.es.md', 'README.de.md', 'README.zh-CN.md', 'README.ja.md',
-        'CONTRIBUTING.md', 'LICENSE', 'scripts/package.py', 'docs/articles/why.md',
+        'CONTRIBUTING.md', 'LICENSE', 'scripts/package.py',
     ))):
         destination = catalog / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
