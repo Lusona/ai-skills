@@ -10,7 +10,8 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = Path('plugins/lusona')
-CATALOGS = (Path('.agents/plugins/marketplace.json'), Path('.claude-plugin/marketplace.json'))
+CATALOGS = (Path('.agents/plugins/marketplace.json'), Path('.claude-plugin/marketplace.json'),
+            Path('.cursor-plugin/marketplace.json'))
 
 
 def check_links(root):
@@ -38,13 +39,16 @@ def build(output):
     check_skill_templates(source)
     codex = json.loads((source / '.codex-plugin/plugin.json').read_text())
     claude = json.loads((source / '.claude-plugin/plugin.json').read_text())
-    if codex['name'] != PLUGIN.name or codex['name'] != claude['name']:
+    cursor = json.loads((source / '.cursor-plugin/plugin.json').read_text())
+    manifests = (codex, claude, cursor)
+    if any(manifest['name'] != PLUGIN.name for manifest in manifests):
         raise ValueError('Native manifest names must match the plugin directory.')
-    if codex['version'] != claude['version'] or not re.fullmatch(r'\d+\.\d+\.\d+', codex['version']):
+    if (any(manifest['version'] != codex['version'] for manifest in manifests)
+            or not re.fullmatch(r'\d+\.\d+\.\d+', codex['version'])):
         raise ValueError('Native manifest versions must match and use major.minor.patch.')
     catalogs = [json.loads((ROOT / path).read_text()) for path in CATALOGS]
     if any(catalog['name'] != 'lusona-ai-skills' for catalog in catalogs):
-        raise ValueError('Both catalogs must be named lusona-ai-skills.')
+        raise ValueError('All catalogs must be named lusona-ai-skills.')
     for catalog in catalogs:
         if len(catalog['plugins']) != 1:
             raise ValueError('Update the package file selection before adding more plugins.')
@@ -63,7 +67,8 @@ def build(output):
     plugin = catalog / PLUGIN
     plugin.mkdir(parents=True)
     # Explicit selection excludes consuming projects and their live queues.
-    for name in ('README.md', 'INSTALL.md', 'LICENSE', '.codex-plugin/plugin.json', '.claude-plugin/plugin.json'):
+    for name in ('README.md', 'INSTALL.md', 'LICENSE', '.codex-plugin/plugin.json',
+                 '.claude-plugin/plugin.json', '.cursor-plugin/plugin.json'):
         destination = plugin / name
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source / name, destination)

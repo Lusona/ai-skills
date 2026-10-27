@@ -5,7 +5,7 @@
 
 Lusona 帮助 AI 智能体理解你的需求、执行工作并验证结果，达成你设定的目标。你确定目标、约束和授权范围。智能体根据已有证据决定下一步，继续完成授权范围内的工作，并在需要你的意见或许可时提问。
 
-适用于 Claude Code、Codex 和 [Xcode 27 编程智能体](plugins/lusona/INSTALL.md#xcode) · 当前工作副本的源码版本：**1.1.0**
+适用于 Claude Code、Codex、[Cursor](plugins/lusona/INSTALL.md#cursor) 和 [Xcode 27 编程智能体](plugins/lusona/INSTALL.md#xcode) · 当前工作副本的源码版本：**1.1.0**
 
 > [!WARNING]
 > 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#installation)。
@@ -106,6 +106,10 @@ codex plugin add lusona@lusona-ai-skills
 ```
 
 <a id="xcode"></a>
+### Cursor
+
+打开 **Customize > From GitHub Repository**，输入 `https://github.com/lusona/ai-skills`，然后安装 **lusona**。[Cursor 安装步骤](plugins/lusona/INSTALL.md#cursor)包含最新官方文档链接和测试状态。
+
 ### Xcode
 
 在 Xcode 27 中，打开 **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**。
@@ -231,6 +235,6 @@ claude plugin validate .claude-plugin/marketplace.json
 python3 scripts/package.py
 ```
 
-打包工具会检查原生插件清单的标识与版本、链接、插件目录路径和打包文件范围，并将输出写入仓库内的 `tmp/lusona-package/`。如需输出到其他位置，使用 `--output tmp/<new-directory>`。两个清单必须使用相同版本。通过 GitHub 安装时使用已提交并推送的源码；发布前可使用本地工作副本。安装和打包都不会初始化项目记录。
+打包工具会检查原生插件清单的标识与版本、链接、插件目录路径和打包文件范围，并将输出写入仓库内的 `tmp/lusona-package/`。如需输出到其他位置，使用 `--output tmp/<new-directory>`。三个清单必须使用相同版本。通过 GitHub 安装时使用已提交并推送的源码；发布前可使用本地工作副本。安装和打包都不会初始化项目记录。
 
 源码体积缩小不代表 token 用量或延迟下降；要确认这些收益，需要把协调智能体和所有执行智能体都纳入测量。

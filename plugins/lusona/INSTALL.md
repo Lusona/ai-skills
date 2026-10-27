@@ -1,12 +1,13 @@
 # Install Lusona
 
 Lusona provides eleven product and engineering workflow skills for Claude Code,
-Codex, and Xcode's coding agents. For CLI installation, use the `lusona` plugin from the `lusona-ai-skills` marketplace in the
+Codex, Cursor, and Xcode's coding agents. For CLI installation, use the `lusona` plugin from the `lusona-ai-skills` marketplace in the
 public [lusona/ai-skills repository](https://github.com/lusona/ai-skills).
 
 ## Requirements
 
 - For CLI installation: Git and either Claude Code or Codex with plugin support.
+- For Cursor installation: a current Cursor release with plugin support.
 - For Xcode installation: Xcode 27 with a coding agent enabled in Intelligence settings.
 - Network access to GitHub for installation and updates from the repository.
 
@@ -47,6 +48,25 @@ Start a new Codex session in your project and select Lusona's `status` skill fro
 the skill UI. Ask it to explain the workflow or assess your project's current work.
 
 For marketplace configuration options, see the [OpenAI plugin documentation](https://developers.openai.com/plugins/build/plugins).
+
+## Cursor
+
+1. Open **Customize** in Cursor's sidebar and choose **From GitHub Repository**.
+2. Enter `https://github.com/lusona/ai-skills` to import the marketplace.
+3. Find **lusona**, select **Install**, and choose project or user scope.
+4. Start a new Agent chat in your project. Type `/`, search for Lusona's `status`
+   skill, and select it to explain the workflow or assess current work.
+
+Install the whole plugin so its shared references, templates, and scripts stay
+available. The repository's `.cursor-plugin/marketplace.json` points to
+`plugins/lusona/`; that directory contains Cursor's plugin manifest and the skills.
+GitHub imports require these files to be committed and pushed first.
+
+See Cursor's [repository installation instructions](https://cursor.com/docs/skills#installing-skills-from-a-repository),
+[plugin guide](https://cursor.com/docs/plugins), and
+[plugin manifest reference](https://cursor.com/docs/reference/plugins).
+Checked against Cursor's documentation on October 26, 2026; installation and skill
+invocation in Cursor have not been tested as part of this update.
 
 ## Xcode
 
@@ -141,13 +161,15 @@ python3 scripts/package.py
 Find the catalog in `tmp/lusona-package/lusona-ai-skills/` and the versioned ZIP
 beside it. Extract the ZIP into a durable location, then register the extracted
 `lusona-ai-skills` directory using the local installation commands above. The package
-includes both hosts' manifests, skills, and bundled resources; it excludes project records.
+includes all three hosts' manifests, skills, and bundled resources; it excludes project records.
+The local CLI commands above apply to Claude Code and Codex; use the GitHub import
+steps for Cursor.
 
 ## Vercel skills installer
 
 Vercel Skills (`npx skills@latest`) is not supported. It installs individual skill
 directories without the shared resources Lusona requires. Use the native plugin
-installation for [Claude Code](#claude-code), [Codex](#codex), or [Xcode](#xcode).
+installation for [Claude Code](#claude-code), [Codex](#codex), [Cursor](#cursor), or [Xcode](#xcode).
 
 ## Updates
 
@@ -168,6 +190,7 @@ rerun your host's plugin install command. Start a new session after updating.
 Plugin updates leave your project's documents in place.
 
 Manage Xcode's installation separately under **Settings > Intelligence > Agents > Plug-ins**.
+Manage Cursor's installed plugin and available updates from **Customize**.
 
 ## Removal
 
@@ -182,6 +205,7 @@ codex plugin remove lusona@lusona-ai-skills
 ```
 
 Your project documents remain after removal.
+For Cursor, manage or uninstall Lusona from **Customize**.
 
 ## Document compatibility
 

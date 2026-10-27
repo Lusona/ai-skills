@@ -7,7 +7,7 @@ prüfen. Du bestimmst das Ziel, die Vorgaben und die Befugnisse. Anhand der vorl
 wählt der Agent den nächsten sinnvollen Schritt und setzt die freigegebene Arbeit fort.
 Wenn er Informationen oder eine Erlaubnis von dir braucht, fragt er nach.
 
-Für Claude Code, Codex und [Programmieragenten in Xcode 27](plugins/lusona/INSTALL.md#xcode) · Version des Quellcodes in dieser Arbeitskopie: **1.1.0**
+Für Claude Code, Codex, [Cursor](plugins/lusona/INSTALL.md#cursor) und [Programmieragenten in Xcode 27](plugins/lusona/INSTALL.md#xcode) · Version des Quellcodes in dieser Arbeitskopie: **1.1.0**
 
 > [!WARNING]
 > Installiere Lusona nicht mit Vercel Skills (`npx skills@latest`); nutze die [Installation als natives Plugin](#installation).
@@ -138,6 +138,10 @@ codex plugin add lusona@lusona-ai-skills
 ```
 
 <a id="xcode"></a>
+### Cursor
+
+Öffne **Customize > From GitHub Repository**, gib `https://github.com/lusona/ai-skills` ein und installiere **lusona**. Die [Cursor-Anleitung](plugins/lusona/INSTALL.md#cursor) verlinkt die aktuelle Cursor-Dokumentation und nennt den Teststatus.
+
 ### Xcode
 
 Öffne in Xcode 27 **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**.
@@ -353,7 +357,7 @@ python3 scripts/package.py
 
 Der Paketgenerator prüft Identität und Version der nativen Manifeste, Links, Katalogpfade und
 die Dateiauswahl. Er schreibt nach `tmp/lusona-package/` innerhalb des Repositorys; für einen
-weiteren Build nutzt du `--output tmp/<new-directory>`. Beide Manifeste müssen dieselbe Version
+weiteren Build nutzt du `--output tmp/<new-directory>`. Alle drei Manifeste müssen dieselbe Version
 verwenden. Die Installation über GitHub nutzt Quellen, die per Commit erfasst und gepusht
 wurden; eine lokale Arbeitskopie kannst du vor der Veröffentlichung verwenden. Weder bei der
 Installation noch beim Erstellen der Pakete werden Projektdokumente angelegt.

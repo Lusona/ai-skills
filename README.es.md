@@ -7,7 +7,7 @@ verificar el resultado. Tú defines el resultado, las restricciones y los permis
 elige la siguiente acción útil a partir de las evidencias disponibles, continúa el trabajo
 autorizado y pregunta cuando necesita información o permiso de tu parte.
 
-Para Claude Code, Codex y los [agentes de programación de Xcode 27](plugins/lusona/INSTALL.md#xcode) · Versión del código fuente de esta copia de trabajo: **1.1.0**
+Para Claude Code, Codex, [Cursor](plugins/lusona/INSTALL.md#cursor) y los [agentes de programación de Xcode 27](plugins/lusona/INSTALL.md#xcode) · Versión del código fuente de esta copia de trabajo: **1.1.0**
 
 > [!WARNING]
 > No instales Lusona con Vercel Skills (`npx skills@latest`); usa la [instalación como plugin nativo](#installation).
@@ -136,6 +136,10 @@ codex plugin add lusona@lusona-ai-skills
 ```
 
 <a id="xcode"></a>
+### Cursor
+
+Abre **Customize > From GitHub Repository**, introduce `https://github.com/lusona/ai-skills` e instala **lusona**. Los [pasos para Cursor](plugins/lusona/INSTALL.md#cursor) enlazan la documentación actual de Cursor e indican qué se ha probado.
+
 ### Xcode
 
 En Xcode 27, abre **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**.
@@ -351,7 +355,7 @@ python3 scripts/package.py
 
 El generador de paquetes comprueba la identidad y versión de los manifiestos nativos, los
 enlaces, las rutas del catálogo y la selección de archivos. Escribe en `tmp/lusona-package/`
-dentro del repositorio; usa `--output tmp/<new-directory>` para generar otro paquete. Ambos
+dentro del repositorio; usa `--output tmp/<new-directory>` para generar otro paquete. Los tres
 manifiestos deben usar la misma versión. La instalación desde GitHub utiliza el código
 guardado en commits y enviado al repositorio remoto; puedes usar una copia de trabajo
 local antes de publicar. Ni la instalación ni la creación de paquetes inicializan los

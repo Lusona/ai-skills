@@ -7,7 +7,7 @@ verification. You set the outcome, constraints, and authority. The agent chooses
 useful action from the evidence, continues authorized work, and asks when it needs your
 input or permission.
 
-For Claude Code, Codex, and [Xcode 27 coding agents](plugins/lusona/INSTALL.md#xcode) · Checked-out source version **1.1.0**
+For Claude Code, Codex, [Cursor](plugins/lusona/INSTALL.md#cursor), and [Xcode 27 coding agents](plugins/lusona/INSTALL.md#xcode) · Checked-out source version **1.1.0**
 
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
@@ -79,7 +79,7 @@ Choose the command that fits your request. The agent carries accepted decisions 
 and uses other skills as needed within the authority you grant. There is no required sequence.
 
 In Claude Code, invoke `/lusona:<command>`. In Codex, select the Lusona skill from the
-skill UI. In Xcode, type `/` in an agent conversation and select the installed skill.
+skill UI. In Cursor, type `/` in Agent chat and select the skill. In Xcode, type `/` in an agent conversation and select the installed skill.
 [Install Lusona](#installation) before using these commands.
 
 | Command | Use it to |
@@ -119,6 +119,13 @@ claude plugin install lusona@lusona-ai-skills --scope user
 codex plugin marketplace add https://github.com/lusona/ai-skills.git
 codex plugin add lusona@lusona-ai-skills
 ```
+
+### Cursor
+
+Open **Customize > From GitHub Repository**, enter `https://github.com/lusona/ai-skills`,
+then install **lusona** for your project or user. In Agent chat, type `/` to find
+Lusona's skills. See the [Cursor installation steps](plugins/lusona/INSTALL.md#cursor)
+for links to Cursor's current documentation and testing status.
 
 ### Xcode
 
@@ -303,7 +310,7 @@ python3 scripts/package.py
 
 The package builder checks native manifest identity/version, links, catalog paths, and
 file selection. It writes to repository-local `tmp/lusona-package/`; use
-`--output tmp/<new-directory>` for another build. Both manifests must use the same version.
+`--output tmp/<new-directory>` for another build. All three manifests must use the same version.
 Installation from GitHub uses committed and pushed sources; a local checkout can be used
 before publication. Neither installation nor packaging initializes project records.
 

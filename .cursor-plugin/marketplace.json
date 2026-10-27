@@ -1,0 +1,15 @@
+{
+  "name": "lusona-ai-skills",
+  "owner": {
+    "name": "Lusona"
+  },
+  "metadata": {
+    "description": "Product and engineering workflow skills for Cursor."
+  },
+  "plugins": [
+    {
+      "name": "lusona",
+      "source": "./plugins/lusona"
+    }
+  ]
+}

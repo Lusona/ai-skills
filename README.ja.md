@@ -6,7 +6,7 @@ Lusona は、AI エージェントが依頼を理解し、作業を進め、結�
 目指す成果、制約、権限は利用者が定めます。エージェントは根拠に基づいて次に取り組むべき作業を選び、
 許可された作業を続け、利用者の判断や許可が必要な場合に質問します。
 
-Claude Code、Codex、[Xcode 27 のコーディングエージェント](plugins/lusona/INSTALL.md#xcode)に対応 · チェックアウトしたソースのバージョン：**1.1.0**
+Claude Code、Codex、[Cursor](plugins/lusona/INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](plugins/lusona/INSTALL.md#xcode)に対応 · チェックアウトしたソースのバージョン：**1.1.0**
 
 > [!WARNING]
 > Lusona のインストールには Vercel Skills（`npx skills@latest`）を使わず、[ホスト標準のプラグイン機能](#installation)を使ってください。
@@ -127,6 +127,10 @@ codex plugin add lusona@lusona-ai-skills
 ```
 
 <a id="xcode"></a>
+### Cursor
+
+**Customize > From GitHub Repository** を開き、`https://github.com/lusona/ai-skills` を入力して **lusona** をインストールします。[Cursor のインストール手順](plugins/lusona/INSTALL.md#cursor)に、最新の公式ドキュメントへのリンクとテスト状況を記載しています。
+
 ### Xcode
 
 Xcode 27 で **Settings > Intelligence > Agents > Plug-ins > Add Plug-in** を開きます。
@@ -309,7 +313,7 @@ python3 scripts/package.py
 
 パッケージ作成ツールは、ホスト標準のマニフェストの識別情報とバージョン、リンク、カタログのパス、
 収録ファイルを確認します。出力先はリポジトリ内の `tmp/lusona-package/` です。
-別の場所にビルドするには、`--output tmp/<new-directory>` を指定します。二つのマニフェストは、同じバージョンを使う必要があります。
+別の場所にビルドするには、`--output tmp/<new-directory>` を指定します。三つのマニフェストは、同じバージョンを使う必要があります。
 GitHub からのインストールには、コミットしてプッシュしたソースを使います。公開前でも、ローカルチェックアウトは利用できます。
 インストールやパッケージ作成によって、プロジェクトの記録を初期化することはありません。
 
