@@ -2,7 +2,7 @@
 
 Contributions to the skills, documentation, tooling, and host integrations are welcome.
 Start with the [README](README.md) for the workflow and
-[installation guide](plugins/lusona/INSTALL.md) for local setup.
+[installation guide](INSTALL.md) for local setup.
 
 ## Bugs and feature requests
 

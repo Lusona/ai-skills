@@ -36,7 +36,7 @@ formats and project-local conventions.
 Use [retention](retention.md) for recovery needs across all skills; conversation by default
 does not mean request-only saving. Read-only review/status boundaries remain binding.
 
-See [installation and compatibility](../INSTALL.md). In Claude Code, invoke
+See [installation and compatibility](https://github.com/lusona/ai-skills/blob/main/INSTALL.md). In Claude Code, invoke
 `/lusona:<skill>`; in other harnesses, use their exposed skill UI. A useful prompt names
 the skill, selected outcome or input document, and authorized scope.
 

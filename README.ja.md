@@ -6,7 +6,7 @@ Lusona は、AI エージェントが依頼を理解し、作業を進め、結�
 目指す成果、制約、権限は利用者が定めます。エージェントは根拠に基づいて次に取り組むべき作業を選び、
 許可された作業を続け、利用者の判断や許可が必要な場合に質問します。
 
-Claude Code、Codex、[Cursor](plugins/lusona/INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](plugins/lusona/INSTALL.md#xcode)に対応 · チェックアウトしたソースのバージョン：**1.1.0**
+Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](INSTALL.md#xcode)に対応 · チェックアウトしたソースのバージョン：**1.1.0**
 
 > [!WARNING]
 > Lusona のインストールには Vercel Skills（`npx skills@latest`）を使わず、[ホスト標準のプラグイン機能](#installation)を使ってください。
@@ -129,17 +129,17 @@ codex plugin add lusona@lusona-ai-skills
 <a id="xcode"></a>
 ### Cursor
 
-**Customize > From GitHub Repository** を開き、`https://github.com/lusona/ai-skills` を入力して **lusona** をインストールします。[Cursor のインストール手順](plugins/lusona/INSTALL.md#cursor)に、最新の公式ドキュメントへのリンクとテスト状況を記載しています。
+**Customize > From GitHub Repository** を開き、`https://github.com/lusona/ai-skills` を入力して **lusona** をインストールします。[Cursor のインストール手順](INSTALL.md#cursor)に、最新の公式ドキュメントへのリンクとテスト状況を記載しています。
 
 ### Xcode
 
 Xcode 27 で **Settings > Intelligence > Agents > Plug-ins > Add Plug-in** を開きます。
 **Add from URL** を選び、`https://github.com/lusona/ai-skills` を入力して、
 インストールする Lusona のスキルを選んでください。設定、ローカルからのインポート、
-バージョンの詳細は、[Xcode のインストール手順](plugins/lusona/INSTALL.md#xcode)を参照してください。
+バージョンの詳細は、[Xcode のインストール手順](INSTALL.md#xcode)を参照してください。
 
 インストール後は、プロジェクトで新しいセッションを開始してください。ローカルチェックアウトからの
-インストール、配布用パッケージ、更新、削除については、[インストールガイド](plugins/lusona/INSTALL.md)を参照してください。
+インストール、配布用パッケージ、更新、削除については、[インストールガイド](INSTALL.md)を参照してください。
 カタログの取得元は、ローカルチェックアウトか GitHub のどちらか一つを選びます。
 
 <a id="how-the-work-continues"></a>
@@ -276,7 +276,7 @@ Lusona では、詳しい評価の報告や引き継ぎに、**結果**、**根�
 <a id="reference"></a>
 ## 参考資料
 
-- [インストールと削除](plugins/lusona/INSTALL.md)
+- [インストールと削除](INSTALL.md)
 - [ワークフローの契約と作業ループ](plugins/lusona/README.md#work-loop)
 - [スキルの選択と用語](plugins/lusona/references/workflow-guide.md)
 - [TDD 方針と実行順序](plugins/lusona/references/tdd.md)
@@ -303,7 +303,7 @@ Lusona では、詳しい評価の報告や引き継ぎに、**結果**、**根�
 ワークフローの正式なソースは `plugins/lusona/` にあります。利用先プロジェクトのデータは、
 そのプロジェクトの `docs/lusona/` に置きます。空のキュー構造は `templates/work.md` にあります。
 
-プラグインの記録作成ヘルパーは Bash または PowerShell を使います。[実行環境の要件](plugins/lusona/INSTALL.md#requirements)を参照してください。パッケージ作成と Python による評価には引き続き Python 3 が必要ですが、通常のプラグイン利用には不要です。
+プラグインの記録作成ヘルパーは Bash または PowerShell を使います。[実行環境の要件](INSTALL.md#requirements)を参照してください。パッケージ作成と Python による評価には引き続き Python 3 が必要ですが、通常のプラグイン利用には不要です。
 
 ```bash
 claude plugin validate plugins/lusona

@@ -13,11 +13,14 @@ public [lusona/ai-skills repository](https://github.com/lusona/ai-skills).
 
 Creating workflow records uses the bundled Bash or PowerShell helper. Use Bash in a
 Unix or WSL shell, or Windows PowerShell 5.1 / PowerShell 7 in a native Windows shell;
-see [helper invocation](references/work-record.md). Python is required only for
+see [helper invocation](plugins/lusona/references/work-record.md). Python is required only for
 building packages and running the repository's Python evaluations, not for plugin use.
 
-The commands below use HTTPS, so you do not need GitHub credentials to download the
-public repository. If you prefer SSH and have GitHub SSH access configured, substitute
+Lusona requires no API keys, tokens, or other credentials. Its bundled helpers create
+project records locally; they do not download or execute remote scripts.
+
+The commands below use HTTPS to download the public repository. If you prefer SSH
+and have GitHub SSH access configured, substitute
 `git@github.com:lusona/ai-skills.git` for the HTTPS URL.
 
 ## Claude Code
@@ -109,8 +112,8 @@ TDD policy, and limits:
 > Use targeted TDD for the expiry boundary. Verify locally; do not deploy.
 
 You can start with any skill that fits your request. See the
-[command reference](references/workflow-guide.md#skills) for all eleven skills and the
-[batch examples](references/batch-use.md) for authorized unattended work.
+[command reference](plugins/lusona/references/workflow-guide.md#skills) for all eleven skills and the
+[batch examples](plugins/lusona/references/batch-use.md) for authorized unattended work.
 
 During authorized work, the agent saves project records under that project's
 `docs/lusona/` when needed. Installation does not create or migrate project documents.
@@ -167,7 +170,7 @@ steps for Cursor.
 
 ## Vercel skills installer
 
-Vercel Skills (`npx skills@latest`) is not supported. It installs individual skill
+The Vercel Skills installer is not supported. It installs individual skill
 directories without the shared resources Lusona requires. Use the native plugin
 installation for [Claude Code](#claude-code), [Codex](#codex), [Cursor](#cursor), or [Xcode](#xcode).
 
@@ -216,6 +219,6 @@ there is no need to rename it or create a duplicate.
 
 New saved changes use one `docs/lusona/specs/<change-id>.md` record for the agreement,
 any useful execution detail, evidence, and current handoff. Consequential architecture
-decisions stay in linked ADRs. See [document names and headers](references/naming.md)
-for the current format and [project files](references/files.md) for legacy records.
+decisions stay in linked ADRs. See [document names and headers](plugins/lusona/references/naming.md)
+for the current format and [project files](plugins/lusona/references/files.md) for legacy records.
 Request migration as a separate change if you want it.

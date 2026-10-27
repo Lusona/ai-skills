@@ -5,7 +5,7 @@
 
 Lusona 帮助 AI 智能体理解你的需求、执行工作并验证结果，达成你设定的目标。你确定目标、约束和授权范围。智能体根据已有证据决定下一步，继续完成授权范围内的工作，并在需要你的意见或许可时提问。
 
-适用于 Claude Code、Codex、[Cursor](plugins/lusona/INSTALL.md#cursor) 和 [Xcode 27 编程智能体](plugins/lusona/INSTALL.md#xcode) · 当前工作副本的源码版本：**1.1.0**
+适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor) 和 [Xcode 27 编程智能体](INSTALL.md#xcode) · 当前工作副本的源码版本：**1.1.0**
 
 > [!WARNING]
 > 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#installation)。
@@ -108,14 +108,14 @@ codex plugin add lusona@lusona-ai-skills
 <a id="xcode"></a>
 ### Cursor
 
-打开 **Customize > From GitHub Repository**，输入 `https://github.com/lusona/ai-skills`，然后安装 **lusona**。[Cursor 安装步骤](plugins/lusona/INSTALL.md#cursor)包含最新官方文档链接和测试状态。
+打开 **Customize > From GitHub Repository**，输入 `https://github.com/lusona/ai-skills`，然后安装 **lusona**。[Cursor 安装步骤](INSTALL.md#cursor)包含最新官方文档链接和测试状态。
 
 ### Xcode
 
 在 Xcode 27 中，打开 **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**。
-选择 **Add from URL**，输入 `https://github.com/lusona/ai-skills`，然后选择要安装的 Lusona 技能。有关设置、本地导入和版本详情，请参阅 [Xcode 安装步骤](plugins/lusona/INSTALL.md#xcode)。
+选择 **Add from URL**，输入 `https://github.com/lusona/ai-skills`，然后选择要安装的 Lusona 技能。有关设置、本地导入和版本详情，请参阅 [Xcode 安装步骤](INSTALL.md#xcode)。
 
-安装后，在项目中开启新会话。有关从本地工作副本安装、便携安装包、更新和移除的说明，请参阅[安装指南](plugins/lusona/INSTALL.md)。插件目录只使用一个来源：本地工作副本或 GitHub。
+安装后，在项目中开启新会话。有关从本地工作副本安装、便携安装包、更新和移除的说明，请参阅[安装指南](INSTALL.md)。插件目录只使用一个来源：本地工作副本或 GitHub。
 
 <a id="how-the-work-continues"></a>
 ## 工作如何推进
@@ -203,7 +203,7 @@ Lusona 正在试用统一的格式来报告评估结论和交接工作：**结�
 <a id="reference"></a>
 ## 参考资料
 
-- [安装与移除](plugins/lusona/INSTALL.md)
+- [安装与移除](INSTALL.md)
 - [工作流契约与工作循环](plugins/lusona/README.md#work-loop)
 - [技能选择与术语](plugins/lusona/references/workflow-guide.md)
 - [TDD 策略与执行顺序](plugins/lusona/references/tdd.md)
@@ -227,7 +227,7 @@ Lusona 正在试用统一的格式来报告评估结论和交接工作：**结�
 
 工作流的正式源文件位于 `plugins/lusona/`。使用该插件的项目应将自身数据放在该项目的 `docs/lusona/` 下；空队列结构见 `templates/work.md`。
 
-插件的记录创建脚本使用 Bash 或 PowerShell，详见[运行环境要求](plugins/lusona/INSTALL.md#requirements)。构建软件包和运行 Python 评估仍需 Python 3，日常使用插件则不需要。
+插件的记录创建脚本使用 Bash 或 PowerShell，详见[运行环境要求](INSTALL.md#requirements)。构建软件包和运行 Python 评估仍需 Python 3，日常使用插件则不需要。
 
 ```bash
 claude plugin validate plugins/lusona

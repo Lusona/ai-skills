@@ -32,7 +32,7 @@ consuming-project sections solely to adopt terminology.
 Use their execution sections or linked plans and handoff in place; do not automatically
 migrate them or create another maintained copy. Split or move existing records only when
 requested, preserving criterion and task IDs, decisions, TDD, evidence, authorization, and
-references. See [compatibility](../INSTALL.md#document-compatibility).
+references. See [compatibility](https://github.com/lusona/ai-skills/blob/main/INSTALL.md#document-compatibility).
 
 Create documents only as the authorized work needs them. Installing the plugin does not
 initialize project data. Never write consuming-project data into installed plugin resources.

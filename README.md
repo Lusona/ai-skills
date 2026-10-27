@@ -7,7 +7,7 @@ verification. You set the outcome, constraints, and authority. The agent chooses
 useful action from the evidence, continues authorized work, and asks when it needs your
 input or permission.
 
-For Claude Code, Codex, [Cursor](plugins/lusona/INSTALL.md#cursor), and [Xcode 27 coding agents](plugins/lusona/INSTALL.md#xcode) · Checked-out source version **1.1.0**
+For Claude Code, Codex, [Cursor](INSTALL.md#cursor), and [Xcode 27 coding agents](INSTALL.md#xcode) · Checked-out source version **1.1.0**
 
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
@@ -124,18 +124,18 @@ codex plugin add lusona@lusona-ai-skills
 
 Open **Customize > From GitHub Repository**, enter `https://github.com/lusona/ai-skills`,
 then install **lusona** for your project or user. In Agent chat, type `/` to find
-Lusona's skills. See the [Cursor installation steps](plugins/lusona/INSTALL.md#cursor)
+Lusona's skills. See the [Cursor installation steps](INSTALL.md#cursor)
 for links to Cursor's current documentation and testing status.
 
 ### Xcode
 
 In Xcode 27, open **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**.
 Choose **Add from URL**, enter `https://github.com/lusona/ai-skills`, and select
-Lusona's skills to install. See the [Xcode installation steps](plugins/lusona/INSTALL.md#xcode)
+Lusona's skills to install. See the [Xcode installation steps](INSTALL.md#xcode)
 for setup, local imports, and version details.
 
 Start a new session in your project after installation. For local checkout installation,
-portable packages, updates, and removal, see the [installation guide](plugins/lusona/INSTALL.md).
+portable packages, updates, and removal, see the [installation guide](INSTALL.md).
 Choose one catalog source: local checkout or GitHub.
 
 ## How the work continues
@@ -276,7 +276,7 @@ a trial; behavior across hosts has not been established. See
 
 ## Reference
 
-- [Installation and removal](plugins/lusona/INSTALL.md)
+- [Installation and removal](INSTALL.md)
 - [Workflow contract and work loop](plugins/lusona/README.md#work-loop)
 - [Skill selection and terminology](plugins/lusona/references/workflow-guide.md)
 - [TDD policy and sequencing](plugins/lusona/references/tdd.md)
@@ -300,7 +300,7 @@ Skills, templates, documentation, and scripts are available under the [MIT Licen
 Canonical workflow sources live in `plugins/lusona/`. Consuming-project data belongs under that
 project's `docs/lusona/`; the empty queue structure is `templates/work.md`.
 
-Plugin record helpers use Bash or PowerShell; see [runtime requirements](plugins/lusona/INSTALL.md#requirements). Python 3 remains a development requirement for packaging and Python evaluations, not for ordinary plugin use.
+Plugin record helpers use Bash or PowerShell; see [runtime requirements](INSTALL.md#requirements). Python 3 remains a development requirement for packaging and Python evaluations, not for ordinary plugin use.
 
 ```bash
 claude plugin validate plugins/lusona

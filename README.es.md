@@ -7,7 +7,7 @@ verificar el resultado. Tú defines el resultado, las restricciones y los permis
 elige la siguiente acción útil a partir de las evidencias disponibles, continúa el trabajo
 autorizado y pregunta cuando necesita información o permiso de tu parte.
 
-Para Claude Code, Codex, [Cursor](plugins/lusona/INSTALL.md#cursor) y los [agentes de programación de Xcode 27](plugins/lusona/INSTALL.md#xcode) · Versión del código fuente de esta copia de trabajo: **1.1.0**
+Para Claude Code, Codex, [Cursor](INSTALL.md#cursor) y los [agentes de programación de Xcode 27](INSTALL.md#xcode) · Versión del código fuente de esta copia de trabajo: **1.1.0**
 
 > [!WARNING]
 > No instales Lusona con Vercel Skills (`npx skills@latest`); usa la [instalación como plugin nativo](#installation).
@@ -138,18 +138,18 @@ codex plugin add lusona@lusona-ai-skills
 <a id="xcode"></a>
 ### Cursor
 
-Abre **Customize > From GitHub Repository**, introduce `https://github.com/lusona/ai-skills` e instala **lusona**. Los [pasos para Cursor](plugins/lusona/INSTALL.md#cursor) enlazan la documentación actual de Cursor e indican qué se ha probado.
+Abre **Customize > From GitHub Repository**, introduce `https://github.com/lusona/ai-skills` e instala **lusona**. Los [pasos para Cursor](INSTALL.md#cursor) enlazan la documentación actual de Cursor e indican qué se ha probado.
 
 ### Xcode
 
 En Xcode 27, abre **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**.
 Elige **Add from URL**, introduce `https://github.com/lusona/ai-skills` y selecciona las
-habilidades de Lusona que quieras instalar. Consulta los [pasos de instalación en Xcode](plugins/lusona/INSTALL.md#xcode)
+habilidades de Lusona que quieras instalar. Consulta los [pasos de instalación en Xcode](INSTALL.md#xcode)
 para conocer la configuración, las importaciones locales y los detalles de versión.
 
 Tras instalar, inicia una sesión nueva en tu proyecto. Para instalar desde una copia de trabajo
 local, usar paquetes portátiles, actualizar o desinstalar, consulta la
-[guía de instalación](plugins/lusona/INSTALL.md). Elige una sola fuente del catálogo: copia de
+[guía de instalación](INSTALL.md). Elige una sola fuente del catálogo: copia de
 trabajo local o GitHub.
 
 <a id="how-the-work-continues"></a>
@@ -315,7 +315,7 @@ para conocer los detalles de formato.
 <a id="reference"></a>
 ## Referencias
 
-- [Instalación y desinstalación](plugins/lusona/INSTALL.md)
+- [Instalación y desinstalación](INSTALL.md)
 - [Contrato del flujo de trabajo y ciclo de trabajo](plugins/lusona/README.md#work-loop)
 - [Selección de habilidades y terminología](plugins/lusona/references/workflow-guide.md)
 - [Política de TDD y secuencia de trabajo](plugins/lusona/references/tdd.md)
@@ -345,7 +345,7 @@ Los archivos originales del flujo de trabajo están en `plugins/lusona/`. Cada p
 utiliza el plugin guarda sus propios datos en `docs/lusona/`; la plantilla de una cola vacía
 está en `templates/work.md`.
 
-Los asistentes para crear registros del plugin usan Bash o PowerShell; consulta los [requisitos de ejecución](plugins/lusona/INSTALL.md#requirements). Python 3 sigue siendo necesario para crear paquetes y ejecutar las evaluaciones en Python, pero no para el uso habitual del plugin.
+Los asistentes para crear registros del plugin usan Bash o PowerShell; consulta los [requisitos de ejecución](INSTALL.md#requirements). Python 3 sigue siendo necesario para crear paquetes y ejecutar las evaluaciones en Python, pero no para el uso habitual del plugin.
 
 ```bash
 claude plugin validate plugins/lusona
