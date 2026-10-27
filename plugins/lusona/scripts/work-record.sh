@@ -1,35 +1,9 @@
 #!/usr/bin/env bash
-# Naming and initialization for consuming-project work records.
 set -euo pipefail
 export LC_ALL=C
 
 usage() {
-  cat <<'EOF'
-Usage: bash work-record.sh COMMAND ARGS
-  slug TITLE                         Print a lowercase ASCII change slug.
-  history-path [YYYY-MM-DD]           Print the project-relative history path.
-  init-history PROJECT_ROOT [DATE]    Create a weekly history file if absent.
-  init-notes PROJECT_ROOT SLUG        Create an item's notes file if absent.
-  init-change PROJECT_ROOT SLUG [DATE] Create a new YYYYMMDD-slug spec.
-  init-adr PROJECT_ROOT SLUG [DATE]    Create a new YYYYMMDD-slug ADR.
-  next-adr PROJECT_ROOT               Legacy: print the next four-digit ADR number.
-  next-change PROJECT_ROOT            Legacy: print the next change number, including plans.
-  stamp-header FILE [DATE]            Initialize Created and update Updated.
-
-DATE is YYYY-MM-DD, defaulting to today in the local timezone.
-Weeks are month-local: 01 = days 1–7, 02 = 8–14, ... 05 = 29–end.
-init-change and init-adr print JSON status/path/message: created (exit 0), conflict
-(exit 3), or error (exit 1). They reject existing paths, including symlinks.
-init-history and init-notes print the absolute path and preserve existing regular files.
-Reuse an item's existing slug; initialization never overwrites or merges records.
-New specs and ADRs use the creation date and a functional slug; no counter is shared.
-Legacy sequence commands are read-only, ignore dated records, and reserve nothing.
-Legacy numbered filenames use NNNN-lowercase-slug.md; README.md is ignored.
-Change scans ignore legacy filenames unless they begin with a digit.
-Matching legacy spec/plan basenames share a number; conflicting slugs are rejected.
-Header stamping requires exactly one Created: and Updated: field, each containing
-a valid date or <YYYY-MM-DD>. Existing Created dates never change.
-EOF
+  printf '%s\n' 'See the bundled work-record reference for commands and arguments'
 }
 
 json_string() {
@@ -78,7 +52,7 @@ read_template() {
 
 validate_date() {
   local record_date=$1 year month day days
-  [[ $record_date =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || fail 'Date must be YYYY-MM-DD.'
+  [[ $record_date =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || fail 'Date must be YYYY-MM-DD'
   year=$((10#${record_date:0:4}))
   month=$((10#${record_date:5:2}))
   day=$((10#${record_date:8:2}))
@@ -135,7 +109,6 @@ next_sequence() {
       [[ -f $file && ! -L $file ]] || fail "Not a regular non-symlink record: $file"
       number=$((10#${name:0:4}))
       (( number > 0 )) || fail "Sequence must start at 0001: $file"
-      # Dates are not sequence prefixes, including dates with a trailing slug.
       if [[ $kind == change && $name =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}(-|\.md$) ]]; then
         fail "Date-prefixed change filename is not a sequence: $file"
       fi
@@ -149,7 +122,7 @@ next_sequence() {
       if (( number > maximum )); then maximum=$number; fi
     done
   done
-  (( maximum < 9999 )) || fail 'Sequence exhausted at 9999.'
+  (( maximum < 9999 )) || fail 'Sequence exhausted at 9999'
   printf '%04d\n' "$((maximum + 1))"
 }
 
@@ -157,27 +130,26 @@ create_record() {
   local kind=$1 root slug=$3 record_date=${4-$(date +%F)} directory template identifier destination result=0
   [[ -d $2 ]] || fail "Project root is not a directory: $2"
   root=$(cd -- "$2" 2>/dev/null && pwd -P) || fail "Could not resolve project root: $2"
-  [[ $slug =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] || fail 'Slug must contain lowercase ASCII letters/digits separated by single hyphens.'
+  [[ $slug =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] || fail 'Slug must contain lowercase ASCII letters/digits separated by single hyphens'
   validate_date "$record_date"
   identifier="${record_date//-/}-$slug"
   if [[ $kind == change ]]; then
     directory=specs
-    template=$(read_template spec) || fail 'Could not read spec template.'
+    template=$(read_template spec) || fail 'Could not read spec template'
     template=${template//<change-id>/$identifier}
   else
     directory=adr
-    template=$(read_template adr) || fail 'Could not read ADR template.'
+    template=$(read_template adr) || fail 'Could not read ADR template'
     template=${template//<decision-id>/$identifier}
   fi
   template=${template//<YYYY-MM-DD>/$record_date}
   destination="$root/docs/lusona/$directory/$identifier.md"
   record_path=$destination
   if [[ -e $destination || -L $destination ]]; then
-    record_response conflict "$destination" 'Path exists; inspect the record or choose a more specific functional slug.'
+    record_response conflict "$destination" 'Path exists; inspect the record or choose a more specific functional slug'
     exit 3
   fi
   mkdir -p -- "${destination%/*}" 2>/dev/null || fail "Could not create record directory: ${destination%/*}"
-  # Distinguish exclusive-open failure from failure writing our own new file.
   (
     set -o noclobber
     exec 3> "$destination" || exit 3
@@ -187,14 +159,14 @@ create_record() {
   ) 2>/dev/null || result=$?
   if [[ $result -eq 3 ]]; then
     if [[ -e $destination || -L $destination ]]; then
-      record_response conflict "$destination" 'Path exists; inspect the record or choose a more specific functional slug.'
+      record_response conflict "$destination" 'Path exists; inspect the record or choose a more specific functional slug'
       exit 3
     fi
     fail "Could not create: $destination"
   elif [[ $result -ne 0 ]]; then
     fail "Could not write record; inspect and remove any incomplete output before retrying: $destination"
   fi
-  record_response created "$destination" 'Record created; fill the title and relevant template sections.'
+  record_response created "$destination" 'Record created; fill the title and relevant template sections'
 }
 
 stamp_header() (
@@ -208,18 +180,17 @@ stamp_header() (
       Updated:*) updated_count=$((updated_count + 1)); updated=${line#Updated: } ;;
     esac
   done < "$file"
-  [[ $created_count -eq 1 && $updated_count -eq 1 ]] || fail 'Header requires exactly one Created: and one Updated: field.'
+  [[ $created_count -eq 1 && $updated_count -eq 1 ]] || fail 'Header requires exactly one Created: and one Updated: field'
   if [[ $created == '<YYYY-MM-DD>' ]]; then created=$record_date; else validate_date "$created"; fi
-  [[ ! $record_date < $created ]] || fail 'Stamp date precedes Created date.'
+  [[ ! $record_date < $created ]] || fail 'Stamp date precedes Created date'
   if [[ $updated != '<YYYY-MM-DD>' ]]; then
     validate_date "$updated"
-    [[ ! $updated < $created ]] || fail 'Updated date precedes Created date.'
-    [[ ! $record_date < $updated ]] || fail 'Stamp date precedes current Updated date.'
+    [[ ! $updated < $created ]] || fail 'Updated date precedes Created date'
+    [[ ! $record_date < $updated ]] || fail 'Stamp date precedes current Updated date'
   fi
-  temporary=$(mktemp "${file}.stamp.XXXXXX") || fail 'Could not create temporary header file.'
+  temporary=$(mktemp "${file}.stamp.XXXXXX") || fail 'Could not create temporary header file'
   trap 'rm -f -- "$temporary"' EXIT
   cp -p -- "$file" "$temporary"
-  # Preserve content and the presence or absence of the final newline.
   while :; do
     newline=''
     if IFS= read -r line; then newline=$'\n'; elif [[ -z $line ]]; then break; fi
@@ -240,7 +211,6 @@ initialize() {
     [[ -f $destination ]] || fail "Not a regular file: $destination"
   else
     mkdir -p -- "${destination%/*}"
-    # Noclobber also protects against another initializer creating this file.
     (set -o noclobber; printf '%s\n' "$heading" > "$destination") || fail "Could not create: $destination"
   fi
   printf '%s\n' "$destination"
@@ -252,19 +222,18 @@ shift
 case $command_name in
   -h|--help|help) usage ;;
   slug)
-    [[ $# -eq 1 ]] || fail 'slug requires one quoted title.'
+    [[ $# -eq 1 ]] || fail 'slug requires one quoted title'
     slug=$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9][^a-z0-9]*/-/g; s/^-//; s/-$//')
-    # Treat embedded newlines as separators too.
     slug=$(printf '%s' "$slug" | tr '\n' '-' | sed 's/--*/-/g; s/^-//; s/-$//')
-    [[ -n $slug ]] || fail 'Title must contain an ASCII letter or digit.'
+    [[ -n $slug ]] || fail 'Title must contain an ASCII letter or digit'
     printf '%s\n' "$slug"
     ;;
   history-path)
-    [[ $# -le 1 ]] || fail 'history-path accepts at most one date.'
+    [[ $# -le 1 ]] || fail 'history-path accepts at most one date'
     history_path "$@"
     ;;
   init-history)
-    [[ $# -ge 1 && $# -le 2 ]] || fail 'init-history requires a project root and optional date.'
+    [[ $# -ge 1 && $# -le 2 ]] || fail 'init-history requires a project root and optional date'
     relative=$(history_path "${@:2}")
     root=$(project_root "$1")
     period=${relative##*/}
@@ -272,23 +241,23 @@ case $command_name in
     initialize "$root/$relative" "${template//\{\{period\}\}/${period%.md}}"
     ;;
   init-notes)
-    [[ $# -eq 2 ]] || fail 'init-notes requires a project root and existing item slug.'
-    [[ $2 =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] || fail 'Slug must contain lowercase ASCII letters/digits separated by single hyphens.'
+    [[ $# -eq 2 ]] || fail 'init-notes requires a project root and existing item slug'
+    [[ $2 =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] || fail 'Slug must contain lowercase ASCII letters/digits separated by single hyphens'
     root=$(project_root "$1")
     template=$(read_template notes)
     initialize "$root/docs/lusona/notes/$2.md" "${template//\{\{slug\}\}/$2}"
     ;;
   init-change|init-adr)
     record_json=1
-    [[ $# -ge 2 && $# -le 3 ]] || fail "$command_name requires a project root, functional slug, and optional date."
+    [[ $# -ge 2 && $# -le 3 ]] || fail "$command_name requires a project root, functional slug, and optional date"
     create_record "${command_name#init-}" "$@"
     ;;
   next-adr|next-change)
-    [[ $# -eq 1 ]] || fail "$command_name requires one project root."
+    [[ $# -eq 1 ]] || fail "$command_name requires one project root"
     next_sequence "${command_name#next-}" "$1"
     ;;
   stamp-header)
-    [[ $# -ge 1 && $# -le 2 ]] || fail 'stamp-header requires a file and optional date.'
+    [[ $# -ge 1 && $# -le 2 ]] || fail 'stamp-header requires a file and optional date'
     stamp_header "$@"
     ;;
   *) usage >&2; fail "Unknown command: $command_name" ;;
