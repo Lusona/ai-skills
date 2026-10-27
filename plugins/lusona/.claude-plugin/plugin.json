@@ -24,5 +24,6 @@
   "documentationUrl": "https://github.com/Lusona/ai-skills/blob/main/README.md",
   "supportUrl": "https://github.com/Lusona/ai-skills/issues",
   "privacyPolicyUrl": "https://github.com/Lusona/ai-skills/blob/main/PRIVACY.md",
-  "termsOfServiceUrl": "https://github.com/Lusona/ai-skills/blob/main/TERMS.md"
+  "termsOfServiceUrl": "https://github.com/Lusona/ai-skills/blob/main/TERMS.md",
+  "icon": "./assets/icon.png"
 }

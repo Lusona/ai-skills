@@ -18,5 +18,7 @@
     "name": "Lusona"
   },
   "skills": "./skills/",
-  "repository": "https://github.com/Lusona/ai-skills"
+  "repository": "https://github.com/Lusona/ai-skills",
+  "homepage": "https://github.com/Lusona/ai-skills",
+  "logo": "assets/icon.png"
 }

@@ -31,7 +31,14 @@
     ],
     "defaultPrompt": [
       "Help me specify one bounded change using Lusona."
-    ]
+    ],
+    "websiteURL": "https://github.com/Lusona/ai-skills",
+    "supportURL": "https://github.com/Lusona/ai-skills/issues",
+    "privacyPolicyURL": "https://github.com/Lusona/ai-skills/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/Lusona/ai-skills/blob/main/TERMS.md",
+    "logo": "./assets/icon.png",
+    "composerIcon": "./assets/icon.png"
   },
-  "repository": "https://github.com/Lusona/ai-skills"
+  "repository": "https://github.com/Lusona/ai-skills",
+  "homepage": "https://github.com/Lusona/ai-skills"
 }
