@@ -1,7 +1,5 @@
 # Lusona workflow
 
-Read why we built Lusona AI Skills: [When the workflow became another job](https://github.com/lusona/ai-skills/blob/main/docs/articles/why.md).
-
 ## Loading rules
 
 All roles must read Work loop, Contract, References, Questions and next actions, TDD, Review

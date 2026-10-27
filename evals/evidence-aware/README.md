@@ -1,7 +1,5 @@
 # Evidence-aware workflow evaluations
 
-For the background behind this workflow, read [When the workflow became another job](../../docs/articles/why.md).
-
 Six synthetic cases cover AC1–AC5 and negative boundaries from the approved
 [spec](../../docs/lusona/specs/20261025-evidence-aware-workflow-and-behavioral-evaluation.md).
 They are evaluation assets outside distributed plugin packages. scenarios.json contains

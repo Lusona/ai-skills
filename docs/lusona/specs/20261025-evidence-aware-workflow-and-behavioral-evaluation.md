@@ -4,7 +4,7 @@ Created: 2026-10-25
 Updated: 2026-10-25
 
 Kind: workflow behavior and evaluation
-Context: [motivation article](../../articles/why.md); source audit in the authoring conversation.
+Context: source audit in the authoring conversation.
 
 ## Agreement
 
