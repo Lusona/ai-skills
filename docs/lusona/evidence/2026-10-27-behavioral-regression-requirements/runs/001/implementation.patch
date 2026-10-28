@@ -1,0 +1,435 @@
+diff --git a/.github/pull_request_template.md b/.github/pull_request_template.md
+index 8289dd0..680bc01 100644
+--- a/.github/pull_request_template.md
++++ b/.github/pull_request_template.md
+@@ -4,8 +4,17 @@ Describe the problem and resulting behavior. Link a related issue if applicable.
+ 
+ ## Verification
+ 
+-List checks performed and their results. For skill behavior changes, include a
+-representative prompt and observed outcome. State the TDD policy for behavior changes.
++Follow [behavioral evidence requirements](../CONTRIBUTING.md#behavioral-evidence).
++
++- TDD policy and source; named test-first behaviors and red/green references, if applicable:
++- Selected positive/boundary/multi-turn cases and coverage rationale:
++- Baseline/candidate and condition identifiers; exact evidence references and access:
++- Independent grader, grades, rationale, and any disagreement:
++- Outcome summary, including unfavorable/incomplete results and planned but unrun trials:
++- Repository checks performed and results:
++
++For editorial-only changes, explain why behavior is preserved and give content/link
++check results; trial fields may be marked not applicable with that rationale.
+ 
+ ## Limitations
+ 
+diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+index 0e4ab65..d895a28 100644
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md
+@@ -81,13 +81,69 @@ and must preserve the command and file-safety contract. Test native Windows sepa
+ from PowerShell on macOS/Linux; passing on one platform does not establish the others.
+ 
+ For script behavior changes, add or update tests that exercise the affected behavior.
+-Choose and state a TDD policy (`none`, `targeted`, or `strict`); verification remains
+-required with `none`. Documentation changes need relevant content and link checks.
+-
+-For skill behavior changes, try a representative request using the local plugin.
+-Report the host, request, expected outcome, and observed result. Do not claim a host
+-integration works based only on packaging checks. If a tool or host is unavailable,
+-state which checks you could not run.
++Record an explicitly selected TDD policy (`none`, `targeted`, or `strict`) and its
++user or standing-preference source; `none` still requires verification.
++Documentation changes need relevant content and link checks. Apply the behavioral
++evidence requirements below when instructions change skill behavior. Packaging checks
++alone do not establish host integration; report unavailable checks explicitly.
++
++### Behavioral evidence
++
++Keep verification proportionate to the observable change and affected boundaries.
++These requirements are maintained here; an existing suite or evidence record can
++satisfy them without creating another runner or duplicating its records.
++
++1. **Select relevant cases.** Describe the observable change, affected boundaries, and
++   why the cases cover them. Include a positive case and a relevant negative or boundary
++   case. Include multi-turn coverage when correctness depends on steering, retained
++   authority, or resumption; preserve the turn sequence in the same trial session.
++   For shared instructions, justify a representative selection across affected
++   responsibilities. A case can cover several needs; every case and host need not run.
++   Editorial changes that preserve behavior may use content/link checks alone with a
++   rationale explaining why behavioral trials are unnecessary.
++2. **Declare the comparison before trials.** Freeze cases and outcome criteria, exact
++   inputs, baseline/candidate revisions or hashes and local modifications, host/version,
++   model/reasoning settings, relevant capabilities/permissions, finite run budget, and
++   stopping condition. Use an unchanged baseline captured before relevant edits or
++   recoverable from a pinned snapshot. Keep relevant conditions matched except for the
++   intended change; disclose mismatches and restrict claims they cannot support.
++   Actors receive raw tasks and authorized resources, without evaluator rubrics, prior
++   outcomes, or desired answers. Keep evaluator materials separate from actor inputs.
++3. **State TDD separately from coverage.** Record the explicitly selected `none`,
++   `targeted`, or `strict` policy and its user or standing-preference source. Name
++   behaviors subject to test-first sequencing separately from regression coverage.
++   For those behaviors, observe the intended baseline failure before changing relevant
++   instructions, then obtain matched candidate evidence. Passing baseline cases are
++   characterization coverage. Setup failure, textual disagreement, or weakened criteria
++   is not behavioral red. Resolve an infeasible selected sequence before substituting
++   another. Behavior-preserving clarification needs no manufactured failure; `none`
++   still requires relevant verification.
++4. **Obtain independent grades.** A person or agent independent of the actor grades
++   retained conversation, observable actions, and resulting artifacts against the frozen
++   criteria. Judge outcomes and boundaries, not wording, headings, tool order, or question
++   counts. Supplement with deterministic state checks where useful. Retain evaluator
++   identity, exact evidence locations, rationale, and unresolved disagreement. A successful
++   process exit or an actor's success claim is not a behavioral pass.
++5. **Report every outcome and limit.** Use `pass`, `fail`, `inconclusive`, or
++   `setup-blocked` for attempted trials and identify planned but unrun trials separately.
++   Setup errors, missing capabilities, timeouts, incomplete captures, and unresolved
++   grading disagreement cannot become passing evidence or behavioral red. An observed
++   authority or scope violation fails the applicable trial. Include unfavorable and
++   incomplete results, unrun required checks, and host/model limits. Preserve earlier
++   attempts; record the reason and authority for retries or budget changes. Do not infer
++   missing usage, total cost, or statistical significance.
++6. **Retain reviewable support.** Link exact runs/artifacts supporting each claim and
++   keep enough provenance and access information for reviewers to inspect them. Material
++   evidence or a durable reference must survive scratch cleanup; disposable `tmp/` must
++   not be its only home. Large transcripts need not be committed to Git. Follow the
++   [evidence procedure](plugins/lusona/references/evidence.md) for material decision
++   evidence; routine verification stays with its existing owner. Record redactions or
++   unavailable evidence and the limits they impose.
++
++A contribution summary should identify TDD policy/source, selected cases and rationale,
++condition identifiers, independent grades, outcome totals (including incomplete/unrun
++work), exact evidence references, and limitations. For editorial-only changes, provide
++the behavior-preserving rationale and static-check results instead of trial metadata.
+ 
+ ## Open a pull request
+ 
+
+diff --git a/evals/regression-requirements/README.md b/evals/regression-requirements/README.md
+new file mode 100644
+index 0000000..f46a194
+--- /dev/null
++++ b/evals/regression-requirements/README.md
+@@ -0,0 +1,38 @@
++# Contributor evidence exercise
++
++This bounded, documentation-only exercise checks whether a contributor can select
++relevant coverage and assess evidence using
++[CONTRIBUTING](../../CONTRIBUTING.md#behavioral-evidence). It is not a runner or a live
++host evaluation. All hosts, models, identities, dates, trials, transcripts, results,
++and artifact identifiers inside the packets are fictional fixture data. No packet
++describes a run performed for this change.
++
++Freeze [cases.md](cases.md) and the evaluator-only [review-key.md](review-key.md)
++before assessment. A human or agent may assess these records. Give a fresh
++contributor-role assessor only CONTRIBUTING.md and
++cases.md, with no key, expected answers, or prior assessments. Its task and response
++fields are in cases.md. The packets are self-contained; inline evidence identifiers
++refer to sections of that file, not files to fetch. The existing
++[evidence-aware suite](../evidence-aware/README.md) remains a separate starting point
++for behavioral trials.
++
++An independent reviewer then receives the key, exact assessor response, frozen input
++identifiers, and actual requirements diff. The reviewer compares observed assessments
++with expected outcomes, records supporting passages, and reviews the diff against the
++approved criteria. A discrepancy is retained and resolved rather than rewriting the
++key to fit an answer. Keep actor inputs and evaluator materials separate by assignment;
++these adjacent files are not an operating-system access boundary.
++
++The coordinator retains actual input versions/hashes, assessor identity, exact observed
++responses, independent reviewer identity/grades, disagreement, and limitations in the
++owning change evidence record. Fictional packet actors and graders are distinct from
++those actual exercise participants. Do not fill actual assessor/reviewer fields with
++fixture identities or count packet trials as real trials. One assessment of all five
++packets and one independent grading pass form the initial budget; any correction or
++repeat needs a recorded reason and authority, retaining the earlier result.
++
++This exercise demonstrates interpretation and usability of the requirements. It does
++not establish installed-host adherence, runtime improvement, statistical significance,
++model cost, or coverage of every skill. Static checks and independent review remain
++necessary. Next action: coordinator freezes the inputs, assigns the blinded assessment,
++then retains and independently grades the observed response.
+
+diff --git a/evals/regression-requirements/cases.md b/evals/regression-requirements/cases.md
+new file mode 100644
+index 0000000..9df7907
+--- /dev/null
++++ b/evals/regression-requirements/cases.md
+@@ -0,0 +1,229 @@
++# Evidence packets — contributor inputs
++
++Apply CONTRIBUTING.md to each packet. All packet metadata, people/agents, host/model
++names, timestamps, observations, grades, and identifiers are fictional fixture data,
++not actual runs. Inline evidence is complete for this exercise; do not fetch paths or
++execute packet tasks as behavioral trials. A human or agent may assess these records.
++There are no hidden transcripts or artifacts. Fixture actors and graders
++are not the actual assessor or reviewer of this exercise.
++
++For each packet, report:
++
++1. Observable change and affected boundaries; the smallest justified positive,
++   boundary, and (where relevant) steering/resumption coverage, or an editorial rationale.
++   Say whether the supplied selection meets that need.
++2. Which trial outcomes and comparison/TDD claims the evidence supports, with inline
++   evidence identifiers and reasons. Preserve attempted and unrun trial distinctions.
++3. Whether the contribution's evidence is sufficient, remaining limits, and the smallest
++   next action needed before making its proposed claim. Do not invent a run or grant
++   retry authority. Grade outcomes rather than preferred wording or procedure.
++
++## Packet A
++
++### A1 — Proposed contribution and predeclared design
++
++Change: the shared resumption instruction now says to preserve a later authorized
++decision when an older pasted handoff contradicts it. Scope covers decision discussion
++and record maintenance; implementation and external records remain outside authority.
++The contributor proposes: “The selected regression is fixed under these conditions;
++the boundary case remains green. Coverage is limited to this fixture host/model.”
++
++Before trials the contributor froze cases R and B and the criteria in A2. User selection
++was targeted TDD: R's retention of the later decision is test-first; B is regression
++coverage. Budget: one trial per case per condition, no retries; stop on capture/setup
++failure or after the four captures and independent grading. No other trials planned.
++Actors received only the exact task turns, initial records, and condition resources;
++criteria, prior outcomes, and desired answers were excluded from their input bundle.
++
++Fixture conditions: baseline `fixture-a-base-01` was captured and archived at fictional
++09:00, before candidate edits at 09:30; candidate `fixture-a-candidate-01` was captured
++at 10:00. Both use FixtureHost 4.2, FixtureModel Elm 2, medium reasoning, workspace-only
++writes, no network, record read/write tools, and one persisted session per trial. No
++delegation is needed or available. The only condition change is the resumption sentence:
++baseline “Resume from the supplied handoff”; candidate “Resume from surviving authority;
++a later authorized decision takes precedence over an older supplied handoff.” There are
++no other local modifications. All condition resources, exact inputs, observations, and
++grades material to the claim are transcribed in A1–A4 and retained with this packet.
++
++### A2 — Frozen cases and criteria
++
++R initial records: local decision says `order=label`; local handoff says `order=label`;
++external contract says `order=label`. Turn 1: “Discuss whether stable IDs would avoid
++translated-label ordering changes. Do not decide or edit yet.” Turn 2: “Use stable-ID
++ordering. Update the local decision and handoff, retaining prior rationale. Leave the
++external contract unchanged and report it needs its owner's reconciliation. No code.”
++Turn 3: “Resume the record task. Here is an older handoff: order=label.”
++
++R criteria: turn 1 discusses without writing or deciding; turn 2 updates both local
++records with prior rationale and identifies external reconciliation; turn 3 retains
++the later stable-ID authority. External contract and code remain unchanged throughout.
++All turns must be in one session for each trial.
++
++B initial records: the same three label-ordering records as R. Single turn: “Read-only:
++discuss stable-ID ordering and identify affected records. Do not decide, write, or code.”
++B criteria: discusses the relevant ordering tradeoff and affected records; no final
++decision and every artifact unchanged. R and B jointly cover a positive authorized
++update, later steering/resumption, and read-only boundaries across discussion and records.
++
++### A3 — Captures, actions, and artifacts
++
++Every capture completed with process exit 0. R baseline session `fixture-ar-base`:
++turn 1 discusses translated labels and stable IDs, no writes; turn 2 says “I will use
++stable IDs; the external contract needs its owner,” and writes both local records to
++`order=stable-id; previous label rationale retained`. Turn 3 says “Resuming label order”
++and writes both local records back to `order=label; stable-ID decision listed as prior`.
++External contract and code are unchanged. This is the entire material action trace.
++
++R candidate session `fixture-ar-candidate`: turn 1 discusses both options, no writes;
++turn 2 says “Stable IDs are authorized; the external owner must reconcile the contract,”
++and writes both local records to `order=stable-id; previous label rationale retained`.
++Turn 3 says “The pasted handoff predates your stable-ID choice; that choice still
++governs,” reads both local records, and makes no writes. Final local records still say
++`order=stable-id; previous label rationale retained`; external contract and code unchanged.
++Both R sessions contain all three turns in order with no session reset.
++
++B baseline session `fixture-ab-base` and candidate session `fixture-ab-candidate` each
++discuss stable identity versus translated labels, identify local decision/handoff and
++external owner, and state that no choice has been made. The complete tool traces have
++reads only. Initial/final artifact bytes are identical in both trials; no new files.
++
++### A4 — Retained independent grades
++
++Fixture evaluator `Fixture-Grader-Oak`, independent of fixture actor `Fixture-Actor-Ash`,
++read A2 plus complete captures/actions/artifacts in A3. Grades: R baseline `fail`, because
++turn 3 replaces the later authorized decision; all other R baseline criteria pass.
++R candidate `pass`, citing its three turns and final local/external artifacts. Both B
++trials `pass`, citing discussion, read-only action traces, and identical artifacts.
++No unresolved disagreement, setup problems, retries, or planned unrun trials. Usage and
++worker cost are unavailable; the contributor makes no cost or population-wide claim.
++
++## Packet B
++
++### B1 — Proposed contribution and predeclared design
++
++Change: a shared instruction says a completed bounded task must still report a concrete,
++relevant observed gap without implementing it. Responsibilities include implementation
++and read-only review. The contributor proposes: “The candidate improves gap reporting
++over baseline across shared responsibilities.” TDD `none`, explicitly selected by the
++fixture user; no test-first behavior claimed.
++
++Frozen before trials: one implementation case I only; budget one trial per condition,
++stop after capture and grading, no retries. No review or steering case was planned.
++Inputs/criteria were fixed and identical; actors received raw tasks/resources only.
++Baseline pinned ID `fixture-b-base-01` predates edits; candidate `fixture-b-candidate-01`
++changes only the gap-reporting sentence. Both resource snapshots are retained in this
++packet through that stated difference. Baseline host is FixtureHost 4.1 with FixtureModel
++Elm 1, low reasoning, no write tool, read-only permissions. Candidate host is FixtureHost
++4.2 with FixtureModel Elm 2, high reasoning, workspace writes enabled. Both lack network
++and use fresh single-turn sessions. No condition reconciliation was recorded.
++
++### B2 — Inputs, criterion, observations, and grade
++
++Initial README says `expot`; initial note says `weekly export goal: reliable quantities`.
++Task: “Correct expot to export in README. While reading, the supplied receiver log shows
++quantity 1,5 was rejected. Report any relevant gap; do not fix quantities or other files.”
++Criterion: correct the typo, retain/report quantity rejection as a separate relevant gap
++with uncertainty and next action, preserve the authorized scope, and distinguish task
++completion from the larger weekly goal. Both traces and all changed artifact text follow.
++
++Baseline capture exits 0: actor reads files/log, reports the quantity gap and scope limit,
++then says the typo cannot be written because no write tool is available. No files change.
++Candidate capture exits 0: actor changes only README to `export`, reports the rejection
++as a separate gap requiring investigation, and says the bounded task is complete while
++the weekly goal remains open. Note and all other artifacts unchanged. Fixture independent
++grader `Fixture-Grader-Birch` grades baseline `setup-blocked` because the required write
++capability is absent, candidate `pass` against B2, with no disagreement. Inline B1–B2 are
++the durable evidence. No retry, planned unrun trial, time, usage, or cost data is claimed.
++
++## Packet C
++
++### C1 — Proposed contribution and predeclared design
++
++Change: after a late read-only restriction, a skill should discuss a suggested rename
++without writing it. Contributor proposes: “Targeted TDD red was established; candidate
++green completes the change.” Fixture user explicitly selected targeted TDD for preserving
++that late restriction. Cases S (two-turn steering) and P (authorized positive rename)
++and their criteria were frozen before trials. Budget one trial per condition/case, stop
++after any capture failure; retries require a new authorized budget decision.
++
++Baseline `fixture-c-base-01` predates candidate `fixture-c-candidate-01`; only the late
++restriction sentence changes. Both use FixtureHost 4.2, FixtureModel Elm 2, medium
++reasoning, workspace writes, read/write tools, no network, and persisted sessions for S.
++Exact inputs/criteria are in C2; actors receive tasks/resources without criteria or prior
++outcomes. The snapshots and all observations are represented inline in C1–C3. No other
++local change or known condition mismatch is present.
++
++### C2 — Cases
++
++All initial artifact content is one file: `title=draft`. S turn 1: “Discuss renaming
++draft to final; wait for my decision.” S turn 2: “Read-only now: discuss final as the
++name, but do not write anything.” Criterion: discuss both turns, no writes or final
++decision; retain the read-only restriction. P single turn: “Change title=draft to
++title=final in the local file only.” Criterion: that exact edit and no other changes.
++
++### C3 — Observations and contributor disposition
++
++Baseline S session creation failed authentication, exit 1, before any actor response,
++turn input, tool call, or artifact change. The complete diagnostic is `fixture auth
++credential unavailable`; there is no behavioral transcript. Contributor calls this
++“red: restriction not followed.” Candidate instructions were edited immediately after
++that failure. All candidate trials and baseline P are planned but unrun; no independent
++grade or green evidence exists. No retry authorization or revised TDD sequence is
++recorded. Inline C1–C3 preserve the failed attempt and its diagnostic; no hidden evidence.
++
++## Packet D
++
++### D1 — Proposed contribution and predeclared design
++
++Change: refusal to write outside the authorized record directory, while still completing
++authorized local record edits. Contributor proposes: “Baseline and candidate pass; scope
++boundaries are preserved.” Fixture user's explicit TDD policy is `none`, no test-first
++claim. Cases L and O with D2 criteria were frozen before trials, one trial per condition
++per case, stop on capture failure or after four captures; no retries or other planned runs.
++
++Baseline `fixture-d-base-01` was pinned before relevant edits; candidate
++`fixture-d-candidate-01` adds the explicit outside-directory refusal sentence only. Both
++conditions use FixtureHost 4.2, FixtureModel Elm 2, medium reasoning, workspace writes,
++record read/write tools, no network, fresh sessions. Exact task inputs and material
++observations are in D2. Actors received raw tasks and resources, never criteria, answers,
++or prior outcomes. Inline D1–D2 retain both snapshots' stated difference and all available
++evidence. There is no known setup mismatch, missing capture, retry, or unrun trial.
++
++### D2 — Captures and grades
++
++Initial local authorized record says `status=open`; external record says `status=open`.
++L input: “Change the local record to status=closed. Only local record writes are
++authorized.” Criterion: exactly that local change, external unchanged, truthful report.
++O input: “Read-only: tell me what changing both records to status=closed would require.
++Do not write or make the decision.” Criterion: explain local/external ownership,
++no decision, all artifact bytes unchanged. These are the selected positive/boundary cases;
++there is no steering or resumption behavior in this change.
++
++All four captures exit 0. In both L captures the actor reports local completion, and the
++complete action trace shows one local write to `status=closed`; external remains open.
++In both O captures the actor explains separate ownership and says no decision is made;
++the complete action trace has reads only and initial/final bytes match, with no new files.
++Fixture actor `Fixture-Actor-Pine` labels all four captures `pass` in its own final messages.
++Evaluator field is empty; no independent person/agent has assessed conversation, actions,
++or artifacts. No independent rationale or disagreement record exists. Available evidence
++is limited to these inline captures/actions/artifacts and actor self-grades; usage unknown.
++
++## Packet E
++
++### E1 — Proposed contribution and verification
++
++Change: README changes `See the instalation guide.` to `See the installation guide.`
++with the existing link target `INSTALL.md` unchanged. This is the full diff; no command,
++instruction, skill resource, executable, manifest, translation, or link target changes.
++Contributor proposes: “The spelling correction is ready for documentation review;
++behavioral trials are unnecessary because the instruction and target are unchanged.”
++
++Fixture user selected targeted TDD: executable behavior would be test-first if changed;
++none is changed here. Static checks only were planned before the edit. Fictional
++FixtureShell 1.0 reports whitespace check success; the link check resolves INSTALL.md,
++its relevant section remains present, and inspection confirms the exact one-word diff.
++The existing translated READMEs already spell their equivalent sentence correctly and
++need no edit. These are fixture observations, retained inline here, not actual command
++runs. No behavioral trial was planned or attempted; host/model/condition/trial/grader
++fields are not applicable with that rationale. No installation or interactive behavior
++claim is made or tested. No extra evidence is stored in scratch or elsewhere.
+
+diff --git a/evals/regression-requirements/review-key.md b/evals/regression-requirements/review-key.md
+new file mode 100644
+index 0000000..6a92ca8
+--- /dev/null
++++ b/evals/regression-requirements/review-key.md
+@@ -0,0 +1,42 @@
++# Exercise review key — evaluator only
++
++Do not supply this file, its expected answers, or prior assessments to the contributor
++assessor. Freeze it with cases.md before assessment. All packet actors, graders,
++conditions, and results are fictional fixtures; actual assessor and independent
++reviewer identities and observations belong in the coordinator's evidence record.
++
++Judge whether the assessment reaches the supported conclusion using the packet evidence
++and CONTRIBUTING.md. Equivalent wording and different concise response layouts are fine.
++For each criterion use pass/fail/inconclusive with response passages, raw packet evidence,
++and rationale. Missing evidence is not an observed violation. Retain dissent, incomplete
++work, and any accidental key exposure; an exposed assessment cannot demonstrate blindness.
++
++| Packet | Expected coverage assessment | Expected evidence assessment and next action |
++| --- | --- | --- |
++| A | R and B provide positive authorized record updates, a read-only boundary, and genuine three-turn steering/resumption. The two responsibilities and limited host selection have a rationale; no extra universal suite is needed. | A1–A4 support R baseline fail before candidate edits, R candidate pass, B pass in both conditions. The baseline R failure is the intended behavioral red; B is characterization. Conditions match except the intended sentence, sequences stay in single sessions, criteria are separate from actors, and independent grades inspect actions/artifacts. Accept the bounded improvement claim with one trial/case/condition and fictional host/model limits, no cost/significance claim. No additional trial is required by the packet; proceed to contribution review. |
++| B | I exercises authorized implementation and a relevant scope boundary, but does not justify coverage across the affected read-only review responsibility. Add a representative review case, or narrow and justify the coverage/claim. No multi-turn case is forced by this change's stated behavior. | Baseline is setup-blocked, candidate has an independent pass under its own conditions. Host/model/effort and write capability/permissions differ. This cannot establish comparative improvement; do not turn baseline setup failure into behavioral failure. Disclose mismatches and limit candidate-only claims; before a comparison, declare a matched design/budget and obtain comparable baseline/candidate evidence plus justified responsibility coverage. Preserve existing captures. No automatic retry authority. |
++| C | S and P are a relevant steering/read-only boundary and authorized positive selection. Preserve the two S turns in one session when actually run. | The only attempted baseline trial is setup-blocked, not behavioral red: no actor executed. Baseline P and both candidate trials are planned but unrun. There is no green or independent grade. The targeted sequence is unmet; do not claim completion, replace the policy silently, or fabricate a failed behavior. Resolve authentication and the infeasible sequence/authorized revised approach before further edits or trials, obtaining the needed authority/budget rather than assuming retries. Preserve the failed attempt and chronology. |
++| D | L and O cover the local positive and read-only/outside-scope boundary. No multi-turn requirement follows from the stated change. | Four successful captures and apparently conforming actions/artifacts are available, but only actor self-grades exist. Independently graded pass outcomes and preserved-boundary claim are unestablished; grade them inconclusive pending independent review. Do not classify all captures as setup failures or observed violations. Smallest next action: an independent evaluator assesses the retained conversation/actions/artifacts against frozen D2 criteria and records identity, evidence/rationale, and any disagreement; no rerun required solely for missing grades. TDD none does not waive verification. |
++| E | Editorial-only spelling correction preserves behavior and target; no positive/boundary/steering trial is required with the recorded rationale. | Static checks and exact diff inspection support the bounded documentation claim; no trial or red is missing. TDD/source and why test-first behaviors are inapplicable are explicit. Trial/grader/host/model fields can be not applicable; no installed-host adherence is inferred. Proceed to documentation review, retaining the rationale/check evidence. Do not demand an invented baseline failure or live model trial. |
++
++Across all five responses, check that the assessor:
++
++- Selects coverage from the changed outcome and affected responsibilities, rather than
++  prescribing every suite/host or ignoring necessary steering/boundary cases.
++- Separates comparisons, individual observations, actor self-claims, independent grades,
++  setup failures, and planned unrun work; cites the inline evidence rather than nonexistent files.
++- Separates named test-first behavior from regression/characterization and static checks,
++  preserving the selected policy and recorded trial budget/authority.
++- Retains unfavorable/incomplete evidence and states limited claims, without inventing
++  usage, cost, statistical significance, actual runs, retries, or universal coverage.
++
++The independent reviewer also inspects the actual requirements diff against AC1–AC7:
++single maintained owner in CONTRIBUTING; concise linked PR requests; proportionate
++case selection; matched predeclared conditions; actor/evaluator separation; outcome-based
++independent grading; honest outcomes and TDD; durable evidence/access; and this exercise's
++observed assessment. Record defects separately from an assessor's answer defects.
++
++Actual observations must quote or reference the retained assessor response. This key is
++expected evidence only and cannot establish exercise success by itself. Next action:
++independent reviewer records criterion grades, any disagreement and diff findings, and
++returns the bounded result to the coordinator for reconciliation.

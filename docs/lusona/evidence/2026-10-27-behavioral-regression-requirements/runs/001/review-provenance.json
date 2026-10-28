@@ -1,0 +1,10 @@
+{
+  "reviewer": "/root/regression_review",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "fork_turns": "none",
+  "independence": "Separate from implementation and assessment workers; no prior findings supplied.",
+  "output": "review.md",
+  "output_sha256": "4437024e129088fa2ed67159210fc95312911f0c69da58a729569a105fa9b217",
+  "retention": "Full final response transcribed by coordinator; no outcome edits."
+}

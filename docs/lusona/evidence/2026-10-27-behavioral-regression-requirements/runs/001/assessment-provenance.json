@@ -1,0 +1,10 @@
+{
+  "actor": "/root/regression_assessment",
+  "model": "gpt-6-luna",
+  "reasoning": "medium",
+  "fork_turns": "none",
+  "output": "assessment.md",
+  "output_sha256": "71c02eb31cc7cfb8040a31d06e248606ea50efe3a94b4e0c545c587c12a0b63b",
+  "retention": "Full final response transcribed by coordinator; no outcome edits.",
+  "access_limit": "Actor reports only permitted reads; no complete tool transcript was captured, so absence of excluded reads is not independently proven."
+}

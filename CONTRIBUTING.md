@@ -81,13 +81,68 @@ and must preserve the command and file-safety contract. Test native Windows sepa
 from PowerShell on macOS/Linux; passing on one platform does not establish the others.
 
 For script behavior changes, add or update tests that exercise the affected behavior.
-Choose and state a TDD policy (`none`, `targeted`, or `strict`); verification remains
-required with `none`. Documentation changes need relevant content and link checks.
+Record an explicitly selected TDD policy (`none`, `targeted`, or `strict`) and its
+user or standing-preference source; `none` still requires verification.
+Documentation changes need relevant content and link checks. Apply the behavioral
+evidence requirements below when instructions change skill behavior. Packaging checks
+alone do not establish host integration; report unavailable checks explicitly.
 
-For skill behavior changes, try a representative request using the local plugin.
-Report the host, request, expected outcome, and observed result. Do not claim a host
-integration works based only on packaging checks. If a tool or host is unavailable,
-state which checks you could not run.
+### Behavioral evidence
+
+Keep verification proportionate to the observable change and affected boundaries.
+These requirements are maintained here; an existing suite or evidence record can
+satisfy them without creating another runner or duplicating its records.
+
+1. **Choose proportionate coverage.** Describe the observable change, affected boundaries, and
+   coverage rationale. Include positive and relevant negative/boundary cases; preserve
+   multi-turn sequences in the same trial session for steering, authority, or resumption.
+   Justify representative coverage across shared responsibilities; cases may overlap; not every
+   host must run. Low-risk, noncomparative behavior changes may use relevant candidate-only
+   checks. Matched baseline/candidate evidence is required for named test-first behaviors,
+   comparative improvement claims, and consequential shared boundaries (authority, TDD,
+   completion, trust, persistent data, cross-worker ownership). File count alone does not
+   determine risk. Editorial behavior-preserving changes may use content/link checks with a
+   rationale.
+2. **Declare verification before trials.** Freeze applicable cases, outcome criteria, exact
+   inputs, candidate revisions/hashes and local modifications, host/version, model/reasoning,
+   capabilities/permissions, finite budget, and stopping condition. When comparison is required,
+   pin an unchanged baseline captured before relevant edits or recoverable from a snapshot.
+   Match relevant conditions except the intended change; disclose mismatches and limit claims.
+   Keep evaluator materials separate; actors receive raw tasks and authorized resources without
+   rubrics, prior outcomes, or desired answers.
+3. **State TDD separately.** Record the explicitly selected `none`, `targeted`, or `strict`
+   policy and its user or standing-preference source. Separate named test-first behaviors from
+   regression coverage. For test-first behaviors, observe intended baseline failure before
+   relevant edits, then obtain matched candidate evidence. Passing baselines are
+   characterization; setup failure, textual disagreement, or weakened criteria is not red.
+   Resolve infeasible sequencing before substituting an approach. Later evidence cannot
+   establish a missed sequence. Behavior-preserving clarification needs no manufactured failure;
+   `none` still requires verification.
+4. **Grade independently.** A person or agent independent of the actor grades retained
+   conversation, actual actions, and artifacts against frozen criteria. Judge semantic outcomes
+   and boundaries, not wording, headings, tool order, or question counts. One qualified reviewer
+   may assess both diff and outcomes; role labels alone do not require another reviewer.
+   Supplement with deterministic checks where useful. Retain grader identity, exact evidence,
+   rationale, and unresolved disagreement. Process exit or actor success claims do not prove
+   behavioral success.
+5. **Report all outcomes and limits.** Use `pass`, `fail`, `inconclusive`, or `setup-blocked`
+   for attempted trials; identify planned but unrun trials. Setup errors, missing capabilities,
+   timeouts, incomplete captures, and unresolved grading cannot count as passing evidence or
+   red. Observed authority or scope violations fail the applicable trial. Include unfavorable
+   and incomplete results, unrun required checks, and host/model limits. Preserve earlier
+   attempts; record retry/budget-change reasons and authority. Do not infer missing usage, total
+   cost, or statistical significance.
+6. **Retain reviewable support.** Link exact runs/artifacts with provenance and access for
+   inspection. Material evidence or a durable reference must survive scratch cleanup; disposable
+   `tmp/` cannot be its only home. Large transcripts need not enter Git. Follow [evidence
+   retention](plugins/lusona/references/evidence.md) for material decision evidence; routine
+   verification stays with its owner. Record redactions, unavailable evidence, and resulting
+   limits.
+
+Contribution summaries identify TDD/source, coverage rationale, applicable condition identifiers
+and independent grades, all outcomes including incomplete/unrun work, exact evidence, and
+limits. Comparison identifiers apply only to comparisons. Editorial summaries give the
+behavior-preserving rationale and static results instead of trial metadata.
 
 ## Open a pull request
 

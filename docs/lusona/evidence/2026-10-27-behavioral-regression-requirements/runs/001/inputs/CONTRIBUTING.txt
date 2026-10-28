@@ -1,0 +1,160 @@
+# Contributing to Lusona
+
+Contributions to the skills, documentation, tooling, and host integrations are welcome.
+Start with the [README](README.md) for the workflow and
+[installation guide](INSTALL.md) for local setup.
+
+## Bugs and feature requests
+
+Search [existing issues](https://github.com/lusona/ai-skills/issues) before opening one.
+Use the bug report form for defects and the feature request form for proposed changes.
+For a larger change, open an issue to discuss the outcome and scope before implementing it.
+You can send small documentation fixes as a pull request without an issue.
+
+For bugs, include the host and plugin versions, installation source, reproduction steps,
+expected behavior, and actual behavior. For agent behavior, include the prompt and a
+short transcript when possible. Remove credentials, private code, and personal data
+from examples and logs.
+
+For features, explain the problem, who encounters it, and what a successful result
+would look like. Include alternatives or workarounds you have considered.
+
+## Make a change
+
+Fork the repository, clone your fork, and create a branch for one bounded change.
+Read `AGENTS.md` before editing; it also applies when you use an agent to contribute.
+
+By submitting a contribution, you agree to license it under this project's
+[MIT License](LICENSE). Only contribute material you have the right to submit, and
+retain any required third-party notices.
+
+- Edit canonical workflow sources under `plugins/lusona/`.
+- Keep skills focused, preserve explicit TDD and authorization boundaries, and give
+  the agent a concrete next action.
+- Resolve bundled resources relative to the loaded skill. A `docs/lusona/` path in
+  workflow instructions refers to the consuming project.
+- Keep consuming-project records and generated packages out of your contribution.
+  Use repository-local `tmp/` for scratch files and package output.
+- Keep the Spanish, German, Simplified Chinese, and Japanese READMEs in sync with
+  `README.md` when changing public documentation. Use natural technical prose in
+  each language; preserve command names, paths, and authorization rules. Check
+  translated section links and keep the language links in each README.
+- Keep the native manifests' plugin names and versions aligned. Coordinate release
+  version changes with maintainers rather than bumping versions for each pull request.
+
+## Verify your change
+
+Use `mise` for tools when available. The package builder requires Python 3; native
+plugin validation requires Claude Code.
+
+From the repository root:
+
+```bash
+git diff --check
+claude plugin validate plugins/lusona
+claude plugin validate .claude-plugin/marketplace.json
+python3 scripts/package.py
+```
+
+The package builder checks manifest identity and versions, catalog paths, resource
+links, and package contents. It writes to `tmp/lusona-package/` and refuses to
+overwrite an existing output directory. For another build, use a fresh directory:
+
+```bash
+python3 scripts/package.py --output tmp/my-change-package
+```
+
+For changes to the work-record helper, run its behavioral checks:
+
+```bash
+bash scripts/test-work-record.sh
+```
+
+Run the PowerShell helper's behavioral checks in Windows PowerShell 5.1 or PowerShell 7:
+
+```powershell
+powershell.exe -NoProfile -File scripts/test-work-record.ps1
+```
+
+Use `pwsh` instead of `powershell.exe` for PowerShell 7. Both helpers share templates
+and must preserve the command and file-safety contract. Test native Windows separately
+from PowerShell on macOS/Linux; passing on one platform does not establish the others.
+
+For script behavior changes, add or update tests that exercise the affected behavior.
+Record an explicitly selected TDD policy (`none`, `targeted`, or `strict`) and its
+user or standing-preference source; `none` still requires verification.
+Documentation changes need relevant content and link checks. Apply the behavioral
+evidence requirements below when instructions change skill behavior. Packaging checks
+alone do not establish host integration; report unavailable checks explicitly.
+
+### Behavioral evidence
+
+Keep verification proportionate to the observable change and affected boundaries.
+These requirements are maintained here; an existing suite or evidence record can
+satisfy them without creating another runner or duplicating its records.
+
+1. **Select relevant cases.** Describe the observable change, affected boundaries, and
+   why the cases cover them. Include a positive case and a relevant negative or boundary
+   case. Include multi-turn coverage when correctness depends on steering, retained
+   authority, or resumption; preserve the turn sequence in the same trial session.
+   For shared instructions, justify a representative selection across affected
+   responsibilities. A case can cover several needs; every case and host need not run.
+   Editorial changes that preserve behavior may use content/link checks alone with a
+   rationale explaining why behavioral trials are unnecessary.
+2. **Declare the comparison before trials.** Freeze cases and outcome criteria, exact
+   inputs, baseline/candidate revisions or hashes and local modifications, host/version,
+   model/reasoning settings, relevant capabilities/permissions, finite run budget, and
+   stopping condition. Use an unchanged baseline captured before relevant edits or
+   recoverable from a pinned snapshot. Keep relevant conditions matched except for the
+   intended change; disclose mismatches and restrict claims they cannot support.
+   Actors receive raw tasks and authorized resources, without evaluator rubrics, prior
+   outcomes, or desired answers. Keep evaluator materials separate from actor inputs.
+3. **State TDD separately from coverage.** Record the explicitly selected `none`,
+   `targeted`, or `strict` policy and its user or standing-preference source. Name
+   behaviors subject to test-first sequencing separately from regression coverage.
+   For those behaviors, observe the intended baseline failure before changing relevant
+   instructions, then obtain matched candidate evidence. Passing baseline cases are
+   characterization coverage. Setup failure, textual disagreement, or weakened criteria
+   is not behavioral red. Resolve an infeasible selected sequence before substituting
+   another. Behavior-preserving clarification needs no manufactured failure; `none`
+   still requires relevant verification.
+4. **Obtain independent grades.** A person or agent independent of the actor grades
+   retained conversation, observable actions, and resulting artifacts against the frozen
+   criteria. Judge outcomes and boundaries, not wording, headings, tool order, or question
+   counts. Supplement with deterministic state checks where useful. Retain evaluator
+   identity, exact evidence locations, rationale, and unresolved disagreement. A successful
+   process exit or an actor's success claim is not a behavioral pass.
+5. **Report every outcome and limit.** Use `pass`, `fail`, `inconclusive`, or
+   `setup-blocked` for attempted trials and identify planned but unrun trials separately.
+   Setup errors, missing capabilities, timeouts, incomplete captures, and unresolved
+   grading disagreement cannot become passing evidence or behavioral red. An observed
+   authority or scope violation fails the applicable trial. Include unfavorable and
+   incomplete results, unrun required checks, and host/model limits. Preserve earlier
+   attempts; record the reason and authority for retries or budget changes. Do not infer
+   missing usage, total cost, or statistical significance.
+6. **Retain reviewable support.** Link exact runs/artifacts supporting each claim and
+   keep enough provenance and access information for reviewers to inspect them. Material
+   evidence or a durable reference must survive scratch cleanup; disposable `tmp/` must
+   not be its only home. Large transcripts need not be committed to Git. Follow the
+   [evidence procedure](plugins/lusona/references/evidence.md) for material decision
+   evidence; routine verification stays with its existing owner. Record redactions or
+   unavailable evidence and the limits they impose.
+
+A contribution summary should identify TDD policy/source, selected cases and rationale,
+condition identifiers, independent grades, outcome totals (including incomplete/unrun
+work), exact evidence references, and limitations. For editorial-only changes, provide
+the behavior-preserving rationale and static-check results instead of trial metadata.
+
+## Open a pull request
+
+Explain the problem, resulting behavior, scope, and verification evidence. Link the
+related issue when there is one, and call out installation or interactive behavior
+you have not tested. Keep unrelated edits in separate pull requests.
+
+Use Conventional Commits for commit messages, with a body explaining why the change
+is needed, for example `docs: clarify Xcode installation`. If you use an agent,
+authorize commits explicitly; the repository instructions prohibit unrequested commits,
+pushes, and publication.
+
+The `@lusona/core` team owns review across the repository. Maintainers may request
+changes to scope, behavior, or verification before merging.

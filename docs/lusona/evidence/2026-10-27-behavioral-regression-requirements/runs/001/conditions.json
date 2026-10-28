@@ -1,0 +1,28 @@
+{
+  "design": "README.md",
+  "sources": [
+    {
+      "source": "CONTRIBUTING.md",
+      "snapshot": "inputs/CONTRIBUTING.txt",
+      "sha256": "e119dceca9808b043a851052615644600aacfb226e75f7e5adb4b5ce205198eb"
+    },
+    {
+      "source": "evals/regression-requirements/cases.md",
+      "snapshot": "inputs/cases.txt",
+      "sha256": "91d330a6f3034fe446c282f9c6d44d6c90106d43a888ccf1b01518174896b8eb"
+    },
+    {
+      "source": "evals/regression-requirements/review-key.md",
+      "snapshot": "inputs/review-key.txt",
+      "sha256": "ce774a4a370d98c9cf67ea7bcb04ba5a5f9c5196501f6481e11995b82f50753e"
+    }
+  ],
+  "assignment_sha256": "46de1e9f3d54b3871c3b3839c400ff1170b88c22c12134fc08720ac813fd4fcb",
+  "dispatch_message": "Read /Volumes/code/_lusona_/ai-skills/docs/lusona/evidence/2026-10-27-behavioral-regression-requirements/runs/001/assignment.txt and carry out that bounded read-only assignment. Return the complete assessment in your final response. No file writes or child agents.",
+  "actor_model": "gpt-6-luna",
+  "actor_reasoning": "medium",
+  "fork_turns": "none",
+  "trial_budget": "one five-packet assessment; one independent grading/review assignment",
+  "host": "current session collaboration tools; exact host build unavailable",
+  "status": "frozen before assessment"
+}
