@@ -7,7 +7,7 @@ prüfen. Du bestimmst das Ziel, die Vorgaben und die Befugnisse. Anhand der vorl
 wählt der Agent den nächsten sinnvollen Schritt und setzt die freigegebene Arbeit fort.
 Wenn er Informationen oder eine Erlaubnis von dir braucht, fragt er nach.
 
-Für Claude Code, Codex, [Cursor](INSTALL.md#cursor) und [Programmieragenten in Xcode 27](INSTALL.md#xcode) · Version des Quellcodes in dieser Arbeitskopie: **1.1.1**
+Für Claude Code, Codex, [Cursor](INSTALL.md#cursor) und [Programmieragenten in Xcode 27](INSTALL.md#xcode) · Version des Quellcodes in dieser Arbeitskopie: **1.2.0**
 
 > [!WARNING]
 > Installiere Lusona nicht mit Vercel Skills (`npx skills@latest`); nutze die [Installation als natives Plugin](#installation).
@@ -103,6 +103,8 @@ installierten Skill. [Installiere Lusona](#installation), bevor du diese Befehle
 | [specify](plugins/lusona/skills/specify/SKILL.md) | Verhalten, Vorgaben, Akzeptanzkriterien und TDD-Vorgaben für eine Änderung vereinbaren |
 | [architect](plugins/lusona/skills/architect/SKILL.md) | Weitreichende Entscheidungen zu Design, technischen Verträgen und Zuständigkeiten treffen |
 | [investigate](plugins/lusona/skills/investigate/SKILL.md) | Ursachen, Fakten oder Machbarkeit anhand von Belegen und Experimenten feststellen |
+| [measure](plugins/lusona/skills/measure/SKILL.md) | Entscheidungsrelevante Größen, Qualität, Kosten oder Veränderungen messen |
+| [experiment](plugins/lusona/skills/experiment/SKILL.md) | Eine Intervention oder Alternativen anhand festgelegter Kriterien prüfen |
 | [implement](plugins/lusona/skills/implement/SKILL.md) | Eine freigegebene Verhaltensänderung oder Fehlerbehebung planen und umsetzen |
 | [review](plugins/lusona/skills/review/SKILL.md) | Einen konkreten Diff auf Fehler und fehlende Prüfungen untersuchen |
 | [refactor](plugins/lusona/skills/refactor/SKILL.md) | Die Struktur bestehenden Codes verbessern und dabei Verhalten und Kompatibilität erhalten |

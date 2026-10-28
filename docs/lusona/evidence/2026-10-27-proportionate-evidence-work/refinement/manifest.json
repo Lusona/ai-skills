@@ -1,0 +1,113 @@
+{
+  "patch_sha256": "380bd00a426c8e17c275e468bae5d5a1f1baeae13f5352d98417e3f01a25f11c",
+  "archive_sha256": "e6760b4d2c094c5d884bf212fb137377e29f485a3893bde9871ca74eb91348b7",
+  "archive_bytes": 70505,
+  "members_sha256": {
+    "baseline-to-refined.patch": "380bd00a426c8e17c275e468bae5d5a1f1baeae13f5352d98417e3f01a25f11c",
+    "candidate-to-refined.patch": "c59f39d194473220eb1b15bec44c986275ec0980bd4078f47d44735b77f30e5d",
+    "word-counts.json": "3dd90df778b2ad104b8c9e6cf1e79b30e8678e21132d87eeb2d307d752d2c795",
+    "refined-source-hashes.json": "9b89a4ba230a2679d4c5b6fa65bab44fa82314f06e6ec6c8569a009d973a8ca0",
+    "root-files-hashes.json": "d3786bbe9bbf9fe309f41f836a7462dc5881784378e49507fb74c481bb30928c",
+    "static-checks.json": "dc4b2248958748d732e5160a5dd257d4aacee65e033b1e7ad4229664476f2737",
+    "source-invariants.json": "f23aba8dfbdf6987da444c412fa33ebb82a1d36c85867eab99cbe39318daed2c",
+    "skill-validation.json": "d6cda8574f43ebadc912785307961efb5ed2b052cf10ceed05c0f71c4dfc5293",
+    "native-validation.json": "052257a4f7466eecec5865f30402bf2954172e3acf22872c0e3228a961a793f8",
+    "catalog-validation.json": "560bbaeec3968e36331fb81075d773a4ed6be5d67186ca90b371b9b11af38b7e",
+    "package-validation.json": "0f5a0c6e7399032a0ec18f522f998900e08a9a8674c4bb9e95f239f332fd3fb8",
+    "check-record.md": "b1d24a15c3abc9d9c4cd219c2ca609852db41414ff08774c788dcc467ab6a384",
+    "finalize-static.py": "84603cb9b05bf8b14367c9857193406a80ff63749994fbc0a7192f2b1d3f77ff",
+    "artifact-hashes.json": "063d48b993e91e730eb66314753877f926d47dc8f45d083d2555ca02fbea0192",
+    "independent-review.json": "79dcb37d70af65cf5b80f930230a9de511333e1d3cc34ca7ef7a4a881ff77a23",
+    "baseline/CONTRIBUTING.md": "e119dceca9808b043a851052615644600aacfb226e75f7e5adb4b5ce205198eb",
+    "refined/CONTRIBUTING.md": "bd1b61a354f19b38290b476f6f81ba053151d8a9b79356738eee46e3cca7a094",
+    "baseline/plugins/lusona/README.md": "0c183ee4511ff94ea280269dfe53185151f38fe4c689580b5984e15b410feb13",
+    "refined/plugins/lusona/README.md": "925cd27ba590f6734b3c8d2b8f66565f16ec55b56aa2c18b8b27a9ed2e945257",
+    "baseline/plugins/lusona/references/delegation.md": "bc824583e839922fd5dff7d8179cc474d5e30a9877b0232b3a74dfd34e6dc3af",
+    "refined/plugins/lusona/references/delegation.md": "6459309f2370db80c0ac9ef032db242df76c84e74e62081ec3cce4199f4da5e4",
+    "baseline/plugins/lusona/skills/experiment/SKILL.md": "609629acc28dd1905951dc297d7aeb1f8101e8855e65fb3395099e5e2d47a071",
+    "refined/plugins/lusona/skills/experiment/SKILL.md": "8358eb83cdf08b0d756f68b0dece2ad966e0d6d70326283fa891d373cf74900a",
+    "baseline/plugins/lusona/skills/explore/SKILL.md": "e860bf718f670ed572f30d059b28d944c82e0b101fa9223853e23fb5339e5169",
+    "refined/plugins/lusona/skills/explore/SKILL.md": "ee79a1471930de022f43e9010c932d1772c75e36a1bdf9fe589449f17e08840a",
+    "baseline/plugins/lusona/skills/investigate/SKILL.md": "e299c91bcfc5b1b74f8687a1bf2450b46742a218a8d0b2dbe05d97cf07aeb4f7",
+    "refined/plugins/lusona/skills/investigate/SKILL.md": "28212deee0214425b189a00b163d5fe423a1038aaf03d96703ce7ffcff4b6d87",
+    "baseline/plugins/lusona/skills/measure/SKILL.md": "6d36c7923add79067eebc9f0aeb1f46ae3c4524da5ee3021f1bea808e5a9adb7",
+    "refined/plugins/lusona/skills/measure/SKILL.md": "5ad48371bb520aef723c46b77babcbdbdf3551778793a54c402191e355076ae8",
+    "baseline/.github/pull_request_template.md": "8e0d0e60d502d629b94002c630f2d0dfe56095d2a709e51d0a5806716d881f06",
+    "refined/.github/pull_request_template.md": "271659bfb99bbe921c6a1a4341ade4383c58c948514adc02e78a19bca2f2756f"
+  },
+  "source_counts": {
+    "method": "Python str.split(): whitespace words, all touched originals; PR baseline unchanged in prior candidate",
+    "files": {
+      "CONTRIBUTING.md": {
+        "baseline": 1208,
+        "candidate": 1303,
+        "refined": 1182
+      },
+      "plugins/lusona/README.md": {
+        "baseline": 2503,
+        "candidate": 2625,
+        "refined": 2551
+      },
+      "plugins/lusona/references/delegation.md": {
+        "baseline": 811,
+        "candidate": 811,
+        "refined": 841
+      },
+      "plugins/lusona/skills/experiment/SKILL.md": {
+        "baseline": 468,
+        "candidate": 498,
+        "refined": 443
+      },
+      "plugins/lusona/skills/explore/SKILL.md": {
+        "baseline": 450,
+        "candidate": 474,
+        "refined": 442
+      },
+      "plugins/lusona/skills/investigate/SKILL.md": {
+        "baseline": 540,
+        "candidate": 567,
+        "refined": 521
+      },
+      "plugins/lusona/skills/measure/SKILL.md": {
+        "baseline": 452,
+        "candidate": 481,
+        "refined": 442
+      },
+      ".github/pull_request_template.md": {
+        "baseline": 117,
+        "candidate": 117,
+        "refined": 117
+      }
+    },
+    "totals": {
+      "baseline": 6549,
+      "candidate": 6876,
+      "refined": 6539
+    },
+    "runtime_plugin_subtotal": {
+      "baseline": 5224,
+      "candidate": 5456,
+      "refined": 5240
+    },
+    "authoring_guidance_subtotal": {
+      "baseline": 1325,
+      "candidate": 1420,
+      "refined": 1299
+    }
+  },
+  "review": {
+    "reviewer": "/root/review_evidence_refinement",
+    "recorded_by": "coordinator",
+    "scope": "Exact eight-file proposed refinement, independently inspected against AC1\u2013AC6 and surrounding sources",
+    "finding_count": 0,
+    "verdict": "Accept refinement-only proposal after final mechanical validation; no canonical adoption or behavioral success established.",
+    "validation_reconciliation": "Reviewer inspected then-current artifacts; coordinator subsequently confirmed four recovered skill validations passed using existing local PyYAML. No source edits after review freeze.",
+    "limits": [
+      "No new behavioral trials; prior candidate 6/6 does not transfer to this wording.",
+      "Duplicate-verification reduction remains intended, not observed.",
+      "Runtime plugin +16 words and shared core +48 versus baseline despite aggregate -10.",
+      "Installation and native interactive behavior untested."
+    ]
+  },
+  "baseline_resources": "../runs/001/evidence.zip contains full original instruction resources; this archive retains all changed baseline/refined files and static-check logs."
+}

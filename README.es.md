@@ -7,7 +7,7 @@ verificar el resultado. Tú defines el resultado, las restricciones y los permis
 elige la siguiente acción útil a partir de las evidencias disponibles, continúa el trabajo
 autorizado y pregunta cuando necesita información o permiso de tu parte.
 
-Para Claude Code, Codex, [Cursor](INSTALL.md#cursor) y los [agentes de programación de Xcode 27](INSTALL.md#xcode) · Versión del código fuente de esta copia de trabajo: **1.1.1**
+Para Claude Code, Codex, [Cursor](INSTALL.md#cursor) y los [agentes de programación de Xcode 27](INSTALL.md#xcode) · Versión del código fuente de esta copia de trabajo: **1.2.0**
 
 > [!WARNING]
 > No instales Lusona con Vercel Skills (`npx skills@latest`); usa la [instalación como plugin nativo](#installation).
@@ -101,6 +101,8 @@ la habilidad instalada. [Instala Lusona](#installation) antes de usar estos coma
 | [specify](plugins/lusona/skills/specify/SKILL.md) | Acordar el comportamiento, las restricciones, los criterios de aceptación y la política de TDD de un cambio |
 | [architect](plugins/lusona/skills/architect/SKILL.md) | Tomar decisiones importantes sobre diseño, contratos y responsabilidades |
 | [investigate](plugins/lusona/skills/investigate/SKILL.md) | Determinar causas, hechos o viabilidad mediante evidencias y experimentos |
+| [measure](plugins/lusona/skills/measure/SKILL.md) | Medir magnitud, calidad, coste o cambios para fundamentar una decisión |
+| [experiment](plugins/lusona/skills/experiment/SKILL.md) | Probar una intervención o alternativas según criterios definidos |
 | [implement](plugins/lusona/skills/implement/SKILL.md) | Planificar y completar cambios de comportamiento o correcciones de errores autorizados |
 | [review](plugins/lusona/skills/review/SKILL.md) | Examinar un diff concreto para detectar defectos y aspectos sin verificar |
 | [refactor](plugins/lusona/skills/refactor/SKILL.md) | Mejorar la estructura del código existente sin alterar su comportamiento ni su compatibilidad |

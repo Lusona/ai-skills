@@ -1,6 +1,6 @@
 {
   "name": "lusona",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "license": "MIT",
   "description": "Iterative product and engineering work with explicit outcomes, evidence, authorization, TDD, and bounded batch coordination.",
   "keywords": [
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Lusona Skills",
     "shortDescription": "Understand, act, check, and continue.",
-    "longDescription": "Eleven responsibilities available throughout an evidence-driven work loop. Interview for intent and understanding; explore, specify, architect, investigate, implement, and review within explicit authority, with combined change records, bounded delegation, and resumable batches.",
+    "longDescription": "Thirteen responsibilities available throughout an evidence-driven work loop. Interview for intent and understanding; explore, specify, architect, investigate, measure, experiment, implement, and review within explicit authority, with combined change records, bounded delegation, and resumable batches.",
     "developerName": "Lusona",
     "category": "Productivity",
     "capabilities": [

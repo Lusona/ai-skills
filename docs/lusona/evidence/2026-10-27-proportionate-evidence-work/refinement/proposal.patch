@@ -1,0 +1,253 @@
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md
+@@ -93,57 +93,56 @@
+ These requirements are maintained here; an existing suite or evidence record can
+ satisfy them without creating another runner or duplicating its records.
+ 
+-1. **Select relevant cases.** Describe the observable change, affected boundaries, and
+-   why the cases cover them. Include a positive case and a relevant negative or boundary
+-   case. Include multi-turn coverage when correctness depends on steering, retained
+-   authority, or resumption; preserve the turn sequence in the same trial session.
+-   For shared instructions, justify a representative selection across affected
+-   responsibilities. A case can cover several needs; every case and host need not run.
+-   Editorial changes that preserve behavior may use content/link checks alone with a
+-   rationale explaining why behavioral trials are unnecessary.
+-2. **Declare the comparison before trials.** Freeze cases and outcome criteria, exact
+-   inputs, baseline/candidate revisions or hashes and local modifications, host/version,
+-   model/reasoning settings, relevant capabilities/permissions, finite run budget, and
+-   stopping condition. Use an unchanged baseline captured before relevant edits or
+-   recoverable from a pinned snapshot. Keep relevant conditions matched except for the
+-   intended change; disclose mismatches and restrict claims they cannot support.
+-   Actors receive raw tasks and authorized resources, without evaluator rubrics, prior
+-   outcomes, or desired answers. Keep evaluator materials separate from actor inputs.
+-3. **State TDD separately from coverage.** Record the explicitly selected `none`,
+-   `targeted`, or `strict` policy and its user or standing-preference source. Name
+-   behaviors subject to test-first sequencing separately from regression coverage.
+-   For those behaviors, observe the intended baseline failure before changing relevant
+-   instructions, then obtain matched candidate evidence. Passing baseline cases are
+-   characterization coverage. Setup failure, textual disagreement, or weakened criteria
+-   is not behavioral red. Resolve an infeasible selected sequence before substituting
+-   another. Behavior-preserving clarification needs no manufactured failure; `none`
+-   still requires relevant verification.
+-4. **Obtain independent grades.** A person or agent independent of the actor grades
+-   retained conversation, observable actions, and resulting artifacts against the frozen
+-   criteria. Judge outcomes and boundaries, not wording, headings, tool order, or question
+-   counts. Supplement with deterministic state checks where useful. Retain evaluator
+-   identity, exact evidence locations, rationale, and unresolved disagreement. A successful
+-   process exit or an actor's success claim is not a behavioral pass.
+-5. **Report every outcome and limit.** Use `pass`, `fail`, `inconclusive`, or
+-   `setup-blocked` for attempted trials and identify planned but unrun trials separately.
+-   Setup errors, missing capabilities, timeouts, incomplete captures, and unresolved
+-   grading disagreement cannot become passing evidence or behavioral red. An observed
+-   authority or scope violation fails the applicable trial. Include unfavorable and
+-   incomplete results, unrun required checks, and host/model limits. Preserve earlier
+-   attempts; record the reason and authority for retries or budget changes. Do not infer
+-   missing usage, total cost, or statistical significance.
+-6. **Retain reviewable support.** Link exact runs/artifacts supporting each claim and
+-   keep enough provenance and access information for reviewers to inspect them. Material
+-   evidence or a durable reference must survive scratch cleanup; disposable `tmp/` must
+-   not be its only home. Large transcripts need not be committed to Git. Follow the
+-   [evidence procedure](plugins/lusona/references/evidence.md) for material decision
+-   evidence; routine verification stays with its existing owner. Record redactions or
+-   unavailable evidence and the limits they impose.
++1. **Choose proportionate coverage.** Describe the observable change, affected boundaries, and
++   coverage rationale. Include positive and relevant negative/boundary cases; preserve
++   multi-turn sequences in the same trial session for steering, authority, or resumption.
++   Justify representative coverage across shared responsibilities; cases may overlap; not every
++   host must run. Low-risk, noncomparative behavior changes may use relevant candidate-only
++   checks. Matched baseline/candidate evidence is required for named test-first behaviors,
++   comparative improvement claims, and consequential shared boundaries (authority, TDD,
++   completion, trust, persistent data, cross-worker ownership). File count alone does not
++   determine risk. Editorial behavior-preserving changes may use content/link checks with a
++   rationale.
++2. **Declare verification before trials.** Freeze applicable cases, outcome criteria, exact
++   inputs, candidate revisions/hashes and local modifications, host/version, model/reasoning,
++   capabilities/permissions, finite budget, and stopping condition. When comparison is required,
++   pin an unchanged baseline captured before relevant edits or recoverable from a snapshot.
++   Match relevant conditions except the intended change; disclose mismatches and limit claims.
++   Keep evaluator materials separate; actors receive raw tasks and authorized resources without
++   rubrics, prior outcomes, or desired answers.
++3. **State TDD separately.** Record the explicitly selected `none`, `targeted`, or `strict`
++   policy and its user or standing-preference source. Separate named test-first behaviors from
++   regression coverage. For test-first behaviors, observe intended baseline failure before
++   relevant edits, then obtain matched candidate evidence. Passing baselines are
++   characterization; setup failure, textual disagreement, or weakened criteria is not red.
++   Resolve infeasible sequencing before substituting an approach. Later evidence cannot
++   establish a missed sequence. Behavior-preserving clarification needs no manufactured failure;
++   `none` still requires verification.
++4. **Grade independently.** A person or agent independent of the actor grades retained
++   conversation, actual actions, and artifacts against frozen criteria. Judge semantic outcomes
++   and boundaries, not wording, headings, tool order, or question counts. One qualified reviewer
++   may assess both diff and outcomes; role labels alone do not require another reviewer.
++   Supplement with deterministic checks where useful. Retain grader identity, exact evidence,
++   rationale, and unresolved disagreement. Process exit or actor success claims do not prove
++   behavioral success.
++5. **Report all outcomes and limits.** Use `pass`, `fail`, `inconclusive`, or `setup-blocked`
++   for attempted trials; identify planned but unrun trials. Setup errors, missing capabilities,
++   timeouts, incomplete captures, and unresolved grading cannot count as passing evidence or
++   red. Observed authority or scope violations fail the applicable trial. Include unfavorable
++   and incomplete results, unrun required checks, and host/model limits. Preserve earlier
++   attempts; record retry/budget-change reasons and authority. Do not infer missing usage, total
++   cost, or statistical significance.
++6. **Retain reviewable support.** Link exact runs/artifacts with provenance and access for
++   inspection. Material evidence or a durable reference must survive scratch cleanup; disposable
++   `tmp/` cannot be its only home. Large transcripts need not enter Git. Follow [evidence
++   retention](plugins/lusona/references/evidence.md) for material decision evidence; routine
++   verification stays with its owner. Record redactions, unavailable evidence, and resulting
++   limits.
+ 
+-A contribution summary should identify TDD policy/source, selected cases and rationale,
+-condition identifiers, independent grades, outcome totals (including incomplete/unrun
+-work), exact evidence references, and limitations. For editorial-only changes, provide
+-the behavior-preserving rationale and static-check results instead of trial metadata.
++Contribution summaries identify TDD/source, coverage rationale, applicable condition identifiers
++and independent grades, all outcomes including incomplete/unrun work, exact evidence, and
++limits. Comparison identifiers apply only to comparisons. Editorial summaries give the
++behavior-preserving rationale and static results instead of trial metadata.
+ 
+ ## Open a pull request
+ 
+--- a/plugins/lusona/README.md
++++ b/plugins/lusona/README.md
+@@ -56,14 +56,18 @@
+ finishing the assignment achieves the larger goal; do not invent requirements or audit the whole
+ product after every task.
+ 
+-Use [measure](skills/measure/SKILL.md) when a decision depends on an unknown magnitude,
+-an unsupported comparison, or stale evidence; use [experiment](skills/experiment/SKILL.md)
+-when testing an intervention or comparing alternatives. These responsibilities can arise
+-naturally during authorized work without another command or a mandatory phase. Choose the
+-smallest study that could change the decision, within current scope and resource authority.
+-Diagnostic experiments remain with [investigate](skills/investigate/SKILL.md).
+-Retain material measurements and experiments under the [evidence rules](references/evidence.md);
+-connect findings to the goal and distinguish current blockers from separate opportunities.
++Optional [measurement](skills/measure/SKILL.md) or [experimentation](skills/experiment/SKILL.md)
++requires an explicit request or standing authority with finite scope/resource budget; uncertainty
++and alternatives alone do not launch studies. Choose routine details within authority without
++repeated approval. Ask only for missing consequential decisions or commitments; otherwise state
++uncertainty and continue authorized work without repeated study offers.
++
++Applicable checks, selected TDD, empirical acceptance, and resource/permission boundaries remain
++binding. Verified improvement claims need comparable support; report unmet requirements or
++unsupported claims and continue independent work. Small self-contained empirical checks using available tools and inputs
++may stay with their task owner without another study, delegate, stage, or record. Ordinary diagnostic
++probes remain [investigation](skills/investigate/SKILL.md). Keep routine evidence with its task;
++retain material decision evidence and provenance under [evidence rules](references/evidence.md).
+ Proposed additions, splits, deferrals, or priority changes do not authorize execution or
+ change accepted priorities on their own.
+ 
+@@ -236,8 +240,10 @@
+ Coordinator-only: the main agent coordinates questions, assignments, reconciliation, integration,
+ verification, and shared state. Delegate substantive framing, mapping, specification, architecture,
+ implementation planning/execution, refactoring, investigation, measurement, experimentation,
+-and review. Delegating only preliminary inspection is insufficient. Explore/status conversation and orientation can remain
+-local. One sequential worker suffices; parallelism is optional.
++and review, except [task-local measurement/experiment checks](#work-loop); independent review
++and other delegation remain required. Preliminary inspection alone is insufficient.
++Explore/status conversation and orientation can remain local. One sequential worker suffices;
++parallelism is optional.
+ 
+ If delegation is prohibited or tools are unavailable, explain and perform authorized work locally.
+ Occupied capacity is not unavailability: wait, reuse, or release finished workers. Local fallback
+--- a/plugins/lusona/references/delegation.md
++++ b/plugins/lusona/references/delegation.md
+@@ -71,8 +71,11 @@
+ 
+ Coordinator acceptance is separate: verify a complete result and resolve material concerns;
+ supply or defer a blocked prerequisite; schedule bounded continuation for incomplete work.
+-Serialize dependencies and mutable checks, verify returned evidence, and stop previous writers
+-before transferring ownership. Worker completion does not establish acceptance or release capacity.
++Serialize dependencies and mutable checks; reconcile returned evidence against acceptance and
++[verification rules](tdd.md). Reuse adequate worker checks for unchanged inputs. Rerun for changed
++inputs, failures, missing or unreliable evidence, or unresolved concrete risks; preserve independently
++required checks and review. Stop previous writers before transferring ownership. Worker completion
++does not establish acceptance or release capacity.
+ 
+ A missing or malformed report, idle notification, or host-reported crash is not success.
+ Request missing information from a reachable worker or reconcile artifacts and host evidence;
+--- a/plugins/lusona/skills/experiment/SKILL.md
++++ b/plugins/lusona/skills/experiment/SKILL.md
+@@ -10,11 +10,9 @@
+ Read linked procedures only when their operation applies.
+ Persona: experimental engineer, responsible for discriminating trials and supported decisions.
+ 
+-An experiment may arise naturally within existing authority; it is not a mandatory phase.
+-Reuse accepted scope and settled decisions. Diagnostic cause or feasibility questions can use
+-[investigate](../investigate/SKILL.md); [measure](../measure/SKILL.md) supplies measurement
+-discipline when magnitude or quality needs evaluation. These responsibilities do not require
+-separate stages or another approval within the existing scope.
++Apply [Work loop](../../README.md#work-loop) for study entry, authority, and task-local checks.
++Reuse accepted scope and decisions. Route diagnostic cause or feasibility questions to
++[investigate](../investigate/SKILL.md); [measure](../measure/SKILL.md) supplies measurement discipline.
+ 
+ ## Design and run the bounded trial
+ 
+--- a/plugins/lusona/skills/explore/SKILL.md
++++ b/plugins/lusona/skills/explore/SKILL.md
+@@ -34,10 +34,10 @@
+ use their reactions to develop an informed preference. Challenge assumptions with evidence
+ or counterexamples and distinguish facts, hypotheses, preferences, and decisions.
+ 
+-Verify material external claims when needed and permitted, citing support. Mark claims you
+-could not confirm and say where you looked. For an unknown magnitude, use
+-[measure](../measure/SKILL.md); for testing an intervention or alternatives, use [experiment](../experiment/SKILL.md). Route causal or technical feasibility
+-uncertainty to [investigate](../investigate/SKILL.md).
++Verify material external claims when permitted; cite support or state uncertainty and where
++you looked. Apply [Work loop](../../README.md#work-loop) before optional studies; uncertainty
++alone does not block discussion. Route causal or technical feasibility probes to
++[investigate](../investigate/SKILL.md).
+ Keep research within the request.
+ 
+ If a technique needs illustration, consult only the relevant optional
+--- a/plugins/lusona/skills/investigate/SKILL.md
++++ b/plugins/lusona/skills/investigate/SKILL.md
+@@ -45,11 +45,10 @@
+ 
+ Apply [Context budget](../../README.md#context-budget) at each experiment conclusion.
+ 
+-Material measurements and diagnostic experiments follow the shared
+-[evidence rules](../../references/evidence.md); link exact runs from the owning investigation
+-rather than duplicating results in notes. Diagnostic experiments stay with this skill; use
+-[experiment](../experiment/SKILL.md) when evaluating an intervention is itself the outcome,
+-and [measure](../measure/SKILL.md) when the question is magnitude rather than cause.
++Apply [Work loop](../../README.md#work-loop) for diagnostic probes, task-local checks, and
++study entry. Link material evidence from this investigation under the [evidence rules](../../references/evidence.md).
++Use [experiment](../experiment/SKILL.md) for intervention evaluation or [measure](../measure/SKILL.md)
++for magnitude.
+ 
+ ## Next action
+ 
+--- a/plugins/lusona/skills/measure/SKILL.md
++++ b/plugins/lusona/skills/measure/SKILL.md
+@@ -11,9 +11,9 @@
+ Persona: measurement engineer, responsible for valid instruments, comparable observations,
+ and conclusions proportionate to the evidence.
+ 
+-Measurement may arise within any authorized task; it is not a mandatory phase. Reuse the
+-decision, scope, and evidence already established. A request to measure does not authorize
+-production changes or consequential data collection beyond that scope.
++Apply [Work loop](../../README.md#work-loop) for study entry, authority, and task-local checks.
++Reuse settled decisions and evidence. Measurement does not authorize production changes or
++consequential data collection beyond scope.
+ 
+ ## Establish and interpret the measurement
+ 
+--- a/.github/pull_request_template.md
++++ b/.github/pull_request_template.md
+@@ -8,13 +8,13 @@
+ 
+ - TDD policy and source; named test-first behaviors and red/green references, if applicable:
+ - Selected positive/boundary/multi-turn cases and coverage rationale:
+-- Baseline/candidate and condition identifiers; exact evidence references and access:
++- Applicable candidate/comparison and condition identifiers; exact evidence references and access:
+ - Independent grader, grades, rationale, and any disagreement:
+ - Outcome summary, including unfavorable/incomplete results and planned but unrun trials:
+ - Repository checks performed and results:
+ 
+-For editorial-only changes, explain why behavior is preserved and give content/link
+-check results; trial fields may be marked not applicable with that rationale.
++Mark inapplicable fields with a rationale; candidate-only checks need no comparison identifiers.
++For editorial changes, give the behavior-preserving rationale and content/link results.
+ 
+ ## Limitations
+ 

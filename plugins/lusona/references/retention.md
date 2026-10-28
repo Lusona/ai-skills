@@ -32,10 +32,13 @@ progresses. Preserve established ownership for existing separate specs and plans
 consequential architecture decisions. Add an execution section only when sequencing,
 dependencies, uncertainty, recovery, or a long run whose earlier context will be summarized
 before it finishes makes it useful; straightforward work needs no task list.
-Tasks reference acceptance criteria rather than restating them. Save evidence directly in the
-change record whether or not it has tasks. Split a new record only for separate ownership,
+Tasks reference acceptance criteria rather than restating them. Save routine verification
+evidence directly in the change record whether or not it has tasks. For material measurements and experiments, follow
+[evidence](evidence.md): new records live in `docs/lusona/evidence/`, and change records, notes,
+and history link the exact runs they rely on. Existing evidence stays in place; do not migrate
+it merely to adopt the new layout. Split a new record only for separate ownership,
 reuse, or readability, retaining links and one owner for each fact. Use `notes/<change-slug>.md`
-for useful exploration decisions, open questions, investigations, measurements, or findings
+for useful exploration decisions, open questions, investigations or findings
 without an existing owner; an Ideas item needs no premature spec. Link notes from the queue
 or owning record when available. Retain facts
 needed to resume, explain a decision, reproduce a result, or avoid repeating investigation;

@@ -5,6 +5,8 @@ Context: <work item or bounded question; link an existing owning record when ava
 Keep only recovery-dependent understanding, decisions, open questions, or findings without
 an existing owner. A full spec or queue is not required. Use one dated section per
 distinct question; update it as evidence changes instead of appending a session diary.
+For material measurements and experiments, link exact runs under the
+[evidence rules](../references/evidence.md); keep discussion and decisions here.
 Omit unused fields. Replace a finding with a link if another document becomes its owner.
 
 ## YYYY-MM-DD — <question or finding>

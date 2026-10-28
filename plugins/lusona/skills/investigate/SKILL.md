@@ -45,6 +45,11 @@ the bounded question, verifies the evidence, and reconciles returned findings.
 
 Apply [Context budget](../../README.md#context-budget) at each experiment conclusion.
 
+Apply [Work loop](../../README.md#work-loop) for diagnostic probes, task-local checks, and
+study entry. Link material evidence from this investigation under the [evidence rules](../../references/evidence.md).
+Use [experiment](../experiment/SKILL.md) for intervention evaluation or [measure](../measure/SKILL.md)
+for magnitude.
+
 ## Next action
 
 Apply the core's continue/ask/pause/complete boundaries. When no useful authorized experiment

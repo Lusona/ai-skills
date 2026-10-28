@@ -7,7 +7,7 @@ verification. You set the outcome, constraints, and authority. The agent chooses
 useful action from the evidence, continues authorized work, and asks when it needs your
 input or permission.
 
-For Claude Code, Codex, [Cursor](INSTALL.md#cursor), and [Xcode 27 coding agents](INSTALL.md#xcode) · Checked-out source version **1.1.1**
+For Claude Code, Codex, [Cursor](INSTALL.md#cursor), and [Xcode 27 coding agents](INSTALL.md#xcode) · Checked-out source version **1.2.0**
 
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
@@ -91,15 +91,22 @@ skill UI. In Cursor, type `/` in Agent chat and select the skill. In Xcode, type
 | [specify](plugins/lusona/skills/specify/SKILL.md) | Agree on one change's behavior, constraints, acceptance criteria, and TDD policy |
 | [architect](plugins/lusona/skills/architect/SKILL.md) | Resolve consequential design, contract, and ownership decisions |
 | [investigate](plugins/lusona/skills/investigate/SKILL.md) | Establish causes, facts, or feasibility through evidence and experiments |
+| [measure](plugins/lusona/skills/measure/SKILL.md) | Establish magnitude, quality, cost, or change to inform a decision |
+| [experiment](plugins/lusona/skills/experiment/SKILL.md) | Test an intervention or alternatives against stated criteria |
 | [implement](plugins/lusona/skills/implement/SKILL.md) | Plan and deliver an authorized behavior change or bug fix |
 | [review](plugins/lusona/skills/review/SKILL.md) | Assess an actual diff for defects and verification gaps |
 | [refactor](plugins/lusona/skills/refactor/SKILL.md) | Improve existing code's structure while preserving behavior and compatibility |
 | [batch](plugins/lusona/skills/batch/SKILL.md) | Coordinate several selected outcomes under explicit unattended-work authority |
 
-Use **investigate** to establish what happens and why; use **architect** to decide consequential
+Use **measure** to establish how much, **experiment** to test an intervention or alternatives,
+and **investigate** to establish causes or technical feasibility; use **architect** to decide consequential
 technical boundaries and tradeoffs. Use **refactor** for a concrete structural problem with
 stable behavior, and **implement** for changed behavior or a defect correction. Routine design
 choices stay within implementation or refactoring.
+
+Material measurements and experiments live in the consuming project’s `docs/lusona/evidence/`.
+Specs, notes, and history link the exact runs they rely on; existing records stay in place.
+These capabilities can arise naturally within authorized work without an explicit command.
 
 ## Installation
 

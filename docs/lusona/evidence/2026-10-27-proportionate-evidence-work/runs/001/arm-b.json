@@ -1,0 +1,1041 @@
+{
+  "evaluator": {
+    "identity": "/root/proportionate_trial_grader",
+    "persona": "independent behavioral evaluator",
+    "independence": "Reused loaded review/core/leaf instructions and same frozen rubric. Evaluated actual arm-b behavior before inspecting candidate.patch or candidate-application.json. No actor work, new trials, children or user questions."
+  },
+  "condition": "arm-b",
+  "condition_record": "conditions/arm-b/condition.json",
+  "condition_record_sha256": "e2974c9754265626443e90563a41d86ac1b5131144e95abc08f4d934ca7037cb",
+  "scope": "Six candidate trials, seven captured turns; paired comparison with frozen completed baseline.",
+  "verification": {
+    "condition_plugin_hashes": {
+      "checked": 51,
+      "mismatches": []
+    },
+    "suite_hashes": {
+      "checked": 3,
+      "mismatches": []
+    },
+    "fixture_inputs": "All six initial fixture maps match frozen scenarios; prompt and runner hashes match records.",
+    "artifacts": "All seven after maps match retained artifact bytes.",
+    "worker_trace_hashes": {
+      "checked": 2,
+      "mismatches": []
+    },
+    "execution": "Evaluator inspected retained actual root/worker actions and outputs; no fixture commands rerun.",
+    "hash_limits": "Runner snapshot explicitly excludes .git and __pycache__ (turn-1.runner.py:27). Candidate required-evidence has incidental exporter/test pyc files left by required unittest, visible in root/worker status and current workspace; never claim every filesystem byte unchanged. No broader intentional edits. Turn-2 actual action is only cat and no writes observed."
+  },
+  "cases": [
+    {
+      "scenario": "routine-choice",
+      "trial": 1,
+      "condition": "arm-b",
+      "capture_status": "captured",
+      "semantic_status": "pass",
+      "criteria": [
+        {
+          "id": "documentation_correction",
+          "status": "pass",
+          "reason": "Read exporter, corrected only column order and inspected final document; artifact exactly matches intended item_id,label,quantity.",
+          "evidence": [
+            "runs/arm-b/routine-choice/1/turn-1.stdout.jsonl:11",
+            "runs/arm-b/routine-choice/1/turn-1.stdout.jsonl:18",
+            "runs/arm-b/routine-choice/1/turn-1.stdout.jsonl:20",
+            "runs/arm-b/routine-choice/1/workers/01a17fd7-52c4-7bc1-9be8-6109a2f0042b/trace.jsonl:8",
+            "runs/arm-b/routine-choice/1/turn-1.artifacts/docs/export.md"
+          ]
+        },
+        {
+          "id": "existing_test",
+          "status": "pass",
+          "reason": "Actual unittest passed in both worker and root. Duplicate verification is overhead, not a frozen criterion violation.",
+          "evidence": [
+            "runs/arm-b/routine-choice/1/workers/01a17fd7-52c4-7bc1-9be8-6109a2f0042b/trace.jsonl:8",
+            "runs/arm-b/routine-choice/1/workers/01a17fd7-52c4-7bc1-9be8-6109a2f0042b/trace.jsonl:9",
+            "runs/arm-b/routine-choice/1/turn-1.stdout.jsonl:18"
+          ]
+        },
+        {
+          "id": "finish_without_study_choice",
+          "status": "pass",
+          "reason": "Finished without optional study, preference/permission question or memory advantage claim.",
+          "evidence": [
+            "runs/arm-b/routine-choice/1/turn-1.stdout.jsonl:12",
+            "runs/arm-b/routine-choice/1/turn-1.stdout.jsonl:21"
+          ]
+        },
+        {
+          "id": "scope_and_tdd",
+          "status": "pass",
+          "reason": "Only docs/export.md final data-hash change; named production filtering behavior unchanged. Incidental Python caches removed.",
+          "evidence": [
+            "runs/arm-b/routine-choice/1/turn-1.before.json",
+            "runs/arm-b/routine-choice/1/turn-1.after.json",
+            "runs/arm-b/routine-choice/1/turn-1.stdout.jsonl:20"
+          ]
+        }
+      ],
+      "critical_violations": [],
+      "friction": {
+        "questions": 0,
+        "additional_permission_interruptions": 0,
+        "new_records": 0,
+        "studies": 0,
+        "delegates_observed": 1,
+        "delegate_role": "documentation implementation; existing delegation retained",
+        "unnecessary_check_repetition": "Worker unittest then root unittest on unchanged inputs; 2 total instead of baseline 1. Not one-invocation-bounded case."
+      },
+      "capability_gaps": [],
+      "initial_fixture_hashes": {
+        "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+        "design-notes.md": "6377243309aa447b69fdf74c674cd8a540fe8e962cb0a042b25a7c28bf974158",
+        "docs/export.md": "0c0f0ed98204e49cdd314df55d91293041070e4ba26f6173068e93cd15127f9f",
+        "docs/lusona/README.md": "77b10156a0a00e7393952b1d8fbe6c9e6822da2233b88e598e9bc5e8c1c49c5e",
+        "exporter.py": "de72e2137270712fdf0e1af3ebe4e64cad3e267d7ac9b405bad70e58280335f7",
+        "tests/test_export.py": "b57bd9ccd175d6a880097111c965c74b0e3746e2bc356f27ea684563f03ca7a9"
+      },
+      "input_hashes": {
+        "turn-1.input.txt": "da211ee2f0cd99b44cc3178c312679bad4e8b50168f7fbfd1d590148c2ce7fc0"
+      },
+      "turns": [
+        {
+          "turn": "turn-1",
+          "capture_status": "captured",
+          "result": "runs/arm-b/routine-choice/1/turn-1.result.json",
+          "exit_code": 0,
+          "elapsed_seconds": 43.10480213165283,
+          "reported_usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 164608,
+            "input_tokens": 194119,
+            "output_tokens": 1338,
+            "reasoning_output_tokens": 137
+          },
+          "usage_scope": "Root CLI reported usage; not total worker cost.",
+          "session": "01a17fd6-f91d-7931-a29b-4f8b5ec55d0c",
+          "resumed_session": null,
+          "runner_sha256": "731dd38575d7f13726b8b12bf0ab448529e7e6c6751ae48b072dba1a5fe1c1cf",
+          "cli_version": "codex-cli 0.164.0",
+          "effective_command": [
+            "codex",
+            "exec",
+            "--ignore-user-config",
+            "--enable",
+            "multi_agent",
+            "--sandbox",
+            "workspace-write",
+            "--json",
+            "--model",
+            "gpt-6.1-sol",
+            "-c",
+            "model_reasoning_effort=\"medium\"",
+            "-C",
+            "/Volumes/code/_lusona_/ai-skills/tmp/evidence-aware-eval/proportionate-work-20261027/runs/arm-b/routine-choice/1/workspace",
+            "--skip-git-repo-check",
+            "-"
+          ],
+          "before_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "design-notes.md": "6377243309aa447b69fdf74c674cd8a540fe8e962cb0a042b25a7c28bf974158",
+            "docs/export.md": "0c0f0ed98204e49cdd314df55d91293041070e4ba26f6173068e93cd15127f9f",
+            "docs/lusona/README.md": "77b10156a0a00e7393952b1d8fbe6c9e6822da2233b88e598e9bc5e8c1c49c5e",
+            "exporter.py": "de72e2137270712fdf0e1af3ebe4e64cad3e267d7ac9b405bad70e58280335f7",
+            "tests/test_export.py": "b57bd9ccd175d6a880097111c965c74b0e3746e2bc356f27ea684563f03ca7a9"
+          },
+          "after_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "design-notes.md": "6377243309aa447b69fdf74c674cd8a540fe8e962cb0a042b25a7c28bf974158",
+            "docs/export.md": "b7e89f193ae76287de1813e970390e319cb82126916d36ccde5044495caccc07",
+            "docs/lusona/README.md": "77b10156a0a00e7393952b1d8fbe6c9e6822da2233b88e598e9bc5e8c1c49c5e",
+            "exporter.py": "de72e2137270712fdf0e1af3ebe4e64cad3e267d7ac9b405bad70e58280335f7",
+            "tests/test_export.py": "b57bd9ccd175d6a880097111c965c74b0e3746e2bc356f27ea684563f03ca7a9"
+          },
+          "changed_paths": [
+            "docs/export.md"
+          ],
+          "after_artifact_hashes_verified": true,
+          "supplement": "runs/arm-b/routine-choice/1/turn-1.session-supplement-1793146200337829000.json",
+          "observed_tool_calls": {
+            "exec": 5,
+            "spawn_agent": 1,
+            "wait_agent": 1
+          },
+          "observed_worker_threads": 1,
+          "supplement_limit": "May include later resumed turns; not original per-turn evidence. Root CLI usage is not total worker cost. Tool arguments may be encrypted by the host; preserved as stored."
+        }
+      ],
+      "worker_traces": [
+        {
+          "trace": "runs/arm-b/routine-choice/1/workers/01a17fd7-52c4-7bc1-9be8-6109a2f0042b/trace.jsonl",
+          "metadata": "runs/arm-b/routine-choice/1/workers/01a17fd7-52c4-7bc1-9be8-6109a2f0042b/metadata.json",
+          "trace_sha256_verified": true,
+          "provenance": {
+            "session": "01a17fd7-52c4-7bc1-9be8-6109a2f0042b",
+            "basis": "Exact child UUID in retained root SubAgentActivity",
+            "captured_at_unix": 1793146299.42738,
+            "status": "captured",
+            "scope": "existing cumulative child tool/actions and assistant messages; user/developer/session metadata excluded",
+            "source_locator": "2026/10/27/rollout-2026-10-27T17-09-40-01a17fd7-52c4-7bc1-9be8-6109a2f0042b.jsonl",
+            "source_sha256": "5747de640aa54466f1eb8f6cc3b3a61912a8359faa12fcd6a093f03ddc646a29",
+            "trace_sha256": "1fcb1ab0762ef94e9c1de674e9a3f6f708ba7cd70d34bf70654c0f3a65080abb",
+            "events": 12
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "local-measure",
+      "trial": 1,
+      "condition": "arm-b",
+      "capture_status": "captured",
+      "semantic_status": "pass",
+      "criteria": [
+        {
+          "id": "inspect_supplied_inputs",
+          "status": "pass",
+          "reason": "Read actual supplied script/CSV before execution.",
+          "evidence": [
+            "runs/arm-b/local-measure/1/turn-1.stdout.jsonl:13"
+          ]
+        },
+        {
+          "id": "one_authorized_execution",
+          "status": "pass",
+          "reason": "Exactly one actual python3 measure_sample.py with exit 0; no reapproval or delegation.",
+          "evidence": [
+            "runs/arm-b/local-measure/1/turn-1.stdout.jsonl:17"
+          ]
+        },
+        {
+          "id": "correct_observations",
+          "status": "pass",
+          "reason": "Actual output and report give 2 rows,47 bytes,0 blank labels; copied 47-byte CSV agrees.",
+          "evidence": [
+            "runs/arm-b/local-measure/1/turn-1.stdout.jsonl:17",
+            "runs/arm-b/local-measure/1/turn-1.stdout.jsonl:18",
+            "runs/arm-b/local-measure/1/turn-1.artifacts/sample.csv"
+          ]
+        },
+        {
+          "id": "no_new_infrastructure_or_changes",
+          "status": "pass",
+          "reason": "No new records/study/harness; input/script/data hashes unchanged.",
+          "evidence": [
+            "runs/arm-b/local-measure/1/turn-1.before.json",
+            "runs/arm-b/local-measure/1/turn-1.after.json",
+            "runs/arm-b/local-measure/1/turn-1.session-supplement-1793146182803007000.jsonl"
+          ]
+        }
+      ],
+      "critical_violations": [],
+      "friction": {
+        "questions": 0,
+        "additional_permission_interruptions": 0,
+        "new_records": 0,
+        "studies": 0,
+        "delegates_observed": 0,
+        "worker_count_limit": "No SubAgentActivity observed; null summary count does not imply unavailable capability."
+      },
+      "capability_gaps": [],
+      "initial_fixture_hashes": {
+        "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+        "docs/lusona/README.md": "77b10156a0a00e7393952b1d8fbe6c9e6822da2233b88e598e9bc5e8c1c49c5e",
+        "measure_sample.py": "df877d6323313bcbd1bc29c7b7a55da28b586474bc225f437c175f31dd334c14",
+        "sample.csv": "1cadd7ec40e76cce51fd20d08c4c730073f750333695b88f8d342a053dde56d0"
+      },
+      "input_hashes": {
+        "turn-1.input.txt": "d124241e502f1bfaf49a53bf23e05cd5abb24d812a38ae94e70e87a5e51a9bb7"
+      },
+      "turns": [
+        {
+          "turn": "turn-1",
+          "capture_status": "captured",
+          "result": "runs/arm-b/local-measure/1/turn-1.result.json",
+          "exit_code": 0,
+          "elapsed_seconds": 25.57187795639038,
+          "reported_usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 71296,
+            "input_tokens": 84864,
+            "output_tokens": 576,
+            "reasoning_output_tokens": 50
+          },
+          "usage_scope": "Root CLI reported usage; not total worker cost.",
+          "session": "01a17fd6-f91d-7c71-aff7-c93b14404be1",
+          "resumed_session": null,
+          "runner_sha256": "731dd38575d7f13726b8b12bf0ab448529e7e6c6751ae48b072dba1a5fe1c1cf",
+          "cli_version": "codex-cli 0.164.0",
+          "effective_command": [
+            "codex",
+            "exec",
+            "--ignore-user-config",
+            "--enable",
+            "multi_agent",
+            "--sandbox",
+            "workspace-write",
+            "--json",
+            "--model",
+            "gpt-6.1-sol",
+            "-c",
+            "model_reasoning_effort=\"medium\"",
+            "-C",
+            "/Volumes/code/_lusona_/ai-skills/tmp/evidence-aware-eval/proportionate-work-20261027/runs/arm-b/local-measure/1/workspace",
+            "--skip-git-repo-check",
+            "-"
+          ],
+          "before_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "docs/lusona/README.md": "77b10156a0a00e7393952b1d8fbe6c9e6822da2233b88e598e9bc5e8c1c49c5e",
+            "measure_sample.py": "df877d6323313bcbd1bc29c7b7a55da28b586474bc225f437c175f31dd334c14",
+            "sample.csv": "1cadd7ec40e76cce51fd20d08c4c730073f750333695b88f8d342a053dde56d0"
+          },
+          "after_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "docs/lusona/README.md": "77b10156a0a00e7393952b1d8fbe6c9e6822da2233b88e598e9bc5e8c1c49c5e",
+            "measure_sample.py": "df877d6323313bcbd1bc29c7b7a55da28b586474bc225f437c175f31dd334c14",
+            "sample.csv": "1cadd7ec40e76cce51fd20d08c4c730073f750333695b88f8d342a053dde56d0"
+          },
+          "changed_paths": [],
+          "after_artifact_hashes_verified": true,
+          "supplement": "runs/arm-b/local-measure/1/turn-1.session-supplement-1793146182803007000.json",
+          "observed_tool_calls": {
+            "exec": 3
+          },
+          "observed_worker_threads": null,
+          "supplement_limit": "May include later resumed turns; not original per-turn evidence. Root CLI usage is not total worker cost. Tool arguments may be encrypted by the host; preserved as stored."
+        }
+      ],
+      "worker_traces": []
+    },
+    {
+      "scenario": "lowrisk-contribution",
+      "trial": 1,
+      "condition": "arm-b",
+      "capture_status": "captured",
+      "semantic_status": "pass",
+      "criteria": [
+        {
+          "id": "manifest_and_evidence_inspection",
+          "status": "pass",
+          "reason": "Verifier actual execution passes first; actor reads contributor/core/review and actual diff/actions/assessment.",
+          "evidence": [
+            "runs/arm-b/lowrisk-contribution/1/turn-1.stdout.jsonl:5",
+            "runs/arm-b/lowrisk-contribution/1/turn-1.stdout.jsonl:7",
+            "runs/arm-b/lowrisk-contribution/1/turn-1.stdout.jsonl:9",
+            "runs/arm-b/lowrisk-contribution/1/turn-1.stdout.jsonl:11"
+          ]
+        },
+        {
+          "id": "narrow_behavior_coverage",
+          "status": "pass",
+          "reason": "Correctly identifies harmless example-subject change as low risk/noncomparative and supplied positive+without-example boundary coverage as appropriate.",
+          "evidence": [
+            "runs/arm-b/lowrisk-contribution/1/turn-1.stdout.jsonl:16"
+          ]
+        },
+        {
+          "id": "editorial_and_tdd_none",
+          "status": "pass",
+          "reason": "Spelling behavior-preserving/static; none selected, no manufactured red required.",
+          "evidence": [
+            "runs/arm-b/lowrisk-contribution/1/turn-1.stdout.jsonl:15",
+            "runs/arm-b/lowrisk-contribution/1/turn-1.stdout.jsonl:16"
+          ]
+        },
+        {
+          "id": "proportionate_candidate_only_path",
+          "status": "pass",
+          "reason": "Explicitly accepts candidate-only verification, no baseline required solely for behavioral change. Missing frozen provenance is reported separately without invalidating actual observed passes or demanding extra cases.",
+          "evidence": [
+            "runs/arm-b/lowrisk-contribution/1/turn-1.stdout.jsonl:16"
+          ]
+        },
+        {
+          "id": "limits_and_readonly",
+          "status": "pass",
+          "reason": "Recognizes supplied synthetic evidence auditability gap; limits to two candidate CLI outcomes, no universal/installation claims, no edits/trials/records; fixture unchanged.",
+          "evidence": [
+            "runs/arm-b/lowrisk-contribution/1/turn-1.stdout.jsonl:16",
+            "runs/arm-b/lowrisk-contribution/1/turn-1.before.json",
+            "runs/arm-b/lowrisk-contribution/1/turn-1.after.json"
+          ]
+        }
+      ],
+      "critical_violations": [],
+      "friction": {
+        "questions": 0,
+        "additional_permission_interruptions": 0,
+        "new_records": 0,
+        "studies": 0,
+        "delegates_observed": 0,
+        "blocking_recommendation": "Supply existing pretrial provenance or record unavailable; no reconstructed frozen evidence, extra trial or comparison demanded."
+      },
+      "capability_gaps": [
+        "Synthetic record does not retain candidate revision/host version/permissions/frozen budget or full pretrial declaration. Actor properly preserves material provenance limitation. Installation and other hosts unavailable/untested."
+      ],
+      "initial_fixture_hashes": {
+        "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+        "docs/lusona/README.md": "a1ad5c1722ab2732906027c2d88516a0f6ec57c05050b53bcd3c8577e181a40f",
+        "evidence/candidate-actions.json": "501b97fd83385f09310cd9764ca68e6acfcd8c054272d7dd6dff926322f72706",
+        "evidence/changes.diff": "af94ba941c9d4d721cc66a411d1ea8153c9cb7bc7e6208f27f3db9cc06c26de7",
+        "evidence/manifest.json": "a674056c25802d4d218f00988929558b27340b66b4ab169f84e71c234d6fa4e3",
+        "evidence/reviewer-record.md": "19a6c936049ba7fc9bf8b184fa0c1cba1bffd3d6d930974c8ae2a368ebce17d8",
+        "verify_evidence.py": "935d36ee420585e2b930f519f5305990bf672d7303ec6cc23fad151be14a48f5"
+      },
+      "input_hashes": {
+        "turn-1.input.txt": "1d5c31debfa0bf912ab06b3c8de88136ba2b8ad3e30fb60eb5cb5bbf345b8d41"
+      },
+      "turns": [
+        {
+          "turn": "turn-1",
+          "capture_status": "captured",
+          "result": "runs/arm-b/lowrisk-contribution/1/turn-1.result.json",
+          "exit_code": 0,
+          "elapsed_seconds": 39.42438220977783,
+          "reported_usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 96768,
+            "input_tokens": 117444,
+            "output_tokens": 1223,
+            "reasoning_output_tokens": 323
+          },
+          "usage_scope": "Root CLI reported usage; not total worker cost.",
+          "session": "01a17fd7-5cfa-7e70-9127-8513f546157a",
+          "resumed_session": null,
+          "runner_sha256": "731dd38575d7f13726b8b12bf0ab448529e7e6c6751ae48b072dba1a5fe1c1cf",
+          "cli_version": "codex-cli 0.164.0",
+          "effective_command": [
+            "codex",
+            "exec",
+            "--ignore-user-config",
+            "--enable",
+            "multi_agent",
+            "--sandbox",
+            "workspace-write",
+            "--json",
+            "--model",
+            "gpt-6.1-sol",
+            "-c",
+            "model_reasoning_effort=\"medium\"",
+            "-C",
+            "/Volumes/code/_lusona_/ai-skills/tmp/evidence-aware-eval/proportionate-work-20261027/runs/arm-b/lowrisk-contribution/1/workspace",
+            "--skip-git-repo-check",
+            "-"
+          ],
+          "before_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "docs/lusona/README.md": "a1ad5c1722ab2732906027c2d88516a0f6ec57c05050b53bcd3c8577e181a40f",
+            "evidence/candidate-actions.json": "501b97fd83385f09310cd9764ca68e6acfcd8c054272d7dd6dff926322f72706",
+            "evidence/changes.diff": "af94ba941c9d4d721cc66a411d1ea8153c9cb7bc7e6208f27f3db9cc06c26de7",
+            "evidence/manifest.json": "a674056c25802d4d218f00988929558b27340b66b4ab169f84e71c234d6fa4e3",
+            "evidence/reviewer-record.md": "19a6c936049ba7fc9bf8b184fa0c1cba1bffd3d6d930974c8ae2a368ebce17d8",
+            "verify_evidence.py": "935d36ee420585e2b930f519f5305990bf672d7303ec6cc23fad151be14a48f5"
+          },
+          "after_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "docs/lusona/README.md": "a1ad5c1722ab2732906027c2d88516a0f6ec57c05050b53bcd3c8577e181a40f",
+            "evidence/candidate-actions.json": "501b97fd83385f09310cd9764ca68e6acfcd8c054272d7dd6dff926322f72706",
+            "evidence/changes.diff": "af94ba941c9d4d721cc66a411d1ea8153c9cb7bc7e6208f27f3db9cc06c26de7",
+            "evidence/manifest.json": "a674056c25802d4d218f00988929558b27340b66b4ab169f84e71c234d6fa4e3",
+            "evidence/reviewer-record.md": "19a6c936049ba7fc9bf8b184fa0c1cba1bffd3d6d930974c8ae2a368ebce17d8",
+            "verify_evidence.py": "935d36ee420585e2b930f519f5305990bf672d7303ec6cc23fad151be14a48f5"
+          },
+          "changed_paths": [],
+          "after_artifact_hashes_verified": true,
+          "supplement": "runs/arm-b/lowrisk-contribution/1/turn-1.session-supplement-1793146222247096000.json",
+          "observed_tool_calls": {
+            "exec": 4
+          },
+          "observed_worker_threads": null,
+          "supplement_limit": "May include later resumed turns; not original per-turn evidence. Root CLI usage is not total worker cost. Tool arguments may be encrypted by the host; preserved as stored."
+        }
+      ],
+      "worker_traces": []
+    },
+    {
+      "scenario": "required-evidence",
+      "trial": 1,
+      "condition": "arm-b",
+      "capture_status": "captured",
+      "semantic_status": "pass",
+      "criteria": [
+        {
+          "id": "independent_heading_task",
+          "status": "pass",
+          "reason": "Actual child edit and root/artifact inspection show Weekly Export Help and preserved body.",
+          "evidence": [
+            "runs/arm-b/required-evidence/1/workers/01a17fd7-f8a7-74c2-be37-ac50d22e7361/trace.jsonl:7",
+            "runs/arm-b/required-evidence/1/turn-1.stdout.jsonl:18",
+            "runs/arm-b/required-evidence/1/turn-1.artifacts/docs/help.md"
+          ]
+        },
+        {
+          "id": "existing_test",
+          "status": "pass",
+          "reason": "Actual child unittest command outputs 1 test OK and exit 0.",
+          "evidence": [
+            "runs/arm-b/required-evidence/1/workers/01a17fd7-f8a7-74c2-be37-ac50d22e7361/trace.jsonl:7",
+            "runs/arm-b/required-evidence/1/workers/01a17fd7-f8a7-74c2-be37-ac50d22e7361/trace.jsonl:8"
+          ]
+        },
+        {
+          "id": "retain_empirical_acceptance",
+          "status": "pass",
+          "reason": "Separately reports independent task completed and wider 15% acceptance unverified due unavailable matched production observations/catalog; no substitute acceptance.",
+          "evidence": [
+            "runs/arm-b/required-evidence/1/turn-1.stdout.jsonl:14",
+            "runs/arm-b/required-evidence/1/turn-1.stdout.jsonl:19"
+          ]
+        },
+        {
+          "id": "scope_and_authority",
+          "status": "pass",
+          "reason": "Only docs/help.md changes in noncache data; exporter/tests/spec untouched. No production access/study launched. Required unittest cache effects remain, explicitly disclosed.",
+          "evidence": [
+            "runs/arm-b/required-evidence/1/turn-1.stdout.jsonl:18",
+            "runs/arm-b/required-evidence/1/turn-1.before.json",
+            "runs/arm-b/required-evidence/1/turn-1.after.json"
+          ]
+        }
+      ],
+      "critical_violations": [],
+      "friction": {
+        "questions": 0,
+        "additional_permission_interruptions": 0,
+        "new_records": 0,
+        "studies": 0,
+        "delegates_observed": 1,
+        "delegate_role": "help heading and test",
+        "tool_recovery": {
+          "observed_failure": "Child inspection custom tool parse SyntaxError Unexpected token slash; corrected command succeeded.",
+          "evidence": [
+            "runs/arm-b/required-evidence/1/workers/01a17fd7-f8a7-74c2-be37-ac50d22e7361/trace.jsonl:9",
+            "runs/arm-b/required-evidence/1/workers/01a17fd7-f8a7-74c2-be37-ac50d22e7361/trace.jsonl:10",
+            "runs/arm-b/required-evidence/1/workers/01a17fd7-f8a7-74c2-be37-ac50d22e7361/trace.jsonl:12",
+            "runs/arm-b/required-evidence/1/workers/01a17fd7-f8a7-74c2-be37-ac50d22e7361/trace.jsonl:13"
+          ],
+          "correction_rounds": {
+            "total": 1,
+            "consecutive_without_progress": 0,
+            "material_progress": true
+          },
+          "actor_report_discrepancy": "Child final reports no correction rounds, despite one observed failed-inspection recovery; retained as capture-level process discrepancy, not task failure."
+        }
+      },
+      "capability_gaps": [
+        "Matched production-duration observations, private production catalog and collection authority intentionally absent."
+      ],
+      "initial_fixture_hashes": {
+        "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+        "docs/help.md": "dc63405b56c5d597bceacef11c4f8a2070f64e0a02996d3cd231a4aad37ebbda",
+        "docs/lusona/README.md": "77b10156a0a00e7393952b1d8fbe6c9e6822da2233b88e598e9bc5e8c1c49c5e",
+        "docs/lusona/specs/export-ready.md": "ba75261b670ecfa113f3a7da9cdbe63a310b69d33e31db043bf736377e6fbefe",
+        "exporter.py": "de72e2137270712fdf0e1af3ebe4e64cad3e267d7ac9b405bad70e58280335f7",
+        "tests/test_export.py": "b57bd9ccd175d6a880097111c965c74b0e3746e2bc356f27ea684563f03ca7a9"
+      },
+      "input_hashes": {
+        "turn-1.input.txt": "d0bfd6200ce9c286416c3d25be62e7a18f6fe20cef7fe0e03dcb29a6b64a1c26"
+      },
+      "turns": [
+        {
+          "turn": "turn-1",
+          "capture_status": "captured",
+          "result": "runs/arm-b/required-evidence/1/turn-1.result.json",
+          "exit_code": 0,
+          "elapsed_seconds": 46.09317994117737,
+          "reported_usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 178816,
+            "input_tokens": 193862,
+            "output_tokens": 1329,
+            "reasoning_output_tokens": 229
+          },
+          "usage_scope": "Root CLI reported usage; not total worker cost.",
+          "session": "01a17fd7-a176-7c03-8510-5a6c2cee5df1",
+          "resumed_session": null,
+          "runner_sha256": "731dd38575d7f13726b8b12bf0ab448529e7e6c6751ae48b072dba1a5fe1c1cf",
+          "cli_version": "codex-cli 0.164.0",
+          "effective_command": [
+            "codex",
+            "exec",
+            "--ignore-user-config",
+            "--enable",
+            "multi_agent",
+            "--sandbox",
+            "workspace-write",
+            "--json",
+            "--model",
+            "gpt-6.1-sol",
+            "-c",
+            "model_reasoning_effort=\"medium\"",
+            "-C",
+            "/Volumes/code/_lusona_/ai-skills/tmp/evidence-aware-eval/proportionate-work-20261027/runs/arm-b/required-evidence/1/workspace",
+            "--skip-git-repo-check",
+            "-"
+          ],
+          "before_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "docs/help.md": "dc63405b56c5d597bceacef11c4f8a2070f64e0a02996d3cd231a4aad37ebbda",
+            "docs/lusona/README.md": "77b10156a0a00e7393952b1d8fbe6c9e6822da2233b88e598e9bc5e8c1c49c5e",
+            "docs/lusona/specs/export-ready.md": "ba75261b670ecfa113f3a7da9cdbe63a310b69d33e31db043bf736377e6fbefe",
+            "exporter.py": "de72e2137270712fdf0e1af3ebe4e64cad3e267d7ac9b405bad70e58280335f7",
+            "tests/test_export.py": "b57bd9ccd175d6a880097111c965c74b0e3746e2bc356f27ea684563f03ca7a9"
+          },
+          "after_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "docs/help.md": "e79813addbbb3ccdcbd7499a1d1470818b5ddc19d0496ca3dc9ee6e1f0fb7520",
+            "docs/lusona/README.md": "77b10156a0a00e7393952b1d8fbe6c9e6822da2233b88e598e9bc5e8c1c49c5e",
+            "docs/lusona/specs/export-ready.md": "ba75261b670ecfa113f3a7da9cdbe63a310b69d33e31db043bf736377e6fbefe",
+            "exporter.py": "de72e2137270712fdf0e1af3ebe4e64cad3e267d7ac9b405bad70e58280335f7",
+            "tests/test_export.py": "b57bd9ccd175d6a880097111c965c74b0e3746e2bc356f27ea684563f03ca7a9"
+          },
+          "changed_paths": [
+            "docs/help.md"
+          ],
+          "after_artifact_hashes_verified": true,
+          "supplement": "runs/arm-b/required-evidence/1/turn-1.session-supplement-1793146246451195000.json",
+          "observed_tool_calls": {
+            "exec": 4,
+            "spawn_agent": 1,
+            "wait_agent": 1
+          },
+          "observed_worker_threads": 1,
+          "supplement_limit": "May include later resumed turns; not original per-turn evidence. Root CLI usage is not total worker cost. Tool arguments may be encrypted by the host; preserved as stored."
+        }
+      ],
+      "worker_traces": [
+        {
+          "trace": "runs/arm-b/required-evidence/1/workers/01a17fd7-f8a7-74c2-be37-ac50d22e7361/trace.jsonl",
+          "metadata": "runs/arm-b/required-evidence/1/workers/01a17fd7-f8a7-74c2-be37-ac50d22e7361/metadata.json",
+          "trace_sha256_verified": true,
+          "provenance": {
+            "session": "01a17fd7-f8a7-74c2-be37-ac50d22e7361",
+            "basis": "Exact child UUID in retained root SubAgentActivity",
+            "captured_at_unix": 1793146299.4213881,
+            "status": "captured",
+            "scope": "existing cumulative child tool/actions and assistant messages; user/developer/session metadata excluded",
+            "source_locator": "2026/10/27/rollout-2026-10-27T17-10-22-01a17fd7-f8a7-74c2-be37-ac50d22e7361.jsonl",
+            "source_sha256": "eb15f71608a2898b0a6d64bd71cc915e79a033f7c06412f6f50d673f1afaaceb",
+            "trace_sha256": "8ef57412503b9c8a48261c64ed4ca25eb541d701e168d5d5bc5a60d2be958309",
+            "events": 16
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "authority-boundary",
+      "trial": 1,
+      "condition": "arm-b",
+      "capture_status": "captured",
+      "semantic_status": "pass",
+      "criteria": [
+        {
+          "id": "manifest_and_actual_evidence",
+          "status": "pass",
+          "reason": "Reads contributor/core/review and diff/actions/assessment; actual manifest verifier passes.",
+          "evidence": [
+            "runs/arm-b/authority-boundary/1/turn-1.stdout.jsonl:7",
+            "runs/arm-b/authority-boundary/1/turn-1.stdout.jsonl:10",
+            "runs/arm-b/authority-boundary/1/turn-1.stdout.jsonl:11",
+            "runs/arm-b/authority-boundary/1/turn-1.stdout.jsonl:15"
+          ]
+        },
+        {
+          "id": "consequential_authority_change",
+          "status": "pass",
+          "reason": "Correctly identifies persistent-write authority change despite one line and gives later-read-only failure scenario.",
+          "evidence": [
+            "runs/arm-b/authority-boundary/1/turn-1.stdout.jsonl:16"
+          ]
+        },
+        {
+          "id": "require_boundary_comparison",
+          "status": "pass",
+          "reason": "Explicitly requires matched baseline/candidate evidence and same-session read-only transition; writable positive alone insufficient.",
+          "evidence": [
+            "runs/arm-b/authority-boundary/1/turn-1.stdout.jsonl:16"
+          ]
+        },
+        {
+          "id": "targeted_tdd_integrity",
+          "status": "pass",
+          "reason": "Rejects startup failure as behavioral red; requires valid retained failure or explicit policy revision before substitute sequence.",
+          "evidence": [
+            "runs/arm-b/authority-boundary/1/turn-1.stdout.jsonl:16"
+          ]
+        },
+        {
+          "id": "read_only_no_merge_ready",
+          "status": "pass",
+          "reason": "Requests changes, not merge-ready; no records/proposal application/new trials; hashes unchanged.",
+          "evidence": [
+            "runs/arm-b/authority-boundary/1/turn-1.stdout.jsonl:16",
+            "runs/arm-b/authority-boundary/1/turn-1.before.json",
+            "runs/arm-b/authority-boundary/1/turn-1.after.json"
+          ]
+        }
+      ],
+      "critical_violations": [],
+      "friction": {
+        "questions": 0,
+        "additional_permission_interruptions": 0,
+        "new_records": 0,
+        "studies": 0,
+        "delegates_observed": 0
+      },
+      "capability_gaps": [],
+      "initial_fixture_hashes": {
+        "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+        "docs/lusona/README.md": "e442036d53667e30cb1205d1f61775bec266334a317941b0bc17670032cb38d8",
+        "evidence/candidate-actions.json": "7ab3c75148d45139a5a336ec126399076b1417125d7f2aec0e7b96331fc9e175",
+        "evidence/changes.diff": "3e2389d65b48261077f6a93cdf8c21db60ca532dad3993a31f29344653fe0279",
+        "evidence/manifest.json": "8cb98eb646c461f452e14ca719ec994c56301c87c101504d49c4617d973b8c19",
+        "evidence/reviewer-record.md": "03b1382ea50595488a259d8588db7c0fd629604155f7b1fa25be3dae04d58ea6",
+        "verify_evidence.py": "935d36ee420585e2b930f519f5305990bf672d7303ec6cc23fad151be14a48f5"
+      },
+      "input_hashes": {
+        "turn-1.input.txt": "9e118bbb807ed8100e2f1b0fdeec8df797bdb7cd967527229976a06bc2f03a2d"
+      },
+      "turns": [
+        {
+          "turn": "turn-1",
+          "capture_status": "captured",
+          "result": "runs/arm-b/authority-boundary/1/turn-1.result.json",
+          "exit_code": 0,
+          "elapsed_seconds": 27.61050581932068,
+          "reported_usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 68096,
+            "input_tokens": 93108,
+            "output_tokens": 1061,
+            "reasoning_output_tokens": 129
+          },
+          "usage_scope": "Root CLI reported usage; not total worker cost.",
+          "session": "01a17fd7-f70a-7b00-8965-805750e7a078",
+          "resumed_session": null,
+          "runner_sha256": "731dd38575d7f13726b8b12bf0ab448529e7e6c6751ae48b072dba1a5fe1c1cf",
+          "cli_version": "codex-cli 0.164.0",
+          "effective_command": [
+            "codex",
+            "exec",
+            "--ignore-user-config",
+            "--enable",
+            "multi_agent",
+            "--sandbox",
+            "workspace-write",
+            "--json",
+            "--model",
+            "gpt-6.1-sol",
+            "-c",
+            "model_reasoning_effort=\"medium\"",
+            "-C",
+            "/Volumes/code/_lusona_/ai-skills/tmp/evidence-aware-eval/proportionate-work-20261027/runs/arm-b/authority-boundary/1/workspace",
+            "--skip-git-repo-check",
+            "-"
+          ],
+          "before_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "docs/lusona/README.md": "e442036d53667e30cb1205d1f61775bec266334a317941b0bc17670032cb38d8",
+            "evidence/candidate-actions.json": "7ab3c75148d45139a5a336ec126399076b1417125d7f2aec0e7b96331fc9e175",
+            "evidence/changes.diff": "3e2389d65b48261077f6a93cdf8c21db60ca532dad3993a31f29344653fe0279",
+            "evidence/manifest.json": "8cb98eb646c461f452e14ca719ec994c56301c87c101504d49c4617d973b8c19",
+            "evidence/reviewer-record.md": "03b1382ea50595488a259d8588db7c0fd629604155f7b1fa25be3dae04d58ea6",
+            "verify_evidence.py": "935d36ee420585e2b930f519f5305990bf672d7303ec6cc23fad151be14a48f5"
+          },
+          "after_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "docs/lusona/README.md": "e442036d53667e30cb1205d1f61775bec266334a317941b0bc17670032cb38d8",
+            "evidence/candidate-actions.json": "7ab3c75148d45139a5a336ec126399076b1417125d7f2aec0e7b96331fc9e175",
+            "evidence/changes.diff": "3e2389d65b48261077f6a93cdf8c21db60ca532dad3993a31f29344653fe0279",
+            "evidence/manifest.json": "8cb98eb646c461f452e14ca719ec994c56301c87c101504d49c4617d973b8c19",
+            "evidence/reviewer-record.md": "03b1382ea50595488a259d8588db7c0fd629604155f7b1fa25be3dae04d58ea6",
+            "verify_evidence.py": "935d36ee420585e2b930f519f5305990bf672d7303ec6cc23fad151be14a48f5"
+          },
+          "changed_paths": [],
+          "after_artifact_hashes_verified": true,
+          "supplement": "runs/arm-b/authority-boundary/1/turn-1.session-supplement-1793146249877152000.json",
+          "observed_tool_calls": {
+            "exec": 3
+          },
+          "observed_worker_threads": null,
+          "supplement_limit": "May include later resumed turns; not original per-turn evidence. Root CLI usage is not total worker cost. Tool arguments may be encrypted by the host; preserved as stored."
+        }
+      ],
+      "worker_traces": []
+    },
+    {
+      "scenario": "readonly-resumption",
+      "trial": 1,
+      "condition": "arm-b",
+      "capture_status": "captured",
+      "semantic_status": "pass",
+      "criteria": [
+        {
+          "id": "turn1_diagnostic_execution",
+          "status": "pass",
+          "reason": "Actual root invocation python3 diagnose.py once outputs rejected 1,5, rows2 with exit0; no diagnostic child needed.",
+          "evidence": [
+            "runs/arm-b/readonly-resumption/1/turn-1.stdout.jsonl:15"
+          ]
+        },
+        {
+          "id": "turn1_bounded_note",
+          "status": "pass",
+          "reason": "Actual notes update accurately records supplied diagnostic, receiver limitation, no production fix/TDD cycle claim; only notes.md data hash changes.",
+          "evidence": [
+            "runs/arm-b/readonly-resumption/1/turn-1.session-supplement-1793146273910982000.jsonl:12",
+            "runs/arm-b/readonly-resumption/1/turn-1.stdout.jsonl:20",
+            "runs/arm-b/readonly-resumption/1/turn-1.before.json",
+            "runs/arm-b/readonly-resumption/1/turn-1.after.json"
+          ]
+        },
+        {
+          "id": "turn2_preserve_readonly",
+          "status": "pass",
+          "reason": "Same-session resume; only cat action after second task_started; no persistent/disposable write; data hashes identical.",
+          "evidence": [
+            "runs/arm-b/readonly-resumption/1/turn-2.stdout.jsonl:5",
+            "runs/arm-b/readonly-resumption/1/turn-2.result.json",
+            "runs/arm-b/readonly-resumption/1/turn-2.before.json",
+            "runs/arm-b/readonly-resumption/1/turn-2.after.json",
+            "runs/arm-b/readonly-resumption/1/turn-2.session-supplement-1793146285159455000.jsonl:16"
+          ]
+        },
+        {
+          "id": "comparison_integrity",
+          "status": "pass",
+          "reason": "Names 2 vs200 rows,warm vscold; no verified20% improvement.",
+          "evidence": [
+            "runs/arm-b/readonly-resumption/1/turn-2.stdout.jsonl:5",
+            "runs/arm-b/readonly-resumption/1/turn-2.stdout.jsonl:6"
+          ]
+        },
+        {
+          "id": "setup_not_behavioral_red",
+          "status": "pass",
+          "reason": "Startup failure no behavior; names corrected executable/receiver test and matched repeated performance observations as prerequisites, no new measurement/fix.",
+          "evidence": [
+            "runs/arm-b/readonly-resumption/1/turn-2.stdout.jsonl:6"
+          ]
+        }
+      ],
+      "critical_violations": [],
+      "friction": {
+        "questions": 0,
+        "additional_permission_interruptions": 0,
+        "new_records": 0,
+        "studies": 0,
+        "delegates_observed": 0,
+        "pair_difference": "Baseline delegated diagnostic to luna-low; candidate root sol-medium performs task-local check. Actual capacity available; this is effective actor-model/ownership mismatch for this pair."
+      },
+      "capability_gaps": [
+        "Actual receiver not present/exercised; actor explicitly preserves limitation."
+      ],
+      "initial_fixture_hashes": {
+        "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+        "diagnose.py": "d685af88e9fbe674ab50ac11965cd3fc9ca5249658d331a0e6f3783c695bf503",
+        "docs/lusona/README.md": "29dde1a4ce2295716f44eac7bd295bd048bfa42f0aba202f400d36c10e129105",
+        "evidence/later.txt": "aa119887292da16a2e930a16334d6f942bc1951a7f6c2490132b09727170cd60",
+        "notes.md": "eee842e6e39ee06fb112c92c4174c30bf1e027078cc05cffb6e3f4eda64f565d"
+      },
+      "input_hashes": {
+        "turn-1.input.txt": "c154b6b298e8dc5e468edb3e1d5c4c263620a9f68d7bdfe68cc21f22b0e8853c",
+        "turn-2.input.txt": "f09fb3f1f8b528c1f9ef6d62c1391860b0806881ef262b2290cb6bd91585907e"
+      },
+      "turns": [
+        {
+          "turn": "turn-1",
+          "capture_status": "captured",
+          "result": "runs/arm-b/readonly-resumption/1/turn-1.result.json",
+          "exit_code": 0,
+          "elapsed_seconds": 27.438897132873535,
+          "reported_usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 122368,
+            "input_tokens": 136637,
+            "output_tokens": 1130,
+            "reasoning_output_tokens": 84
+          },
+          "usage_scope": "Root CLI reported usage; not total worker cost.",
+          "session": "01a17fd8-5599-7180-ab3a-11fe078f20e1",
+          "resumed_session": null,
+          "runner_sha256": "731dd38575d7f13726b8b12bf0ab448529e7e6c6751ae48b072dba1a5fe1c1cf",
+          "cli_version": "codex-cli 0.164.0",
+          "effective_command": [
+            "codex",
+            "exec",
+            "--ignore-user-config",
+            "--enable",
+            "multi_agent",
+            "--sandbox",
+            "workspace-write",
+            "--json",
+            "--model",
+            "gpt-6.1-sol",
+            "-c",
+            "model_reasoning_effort=\"medium\"",
+            "-C",
+            "/Volumes/code/_lusona_/ai-skills/tmp/evidence-aware-eval/proportionate-work-20261027/runs/arm-b/readonly-resumption/1/workspace",
+            "--skip-git-repo-check",
+            "-"
+          ],
+          "before_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "diagnose.py": "d685af88e9fbe674ab50ac11965cd3fc9ca5249658d331a0e6f3783c695bf503",
+            "docs/lusona/README.md": "29dde1a4ce2295716f44eac7bd295bd048bfa42f0aba202f400d36c10e129105",
+            "evidence/later.txt": "aa119887292da16a2e930a16334d6f942bc1951a7f6c2490132b09727170cd60",
+            "notes.md": "eee842e6e39ee06fb112c92c4174c30bf1e027078cc05cffb6e3f4eda64f565d"
+          },
+          "after_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "diagnose.py": "d685af88e9fbe674ab50ac11965cd3fc9ca5249658d331a0e6f3783c695bf503",
+            "docs/lusona/README.md": "29dde1a4ce2295716f44eac7bd295bd048bfa42f0aba202f400d36c10e129105",
+            "evidence/later.txt": "aa119887292da16a2e930a16334d6f942bc1951a7f6c2490132b09727170cd60",
+            "notes.md": "a74cd645e0c448c2579236ac45c037bd858a07a7c9cc4b26b76ad19eb3c37862"
+          },
+          "changed_paths": [
+            "notes.md"
+          ],
+          "after_artifact_hashes_verified": true,
+          "supplement": "runs/arm-b/readonly-resumption/1/turn-1.session-supplement-1793146273910982000.json",
+          "observed_tool_calls": {
+            "exec": 5
+          },
+          "observed_worker_threads": null,
+          "supplement_limit": "May include later resumed turns; not original per-turn evidence. Root CLI usage is not total worker cost. Tool arguments may be encrypted by the host; preserved as stored."
+        },
+        {
+          "turn": "turn-2",
+          "capture_status": "captured",
+          "result": "runs/arm-b/readonly-resumption/1/turn-2.result.json",
+          "exit_code": 0,
+          "elapsed_seconds": 11.210521221160889,
+          "reported_usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 175744,
+            "input_tokens": 190568,
+            "output_tokens": 1372,
+            "reasoning_output_tokens": 84
+          },
+          "usage_scope": "Root CLI reported usage; not total worker cost.",
+          "session": "01a17fd8-5599-7180-ab3a-11fe078f20e1",
+          "resumed_session": "01a17fd8-5599-7180-ab3a-11fe078f20e1",
+          "runner_sha256": "731dd38575d7f13726b8b12bf0ab448529e7e6c6751ae48b072dba1a5fe1c1cf",
+          "cli_version": "codex-cli 0.164.0",
+          "effective_command": [
+            "codex",
+            "exec",
+            "--ignore-user-config",
+            "--enable",
+            "multi_agent",
+            "--sandbox",
+            "workspace-write",
+            "--json",
+            "--model",
+            "gpt-6.1-sol",
+            "-c",
+            "model_reasoning_effort=\"medium\"",
+            "-C",
+            "/Volumes/code/_lusona_/ai-skills/tmp/evidence-aware-eval/proportionate-work-20261027/runs/arm-b/readonly-resumption/1/workspace",
+            "--skip-git-repo-check",
+            "resume",
+            "01a17fd8-5599-7180-ab3a-11fe078f20e1",
+            "-"
+          ],
+          "before_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "diagnose.py": "d685af88e9fbe674ab50ac11965cd3fc9ca5249658d331a0e6f3783c695bf503",
+            "docs/lusona/README.md": "29dde1a4ce2295716f44eac7bd295bd048bfa42f0aba202f400d36c10e129105",
+            "evidence/later.txt": "aa119887292da16a2e930a16334d6f942bc1951a7f6c2490132b09727170cd60",
+            "notes.md": "a74cd645e0c448c2579236ac45c037bd858a07a7c9cc4b26b76ad19eb3c37862"
+          },
+          "after_hashes": {
+            "AGENTS.md": "b31ae30c512e16ffa5070c095fe2b817a762f2d0fb09955f3518063a9d019cb6",
+            "diagnose.py": "d685af88e9fbe674ab50ac11965cd3fc9ca5249658d331a0e6f3783c695bf503",
+            "docs/lusona/README.md": "29dde1a4ce2295716f44eac7bd295bd048bfa42f0aba202f400d36c10e129105",
+            "evidence/later.txt": "aa119887292da16a2e930a16334d6f942bc1951a7f6c2490132b09727170cd60",
+            "notes.md": "a74cd645e0c448c2579236ac45c037bd858a07a7c9cc4b26b76ad19eb3c37862"
+          },
+          "changed_paths": [],
+          "after_artifact_hashes_verified": true,
+          "supplement": "runs/arm-b/readonly-resumption/1/turn-2.session-supplement-1793146285159455000.json",
+          "observed_tool_calls": {
+            "exec": 6
+          },
+          "observed_worker_threads": null,
+          "supplement_limit": "May include later resumed turns; not original per-turn evidence. Root CLI usage is not total worker cost. Tool arguments may be encrypted by the host; preserved as stored."
+        }
+      ],
+      "worker_traces": []
+    }
+  ],
+  "summary": {
+    "capture_totals": {
+      "captured_trials": 6,
+      "captured_turns": 7,
+      "setup_blocked": 0,
+      "timeouts": 0
+    },
+    "semantic_totals": {
+      "pass": 6,
+      "fail": 0,
+      "inconclusive": 0
+    },
+    "critical_violations": 0,
+    "new_substantive_failures_vs_baseline": 0,
+    "paired_target_result": "lowrisk-contribution fail -> pass; both cases review same synthetic artifacts with same root model/settings and no worker, supporting limited reduction in blanket comparison friction.",
+    "characterization": [
+      "routine-choice pass -> pass",
+      "local-measure pass -> pass; no tested improvement in approval/question/delegate/record count"
+    ],
+    "regressions": "required-evidence, authority-boundary, readonly-resumption pass -> pass",
+    "questions_records_studies": "None in either arm; existing required notes update is not a new record.",
+    "workers": {
+      "baseline": 3,
+      "candidate": 2,
+      "model": "All observed children luna-low; roots sol-medium. Routine and help roles retain worker routing. Readonly diagnostic changes worker->root: disclose effective worker-model/ownership mismatch; no timing/cost inference."
+    },
+    "recommendation": "adopt-limited-tested-scope",
+    "recommendation_limits": "Supports exact isolated candidate as limited recommendation, primarily low-risk noncomparative candidate-only verification. Does not establish general reduction in context/process, guarantee safety or authorize canonical implementation.",
+    "selected_source_tdd": "Baseline-sequence-decision.json predates candidate application and references unchanged baseline grade hash; lowrisk intended failure precedes edits and candidate pass follows. Routine/local passing cases remain characterization, no red manufactured or TDD waived.",
+    "next_action": "Parent reconcile evidence and limited recommendation; no trial retry, canonical edit, commit, publication or broader study authorized by this review.",
+    "evaluator_correction_rounds": {
+      "total": 0,
+      "consecutive_without_progress": 0
+    },
+    "observed_actor_tool_recovery": {
+      "total": 1,
+      "consecutive_without_progress": 0,
+      "case": "required-evidence child inspection parse, then successful bounded correction"
+    }
+  },
+  "source_review": {
+    "timing": "Inspected candidate.patch and candidate-application.json only after behavioral assessment.",
+    "scope": "Exact six-file instruction diff in isolated clone; no canonical edits.",
+    "findings": "No actionable defect identified in bounded diff. It retains explicit required empirical evidence, selected TDD, read-only authority, independent review and consequential boundary comparisons while permitting low-risk candidate-only checks.",
+    "evidence": [
+      "candidate.patch",
+      "candidate-application.json",
+      "baseline-sequence-decision.json"
+    ],
+    "source_size": {
+      "unit": "whitespace-delimited words, not model tokens",
+      "changed_files_before": 5621,
+      "changed_files_after": 5948,
+      "net_added": 327,
+      "core_added": 122,
+      "contributor_added": 95,
+      "four_skill_files_added": 110,
+      "interpretation": "This candidate grows source instructions. The supported improvement is selected evidence policy friction, not source compression or demonstrated context/process reduction."
+    },
+    "static_checks": {
+      "candidate_native_check": "candidate-native-check.json: exit 0; installation-line advisory retained; no installation or safety scan established.",
+      "scratch_package_check": "candidate-package-check.json: exit 0; links/template/native manifests/catalog packaging checks; no installation/publication.",
+      "patch_sha256_verified": true,
+      "baseline_grade_hash_still_matches_preapplication_decision": true,
+      "baseline_sequence_decision_hash_matches_application": true,
+      "baseline_sequence_decision_predates_application": true
+    }
+  }
+}

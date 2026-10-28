@@ -1,0 +1,38 @@
+{
+  "status": "complete",
+  "scope": "Four-file implementation.patch against frozen baseline and candidate sources",
+  "findings": [],
+  "scenario_grades": {
+    "baseline": {"1": "pass", "2": "pass", "3": "pass", "4": "pass"},
+    "candidate": {"1": "pass", "2": "pass", "3": "pass", "4": "pass"}
+  },
+  "scenario_reasons": {
+    "1": "Both retain two counters, stop unchanged rounds at two consecutive no-progress, allow supported different approach below four total, and require user authority after four.",
+    "2": "Both preserve scope, targeted TDD, parent routing and latest handoff, reject redesign/child/queue authority, and block completion with failed checks. Baseline establishes intended-red classification as a prerequisite; candidate explicitly separates expected red from regression and invokes correction rules.",
+    "3": "Both reuse adequate unchanged checks, require independent review, separate assignment/acceptance/capacity and host-confirmed release, and honor explicit commit prohibition.",
+    "4": "Both continue authorized discussion without a mandatory stage/approval, keep unsupported performance unproven, reject unbudgeted benchmarks and saving including temporary files, and hand off conversationally without invented telemetry."
+  },
+  "metric_validity": {
+    "result": "valid for declared mandatory source-loading floors",
+    "ordinary_leaf": {"before": 3927, "after": 2641, "reduction_pct": 32.7},
+    "ordinary_coordinator": {"before": 5204, "after": 3764, "reduction_pct": 27.7},
+    "correction_leaf": {"before": 3927, "after": 2913, "reduction_pct": 25.8},
+    "correction_coordinator": {"before": 5204, "after": 4036, "reduction_pct": 22.4},
+    "commit_coordinator": {"before": 5908, "after": 4468, "reduction_pct": 24.4},
+    "core": {"before": 2551, "after": 1585, "reduction_pct": 37.9},
+    "plugin_markdown": {"before": 25076, "after": 24070, "reduction_pct": 4.0},
+    "limits": ["Whitespace words, not runtime tokens/latency/cost", "Case-dependent record/template/domain/queue/discovery reads excluded", "No live host section-loading adherence demonstrated"]
+  },
+  "completion_recommendation": {
+    "F1": "satisfied within declared measurement scope",
+    "F2": "satisfied by retained owners and conditional triggers",
+    "F3": "satisfied by actual-response grading and source review",
+    "F4": "satisfied within inspected mechanical evidence; installation/live execution not tested",
+    "queue": "Done after parent reconciles final source/evidence identities and records completion"
+  },
+  "verification": "Independent source, caller, response, measurement-method and mechanical-artifact inspection; no checks rerun or scenario operations performed",
+  "limits": ["Read-only decision exercise is not live execution evidence", "No installation, permission enforcement, lifecycle execution, latency or cost testing", "Existing mechanical evidence inspected rather than independently rerun"],
+  "changed_artifacts": ["tmp/instruction-footprint-20261027/review.md", "tmp/instruction-footprint-20261027/review.json"],
+  "recovery": {"active_operations": [], "children": [], "next_action_owner": "parent", "next_action": "Reconcile final sources/evidence and update owning record/queue within existing authority"},
+  "correction_rounds": {"consecutive": 0, "total": 0}
+}

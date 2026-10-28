@@ -1,0 +1,41 @@
+{
+  "core_file_words": {
+    "before": 2551,
+    "after": 1585,
+    "reduction_pct": 37.9
+  },
+  "plugin_markdown_words": {
+    "before": 25076,
+    "after": 24070,
+    "reduction_pct": 4.0
+  },
+  "ordinary_implement_words": {
+    "leaf": {
+      "before": 3927,
+      "after": 2641,
+      "reduction_pct": 32.7
+    },
+    "coordinator": {
+      "before": 5204,
+      "after": 3764,
+      "reduction_pct": 27.7
+    }
+  },
+  "with_correction_procedure_words": {
+    "leaf": {
+      "before": 3927,
+      "after": 2913,
+      "reduction_pct": 25.8
+    },
+    "coordinator": {
+      "before": 5204,
+      "after": 4036,
+      "reduction_pct": 22.4
+    }
+  },
+  "coordinator_with_commit_procedure_words": {
+    "before": 5908,
+    "after": 4468,
+    "reduction_pct": 24.4
+  }
+}

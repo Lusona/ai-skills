@@ -34,9 +34,10 @@ level. Compare materially different options, including the current approach when
 use their reactions to develop an informed preference. Challenge assumptions with evidence
 or counterexamples and distinguish facts, hypotheses, preferences, and decisions.
 
-Verify material external claims when needed and permitted, citing support. Mark claims you
-could not confirm and say where you looked. For uncertainty
-requiring an experiment, return a bounded question for [investigate](../investigate/SKILL.md).
+Verify material external claims when permitted; cite support or state uncertainty and where
+you looked. Apply [Work loop](../../README.md#work-loop) before optional studies; uncertainty
+alone does not block discussion. Route causal or technical feasibility probes to
+[investigate](../investigate/SKILL.md).
 Keep research within the request.
 
 If a technique needs illustration, consult only the relevant optional

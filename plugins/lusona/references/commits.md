@@ -23,7 +23,7 @@
   Preserve unrelated edits and staged changes; never include them through a blanket add or
   commit. Ensure the committed content is what passed verification, including when shared
   files require partial staging.
-- Use the contract's Conventional Commits format and explain why in the body. Choose the
+- Use the Conventional Commits format below and explain why in the body. Choose the
   type for the increment's outcome; accompanying workflow records do not make a fix or
   feature a documentation commit. Save verification evidence before committing and report
   the resulting hash in the conversation. Save a hash only when needed to identify reviewed

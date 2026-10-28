@@ -6,7 +6,7 @@ Lusona は、AI エージェントが依頼を理解し、作業を進め、結�
 目指す成果、制約、権限は利用者が定めます。エージェントは根拠に基づいて次に取り組むべき作業を選び、
 許可された作業を続け、利用者の判断や許可が必要な場合に質問します。
 
-Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](INSTALL.md#xcode)に対応 · チェックアウトしたソースのバージョン：**1.1.1**
+Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](INSTALL.md#xcode)に対応 · チェックアウトしたソースのバージョン：**1.2.0**
 
 > [!WARNING]
 > Lusona のインストールには Vercel Skills（`npx skills@latest`）を使わず、[ホスト標準のプラグイン機能](#installation)を使ってください。
@@ -94,6 +94,8 @@ Xcode ではエージェントとの会話で `/` を入力し、インストー
 | [specify](plugins/lusona/skills/specify/SKILL.md) | 一つの変更について、動作、制約、受け入れ基準、TDD 方針に合意する |
 | [architect](plugins/lusona/skills/architect/SKILL.md) | 影響の大きい設計、契約、責任範囲の判断を行う |
 | [investigate](plugins/lusona/skills/investigate/SKILL.md) | 根拠と実験によって、原因、事実、実現可能性を確かめる |
+| [measure](plugins/lusona/skills/measure/SKILL.md) | 意思決定に必要な規模、品質、コスト、変化を測定する |
+| [experiment](plugins/lusona/skills/experiment/SKILL.md) | 事前に定めた基準で介入や代替案を検証する |
 | [implement](plugins/lusona/skills/implement/SKILL.md) | 許可された動作変更や不具合修正を計画し、実装を完了する |
 | [review](plugins/lusona/skills/review/SKILL.md) | 実際の差分を確認し、不具合や検証の不足を指摘する |
 | [refactor](plugins/lusona/skills/refactor/SKILL.md) | 動作と互換性を保ちながら、既存コードの構造を改善する |

@@ -17,11 +17,16 @@ Read the relevant section for skill selection, invocation, or terminology; this 
 | [review](../skills/review/SKILL.md) | Reviewer: defects and verification gaps in the actual diff | [Review findings](../templates/review.md), without silent fixes |
 | [refactor](../skills/refactor/SKILL.md) | Maintainer: concrete structural improvement preserving behavior | Code and regression evidence in the [change record](../templates/spec.md) |
 | [investigate](../skills/investigate/SKILL.md) | Investigator: bounded technical uncertainty | [Investigation findings](../templates/notes.md) in conversation or the owning record |
+| [measure](../skills/measure/SKILL.md) | Measurement analyst: decision-relevant magnitude, quality, cost, or change | [Measurement evidence](../templates/evidence.md) with method and limitations |
+| [experiment](../skills/experiment/SKILL.md) | Experimenter: evaluate an intervention or alternatives | [Experiment evidence](../templates/evidence.md) with design and exact runs |
 
-For routing, use **investigate** when facts, causes, or feasibility are unknown and need
-evidence; **architect** for consequential design, contract, or ownership choices and their
-rationale; **refactor** for an authorized structural improvement that preserves observable
+For routing, use **measure** to establish magnitude or compare observed performance;
+**experiment** to test a proposed intervention or alternatives against stated criteria;
+**investigate** when causes or technical feasibility are unknown and need evidence;
+**architect** for consequential design, contract, or ownership choices and their rationale; **refactor** for an authorized structural improvement that preserves observable
 behavior and compatibility; and **implement** for changed behavior or defect correction.
+Measurements and experiments can arise within existing authorized work without a new command.
+Use the [evidence rules](evidence.md) for recording them.
 This is a distinction of responsibilities, not a required sequence: routine design choices
 stay with implementation or refactoring.
 

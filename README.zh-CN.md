@@ -5,7 +5,7 @@
 
 Lusona 帮助 AI 智能体理解你的需求、执行工作并验证结果，达成你设定的目标。你确定目标、约束和授权范围。智能体根据已有证据决定下一步，继续完成授权范围内的工作，并在需要你的意见或许可时提问。
 
-适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor) 和 [Xcode 27 编程智能体](INSTALL.md#xcode) · 当前工作副本的源码版本：**1.1.1**
+适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor) 和 [Xcode 27 编程智能体](INSTALL.md#xcode) · 当前工作副本的源码版本：**1.2.0**
 
 > [!WARNING]
 > 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#installation)。
@@ -77,6 +77,8 @@ Lusona 帮助 AI 智能体理解你的需求、执行工作并验证结果，达
 | [specify](plugins/lusona/skills/specify/SKILL.md) | 就一项变更的行为、约束、验收标准和 TDD 策略达成一致 |
 | [architect](plugins/lusona/skills/architect/SKILL.md) | 确定影响重大的设计、契约和责任归属 |
 | [investigate](plugins/lusona/skills/investigate/SKILL.md) | 通过证据和实验查明原因、事实或可行性 |
+| [measure](plugins/lusona/skills/measure/SKILL.md) | 衡量规模、质量、成本或变化，为决策提供依据 |
+| [experiment](plugins/lusona/skills/experiment/SKILL.md) | 按预先确定的标准检验干预措施或备选方案 |
 | [implement](plugins/lusona/skills/implement/SKILL.md) | 规划并交付已获授权的行为变更或缺陷修复 |
 | [review](plugins/lusona/skills/review/SKILL.md) | 检查实际代码差异（diff），找出缺陷和验证遗漏 |
 | [refactor](plugins/lusona/skills/refactor/SKILL.md) | 在保持行为和兼容性的前提下改善现有代码结构 |
