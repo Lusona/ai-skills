@@ -7,7 +7,7 @@ verification. You set the outcome, constraints, and authority. The agent chooses
 useful action from the evidence, continues authorized work, and asks when it needs your
 input or permission.
 
-For Claude Code, Codex, [Cursor](INSTALL.md#cursor), and [Xcode 27 coding agents](INSTALL.md#xcode) · Checked-out source version **1.2.0**
+For Claude Code, Codex, [Cursor](INSTALL.md#cursor), and [Xcode 27 coding agents](INSTALL.md#xcode) · Checked-out source version **1.3.0**
 
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
@@ -226,6 +226,10 @@ the agent identifies what it needs.
 For example, an experienced maintainer who has supplied compatibility constraints need not
 repeat them. A reader unfamiliar with a migration choice gets an explanation of its consequences
 before the agent asks for a preference. See [intent interviews](plugins/lusona/references/interviews.md).
+
+The agent adds diagrams when they clarify a decision. When a concept, architecture, or UI choice is easier to judge visually, it offers
+2-4 lettered options. The chosen visual is saved under `docs/lusona/visuals/` with a binding list
+that implementation and review check; see [visuals](plugins/lusona/references/visuals.md).
 
 ## Recovery and resumption
 

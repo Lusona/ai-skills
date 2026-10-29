@@ -1,0 +1,279 @@
+diff --git a/README.de.md b/README.de.md
+index d941445..cf258b5 100644
+--- a/README.de.md
++++ b/README.de.md
+@@ -251,6 +251,12 @@ erneut angeben. Kennst du eine Migrationsoption noch nicht, erklärt der Agent i
+ bevor er dich fragt, welche Option du bevorzugst. Siehe
+ [Gespräche zur Klärung der Absicht](plugins/lusona/references/interviews.md).
+ 
++Der Agent ergänzt Diagramme, wenn Inhalte Abläufe, Sequenzen, Zustände oder Beziehungen zwischen
++Komponenten enthalten. Lässt sich eine Konzept-, Architektur- oder UI-Entscheidung visuell besser
++beurteilen, bietet er 2 bis 4 mit Buchstaben gekennzeichnete Optionen an. Die gewählte Darstellung
++wird unter `docs/lusona/visuals/` mit einer Liste verbindlicher Aspekte gespeichert, die
++Implementierung und Review prüfen; siehe [visuelle Darstellungen](plugins/lusona/references/visuals.md).
++
+ <a id="recovery-and-resumption"></a>
+ ## Wiederherstellung und Fortsetzung
+ 
+diff --git a/README.es.md b/README.es.md
+index 9766c31..3ecf01c 100644
+--- a/README.es.md
++++ b/README.es.md
+@@ -250,6 +250,12 @@ compatibilidad no necesita repetirlas. Si desconoces una opción de migración,
+ explica sus consecuencias antes de pedirte una preferencia. Consulta las
+ [conversaciones para aclarar la intención](plugins/lusona/references/interviews.md).
+ 
++El agente añade diagramas cuando el contenido incluye flujos, secuencias, estados o relaciones
++entre componentes. Cuando una opción de concepto, arquitectura o interfaz se evalúa mejor de forma
++visual, ofrece de 2 a 4 opciones identificadas con letras. La opción elegida se guarda en
++`docs/lusona/visuals/` con una lista de aspectos vinculantes que la implementación y la revisión
++comprueban; consulta [elementos visuales](plugins/lusona/references/visuals.md).
++
+ <a id="recovery-and-resumption"></a>
+ ## Recuperación y reanudación
+ 
+diff --git a/README.ja.md b/README.ja.md
+index a230101..73d519a 100644
+--- a/README.ja.md
++++ b/README.ja.md
+@@ -225,6 +225,10 @@ flowchart TD
+ 移行方法に詳しくない読者には、希望を尋ねる前に、それぞれの選択の影響を説明します。
+ [意図を確認する対話](plugins/lusona/references/interviews.md)も参照してください。
+ 
++内容にフロー、シーケンス、状態、コンポーネント間の関係がある場合、エージェントは図を添えます。
++コンセプト、アーキテクチャ、UI の選択を見た目で判断しやすい場合は、文字で区別した 2〜4 個の案を示します。選ばれた案は、実装とレビューで確認する拘束項目の一覧とともに
++`docs/lusona/visuals/` に保存されます。[ビジュアル](plugins/lusona/references/visuals.md)も参照してください。
++
+ <a id="recovery-and-resumption"></a>
+ ## 復旧と再開
+ 
+diff --git a/README.md b/README.md
+index a669545..eeed5f3 100644
+--- a/README.md
++++ b/README.md
+@@ -227,6 +227,11 @@ For example, an experienced maintainer who has supplied compatibility constraint
+ repeat them. A reader unfamiliar with a migration choice gets an explanation of its consequences
+ before the agent asks for a preference. See [intent interviews](plugins/lusona/references/interviews.md).
+ 
++The agent adds diagrams when content has flows, sequences, states, or component
++relationships. When a concept, architecture, or UI choice is easier to judge visually, it offers
++2-4 lettered options. The chosen visual is saved under `docs/lusona/visuals/` with a binding list
++that implementation and review check; see [visuals](plugins/lusona/references/visuals.md).
++
+ ## Recovery and resumption
+ 
+ Authorized work includes minimal local recovery records when safe resumption or ownership
+diff --git a/README.zh-CN.md b/README.zh-CN.md
+index dc9bc82..ae33be7 100644
+--- a/README.zh-CN.md
++++ b/README.zh-CN.md
+@@ -170,6 +170,8 @@ flowchart TD
+ 
+ 例如，有经验的维护者已经提供兼容性约束，就无须重复说明。如果你不熟悉某种迁移方案，智能体会先解释它的影响，再询问你的偏好。详见[意图访谈](plugins/lusona/references/interviews.md)。
+ 
++当内容涉及流程、时序、状态或组件关系时，智能体会添加图示。当概念、架构或界面方案更适合通过视觉判断时，它会提供 2 到 4 个以字母标记的选项。选定的视觉稿会连同实现和评审都要检查的约束性要点清单一起保存在 `docs/lusona/visuals/` 下；详见[视觉方案](plugins/lusona/references/visuals.md)。
++
+ <a id="recovery-and-resumption"></a>
+ ## 恢复与继续工作
+ 
+diff --git a/plugins/lusona/README.md b/plugins/lusona/README.md
+index e92cfd7..881dc20 100644
+--- a/plugins/lusona/README.md
++++ b/plugins/lusona/README.md
+@@ -94,6 +94,7 @@ Leaves receive applicable paths/text and loading instructions. Paths are relativ
+ | Operation | Reference |
+ | --- | --- |
+ | Intent/tradeoff interviews | [interviews](references/interviews.md) |
++| Visual options/diagrams/references | [visuals](references/visuals.md) |
+ | Select/record/apply TDD | [tdd](references/tdd.md) |
+ | Create/update/rename spec, plan, ADR | [naming](references/naming.md) |
+ | Locate/maintain project records | [files](references/files.md) |
+diff --git a/plugins/lusona/references/files.md b/plugins/lusona/references/files.md
+index e6dc8af..e5de943 100644
+--- a/plugins/lusona/references/files.md
++++ b/plugins/lusona/references/files.md
+@@ -14,6 +14,7 @@ its data; paths are relative to that project. Bundled links are relative to the
+ | `docs/lusona/plans/<change-id>.md` | Existing separate execution records remain valid; no new companion file by default |
+ | `docs/lusona/batches/<batch-slug>.md` | Parent-owned fixed selection, authority, assignments, recovery pointers, and current batch handoff |
+ | `docs/lusona/notes/<change-slug>.md` | Optional durable findings without a change record or ADR owner |
++| `docs/lusona/visuals/<record-id>/` | Chosen visual and its `reference.md` binding list under [visuals](visuals.md); `<record-id>` is the owning spec or ADR basename or notes slug |
+ | `docs/lusona/evidence/` | Material measurement and experiment records, with exact-run references under [evidence](evidence.md) |
+ | `docs/lusona/history/YYYY-MM-week-NN.md` | Compact completed-item index; owns archived state and completion references under [closeout](closeout.md) |
+ | `docs/lusona/adr/<YYYYMMDD>-<decision-slug>.md` | Consequential architecture decision, shared or change-specific |
+@@ -25,6 +26,7 @@ its data; paths are relative to that project. Bundled links are relative to the
+ | [History template](../templates/history.md) | Weekly sections and completed-item structure |
+ | [Evidence template](../templates/evidence.md) | Measurement or experiment design, run results, limitations, and interpretation |
+ | [Notes template](../templates/notes.md) | Durable questions, evidence, conclusions, and current handoff |
++| [Visual reference template](../templates/visual-reference.md) | Chosen option, binding and illustrative items, rejected options |
+ 
+ ## Existing records
+ 
+diff --git a/plugins/lusona/skills/architect/SKILL.md b/plugins/lusona/skills/architect/SKILL.md
+index c81c168..9e9a690 100644
+--- a/plugins/lusona/skills/architect/SKILL.md
++++ b/plugins/lusona/skills/architect/SKILL.md
+@@ -83,7 +83,8 @@ Apply the practices relevant to the selected decision; they are not a required a
+ - Record context, decision, alternatives, consequences, and status. Mark a decision accepted
+   only when supported by existing authorization or an explicit decision; otherwise use proposed.
+   To replace an accepted decision, create a new ADR, mark the old one superseded, and link both
+-  directions while preserving the old rationale. Use a diagram only when it clarifies relationships.
++  directions while preserving the old rationale. Apply [visuals](../../references/visuals.md) for
++  diagrams and visual options.
+ - Identify verification boundaries and migration or recovery requirements. Carry useful coding
+   and verification details into the change record's optional execution section for
+   [implement](../implement/SKILL.md). Carry forward the selected TDD policy.
+diff --git a/plugins/lusona/skills/explore/SKILL.md b/plugins/lusona/skills/explore/SKILL.md
+index c1fc42a..3cdc4ae 100644
+--- a/plugins/lusona/skills/explore/SKILL.md
++++ b/plugins/lusona/skills/explore/SKILL.md
+@@ -44,6 +44,9 @@ If a technique needs illustration, consult only the relevant optional
+ [interview example](../../references/interview-examples.md): future experience, context reuse,
+ or correction. The examples are not a questionnaire.
+ 
++For visual choices or content with flow, sequence, state, or component relationships, apply
++[visuals](../../references/visuals.md).
++
+ ## Outcome and next action
+ 
+ Use relevant [brainstorm template](../../templates/brainstorm.md) sections for substantive
+diff --git a/plugins/lusona/skills/implement/SKILL.md b/plugins/lusona/skills/implement/SKILL.md
+index ed03519..8cdda48 100644
+--- a/plugins/lusona/skills/implement/SKILL.md
++++ b/plugins/lusona/skills/implement/SKILL.md
+@@ -28,7 +28,8 @@ or treat readiness as authorization.** An unset TDD policy blocks implementation
+ 
+ - Inspect the working tree, relevant code, callers, and tests. Preserve unrelated work.
+   Read acceptance criteria, constraints, explicit TDD and its source, completion conditions,
+-  applicable ADRs, and existing evidence. Reuse settled decisions.
++  applicable ADRs, and existing evidence. Reuse settled decisions. For a linked visual reference,
++  apply [visuals](../../references/visuals.md).
+ - Resolve missing behavior or scope through [specify](../specify/SKILL.md),
+   consequential technical decisions through [architect](../architect/SKILL.md), and empirical
+   uncertainty through [investigate](../investigate/SKILL.md) when needed. These are specialist
+diff --git a/plugins/lusona/skills/review/SKILL.md b/plugins/lusona/skills/review/SKILL.md
+index 371cf3a..890a995 100644
+--- a/plugins/lusona/skills/review/SKILL.md
++++ b/plugins/lusona/skills/review/SKILL.md
+@@ -54,7 +54,8 @@ state the limitation and give a continuation prompt. Route by defect subtlety an
+ mechanical checks do not replace semantic review or reviewer independence.
+ 
+ - Read acceptance criteria, TDD, execution evidence, and current handoff from the owning
+-  records. Small requests may use the conversation.
++  records. Small requests may use the conversation. For a linked visual reference, apply
++  [visuals](../../references/visuals.md).
+ - Establish the review scope: uncommitted changes, specified commits, or a branch diff with
+   an identified base. State the scope used; ask through the permitted question tool if ambiguity
+   could cause review of unrelated work. Include relevant new files, not only tracked diffs.
+diff --git a/plugins/lusona/skills/specify/SKILL.md b/plugins/lusona/skills/specify/SKILL.md
+index c24cfdd..fa2e82e 100644
+--- a/plugins/lusona/skills/specify/SKILL.md
++++ b/plugins/lusona/skills/specify/SKILL.md
+@@ -29,6 +29,8 @@ capabilities; a bug fix or direct bounded request does not require product defin
+ - For visual work, capture supplied references and concrete required or excluded visual patterns
+   in the agreement. Clarify missing preferences only when they materially affect the outcome;
+   a clear visual request does not require a design interview.
++- For visual choices or content with flow, sequence, state, or component relationships, apply
++  [visuals](../../references/visuals.md), including retaining a supplied reference when the user asks.
+ - Create or update `docs/lusona/specs/<change-id>.md` from
+   [the spec template](../../templates/spec.md) when saved definition is needed and authorized,
+   under the [naming rules](../../references/naming.md). Reuse existing specs or legacy feature
+diff --git a/plugins/lusona/references/visuals.md b/plugins/lusona/references/visuals.md
+new file mode 100644
+index 0000000..b32421b
+--- /dev/null
++++ b/plugins/lusona/references/visuals.md
+@@ -0,0 +1,61 @@
++# Visual options and references
++
++Read for explore, specify, and architect when a choice is easier to judge visually or content
++has flow, sequence, state, or component relationships, and for implement and review when the
++owning record links a visual reference. Paths under
++`docs/lusona/` are in the consuming project.
++
++## When
++
++- Offer 2-4 visual options when a concept, architecture, or UI choice is better judged by
++  seeing it than by reading a description. Do not offer options during implement when the
++  agreement already settles the choice.
++- Include an explanatory diagram whenever content has flow, sequence, state, or component
++  relationships. Purely textual decisions get none.
++
++## Presentation
++
++- Show a simple diagram inline in the reply as Unicode or ASCII text.
++- Write a larger diagram or a UI mockup as a standalone HTML file. For Mermaid, put the source in
++  `<pre class="mermaid">` and load a pinned script, such as
++  `https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js`; the source stays readable
++  when the script cannot load. Rendering requires no specific host.
++- Open the file in the browser when the host permits; otherwise report its absolute path.
++- Write draft options outside tracked records: in a scratch directory the host provides for the
++  session, or in the project's ignored temporary directory.
++
++## Choice
++
++Label options A, B, C, D. Ask the user to choose by letter through the native question tool
++under [Questions and next actions](../README.md#questions-and-next-actions), otherwise in plain
++text. There is no click-capture server. If the user rejects all options or asks for revision,
++save nothing and offer revised options.
++
++## Retention after a choice
++
++Save only after the user chooses, and only within the core write authority and no-save
++restrictions; otherwise report the reference in the response.
++
++- Directory: `docs/lusona/visuals/<record-id>/`, where `<record-id>` is the owning spec or ADR
++  basename, or the notes slug when no spec exists yet.
++- Save the chosen visual as a static file: the HTML mockup, or Mermaid in a Markdown file.
++- Create `reference.md` from the [visual reference template](../templates/visual-reference.md):
++  chosen option, who chose it and when, visual link, owner link, binding items, illustrative
++  items, and one line per rejected option with the reason.
++- Binding items (IDs V1, V2, ...) default to layout regions, element order, which controls exist,
++  and information hierarchy. Illustrative items default to colors, copy, and spacing unless the
++  user marks them binding.
++- Do not save rejected option files.
++- Link `reference.md` from the owning spec, ADR, or notes.
++
++A user-supplied reference keeps its existing capture in specify. Retain it this way only when
++the user asks.
++
++## Consumption
++
++- Implement treats each binding item as acceptance input and reports each item's status in its
++  result. Illustrative items are not acceptance.
++- Review checks each binding item against the result and reports it as met, unmet, or unchecked.
++  Without a screenshot tool, check against code or markup, report the visual comparison as unrun,
++  and state that human visual acceptance remains required.
++- A record without a visual reference leaves implement and review unchanged.
+diff --git a/plugins/lusona/templates/visual-reference.md b/plugins/lusona/templates/visual-reference.md
+new file mode 100644
+index 0000000..b866d6c
+--- /dev/null
++++ b/plugins/lusona/templates/visual-reference.md
+@@ -0,0 +1,27 @@
++# Visual reference: <record-id>
++
++<!-- Apply the visual rules in ../references/visuals.md. Save only after the user chooses.
++Keep this file beside the chosen visual in docs/lusona/visuals/<record-id>/. Omit unused fields. -->
++
++- Chosen option: <letter and short name>, chosen by <user> on <YYYY-MM-DD>
++- Visual: <relative link to the chosen HTML mockup or Mermaid Markdown file>
++- Owner: <relative link to the owning spec, ADR, or notes>
++
++## Binding
++
++<!-- Acceptance input for implement and review. Defaults: layout regions, element order, which
++controls exist, and information hierarchy. Add other aspects only when the user marks them binding. -->
++
++- V1: <observable aspect that must match>
++
++## Illustrative
++
++<!-- Not acceptance. Defaults: colors, copy, and spacing unless the user marks them binding. -->
++
++- <aspect shown for illustration only>
++
++## Rejected options
++
++<!-- One line per rejected option. Do not save rejected option files. -->
++
++- <letter>: <short name>; <reason>

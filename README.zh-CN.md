@@ -5,7 +5,7 @@
 
 Lusona 帮助 AI 智能体理解你的需求、执行工作并验证结果，达成你设定的目标。你确定目标、约束和授权范围。智能体根据已有证据决定下一步，继续完成授权范围内的工作，并在需要你的意见或许可时提问。
 
-适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor) 和 [Xcode 27 编程智能体](INSTALL.md#xcode) · 当前工作副本的源码版本：**1.2.0**
+适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor) 和 [Xcode 27 编程智能体](INSTALL.md#xcode) · 当前工作副本的源码版本：**1.3.0**
 
 > [!WARNING]
 > 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#installation)。
@@ -169,6 +169,8 @@ flowchart TD
 探索时，智能体会通过具体情景和利弊分析帮助你理解选项，而不要求你作出决定。只要进一步交流有助于增进理解或改变下一步行动，它就会继续讨论。调查时，如果进一步实验能够区分可能的原因，它就会继续实验。如果缺少证据阻碍进展，它会说明需要什么。
 
 例如，有经验的维护者已经提供兼容性约束，就无须重复说明。如果你不熟悉某种迁移方案，智能体会先解释它的影响，再询问你的偏好。详见[意图访谈](plugins/lusona/references/interviews.md)。
+
+当图示有助于明确决策时，智能体会添加图示。当概念、架构或界面方案更适合通过视觉判断时，它会提供 2 到 4 个以字母标记的选项。选定的视觉稿会连同实现和评审都要检查的约束性要点清单一起保存在 `docs/lusona/visuals/` 下；详见[视觉方案](plugins/lusona/references/visuals.md)。
 
 <a id="recovery-and-resumption"></a>
 ## 恢复与继续工作

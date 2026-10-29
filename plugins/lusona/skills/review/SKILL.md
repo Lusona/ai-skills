@@ -54,7 +54,8 @@ state the limitation and give a continuation prompt. Route by defect subtlety an
 mechanical checks do not replace semantic review or reviewer independence.
 
 - Read acceptance criteria, TDD, execution evidence, and current handoff from the owning
-  records. Small requests may use the conversation.
+  records. Small requests may use the conversation. For a linked visual reference, apply
+  [visuals](../../references/visuals.md).
 - Establish the review scope: uncommitted changes, specified commits, or a branch diff with
   an identified base. State the scope used; ask through the permitted question tool if ambiguity
   could cause review of unrelated work. Include relevant new files, not only tracked diffs.

@@ -28,7 +28,8 @@ or treat readiness as authorization.** An unset TDD policy blocks implementation
 
 - Inspect the working tree, relevant code, callers, and tests. Preserve unrelated work.
   Read acceptance criteria, constraints, explicit TDD and its source, completion conditions,
-  applicable ADRs, and existing evidence. Reuse settled decisions.
+  applicable ADRs, and existing evidence. Reuse settled decisions. For a linked visual reference,
+  apply [visuals](../../references/visuals.md).
 - Resolve missing behavior or scope through [specify](../specify/SKILL.md),
   consequential technical decisions through [architect](../architect/SKILL.md), and empirical
   uncertainty through [investigate](../investigate/SKILL.md) when needed. These are specialist

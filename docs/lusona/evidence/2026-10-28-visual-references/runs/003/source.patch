@@ -1,0 +1,595 @@
+diff -ruN tmp/visual-platform-20261028/snapshots/baseline/references/files.md plugins/lusona/references/files.md
+--- tmp/visual-platform-20261028/snapshots/baseline/references/files.md	2026-10-28 18:45:10
++++ plugins/lusona/references/files.md	2026-10-28 18:55:19
+@@ -14,7 +14,7 @@
+ | `docs/lusona/plans/<change-id>.md` | Existing separate execution records remain valid; no new companion file by default |
+ | `docs/lusona/batches/<batch-slug>.md` | Parent-owned fixed selection, authority, assignments, recovery pointers, and current batch handoff |
+ | `docs/lusona/notes/<change-slug>.md` | Optional durable findings without a change record or ADR owner |
+-| `docs/lusona/visuals/<record-id>/` | Chosen visual and its `reference.md` binding list under [visuals](visuals.md); `<record-id>` is the owning spec or ADR basename or notes slug |
++| `docs/lusona/visuals/<record-id>/` | Chosen option's HTML source and PNGs per state, or diagram Markdown, with its `reference.md` binding list under [visuals](visuals.md); `<record-id>` is the owning spec or ADR basename or notes slug |
+ | `docs/lusona/evidence/` | Material measurement and experiment records, with exact-run references under [evidence](evidence.md) |
+ | `docs/lusona/history/YYYY-MM-week-NN.md` | Compact completed-item index; owns archived state and completion references under [closeout](closeout.md) |
+ | `docs/lusona/adr/<YYYYMMDD>-<decision-slug>.md` | Consequential architecture decision, shared or change-specific |
+@@ -26,8 +26,8 @@
+ | [History template](../templates/history.md) | Weekly sections and completed-item structure |
+ | [Evidence template](../templates/evidence.md) | Measurement or experiment design, run results, limitations, and interpretation |
+ | [Notes template](../templates/notes.md) | Durable questions, evidence, conclusions, and current handoff |
+-| [Visual reference template](../templates/visual-reference.md) | Chosen option, binding and illustrative items, rejected options |
+-| [Visual page template](../templates/visual-page.html) | HTML frame, wireframe kit, and mockup, diagram, and index variants for visual pages |
++| [Visual reference template](../templates/visual-reference.md) | Chosen option, images, binding and illustrative items, fidelity, rejected options |
++| [Visual page template](../templates/visual-page.html) | Page shell with notes and theme; mockup, diagram, and index variants; device frames, flows, state and option switches; wireframe kit fallback |
+ 
+ ## Existing records
+ 
+diff -ruN tmp/visual-platform-20261028/snapshots/baseline/references/visuals.md plugins/lusona/references/visuals.md
+--- tmp/visual-platform-20261028/snapshots/baseline/references/visuals.md	2026-10-28 18:45:10
++++ plugins/lusona/references/visuals.md	2026-10-28 19:06:33
+@@ -2,8 +2,7 @@
+ 
+ Read for explore, specify, and architect when a choice is easier to judge visually or content
+ has flow, sequence, state, or component relationships, and for implement and review when the
+-owning record links a visual reference. Paths under
+-`docs/lusona/` are in the consuming project.
++owning record links a visual reference. Paths under `docs/lusona/` are in the consuming project.
+ 
+ ## When
+ 
+@@ -13,24 +12,37 @@
+ - Include an explanatory diagram whenever content has flow, sequence, state, or component
+   relationships. Purely textual decisions get none.
+ 
++## Content
++
++- Read the existing UI first. Reuse its screen names, navigation, tab bars, and copy; label
++  placeholders for content that does not exist yet.
++- Style option content for the target platform or the project's theme in the page's
++  `option-style` block, inside a device frame for mobile. Use the wireframe kit only when no
++  platform look is known.
++- Scale fidelity to the question: wireframe for structure, closer styling for look and feel.
++  Use real content when it affects the judgment.
++- An option may be a flow of 2-5 screens; number steps only for a sequence.
++- Show the flow's empty, loading, success, and failure states that apply, with the state switch
++  or separate screens. Show failure whenever the flow can fail.
++- When options differ in one part of a flow, write one flow page with the in-place option switch,
++  a one-line tradeoff per option, and the recommended option marked.
++- Explain the question on the page. In the notes, state what is approximate, such as system
++  components drawn by hand, and list open questions and must-not-happen rules.
++
+ ## Presentation
+ 
+ - Show a simple diagram inline in the reply as Unicode or ASCII text. Write a larger diagram or a
+   UI mockup as an HTML page.
+-- Start every generated option, index, and diagram page from the
+-  [visual page template](../templates/visual-page.html): keep one body variant, fill the header
+-  (record ID or topic, option letter, status, question), and fill the footer binding and
+-  illustrative summary when known. Pages stay self-contained except the pinned Mermaid script,
+-  which only the diagram variant loads; its source stays readable when the script cannot load.
+-  Rendering requires no specific host.
+-- Mockup bodies use only the template's wireframe kit classes and color tokens, so options
+-  differ in structure rather than styling.
+-- For HTML options, write one file per option (`a.html`, `b.html`, ...) and an `index.html` that shows
+-  them side by side with their letters.
+-- Open the index or diagram page in the browser when the host permits; otherwise report its
+-  absolute path.
+-- Write draft pages outside tracked records: in a scratch directory the host provides for the
+-  session, or in the project's ignored temporary directory.
++- Start every option, index, flow, and diagram page from the
++  [visual page template](../templates/visual-page.html) and follow its top comment. Copy the file;
++  read only its top comment and body markup, not the shell CSS. Pages stay
++  self-contained except the pinned Mermaid script; its source stays readable without the script.
++- Write one file per option (`a.html`, `b.html`, ...) and an `index.html` that shows them side by
++  side. Use one in-place switch page instead only when the options differ in one part of a flow.
++- Open the index, switch, or diagram page in the browser when the host permits; otherwise report
++  its absolute path.
++- Write draft pages outside tracked records: in a host-provided session scratch directory or the
++  project's ignored temporary directory.
+ 
+ ## Choice
+ 
+@@ -41,32 +53,50 @@
+ 
+ ## Retention after a choice
+ 
+-Save only after the user chooses, and only within the core write authority and no-save
+-restrictions; otherwise report the reference in the response.
++After the user chooses, retain the reference before recording the decision, within the core
++write authority and no-save restrictions; otherwise report the reference in the response.
++Records never link draft pages.
+ 
+ - Directory: `docs/lusona/visuals/<record-id>/`, where `<record-id>` is the owning spec or ADR
+   basename, or the notes slug when no spec exists yet.
+-- Save the chosen visual as a static file: copy the chosen option file, changing only its status to
+-  `Chosen reference`; save a diagram as Mermaid in a
+-  Markdown file.
+-- Create `reference.md` from the [visual reference template](../templates/visual-reference.md):
+-  chosen option, who chose it and when, visual link, owner link, binding items, illustrative
+-  items, and one line per rejected option with the reason.
+-- Binding items (IDs V1, V2, ...) default to layout regions, element order, which controls exist,
+-  and information hierarchy. Illustrative items default to colors, copy, and spacing unless the
+-  user marks them binding.
+-- Do not save the index or rejected option files.
+-- Link `reference.md` from the owning spec, ADR, or notes.
+-- When a page footer and `reference.md` disagree, `reference.md` governs.
++- `option-<letter>.html`: the chosen option's source with only its status changed to
++  `Chosen reference`. From a switch page, also delete the other options' elements and the option
++  switch. Save a diagram as Mermaid in a Markdown file instead.
++- `option-<letter>.png`, or `option-<letter>-<state>.png` per state: one screenshot of the whole
++  page per state, so every screen appears in each state's image, in the light theme, captured with a headless Chromium-based browser and the page's hash
++  parameters, for example:
+ 
++  ```sh
++  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
++    --hide-scrollbars --window-size=1800,1300 --blink-settings=preferredColorScheme=1 \
++    --screenshot=option-b-failed.png \
++    "file:///abs/path/option-b.html#state=failed"
++  ```
++
++  Elsewhere use `google-chrome` or `chromium`. Enlarge the window until no screen is cut off,
++  and inspect each image. Without a headless browser, keep the HTML alone and
++  report the missing images.
++- `reference.md` from the [visual reference template](../templates/visual-reference.md): chosen
++  option, chooser and date, images, HTML source, owner link, binding items, illustrative items,
++  fidelity, and one line per rejected option with the reason.
++- Binding items (V1, V2, ...) default to layout regions, element order, which controls exist, and
++  information hierarchy, and may name a screen and state. Illustrative items default to colors,
++  copy, and spacing unless the user marks them binding.
++- Do not retain the index or rejected option files.
++- Link `reference.md` from the owning spec, ADR, or notes. When page notes and `reference.md`
++  disagree, `reference.md` governs.
++
+ A user-supplied reference keeps its existing capture in specify. Retain it this way only when
+ the user asks.
+ 
+ ## Consumption
+ 
+-- Implement treats each binding item as acceptance input and reports each item's status in its
+-  result. Illustrative items are not acceptance.
+-- Review checks each binding item against the result and reports it as met, unmet, or unchecked.
+-  Without a screenshot tool, check against code or markup, report the visual comparison as unrun,
+-  and state that human visual acceptance remains required.
++- Implement reads `reference.md`, the PNGs, and the HTML source, treats each binding item as
++  acceptance input, and reports each item's status in its result. Illustrative items are not
++  acceptance.
++- Review reads `reference.md`, the PNGs, and the HTML source, checks each binding item against the
++  result, and reports it as met, unmet, or unchecked; a partly met item is unmet, with what differs.
++  When the result can be rendered and screenshotted with available tools, compare the screenshot
++  with the retained PNGs. Otherwise check against code or markup, report the visual comparison as
++  unrun, and state that human visual acceptance remains required.
+ - A record without a visual reference leaves implement and review unchanged.
+diff -ruN tmp/visual-platform-20261028/snapshots/baseline/skills/architect/SKILL.md plugins/lusona/skills/architect/SKILL.md
+--- tmp/visual-platform-20261028/snapshots/baseline/skills/architect/SKILL.md	2026-10-28 18:45:11
++++ plugins/lusona/skills/architect/SKILL.md	2026-10-28 19:06:38
+@@ -84,7 +84,8 @@
+   only when supported by existing authorization or an explicit decision; otherwise use proposed.
+   To replace an accepted decision, create a new ADR, mark the old one superseded, and link both
+   directions while preserving the old rationale. Apply [visuals](../../references/visuals.md) for
+-  diagrams and visual options.
++  diagrams and visual options; after a choice, retain the reference under `docs/lusona/visuals/`
++  before recording the decision when writes are permitted, and never link draft pages.
+ - Identify verification boundaries and migration or recovery requirements. Carry useful coding
+   and verification details into the change record's optional execution section for
+   [implement](../implement/SKILL.md). Carry forward the selected TDD policy.
+diff -ruN tmp/visual-platform-20261028/snapshots/baseline/skills/explore/SKILL.md plugins/lusona/skills/explore/SKILL.md
+--- tmp/visual-platform-20261028/snapshots/baseline/skills/explore/SKILL.md	2026-10-28 18:45:11
++++ plugins/lusona/skills/explore/SKILL.md	2026-10-28 19:06:38
+@@ -45,7 +45,8 @@
+ or correction. The examples are not a questionnaire.
+ 
+ For visual choices or content with flow, sequence, state, or component relationships, apply
+-[visuals](../../references/visuals.md).
++[visuals](../../references/visuals.md): after a choice, retain the reference under
++`docs/lusona/visuals/` before recording the decision when writes are permitted, and never link draft pages.
+ 
+ ## Outcome and next action
+ 
+diff -ruN tmp/visual-platform-20261028/snapshots/baseline/skills/specify/SKILL.md plugins/lusona/skills/specify/SKILL.md
+--- tmp/visual-platform-20261028/snapshots/baseline/skills/specify/SKILL.md	2026-10-28 18:45:11
++++ plugins/lusona/skills/specify/SKILL.md	2026-10-28 19:06:38
+@@ -30,7 +30,9 @@
+   in the agreement. Clarify missing preferences only when they materially affect the outcome;
+   a clear visual request does not require a design interview.
+ - For visual choices or content with flow, sequence, state, or component relationships, apply
+-  [visuals](../../references/visuals.md), including retaining a supplied reference when the user asks.
++  [visuals](../../references/visuals.md): after a choice, retain the reference under
++  `docs/lusona/visuals/` before recording the decision when writes are permitted, and never link draft pages. Retain a
++  supplied reference only when the user asks.
+ - Create or update `docs/lusona/specs/<change-id>.md` from
+   [the spec template](../../templates/spec.md) when saved definition is needed and authorized,
+   under the [naming rules](../../references/naming.md). Reuse existing specs or legacy feature
+diff -ruN tmp/visual-platform-20261028/snapshots/baseline/templates/visual-page.html plugins/lusona/templates/visual-page.html
+--- tmp/visual-platform-20261028/snapshots/baseline/templates/visual-page.html	2026-10-28 18:45:11
++++ plugins/lusona/templates/visual-page.html	2026-10-28 19:06:25
+@@ -2,17 +2,34 @@
+ <!--
+ Lusona visual page. Apply the plugin's references/visuals.md. Copy this file, keep exactly one
+ body variant (mockup, diagram, or index), delete the other two, and delete this comment.
+-Replace each {{name}} placeholder below; delete an element whose value is unknown.
+-  record_id                owning spec or ADR basename, notes slug, or topic when no record exists
+-  option_letter            A-D; delete the option element on index and diagram pages
+-  option_title             short option name; "Options" on an index page, the diagram name on a diagram page
+-  status                   Draft option | Option index | Chosen reference | Diagram
+-  question                 the question the user is choosing on
+-  binding_summary          binding items known when the page is written; otherwise delete the line
+-  illustrative_summary     illustrative items, e.g. "colors, copy, spacing"
+-  mermaid_source           Mermaid source, with < and & escaped (diagram variant only)
+-Mockup bodies use only the wf-* classes and the color tokens below; add no other CSS and no
+-style attributes. For a sidebar, put a wf-col is-narrow beside a wf-col in a wf-row.
++Replace each {{name}} placeholder; delete an element or optional block whose value is unknown.
++  record_id          owning spec or ADR basename, notes slug, or topic when no record exists
++  option_letter      A-D on an option page; delete the lv-letter element on index and diagram pages
++  option_title       short option name; "Options" on an index or option-switch page; diagram name
++  status_kind        draft | index | chosen | diagram
++  status             Draft option | Option index | Chosen reference | Diagram
++  question           the question the user is choosing on
++  question_context   one or two sentences: what is decided, what to compare, what is out of scope
++  binding_items, illustrative_items, open_questions, must_not_happen   one <li> per item
++  fidelity           what is approximate, e.g. "Production uses system components; icons are glyphs."
++  mermaid_source     diagram only; escape < as &lt; and & as &amp;
++  name_a..name_d, tradeoff_a..tradeoff_d   per-option name and one-line tradeoff (index and option switch)
++Mockup variant:
++- Write option content CSS in <style id="option-style"> (target platform or project theme). Do not
++  edit the shell <style>. Without a known platform look, use only the wf-* wireframe kit instead.
++- lv-flow holds 1-5 lv-screen figures. Use lv-step numbers only when the screens are a sequence.
++- Optional frame: <div class="lv-device is-iphone|is-android|is-browser"><div class="lv-device-screen">.
++  Phone screens have a fixed size and clip; the shell draws the status bar (iPhone 54px, Android
++  40px; content starts below it) and home indicator. Pin bottom bars with position:absolute;bottom:0
++  and pad them 34px (iPhone) or 24px (Android). Set color on lv-device-screen for dark screens.
++  is-browser takes data-url="..." for the address bar.
++- State and option names are lowercase words, e.g. "failed", "save-failed".
++- State switch: buttons in data-switch="state" toggle elements marked data-state="<name>" (space
++  separated names allowed); elements without data-state always show. Delete it when there is one state.
++- Option switch, only when options differ in one part: buttons in data-switch="option" with
++  data-value="a".."d", data-tradeoff, and data-recommended on one; toggles data-option elements.
++- Hash params set the initial view and combine: #option=b&state=failed. #full shows the header and
++  notes inside an iframe.
+ The only external resource is the pinned Mermaid script, in the diagram variant only.
+ -->
+ <html lang="en">
+@@ -21,81 +38,241 @@
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>{{record_id}}: {{option_title}}</title>
+ <style>
+-:root{--bg:#f4f4f4;--surface:#fff;--fill:#e2e2e2;--line:#9a9a9a;--text:#1e1e1e;--muted:#666;--strong:#3a3a3a;--on-strong:#fff}
+-@media (prefers-color-scheme:dark){:root{--bg:#161616;--surface:#222;--fill:#333;--line:#6a6a6a;--text:#ececec;--muted:#a0a0a0;--strong:#d0d0d0;--on-strong:#161616}}
++:root{
++  --canvas:#e8edf4;--grid:rgba(37,99,217,.08);--surface:#fff;--raised:#f5f7fb;--ink:#172131;--muted:#566275;--line:#c9d2de;
++  --accent:#2563d9;--accent-ink:#fff;--accent-soft:#e2ebfc;--frame:#1d2026;
++  --draft:#8a5a00;--draft-soft:#fdf0d5;--chosen:#12784a;--chosen-soft:#dcf2e6;--diagram:#5b4bc9;--diagram-soft:#ebe8fb;--danger:#b42318;
++  --shadow:0 1px 2px rgba(23,33,49,.08),0 8px 24px rgba(23,33,49,.08);color-scheme:light
++}
++@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
++  --canvas:#0d1726;--grid:rgba(111,155,255,.07);--surface:#14223a;--raised:#1a2b47;--ink:#e5ecf6;--muted:#97a5ba;--line:#2b3d5a;
++  --accent:#78a2ff;--accent-ink:#0d1726;--accent-soft:#1d3358;--frame:#030508;
++  --draft:#f0b748;--draft-soft:#3a2d12;--chosen:#4fcb8c;--chosen-soft:#123424;--diagram:#ab9fff;--diagram-soft:#29234f;--danger:#ff8a80;
++  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);color-scheme:dark}}
++:root[data-theme=dark]{
++  --canvas:#0d1726;--grid:rgba(111,155,255,.07);--surface:#14223a;--raised:#1a2b47;--ink:#e5ecf6;--muted:#97a5ba;--line:#2b3d5a;
++  --accent:#78a2ff;--accent-ink:#0d1726;--accent-soft:#1d3358;--frame:#030508;
++  --draft:#f0b748;--draft-soft:#3a2d12;--chosen:#4fcb8c;--chosen-soft:#123424;--diagram:#ab9fff;--diagram-soft:#29234f;--danger:#ff8a80;
++  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);color-scheme:dark}
+ *{box-sizing:border-box}
+-a{color:inherit}
+-body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,sans-serif;overflow-wrap:anywhere}
+-.lv-head,.lv-foot{padding:12px 16px;background:var(--surface);border-bottom:1px solid var(--line)}
+-.lv-foot{border-top:1px solid var(--line);border-bottom:0;color:var(--muted);font-size:13px}
+-.lv-head p,.lv-foot p{margin:2px 0}
+-.lv-meta{color:var(--muted);font-size:13px}
+-.lv-status{border:1px solid var(--line);border-radius:4px;padding:0 6px}
+-.lv-q{font-weight:600}
+-main{padding:16px;max-width:1200px;margin:0 auto}
+-pre.mermaid{background:var(--surface);border:1px solid var(--line);padding:12px;overflow-x:auto;white-space:pre}
+-.lv-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+-.lv-grid figure{margin:0;background:var(--surface);border:1px solid var(--line)}
+-.lv-grid figcaption{padding:8px 12px;font-weight:600}
+-.lv-grid iframe{display:block;width:100%;height:560px;border:0;border-top:1px solid var(--line)}
+-.wf-page{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--line);padding:12px;min-height:320px}
+-.wf-row{display:flex;flex-wrap:wrap;gap:12px}
+-.wf-col{display:flex;flex-direction:column;gap:12px;flex:1 1 200px;min-width:0}
+-.wf-col.is-narrow{flex:0 1 180px}
++html,body{height:100%}
++body{margin:0;display:flex;flex-direction:column;background:var(--canvas);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
++a{color:var(--accent)}
++:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
++[data-lv-hidden]{display:none!important}
++/* shell */
++.lv-bar{display:flex;align-items:center;gap:16px;padding:14px 24px;background:var(--surface);border-bottom:1px solid var(--line)}
++.lv-letter{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--accent);color:var(--accent-ink);font-size:22px;font-weight:700}
++.lv-titles{flex:1;min-width:0}
++.lv-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 2px;color:var(--muted);font-size:13px}
++.lv-q{margin:0;font-size:clamp(18px,1.6vw,24px);line-height:1.25;font-weight:650}
++.lv-lede{margin:4px 0 0;max-width:80ch;color:var(--muted);font-size:14px}
++.lv-status{padding:1px 10px;border-radius:999px;font-weight:600;font-size:12px}
++.lv-status.is-draft{background:var(--draft-soft);color:var(--draft)}
++.lv-status.is-index{background:var(--accent-soft);color:var(--accent)}
++.lv-status.is-chosen{background:var(--chosen-soft);color:var(--chosen)}
++.lv-status.is-diagram{background:var(--diagram-soft);color:var(--diagram)}
++.lv-tools{display:flex;gap:8px;flex:none}
++.lv-tool{border:1px solid var(--line);background:var(--raised);color:var(--ink);border-radius:8px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
++.lv-tool[aria-pressed=true]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
++.lv-body{flex:1;min-height:0;display:flex}
++.lv-stage{flex:1;min-width:0;overflow:auto;padding:24px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
++.lv-notes{flex:none;width:300px;overflow:auto;padding:20px;background:var(--surface);border-left:1px solid var(--line);font-size:14px}
++.lv-notes[hidden]{display:none}
++.lv-notes h2{margin:0 0 8px;font-size:14px}
++.lv-notes ul,.lv-notes p{margin:0 0 20px}
++.lv-notes ul{padding-left:18px}
++.lv-notes li{margin:4px 0}
++.lv-notes .is-binding li::marker{color:var(--chosen)}
++.lv-notes .is-never li::marker{color:var(--danger)}
++.lv-notes .is-fidelity p{padding:8px 12px;border-radius:8px;background:var(--raised);color:var(--muted)}
++.is-embedded .lv-bar,.is-embedded .lv-notes{display:none}
++.is-embedded .lv-stage{padding:16px}
++/* switches: index view, option, state */
++.lv-switch{display:flex;flex-wrap:wrap;align-items:center;gap:4px;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--raised)}
++.lv-switch>span{padding:0 8px;color:var(--muted);font-size:13px;font-weight:600}
++.lv-switch button{border:0;background:none;color:var(--muted);border-radius:7px;padding:5px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
++.lv-switch button[aria-pressed=true]{background:var(--surface);color:var(--accent);box-shadow:var(--shadow)}
++.lv-rec,.lv-switch button[data-recommended]::after{margin-left:6px;padding:1px 7px;border-radius:999px;background:var(--chosen-soft);color:var(--chosen);font-size:11px;font-weight:600;font-style:normal}
++.lv-switch button[data-recommended]::after{content:"Recommended"}
++.lv-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 16px;margin:0 auto 24px;max-width:1400px}
++.lv-tradeoff{flex-basis:100%;margin:0;text-align:center;color:var(--muted);font-size:14px}
++.lv-tradeoff:empty{display:none}
++.lv-tradeoff b{color:var(--ink)}
++/* flow of screens */
++.lv-flow{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:32px 28px}
++.lv-screen{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0;max-width:100%}
++.lv-screen>figcaption{display:flex;align-items:flex-start;gap:10px;width:100%;max-width:432px;font-weight:650}
++.lv-screen>figcaption small{display:block;color:var(--muted);font-size:13px;font-weight:400}
++.lv-step{flex:none;display:grid;place-items:center;width:24px;height:24px;margin-top:1px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:13px;font-weight:700}
++/* device frames */
++.lv-device{position:relative;flex:none;max-width:100%;color-scheme:light}
++.lv-device-screen{position:relative;height:100%;overflow:hidden;background:#fff;color:#000;text-align:left}
++.lv-device.is-iphone,.lv-device.is-android{padding:11px;background:var(--frame);box-shadow:0 0 0 1px rgba(127,127,127,.35),var(--shadow)}
++.lv-device.is-iphone{width:415px;aspect-ratio:415/874;border-radius:64px}
++.is-iphone>.lv-device-screen{padding-top:54px;border-radius:53px;font:17px/1.3 -apple-system,"SF Pro Text",system-ui,sans-serif}
++.lv-device.is-android{width:432px;aspect-ratio:432/935;padding:10px;border-radius:46px}
++.is-android>.lv-device-screen{padding-top:40px;border-radius:36px;font:16px/1.4 Roboto,"Google Sans",system-ui,sans-serif}
++.is-iphone>.lv-device-screen::before,.is-android>.lv-device-screen::before{content:"9:41";position:absolute;z-index:9;top:0;left:0;right:0;font-weight:600;background-repeat:no-repeat}
++.is-iphone>.lv-device-screen::before{height:54px;padding:18px 0 0 52px;font-size:17px;line-height:1;
++  background-image:linear-gradient(currentColor,currentColor),linear-gradient(currentColor,currentColor),linear-gradient(currentColor,currentColor),linear-gradient(currentColor,currentColor),radial-gradient(circle at 50% 100%,currentColor 0 2px,transparent 2.5px 4.5px,currentColor 5px 7px,transparent 7.5px 9.5px,currentColor 10px 12px,transparent 12.5px),linear-gradient(color-mix(in srgb,currentColor 40%,transparent),color-mix(in srgb,currentColor 40%,transparent)),linear-gradient(currentColor,currentColor),linear-gradient(color-mix(in srgb,currentColor 40%,transparent),color-mix(in srgb,currentColor 40%,transparent));
++  background-size:3px 4px,3px 6px,3px 8px,3px 11px,17px 12px,25px 12px,19px 8px,2px 4px;
++  background-position:right 100px top 29px,right 95px top 27px,right 90px top 25px,right 85px top 22px,right 61px top 21px,right 32px top 21px,right 35px top 23px,right 29px top 25px}
++.is-android>.lv-device-screen::before{height:40px;padding:12px 0 0 26px;font-size:14px;line-height:1.1;
++  background-image:linear-gradient(to top left,currentColor 50%,transparent 51%),linear-gradient(currentColor,currentColor),linear-gradient(currentColor,currentColor);
++  background-size:13px 13px,8px 13px,4px 2px;background-position:right 44px top 13px,right 26px top 13px,right 28px top 11px}
++.is-iphone>.lv-device-screen::after,.is-android>.lv-device-screen::after{content:"";position:absolute;z-index:9;bottom:8px;left:50%;transform:translateX(-50%);border-radius:3px;background:currentColor;opacity:.85}
++.is-iphone>.lv-device-screen::after{width:134px;height:5px}
++.is-android>.lv-device-screen::after{width:108px;height:4px}
++.lv-device.is-iphone::after{content:"";position:absolute;z-index:10;top:22px;left:50%;width:124px;height:36px;transform:translateX(-50%);border-radius:18px;background:#000}
++.lv-device.is-android::after{content:"";position:absolute;z-index:10;top:22px;left:50%;width:14px;height:14px;transform:translateX(-50%);border-radius:50%;background:#000}
++.lv-device.is-browser{width:1280px;padding-top:40px;border:1px solid var(--line);border-radius:12px;background:var(--raised);box-shadow:var(--shadow);overflow:hidden}
++.lv-device.is-browser::before{content:"";position:absolute;top:0;left:0;right:0;height:40px;background:radial-gradient(circle,#ff5f57 5px,transparent 5.5px) 10px 10px/20px 20px no-repeat,radial-gradient(circle,#febc2e 5px,transparent 5.5px) 30px 10px/20px 20px no-repeat,radial-gradient(circle,#28c840 5px,transparent 5.5px) 50px 10px/20px 20px no-repeat}
++.lv-device.is-browser::after{content:attr(data-url);position:absolute;top:7px;left:max(84px,20%);right:max(16px,20%);height:26px;overflow:hidden;border-radius:13px;background:var(--surface);color:var(--muted);font-size:12px;line-height:26px;text-align:center;white-space:nowrap;text-overflow:ellipsis}
++.is-browser>.lv-device-screen{min-height:600px;border-top:1px solid var(--line);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
++/* index */
++.lv-grid{display:grid;gap:20px;height:100%;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
++.lv-grid.is-focus{grid-template-columns:1fr}
++.lv-grid.is-focus figure:not(.is-current){display:none}
++.lv-grid figure{display:flex;flex-direction:column;min-height:min(78vh,820px);margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
++.lv-grid figure.is-current{border-color:var(--accent)}
++.lv-grid figcaption{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:12px 16px;border-bottom:1px solid var(--line)}
++.lv-grid figcaption b{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--accent);color:var(--accent-ink);font-size:16px}
++.lv-grid figcaption span{flex:1;font-weight:600}
++.lv-grid figcaption small{flex-basis:100%;color:var(--muted);font-size:13px}
++.lv-grid iframe{flex:1;width:100%;border:0;background:var(--canvas)}
++/* diagram */
++pre.mermaid{margin:0 auto;max-width:1100px;padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow-x:auto;white-space:pre;text-align:center}
++/* wireframe kit: fallback when no platform look is known */
++.wf-page{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:16px;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
++.wf-row{display:flex;flex-wrap:wrap;gap:16px}
++.wf-col{display:flex;flex-direction:column;gap:16px;flex:1 1 240px;min-width:0}
++.wf-col.is-narrow{flex:0 1 200px}
+ .wf-nav{display:flex;flex-wrap:wrap;gap:4px}
+ .wf-col>.wf-nav,.wf-nav.is-vertical{flex-direction:column}
+-.wf-nav-item,.wf-tab{padding:6px 10px;border-radius:4px;color:var(--muted)}
+-.wf-nav-item.is-active,.wf-tab.is-active{background:var(--fill);color:var(--text);font-weight:600}
+-.wf-panel,.wf-card{border:1px solid var(--line);border-radius:6px;padding:12px;display:flex;flex-direction:column;gap:8px}
+-.wf-panel{background:var(--bg)}
+-.wf-heading{margin:0;font-size:1.1em;font-weight:700}
++.wf-nav-item{padding:8px 12px;border-radius:8px;color:var(--muted);font-weight:500}
++.wf-nav-item.is-active{background:var(--accent-soft);color:var(--accent);font-weight:650;box-shadow:inset 3px 0 0 var(--accent)}
++.wf-tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--line)}
++.wf-tab{padding:8px 14px;color:var(--muted);font-weight:500;margin-bottom:-1px;border-bottom:2px solid transparent}
++.wf-tab.is-active{color:var(--accent);border-bottom-color:var(--accent);font-weight:650}
++.wf-panel,.wf-card{display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--raised)}
++.wf-card{background:var(--surface)}
++.wf-heading{margin:0;font-size:17px;font-weight:700;color:var(--ink)}
+ .wf-text{margin:0;color:var(--muted)}
+-.wf-input{display:block;border:1px solid var(--line);border-radius:4px;padding:6px 10px;color:var(--muted);background:var(--surface);min-height:34px}
+-.wf-button{display:inline-block;border:1px solid var(--line);border-radius:4px;padding:6px 14px;background:var(--surface);color:var(--text);font:inherit}
+-.wf-button.is-primary{background:var(--strong);border-color:var(--strong);color:var(--on-strong)}
++.wf-input{display:block;min-height:38px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--muted)}
++.wf-button{display:inline-flex;align-items:center;min-height:38px;padding:8px 16px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font-weight:600}
++.wf-button.is-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+ .wf-button.is-disabled{opacity:.45}
+-.wf-toggle{display:inline-block;width:36px;height:20px;border-radius:10px;background:var(--fill);border:1px solid var(--line);position:relative}
+-.wf-toggle::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--line)}
+-.wf-toggle.is-active::after{left:18px;background:var(--strong)}
+-.wf-tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--line)}
+-.wf-placeholder{display:flex;align-items:center;justify-content:center;min-height:80px;background:var(--fill);border:1px dashed var(--line);color:var(--muted);font-size:13px}
+-.wf-note{border-left:3px solid var(--line);padding:4px 8px;color:var(--muted);font-size:13px;font-style:italic}
++.wf-toggle{display:inline-block;width:40px;height:22px;border-radius:11px;background:var(--line);position:relative}
++.wf-toggle::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--surface)}
++.wf-toggle.is-active{background:var(--accent)}
++.wf-toggle.is-active::after{left:21px}
++.wf-placeholder{display:flex;align-items:center;justify-content:center;min-height:96px;border:1px dashed var(--line);border-radius:8px;color:var(--muted);font-size:13px;background:repeating-linear-gradient(45deg,transparent 0 8px,var(--grid) 8px 9px)}
++.wf-note{margin:0;padding:8px 12px;border-left:3px solid var(--diagram);border-radius:0 8px 8px 0;background:var(--diagram-soft);color:var(--ink);font-size:13px}
++@media (max-width:760px){html,body{height:auto}.lv-body{display:block}.lv-stage{overflow:visible;padding:16px}.lv-notes{width:auto;border-left:0;border-top:1px solid var(--line)}.lv-bar{flex-wrap:wrap;padding:12px 16px}.lv-tools{order:3;width:100%;flex-wrap:wrap}.lv-grid figure{min-height:80vh}}
++/* phone frames keep their proportions and scale down in narrow viewports */
++@media (max-width:480px){.lv-device.is-iphone,.lv-device.is-android{zoom:.78}}
++@media (max-width:380px){.lv-device.is-iphone,.lv-device.is-android{zoom:.7}}
++@media (max-width:340px){.lv-device.is-iphone,.lv-device.is-android{zoom:.6}}
+ </style>
++<style id="option-style">
++/* Option content CSS: target platform or project theme. Prefix classes, e.g. app-. */
++</style>
++<script>
++(function(){var d=document.documentElement;try{var t=localStorage.getItem('lusona-theme');if(t)d.dataset.theme=t}catch(e){}
++if(window.self!==window.top&&!/(^#|&)full(&|$)/.test(location.hash))d.classList.add('is-embedded')})();
++</script>
+ </head>
+ <body>
+-<header class="lv-head">
+-<p class="lv-meta">{{record_id}} <span class="lv-option">Option {{option_letter}}: {{option_title}}</span> <span class="lv-status">{{status}}</span></p>
+-<p class="lv-q">{{question}}</p>
++<header class="lv-bar">
++<span class="lv-letter" aria-label="Option {{option_letter}}">{{option_letter}}</span>
++<div class="lv-titles">
++<p class="lv-meta"><span>{{record_id}}</span><span class="lv-status is-{{status_kind}}">{{status}}</span><span>{{option_title}}</span></p>
++<h1 class="lv-q">{{question}}</h1>
++<p class="lv-lede">{{question_context}}</p>
++</div>
++<div class="lv-tools">
++<!-- index variant only: view switch -->
++<div class="lv-switch" role="group" aria-label="View"><button type="button" data-view="compare" aria-pressed="true">Side by side</button><button type="button" data-view="focus" aria-pressed="false">One at a time</button></div>
++<button type="button" class="lv-tool" data-notes aria-pressed="true">Notes</button>
++<button type="button" class="lv-tool" data-theme-toggle>Theme</button>
++</div>
+ </header>
+-<main>
+-<!-- BEGIN mockup variant: wireframe body; only wf-* classes and tokens -->
+-<div class="wf-page">
+-<div class="wf-row"><div class="wf-nav"><span class="wf-nav-item is-active">Item</span><span class="wf-nav-item">Item</span></div></div>
+-<div class="wf-row">
+-<div class="wf-col"><div class="wf-panel"><h2 class="wf-heading">Heading</h2><p class="wf-text">Text</p><span class="wf-input">Input</span></div></div>
+-<div class="wf-col"><div class="wf-card"><div class="wf-placeholder">Image</div><span class="wf-toggle is-active"></span></div></div>
++<div class="lv-body">
++<main class="lv-stage">
++<!-- BEGIN mockup variant: option content; delete optional blocks that do not apply -->
++<div class="lv-controls">
++<!-- optional option switch: only when options differ in one part of the flow -->
++<div class="lv-switch" role="group" aria-label="Option" data-switch="option"><span>Option</span><button type="button" data-value="a" data-tradeoff="{{tradeoff_a}}" data-recommended>A · {{name_a}}</button><button type="button" data-value="b" data-tradeoff="{{tradeoff_b}}">B · {{name_b}}</button></div>
++<!-- optional state switch: values match data-state names -->
++<div class="lv-switch" role="group" aria-label="State" data-switch="state"><span>State</span><button type="button" data-value="ready">Ready</button><button type="button" data-value="failed">Failed</button></div>
++<p class="lv-tradeoff" aria-live="polite"></p>
+ </div>
+-<div class="wf-row"><span class="wf-button">Cancel</span><span class="wf-button is-primary">Save</span></div>
+-<p class="wf-note">Note on behavior not visible in the wireframe</p>
++<div class="lv-flow">
++<figure class="lv-screen">
++<figcaption><span class="lv-step">1</span><span>{{screen_name}}<small>{{screen_note}}</small></span></figcaption>
++<div class="lv-device is-iphone"><div class="lv-device-screen">
++<!-- screen content styled by option-style; data-option="a" / data-state="failed" mark variants -->
++</div></div>
++</figure>
+ </div>
+ <!-- END mockup variant -->
+-<!-- BEGIN diagram variant: delete the option element in the header; status Diagram -->
+-<pre class="mermaid">
+-{{mermaid_source}}
+-</pre>
++<!-- BEGIN diagram variant: Mermaid source; readable when the script cannot load -->
++<pre class="mermaid">{{mermaid_source}}</pre>
+ <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js" integrity="sha384-rbtjAdnIQE/aQJGEgXrVUlMibdfTSa4PQju4HDhN3sR2PmaKFzhEafuePsl9H/9I" crossorigin="anonymous"></script>
+-<script>if(window.mermaid){mermaid.initialize({startOnLoad:true,theme:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'neutral'})}</script>
++<script>
++(function(){var p=document.querySelector('pre.mermaid');if(!window.mermaid||!p)return;var src=p.textContent;
++function draw(){var c=getComputedStyle(document.documentElement),v=function(n){return c.getPropertyValue(n).trim()};
++mermaid.initialize({startOnLoad:false,theme:'base',themeVariables:{background:v('--surface'),primaryColor:v('--raised'),primaryTextColor:v('--ink'),primaryBorderColor:v('--accent'),lineColor:v('--muted'),secondaryColor:v('--accent-soft'),tertiaryColor:v('--surface'),edgeLabelBackground:v('--surface'),fontFamily:'system-ui,sans-serif'}});
++p.removeAttribute('data-processed');p.textContent=src;mermaid.run({nodes:[p]})}
++draw();document.addEventListener('lusona-theme',draw)})();
++</script>
+ <!-- END diagram variant -->
+-<!-- BEGIN index variant: delete the option element in the header; one figure per option file -->
++<!-- BEGIN index variant: one figure per option file -->
+ <div class="lv-grid">
+-<figure><figcaption>A: {{option_title}} <a href="a.html">open</a></figcaption><iframe src="a.html" title="Option A"></iframe></figure>
+-<figure><figcaption>B: {{option_title}} <a href="b.html">open</a></figcaption><iframe src="b.html" title="Option B"></iframe></figure>
++<figure class="is-current"><figcaption><b>A</b><span>{{name_a}}</span><em class="lv-rec">Recommended</em><a href="a.html">Open full page</a><small>{{tradeoff_a}}</small></figcaption><iframe src="a.html" title="Option A"></iframe></figure>
++<figure><figcaption><b>B</b><span>{{name_b}}</span><a href="b.html">Open full page</a><small>{{tradeoff_b}}</small></figcaption><iframe src="b.html" title="Option B"></iframe></figure>
+ </div>
+ <!-- END index variant -->
+ </main>
+-<footer class="lv-foot">
+-<p>Binding: {{binding_summary}}</p>
+-<p>Illustrative: {{illustrative_summary}}</p>
+-</footer>
++<aside class="lv-notes" aria-label="Reference notes">
++<section class="is-binding"><h2>Binding</h2><ul>{{binding_items}}</ul></section>
++<section><h2>Illustrative</h2><ul>{{illustrative_items}}</ul></section>
++<section class="is-fidelity"><h2>Fidelity</h2><p>{{fidelity}}</p></section>
++<section><h2>Open questions</h2><ul>{{open_questions}}</ul></section>
++<section class="is-never"><h2>Must not happen</h2><ul>{{must_not_happen}}</ul></section>
++</aside>
++</div>
++<script>
++(function(){var d=document.documentElement,$$=function(s){return [].slice.call(document.querySelectorAll(s))};
++function theme(){document.dispatchEvent(new Event('lusona-theme'))}
++var tt=document.querySelector('[data-theme-toggle]');if(tt)tt.onclick=function(){var dark=getComputedStyle(d).colorScheme==='dark';d.dataset.theme=dark?'light':'dark';try{localStorage.setItem('lusona-theme',d.dataset.theme)}catch(e){}theme()};
++if(window.matchMedia)matchMedia('(prefers-color-scheme: dark)').addEventListener('change',theme);
++var nb=document.querySelector('[data-notes]'),na=document.querySelector('.lv-notes');if(nb&&na)nb.onclick=function(){na.hidden=!na.hidden;nb.setAttribute('aria-pressed',String(!na.hidden))};
++var g=document.querySelector('.lv-grid'),f=g?$$('.lv-grid>figure'):[];
++function pick(i){f.forEach(function(x,j){x.classList.toggle('is-current',j===i)})}
++$$('[data-view]').forEach(function(b){b.onclick=function(){if(g)g.classList.toggle('is-focus',b.dataset.view==='focus');$$('[data-view]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))})}});
++f.forEach(function(x,j){x.addEventListener('click',function(){pick(j)})});
++// option and state switches; hash params: #option=b&state=failed (combine with &; "full" is a flag)
++function dec(s){try{return decodeURIComponent(s)}catch(e){return s}}
++function params(){var p={};location.hash.slice(1).split('&').forEach(function(s){if(!s)return;var i=s.indexOf('=');p[dec(i<0?s:s.slice(0,i))]=i<0?'':dec(s.slice(i+1)).toLowerCase()});return p}
++function btn(sw,val){return [].slice.call(sw.querySelectorAll('button[data-value]')).filter(function(x){return x.dataset.value.toLowerCase()===val})[0]}
++function set(kind,val,save){var sw=document.querySelector('[data-switch="'+kind+'"]');if(!sw||!val)return;val=String(val).toLowerCase();
++  var bs=[].slice.call(sw.querySelectorAll('button[data-value]')),b=btn(sw,val);if(!b)return;
++  bs.forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
++  $$('[data-'+kind+']').forEach(function(el){if(el.closest('[data-switch]'))return;
++    if(el.getAttribute('data-'+kind).toLowerCase().split(/\s+/).indexOf(val)<0)el.setAttribute('data-lv-hidden','');else el.removeAttribute('data-lv-hidden')});
++  if(kind==='option'){var L=val.toUpperCase(),t=document.querySelector('.lv-tradeoff'),l=document.querySelector('.lv-letter');if(l){l.textContent=L;l.setAttribute('aria-label','Option '+L)}
++    if(t){t.textContent='';var h=document.createElement('b');h.textContent=b.textContent+(b.dataset.tradeoff?': ':'');t.appendChild(h);t.appendChild(document.createTextNode(b.dataset.tradeoff||''));
++      if(b.hasAttribute('data-recommended')){var r=document.createElement('em');r.className='lv-rec';r.textContent='Recommended';t.appendChild(r)}}}
++  if(save){var p=params();p[kind]=val;history.replaceState(null,'','#'+Object.keys(p).map(function(k){return p[k]===''?k:k+'='+p[k]}).join('&'))}}
++function init(){var p=params();$$('[data-switch]').forEach(function(g){var k=g.dataset.switch,first=g.querySelector('[data-recommended]')||g.querySelector('button[data-value]');
++  set(k,p[k]&&btn(g,p[k])?p[k]:first&&first.dataset.value,false)})}
++$$('[data-switch] button[data-value]').forEach(function(b){b.onclick=function(){set(b.closest('[data-switch]').dataset.switch,b.dataset.value,true)}});
++init();window.addEventListener('hashchange',init);
++document.addEventListener('keydown',function(e){var i='abcd'.indexOf(e.key.toLowerCase());if(i<0||e.metaKey||e.ctrlKey||e.altKey||(e.target.closest&&e.target.closest('input,textarea,[contenteditable]')))return;
++  if(f[i])pick(i);else set('option','abcd'[i],true)});
++})();
++</script>
+ </body>
+ </html>
+diff -ruN tmp/visual-platform-20261028/snapshots/baseline/templates/visual-reference.md plugins/lusona/templates/visual-reference.md
+--- tmp/visual-platform-20261028/snapshots/baseline/templates/visual-reference.md	2026-10-28 18:45:11
++++ plugins/lusona/templates/visual-reference.md	2026-10-28 18:55:45
+@@ -1,24 +1,39 @@
+ # Visual reference: <record-id>
+ 
+-<!-- Apply the visual rules in ../references/visuals.md. Save only after the user chooses.
+-Keep this file beside the chosen visual in docs/lusona/visuals/<record-id>/. Omit unused fields. -->
++<!-- Apply the visual rules in ../references/visuals.md. Save only after the user chooses and
++before recording the decision. Keep this file beside the chosen visual in
++docs/lusona/visuals/<record-id>/. Omit unused fields. -->
+ 
+ - Chosen option: <letter and short name>, chosen by <user> on <YYYY-MM-DD>
+-- Visual: <relative link to the chosen HTML mockup or Mermaid Markdown file>
++- Source: <relative link to option-<letter>.html, or to the Mermaid Markdown file>
+ - Owner: <relative link to the owning spec, ADR, or notes>
+ 
++## Images
++
++<!-- One PNG per state of the whole page; each shows all screens. If no headless browser was
++available, say so here and keep the HTML source alone. -->
++
++- <link to option-<letter>-<state>.png>: <state>; screens <names>
++
+ ## Binding
+ 
+ <!-- Acceptance input for implement and review. Defaults: layout regions, element order, which
+-controls exist, and information hierarchy. Add other aspects only when the user marks them binding. -->
++controls exist, and information hierarchy. Add other aspects only when the user marks them binding.
++An item may name a screen and state, e.g. "Shared list, failed: Retry appears below the title". -->
+ 
+-- V1: <observable aspect that must match>
++- V1: <screen and state, when specific>: <observable aspect that must match>
+ 
+ ## Illustrative
+ 
+ <!-- Not acceptance. Defaults: colors, copy, and spacing unless the user marks them binding. -->
+ 
+ - <aspect shown for illustration only>
++
++## Fidelity
++
++<!-- What the images approximate, e.g. production uses system components. -->
++
++- <approximate aspect>
+ 
+ ## Rejected options
+ 

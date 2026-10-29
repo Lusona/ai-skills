@@ -7,7 +7,7 @@ prüfen. Du bestimmst das Ziel, die Vorgaben und die Befugnisse. Anhand der vorl
 wählt der Agent den nächsten sinnvollen Schritt und setzt die freigegebene Arbeit fort.
 Wenn er Informationen oder eine Erlaubnis von dir braucht, fragt er nach.
 
-Für Claude Code, Codex, [Cursor](INSTALL.md#cursor) und [Programmieragenten in Xcode 27](INSTALL.md#xcode) · Version des Quellcodes in dieser Arbeitskopie: **1.2.0**
+Für Claude Code, Codex, [Cursor](INSTALL.md#cursor) und [Programmieragenten in Xcode 27](INSTALL.md#xcode) · Version des Quellcodes in dieser Arbeitskopie: **1.3.0**
 
 > [!WARNING]
 > Installiere Lusona nicht mit Vercel Skills (`npx skills@latest`); nutze die [Installation als natives Plugin](#installation).
@@ -250,6 +250,11 @@ Ein erfahrener Maintainer, der Kompatibilitätsvorgaben genannt hat, muss sie zu
 erneut angeben. Kennst du eine Migrationsoption noch nicht, erklärt der Agent ihre Folgen,
 bevor er dich fragt, welche Option du bevorzugst. Siehe
 [Gespräche zur Klärung der Absicht](plugins/lusona/references/interviews.md).
+
+Der Agent ergänzt Diagramme, wenn sie eine Entscheidung verdeutlichen. Lässt sich eine Konzept-, Architektur- oder UI-Entscheidung visuell besser
+beurteilen, bietet er 2 bis 4 mit Buchstaben gekennzeichnete Optionen an. Die gewählte Darstellung
+wird unter `docs/lusona/visuals/` mit einer Liste verbindlicher Aspekte gespeichert, die
+Implementierung und Review prüfen; siehe [visuelle Darstellungen](plugins/lusona/references/visuals.md).
 
 <a id="recovery-and-resumption"></a>
 ## Wiederherstellung und Fortsetzung

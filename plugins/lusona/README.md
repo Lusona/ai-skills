@@ -94,6 +94,7 @@ Leaves receive applicable paths/text and loading instructions. Paths are relativ
 | Operation | Reference |
 | --- | --- |
 | Intent/tradeoff interviews | [interviews](references/interviews.md) |
+| Visual options/diagrams/references | [visuals](references/visuals.md) |
 | Select/record/apply TDD | [tdd](references/tdd.md) |
 | Create/update/rename spec, plan, ADR | [naming](references/naming.md) |
 | Locate/maintain project records | [files](references/files.md) |

@@ -83,7 +83,8 @@ Apply the practices relevant to the selected decision; they are not a required a
 - Record context, decision, alternatives, consequences, and status. Mark a decision accepted
   only when supported by existing authorization or an explicit decision; otherwise use proposed.
   To replace an accepted decision, create a new ADR, mark the old one superseded, and link both
-  directions while preserving the old rationale. Use a diagram only when it clarifies relationships.
+  directions while preserving the old rationale. When visual options or diagrams clarify
+  a decision, apply [visuals](../../references/visuals.md).
 - Identify verification boundaries and migration or recovery requirements. Carry useful coding
   and verification details into the change record's optional execution section for
   [implement](../implement/SKILL.md). Carry forward the selected TDD policy.

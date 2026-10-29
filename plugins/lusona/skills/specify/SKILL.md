@@ -29,6 +29,7 @@ capabilities; a bug fix or direct bounded request does not require product defin
 - For visual work, capture supplied references and concrete required or excluded visual patterns
   in the agreement. Clarify missing preferences only when they materially affect the outcome;
   a clear visual request does not require a design interview.
+- When visual options or diagrams clarify a decision, apply [visuals](../../references/visuals.md).
 - Create or update `docs/lusona/specs/<change-id>.md` from
   [the spec template](../../templates/spec.md) when saved definition is needed and authorized,
   under the [naming rules](../../references/naming.md). Reuse existing specs or legacy feature

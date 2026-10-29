@@ -1,0 +1,180 @@
+diff -ruN tmp/visual-template-20261028/snapshots/baseline/references/files.md plugins/lusona/references/files.md
+--- tmp/visual-template-20261028/snapshots/baseline/references/files.md	2026-10-28 16:24:40
++++ plugins/lusona/references/files.md	2026-10-28 16:27:21
+@@ -27,6 +27,7 @@
+ | [Evidence template](../templates/evidence.md) | Measurement or experiment design, run results, limitations, and interpretation |
+ | [Notes template](../templates/notes.md) | Durable questions, evidence, conclusions, and current handoff |
+ | [Visual reference template](../templates/visual-reference.md) | Chosen option, binding and illustrative items, rejected options |
++| [Visual page template](../templates/visual-page.html) | HTML frame, wireframe kit, and mockup, diagram, and index variants for visual pages |
+ 
+ ## Existing records
+ 
+diff -ruN tmp/visual-template-20261028/snapshots/baseline/references/visuals.md plugins/lusona/references/visuals.md
+--- tmp/visual-template-20261028/snapshots/baseline/references/visuals.md	2026-10-28 16:24:40
++++ plugins/lusona/references/visuals.md	2026-10-28 16:39:40
+@@ -15,13 +15,21 @@
+ 
+ ## Presentation
+ 
+-- Show a simple diagram inline in the reply as Unicode or ASCII text.
+-- Write a larger diagram or a UI mockup as a standalone HTML file. For Mermaid, put the source in
+-  `<pre class="mermaid">` and load a pinned script, such as
+-  `https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js`; the source stays readable
+-  when the script cannot load. Rendering requires no specific host.
+-- Open the file in the browser when the host permits; otherwise report its absolute path.
+-- Write draft options outside tracked records: in a scratch directory the host provides for the
++- Show a simple diagram inline in the reply as Unicode or ASCII text. Write a larger diagram or a
++  UI mockup as an HTML page.
++- Start every generated option, index, and diagram page from the
++  [visual page template](../templates/visual-page.html): keep one body variant, fill the header
++  (record ID or topic, option letter, status, question), and fill the footer binding and
++  illustrative summary when known. Pages stay self-contained except the pinned Mermaid script,
++  which only the diagram variant loads; its source stays readable when the script cannot load.
++  Rendering requires no specific host.
++- Mockup bodies use only the template's wireframe kit classes and color tokens, so options
++  differ in structure rather than styling.
++- For HTML options, write one file per option (`a.html`, `b.html`, ...) and an `index.html` that shows
++  them side by side with their letters.
++- Open the index or diagram page in the browser when the host permits; otherwise report its
++  absolute path.
++- Write draft pages outside tracked records: in a scratch directory the host provides for the
+   session, or in the project's ignored temporary directory.
+ 
+ ## Choice
+@@ -38,15 +46,18 @@
+ 
+ - Directory: `docs/lusona/visuals/<record-id>/`, where `<record-id>` is the owning spec or ADR
+   basename, or the notes slug when no spec exists yet.
+-- Save the chosen visual as a static file: the HTML mockup, or Mermaid in a Markdown file.
++- Save the chosen visual as a static file: copy the chosen option file, changing only its status to
++  `Chosen reference`; save a diagram as Mermaid in a
++  Markdown file.
+ - Create `reference.md` from the [visual reference template](../templates/visual-reference.md):
+   chosen option, who chose it and when, visual link, owner link, binding items, illustrative
+   items, and one line per rejected option with the reason.
+ - Binding items (IDs V1, V2, ...) default to layout regions, element order, which controls exist,
+   and information hierarchy. Illustrative items default to colors, copy, and spacing unless the
+   user marks them binding.
+-- Do not save rejected option files.
++- Do not save the index or rejected option files.
+ - Link `reference.md` from the owning spec, ADR, or notes.
++- When a page footer and `reference.md` disagree, `reference.md` governs.
+ 
+ A user-supplied reference keeps its existing capture in specify. Retain it this way only when
+ the user asks.
+diff -ruN tmp/visual-template-20261028/snapshots/baseline/templates/visual-page.html plugins/lusona/templates/visual-page.html
+--- tmp/visual-template-20261028/snapshots/baseline/templates/visual-page.html	1969-12-31 16:00:00
++++ plugins/lusona/templates/visual-page.html	2026-10-28 16:36:08
+@@ -0,0 +1,101 @@
++<!doctype html>
++<!--
++Lusona visual page. Apply the plugin's references/visuals.md. Copy this file, keep exactly one
++body variant (mockup, diagram, or index), delete the other two, and delete this comment.
++Replace each {{name}} placeholder below; delete an element whose value is unknown.
++  record_id                owning spec or ADR basename, notes slug, or topic when no record exists
++  option_letter            A-D; delete the option element on index and diagram pages
++  option_title             short option name; "Options" on an index page, the diagram name on a diagram page
++  status                   Draft option | Option index | Chosen reference | Diagram
++  question                 the question the user is choosing on
++  binding_summary          binding items known when the page is written; otherwise delete the line
++  illustrative_summary     illustrative items, e.g. "colors, copy, spacing"
++  mermaid_source           Mermaid source, with < and & escaped (diagram variant only)
++Mockup bodies use only the wf-* classes and the color tokens below; add no other CSS and no
++style attributes. For a sidebar, put a wf-col is-narrow beside a wf-col in a wf-row.
++The only external resource is the pinned Mermaid script, in the diagram variant only.
++-->
++<html lang="en">
++<head>
++<meta charset="utf-8">
++<meta name="viewport" content="width=device-width, initial-scale=1">
++<title>{{record_id}}: {{option_title}}</title>
++<style>
++:root{--bg:#f4f4f4;--surface:#fff;--fill:#e2e2e2;--line:#9a9a9a;--text:#1e1e1e;--muted:#666;--strong:#3a3a3a;--on-strong:#fff}
++@media (prefers-color-scheme:dark){:root{--bg:#161616;--surface:#222;--fill:#333;--line:#6a6a6a;--text:#ececec;--muted:#a0a0a0;--strong:#d0d0d0;--on-strong:#161616}}
++*{box-sizing:border-box}
++a{color:inherit}
++body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,sans-serif;overflow-wrap:anywhere}
++.lv-head,.lv-foot{padding:12px 16px;background:var(--surface);border-bottom:1px solid var(--line)}
++.lv-foot{border-top:1px solid var(--line);border-bottom:0;color:var(--muted);font-size:13px}
++.lv-head p,.lv-foot p{margin:2px 0}
++.lv-meta{color:var(--muted);font-size:13px}
++.lv-status{border:1px solid var(--line);border-radius:4px;padding:0 6px}
++.lv-q{font-weight:600}
++main{padding:16px;max-width:1200px;margin:0 auto}
++pre.mermaid{background:var(--surface);border:1px solid var(--line);padding:12px;overflow-x:auto;white-space:pre}
++.lv-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
++.lv-grid figure{margin:0;background:var(--surface);border:1px solid var(--line)}
++.lv-grid figcaption{padding:8px 12px;font-weight:600}
++.lv-grid iframe{display:block;width:100%;height:560px;border:0;border-top:1px solid var(--line)}
++.wf-page{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--line);padding:12px;min-height:320px}
++.wf-row{display:flex;flex-wrap:wrap;gap:12px}
++.wf-col{display:flex;flex-direction:column;gap:12px;flex:1 1 200px;min-width:0}
++.wf-col.is-narrow{flex:0 1 180px}
++.wf-nav{display:flex;flex-wrap:wrap;gap:4px}
++.wf-col>.wf-nav,.wf-nav.is-vertical{flex-direction:column}
++.wf-nav-item,.wf-tab{padding:6px 10px;border-radius:4px;color:var(--muted)}
++.wf-nav-item.is-active,.wf-tab.is-active{background:var(--fill);color:var(--text);font-weight:600}
++.wf-panel,.wf-card{border:1px solid var(--line);border-radius:6px;padding:12px;display:flex;flex-direction:column;gap:8px}
++.wf-panel{background:var(--bg)}
++.wf-heading{margin:0;font-size:1.1em;font-weight:700}
++.wf-text{margin:0;color:var(--muted)}
++.wf-input{display:block;border:1px solid var(--line);border-radius:4px;padding:6px 10px;color:var(--muted);background:var(--surface);min-height:34px}
++.wf-button{display:inline-block;border:1px solid var(--line);border-radius:4px;padding:6px 14px;background:var(--surface);color:var(--text);font:inherit}
++.wf-button.is-primary{background:var(--strong);border-color:var(--strong);color:var(--on-strong)}
++.wf-button.is-disabled{opacity:.45}
++.wf-toggle{display:inline-block;width:36px;height:20px;border-radius:10px;background:var(--fill);border:1px solid var(--line);position:relative}
++.wf-toggle::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--line)}
++.wf-toggle.is-active::after{left:18px;background:var(--strong)}
++.wf-tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--line)}
++.wf-placeholder{display:flex;align-items:center;justify-content:center;min-height:80px;background:var(--fill);border:1px dashed var(--line);color:var(--muted);font-size:13px}
++.wf-note{border-left:3px solid var(--line);padding:4px 8px;color:var(--muted);font-size:13px;font-style:italic}
++</style>
++</head>
++<body>
++<header class="lv-head">
++<p class="lv-meta">{{record_id}} <span class="lv-option">Option {{option_letter}}: {{option_title}}</span> <span class="lv-status">{{status}}</span></p>
++<p class="lv-q">{{question}}</p>
++</header>
++<main>
++<!-- BEGIN mockup variant: wireframe body; only wf-* classes and tokens -->
++<div class="wf-page">
++<div class="wf-row"><div class="wf-nav"><span class="wf-nav-item is-active">Item</span><span class="wf-nav-item">Item</span></div></div>
++<div class="wf-row">
++<div class="wf-col"><div class="wf-panel"><h2 class="wf-heading">Heading</h2><p class="wf-text">Text</p><span class="wf-input">Input</span></div></div>
++<div class="wf-col"><div class="wf-card"><div class="wf-placeholder">Image</div><span class="wf-toggle is-active"></span></div></div>
++</div>
++<div class="wf-row"><span class="wf-button">Cancel</span><span class="wf-button is-primary">Save</span></div>
++<p class="wf-note">Note on behavior not visible in the wireframe</p>
++</div>
++<!-- END mockup variant -->
++<!-- BEGIN diagram variant: delete the option element in the header; status Diagram -->
++<pre class="mermaid">
++{{mermaid_source}}
++</pre>
++<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js" integrity="sha384-rbtjAdnIQE/aQJGEgXrVUlMibdfTSa4PQju4HDhN3sR2PmaKFzhEafuePsl9H/9I" crossorigin="anonymous"></script>
++<script>if(window.mermaid){mermaid.initialize({startOnLoad:true,theme:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'neutral'})}</script>
++<!-- END diagram variant -->
++<!-- BEGIN index variant: delete the option element in the header; one figure per option file -->
++<div class="lv-grid">
++<figure><figcaption>A: {{option_title}} <a href="a.html">open</a></figcaption><iframe src="a.html" title="Option A"></iframe></figure>
++<figure><figcaption>B: {{option_title}} <a href="b.html">open</a></figcaption><iframe src="b.html" title="Option B"></iframe></figure>
++</div>
++<!-- END index variant -->
++</main>
++<footer class="lv-foot">
++<p>Binding: {{binding_summary}}</p>
++<p>Illustrative: {{illustrative_summary}}</p>
++</footer>
++</body>
++</html>
+diff -ruN tmp/visual-template-20261028/snapshots/baseline/templates/visual-reference.md plugins/lusona/templates/visual-reference.md
+--- tmp/visual-template-20261028/snapshots/baseline/templates/visual-reference.md	2026-10-28 16:24:40
++++ plugins/lusona/templates/visual-reference.md	2026-10-28 16:27:38
+@@ -22,6 +22,6 @@
+ 
+ ## Rejected options
+ 
+-<!-- One line per rejected option. Do not save rejected option files. -->
++<!-- One line per rejected option. Do not save the index or rejected option files. -->
+ 
+ - <letter>: <short name>; <reason>

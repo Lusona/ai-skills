@@ -44,6 +44,8 @@ If a technique needs illustration, consult only the relevant optional
 [interview example](../../references/interview-examples.md): future experience, context reuse,
 or correction. The examples are not a questionnaire.
 
+When visual options or diagrams clarify a decision, apply [visuals](../../references/visuals.md).
+
 ## Outcome and next action
 
 Use relevant [brainstorm template](../../templates/brainstorm.md) sections for substantive

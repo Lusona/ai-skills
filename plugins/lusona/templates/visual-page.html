@@ -1,0 +1,1164 @@
+<!doctype html>
+<!--
+Lusona visual page. Apply the plugin's references/visuals.md. Copy this file, keep exactly one
+body variant (mockup, diagram, or index), delete the other two, and delete this comment.
+Replace each {{name}} placeholder; delete an element or optional block whose value is unknown.
+  record_id          owning spec or ADR basename, notes slug, or topic when no record exists
+  option_letter      A-D on an option page; delete the lv-letter element on index and diagram pages
+  option_title       short option name; "Options" on an index or option-switch page; diagram name
+  status_kind        draft | index | chosen | diagram
+  status             Draft option | Option index | Chosen reference | Diagram
+  question           the question the user is choosing on
+  question_context   one or two sentences: what is decided, what to compare, what is out of scope
+  binding_items, illustrative_items, open_questions, must_not_happen   one <li> per item
+  fidelity           what is approximate, e.g. "Production uses system components; icons are glyphs."
+  mermaid_source     diagram only; escape < as &lt; and & as &amp;
+  name_a..name_d, tradeoff_a..tradeoff_d   per-option name and one-line tradeoff (index and option switch)
+Mockup variant:
+- Write option content CSS in <style id="option-style"> (target platform or project theme). Do not
+  edit the shell <style>. Without a known platform look, use only the wf-* wireframe kit instead.
+- lv-flow holds 1-5 lv-screen figures. Use lv-step numbers only when the screens are a sequence.
+- Mobile content uses .lv-mobile: a plain, content-sized panel. Keep platform styling in
+  option-style; do not add phone bezels, hardware cutouts, or simulated system bars.
+- Optional browser frame: .lv-device.is-browser with a .lv-device-screen child and data-url.
+- State and option names are lowercase words, e.g. "failed", "save-failed".
+- State switch: buttons in data-switch="state" toggle elements marked data-state="<name>" (space
+  separated names allowed); elements without data-state always show. Delete it when there is one state.
+- Option switch, only when options differ in one part: buttons in data-switch="option" with
+  data-value="a".."d", data-tradeoff, and data-recommended on one; toggles data-option elements.
+- Hash params set the initial view and combine: #option=b&state=failed. #full shows the header and
+  notes inside an iframe.
+The only external resource is the pinned Mermaid script, in the diagram variant only.
+-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{record_id}}: {{option_title}}</title>
+        <style>
+            :root {
+                --canvas: #e8edf4;
+                --grid: rgba(37, 99, 217, 0.08);
+                --surface: #fff;
+                --raised: #f5f7fb;
+                --ink: #172131;
+                --muted: #566275;
+                --line: #c9d2de;
+                --accent: #2563d9;
+                --accent-ink: #fff;
+                --accent-soft: #e2ebfc;
+                --frame: #1d2026;
+                --draft: #8a5a00;
+                --draft-soft: #fdf0d5;
+                --chosen: #12784a;
+                --chosen-soft: #dcf2e6;
+                --diagram: #5b4bc9;
+                --diagram-soft: #ebe8fb;
+                --danger: #b42318;
+                --shadow:
+                    0 1px 2px rgba(23, 33, 49, 0.08),
+                    0 8px 24px rgba(23, 33, 49, 0.08);
+                color-scheme: light;
+            }
+            @media (prefers-color-scheme: dark) {
+                :root:not([data-theme="light"]) {
+                    --canvas: #0d1726;
+                    --grid: rgba(111, 155, 255, 0.07);
+                    --surface: #14223a;
+                    --raised: #1a2b47;
+                    --ink: #e5ecf6;
+                    --muted: #97a5ba;
+                    --line: #2b3d5a;
+                    --accent: #78a2ff;
+                    --accent-ink: #0d1726;
+                    --accent-soft: #1d3358;
+                    --frame: #030508;
+                    --draft: #f0b748;
+                    --draft-soft: #3a2d12;
+                    --chosen: #4fcb8c;
+                    --chosen-soft: #123424;
+                    --diagram: #ab9fff;
+                    --diagram-soft: #29234f;
+                    --danger: #ff8a80;
+                    --shadow:
+                        0 1px 2px rgba(0, 0, 0, 0.4),
+                        0 8px 24px rgba(0, 0, 0, 0.35);
+                    color-scheme: dark;
+                }
+            }
+            :root[data-theme="dark"] {
+                --canvas: #0d1726;
+                --grid: rgba(111, 155, 255, 0.07);
+                --surface: #14223a;
+                --raised: #1a2b47;
+                --ink: #e5ecf6;
+                --muted: #97a5ba;
+                --line: #2b3d5a;
+                --accent: #78a2ff;
+                --accent-ink: #0d1726;
+                --accent-soft: #1d3358;
+                --frame: #030508;
+                --draft: #f0b748;
+                --draft-soft: #3a2d12;
+                --chosen: #4fcb8c;
+                --chosen-soft: #123424;
+                --diagram: #ab9fff;
+                --diagram-soft: #29234f;
+                --danger: #ff8a80;
+                --shadow:
+                    0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+                color-scheme: dark;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                height: 100%;
+            }
+            body {
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                background: var(--canvas);
+                color: var(--ink);
+                font:
+                    15px/1.5 system-ui,
+                    -apple-system,
+                    "Segoe UI",
+                    sans-serif;
+            }
+            a {
+                color: var(--accent);
+            }
+            :focus-visible {
+                outline: 2px solid var(--accent);
+                outline-offset: 2px;
+            }
+            [data-lv-hidden] {
+                display: none !important;
+            }
+            /* shell */
+            .lv-bar {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                padding: 14px 24px;
+                background: var(--surface);
+                border-bottom: 1px solid var(--line);
+            }
+            .lv-letter {
+                flex: none;
+                display: grid;
+                place-items: center;
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                background: var(--accent);
+                color: var(--accent-ink);
+                font-size: 22px;
+                font-weight: 700;
+            }
+            .lv-titles {
+                flex: 1;
+                min-width: 0;
+            }
+            .lv-meta {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 8px;
+                margin: 0 0 2px;
+                color: var(--muted);
+                font-size: 13px;
+            }
+            .lv-q {
+                margin: 0;
+                font-size: clamp(18px, 1.6vw, 24px);
+                line-height: 1.25;
+                font-weight: 650;
+            }
+            .lv-lede {
+                margin: 4px 0 0;
+                max-width: 80ch;
+                color: var(--muted);
+                font-size: 14px;
+            }
+            .lv-status {
+                padding: 1px 10px;
+                border-radius: 999px;
+                font-weight: 600;
+                font-size: 12px;
+            }
+            .lv-status.is-draft {
+                background: var(--draft-soft);
+                color: var(--draft);
+            }
+            .lv-status.is-index {
+                background: var(--accent-soft);
+                color: var(--accent);
+            }
+            .lv-status.is-chosen {
+                background: var(--chosen-soft);
+                color: var(--chosen);
+            }
+            .lv-status.is-diagram {
+                background: var(--diagram-soft);
+                color: var(--diagram);
+            }
+            .lv-tools {
+                display: flex;
+                gap: 8px;
+                flex: none;
+            }
+            .lv-tool {
+                border: 1px solid var(--line);
+                background: var(--raised);
+                color: var(--ink);
+                border-radius: 8px;
+                padding: 6px 12px;
+                font: inherit;
+                font-size: 13px;
+                cursor: pointer;
+            }
+            .lv-tool[aria-pressed="true"] {
+                background: var(--accent-soft);
+                border-color: var(--accent);
+                color: var(--accent);
+            }
+            .lv-body {
+                flex: 1;
+                min-height: 0;
+                display: flex;
+            }
+            .lv-stage {
+                flex: 1;
+                min-width: 0;
+                overflow: auto;
+                padding: 24px;
+                background-image:
+                    linear-gradient(var(--grid) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+                background-size: 24px 24px;
+            }
+            .lv-notes {
+                flex: none;
+                width: 300px;
+                overflow: auto;
+                padding: 20px;
+                background: var(--surface);
+                border-left: 1px solid var(--line);
+                font-size: 14px;
+            }
+            .lv-notes[hidden] {
+                display: none;
+            }
+            .lv-notes h2 {
+                margin: 0 0 8px;
+                font-size: 14px;
+            }
+            .lv-notes ul,
+            .lv-notes p {
+                margin: 0 0 20px;
+            }
+            .lv-notes ul {
+                padding-left: 18px;
+            }
+            .lv-notes li {
+                margin: 4px 0;
+            }
+            .lv-notes .is-binding li::marker {
+                color: var(--chosen);
+            }
+            .lv-notes .is-never li::marker {
+                color: var(--danger);
+            }
+            .lv-notes .is-fidelity p {
+                padding: 8px 12px;
+                border-radius: 8px;
+                background: var(--raised);
+                color: var(--muted);
+            }
+            .is-embedded .lv-bar,
+            .is-embedded .lv-notes {
+                display: none;
+            }
+            .is-embedded .lv-stage {
+                padding: 16px;
+            }
+            /* switches: index view, option, state */
+            .lv-switch {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 4px;
+                padding: 3px;
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                background: var(--raised);
+            }
+            .lv-switch > span {
+                padding: 0 8px;
+                color: var(--muted);
+                font-size: 13px;
+                font-weight: 600;
+            }
+            .lv-switch button {
+                border: 0;
+                background: none;
+                color: var(--muted);
+                border-radius: 7px;
+                padding: 5px 12px;
+                font: inherit;
+                font-size: 13px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+            .lv-switch button[aria-pressed="true"] {
+                background: var(--surface);
+                color: var(--accent);
+                box-shadow: var(--shadow);
+            }
+            .lv-rec,
+            .lv-switch button[data-recommended]::after {
+                margin-left: 6px;
+                padding: 1px 7px;
+                border-radius: 999px;
+                background: var(--chosen-soft);
+                color: var(--chosen);
+                font-size: 11px;
+                font-weight: 600;
+                font-style: normal;
+            }
+            .lv-switch button[data-recommended]::after {
+                content: "Recommended";
+            }
+            .lv-controls {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                gap: 10px 16px;
+                margin: 0 auto 24px;
+                max-width: 1400px;
+            }
+            .lv-tradeoff {
+                flex-basis: 100%;
+                margin: 0;
+                text-align: center;
+                color: var(--muted);
+                font-size: 14px;
+            }
+            .lv-tradeoff:empty {
+                display: none;
+            }
+            .lv-tradeoff b {
+                color: var(--ink);
+            }
+            /* flow of screens */
+            .lv-flow {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 32px 28px;
+            }
+            .lv-screen {
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                min-width: 0;
+                max-width: 100%;
+            }
+            .lv-screen > figcaption {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                width: 100%;
+                max-width: 432px;
+                font-weight: 650;
+            }
+            .lv-screen > figcaption small {
+                display: block;
+                color: var(--muted);
+                font-size: 13px;
+                font-weight: 400;
+            }
+            .lv-step {
+                flex: none;
+                display: grid;
+                place-items: center;
+                width: 24px;
+                height: 24px;
+                margin-top: 1px;
+                border-radius: 50%;
+                background: var(--accent);
+                color: var(--accent-ink);
+                font-size: 13px;
+                font-weight: 700;
+            }
+            /* device frames */
+            .lv-device {
+                position: relative;
+                flex: none;
+                max-width: 100%;
+                color-scheme: light;
+            }
+            .lv-device-screen {
+                position: relative;
+                height: 100%;
+                overflow: hidden;
+                background: #fff;
+                color: #000;
+                text-align: left;
+            }
+            .lv-mobile {
+                position: relative;
+                width: 393px;
+                max-width: 100%;
+                background: #fff;
+                color: #000;
+                text-align: left;
+                font: 17px/1.3 -apple-system, system-ui, sans-serif;
+            }
+            .lv-device.is-browser {
+                width: 1280px;
+                padding-top: 40px;
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                background: var(--raised);
+                box-shadow: var(--shadow);
+                overflow: hidden;
+            }
+            .lv-device.is-browser::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 40px;
+                background:
+                    radial-gradient(circle, #ff5f57 5px, transparent 5.5px) 10px
+                        10px/20px 20px no-repeat,
+                    radial-gradient(circle, #febc2e 5px, transparent 5.5px) 30px
+                        10px/20px 20px no-repeat,
+                    radial-gradient(circle, #28c840 5px, transparent 5.5px) 50px
+                        10px/20px 20px no-repeat;
+            }
+            .lv-device.is-browser::after {
+                content: attr(data-url);
+                position: absolute;
+                top: 7px;
+                left: max(84px, 20%);
+                right: max(16px, 20%);
+                height: 26px;
+                overflow: hidden;
+                border-radius: 13px;
+                background: var(--surface);
+                color: var(--muted);
+                font-size: 12px;
+                line-height: 26px;
+                text-align: center;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .is-browser > .lv-device-screen {
+                min-height: 600px;
+                border-top: 1px solid var(--line);
+                font:
+                    15px/1.5 system-ui,
+                    -apple-system,
+                    "Segoe UI",
+                    sans-serif;
+            }
+            /* index */
+            .lv-grid {
+                display: grid;
+                gap: 20px;
+                height: 100%;
+                grid-template-columns: repeat(
+                    auto-fit,
+                    minmax(min(100%, 380px), 1fr)
+                );
+            }
+            .lv-grid.is-focus {
+                grid-template-columns: 1fr;
+            }
+            .lv-grid.is-focus figure:not(.is-current) {
+                display: none;
+            }
+            .lv-grid figure {
+                display: flex;
+                flex-direction: column;
+                min-height: min(78vh, 820px);
+                margin: 0;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                box-shadow: var(--shadow);
+                overflow: hidden;
+            }
+            .lv-grid figure.is-current {
+                border-color: var(--accent);
+            }
+            .lv-grid figcaption {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 4px 12px;
+                padding: 12px 16px;
+                border-bottom: 1px solid var(--line);
+            }
+            .lv-grid figcaption b {
+                display: grid;
+                place-items: center;
+                width: 32px;
+                height: 32px;
+                border-radius: 9px;
+                background: var(--accent);
+                color: var(--accent-ink);
+                font-size: 16px;
+            }
+            .lv-grid figcaption span {
+                flex: 1;
+                font-weight: 600;
+            }
+            .lv-grid figcaption small {
+                flex-basis: 100%;
+                color: var(--muted);
+                font-size: 13px;
+            }
+            .lv-grid iframe {
+                flex: 1;
+                width: 100%;
+                border: 0;
+                background: var(--canvas);
+            }
+            /* diagram */
+            pre.mermaid {
+                margin: 0 auto;
+                max-width: 1100px;
+                padding: 24px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                box-shadow: var(--shadow);
+                overflow-x: auto;
+                white-space: pre;
+                text-align: center;
+            }
+            /* wireframe kit: fallback when no platform look is known */
+            .wf-page {
+                max-width: 1100px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                padding: 20px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                box-shadow: var(--shadow);
+            }
+            .wf-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+            .wf-col {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                flex: 1 1 240px;
+                min-width: 0;
+            }
+            .wf-col.is-narrow {
+                flex: 0 1 200px;
+            }
+            .wf-nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+            .wf-col > .wf-nav,
+            .wf-nav.is-vertical {
+                flex-direction: column;
+            }
+            .wf-nav-item {
+                padding: 8px 12px;
+                border-radius: 8px;
+                color: var(--muted);
+                font-weight: 500;
+            }
+            .wf-nav-item.is-active {
+                background: var(--accent-soft);
+                color: var(--accent);
+                font-weight: 650;
+                box-shadow: inset 3px 0 0 var(--accent);
+            }
+            .wf-tabs {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+                border-bottom: 1px solid var(--line);
+            }
+            .wf-tab {
+                padding: 8px 14px;
+                color: var(--muted);
+                font-weight: 500;
+                margin-bottom: -1px;
+                border-bottom: 2px solid transparent;
+            }
+            .wf-tab.is-active {
+                color: var(--accent);
+                border-bottom-color: var(--accent);
+                font-weight: 650;
+            }
+            .wf-panel,
+            .wf-card {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px;
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                background: var(--raised);
+            }
+            .wf-card {
+                background: var(--surface);
+            }
+            .wf-heading {
+                margin: 0;
+                font-size: 17px;
+                font-weight: 700;
+                color: var(--ink);
+            }
+            .wf-text {
+                margin: 0;
+                color: var(--muted);
+            }
+            .wf-input {
+                display: block;
+                min-height: 38px;
+                padding: 8px 12px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                background: var(--surface);
+                color: var(--muted);
+            }
+            .wf-button {
+                display: inline-flex;
+                align-items: center;
+                min-height: 38px;
+                padding: 8px 16px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                background: var(--surface);
+                color: var(--ink);
+                font-weight: 600;
+            }
+            .wf-button.is-primary {
+                background: var(--accent);
+                border-color: var(--accent);
+                color: var(--accent-ink);
+            }
+            .wf-button.is-disabled {
+                opacity: 0.45;
+            }
+            .wf-toggle {
+                display: inline-block;
+                width: 40px;
+                height: 22px;
+                border-radius: 11px;
+                background: var(--line);
+                position: relative;
+            }
+            .wf-toggle::after {
+                content: "";
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background: var(--surface);
+            }
+            .wf-toggle.is-active {
+                background: var(--accent);
+            }
+            .wf-toggle.is-active::after {
+                left: 21px;
+            }
+            .wf-placeholder {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 96px;
+                border: 1px dashed var(--line);
+                border-radius: 8px;
+                color: var(--muted);
+                font-size: 13px;
+                background: repeating-linear-gradient(
+                    45deg,
+                    transparent 0 8px,
+                    var(--grid) 8px 9px
+                );
+            }
+            .wf-note {
+                margin: 0;
+                padding: 8px 12px;
+                border-left: 3px solid var(--diagram);
+                border-radius: 0 8px 8px 0;
+                background: var(--diagram-soft);
+                color: var(--ink);
+                font-size: 13px;
+            }
+            @media (max-width: 760px) {
+                html,
+                body {
+                    height: auto;
+                }
+                .lv-body {
+                    display: block;
+                }
+                .lv-stage {
+                    overflow: visible;
+                    padding: 16px;
+                }
+                .lv-notes {
+                    width: auto;
+                    border-left: 0;
+                    border-top: 1px solid var(--line);
+                }
+                .lv-bar {
+                    flex-wrap: wrap;
+                    padding: 12px 16px;
+                }
+                .lv-tools {
+                    order: 3;
+                    width: 100%;
+                    flex-wrap: wrap;
+                }
+                .lv-grid figure {
+                    min-height: 80vh;
+                }
+            }
+        </style>
+        <style id="option-style">
+            /* Option content CSS: target platform or project theme. Prefix classes, e.g. app-. */
+        </style>
+        <script>
+            (function () {
+                var d = document.documentElement;
+                try {
+                    var t = localStorage.getItem("lusona-theme");
+                    if (t) d.dataset.theme = t;
+                } catch (e) {}
+                if (
+                    window.self !== window.top &&
+                    !/(^#|&)full(&|$)/.test(location.hash)
+                )
+                    d.classList.add("is-embedded");
+            })();
+        </script>
+    </head>
+    <body>
+        <header class="lv-bar">
+            <span class="lv-letter" aria-label="Option {{option_letter}}"
+                >{{option_letter}}</span
+            >
+            <div class="lv-titles">
+                <p class="lv-meta">
+                    <span>{{record_id}}</span
+                    ><span class="lv-status is-{{status_kind}}">{{status}}</span
+                    ><span>{{option_title}}</span>
+                </p>
+                <h1 class="lv-q">{{question}}</h1>
+                <p class="lv-lede">{{question_context}}</p>
+            </div>
+            <div class="lv-tools">
+                <!-- index variant only: view switch -->
+                <div class="lv-switch" role="group" aria-label="View">
+                    <button
+                        type="button"
+                        data-view="compare"
+                        aria-pressed="true"
+                    >
+                        Side by side</button
+                    ><button
+                        type="button"
+                        data-view="focus"
+                        aria-pressed="false"
+                    >
+                        One at a time
+                    </button>
+                </div>
+                <button
+                    type="button"
+                    class="lv-tool"
+                    data-notes
+                    aria-pressed="true"
+                >
+                    Notes
+                </button>
+                <button type="button" class="lv-tool" data-theme-toggle>
+                    Theme
+                </button>
+            </div>
+        </header>
+        <div class="lv-body">
+            <main class="lv-stage">
+                <!-- BEGIN mockup variant: option content; delete optional blocks that do not apply -->
+                <div class="lv-controls">
+                    <!-- optional option switch: only when options differ in one part of the flow -->
+                    <div
+                        class="lv-switch"
+                        role="group"
+                        aria-label="Option"
+                        data-switch="option"
+                    >
+                        <span>Option</span
+                        ><button
+                            type="button"
+                            data-value="a"
+                            data-tradeoff="{{tradeoff_a}}"
+                            data-recommended
+                        >
+                            A · {{name_a}}</button
+                        ><button
+                            type="button"
+                            data-value="b"
+                            data-tradeoff="{{tradeoff_b}}"
+                        >
+                            B · {{name_b}}
+                        </button>
+                    </div>
+                    <!-- optional state switch: values match data-state names -->
+                    <div
+                        class="lv-switch"
+                        role="group"
+                        aria-label="State"
+                        data-switch="state"
+                    >
+                        <span>State</span
+                        ><button type="button" data-value="ready">Ready</button
+                        ><button type="button" data-value="failed">
+                            Failed
+                        </button>
+                    </div>
+                    <p class="lv-tradeoff" aria-live="polite"></p>
+                </div>
+                <div class="lv-flow">
+                    <figure class="lv-screen">
+                        <figcaption>
+                            <span class="lv-step">1</span
+                            ><span
+                                >{{screen_name}}<small
+                                    >{{screen_note}}</small
+                                ></span
+                            >
+                        </figcaption>
+                        <div class="lv-mobile">
+                            <!-- screen content styled by option-style; data-option="a" / data-state="failed" mark variants -->
+                        </div>
+                    </figure>
+                </div>
+                <!-- END mockup variant -->
+                <!-- BEGIN diagram variant: Mermaid source; readable when the script cannot load -->
+                <pre class="mermaid">{{mermaid_source}}</pre>
+                <script
+                    src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"
+                    integrity="sha384-rbtjAdnIQE/aQJGEgXrVUlMibdfTSa4PQju4HDhN3sR2PmaKFzhEafuePsl9H/9I"
+                    crossorigin="anonymous"
+                ></script>
+                <script>
+                    (function () {
+                        var p = document.querySelector("pre.mermaid");
+                        if (!window.mermaid || !p) return;
+                        var src = p.textContent;
+                        function draw() {
+                            var c = getComputedStyle(document.documentElement),
+                                v = function (n) {
+                                    return c.getPropertyValue(n).trim();
+                                };
+                            mermaid.initialize({
+                                startOnLoad: false,
+                                theme: "base",
+                                themeVariables: {
+                                    background: v("--surface"),
+                                    primaryColor: v("--raised"),
+                                    primaryTextColor: v("--ink"),
+                                    primaryBorderColor: v("--accent"),
+                                    lineColor: v("--muted"),
+                                    secondaryColor: v("--accent-soft"),
+                                    tertiaryColor: v("--surface"),
+                                    edgeLabelBackground: v("--surface"),
+                                    fontFamily: "system-ui,sans-serif",
+                                },
+                            });
+                            p.removeAttribute("data-processed");
+                            p.textContent = src;
+                            mermaid.run({ nodes: [p] });
+                        }
+                        draw();
+                        document.addEventListener("lusona-theme", draw);
+                    })();
+                </script>
+                <!-- END diagram variant -->
+                <!-- BEGIN index variant: one figure per option file -->
+                <div class="lv-grid">
+                    <figure class="is-current">
+                        <figcaption>
+                            <b>A</b><span>{{name_a}}</span
+                            ><em class="lv-rec">Recommended</em
+                            ><a href="a.html">Open full page</a
+                            ><small>{{tradeoff_a}}</small>
+                        </figcaption>
+                        <iframe src="a.html" title="Option A"></iframe>
+                    </figure>
+                    <figure>
+                        <figcaption>
+                            <b>B</b><span>{{name_b}}</span
+                            ><a href="b.html">Open full page</a
+                            ><small>{{tradeoff_b}}</small>
+                        </figcaption>
+                        <iframe src="b.html" title="Option B"></iframe>
+                    </figure>
+                </div>
+                <!-- END index variant -->
+            </main>
+            <aside class="lv-notes" aria-label="Reference notes">
+                <section class="is-binding">
+                    <h2>Binding</h2>
+                    <ul>
+                        {{binding_items}}
+                    </ul>
+                </section>
+                <section>
+                    <h2>Illustrative</h2>
+                    <ul>
+                        {{illustrative_items}}
+                    </ul>
+                </section>
+                <section class="is-fidelity">
+                    <h2>Fidelity</h2>
+                    <p>{{fidelity}}</p>
+                </section>
+                <section>
+                    <h2>Open questions</h2>
+                    <ul>
+                        {{open_questions}}
+                    </ul>
+                </section>
+                <section class="is-never">
+                    <h2>Must not happen</h2>
+                    <ul>
+                        {{must_not_happen}}
+                    </ul>
+                </section>
+            </aside>
+        </div>
+        <script>
+            (function () {
+                var d = document.documentElement,
+                    $$ = function (s) {
+                        return [].slice.call(document.querySelectorAll(s));
+                    };
+                function theme() {
+                    document.dispatchEvent(new Event("lusona-theme"));
+                }
+                var tt = document.querySelector("[data-theme-toggle]");
+                if (tt)
+                    tt.onclick = function () {
+                        var dark = getComputedStyle(d).colorScheme === "dark";
+                        d.dataset.theme = dark ? "light" : "dark";
+                        try {
+                            localStorage.setItem(
+                                "lusona-theme",
+                                d.dataset.theme,
+                            );
+                        } catch (e) {}
+                        theme();
+                    };
+                if (window.matchMedia)
+                    matchMedia("(prefers-color-scheme: dark)").addEventListener(
+                        "change",
+                        theme,
+                    );
+                var nb = document.querySelector("[data-notes]"),
+                    na = document.querySelector(".lv-notes");
+                if (nb && na)
+                    nb.onclick = function () {
+                        na.hidden = !na.hidden;
+                        nb.setAttribute("aria-pressed", String(!na.hidden));
+                    };
+                var g = document.querySelector(".lv-grid"),
+                    f = g ? $$(".lv-grid>figure") : [];
+                function pick(i) {
+                    f.forEach(function (x, j) {
+                        x.classList.toggle("is-current", j === i);
+                    });
+                }
+                $$("[data-view]").forEach(function (b) {
+                    b.onclick = function () {
+                        if (g)
+                            g.classList.toggle(
+                                "is-focus",
+                                b.dataset.view === "focus",
+                            );
+                        $$("[data-view]").forEach(function (x) {
+                            x.setAttribute("aria-pressed", String(x === b));
+                        });
+                    };
+                });
+                f.forEach(function (x, j) {
+                    x.addEventListener("click", function () {
+                        pick(j);
+                    });
+                });
+                // option and state switches; hash params: #option=b&state=failed (combine with &; "full" is a flag)
+                function dec(s) {
+                    try {
+                        return decodeURIComponent(s);
+                    } catch (e) {
+                        return s;
+                    }
+                }
+                function params() {
+                    var p = {};
+                    location.hash
+                        .slice(1)
+                        .split("&")
+                        .forEach(function (s) {
+                            if (!s) return;
+                            var i = s.indexOf("=");
+                            p[dec(i < 0 ? s : s.slice(0, i))] =
+                                i < 0 ? "" : dec(s.slice(i + 1)).toLowerCase();
+                        });
+                    return p;
+                }
+                function btn(sw, val) {
+                    return [].slice
+                        .call(sw.querySelectorAll("button[data-value]"))
+                        .filter(function (x) {
+                            return x.dataset.value.toLowerCase() === val;
+                        })[0];
+                }
+                function set(kind, val, save) {
+                    var sw = document.querySelector(
+                        '[data-switch="' + kind + '"]',
+                    );
+                    if (!sw || !val) return;
+                    val = String(val).toLowerCase();
+                    var bs = [].slice.call(
+                            sw.querySelectorAll("button[data-value]"),
+                        ),
+                        b = btn(sw, val);
+                    if (!b) return;
+                    bs.forEach(function (x) {
+                        x.setAttribute("aria-pressed", String(x === b));
+                    });
+                    $$("[data-" + kind + "]").forEach(function (el) {
+                        if (el.closest("[data-switch]")) return;
+                        if (
+                            el
+                                .getAttribute("data-" + kind)
+                                .toLowerCase()
+                                .split(/\s+/)
+                                .indexOf(val) < 0
+                        )
+                            el.setAttribute("data-lv-hidden", "");
+                        else el.removeAttribute("data-lv-hidden");
+                    });
+                    if (kind === "option") {
+                        var L = val.toUpperCase(),
+                            t = document.querySelector(".lv-tradeoff"),
+                            l = document.querySelector(".lv-letter");
+                        if (l) {
+                            l.textContent = L;
+                            l.setAttribute("aria-label", "Option " + L);
+                        }
+                        if (t) {
+                            t.textContent = "";
+                            var h = document.createElement("b");
+                            h.textContent =
+                                b.textContent +
+                                (b.dataset.tradeoff ? ": " : "");
+                            t.appendChild(h);
+                            t.appendChild(
+                                document.createTextNode(
+                                    b.dataset.tradeoff || "",
+                                ),
+                            );
+                            if (b.hasAttribute("data-recommended")) {
+                                var r = document.createElement("em");
+                                r.className = "lv-rec";
+                                r.textContent = "Recommended";
+                                t.appendChild(r);
+                            }
+                        }
+                    }
+                    if (save) {
+                        var p = params();
+                        p[kind] = val;
+                        history.replaceState(
+                            null,
+                            "",
+                            "#" +
+                                Object.keys(p)
+                                    .map(function (k) {
+                                        return p[k] === "" ? k : k + "=" + p[k];
+                                    })
+                                    .join("&"),
+                        );
+                    }
+                }
+                function init() {
+                    var p = params();
+                    $$("[data-switch]").forEach(function (g) {
+                        var k = g.dataset.switch,
+                            first =
+                                g.querySelector("[data-recommended]") ||
+                                g.querySelector("button[data-value]");
+                        set(
+                            k,
+                            p[k] && btn(g, p[k])
+                                ? p[k]
+                                : first && first.dataset.value,
+                            false,
+                        );
+                    });
+                }
+                $$("[data-switch] button[data-value]").forEach(function (b) {
+                    b.onclick = function () {
+                        set(
+                            b.closest("[data-switch]").dataset.switch,
+                            b.dataset.value,
+                            true,
+                        );
+                    };
+                });
+                init();
+                window.addEventListener("hashchange", init);
+                document.addEventListener("keydown", function (e) {
+                    var i = "abcd".indexOf(e.key.toLowerCase());
+                    if (
+                        i < 0 ||
+                        e.metaKey ||
+                        e.ctrlKey ||
+                        e.altKey ||
+                        (e.target.closest &&
+                            e.target.closest(
+                                "input,textarea,[contenteditable]",
+                            ))
+                    )
+                        return;
+                    if (f[i]) pick(i);
+                    else set("option", "abcd"[i], true);
+                });
+            })();
+        </script>
+    </body>
+</html>

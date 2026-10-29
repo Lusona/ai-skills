@@ -14,6 +14,7 @@ its data; paths are relative to that project. Bundled links are relative to the 
 | `docs/lusona/plans/<change-id>.md` | Existing separate execution records remain valid; no new companion file by default |
 | `docs/lusona/batches/<batch-slug>.md` | Parent-owned fixed selection, authority, assignments, recovery pointers, and current batch handoff |
 | `docs/lusona/notes/<change-slug>.md` | Optional durable findings without a change record or ADR owner |
+| `docs/lusona/visuals/<record-id>/` | Chosen option's HTML source and PNGs per state, or diagram Markdown, with its `reference.md` binding list under [visuals](visuals.md); `<record-id>` is the owning spec or ADR basename or notes slug |
 | `docs/lusona/evidence/` | Material measurement and experiment records, with exact-run references under [evidence](evidence.md) |
 | `docs/lusona/history/YYYY-MM-week-NN.md` | Compact completed-item index; owns archived state and completion references under [closeout](closeout.md) |
 | `docs/lusona/adr/<YYYYMMDD>-<decision-slug>.md` | Consequential architecture decision, shared or change-specific |
@@ -25,6 +26,8 @@ its data; paths are relative to that project. Bundled links are relative to the 
 | [History template](../templates/history.md) | Weekly sections and completed-item structure |
 | [Evidence template](../templates/evidence.md) | Measurement or experiment design, run results, limitations, and interpretation |
 | [Notes template](../templates/notes.md) | Durable questions, evidence, conclusions, and current handoff |
+| [Visual reference template](../templates/visual-reference.md) | Chosen option, images, binding and illustrative items, fidelity, rejected options |
+| [Visual page template](../templates/visual-page.html) | Page shell with notes and theme; mockup, diagram, and index variants; device frames, flows, state and option switches; wireframe kit fallback |
 
 ## Existing records
 

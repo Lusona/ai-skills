@@ -6,7 +6,7 @@ Lusona は、AI エージェントが依頼を理解し、作業を進め、結�
 目指す成果、制約、権限は利用者が定めます。エージェントは根拠に基づいて次に取り組むべき作業を選び、
 許可された作業を続け、利用者の判断や許可が必要な場合に質問します。
 
-Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](INSTALL.md#xcode)に対応 · チェックアウトしたソースのバージョン：**1.2.0**
+Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](INSTALL.md#xcode)に対応 · チェックアウトしたソースのバージョン：**1.3.0**
 
 > [!WARNING]
 > Lusona のインストールには Vercel Skills（`npx skills@latest`）を使わず、[ホスト標準のプラグイン機能](#installation)を使ってください。
@@ -224,6 +224,10 @@ flowchart TD
 たとえば、経験のある保守担当者が互換性の制約を伝えていれば、同じ内容を尋ね直す必要はありません。
 移行方法に詳しくない読者には、希望を尋ねる前に、それぞれの選択の影響を説明します。
 [意図を確認する対話](plugins/lusona/references/interviews.md)も参照してください。
+
+判断を明確にするのに役立つ場合、エージェントは図を添えます。
+コンセプト、アーキテクチャ、UI の選択を見た目で判断しやすい場合は、文字で区別した 2〜4 個の案を示します。選ばれた案は、実装とレビューで確認する拘束項目の一覧とともに
+`docs/lusona/visuals/` に保存されます。[ビジュアル](plugins/lusona/references/visuals.md)も参照してください。
 
 <a id="recovery-and-resumption"></a>
 ## 復旧と再開

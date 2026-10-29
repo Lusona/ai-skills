@@ -7,7 +7,7 @@ verificar el resultado. Tú defines el resultado, las restricciones y los permis
 elige la siguiente acción útil a partir de las evidencias disponibles, continúa el trabajo
 autorizado y pregunta cuando necesita información o permiso de tu parte.
 
-Para Claude Code, Codex, [Cursor](INSTALL.md#cursor) y los [agentes de programación de Xcode 27](INSTALL.md#xcode) · Versión del código fuente de esta copia de trabajo: **1.2.0**
+Para Claude Code, Codex, [Cursor](INSTALL.md#cursor) y los [agentes de programación de Xcode 27](INSTALL.md#xcode) · Versión del código fuente de esta copia de trabajo: **1.3.0**
 
 > [!WARNING]
 > No instales Lusona con Vercel Skills (`npx skills@latest`); usa la [instalación como plugin nativo](#installation).
@@ -249,6 +249,11 @@ Por ejemplo, un mantenedor con experiencia que ya ha indicado las restricciones 
 compatibilidad no necesita repetirlas. Si desconoces una opción de migración, el agente te
 explica sus consecuencias antes de pedirte una preferencia. Consulta las
 [conversaciones para aclarar la intención](plugins/lusona/references/interviews.md).
+
+El agente añade diagramas cuando ayudan a aclarar una decisión. Cuando una opción de concepto, arquitectura o interfaz se evalúa mejor de forma
+visual, ofrece de 2 a 4 opciones identificadas con letras. La opción elegida se guarda en
+`docs/lusona/visuals/` con una lista de aspectos vinculantes que la implementación y la revisión
+comprueban; consulta [elementos visuales](plugins/lusona/references/visuals.md).
 
 <a id="recovery-and-resumption"></a>
 ## Recuperación y reanudación
