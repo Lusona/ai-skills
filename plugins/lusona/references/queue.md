@@ -32,7 +32,7 @@ The coordinator creates a missing queue from [its template](../templates/work.md
 tracking is needed and moves selected authorized implementation or refactoring to Doing when it starts.
 A recovery note alone does not require a queue, full spec, or history entry; do not enroll
 untracked conversation solely because it needs retention. Update an existing tracked item
-when applicable without creating records solely to satisfy a skill.
+when applicable; retain substantive outputs under [retention](retention.md) without requiring a new queue.
 Move work to Review when evidence is ready; list outstanding checks explicitly.
 Done requires the whole item's completion condition, acceptance criteria, required checks, and
 any required acceptance or delivery. Failed or unrun required checks block completion; passing

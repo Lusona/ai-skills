@@ -7,7 +7,9 @@ Outside a batch, a correction round is one bounded correction or diagnostic expe
 an observed failing check or review finding, followed by its agreed verification. The initial
 attempt is not a correction round. Keep two counts for the same failure across workers, roles,
 and handoffs: consecutive rounds without material progress, and total rounds. Retain both counts
-and the evidence in conversation or the owning record's current handoff. Material progress resolves part of the failure or establishes a new fact
+and the evidence in the owning record under [retention](retention.md), with counts in the current
+handoff; use the permitted channel when saving is prohibited or unavailable. Material progress
+resolves part of the failure or establishes a new fact
 that changes the next justified action; a rerun, changed wording, or worker change does not.
 Expected task-local TDD red before implementation is not a failed attempt or correction round.
 

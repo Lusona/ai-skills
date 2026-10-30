@@ -50,7 +50,7 @@ requires explicit or standing authority and a finite scope/resource budget; unce
 not launch studies or repeated offers. Choose routine details within authority without repeated approval;
 ask only for missing consequential decisions/commitments, otherwise state uncertainty and continue.
 Small self-contained empirical checks with available tools/inputs may
-stay with their owner without a study, delegate, stage, or record; diagnostic probes remain
+stay with their owner without a separate study, delegate, stage, or evidence file; diagnostic probes remain
 [investigation](skills/investigate/SKILL.md). Keep routine evidence with its task; retain material
 evidence/provenance under [evidence rules](references/evidence.md). Improvement claims need comparable
 support; report unmet requirements/unsupported claims. Checks, TDD, empirical acceptance, and resource
@@ -58,7 +58,7 @@ boundaries remain binding.
 
 Adapt routine approaches without weakening acceptance or resetting progress. Planning belongs to
 implementation; tasks need dependencies, uncertainty, coordination, recovery, or a requested plan.
-Small clear work can stay in conversation.
+Small clear work needs no task list; retain its substantive output under the Contract.
 
 ## Contract
 
@@ -78,13 +78,16 @@ Small clear work can stay in conversation.
 - Project-data paths belong to the consuming repository; bundled links resolve relative to the loaded
   resource. Never save project data in installed plugin resources. Only coordinators write shared queues
   and saved handoffs.
-- Use relevant linked-template sections for substantive output; omit irrelevant fields. Templates
-  neither authorize saving nor force files/formats. Minimal recovery records are authorized when needed
-  for resumption/coordination within permitted writes; explicit read-only, no-save, and destination limits
-  prevail. Reuse the existing owner or smallest record under [retention](references/retention.md), preserving
-  split ownership/local conventions and linking rather than migrating/duplicating facts. Disposable
-  conversation needs no file. Recovery alone requires no spec, ADR, queue, or plan; saving neither selects
-  TDD nor requires Specify nor authorizes implementation. Requested standalone documents remain deliverables.
+- Save substantive workflow outputs, including small definitions, plans, decisions, findings, and
+  verification evidence, before handoff or completion without a separate save request. Use relevant
+  linked-template sections; omit irrelevant fields. Explicit read-only, no-save, destination limits,
+  and write permissions prevail; report prevented saving and provide the result through a permitted
+  channel. Delegated read-only workers return findings for the coordinator to save within its authority.
+  Reuse the existing owner or smallest suitable record under [retention](references/retention.md),
+  preserving split ownership/local conventions and linking rather than migrating/duplicating facts.
+  Ordinary dialogue, brief status, and disposable discussion need no file. Record requirements do not
+  force a queue or plan; consequential architecture decisions require ADRs. Saving neither selects TDD
+  nor requires Specify nor authorizes implementation. Requested standalone documents remain deliverables.
 
 ## References
 

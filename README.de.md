@@ -259,22 +259,26 @@ Implementierung und Review prüfen; siehe [visuelle Darstellungen](plugins/luson
 <a id="recovery-and-resumption"></a>
 ## Wiederherstellung und Fortsetzung
 
-Zur freigegebenen Arbeit gehört auch, knappe lokale Notizen anzulegen, wenn der Agent sie
-braucht, um die Arbeit sicher fortzusetzen oder Zuständigkeiten abzustimmen. Dabei hält er
-sich an die Schreibrechte und deine Einschränkungen. Muss der Gesprächskontext nicht erhalten
-bleiben, speichert er keine Datei. Andernfalls aktualisiert er die vorhandene Dokumentation
-zur Aufgabe oder hält das Nötige in Notizen oder einem Änderungsdokument fest. Neue oder
-geänderte Fakten speichert er an sinnvollen Zwischenständen und vor einer Übergabe.
+Substantive Arbeitsergebnisse werden auch bei kleinen Aufgaben ohne gesonderte Aufforderung gespeichert,
+innerhalb der Schreibrechte und deiner Einschränkungen. Specify speichert jede Definition;
+folgenreiche Architekturentscheidungen benötigen ADRs. Erkundung und Untersuchung halten
+wesentliche Schlussfolgerungen und offene Fragen fest; entscheidungsrelevante Belege und
+Review-Ergebnisse bleiben erhalten. Der Agent aktualisiert das bestehende Dokument oder nutzt
+einen knappen geeigneten Eintrag, ohne Fakten zu duplizieren. Gewöhnliche Gespräche und kurze
+Statusauskünfte brauchen keine Datei. Geänderte Fakten werden an sinnvollen Zwischenständen
+und vor Übergabe oder Abschluss gespeichert.
 
 In diesen Notizen hält der Agent das Ziel fest, worauf seine Befugnisse und die TDD-Vorgaben
 beruhen, sowie vereinbarte Entscheidungen, nützliche Belege, wichtige offene Fragen,
 Zuständigkeiten, gegebenenfalls die Zahl der Korrekturen und den nächsten Schritt. Bei der
 Erkundung lassen sich Entscheidungen und Fragen ohne Spezifikation oder Warteschlange festhalten. `implement` und
-`refactor` können bei Bedarf ein Änderungsdokument anlegen; keiner der beiden Skills erfordert
+`refactor` erstellen oder aktualisieren ihr Dokument direkt; keiner der beiden Skills erfordert
 einen gesonderten `specify`-Befehl. Mit dem Speichern solcher Notizen nimmt der Agent
 keine Arbeit in die Warteschlange auf.
 
-Vorgaben zu reinem Lesezugriff, Speicherverboten und Ablageorten haben Vorrang. Darf oder kann
+Vorgaben zu reinem Lesezugriff, Speicherverboten und Ablageorten haben Vorrang. Delegierte Reviewer
+mit reinem Lesezugriff liefern ihre Ergebnisse an den koordinierenden Agenten, der sie innerhalb
+seiner Befugnisse speichert. Darf oder kann
 der Agent nichts speichern, stellt er die Informationen zur Übergabe im Gespräch bereit und
 erklärt, welche Einschränkung sich daraus für eine spätere Fortsetzung ergibt. Bei einer
 plötzlichen Unterbrechung kann der letzte Zwischenstand ungespeichert bleiben. Bei der Fortsetzung prüft der Agent erhaltene Aufzeichnungen und Belege im Arbeitsverzeichnis. Er fragt

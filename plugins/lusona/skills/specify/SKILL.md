@@ -31,10 +31,12 @@ capabilities; a bug fix or direct bounded request does not require product defin
   a clear visual request does not require a design interview.
 - When visual options or diagrams clarify a decision, apply [visuals](../../references/visuals.md).
 - Create or update `docs/lusona/specs/<change-id>.md` from
-  [the spec template](../../templates/spec.md) when saved definition is needed and authorized,
-  under the [naming rules](../../references/naming.md). Reuse existing specs or legacy feature
-  documents. A small change can stay in the conversation; an already clear request can proceed
-  directly to authorized implementation. Link an external issue or ticket when provided; do not
+  [the spec template](../../templates/spec.md) for every definition, including small changes,
+  before handoff or completion without a separate save request. Use the helper and
+  [naming rules](../../references/naming.md); missing directories or a queue do not waive saving.
+  Reuse existing specs or legacy feature documents under [retention](../../references/retention.md),
+  honoring explicit no-save/read-only restrictions and write permissions. An already clear request
+  can proceed directly to authorized implementation. Link an external issue or ticket when provided; do not
   create one or copy a full ticket into a second maintained specification by default.
 - Propose `none`, `targeted`, or `strict` under the [TDD rules](../../references/tdd.md).
   Record the user's choice or standing preference if supplied; otherwise leave it unset and ask
@@ -64,6 +66,7 @@ Apply [Context budget](../../README.md#context-budget) at the definition handoff
 
 ## Next action
 
-Return the spec path or concise agreement and any unresolved decisions together. Ask a blocking
+Return the spec path and any unresolved decisions together; if saving was prevented, return
+the concise agreement and state the restriction or failure. Ask a blocking
 behavior, scope, or TDD question; otherwise name the next action from unmet criteria or
 uncertainty: an experiment, a consequential design decision, or an authorized increment.

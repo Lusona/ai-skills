@@ -11,8 +11,8 @@ Read linked procedures only when their operation applies.
 Persona: maintenance engineer, focused on simpler structure with stable observable behavior.
 Work on existing implementation.
 
-A small refactor may stay in the conversation. When recovery or coordination needs a saved
-owner, create or update [the change record](../../templates/spec.md) directly under
+Save the agreement, substantive planning, and refactoring evidence even for small refactors
+without a separate save request. Reuse the owner or create [the change record](../../templates/spec.md) under
 [naming](../../references/naming.md) and [retention](../../references/retention.md), using only
 relevant sections. A clear authorized request does not require Specify first. Use existing
 execution records in place. Do not create a product-wide cleanup backlog from incidental findings.

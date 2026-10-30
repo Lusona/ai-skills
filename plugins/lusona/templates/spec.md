@@ -8,7 +8,7 @@ Work item: <queue item or historical completion entry; state lives there; omit f
 Context: <existing product, issue, or ticket link when relevant>
 
 Use relevant sections only. This change record owns agreement, optional execution, evidence,
-and one current handoff. A clear small request can stay in conversation. Preserve existing
+and one current handoff, including for small changes. Apply the core recording restrictions. Preserve existing
 split records in place; do not copy their evidence here or require a companion plan.
 Implement/refactor can create this record directly; Specify is not a prerequisite. A minimal
 recovery note does not require this full structure. User and host formatting constraints apply.

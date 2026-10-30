@@ -39,8 +39,8 @@ Reuse accepted scope and decisions. Route diagnostic cause or feasibility questi
   not automatic production implementation. Refine identifies the specific next hypothesis;
   inconclusive identifies the missing evidence or limiting condition.
 
-Retain material decision evidence through the shared procedure, linking exact runs from owning
-records. Respect read-only and no-save requests. Apply
+Save material decision evidence before handoff or completion without a separate save request
+through the shared procedure, linking exact runs from owning records. Respect read-only and no-save requests. Apply
 [Context budget](../../README.md#context-budget) at each trial conclusion.
 
 ## Next action

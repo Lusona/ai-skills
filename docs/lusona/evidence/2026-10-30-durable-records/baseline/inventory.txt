@@ -1,0 +1,2 @@
+small/docs/lusona/specs/20261030-remove-rack-attack-registration.md
+small/docs/lusona/work.md

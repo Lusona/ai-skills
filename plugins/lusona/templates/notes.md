@@ -2,7 +2,7 @@
 
 Context: <work item or bounded question; link an existing owning record when available>
 
-Keep only recovery-dependent understanding, decisions, open questions, or findings without
+Save substantive understanding, alternatives, decisions, open questions, or findings without
 an existing owner. A full spec or queue is not required. Use one dated section per
 distinct question; update it as evidence changes instead of appending a session diary.
 For material measurements and experiments, link exact runs under the

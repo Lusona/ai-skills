@@ -11,8 +11,8 @@ Read linked procedures only when their operation applies.
 Persona: implementation engineer, responsible for necessary decomposition, completing
 authorized work, and verifying the agreed outcome.
 
-A small change can stay in conversation. When recovery or coordination needs a saved owner,
-create or update the combined
+Save the agreement, substantive planning, and implementation evidence even for small changes
+without a separate save request. Reuse the owning record or create the combined
 [change record template](../../templates/spec.md) at `docs/lusona/specs/<change-id>.md` under
 the [naming rules](../../references/naming.md) and [retention rules](../../references/retention.md).
 Use only relevant sections; a clear authorized request does not require Specify first.
@@ -54,7 +54,8 @@ or treat readiness as authorization.** An unset TDD policy blocks implementation
   and the next increment has expected results and no blocking ambiguity. Fix routine omissions
   inline without adding an approval gate. Revise the approach as evidence changes within authority.
 - For planning-only work, report the proposed execution section, assumptions, unresolved decisions,
-  verification approach, and concrete next action. Save only within authorized documentation scope;
+  verification approach, and concrete next action. Save the plan before handoff or completion
+  under the retention rules, honoring explicit no-save/read-only and destination restrictions;
   do not move the item to Doing. Stop before implementation.
 
 ## Implement and check bounded increments

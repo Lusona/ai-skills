@@ -36,8 +36,9 @@ consequential data collection beyond scope.
   Report absolute and relative change where useful, including regressions and cost tradeoffs.
 - Follow the [evidence procedure](../../references/evidence.md) and relevant sections of the
   [evidence template](../../templates/evidence.md). Read-only and no-save requests stay in the
-  response. Routine test logs remain task verification evidence; retain measurements that
-  materially support a decision without creating an unnecessary report.
+  response. Save measurements that materially support a decision before handoff or completion,
+  without a separate save request. Routine test logs remain task verification evidence; reuse
+  existing owners and avoid an unnecessary separate report.
 
 Keep temporary instruments and harnesses under repo-local `tmp/` where practical. Persistent
 implementation changes still require authority and an explicit policy under the

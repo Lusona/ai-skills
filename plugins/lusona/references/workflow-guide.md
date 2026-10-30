@@ -6,7 +6,7 @@ Read the relevant section for skill selection, invocation, or terminology; this 
 
 | Skill | Persona and responsibility | Output |
 | --- | --- | --- |
-| [explore](../skills/explore/SKILL.md) | Discussion partner: selective questions, domain context, scenarios and tradeoffs | [Discussion synthesis](../templates/brainstorm.md) when useful; conversation by default |
+| [explore](../skills/explore/SKILL.md) | Discussion partner: selective questions, domain context, scenarios and tradeoffs | [Discussion synthesis](../templates/brainstorm.md) in the owning record or notes for substantive outcomes |
 | [status](../skills/status/SKILL.md) | Workflow guide: current evidence, dependencies, next action, total known remainder | Read-only [status assessment](../templates/status.md) |
 | [batch](../skills/batch/SKILL.md) | Batch coordinator: authorized selected outcomes, dependencies, and ownership | Parent-owned [batch record](../templates/batch.md), linking owning evidence |
 | [frame-product](../skills/frame-product/SKILL.md) | Product strategist: long-term vision, users, problem, outcomes, boundaries | [Product brief](../templates/product.md) |
@@ -16,7 +16,7 @@ Read the relevant section for skill selection, invocation, or terminology; this 
 | [implement](../skills/implement/SKILL.md) | Engineer: planning, implementation, explicit TDD, and assigned verification | Code and evidence in the [change record](../templates/spec.md) |
 | [review](../skills/review/SKILL.md) | Reviewer: defects and verification gaps in the actual diff | [Review findings](../templates/review.md), without silent fixes |
 | [refactor](../skills/refactor/SKILL.md) | Maintainer: concrete structural improvement preserving behavior | Code and regression evidence in the [change record](../templates/spec.md) |
-| [investigate](../skills/investigate/SKILL.md) | Investigator: bounded technical uncertainty | [Investigation findings](../templates/notes.md) in conversation or the owning record |
+| [investigate](../skills/investigate/SKILL.md) | Investigator: bounded technical uncertainty | [Investigation findings](../templates/notes.md) in the owning record or notes |
 | [measure](../skills/measure/SKILL.md) | Measurement analyst: decision-relevant magnitude, quality, cost, or change | [Measurement evidence](../templates/evidence.md) with method and limitations |
 | [experiment](../skills/experiment/SKILL.md) | Experimenter: evaluate an intervention or alternatives | [Experiment evidence](../templates/evidence.md) with design and exact runs |
 
@@ -35,11 +35,11 @@ Use the linked template for each skill's substantive output under the
 conversation or in the existing owning document; omit irrelevant fields and keep short
 answers short. Substantive assessments and handoffs default to Result, Evidence, and Next action
 with the shared status words and glyphs; ordinary dialogue remains natural. This presentation
-default does not replace specialized tables or saved record schemas. Templates do not authorize
-saving, force new files, or require migration of existing records. Preserve user-requested
-formats and project-local conventions.
-Use [retention](retention.md) for recovery needs across all skills; conversation by default
-does not mean request-only saving. Read-only review/status boundaries remain binding.
+default does not replace specialized tables or saved record schemas. Save substantive outputs
+under [retention](retention.md) without a separate save request; templates do not force duplicate
+files or migration. Preserve user-requested formats and project-local conventions. Explicit
+no-save/read-only restrictions and delegated review ownership remain binding; ordinary dialogue
+and read-only status need no saved record.
 
 See [installation and compatibility](https://github.com/lusona/ai-skills/blob/main/INSTALL.md). In Claude Code, invoke
 `/lusona:<skill>`; in other harnesses, use their exposed skill UI. A useful prompt names

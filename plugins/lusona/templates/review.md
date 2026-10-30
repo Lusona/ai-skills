@@ -1,9 +1,11 @@
 # Review: <change and diff scope>
 
 <!-- Use in the response by default. Omit irrelevant or empty sections and unnecessary
-headings for a small review. Save only when authorized, in the owning change record or existing separate
-plan through the coordinator; create a separate file only when explicitly requested. Link evidence
-already recorded elsewhere. No findings is valid; review does not authorize fixes. -->
+headings for a small review. The coordinator saves the result, substantive findings, and verification
+limits in the owning record or concise notes before handoff or completion under retention rules.
+Delegated read-only reviewers return findings for the parent to save within its authority. Explicit
+no-save/read-only restrictions and write permissions prevail. Link evidence already recorded
+elsewhere. No findings is valid; review does not authorize fixes. -->
 
 ## Result
 

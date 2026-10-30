@@ -1,7 +1,7 @@
 # Closeout and reopening
 
-Coordinator-only: read when closing or reopening tracked work. Conversation-only work needs
-no history entry. Apply [retention](retention.md) only if saving or relocating evidence is needed.
+Coordinator-only: read when closing or reopening tracked work. Untracked work needs no history
+entry; substantive outputs still follow [retention](retention.md).
 
 When the whole item meets its agreed completion condition, record a compact entry in
 `history/YYYY-MM-week-NN.md` using the [history template](../templates/history.md).

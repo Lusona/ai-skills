@@ -50,9 +50,10 @@ When visual options or diagrams clarify a decision, apply [visuals](../../refere
 
 Use relevant [brainstorm template](../../templates/brainstorm.md) sections for substantive
 synthesis. Measure progress by clearer understanding, useful alternatives, or a supported
-preference; a decision is optional. The coordinator retains recovery-dependent decisions and
-open questions under [retention](../../references/retention.md); disposable discussion needs
-no document. Discussion alone does not require a spec, ADR, plan, queue item, commit, or TDD selection.
+preference; a decision is optional. Before handoff or completion, the coordinator saves substantive
+synthesis, alternatives, decisions, and open questions in the existing owner or concise notes under
+[retention](../../references/retention.md), without a separate save request. Ordinary dialogue and
+disposable discussion need no document. Discussion alone does not require a spec, ADR, plan, queue item, commit, or TDD selection.
 
 Apply the core's continue/ask/pause/complete boundaries: use a question, scenario, or bounded
 experiment while it can improve the requested understanding. At a boundary, return the

@@ -3,15 +3,18 @@
 Read when saving findings or evidence. Closing or reopening tracked work is a separate
 [coordinator procedure](closeout.md).
 
-Apply the [core recovery authority and restrictions](../README.md#contract). Recovery need,
-not the skill name or an explicit save request, determines whether a minimal record is needed.
+Apply the [core recording authority and restrictions](../README.md#contract). Save substantive
+workflow outputs even for small work, without a separate save request. Ordinary dialogue and brief
+status need no record. Explicit no-save/read-only restrictions and write permissions prevail;
+report prevented saving and return the result through a permitted channel. A delegated read-only
+worker returns findings to its coordinator, which saves them within its own write authority.
 Reuse the existing owner; without one, use the smallest suitable notes or change record.
 Keep only the outcome, authority and TDD source when applicable, decisions, useful evidence,
 material open questions, ownership, and next action needed to resume. Omit irrelevant fields.
 Notes do not require a full agreement or execution plan. A direct implement/refactor request
 can create its own change record without Specify; use only relevant sections of the template.
 
-Recovery recording and queue tracking have separate triggers. Do not create a queue, enroll
+Durable recording and queue tracking have separate triggers. Do not create a queue, enroll
 untracked conversation, or restore deleted records merely to save recovery context. When
 tracking is needed, apply [queue](queue.md); update existing tracked work when applicable.
 Keep `work.md` as an index of open outcomes: one short row per item, linking its owning
@@ -47,7 +50,8 @@ resulting recommendation. If a fact gains a change record or ADR owner, replace 
 with a link.
 
 Consolidate ordinary evidence, queue, and handoff edits at meaningful boundaries and before
-an intentional handoff, including when pausing or finishing work. Write only changed facts;
+an intentional handoff or completion, including when pausing work. Missing directories or a queue
+do not waive saving: create the needed record directories within permitted writes. Write only changed facts;
 do not write every turn or refresh records solely because a skill stage ended. Save
 authorization, blockers, ownership changes, and required
 batch recovery state when needed for safe continuation. These saves are working-tree edits,

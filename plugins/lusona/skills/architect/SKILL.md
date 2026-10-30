@@ -69,17 +69,19 @@ Apply the practices relevant to the selected decision; they are not a required a
   authority; ask through the permitted native question tool when a consequential choice exceeds it.
   Focus on consequential contracts and boundaries; include implementation details only when they
   substantiate the design.
-- Keep change-local decisions in the change record. When documentation is authorized and a
-  consequential decision affects multiple changes or needs durable rationale beyond this change,
-  record it in `docs/lusona/adr/<YYYYMMDD>-<decision-slug>.md` using
+- Save every consequential architecture decision, including change-local decisions, in an ADR
+  before handoff or completion without a separate save request. Reuse an existing applicable ADR;
+  for a new decision, record it in `docs/lusona/adr/<YYYYMMDD>-<decision-slug>.md` using
   [the ADR template](../../templates/adr.md) and the [naming rules](../../references/naming.md);
-  create the directory with the first record. The coordinator may assign distinct ADR writes to
+  create the directory with the first record. Honor the restrictions in
+  [retention](../../references/retention.md). The coordinator may assign distinct ADR writes to
   leaves; leaves return shared links, supersession updates outside their write scope, and handoff
   changes to the parent.
 - Link shared ADRs from Architecture in `docs/lusona/product.md` and change-specific ADRs
   from Decisions and uncertainty in `docs/lusona/specs/<change-id>.md` (or the existing
   Architecture section). Keep brief integration context there rather than duplicating rationale.
-  Routine local choices need no ADR. Reference accepted criteria rather than restating them.
+  Routine local choices need no ADR; retain useful choices in the change record. Reference
+  accepted criteria rather than restating them.
 - Record context, decision, alternatives, consequences, and status. Mark a decision accepted
   only when supported by existing authorization or an explicit decision; otherwise use proposed.
   To replace an accepted decision, create a new ADR, mark the old one superseded, and link both

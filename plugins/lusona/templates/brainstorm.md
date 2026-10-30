@@ -1,8 +1,9 @@
 # Discussion: <idea or decision>
 
 <!-- Use for a substantive synthesis, not every turn. Omit irrelevant or empty sections.
-Apply core recovery authority and retention: disposable discussion stays in conversation;
-retain needed decisions/open questions in the existing owner or smallest suitable notes.
+Apply core recording authority and retention: save substantive synthesis, alternatives, decisions,
+and open questions in the existing owner or concise notes before handoff or completion.
+Ordinary dialogue and disposable discussion stay in conversation.
 Honor no-save/read-only/destination restrictions. Link facts owned elsewhere.
 This structure does not require a decision, spec, plan, TDD selection, or execution. -->
 

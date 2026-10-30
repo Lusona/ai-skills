@@ -233,19 +233,21 @@ that implementation and review check; see [visuals](plugins/lusona/references/vi
 
 ## Recovery and resumption
 
-Authorized work includes minimal local recovery records when safe resumption or ownership
-coordination needs them, within permitted writes and your restrictions. The agent saves no file
-for a conversation that needs no retained context. Otherwise, it updates the existing record
-for the work or uses the smallest suitable notes or change record. It saves changed facts at
-meaningful boundaries and before a handoff.
+Substantive workflow outputs are saved even for small work, without a separate save request,
+within permitted writes and your restrictions. Specify saves every definition; consequential
+architecture decisions require ADRs. Exploration and investigation save substantive conclusions
+and open questions; material decision evidence and review findings are retained. The agent updates
+the existing owner or smallest suitable record, avoiding duplicate facts. Ordinary dialogue and
+brief status need no file. Save changed facts at meaningful boundaries and before handoff or completion.
 
 A recovery record retains the outcome, authority and TDD source, accepted decisions, useful
 evidence, material open questions, ownership, correction counts when applicable, and the next
 action. Exploration can retain decisions and questions without a spec or queue. `implement` and
-`refactor` can create a change record when needed; neither requires a separate `specify` command.
+`refactor` create or update their owning record directly; neither requires a separate `specify` command.
 Saving a recovery record does not enroll work in a queue.
 
-Read-only, no-save, and destination restrictions take precedence. If saving is prohibited or
+Read-only, no-save, and destination restrictions take precedence. Delegated read-only reviewers
+return findings for the parent to save within its authority. If saving is prohibited or
 unavailable, the agent supplies a conversational handoff and states the recovery limitation.
 An abrupt interruption may prevent a checkpoint. On resumption, the agent checks surviving
 records and working-tree evidence, then asks only for material facts or authority it cannot

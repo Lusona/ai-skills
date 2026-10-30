@@ -258,23 +258,25 @@ comprueban; consulta [elementos visuales](plugins/lusona/references/visuals.md).
 <a id="recovery-and-resumption"></a>
 ## Recuperación y reanudación
 
-El trabajo autorizado incluye registros locales mínimos de recuperación cuando hagan falta
-para reanudar el trabajo con seguridad o coordinar responsabilidades, respetando los permisos
-de escritura y tus restricciones. El agente no guarda archivos de conversaciones cuyo contexto
-no necesite conservar. En los demás casos, actualiza el registro del trabajo o usa unas notas o un registro
-de cambio con la información mínima necesaria. Guarda los hechos nuevos o modificados en
-puntos clave del trabajo y antes de un traspaso.
+Los resultados sustantivos del trabajo se guardan incluso en tareas pequeñas, sin una petición
+adicional, respetando los permisos de escritura y tus restricciones. Specify guarda cada definición;
+las decisiones de arquitectura con consecuencias relevantes requieren ADR. La exploración y la
+investigación guardan conclusiones sustantivas y preguntas abiertas; se conservan las evidencias
+que sustentan decisiones y los resultados de revisión. El agente actualiza el registro existente
+o el registro adecuado más breve, sin duplicar hechos. El diálogo habitual y las consultas breves
+de estado no necesitan archivos. Los cambios se guardan en puntos clave y antes del traspaso o cierre.
 
 Un registro de recuperación conserva el resultado solicitado, dónde se establecieron los permisos
 y la política de TDD, las decisiones aceptadas, las evidencias útiles, las preguntas pendientes
 importantes, las responsabilidades, el recuento de correcciones cuando corresponda y la
 siguiente acción. La exploración puede conservar decisiones y preguntas sin especificación ni
-cola de trabajo. `implement` y `refactor` pueden crear un registro de cambio cuando haga falta;
+cola de trabajo. `implement` y `refactor` crean o actualizan directamente su registro;
 ninguno exige un comando `specify` aparte. Guardar un registro de recuperación no incorpora
 trabajo a una cola.
 
 Las restricciones de solo lectura, las prohibiciones de guardar y las limitaciones del lugar
-de almacenamiento tienen prioridad. Si no puede guardar o tiene prohibido hacerlo, el agente
+de almacenamiento tienen prioridad. Los revisores delegados con acceso de solo lectura devuelven
+sus hallazgos al coordinador, que los guarda dentro de sus permisos. Si no puede guardar o tiene prohibido hacerlo, el agente
 deja la información de traspaso en la conversación y explica las limitaciones para recuperar
 el contexto. Una interrupción repentina puede impedir crear un punto de control. Al reanudar, el agente comprueba los registros que se conserven y las evidencias del
 árbol de trabajo; después pregunta solo por los hechos importantes o los permisos que no

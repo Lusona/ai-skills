@@ -1,9 +1,10 @@
 # Decision evidence
 
 Read when producing or retaining material measurements, evaluations, or experiments.
-Apply [retention](retention.md) and the core's write restrictions. This procedure does not
-require saving disposable work, override read-only or no-save instructions, or authorize
-new collection, implementation, or external actions.
+Save material decision evidence before handoff or completion without a separate save request
+under [retention](retention.md) and the core's write restrictions. Disposable work needs no record.
+Read-only/no-save restrictions prevail; saving does not authorize new collection, implementation,
+or external actions.
 
 ## Choose the smallest record
 

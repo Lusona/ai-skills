@@ -1,0 +1,1 @@
+small/docs/lusona/specs/20261030-remove-obsolete-rack-attack-registration.md

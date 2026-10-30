@@ -38,10 +38,11 @@ the bounded question, verifies the evidence, and reconciles returned findings.
   question tool. Continue independent
   inspection while awaiting an asynchronous answer.
 - Return evidence, conclusion, and the smallest recommended next action using relevant sections
-  of [the notes template](../../templates/notes.md). The coordinator retains recovery-dependent
-  findings under [retention](../../references/retention.md), reusing the owning change or execution
-  record, or minimal notes when no owner exists. Do not create a spec or plan solely to retain
-  diagnosis. A separate research report or production fix requires user authorization.
+  of [the notes template](../../templates/notes.md). Before handoff or completion, the coordinator
+  saves substantive findings and supporting evidence without a separate save request under
+  [retention](../../references/retention.md), reusing the owning change or execution record,
+  or minimal notes when no owner exists. Do not create a spec or plan solely to retain
+  diagnosis. An additional standalone research deliverable or production fix requires user authorization.
 
 Apply [Context budget](../../README.md#context-budget) at each experiment conclusion.
 
