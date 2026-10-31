@@ -12,10 +12,12 @@ Persona: implementation engineer, responsible for necessary decomposition, compl
 authorized work, and verifying the agreed outcome.
 
 Save the agreement, substantive planning, and implementation evidence even for small changes
-without a separate save request. Reuse the owning record or create the combined
-[change record template](../../templates/spec.md) at `docs/lusona/specs/<change-id>.md` under
-the [naming rules](../../references/naming.md) and [retention rules](../../references/retention.md).
-Use only relevant sections; a clear authorized request does not require Specify first.
+without a separate save request. Reuse the owning record. Direct work without a spec may use
+[notes](../../templates/notes.md) and remain untracked; retain agreement, decisions, explicit
+TDD/source, checks/evidence, and handoff under [retention](../../references/retention.md).
+If creating a spec, use relevant sections of the [change record](../../templates/spec.md) at
+`docs/lusona/specs/<change-id>.md` under [naming](../../references/naming.md).
+A clear authorized request does not require Specify first.
 Maintain existing separate plans in place; do not migrate records or create a companion plan by default.
 
 Authorization for a selected task does not authorize the whole change. An implementation
@@ -27,6 +29,10 @@ or treat readiness as authorization.** An unset TDD policy blocks implementation
 ## Assess the agreement and current evidence
 
 - Inspect the working tree, relevant code, callers, and tests. Preserve unrelated work.
+  When using or creating a spec, the coordinator reconciles its queue row under the
+  [queue rules](../../references/queue.md), repairing missing tracking before execution within
+  permitted writes. Preserve existing state, Icebox, and history; workers return queue changes
+  to the parent. This also applies to planning-only work, which never enters Doing.
   Read acceptance criteria, constraints, explicit TDD and its source, completion conditions,
   applicable ADRs, and existing evidence. Reuse settled decisions. For a linked visual reference,
   apply [visuals](../../references/visuals.md).
@@ -60,9 +66,9 @@ or treat readiness as authorization.** An unset TDD policy blocks implementation
 
 ## Implement and check bounded increments
 
-- For work needing workflow tracking, the coordinator applies the
-  [queue rules](../../references/queue.md). Recovery recording alone does not require tracking.
-  Keep internal tasks out of queue rows.
+- For spec-linked or already tracked work, the coordinator maintains lifecycle state under the
+  [queue rules](../../references/queue.md), moving authorized work to Doing when execution starts.
+  Spec-free untracked work may retain notes alone. Keep internal tasks out of queue rows.
 - Follow the recorded TDD sequence in coherent bounded increments through observable interfaces,
   with red/green evidence for test-first behaviors.
 - Resolve routine technical choices within authorization. Investigate uncertainty before escalating

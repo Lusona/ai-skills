@@ -13,9 +13,9 @@ Read the relevant section for skill selection, invocation, or terminology; this 
 | [map-capabilities](../skills/map-capabilities/SKILL.md) | Product planner: long-term capability coverage, dependencies, useful delivery sequence | Capability map in the [product template](../templates/product.md) |
 | [specify](../skills/specify/SKILL.md) | Change analyst: one change's observable behavior and acceptance | [Change agreement and TDD policy](../templates/spec.md) |
 | [architect](../skills/architect/SKILL.md) | Architect: responsibilities, interfaces, data ownership, tradeoffs | Shared or change-specific [ADRs](../templates/adr.md) |
-| [implement](../skills/implement/SKILL.md) | Engineer: planning, implementation, explicit TDD, and assigned verification | Code and evidence in the [change record](../templates/spec.md) |
+| [implement](../skills/implement/SKILL.md) | Engineer: planning, implementation, explicit TDD, and assigned verification | Code and evidence in the owning record or [notes](../templates/notes.md) |
 | [review](../skills/review/SKILL.md) | Reviewer: defects and verification gaps in the actual diff | [Review findings](../templates/review.md), without silent fixes |
-| [refactor](../skills/refactor/SKILL.md) | Maintainer: concrete structural improvement preserving behavior | Code and regression evidence in the [change record](../templates/spec.md) |
+| [refactor](../skills/refactor/SKILL.md) | Maintainer: concrete structural improvement preserving behavior | Code and regression evidence in the owning record or [notes](../templates/notes.md) |
 | [investigate](../skills/investigate/SKILL.md) | Investigator: bounded technical uncertainty | [Investigation findings](../templates/notes.md) in the owning record or notes |
 | [measure](../skills/measure/SKILL.md) | Measurement analyst: decision-relevant magnitude, quality, cost, or change | [Measurement evidence](../templates/evidence.md) with method and limitations |
 | [experiment](../skills/experiment/SKILL.md) | Experimenter: evaluate an intervention or alternatives | [Experiment evidence](../templates/evidence.md) with design and exact runs |

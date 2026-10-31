@@ -273,8 +273,15 @@ beruhen, sowie vereinbarte Entscheidungen, nützliche Belege, wichtige offene Fr
 Zuständigkeiten, gegebenenfalls die Zahl der Korrekturen und den nächsten Schritt. Bei der
 Erkundung lassen sich Entscheidungen und Fragen ohne Spezifikation oder Warteschlange festhalten. `implement` und
 `refactor` erstellen oder aktualisieren ihr Dokument direkt; keiner der beiden Skills erfordert
-einen gesonderten `specify`-Befehl. Mit dem Speichern solcher Notizen nimmt der Agent
-keine Arbeit in die Warteschlange auf.
+einen gesonderten `specify`-Befehl. Das Erstellen, Aktualisieren oder Verwenden einer Spezifikation erfordert einen Eintrag in
+`docs/lusona/work.md`. Der koordinierende Agent erstellt die Warteschlange bei Bedarf und gleicht
+denselben Eintrag ab, ohne seinen Zustand, seine Ablage in Icebox oder seine Historie zurückzusetzen.
+Entwürfe beginnen in Ideas; Ready erfordert akzeptierten Umfang und Kriterien, eine ausdrücklich
+gewählte TDD-Vorgabe und keine blockierenden Fragen. Planung allein führt nie zu Doing;
+ein Eintrag erteilt keine Ausführungsbefugnis. Direkte Arbeit ohne Spezifikation darf nur in Notizen
+festgehalten werden und ohne Warteschlangeneintrag bleiben; bereits erfasste Arbeit bleibt erfasst.
+Notizen allein erfordern keine Warteschlange. Nicht betroffene Spezifikationen müssen nicht
+nachträglich erfasst werden.
 
 Vorgaben zu reinem Lesezugriff, Speicherverboten und Ablageorten haben Vorrang. Delegierte Reviewer
 mit reinem Lesezugriff liefern ihre Ergebnisse an den koordinierenden Agenten, der sie innerhalb

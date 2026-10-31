@@ -11,12 +11,14 @@ worker returns findings to its coordinator, which saves them within its own writ
 Reuse the existing owner; without one, use the smallest suitable notes or change record.
 Keep only the outcome, authority and TDD source when applicable, decisions, useful evidence,
 material open questions, ownership, and next action needed to resume. Omit irrelevant fields.
-Notes do not require a full agreement or execution plan. A direct implement/refactor request
-can create its own change record without Specify; use only relevant sections of the template.
+Notes do not require a full spec or execution plan. Direct implement/refactor work without a spec
+may use notes for its agreement, decisions, explicit TDD/source, checks/evidence, and handoff.
+It can also create a spec directly without Specify; use only relevant template sections.
 
-Durable recording and queue tracking have separate triggers. Do not create a queue, enroll
-untracked conversation, or restore deleted records merely to save recovery context. When
-tracking is needed, apply [queue](queue.md); update existing tracked work when applicable.
+Creating, updating, or using a spec requires tracking under [queue](queue.md), regardless of the
+skill used. Reconcile only the selected item, preserving lifecycle state, Icebox, and history.
+Notes alone do not require tracking: do not enroll spec-free work or restore deleted records
+merely to save recovery context. Existing tracked work remains tracked.
 Keep `work.md` as an index of open outcomes: one short row per item, linking its owning
 records, with a concise completion condition and current blocker or next action. Keep task
 evidence, measurements, decisions, and activity narration out of the queue. Icebox rows

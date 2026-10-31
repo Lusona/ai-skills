@@ -13,7 +13,7 @@ its data; paths are relative to that project. Bundled links are relative to the 
 | `docs/lusona/specs/<change-id>.md` | Change agreement, optional execution steps, evidence, and one current handoff |
 | `docs/lusona/plans/<change-id>.md` | Existing separate execution records remain valid; no new companion file by default |
 | `docs/lusona/batches/<batch-slug>.md` | Parent-owned fixed selection, authority, assignments, recovery pointers, and current batch handoff |
-| `docs/lusona/notes/<change-slug>.md` | Substantive findings and synthesis without a change record or ADR owner |
+| `docs/lusona/notes/<change-slug>.md` | Substantive findings, synthesis, or spec-free execution agreement and evidence without another owner |
 | `docs/lusona/visuals/<record-id>/` | Chosen option's HTML source and PNGs per state, or diagram Markdown, with its `reference.md` binding list under [visuals](visuals.md); `<record-id>` is the owning spec or ADR basename or notes slug |
 | `docs/lusona/evidence/` | Material measurement and experiment records, with exact-run references under [evidence](evidence.md) |
 | `docs/lusona/history/YYYY-MM-week-NN.md` | Compact completed-item index; owns archived state and completion references under [closeout](closeout.md) |

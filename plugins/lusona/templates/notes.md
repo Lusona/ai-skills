@@ -3,7 +3,9 @@
 Context: <work item or bounded question; link an existing owning record when available>
 
 Save substantive understanding, alternatives, decisions, open questions, or findings without
-an existing owner. A full spec or queue is not required. Use one dated section per
+an existing owner. Direct work without a spec may also retain agreement, decisions, explicit
+TDD/source, checks/evidence, and handoff here without queue tracking. Creating a spec requires
+tracking; existing tracked work remains tracked. Use one dated section per
 distinct question; update it as evidence changes instead of appending a session diary.
 For material measurements and experiments, link exact runs under the
 [evidence rules](../references/evidence.md); keep discussion and decisions here.

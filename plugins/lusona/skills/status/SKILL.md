@@ -33,6 +33,8 @@ preserving existing authority.
   merely for orientation.
 - Distinguish recorded claims from verified results. Flag stale handoffs, conflicting state,
   missing records, and unmet completion conditions without silently correcting them.
+  A selected unfinished spec without a queue row is a tracking gap; report the coordinator's
+  repair as a next action. Read-only status does not create a queue, backfill specs, or reopen history.
   Queue-row removal, file existence, checked tasks, or passing tests alone do not establish
   acceptance or delivery. Follow relevant history links without loading the whole archive.
 - Missing Lusona documents do not imply no progress. Use available project evidence without

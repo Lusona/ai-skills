@@ -1,6 +1,6 @@
 # Work queue
 
-Read when maintaining or assessing tracked state, selection, or parking.
+Read when creating, updating, or using a spec, or maintaining or assessing tracked state, selection, or parking.
 
 The coordinator alone updates queue and saved handoff state during authorized work. The queue
 tracks whole outcomes, not individual coding tasks; Ready does not authorize execution.
@@ -28,11 +28,27 @@ add sections when next updating them without silently parking existing rows.
 | Review | Evidence ready for review or acceptance | [implement](../skills/implement/SKILL.md), [review](../skills/review/SKILL.md) |
 | Done | Agreed completion condition met | [implement](../skills/implement/SKILL.md) |
 
-The coordinator creates a missing queue from [its template](../templates/work.md) when workflow
-tracking is needed and moves selected authorized implementation or refactoring to Doing when it starts.
-A recovery note alone does not require a queue, full spec, or history entry; do not enroll
-untracked conversation solely because it needs retention. Update an existing tracked item
-when applicable; retain substantive outputs under [retention](retention.md) without requiring a new queue.
+Every new spec requires a row in `docs/lusona/work.md`, regardless of which skill creates it.
+The coordinator creates a missing queue from [its template](../templates/work.md). Reconcile the
+selected spec with its existing row or historical entry before adding anything; updates reuse
+that item without duplication. New drafts start Ideas. Ready requires accepted scope and criteria,
+an explicitly selected TDD policy, and no blocking definition questions. Preserve existing
+lifecycle state, Icebox placement, and history; an ordinary spec edit does not reset or reopen work.
+When planning, implementing, or refactoring from an existing spec, repair its missing row before
+planning handoff or execution, using supported current state. Do not scan or backfill unrelated specs
+or restore archived completed items. Reopening requires explicit authority and [closeout](closeout.md).
+
+These requirements remain subject to explicit no-save/read-only restrictions and write permissions.
+If saving is prohibited or unavailable, report the missing tracking through a permitted channel.
+Delegated workers return required queue changes to the coordinator; they do not write shared state.
+Read-only assessment reports gaps without repairing them.
+
+The coordinator moves selected authorized implementation or refactoring to Doing when execution
+starts; planning-only work never enters Doing. Queue membership does not authorize implementation
+or select TDD. Direct work without a spec may remain untracked and retain agreement, decisions,
+TDD/source, checks/evidence, and handoff in notes under [retention](retention.md). Creating a spec
+activates the tracking requirement; existing tracked work remains tracked. A recovery note alone
+does not require a queue, full spec, or history entry.
 Move work to Review when evidence is ready; list outstanding checks explicitly.
 Done requires the whole item's completion condition, acceptance criteria, required checks, and
 any required acceptance or delivery. Failed or unrun required checks block completion; passing

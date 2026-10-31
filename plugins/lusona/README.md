@@ -85,8 +85,11 @@ Small clear work needs no task list; retain its substantive output under the Con
   channel. Delegated read-only workers return findings for the coordinator to save within its authority.
   Reuse the existing owner or smallest suitable record under [retention](references/retention.md),
   preserving split ownership/local conventions and linking rather than migrating/duplicating facts.
-  Ordinary dialogue, brief status, and disposable discussion need no file. Record requirements do not
-  force a queue or plan; consequential architecture decisions require ADRs. Saving neither selects TDD
+  Ordinary dialogue, brief status, and disposable discussion need no file. Creating, updating, or
+  using a spec requires its queue tracking under [queue](references/queue.md), subject to the saving
+  restrictions above; preserve existing state and archived history. Direct work without a spec may
+  remain untracked and use notes; existing tracked work stays tracked. Records do not force a plan;
+  consequential architecture decisions require ADRs. Saving neither selects TDD
   nor requires Specify nor authorizes implementation. Requested standalone documents remain deliverables.
 
 ## References

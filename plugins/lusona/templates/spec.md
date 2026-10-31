@@ -4,14 +4,16 @@ Created: <YYYY-MM-DD>
 Updated: <YYYY-MM-DD>
 
 Kind: feature | bug fix | refactor | other
-Work item: <queue item or historical completion entry; state lives there; omit for untracked work>
+Work item: <required queue item or historical completion entry; state lives there>
 Context: <existing product, issue, or ticket link when relevant>
 
 Use relevant sections only. This change record owns agreement, optional execution, evidence,
 and one current handoff, including for small changes. Apply the core recording restrictions. Preserve existing
 split records in place; do not copy their evidence here or require a companion plan.
-Implement/refactor can create this record directly; Specify is not a prerequisite. A minimal
-recovery note does not require this full structure. User and host formatting constraints apply.
+Implement/refactor can create this record directly; Specify is not a prerequisite. Creating or
+updating a spec requires the coordinator to reconcile its queue row under the [queue rules](../references/queue.md),
+subject to explicit no-save/read-only restrictions. Preserve existing state, Icebox, and history.
+Direct work without a spec can use notes and remain untracked. User and host formatting constraints apply.
 
 ## Agreement
 

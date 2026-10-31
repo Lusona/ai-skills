@@ -244,7 +244,12 @@ A recovery record retains the outcome, authority and TDD source, accepted decisi
 evidence, material open questions, ownership, correction counts when applicable, and the next
 action. Exploration can retain decisions and questions without a spec or queue. `implement` and
 `refactor` create or update their owning record directly; neither requires a separate `specify` command.
-Saving a recovery record does not enroll work in a queue.
+Creating, updating, or using a spec requires a row in `docs/lusona/work.md`; the coordinator
+creates a missing queue and reconciles the same item without resetting its state, Icebox placement,
+or history. Drafts start Ideas; Ready requires accepted scope and criteria, explicit TDD, and no
+blocking questions. Planning alone never enters Doing, and tracking does not authorize execution.
+Direct work without a spec may use notes and remain untracked; existing tracked work stays tracked.
+Notes alone do not require a queue, and unrelated specs need no backfill.
 
 Read-only, no-save, and destination restrictions take precedence. Delegated read-only reviewers
 return findings for the parent to save within its authority. If saving is prohibited or

@@ -12,9 +12,11 @@ Persona: maintenance engineer, focused on simpler structure with stable observab
 Work on existing implementation.
 
 Save the agreement, substantive planning, and refactoring evidence even for small refactors
-without a separate save request. Reuse the owner or create [the change record](../../templates/spec.md) under
-[naming](../../references/naming.md) and [retention](../../references/retention.md), using only
-relevant sections. A clear authorized request does not require Specify first. Use existing
+without a separate save request. Reuse the owner. Direct work without a spec may use
+[notes](../../templates/notes.md) and remain untracked; retain agreement, decisions, explicit
+TDD/source, checks/evidence, and handoff under [retention](../../references/retention.md).
+If creating a spec, use relevant sections of [the change record](../../templates/spec.md) under
+[naming](../../references/naming.md). A clear authorized request does not require Specify first. Use existing
 execution records in place. Do not create a product-wide cleanup backlog from incidental findings.
 
 - Inspect the working tree, relevant implementation, callers, and tests. Preserve unrelated
@@ -37,9 +39,12 @@ execution records in place. Do not create a product-wide cleanup backlog from in
   them from regressions; resolve failures that prevent verifying the affected behavior before
   proceeding with dependent changes. With TDD `none`, verification remains required.
 - A planning request ends with the plan. A refactoring implementation request authorizes
-  its bounded scope without another approval after planning. For work needing workflow tracking,
-  the coordinator applies the [queue rules](../../references/queue.md); recovery recording alone
-  does not require tracking. Do not reopen Done work implicitly.
+  its bounded scope without another approval after planning. When using or creating a spec,
+  the coordinator reconciles its row under the [queue rules](../../references/queue.md), repairing
+  missing tracking before execution within permitted writes. Existing tracked work stays tracked.
+  Preserve lifecycle state, Icebox, and history; workers return queue changes to the parent.
+  Move authorized work to Doing when execution starts; planning-only work never enters Doing.
+  Spec-free untracked work may retain notes alone. Do not reopen Done work implicitly.
 - Run regression checks at boundaries where failures can be attributed. Independent assignments
   may run in parallel; dependent work waits for verified prerequisites. Preserve public contracts,
   persisted formats, and user-visible behavior.

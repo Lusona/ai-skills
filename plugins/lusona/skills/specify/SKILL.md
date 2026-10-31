@@ -52,11 +52,13 @@ capabilities; a bug fix or direct bounded request does not require product defin
   requirements, and unresolved decisions that block the selected work. Fix routine omissions
   from known evidence; preserve unknowns as explicit questions rather than inventing answers.
   This check does not add a review cycle or another approval gate.
-- For work needing workflow tracking, the coordinator adds or updates the selected item under
-  the [queue rules](../../references/queue.md) and agrees what completion means, including whether
-  human acceptance or delivery is required. Recovery recording alone does not require tracking.
-  Keep workflow state in the queue.
-- The coordinator moves an existing queue item to Ready only when the user has accepted its
+- Every created or updated spec requires the coordinator to reconcile its row under the
+  [queue rules](../../references/queue.md), creating a missing queue within permitted writes.
+  New drafts start Ideas; reuse existing rows and preserve lifecycle state, Icebox, and history.
+  Agree what completion means, including human acceptance or delivery when required.
+  Delegated workers return the required queue change to the parent. Explicit no-save/read-only
+  restrictions still apply. Keep workflow state in the queue.
+- The coordinator marks a new or Ideas item Ready only when the user has accepted its
   scope and criteria and selected its TDD policy, with no blocking definition questions. Existing explicit authorization counts,
   including delegated routine decisions within batch authority after required reconciliation;
   it does not supply a missing TDD choice or authorize consequential scope changes.

@@ -271,8 +271,14 @@ y la política de TDD, las decisiones aceptadas, las evidencias útiles, las pre
 importantes, las responsabilidades, el recuento de correcciones cuando corresponda y la
 siguiente acción. La exploración puede conservar decisiones y preguntas sin especificación ni
 cola de trabajo. `implement` y `refactor` crean o actualizan directamente su registro;
-ninguno exige un comando `specify` aparte. Guardar un registro de recuperación no incorpora
-trabajo a una cola.
+ninguno exige un comando `specify` aparte. Crear, actualizar o usar una especificación exige una fila en `docs/lusona/work.md`.
+El coordinador crea la cola si falta y actualiza el mismo elemento sin reiniciar su estado,
+su ubicación en Icebox ni su historial. Los borradores empiezan en Ideas; Ready exige alcance
+y criterios aceptados, una política de TDD explícita y ninguna pregunta bloqueante.
+La planificación por sí sola nunca pasa a Doing, y el seguimiento no autoriza la ejecución.
+El trabajo directo sin especificación puede conservar notas y seguir sin seguimiento; el trabajo
+ya registrado mantiene su seguimiento. Las notas por sí solas no exigen una cola, ni es necesario
+registrar especificaciones ajenas al trabajo seleccionado.
 
 Las restricciones de solo lectura, las prohibiciones de guardar y las limitaciones del lugar
 de almacenamiento tienen prioridad. Los revisores delegados con acceso de solo lectura devuelven
