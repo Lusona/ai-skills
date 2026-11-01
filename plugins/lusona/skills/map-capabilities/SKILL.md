@@ -44,7 +44,8 @@ For a requested map or update, use the product document's Capability map (or leg
 map) section and relevant [product template](../../templates/product.md) fields. Preserve
 other product sections. Link existing specs; do not generate detailed specifications, tasks,
 tickets, queue entries, or separate documents per capability. The map is not execution state.
-Discussion alone does not authorize edits.
+Discussion alone does not authorize changes to the map; save substantive discussion in its
+existing owner or notes under [retention](../../references/retention.md).
 
 ## Next action
 

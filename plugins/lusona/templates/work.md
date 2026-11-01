@@ -31,7 +31,7 @@ Every new spec requires a row; reconcile updates with the same item, preserving 
 Icebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,
 explicit TDD, and no blocking definition questions. Planning alone never enters Doing.
 Direct work without a spec may remain untracked in notes. Explicit no-save/read-only restrictions
-and coordinator-only shared writes prevail; apply the [queue rules](../references/queue.md).
+and coordinator-only shared writes prevail.
 
 Keep one short row per open outcome across both sections. Agreement, optional execution steps, evidence,
 and one current handoff belong in the linked change record; preserve existing split ownership.

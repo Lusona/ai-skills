@@ -153,6 +153,27 @@ response=$(bash "$bundle/scripts/work-record.sh" init-change "$project" default-
 record=$(python3 -c 'import json,sys; print(json.load(sys.stdin)["path"])' <<< "$response")
 equal "$record" "$project/docs/lusona/specs/$(date +%Y%m%d)-default-date.md"
 [[ $(tail -n 1 "$record") == 'Bundle-specific spec content.' ]]
+# Templates must remain usable after being saved outside the plugin installation.
+mkdir -p "$project/docs/lusona/evidence/template-check"
+cp "$repository/plugins/lusona/templates/evidence.md" "$project/docs/lusona/evidence/template-check/README.md"
+cp "$repository/plugins/lusona/templates/work.md" "$project/docs/lusona/work.md"
+python3 - "$record" "$notes" "$project/docs/lusona/evidence/template-check/README.md" "$project/docs/lusona/work.md" <<'PYTEST'
+from pathlib import Path
+import re
+import sys
+from urllib.parse import urlsplit
+
+broken = []
+for name in sys.argv[1:]:
+    document = Path(name)
+    for target in re.findall(r'\[[^\]]*\]\(([^)]+)\)', document.read_text()):
+        link = urlsplit(target)
+        if link.scheme or link.netloc or not link.path:
+            continue
+        if not (document.parent / link.path).exists():
+            broken.append(f'{document}: {target}')
+assert not broken, 'Broken saved-record links:\n' + '\n'.join(broken)
+PYTEST
 mkdir "$project/docs/lusona/specs/20260926-existing-directory.md"
 reject init-change "$project" existing-directory 2026-09-26
 python3 -c 'import json,sys; assert json.load(open(sys.argv[1]))["status"] == "conflict"' "$scratch/rejected.out"

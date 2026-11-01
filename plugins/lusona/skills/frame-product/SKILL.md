@@ -34,7 +34,9 @@ before settling a dependent direction or brief.
 
 When definition or documentation is requested, create or update `docs/lusona/product.md`
 using [the product template](../../templates/product.md). Discussion alone does not authorize
-edits. Preserve existing Capability map (or legacy Feature map) and Architecture sections.
+changes to the brief; save substantive discussion in its existing owner or notes under
+[retention](../../references/retention.md). Preserve existing Capability map (or legacy Feature
+map) and Architecture sections.
 Keep the brief proportional; detailed change specifications, roadmaps, and implementation
 backlogs belong outside product definition.
 

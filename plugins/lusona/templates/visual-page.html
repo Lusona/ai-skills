@@ -1,18 +1,17 @@
 <!doctype html>
 <!--
 Lusona visual page. Apply the plugin's references/visuals.md. Copy this file, keep exactly one
-body variant (mockup, diagram, or index), delete the other two, and delete this comment.
+body variant (mockup or index), delete the other variant, and delete this comment.
 Replace each {{name}} placeholder; delete an element or optional block whose value is unknown.
   record_id          owning spec or ADR basename, notes slug, or topic when no record exists
-  option_letter      A-D on an option page; delete the lv-letter element on index and diagram pages
-  option_title       short option name; "Options" on an index or option-switch page; diagram name
-  status_kind        draft | index | chosen | diagram
-  status             Draft option | Option index | Chosen reference | Diagram
+  option_letter      A-D on an option page; delete the lv-letter element on index pages
+  option_title       short option name; "Options" on an index or option-switch page
+  status_kind        draft | index | chosen
+  status             Draft option | Option index | Chosen reference
   question           the question the user is choosing on
   question_context   one or two sentences: what is decided, what to compare, what is out of scope
   binding_items, illustrative_items, open_questions, must_not_happen   one <li> per item
   fidelity           what is approximate, e.g. "Production uses system components; icons are glyphs."
-  mermaid_source     diagram only; escape < as &lt; and & as &amp;
   name_a..name_d, tradeoff_a..tradeoff_d   per-option name and one-line tradeoff (index and option switch)
 Mockup variant:
 - Write option content CSS in <style id="option-style"> (target platform or project theme). Do not
@@ -28,7 +27,7 @@ Mockup variant:
   data-value="a".."d", data-tradeoff, and data-recommended on one; toggles data-option elements.
 - Hash params set the initial view and combine: #option=b&state=failed. #full shows the header and
   notes inside an iframe.
-The only external resource is the pinned Mermaid script, in the diagram variant only.
+Pages are self-contained. Use Mermaid Markdown for diagrams under references/visuals.md.
 -->
 <html lang="en">
     <head>
@@ -201,10 +200,6 @@ The only external resource is the pinned Mermaid script, in the diagram variant 
             .lv-status.is-chosen {
                 background: var(--chosen-soft);
                 color: var(--chosen);
-            }
-            .lv-status.is-diagram {
-                background: var(--diagram-soft);
-                color: var(--diagram);
             }
             .lv-tools {
                 display: flex;
@@ -536,19 +531,6 @@ The only external resource is the pinned Mermaid script, in the diagram variant 
                 border: 0;
                 background: var(--canvas);
             }
-            /* diagram */
-            pre.mermaid {
-                margin: 0 auto;
-                max-width: 1100px;
-                padding: 24px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 14px;
-                box-shadow: var(--shadow);
-                overflow-x: auto;
-                white-space: pre;
-                text-align: center;
-            }
             /* wireframe kit: fallback when no platform look is known */
             .wf-page {
                 max-width: 1100px;
@@ -866,47 +848,6 @@ The only external resource is the pinned Mermaid script, in the diagram variant 
                     </figure>
                 </div>
                 <!-- END mockup variant -->
-                <!-- BEGIN diagram variant: Mermaid source; readable when the script cannot load -->
-                <pre class="mermaid">{{mermaid_source}}</pre>
-                <script
-                    src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"
-                    integrity="sha384-rbtjAdnIQE/aQJGEgXrVUlMibdfTSa4PQju4HDhN3sR2PmaKFzhEafuePsl9H/9I"
-                    crossorigin="anonymous"
-                ></script>
-                <script>
-                    (function () {
-                        var p = document.querySelector("pre.mermaid");
-                        if (!window.mermaid || !p) return;
-                        var src = p.textContent;
-                        function draw() {
-                            var c = getComputedStyle(document.documentElement),
-                                v = function (n) {
-                                    return c.getPropertyValue(n).trim();
-                                };
-                            mermaid.initialize({
-                                startOnLoad: false,
-                                theme: "base",
-                                themeVariables: {
-                                    background: v("--surface"),
-                                    primaryColor: v("--raised"),
-                                    primaryTextColor: v("--ink"),
-                                    primaryBorderColor: v("--accent"),
-                                    lineColor: v("--muted"),
-                                    secondaryColor: v("--accent-soft"),
-                                    tertiaryColor: v("--surface"),
-                                    edgeLabelBackground: v("--surface"),
-                                    fontFamily: "system-ui,sans-serif",
-                                },
-                            });
-                            p.removeAttribute("data-processed");
-                            p.textContent = src;
-                            mermaid.run({ nodes: [p] });
-                        }
-                        draw();
-                        document.addEventListener("lusona-theme", draw);
-                    })();
-                </script>
-                <!-- END diagram variant -->
                 <!-- BEGIN index variant: one figure per option file -->
                 <div class="lv-grid">
                     <figure class="is-current">
@@ -966,9 +907,6 @@ The only external resource is the pinned Mermaid script, in the diagram variant 
                     $$ = function (s) {
                         return [].slice.call(document.querySelectorAll(s));
                     };
-                function theme() {
-                    document.dispatchEvent(new Event("lusona-theme"));
-                }
                 var tt = document.querySelector("[data-theme-toggle]");
                 if (tt)
                     tt.onclick = function () {
@@ -980,13 +918,7 @@ The only external resource is the pinned Mermaid script, in the diagram variant 
                                 d.dataset.theme,
                             );
                         } catch (e) {}
-                        theme();
                     };
-                if (window.matchMedia)
-                    matchMedia("(prefers-color-scheme: dark)").addEventListener(
-                        "change",
-                        theme,
-                    );
                 var nb = document.querySelector("[data-notes]"),
                     na = document.querySelector(".lv-notes");
                 if (nb && na)

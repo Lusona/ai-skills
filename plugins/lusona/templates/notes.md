@@ -7,8 +7,8 @@ an existing owner. Direct work without a spec may also retain agreement, decisio
 TDD/source, checks/evidence, and handoff here without queue tracking. Creating a spec requires
 tracking; existing tracked work remains tracked. Use one dated section per
 distinct question; update it as evidence changes instead of appending a session diary.
-For material measurements and experiments, link exact runs under the
-[evidence rules](../references/evidence.md); keep discussion and decisions here.
+For material measurements and experiments, link exact saved runs;
+keep discussion and decisions here.
 Omit unused fields. Replace a finding with a link if another document becomes its owner.
 
 ## YYYY-MM-DD — <question or finding>

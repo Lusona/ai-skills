@@ -8,10 +8,11 @@ docs/lusona/visuals/<record-id>/. Omit unused fields. -->
 - Source: <relative link to option-<letter>.html, or to the Mermaid Markdown file>
 - Owner: <relative link to the owning spec, ADR, or notes>
 
-## Images
+## UI images
 
-<!-- Capture only after the user agrees to the design. One PNG per shown state of the whole page; each shows all screens. If screenshot capture was
-unavailable, say so here and keep the HTML source alone. -->
+<!-- UI mockups only; omit for Mermaid diagrams. Capture after the user agrees to the design.
+One PNG per shown state of the whole page; each shows all screens. If capture was unavailable,
+say so here and keep the HTML source alone. -->
 
 - <link to option-<letter>-<state>.png>: <state>; screens <names>
 
@@ -31,7 +32,7 @@ An item may name a screen and state, e.g. "Shared list, failed: Retry appears be
 
 ## Fidelity
 
-<!-- What the images approximate, e.g. production uses system components. -->
+<!-- What the reference approximates, e.g. production uses system components. -->
 
 - <approximate aspect>
 

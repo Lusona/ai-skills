@@ -1,8 +1,8 @@
 # <Question or topic> — <date / run identifier>
 
 Use only relevant sections. A small result can stay in one dated file; a topic README can
-link run files using this structure without repeating their contents. Follow the
-[evidence procedure](../references/evidence.md): save material decision evidence before handoff
+link run files using this structure without repeating their contents.
+Save material decision evidence before handoff
 or completion, subject to explicit no-save/read-only restrictions and write permissions.
 
 ## Decision and scope

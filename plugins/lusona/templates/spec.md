@@ -11,7 +11,7 @@ Use relevant sections only. This change record owns agreement, optional executio
 and one current handoff, including for small changes. Apply the core recording restrictions. Preserve existing
 split records in place; do not copy their evidence here or require a companion plan.
 Implement/refactor can create this record directly; Specify is not a prerequisite. Creating or
-updating a spec requires the coordinator to reconcile its queue row under the [queue rules](../references/queue.md),
+updating a spec requires the coordinator to reconcile its queue row,
 subject to explicit no-save/read-only restrictions. Preserve existing state, Icebox, and history.
 Direct work without a spec can use notes and remain untracked. User and host formatting constraints apply.
 
