@@ -31,6 +31,114 @@ The marketplace commands below use HTTPS to download the public repository. If y
 and have GitHub SSH access configured, substitute
 `git@github.com:lusona/ai-skills.git` for the HTTPS URL.
 
+## Antigravity
+
+Use the full native plugin directory for **Antigravity App, CLI, or standalone IDE**.
+Lusona's manifest is `plugins/lusona/.antigravity-plugin/plugin.json`; `skills/`,
+`README.md`, `references/`, `templates/`, `scripts/`, and `assets/` stay at the plugin root.
+Copying individual skills loses the shared resources they require. Resource paths in a
+loaded skill resolve relative to that skill, not your project's working directory.
+
+### Install from GitHub
+
+Install the plugin directly; no local checkout is required:
+
+```bash
+agy plugin install https://github.com/lusona/ai-skills.git
+agy plugin list --json
+```
+
+The repository URL installs through the root Antigravity manifest, including the
+repository files. The verified 1.4.0 root installation also includes project records.
+The root `.antigravity-plugin/plugin.json` points skill discovery to
+`plugins/lusona/skills/`; the manifest inside `plugins/lusona/` makes that directory
+independently installable for local or portable-package installation.
+Antigravity's documented marketplace commands support its official marketplace;
+this repository does not add a custom Antigravity marketplace catalog.
+
+### Local checkout or portable package
+
+Alternatively, clone the repository using [local checkout setup](#install-from-a-local-checkout).
+From its root, validate and install the complete plugin:
+
+```bash
+agy plugin validate --strict "$PWD/plugins/lusona"
+agy plugin install "$PWD/plugins/lusona"
+agy plugin list --json
+```
+
+For a portable package, extract the ZIP into a durable location and pass the absolute
+path to its `lusona-ai-skills/plugins/lusona/` directory instead. Packages exclude
+repository project records.
+
+### Antigravity CLI
+
+After installation, check that `lusona` is enabled and that the listed skills match the canonical
+`plugins/lusona/skills/` directories (currently thirteen). Start a new project session;
+open `/plugin` to inspect the installation and type `/` to discover skill commands.
+Invoke `/status` to request a workflow explanation. For a defined change, invoke
+`/implement` and supply the outcome, acceptance criteria, TDD policy, and authority.
+These commands use skill names, without the Claude Code `/lusona:` prefix.
+
+### Antigravity App
+
+Use the CLI GitHub installation above for a global install, then inspect
+**Customizations > Installed** in the App. Google's documentation describes App/CLI
+plugin synchronization; verify Lusona is enabled and inspect its **Skills** tab.
+Alternatively, place the complete plugin folder at either of these paths:
+
+- Project scope: `<project-root>/.agents/plugins/lusona/`.
+- Global scope: `~/.gemini/config/plugins/lusona/`.
+
+Use a file manager to copy `plugins/lusona/`, including hidden manifest directories,
+to an unused destination. If Lusona is already present, follow [updates](#updates)
+instead of merging copies. Start a new conversation in the project, type `/` to find
+`status`, and invoke `/status`. You can also explicitly ask to use Lusona's `status` skill.
+
+### Standalone Antigravity IDE
+
+The CLI GitHub installation above uses the global plugin location. Inspect the IDE's
+active components to confirm it has loaded Lusona. Alternatively, copy the complete plugin
+directory to `<project-root>/.agents/plugins/lusona/` for project scope, or
+`~/.gemini/config/plugins/lusona/` for all IDE windows, using the full-directory copy
+instructions above.
+
+Open the agent side panel's **Customizations** dropdown and inspect the loaded Lusona
+skills. Start a new project conversation and ask the agent to use Lusona's `status`
+skill to explain the workflow. For implementation, name Lusona's `implement` skill and
+state the outcome, acceptance criteria, TDD policy, and authority.
+
+### Verification status and sources
+
+Documentation checked **2026-10-31** against Google's [Plugins guide](https://antigravity.google/docs/plugins/),
+[Build plugins guide](https://antigravity.google/docs/build-plugins/), and
+[Agent skills guide](https://antigravity.google/docs/skills).
+Checked with **Antigravity CLI 1.4.12 on Linux** after publication: the explicit GitHub subdirectory
+URL installed and enabled native **Lusona 1.4.0**, discovering all thirteen skills.
+Shared README, references, templates, scripts and assets were present; strict validation
+reported no findings. The installed plugin contained no project records.
+
+The repository-root `.git` URL also installed 1.4.0, but copied repository project records
+because it selected the new root manifest. The primary command above uses the repository-root URL as requested. Local and portable
+installation of `plugins/lusona/` excludes those repository records.
+Earlier isolated GitHub checks used published 1.3.2 through Claude compatibility; those
+historical observations do not describe the current root-manifest installation behavior.
+
+For the native **1.4.0** source and portable plugin in this checkout, strict validation
+passed, discovering all thirteen skills. Earlier native lifecycle checks used version
+**1.3.2** and a synthetic **1.3.3** update in a network-isolated environment with disposable
+configuration: install, enabled-plugin/skill listing, reinstallation, and removal passed. The bundled Bash
+helper created a spec in the consuming test project; project records and unrelated
+configuration were preserved during update/removal. The real user configuration was untouched.
+The repository-root manifest also discovers all thirteen skills. Root validation passes
+with a warning that the repository's `AGENTS.md` is not a plugin rule; strict validation
+therefore fails at the checkout root. The packaged root passes strict validation because
+repository instructions and project records are excluded from the package.
+Model-driven `status`/`specify` invocation and shared-resource loading by an agent have
+not been tested. App and standalone IDE installation and interactive behavior have not
+been tested. Static/package validation and CLI lifecycle checks do not establish those
+interactive behaviors.
+
 ## Claude Code
 
 Run these commands in your terminal:
@@ -103,110 +211,6 @@ See Apple's [agent setup](https://developer.apple.com/documentation/xcode/settin
 and [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes?changes=latest_minor).
 These steps follow Apple's documentation; Lusona installation and invocation in Xcode
 have not been tested as part of this documentation update.
-
-## Antigravity
-
-Use the full native plugin directory for **Antigravity App, CLI, or standalone IDE**.
-Lusona's manifest is `plugins/lusona/.antigravity-plugin/plugin.json`; `skills/`,
-`README.md`, `references/`, `templates/`, `scripts/`, and `assets/` stay at the plugin root.
-Copying individual skills loses the shared resources they require. Resource paths in a
-loaded skill resolve relative to that skill, not your project's working directory.
-
-### Install from GitHub
-
-Install the plugin directly; no local checkout is required:
-
-```bash
-agy plugin install https://github.com/lusona/ai-skills/tree/main/plugins/lusona
-agy plugin list --json
-```
-
-The GitHub tree URL selects only the canonical `plugins/lusona/` plugin directory,
-keeping repository-root project records and unrelated files out of the installed plugin.
-The root `.antigravity-plugin/plugin.json` points skill discovery to
-`plugins/lusona/skills/`; the manifest inside `plugins/lusona/` makes that directory
-independently installable. Use the tree URL to select the plugin explicitly.
-Antigravity's documented marketplace commands support its official marketplace;
-this repository does not add a custom Antigravity marketplace catalog.
-
-### Local checkout or portable package
-
-Alternatively, clone the repository using [local checkout setup](#install-from-a-local-checkout).
-From its root, validate and install the complete plugin:
-
-```bash
-agy plugin validate --strict "$PWD/plugins/lusona"
-agy plugin install "$PWD/plugins/lusona"
-agy plugin list --json
-```
-
-For a portable package, extract the ZIP into a durable location and pass the absolute
-path to its `lusona-ai-skills/plugins/lusona/` directory instead. Packages exclude
-repository project records.
-
-### Antigravity CLI
-
-After installation, check that `lusona` is enabled and that the listed skills match the canonical
-`plugins/lusona/skills/` directories (currently thirteen). Start a new project session;
-open `/plugin` to inspect the installation and type `/` to discover skill commands.
-Invoke `/status` to request a workflow explanation. For a defined change, invoke
-`/implement` and supply the outcome, acceptance criteria, TDD policy, and authority.
-These commands use skill names, without the Claude Code `/lusona:` prefix.
-
-### Antigravity App
-
-Use the CLI GitHub installation above for a global install, then inspect
-**Customizations > Installed** in the App. Google's documentation describes App/CLI
-plugin synchronization; verify Lusona is enabled and inspect its **Skills** tab.
-Alternatively, place the complete plugin folder at either of these paths:
-
-- Project scope: `<project-root>/.agents/plugins/lusona/`.
-- Global scope: `~/.gemini/config/plugins/lusona/`.
-
-Use a file manager to copy `plugins/lusona/`, including hidden manifest directories,
-to an unused destination. If Lusona is already present, follow [updates](#updates)
-instead of merging copies. Start a new conversation in the project, type `/` to find
-`status`, and invoke `/status`. You can also explicitly ask to use Lusona's `status` skill.
-
-### Standalone Antigravity IDE
-
-The CLI GitHub installation above uses the global plugin location. Inspect the IDE's
-active components to confirm it has loaded Lusona. Alternatively, copy the complete plugin
-directory to `<project-root>/.agents/plugins/lusona/` for project scope, or
-`~/.gemini/config/plugins/lusona/` for all IDE windows, using the full-directory copy
-instructions above.
-
-Open the agent side panel's **Customizations** dropdown and inspect the loaded Lusona
-skills. Start a new project conversation and ask the agent to use Lusona's `status`
-skill to explain the workflow. For implementation, name Lusona's `implement` skill and
-state the outcome, acceptance criteria, TDD policy, and authority.
-
-### Verification status and sources
-
-Documentation checked **2026-10-31** against Google's [Plugins guide](https://antigravity.google/docs/plugins/),
-[Build plugins guide](https://antigravity.google/docs/build-plugins/), and
-[Agent skills guide](https://antigravity.google/docs/skills).
-Checked with **Antigravity CLI 1.4.12 on Linux**: installation from the GitHub tree
-URL above passed with disposable configuration, discovering thirteen skills and preserving
-shared resources. The installed inventory contained no repository-root `docs/lusona/`
-project records. The public source was version **1.3.2**, loaded through Antigravity's
-Claude-compatible plugin support; this does not verify GitHub installation of the
-unpublished native **1.4.0** source in this checkout.
-
-For the native **1.4.0** source and portable plugin in this checkout, strict validation
-passed, discovering all thirteen skills. Earlier native lifecycle checks used version
-**1.3.2** and a synthetic **1.3.3** update in a network-isolated environment with disposable
-configuration: install, enabled-plugin/skill listing, reinstallation, and removal passed. The bundled Bash
-helper created a spec in the consuming test project; project records and unrelated
-configuration were preserved during update/removal. The real user configuration was untouched.
-The repository-root manifest also discovers all thirteen skills. Root validation passes
-with a warning that the repository's `AGENTS.md` is not a plugin rule; strict validation
-therefore fails at the checkout root. The packaged root passes strict validation because
-repository instructions and project records are excluded from the package.
-Model-driven `status`/`specify` invocation and shared-resource loading by an agent have
-not been tested. App and standalone IDE installation and interactive behavior have not
-been tested. Static/package validation and CLI lifecycle checks do not establish those
-interactive behaviors.
 
 ## First use
 
@@ -310,7 +314,7 @@ Plugin updates leave your project's documents in place.
 For an Antigravity GitHub installation, reinstall from the same plugin URL:
 
 ```bash
-agy plugin install https://github.com/lusona/ai-skills/tree/main/plugins/lusona
+agy plugin install https://github.com/lusona/ai-skills.git
 agy plugin list --json
 ```
 

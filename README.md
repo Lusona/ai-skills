@@ -152,7 +152,7 @@ Lusona's skills to install. See the [Xcode installation steps](INSTALL.md#xcode)
 for setup, local imports, and version details.
 
 
-The URL selects the full plugin directory and excludes repository-root project records.
+The URL installs Lusona from the repository-root manifest.
 For App and standalone IDE use, inspect **Customizations** after this global CLI install.
 In App/CLI chat, invoke `/status`; in the IDE, ask to use Lusona's `status` skill.
 The [Antigravity installation guide](INSTALL.md#antigravity) covers local checkouts,

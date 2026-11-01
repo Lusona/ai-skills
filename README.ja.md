@@ -128,7 +128,7 @@ GitHub から直接インストールします。
 agy plugin install https://github.com/lusona/ai-skills.git
 ```
 
-この URL はプラグインディレクトリ全体を選択し、リポジトリルートのプロジェクト記録を除外します。
+この URL はリポジトリルートのマニフェストから Lusona をインストールします。
 App とスタンドアロン IDE では、この CLI によるグローバルインストール後に **Customizations** を確認します。
 App/CLI では `/status` を実行し、IDE では Lusona の `status` スキルを使うよう依頼します。
 [Antigravity の手順](INSTALL.md#antigravity)に、ローカルチェックアウト、ポータブルパッケージ、

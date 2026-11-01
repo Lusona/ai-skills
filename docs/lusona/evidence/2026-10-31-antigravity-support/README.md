@@ -83,3 +83,23 @@ using the same isolated configuration. Native listing confirms enabled 1.3.2 wit
 13 skills through Claude compatibility. Logs and exact probe/wrapper are retained under
 `github-install/` in artifacts.zip as `dot-git-*` and `project/github-dot-git.txt`.
 This confirms the suffix is accepted; it does not test the unpublished root native manifest.
+
+## Published 1.4.0 installation and documentation correction
+
+User authorized real Antigravity installation after pushing. On CLI 1.4.12, the exact root
+`.git` install command exited 0 and enabled native1.4.0 with13skills, but installed docs/lusona
+from the repository. Reinstalling the explicit tree/main/plugins/lusona URL exited0 and
+replaced it with the canonical native1.4.0 plugin. Native list confirmed enabled1.4.0/13skills;
+strict validation reported findings: []; direct filesystem checks confirmed shared resources
+and absence of docs. These are observed results from the installation turn, not a fresh rerun.
+
+INSTALL.md host sections now follow Antigravity, Claude Code, Codex, Cursor, Xcode. All five
+READMEs use the same verified tree URL; INSTALL verification distinguishes current native
+behavior from historical compatibility-based root discovery. Package/link and whitespace
+checks pass. UI/model-driven invocation remains untested. No commit or push performed for
+this follow-up.
+
+User subsequently explicitly selected the repository-root `.git` command as the primary
+installation URL. Restored it in INSTALL.md and all five READMEs; retained the observed
+root-install project-record inclusion in INSTALL.md. This supersedes the preceding
+documentation URL choice, not the recorded installation observations.

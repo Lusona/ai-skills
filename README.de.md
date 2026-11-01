@@ -140,8 +140,7 @@ Installiere direkt von GitHub:
 agy plugin install https://github.com/lusona/ai-skills.git
 ```
 
-Die URL wählt das vollständige Plugin-Verzeichnis aus und schließt Projektdaten im
-Repository-Stamm aus. Prüfe für App und eigenständige IDE nach dieser globalen
+Die URL installiert Lusona über das Manifest im Repository-Stamm. Prüfe für App und eigenständige IDE nach dieser globalen
 CLI-Installation **Customizations**. Rufe in App/CLI `/status` auf; bitte in der IDE um
 den Lusona-Skill `status`. Die [Antigravity-Anleitung](INSTALL.md#antigravity) beschreibt
 lokale Arbeitskopien, portable Pakete, Updates, Entfernung und die Grenzen der Prüfung.

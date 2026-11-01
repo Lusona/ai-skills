@@ -104,7 +104,7 @@ Lusona 帮助 AI 智能体理解你的需求、执行工作并验证结果，达
 agy plugin install https://github.com/lusona/ai-skills.git
 ```
 
-此 URL 选择完整的插件目录，并排除仓库根目录的项目记录。
+此 URL 通过仓库根目录的清单安装 Lusona。
 App 和独立 IDE 用户在通过 CLI 全局安装后，查看 **Customizations**。
 在 App/CLI 中执行 `/status`；在 IDE 中要求使用 Lusona 的 `status` 技能。
 [Antigravity 安装指南](INSTALL.md#antigravity)涵盖本地工作副本、便携包、更新、移除和验证范围。
