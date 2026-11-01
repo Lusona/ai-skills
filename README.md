@@ -7,7 +7,7 @@ verification. You set the outcome, constraints, and authority. The agent chooses
 useful action from the evidence, continues authorized work, and asks when it needs your
 input or permission.
 
-For Claude Code, Codex, [Cursor](INSTALL.md#cursor), and [Xcode 27 coding agents](INSTALL.md#xcode) · Checked-out source version **1.3.0**
+For Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Xcode 27 coding agents](INSTALL.md#xcode), and [Google Antigravity App, CLI, and IDE](INSTALL.md#antigravity) · Checked-out source version **1.4.0**
 
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
@@ -82,6 +82,8 @@ In Claude Code, invoke `/lusona:<command>`. In Codex, select the Lusona skill fr
 skill UI. In Cursor, type `/` in Agent chat and select the skill. In Xcode, type `/` in an agent conversation and select the installed skill.
 [Install Lusona](#installation) before using these commands.
 
+In Antigravity App/CLI, use `/<skill-name>`; in the standalone IDE, inspect **Customizations** and name the Lusona skill in your request.
+
 | Command | Use it to |
 | --- | --- |
 | [explore](plugins/lusona/skills/explore/SKILL.md) | Develop understanding, possibilities, and preferences through discussion |
@@ -113,6 +115,14 @@ These capabilities can arise naturally within authorized work without an explici
 Choose your host. Install from the public [lusona/ai-skills](https://github.com/lusona/ai-skills)
 repository over HTTPS; no GitHub credentials are required to download it.
 
+### Antigravity
+
+Install directly from GitHub:
+
+```bash
+agy plugin install https://github.com/lusona/ai-skills.git
+```
+
 ### Claude Code
 
 ```bash
@@ -140,6 +150,14 @@ In Xcode 27, open **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**.
 Choose **Add from URL**, enter `https://github.com/lusona/ai-skills`, and select
 Lusona's skills to install. See the [Xcode installation steps](INSTALL.md#xcode)
 for setup, local imports, and version details.
+
+
+The URL selects the full plugin directory and excludes repository-root project records.
+For App and standalone IDE use, inspect **Customizations** after this global CLI install.
+In App/CLI chat, invoke `/status`; in the IDE, ask to use Lusona's `status` skill.
+The [Antigravity installation guide](INSTALL.md#antigravity) covers local checkouts,
+portable packages, updates, removal, and verification limits. GitHub installation was
+checked with CLI 1.4.12 on Linux; App/IDE interactive behavior remains untested.
 
 Start a new session in your project after installation. For local checkout installation,
 portable packages, updates, and removal, see the [installation guide](INSTALL.md).
@@ -330,7 +348,7 @@ python3 scripts/package.py
 
 The package builder checks native manifest identity/version, links, catalog paths, and
 file selection. It writes to repository-local `tmp/lusona-package/`; use
-`--output tmp/<new-directory>` for another build. All three manifests must use the same version.
+`--output tmp/<new-directory>` for another build. All native manifests must use the same version.
 Installation from GitHub uses committed and pushed sources; a local checkout can be used
 before publication. Neither installation nor packaging initializes project records.
 

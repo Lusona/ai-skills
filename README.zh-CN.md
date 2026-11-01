@@ -5,7 +5,7 @@
 
 Lusona 帮助 AI 智能体理解你的需求、执行工作并验证结果，达成你设定的目标。你确定目标、约束和授权范围。智能体根据已有证据决定下一步，继续完成授权范围内的工作，并在需要你的意见或许可时提问。
 
-适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor) 和 [Xcode 27 编程智能体](INSTALL.md#xcode) · 当前工作副本的源码版本：**1.3.0**
+适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 编程智能体](INSTALL.md#xcode) 和 [Google Antigravity App、CLI 与 IDE](INSTALL.md#antigravity) · 当前工作副本的源码版本：**1.4.0**
 
 > [!WARNING]
 > 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#installation)。
@@ -66,7 +66,9 @@ Lusona 帮助 AI 智能体理解你的需求、执行工作并验证结果，达
 
 选择适合当前请求的命令。智能体会沿用已确认的决定，并在你授予的权限范围内按需使用其他技能。无须遵循固定顺序。
 
-在 Claude Code 中，输入 `/lusona:<command>`。在 Codex 中，从技能界面选择 Lusona 技能。在 Xcode 中，在智能体对话里输入 `/`，然后选择已安装的技能。使用这些命令前，请先[安装 Lusona](#installation)。
+在 Claude Code 中，输入 `/lusona:<command>`。在 Codex 中，从技能界面选择 Lusona 技能。在 Cursor 中，在 Agent 聊天中输入 `/` 并选择技能。在 Xcode 中，在智能体对话里输入 `/`，然后选择已安装的技能。使用这些命令前，请先[安装 Lusona](#installation)。
+
+在 Antigravity App/CLI 中使用 `/<skill-name>`；在独立 IDE 中查看 **Customizations**，并在请求中指定 Lusona 技能名称。
 
 | 命令 | 用途 |
 | --- | --- |
@@ -84,12 +86,29 @@ Lusona 帮助 AI 智能体理解你的需求、执行工作并验证结果，达
 | [refactor](plugins/lusona/skills/refactor/SKILL.md) | 在保持行为和兼容性的前提下改善现有代码结构 |
 | [batch](plugins/lusona/skills/batch/SKILL.md) | 获得明确的无人值守工作授权后，协调多个选定目标的实现 |
 
-用 **investigate** 查明发生了什么以及原因；用 **architect** 决定影响重大的技术边界与取舍。行为保持不变、需要解决具体结构问题时，用 **refactor**；需要改变行为或修复缺陷时，用 **implement**。常规设计选择在实现或重构过程中解决。
+用 **measure** 确定数量或程度，用 **experiment** 检验干预措施或备选方案，用 **investigate** 查明原因或技术可行性；用 **architect** 决定影响重大的技术边界与取舍。行为保持不变、需要解决具体结构问题时，用 **refactor**；需要改变行为或修复缺陷时，用 **implement**。常规设计选择在实现或重构过程中解决。
+
+重要的测量和实验记录保存在使用该插件的项目的 `docs/lusona/evidence/` 中。规格说明、笔记和历史记录须链接到其依据的具体运行记录；已有记录保留在原处。这些能力可以在已获授权的工作中按需使用，无须显式命令。
 
 <a id="installation"></a>
 ## 安装
 
 选择你使用的应用。通过 HTTPS 从公开的 [lusona/ai-skills](https://github.com/lusona/ai-skills) 仓库安装；下载无须 GitHub 凭据。
+
+<a id="antigravity"></a>
+### Antigravity
+
+直接从 GitHub 安装：
+
+```bash
+agy plugin install https://github.com/lusona/ai-skills.git
+```
+
+此 URL 选择完整的插件目录，并排除仓库根目录的项目记录。
+App 和独立 IDE 用户在通过 CLI 全局安装后，查看 **Customizations**。
+在 App/CLI 中执行 `/status`；在 IDE 中要求使用 Lusona 的 `status` 技能。
+[Antigravity 安装指南](INSTALL.md#antigravity)涵盖本地工作副本、便携包、更新、移除和验证范围。
+GitHub 安装已通过 Linux 上的 CLI 1.4.12 验证；App/IDE 的交互行为尚未测试。
 
 <a id="claude-code"></a>
 ### Claude Code
@@ -107,11 +126,12 @@ codex plugin marketplace add https://github.com/lusona/ai-skills.git
 codex plugin add lusona@lusona-ai-skills
 ```
 
-<a id="xcode"></a>
+<a id="cursor"></a>
 ### Cursor
 
-打开 **Customize > From GitHub Repository**，输入 `https://github.com/lusona/ai-skills`，然后安装 **Lusona Skills**。[Cursor 安装步骤](INSTALL.md#cursor)包含最新官方文档链接和测试状态。
+打开 **Customize > From GitHub Repository**，输入 `https://github.com/lusona/ai-skills`，然后为项目或用户安装 **Lusona Skills**。在 Agent 聊天中输入 `/` 查找 Lusona 技能。[Cursor 安装步骤](INSTALL.md#cursor)包含最新官方文档链接和测试状态。
 
+<a id="xcode"></a>
 ### Xcode
 
 在 Xcode 27 中，打开 **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**。
@@ -208,6 +228,8 @@ Lusona 正在试用统一的格式来报告评估结论和交接工作：**结�
 ## 参考资料
 
 - [安装与移除](INSTALL.md)
+- [隐私政策](PRIVACY.md)
+- [使用条款](TERMS.md)
 - [工作流契约与工作循环](plugins/lusona/README.md#work-loop)
 - [技能选择与术语](plugins/lusona/references/workflow-guide.md)
 - [TDD 策略与执行顺序](plugins/lusona/references/tdd.md)
@@ -239,6 +261,6 @@ claude plugin validate .claude-plugin/marketplace.json
 python3 scripts/package.py
 ```
 
-打包工具会检查原生插件清单的标识与版本、链接、插件目录路径和打包文件范围，并将输出写入仓库内的 `tmp/lusona-package/`。如需输出到其他位置，使用 `--output tmp/<new-directory>`。三个清单必须使用相同版本。通过 GitHub 安装时使用已提交并推送的源码；发布前可使用本地工作副本。安装和打包都不会初始化项目记录。
+打包工具会检查原生插件清单的标识与版本、链接、插件目录路径和打包文件范围，并将输出写入仓库内的 `tmp/lusona-package/`。如需输出到其他位置，使用 `--output tmp/<new-directory>`。所有原生清单必须使用相同版本。通过 GitHub 安装时使用已提交并推送的源码；发布前可使用本地工作副本。安装和打包都不会初始化项目记录。
 
 源码体积缩小不代表 token 用量或延迟下降；要确认这些收益，需要把协调智能体和所有执行智能体都纳入测量。

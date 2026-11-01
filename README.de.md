@@ -7,7 +7,7 @@ prüfen. Du bestimmst das Ziel, die Vorgaben und die Befugnisse. Anhand der vorl
 wählt der Agent den nächsten sinnvollen Schritt und setzt die freigegebene Arbeit fort.
 Wenn er Informationen oder eine Erlaubnis von dir braucht, fragt er nach.
 
-Für Claude Code, Codex, [Cursor](INSTALL.md#cursor) und [Programmieragenten in Xcode 27](INSTALL.md#xcode) · Version des Quellcodes in dieser Arbeitskopie: **1.3.0**
+Für Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Programmieragenten in Xcode 27](INSTALL.md#xcode) und [Google Antigravity App, CLI und IDE](INSTALL.md#antigravity) · Version des Quellcodes in dieser Arbeitskopie: **1.4.0**
 
 > [!WARNING]
 > Installiere Lusona nicht mit Vercel Skills (`npx skills@latest`); nutze die [Installation als natives Plugin](#installation).
@@ -91,8 +91,10 @@ und nutzt bei Bedarf weitere Skills im Rahmen der Befugnisse, die du ihm erteils
 Eine feste Reihenfolge gibt es nicht.
 
 In Claude Code rufst du `/lusona:<command>` auf. In Codex wählst du den Lusona-Skill in der
-Skill-Oberfläche aus. In Xcode gibst du `/` in einer Agentenunterhaltung ein und wählst den
-installierten Skill. [Installiere Lusona](#installation), bevor du diese Befehle nutzt.
+Skill-Oberfläche aus. In Cursor gibst du `/` im Agent-Chat ein und wählst den Skill. In Xcode
+gibst du `/` in einer Agentenunterhaltung ein und wählst den installierten Skill. [Installiere Lusona](#installation), bevor du diese Befehle nutzt.
+
+In Antigravity App/CLI nutzt du `/<skill-name>`; in der eigenständigen IDE prüfst du **Customizations** und nennst den Lusona-Skill in deiner Anfrage.
 
 | Befehl | Aufgabe |
 | --- | --- |
@@ -110,11 +112,17 @@ installierten Skill. [Installiere Lusona](#installation), bevor du diese Befehle
 | [refactor](plugins/lusona/skills/refactor/SKILL.md) | Die Struktur bestehenden Codes verbessern und dabei Verhalten und Kompatibilität erhalten |
 | [batch](plugins/lusona/skills/batch/SKILL.md) | Die Arbeit an mehreren ausgewählten Zielen mit ausdrücklicher Erlaubnis zur unbeaufsichtigten Ausführung koordinieren |
 
-Nutze **investigate**, um festzustellen, was passiert und warum. Mit **architect** entscheidest
-du über technische Grenzen und Abwägungen mit weitreichenden Folgen. Nutze **refactor** für ein
+Nutze **measure**, um festzustellen, wie viel; **experiment**, um eine Intervention oder
+Alternativen zu prüfen; und **investigate**, um Ursachen oder technische Machbarkeit zu klären.
+Mit **architect** entscheidest du über technische Grenzen und Abwägungen mit weitreichenden Folgen. Nutze **refactor** für ein
 konkretes Strukturproblem bei unverändertem Verhalten und **implement** für geändertes
 Verhalten oder eine Fehlerkorrektur. Übliche Designentscheidungen gehören zur Implementierung
 oder zum Refactoring.
+
+Entscheidungsrelevante Messungen und Experimente liegen in `docs/lusona/evidence/` des
+Projekts, das Lusona nutzt. Spezifikationen, Notizen und Verlauf verlinken die genauen Läufe,
+auf denen sie beruhen; bestehende Aufzeichnungen bleiben an ihrem Ort. Diese Fähigkeiten
+können sich innerhalb freigegebener Arbeit ohne ausdrücklichen Befehl ergeben.
 
 <a id="installation"></a>
 ## Installation
@@ -122,6 +130,23 @@ oder zum Refactoring.
 Wähle deine Anwendung. Installiere über HTTPS aus dem öffentlichen Repository
 [lusona/ai-skills](https://github.com/lusona/ai-skills); für den Download brauchst du keine
 GitHub-Zugangsdaten.
+
+<a id="antigravity"></a>
+### Antigravity
+
+Installiere direkt von GitHub:
+
+```bash
+agy plugin install https://github.com/lusona/ai-skills.git
+```
+
+Die URL wählt das vollständige Plugin-Verzeichnis aus und schließt Projektdaten im
+Repository-Stamm aus. Prüfe für App und eigenständige IDE nach dieser globalen
+CLI-Installation **Customizations**. Rufe in App/CLI `/status` auf; bitte in der IDE um
+den Lusona-Skill `status`. Die [Antigravity-Anleitung](INSTALL.md#antigravity) beschreibt
+lokale Arbeitskopien, portable Pakete, Updates, Entfernung und die Grenzen der Prüfung.
+Die GitHub-Installation wurde mit CLI 1.4.12 unter Linux geprüft; das interaktive
+Verhalten in App/IDE wurde nicht getestet.
 
 <a id="claude-code"></a>
 ### Claude Code
@@ -139,11 +164,15 @@ codex plugin marketplace add https://github.com/lusona/ai-skills.git
 codex plugin add lusona@lusona-ai-skills
 ```
 
-<a id="xcode"></a>
+<a id="cursor"></a>
 ### Cursor
 
-Öffne **Customize > From GitHub Repository**, gib `https://github.com/lusona/ai-skills` ein und installiere **Lusona Skills**. Die [Cursor-Anleitung](INSTALL.md#cursor) verlinkt die aktuelle Cursor-Dokumentation und nennt den Teststatus.
+Öffne **Customize > From GitHub Repository**, gib `https://github.com/lusona/ai-skills` ein
+und installiere **Lusona Skills** für dein Projekt oder deinen Nutzer. Gib im Agent-Chat `/`
+ein, um die Lusona-Skills zu finden. Die [Cursor-Anleitung](INSTALL.md#cursor) verlinkt die
+aktuelle Cursor-Dokumentation und nennt den Teststatus.
 
+<a id="xcode"></a>
 ### Xcode
 
 Öffne in Xcode 27 **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**.
@@ -278,8 +307,8 @@ einen gesonderten `specify`-Befehl. Das Erstellen, Aktualisieren oder Verwenden 
 denselben Eintrag ab, ohne seinen Zustand, seine Ablage in Icebox oder seine Historie zurückzusetzen.
 Entwürfe beginnen in Ideas; Ready erfordert akzeptierten Umfang und Kriterien, eine ausdrücklich
 gewählte TDD-Vorgabe und keine blockierenden Fragen. Planung allein führt nie zu Doing;
-ein Eintrag erteilt keine Ausführungsbefugnis. Direkte Arbeit ohne Spezifikation darf nur in Notizen
-festgehalten werden und ohne Warteschlangeneintrag bleiben; bereits erfasste Arbeit bleibt erfasst.
+ein Eintrag erteilt keine Ausführungsbefugnis. Direkte Arbeit ohne Spezifikation kann Notizen nutzen
+und ohne Warteschlangeneintrag bleiben; bereits erfasste Arbeit bleibt erfasst.
 Notizen allein erfordern keine Warteschlange. Nicht betroffene Spezifikationen müssen nicht
 nachträglich erfasst werden.
 
@@ -337,6 +366,8 @@ nicht überprüft. Einzelheiten zur Formatierung findest du unter
 ## Referenzen
 
 - [Installation und Deinstallation](INSTALL.md)
+- [Datenschutzerklärung](PRIVACY.md)
+- [Nutzungsbedingungen](TERMS.md)
 - [Workflow-Regeln und Arbeitsablauf](plugins/lusona/README.md#work-loop)
 - [Skill-Auswahl und Begriffe](plugins/lusona/references/workflow-guide.md)
 - [TDD-Vorgaben und Reihenfolge](plugins/lusona/references/tdd.md)
@@ -375,7 +406,7 @@ python3 scripts/package.py
 
 Der Paketgenerator prüft Identität und Version der nativen Manifeste, Links, Katalogpfade und
 die Dateiauswahl. Er schreibt nach `tmp/lusona-package/` innerhalb des Repositorys; für einen
-weiteren Build nutzt du `--output tmp/<new-directory>`. Alle drei Manifeste müssen dieselbe Version
+weiteren Build nutzt du `--output tmp/<new-directory>`. Alle nativen Manifeste müssen dieselbe Version
 verwenden. Die Installation über GitHub nutzt Quellen, die per Commit erfasst und gepusht
 wurden; eine lokale Arbeitskopie kannst du vor der Veröffentlichung verwenden. Weder bei der
 Installation noch beim Erstellen der Pakete werden Projektdokumente angelegt.

@@ -7,7 +7,7 @@ verificar el resultado. Tú defines el resultado, las restricciones y los permis
 elige la siguiente acción útil a partir de las evidencias disponibles, continúa el trabajo
 autorizado y pregunta cuando necesita información o permiso de tu parte.
 
-Para Claude Code, Codex, [Cursor](INSTALL.md#cursor) y los [agentes de programación de Xcode 27](INSTALL.md#xcode) · Versión del código fuente de esta copia de trabajo: **1.3.0**
+Para Claude Code, Codex, [Cursor](INSTALL.md#cursor), los [agentes de programación de Xcode 27](INSTALL.md#xcode) y [Google Antigravity App, CLI e IDE](INSTALL.md#antigravity) · Versión del código fuente de esta copia de trabajo: **1.4.0**
 
 > [!WARNING]
 > No instales Lusona con Vercel Skills (`npx skills@latest`); usa la [instalación como plugin nativo](#installation).
@@ -89,8 +89,10 @@ y recurre a otras habilidades según haga falta, dentro de los permisos que le h
 No hay una secuencia obligatoria.
 
 En Claude Code, ejecuta `/lusona:<command>`. En Codex, selecciona la habilidad de Lusona en la
-interfaz de habilidades. En Xcode, escribe `/` en una conversación con el agente y selecciona
-la habilidad instalada. [Instala Lusona](#installation) antes de usar estos comandos.
+interfaz de habilidades. En Cursor, escribe `/` en el chat de Agent y selecciona la habilidad.
+En Xcode, escribe `/` en una conversación con el agente y selecciona la habilidad instalada. [Instala Lusona](#installation) antes de usar estos comandos.
+
+En Antigravity App/CLI, usa `/<skill-name>`; en el IDE independiente, consulta **Customizations** y nombra la habilidad de Lusona en tu petición.
 
 | Comando | Para qué sirve |
 | --- | --- |
@@ -108,11 +110,17 @@ la habilidad instalada. [Instala Lusona](#installation) antes de usar estos coma
 | [refactor](plugins/lusona/skills/refactor/SKILL.md) | Mejorar la estructura del código existente sin alterar su comportamiento ni su compatibilidad |
 | [batch](plugins/lusona/skills/batch/SKILL.md) | Coordinar varios resultados seleccionados con autorización expresa para trabajar sin supervisión |
 
-Usa **investigate** para determinar qué ocurre y por qué; usa **architect** para definir límites
-técnicos y valorar las ventajas e inconvenientes de decisiones importantes. Usa **refactor**
+Usa **measure** para determinar cuánto, **experiment** para probar una intervención o
+alternativas e **investigate** para determinar causas o viabilidad técnica; usa **architect**
+para definir límites técnicos y valorar las ventajas e inconvenientes de decisiones importantes. Usa **refactor**
 para un problema estructural concreto cuando el comportamiento deba mantenerse, e **implement** para cambiar
 comportamientos o corregir defectos. Las decisiones de diseño habituales se resuelven dentro
 de la implementación o la refactorización.
+
+Las mediciones y los experimentos relevantes se guardan en `docs/lusona/evidence/` del
+proyecto que utiliza el plugin. Las especificaciones, notas y el historial enlazan las
+ejecuciones exactas en las que se basan; los registros existentes permanecen en su lugar.
+Estas capacidades pueden surgir de forma natural durante el trabajo autorizado sin un comando explícito.
 
 <a id="installation"></a>
 ## Instalación
@@ -120,6 +128,23 @@ de la implementación o la refactorización.
 Elige la aplicación que utilizas. Instala desde el repositorio público
 [lusona/ai-skills](https://github.com/lusona/ai-skills) por HTTPS; no necesitas credenciales
 de GitHub para descargarlo.
+
+<a id="antigravity"></a>
+### Antigravity
+
+Instala directamente desde GitHub:
+
+```bash
+agy plugin install https://github.com/lusona/ai-skills.git
+```
+
+La URL selecciona el directorio completo del plugin y excluye los registros de proyecto
+de la raíz del repositorio. Para la App y el IDE independiente, consulta **Customizations**
+tras esta instalación global con la CLI. En App/CLI, invoca `/status`; en el IDE, pide usar
+la habilidad `status` de Lusona. La [guía de Antigravity](INSTALL.md#antigravity) incluye
+copias locales, paquetes portátiles, actualizaciones, eliminación y límites de verificación.
+La instalación desde GitHub se comprobó con CLI 1.4.12 en Linux; no se ha probado el
+comportamiento interactivo en App/IDE.
 
 <a id="claude-code"></a>
 ### Claude Code
@@ -137,11 +162,15 @@ codex plugin marketplace add https://github.com/lusona/ai-skills.git
 codex plugin add lusona@lusona-ai-skills
 ```
 
-<a id="xcode"></a>
+<a id="cursor"></a>
 ### Cursor
 
-Abre **Customize > From GitHub Repository**, introduce `https://github.com/lusona/ai-skills` e instala **Lusona Skills**. Los [pasos para Cursor](INSTALL.md#cursor) enlazan la documentación actual de Cursor e indican qué se ha probado.
+Abre **Customize > From GitHub Repository**, introduce `https://github.com/lusona/ai-skills`
+e instala **Lusona Skills** para tu proyecto o usuario. En el chat de Agent, escribe `/`
+para encontrar las habilidades de Lusona. Los [pasos para Cursor](INSTALL.md#cursor) enlazan
+la documentación actual de Cursor e indican qué se ha probado.
 
+<a id="xcode"></a>
 ### Xcode
 
 En Xcode 27, abre **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**.
@@ -331,6 +360,8 @@ para conocer los detalles de formato.
 ## Referencias
 
 - [Instalación y desinstalación](INSTALL.md)
+- [Política de privacidad](PRIVACY.md)
+- [Condiciones de uso](TERMS.md)
 - [Contrato del flujo de trabajo y ciclo de trabajo](plugins/lusona/README.md#work-loop)
 - [Selección de habilidades y terminología](plugins/lusona/references/workflow-guide.md)
 - [Política de TDD y secuencia de trabajo](plugins/lusona/references/tdd.md)
@@ -370,8 +401,8 @@ python3 scripts/package.py
 
 El generador de paquetes comprueba la identidad y versión de los manifiestos nativos, los
 enlaces, las rutas del catálogo y la selección de archivos. Escribe en `tmp/lusona-package/`
-dentro del repositorio; usa `--output tmp/<new-directory>` para generar otro paquete. Los tres
-manifiestos deben usar la misma versión. La instalación desde GitHub utiliza el código
+dentro del repositorio; usa `--output tmp/<new-directory>` para generar otro paquete. Todos los
+manifiestos nativos deben usar la misma versión. La instalación desde GitHub utiliza el código
 guardado en commits y enviado al repositorio remoto; puedes usar una copia de trabajo
 local antes de publicar. Ni la instalación ni la creación de paquetes inicializan los
 registros del proyecto.

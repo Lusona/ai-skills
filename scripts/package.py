@@ -10,6 +10,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = Path('plugins/lusona')
+ANTIGRAVITY_REFERENCE = Path('.antigravity-plugin/plugin.json')
 CATALOGS = (Path('.agents/plugins/marketplace.json'), Path('.claude-plugin/marketplace.json'),
             Path('.cursor-plugin/marketplace.json'))
 
@@ -40,12 +41,17 @@ def build(output):
     codex = json.loads((source / '.codex-plugin/plugin.json').read_text())
     claude = json.loads((source / '.claude-plugin/plugin.json').read_text())
     cursor = json.loads((source / '.cursor-plugin/plugin.json').read_text())
-    manifests = (codex, claude, cursor)
+    antigravity = json.loads((source / '.antigravity-plugin/plugin.json').read_text())
+    manifests = (codex, claude, cursor, antigravity)
     if any(manifest['name'] != PLUGIN.name for manifest in manifests):
         raise ValueError('Native manifest names must match the plugin directory.')
     if (any(manifest['version'] != codex['version'] for manifest in manifests)
             or not re.fullmatch(r'\d+\.\d+\.\d+', codex['version'])):
         raise ValueError('Native manifest versions must match and use major.minor.patch.')
+    reference = json.loads((ROOT / ANTIGRAVITY_REFERENCE).read_text())
+    if (reference['name'] != codex['name'] or reference['version'] != codex['version']
+            or reference['skills'] != './plugins/lusona/skills'):
+        raise ValueError('Root Antigravity reference must match the canonical plugin and skills path.')
     catalogs = [json.loads((ROOT / path).read_text()) for path in CATALOGS]
     if any(catalog['name'] != 'lusona-ai-skills' for catalog in catalogs):
         raise ValueError('All catalogs must be named lusona-ai-skills.')
@@ -69,15 +75,16 @@ def build(output):
     # Explicit selection excludes consuming projects and their live queues.
     for name in ('README.md', 'LICENSE', '.codex-plugin/plugin.json',
                  '.claude-plugin/plugin.json',
-                 '.cursor-plugin/plugin.json'):
+                 '.cursor-plugin/plugin.json', '.antigravity-plugin/plugin.json'):
         destination = plugin / name
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source / name, destination)
     for name in ('skills', 'templates', 'scripts', 'references', 'assets'):
         shutil.copytree(source / name, plugin / name)
-    for relative in (*CATALOGS, *(Path(name) for name in (
+    for relative in (*CATALOGS, ANTIGRAVITY_REFERENCE, *(Path(name) for name in (
         'README.md', 'README.es.md', 'README.de.md', 'README.zh-CN.md', 'README.ja.md',
         'CONTRIBUTING.md', 'INSTALL.md', 'PRIVACY.md', 'TERMS.md', 'LICENSE', 'scripts/package.py',
+        'scripts/test_package.py',
     ))):
         destination = catalog / relative
         destination.parent.mkdir(parents=True, exist_ok=True)

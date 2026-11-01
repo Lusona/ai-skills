@@ -33,8 +33,10 @@ retain any required third-party notices.
   the agent a concrete next action.
 - Resolve bundled resources relative to the loaded skill. A `docs/lusona/` path in
   workflow instructions refers to the consuming project.
-- Keep consuming-project records and generated packages out of your contribution.
-  Use repository-local `tmp/` for scratch files and package output.
+- Include related Lusona development records in this repository; keep unrelated
+  consuming-project records and generated packages out of contributions. Exclude all
+  project records from installable plugin packages. Use repository-local `tmp/` for
+  scratch files and package output.
 - Keep the Spanish, German, Simplified Chinese, and Japanese READMEs in sync with
   `README.md` when changing public documentation. Use natural technical prose in
   each language; preserve command names, paths, and authorization rules. Check
@@ -54,6 +56,7 @@ git diff --check
 claude plugin validate plugins/lusona
 claude plugin validate .claude-plugin/marketplace.json
 python3 scripts/package.py
+python3 scripts/test_package.py
 ```
 
 The package builder checks manifest identity and versions, catalog paths, resource
@@ -63,6 +66,11 @@ overwrite an existing output directory. For another build, use a fresh directory
 ```bash
 python3 scripts/package.py --output tmp/my-change-package
 ```
+
+For Antigravity metadata or package changes, run `python3 scripts/test_package.py`.
+When Antigravity CLI is available, also run `agy plugin validate plugins/lusona --strict`
+and validate the extracted plugin directory. Report native checks separately from live
+installation and invocation tests; package success does not establish host integration.
 
 For changes to the work-record helper, run its behavioral checks:
 

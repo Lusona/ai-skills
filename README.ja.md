@@ -6,7 +6,7 @@ Lusona は、AI エージェントが依頼を理解し、作業を進め、結�
 目指す成果、制約、権限は利用者が定めます。エージェントは根拠に基づいて次に取り組むべき作業を選び、
 許可された作業を続け、利用者の判断や許可が必要な場合に質問します。
 
-Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](INSTALL.md#xcode)に対応 · チェックアウトしたソースのバージョン：**1.3.0**
+Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](INSTALL.md#xcode)、[Google Antigravity App・CLI・IDE](INSTALL.md#antigravity)に対応 · チェックアウトしたソースのバージョン：**1.4.0**
 
 > [!WARNING]
 > Lusona のインストールには Vercel Skills（`npx skills@latest`）を使わず、[ホスト標準のプラグイン機能](#installation)を使ってください。
@@ -82,8 +82,10 @@ TDD 方針は、依頼ごとに指定するか、共通の設定として明示�
 決まった実行順序はありません。
 
 Claude Code では `/lusona:<command>` を実行します。Codex ではスキル選択画面から Lusona のスキルを選びます。
-Xcode ではエージェントとの会話で `/` を入力し、インストール済みのスキルを選びます。
+Cursor では Agent チャットで `/` を入力し、スキルを選びます。Xcode ではエージェントとの会話で `/` を入力し、インストール済みのスキルを選びます。
 コマンドを使う前に、[Lusona をインストール](#installation)してください。
+
+Antigravity App/CLI では `/<skill-name>` を使います。スタンドアロン IDE では **Customizations** を確認し、依頼の中で Lusona のスキル名を指定します。
 
 | コマンド | 用途 |
 | --- | --- |
@@ -101,16 +103,37 @@ Xcode ではエージェントとの会話で `/` を入力し、インストー
 | [refactor](plugins/lusona/skills/refactor/SKILL.md) | 動作と互換性を保ちながら、既存コードの構造を改善する |
 | [batch](plugins/lusona/skills/batch/SKILL.md) | 無人で作業を進める明示的な許可のもとで、選択した複数の成果に向けた作業を調整する |
 
-何が起きているか、その理由は何かを確かめるには **investigate** を使います。影響の大きい技術的な境界や
+量や程度を確かめるには **measure**、介入や代替案を検証するには **experiment**、
+原因や技術的な実現可能性を確かめるには **investigate** を使います。影響の大きい技術的な境界や
 トレードオフを決めるには **architect** を使います。動作を変えずに具体的な構造の問題を解消する場合は
 **refactor**、動作を変更したり不具合を修正したりする場合は **implement** を使ってください。
 日常的な設計判断は、実装やリファクタリングの中で行います。
+
+重要な測定や実験の記録は、利用先プロジェクトの `docs/lusona/evidence/` に保存します。
+仕様書、ノート、履歴は、根拠とする実行記録へ正確にリンクします。既存の記録は元の場所に残します。
+これらの機能は、明示的なコマンドがなくても、許可された作業の中で必要に応じて使われます。
 
 <a id="installation"></a>
 ## インストール
 
 使用するアプリを選んでください。公開リポジトリ [lusona/ai-skills](https://github.com/lusona/ai-skills)
 から HTTPS でインストールします。ダウンロードに GitHub の認証情報は不要です。
+
+<a id="antigravity"></a>
+### Antigravity
+
+GitHub から直接インストールします。
+
+```bash
+agy plugin install https://github.com/lusona/ai-skills.git
+```
+
+この URL はプラグインディレクトリ全体を選択し、リポジトリルートのプロジェクト記録を除外します。
+App とスタンドアロン IDE では、この CLI によるグローバルインストール後に **Customizations** を確認します。
+App/CLI では `/status` を実行し、IDE では Lusona の `status` スキルを使うよう依頼します。
+[Antigravity の手順](INSTALL.md#antigravity)に、ローカルチェックアウト、ポータブルパッケージ、
+更新、削除、検証の範囲を記載しています。GitHub からのインストールは Linux の CLI 1.4.12 で確認済みです。
+App/IDE の対話動作は未検証です。
 
 <a id="claude-code"></a>
 ### Claude Code
@@ -128,11 +151,14 @@ codex plugin marketplace add https://github.com/lusona/ai-skills.git
 codex plugin add lusona@lusona-ai-skills
 ```
 
-<a id="xcode"></a>
+<a id="cursor"></a>
 ### Cursor
 
-**Customize > From GitHub Repository** を開き、`https://github.com/lusona/ai-skills` を入力して **Lusona Skills** をインストールします。[Cursor のインストール手順](INSTALL.md#cursor)に、最新の公式ドキュメントへのリンクとテスト状況を記載しています。
+**Customize > From GitHub Repository** を開き、`https://github.com/lusona/ai-skills` を入力して、
+プロジェクトまたはユーザー用に **Lusona Skills** をインストールします。Agent チャットで `/` を入力すると、
+Lusona のスキルを探せます。[Cursor のインストール手順](INSTALL.md#cursor)に、最新の公式ドキュメントへのリンクとテスト状況を記載しています。
 
+<a id="xcode"></a>
 ### Xcode
 
 Xcode 27 で **Settings > Intelligence > Agents > Plug-ins > Add Plug-in** を開きます。
@@ -290,6 +316,8 @@ Lusona では、詳しい評価の報告や引き継ぎに、**結果**、**根�
 ## 参考資料
 
 - [インストールと削除](INSTALL.md)
+- [プライバシーポリシー](PRIVACY.md)
+- [利用規約](TERMS.md)
 - [ワークフローの契約と作業ループ](plugins/lusona/README.md#work-loop)
 - [スキルの選択と用語](plugins/lusona/references/workflow-guide.md)
 - [TDD 方針と実行順序](plugins/lusona/references/tdd.md)
@@ -326,7 +354,7 @@ python3 scripts/package.py
 
 パッケージ作成ツールは、ホスト標準のマニフェストの識別情報とバージョン、リンク、カタログのパス、
 収録ファイルを確認します。出力先はリポジトリ内の `tmp/lusona-package/` です。
-別の場所にビルドするには、`--output tmp/<new-directory>` を指定します。三つのマニフェストは、同じバージョンを使う必要があります。
+別の場所にビルドするには、`--output tmp/<new-directory>` を指定します。すべてのネイティブマニフェストは、同じバージョンを使う必要があります。
 GitHub からのインストールには、コミットしてプッシュしたソースを使います。公開前でも、ローカルチェックアウトは利用できます。
 インストールやパッケージ作成によって、プロジェクトの記録を初期化することはありません。
 
