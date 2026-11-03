@@ -2,26 +2,32 @@
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Lusona ayuda a un agente de IA a completar lo que le pides: comprender la solicitud, actuar y
-verificar el resultado. Tú defines el resultado, las restricciones y los permisos. El agente
-elige la siguiente acción útil a partir de las evidencias disponibles, continúa el trabajo
-autorizado y pregunta cuando necesita información o permiso de tu parte.
+Lusona organiza las habilidades de los agentes de programación en torno a un ciclo de trabajo compartido:
 
-Para Claude Code, Codex, [Cursor](INSTALL.md#cursor), los [agentes de programación de Xcode 27](INSTALL.md#xcode) y [Google Antigravity App, CLI e IDE](INSTALL.md#antigravity) · Versión del código fuente de esta copia de trabajo: **1.4.0**
+- **Elegir, actuar, comprobar y repetir.** Elegir la siguiente acción según el resultado solicitado y
+  las evidencias disponibles. Volver a explorar, investigar, diseñar, implementar o revisar cuando
+  haga falta. No hay una secuencia fija de habilidades.
+- **Reconsiderar las decisiones con nueva información.** Si las evidencias cuestionan una decisión
+  anterior, reconsiderarla dentro de los permisos acordados. Actualizar los registros afectados para
+  que el trabajo posterior siga la decisión revisada.
+- **Continuar dentro de los permisos concedidos.** Tomar las decisiones habituales y seguir trabajando
+  sin pedir aprobación repetidamente. Preguntar cuando una decisión exceda los permisos existentes.
+- **Verificar que el trabajo esté completo.** Completar el alcance acordado, las comprobaciones y la revisión
+  obligatorias, y cualquier aceptación o entrega requerida. Indicar qué queda pendiente si algo impide terminar.
+
+Para Claude Code, Codex, [Cursor](INSTALL.md#cursor), [agentes de programación de Xcode 27](INSTALL.md#xcode) y [Google Antigravity App, CLI e IDE](INSTALL.md#antigravity) · Versión del código en esta copia de trabajo: **1.4.0**
 
 > [!WARNING]
-> No instales Lusona con Vercel Skills (`npx skills@latest`); usa la [instalación como plugin nativo](#installation).
+> No instales Lusona mediante Vercel Skills (`npx skills@latest`); usa la [instalación nativa del plugin](#installation).
 
-Por qué creamos Lusona Skills: [When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/) (en inglés).
+Lee por qué creamos Lusona Skills: [Cuando el flujo de trabajo se convirtió en otro trabajo](https://blog.lusona.com/blog/when-the-workflow-became-another-job/).
 
-Este README describe el código fuente de esta copia de trabajo. La instalación desde GitHub
-utiliza el código guardado en commits y enviado al repositorio remoto; los cambios locales
-no constituyen una versión publicada.
+Este README describe el código de esta copia de trabajo. La instalación desde GitHub usa código
+incluido en commits y enviado al repositorio remoto; los cambios locales no constituyen una versión publicada.
 
-<a id="index"></a>
 ## Índice
 
-- [Empezar por un resultado](#start-with-an-outcome)
+- [Por dónde empezar](#where-to-start)
 - [Elegir un comando](#choose-a-command)
 - [Instalación](#installation)
 - [Cómo continúa el trabajo](#how-the-work-continues)
@@ -33,94 +39,79 @@ no constituyen una versión publicada.
 - [Licencia](#license)
 - [Desarrollo](#development)
 
-<a id="start-with-an-outcome"></a>
-## Empezar por un resultado
+<a id="where-to-start"></a>
+## Por dónde empezar
 
-Si ya tienes claro el cambio, usa `/lusona:implement` en Claude Code o selecciona `implement` en Codex.
-Incluye tu política de desarrollo guiado por pruebas (TDD) en la solicitud:
+Empieza con **status** al incorporarte a un proyecto, retomar el trabajo o decidir qué necesita atención.
+Evalúa los registros y las evidencias disponibles, explica lo que queda pendiente y recomienda una
+siguiente acción. También funciona si el proyecto aún no tiene registros de Lusona. Pedir una evaluación
+con status no autoriza nuevas tareas de implementación.
 
-> Haz que las invitaciones caduquen a los siete días. Conserva las invitaciones ya aceptadas.
-> El trabajo estará terminado cuando se rechacen las invitaciones de más de siete días,
-> las invitaciones aceptadas permanezcan intactas y pase la batería de pruebas. Usa TDD
-> dirigido (`targeted`) para el límite de caducidad. Verifica en local; no despliegues.
-> Pregunta si una decisión con consecuencias importantes bloquea el cambio.
+Para una idea nueva, **explore** ayuda a examinar posibilidades y valorar sus ventajas e inconvenientes;
+**frame-product** ayuda a definir los usuarios, el problema y la dirección del producto. A medida que esa
+dirección se concreta, **map-capabilities** identifica qué debe permitir el producto y un orden de entrega
+útil. **specify** y **architect** resuelven las decisiones de comportamiento y diseño necesarias para un
+cambio; **implement** ejecuta y verifica un cambio autorizado.
 
-Indica el resultado que buscas, los criterios de finalización y qué puede hacer el agente. Este
-se encarga de la planificación necesaria y continúa con los pasos autorizados sin que tengas
-que dar otro comando. Recibes el resultado, las evidencias de la verificación y las decisiones
-o limitaciones pendientes.
+Estas son formas habituales de desarrollar el trabajo, no etapas obligatorias. Empieza por el grupo
+que responda a la necesidad actual, omite las cuestiones resueltas y vuelve a cualquier grupo cuando las
+evidencias lo aconsejen. Una investigación puede preceder a una especificación o interrumpir una
+implementación; una revisión puede revelar motivos para reconsiderar un diseño.
 
-Indica qué política de TDD quieres seguir en la solicitud o mediante una preferencia permanente:
+| Grupo de acciones | Habilidades y responsabilidades |
+| --- | --- |
+| Orientarse | [status](plugins/lusona/skills/status/SKILL.md): evaluar el progreso, el trabajo pendiente y la siguiente acción útil |
+| Definir la dirección | [explore](plugins/lusona/skills/explore/SKILL.md): examinar posibilidades y valorar sus ventajas e inconvenientes<br/>[frame-product](plugins/lusona/skills/frame-product/SKILL.md): definir usuarios, resultados y límites<br />[map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md): organizar la cobertura de capacidades, las dependencias y el orden de entrega |
+| Definir un cambio | [specify](plugins/lusona/skills/specify/SKILL.md): acordar el comportamiento, los criterios de aceptación y la política de TDD |
+| Construir y evaluar | [implement](plugins/lusona/skills/implement/SKILL.md): planificar y entregar un cambio de comportamiento o una corrección<br />[review](plugins/lusona/skills/review/SKILL.md): examinar un diff para detectar defectos y aspectos sin verificar<br />[refactor](plugins/lusona/skills/refactor/SKILL.md): mejorar la estructura sin alterar el comportamiento |
+| Obtener evidencias | [investigate](plugins/lusona/skills/investigate/SKILL.md): determinar causas o viabilidad<br />[measure](plugins/lusona/skills/measure/SKILL.md): medir magnitud, calidad, coste o cambios<br />[experiment](plugins/lusona/skills/experiment/SKILL.md): probar una intervención o alternativas |
+| Coordinar el trabajo seleccionado | [batch](plugins/lusona/skills/batch/SKILL.md): coordinar varios resultados seleccionados con autorización expresa para trabajar sin supervisión |
 
-- `none`: la verificación sigue siendo obligatoria, sin exigir que las pruebas se escriban primero.
-- `targeted`: escribe primero las pruebas de los comportamientos indicados.
-- `strict`: escribe primero las pruebas de cada comportamiento verificable que cambie.
-
-Guarda una preferencia permanente en `docs/lusona/README.md` del proyecto o en las instrucciones
-del agente (`CLAUDE.md` o `AGENTS.md`), por ejemplo, `TDD: targeted for changed behavior`.
-Sin una selección expresa, el agente puede inspeccionar y planificar, pero pregunta antes de implementar.
-
-Otros puntos de partida:
-
-> **explore:** Ayúdame a comparar los enlaces de invitación y las invitaciones solo por correo.
-> Explica las consecuencias para nuestro equipo de soporte antes de que elijamos. Mantén esta
-> conversación en el chat; no guardes archivos.
-
-> **investigate:** Averigua por qué las invitaciones caducadas siguen funcionando en esta
-> reproducción del problema. Ejecuta experimentos que distingan entre las posibles causas
-> e informa de las evidencias obtenidas. No cambies el comportamiento del código de producción.
-
-> **implement, solo planificación:** Propón un enfoque para la caducidad de las invitaciones
-> y su verificación. No edites la implementación ni las dependencias.
-
-> **status:** Evalúa el trabajo sobre invitaciones a partir de los registros actuales y el
-> árbol de trabajo. Dime qué queda pendiente y cuál es la siguiente acción de alcance acotado.
-
-Las conversaciones, especificaciones, planes, decisiones de arquitectura y revisiones no
-conceden permiso para implementar. Una solicitud clara de implementación o refactorización
-permite avanzar sin un comando `specify` aparte una vez definidos el alcance y la política de
-TDD, y cumplidos los requisitos previos.
+Las decisiones de diseño habituales se resuelven durante la implementación o la refactorización.
+Una petición clara de implementación o refactorización puede ejecutarse sin un comando `specify`
+aparte cuando ya se han acordado su alcance, su política de desarrollo guiado por pruebas (TDD)
+y sus requisitos previos.
 
 <a id="choose-a-command"></a>
 ## Elegir un comando
 
-Elige el comando que se ajuste a tu solicitud. El agente conserva las decisiones aceptadas
-y recurre a otras habilidades según haga falta, dentro de los permisos que le has dado.
-No hay una secuencia obligatoria.
+Invoca la habilidad que responda a tu necesidad actual. El agente usa otras habilidades cuando hace
+falta, dentro de los permisos que le concedes; no necesitas indicar cada transición.
 
 En Claude Code, ejecuta `/lusona:<command>`. En Codex, selecciona la habilidad de Lusona en la
 interfaz de habilidades. En Cursor, escribe `/` en el chat de Agent y selecciona la habilidad.
-En Xcode, escribe `/` en una conversación con el agente y selecciona la habilidad instalada. [Instala Lusona](#installation) antes de usar estos comandos.
+En Xcode, escribe `/` en una conversación con el agente y selecciona la habilidad instalada.
+En Antigravity App/CLI, usa `/<skill-name>`; en el IDE independiente, consulta **Customizations**
+y nombra la habilidad de Lusona en tu petición. [Instala Lusona](#installation) antes de usar estos comandos.
 
-En Antigravity App/CLI, usa `/<skill-name>`; en el IDE independiente, consulta **Customizations** y nombra la habilidad de Lusona en tu petición.
+Indica la pregunta o el resultado solicitado y los límites de los permisos del agente. Por ejemplo:
 
-| Comando | Para qué sirve |
-| --- | --- |
-| [explore](plugins/lusona/skills/explore/SKILL.md) | Comprender el tema, explorar posibilidades y definir preferencias mediante el diálogo |
-| [status](plugins/lusona/skills/status/SKILL.md) | Evaluar el progreso, todo el trabajo pendiente conocido y la siguiente acción |
-| [frame-product](plugins/lusona/skills/frame-product/SKILL.md) | Definir usuarios, problema, resultados deseados y límites del producto |
-| [map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md) | Organizar las capacidades, sus dependencias y el orden de entrega |
-| [specify](plugins/lusona/skills/specify/SKILL.md) | Acordar el comportamiento, las restricciones, los criterios de aceptación y la política de TDD de un cambio |
-| [architect](plugins/lusona/skills/architect/SKILL.md) | Tomar decisiones importantes sobre diseño, contratos y responsabilidades |
-| [investigate](plugins/lusona/skills/investigate/SKILL.md) | Determinar causas, hechos o viabilidad mediante evidencias y experimentos |
-| [measure](plugins/lusona/skills/measure/SKILL.md) | Medir magnitud, calidad, coste o cambios para fundamentar una decisión |
-| [experiment](plugins/lusona/skills/experiment/SKILL.md) | Probar una intervención o alternativas según criterios definidos |
-| [implement](plugins/lusona/skills/implement/SKILL.md) | Planificar y completar cambios de comportamiento o correcciones de errores autorizados |
-| [review](plugins/lusona/skills/review/SKILL.md) | Examinar un diff concreto para detectar defectos y aspectos sin verificar |
-| [refactor](plugins/lusona/skills/refactor/SKILL.md) | Mejorar la estructura del código existente sin alterar su comportamiento ni su compatibilidad |
-| [batch](plugins/lusona/skills/batch/SKILL.md) | Coordinar varios resultados seleccionados con autorización expresa para trabajar sin supervisión |
+> **status:** Evalúa este proyecto a partir de los registros disponibles y del árbol de trabajo.
+> Dime qué queda pendiente y recomienda por dónde empezar.
 
-Usa **measure** para determinar cuánto, **experiment** para probar una intervención o
-alternativas e **investigate** para determinar causas o viabilidad técnica; usa **architect**
-para definir límites técnicos y valorar las ventajas e inconvenientes de decisiones importantes. Usa **refactor**
-para un problema estructural concreto cuando el comportamiento deba mantenerse, e **implement** para cambiar
-comportamientos o corregir defectos. Las decisiones de diseño habituales se resuelven dentro
-de la implementación o la refactorización.
+> **explore:** Ayúdame a comparar los enlaces de invitación con las invitaciones solo por correo
+> electrónico. Explica las consecuencias para nuestro equipo de soporte antes de elegir. Mantén
+> esta conversación en el chat; no guardes archivos.
 
-Las mediciones y los experimentos relevantes se guardan en `docs/lusona/evidence/` del
-proyecto que utiliza el plugin. Las especificaciones, notas y el historial enlazan las
-ejecuciones exactas en las que se basan; los registros existentes permanecen en su lugar.
-Estas capacidades pueden surgir de forma natural durante el trabajo autorizado sin un comando explícito.
+> **implement:** Añade la caducidad de las invitaciones a los siete días. Conserva las invitaciones
+> ya aceptadas. El trabajo estará completo cuando se rechacen las invitaciones de más de siete días,
+> las invitaciones aceptadas permanezcan sin cambios y pase la batería de pruebas. Usa la política
+> de TDD targeted para el límite de caducidad. Verifica en local; no despliegues.
+
+Si solo quieres planificar, pide a `implement` un enfoque y un plan de verificación sin modificar
+la implementación ni las dependencias. Las conversaciones, especificaciones, planes, decisiones de
+arquitectura y revisiones no conceden permiso para implementar.
+
+Antes de implementar o refactorizar, elige TDD expresamente en la petición o mediante una
+preferencia permanente:
+
+- `none`: la verificación sigue siendo obligatoria, sin exigir escribir las pruebas antes del código.
+- `targeted`: escribir primero las pruebas de los comportamientos indicados.
+- `strict`: escribir primero las pruebas de cada comportamiento comprobable que se modifique.
+
+Guarda una preferencia permanente en `docs/lusona/README.md` del proyecto o en las instrucciones
+para agentes (`CLAUDE.md` o `AGENTS.md`), por ejemplo `TDD: targeted for changed behavior`.
+Sin una elección explícita, el agente puede inspeccionar y planificar, pero pregunta antes de implementar.
 
 <a id="installation"></a>
 ## Instalación
@@ -129,7 +120,6 @@ Elige la aplicación que utilizas. Instala desde el repositorio público
 [lusona/ai-skills](https://github.com/lusona/ai-skills) por HTTPS; no necesitas credenciales
 de GitHub para descargarlo.
 
-<a id="antigravity"></a>
 ### Antigravity
 
 Instala directamente desde GitHub:
@@ -138,14 +128,13 @@ Instala directamente desde GitHub:
 agy plugin install https://github.com/lusona/ai-skills.git
 ```
 
-La URL instala Lusona mediante el manifiesto de la raíz del repositorio. Para la App y el IDE independiente, consulta **Customizations**
-tras esta instalación global con la CLI. En App/CLI, invoca `/status`; en el IDE, pide usar
-la habilidad `status` de Lusona. La [guía de Antigravity](INSTALL.md#antigravity) incluye
-copias locales, paquetes portátiles, actualizaciones, eliminación y límites de verificación.
-La instalación desde GitHub se comprobó con CLI 1.4.12 en Linux; no se ha probado el
-comportamiento interactivo en App/IDE.
+La URL instala Lusona mediante el manifiesto de la raíz del repositorio.
+Para la App y el IDE independiente, consulta **Customizations** tras esta instalación global con la CLI.
+En el chat de App/CLI, invoca `/status`; en el IDE, pide usar la habilidad `status` de Lusona.
+La [guía de instalación de Antigravity](INSTALL.md#antigravity) incluye copias locales, paquetes
+portátiles, actualizaciones, eliminación y límites de verificación. La instalación desde GitHub
+se comprobó con CLI 1.4.12 en Linux; no se ha probado el comportamiento interactivo en App/IDE.
 
-<a id="claude-code"></a>
 ### Claude Code
 
 ```bash
@@ -153,7 +142,6 @@ claude plugin marketplace add https://github.com/lusona/ai-skills.git
 claude plugin install lusona@lusona-ai-skills --scope user
 ```
 
-<a id="codex"></a>
 ### Codex
 
 ```bash
@@ -161,15 +149,13 @@ codex plugin marketplace add https://github.com/lusona/ai-skills.git
 codex plugin add lusona@lusona-ai-skills
 ```
 
-<a id="cursor"></a>
 ### Cursor
 
 Abre **Customize > From GitHub Repository**, introduce `https://github.com/lusona/ai-skills`
 e instala **Lusona Skills** para tu proyecto o usuario. En el chat de Agent, escribe `/`
-para encontrar las habilidades de Lusona. Los [pasos para Cursor](INSTALL.md#cursor) enlazan
-la documentación actual de Cursor e indican qué se ha probado.
+para encontrar las habilidades de Lusona. Consulta los [pasos de instalación en Cursor](INSTALL.md#cursor)
+para ver los enlaces a la documentación actual de Cursor y qué se ha probado.
 
-<a id="xcode"></a>
 ### Xcode
 
 En Xcode 27, abre **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**.
@@ -179,181 +165,151 @@ para conocer la configuración, las importaciones locales y los detalles de vers
 
 Tras instalar, inicia una sesión nueva en tu proyecto. Para instalar desde una copia de trabajo
 local, usar paquetes portátiles, actualizar o desinstalar, consulta la
-[guía de instalación](INSTALL.md). Elige una sola fuente del catálogo: copia de
-trabajo local o GitHub.
+[guía de instalación](INSTALL.md). Elige una sola fuente del catálogo: copia de trabajo local o GitHub.
 
 <a id="how-the-work-continues"></a>
 ## Cómo continúa el trabajo
 
-El agente revisa el resultado solicitado, las decisiones aceptadas, las evidencias disponibles y
-los criterios aún por cumplir; elige una acción de alcance acotado, actúa dentro de sus permisos y
-comprueba el resultado. Repite este ciclo mientras quede trabajo útil autorizado. Las
-habilidades definen las responsabilidades y aportan conocimientos especializados durante todo el ciclo.
+El mismo ciclo se aplica a todos los grupos de acciones. La siguiente acción puede ser una
+conversación, un experimento, un cambio de código o una revisión, según la pregunta actual y las
+evidencias disponibles. Las dependencias, el estado compartido, las decisiones expresas del usuario
+y la política de TDD elegida siguen determinando el orden cuando es necesario.
+
+La planificación forma parte de la implementación y se adapta a medida que avanza el trabajo.
+Los cambios pequeños y claros necesitan un resultado y comprobaciones; las dependencias, la
+incertidumbre, la coordinación o la recuperación pueden exigir un plan explícito. También puedes
+pedir un plan sin autorizar su ejecución.
 
 ```mermaid
 flowchart TD
-    Understand[Comprender el resultado y las evidencias] --> Assess{¿Siguiente acción?}
-    Assess -->|Queda trabajo autorizado| Act[Ejecutar una acción de alcance acotado]
-    Act --> Check[Verificar el resultado]
+    Assess{Evaluar el estado actual}
+    Assess -->|Hay trabajo útil autorizado disponible| Act[Ejecutar una acción de alcance acotado]
+    Act --> Check[Comprobar el resultado y actualizar las evidencias]
     Check --> Assess
-    Assess -->|Hace falta información o permiso| Ask[Hacer la pregunta]
-    Ask -->|Hay trabajo independiente autorizado| Act
-    Ask -->|No hay trabajo disponible| Wait[Esperar respuesta; el objetivo sigue activo]
-    Wait -->|Se recibe la respuesta o el permiso necesario| Understand
-    Assess -->|Pausa solicitada o falta un requisito previo| Pause[Pausar el trabajo afectado]
-    Pause -->|Se cumplen las condiciones de reanudación| Understand
+    Assess -->|Una decisión se ha puesto en duda| Revise[Reconsiderar la decisión]
+    Revise -->|Resolver dentro de los permisos y actualizar los registros afectados| Assess
+    Revise -->|Hace falta información o permiso| Blocked[Preguntar o pausar el trabajo afectado]
+    Assess -->|Falta un requisito previo, hay una pausa o se alcanza el límite de correcciones| Blocked
+    Blocked -->|Hay trabajo independiente disponible o se cumplen las condiciones de reanudación| Assess
     Assess -->|Se cumplen los requisitos de finalización| Done[Alcanzar el resultado solicitado]
 
     classDef work fill:#dbeafe,stroke:#2563eb,color:#172554
     classDef input fill:#fef3c7,stroke:#b45309,color:#451a03
     classDef complete fill:#dcfce7,stroke:#15803d,color:#14532d
-    class Understand,Assess,Act,Check work
-    class Ask,Wait,Pause input
+    class Assess,Act,Check,Revise work
+    class Blocked input
     class Done complete
 ```
 
-El gráfico resume el [ciclo de trabajo compartido](plugins/lusona/README.md#work-loop).
-Sus límites se aplican al trabajo afectado; el trabajo independiente autorizado puede
-continuar mientras otra parte espera.
+El gráfico muestra el [ciclo de trabajo compartido](plugins/lusona/README.md#work-loop),
+no una secuencia de habilidades. Las esperas y las pausas se aplican al trabajo afectado; el
+trabajo independiente puede continuar dentro de sus permisos existentes. El ciclo se rige por cuatro reglas:
 
-- **Continuar:** Ejecutar la siguiente acción útil autorizada. Una recomendación o una
-  indicación para continuar no sustituye el trabajo que el agente actual puede realizar.
-- **Preguntar y esperar:** Pedir la decisión o el permiso que falta mediante una herramienta
-  nativa de preguntas permitida o un texto breve. Continuar el trabajo independiente; cuando
-  no quede ninguno, terminar el turno y esperar la respuesta. Mientras espera una respuesta, el objetivo sigue activo.
-  El silencio no equivale a una decisión ni a un permiso.
-- **Pausar:** Detener el trabajo afectado cuando solicitas una pausa, falta información o una
-  capacidad necesaria, faltan permisos o se alcanza un límite de correcciones. Indicar las
-  condiciones exactas para reanudarlo. Si solicitas una pausa, el agente espera a que pidas
-  reanudar el trabajo. Las demás pausas terminan cuando se dispone del requisito previo, las
-  evidencias o los permisos indicados. Guardar un punto de control no basta para cumplir
-  estas condiciones.
-- **Completar:** Terminar todo el trabajo autorizado, cumplir los criterios de aceptación y
-  realizar las comprobaciones obligatorias, la revisión independiente requerida y cualquier
-  aceptación por parte de una persona o entrega exigida. Que pasen las pruebas no basta para
-  dar el trabajo por terminado. Una comprobación obligatoria fallida o sin ejecutar impide afirmar que ha terminado.
+- **Continuar** mientras quede trabajo útil autorizado, sin pedirte que invoques la siguiente habilidad.
+- **Preguntar** cuando falte una decisión o un permiso. Continuar el trabajo independiente autorizado
+  mientras se espera; el silencio no aporta una respuesta ni un permiso.
+- **Pausar** el trabajo afectado si lo solicitas, falta un requisito previo o se alcanza un límite de
+  correcciones. Indicar qué hace falta para reanudarlo. Una pausa solicitada por ti requiere que
+  pidas reanudar el trabajo.
+- **Completar** solo cuando se haya cumplido todo el alcance autorizado, las comprobaciones y la revisión
+  obligatorias, y la aceptación o entrega requerida. Las comprobaciones obligatorias fallidas o sin
+  ejecutar impiden dar el trabajo por terminado.
 
-Preguntar y pausar pueden coincidir: el agente puede pedir lo que necesita para reanudar
-el trabajo en pausa. En ambos casos, indica qué necesita y continúa cualquier trabajo
-independiente autorizado.
+Cuando las evidencias cuestionan una decisión aceptada, el agente identifica el conflicto y la
+reconsidera dentro de los permisos existentes; te pregunta si revisarla exige más permisos.
+Actualiza los registros y las tareas asignadas que se vean afectados, conserva los razonamientos
+anteriores que sigan siendo útiles y continúa a partir del acuerdo revisado. Los registros
+desactualizados no deben restablecer decisiones sustituidas.
 
-Tú controlas el alcance y las decisiones con consecuencias importantes. El agente resuelve
-los detalles habituales dentro de tus restricciones y pregunta antes de cambiar resultados
-aceptados o tomar medidas destructivas fuera de sus permisos. Las reglas del usuario o del
-repositorio pueden exigir revisión independiente; también es obligatoria para límites de
-seguridad, datos persistentes, contratos compartidos o cambios realizados por varios
-participantes de forma coordinada.
+Los fallos repetidos están sujetos a [límites de corrección](plugins/lusona/references/corrections.md);
+los lotes usan un presupuesto de reparación acordado. Cuando un límite detiene el trabajo afectado,
+el agente informa de las evidencias y las condiciones de reanudación.
 
-El agente ajusta su enfoque a medida que obtiene evidencias, sin cambiar el alcance ni los criterios
-aceptados. Si las correcciones dejan de producir avances, informa de las evidencias y de las
-condiciones para continuar. Los límites de corrección determinan cuándo debe pedir tu decisión;
-los lotes usan un presupuesto de reparación acordado. Consulta las
-[reglas de corrección](plugins/lusona/README.md#work-loop).
-
-El agente principal coordina las preguntas, el reparto de tareas, la integración y la verificación.
-Delega en especialistas con perfiles y modelos adecuados las tareas de producto e ingeniería
-que requieren trabajo de fondo; puede encargarse de las conversaciones de exploración y las
-consultas de estado. Si la delegación está prohibida o no está disponible, puede continuar el
-trabajo autorizado por su cuenta. La
-revisión independiente obligatoria sigue necesitando otro revisor. Consulta
-[delegación](plugins/lusona/references/delegation.md) para conocer las responsabilidades y los traspasos.
+El agente principal coordina las preguntas, el reparto de tareas, la integración y la verificación,
+y delega en especialistas las tareas de producto e ingeniería que requieren trabajo de fondo.
+Puede encargarse de las conversaciones de exploración y las consultas de estado. La revisión
+independiente es obligatoria cuando lo exigen las reglas del usuario o del repositorio, así como
+para límites de seguridad, datos persistentes, contratos compartidos o cambios realizados por varios
+participantes de forma coordinada. Si la delegación está prohibida o no está disponible, el agente
+puede realizar el trabajo autorizado por su cuenta, pero la revisión independiente obligatoria sigue
+necesitando otro revisor. Consulta [delegación](plugins/lusona/references/delegation.md).
 
 <a id="questions-and-evidence"></a>
 ## Preguntas y evidencias
 
-El agente adapta las preguntas, explicaciones, ejemplos y experimentos a los conocimientos que
-muestras en la conversación. Responde primero a las preguntas directas, reutiliza las respuestas ya
-acordadas y pregunta por las dudas que puedan tener consecuencias importantes. Tu experiencia
-determina el detalle de las explicaciones, pero se mantienen los requisitos para aportar
-evidencias y tomar decisiones.
+Las preguntas responden a las decisiones aún sin resolver. El agente reutiliza las respuestas ya
+acordadas, comprueba los hechos que puede averiguar y te pregunta por la intención y las ventajas e
+inconvenientes de decisiones importantes. Explica las opciones con el detalle que necesitas; la
+exploración puede terminar con una mejor comprensión, sin necesidad de tomar una decisión.
+Consulta las [conversaciones para aclarar la intención](plugins/lusona/references/interviews.md).
 
-Durante la exploración, el agente usa escenarios concretos y compara ventajas e inconvenientes
-para ayudarte a comprender tus opciones sin exigirte una decisión. Continúa mientras otro
-intercambio pueda mejorar tu comprensión o cambiar la siguiente acción. Durante la investigación,
-realiza más experimentos cuando puedan distinguir entre posibles causas. Si la falta de evidencias
-bloquea el avance, el agente identifica lo que necesita.
+La investigación, la medición y los experimentos pueden aportar información a cualquier grupo de
+acciones. El trabajo adicional debe responder a una pregunta útil dentro del alcance autorizado y
+el presupuesto aplicable. Las conclusiones distinguen evidencias, supuestos e incertidumbre;
+proponer un trabajo posterior no autoriza su implementación.
 
-Por ejemplo, un mantenedor con experiencia que ya ha indicado las restricciones de
-compatibilidad no necesita repetirlas. Si desconoces una opción de migración, el agente te
-explica sus consecuencias antes de pedirte una preferencia. Consulta las
-[conversaciones para aclarar la intención](plugins/lusona/references/interviews.md).
+Se usan diagramas y alternativas visuales cuando ayudan a resolver una elección. Las referencias
+visuales aceptadas se conservan en `docs/lusona/visuals/`, y sus requisitos vinculantes se comprueban
+durante la implementación y la revisión. Consulta [elementos visuales](plugins/lusona/references/visuals.md).
 
-El agente añade diagramas cuando ayudan a aclarar una decisión. Cuando una opción de concepto, arquitectura o interfaz se evalúa mejor de forma
-visual, ofrece de 2 a 4 opciones identificadas con letras. La opción elegida se guarda en
-`docs/lusona/visuals/` con una lista de aspectos vinculantes que la implementación y la revisión
-comprueban; consulta [elementos visuales](plugins/lusona/references/visuals.md).
+Las mediciones y los experimentos relevantes se guardan en `docs/lusona/evidence/` del proyecto que
+utiliza el plugin. Las especificaciones, notas y el historial enlazan las ejecuciones exactas en las
+que se basan; los registros existentes permanecen en su lugar.
 
 <a id="recovery-and-resumption"></a>
 ## Recuperación y reanudación
 
-Los resultados sustantivos del trabajo se guardan incluso en tareas pequeñas, sin una petición
-adicional, respetando los permisos de escritura y tus restricciones. Specify guarda cada definición;
-las decisiones de arquitectura con consecuencias relevantes requieren ADR. La exploración y la
-investigación guardan conclusiones sustantivas y preguntas abiertas; se conservan las evidencias
-que sustentan decisiones y los resultados de revisión. El agente actualiza el registro existente
-o el registro adecuado más breve, sin duplicar hechos. El diálogo habitual y las consultas breves
-de estado no necesitan archivos. Los cambios se guardan en puntos clave y antes del traspaso o cierre.
+El agente guarda las decisiones, conclusiones y evidencias de verificación sustantivas en los
+registros del proyecto sin una petición adicional, incluso para trabajos pequeños. Actualiza los
+registros existentes cuando es posible; el diálogo habitual y las consultas breves de estado no
+necesitan archivos. Las restricciones de solo lectura, las prohibiciones de guardar y las
+limitaciones del lugar de almacenamiento tienen prioridad.
 
-Un registro de recuperación conserva el resultado solicitado, dónde se establecieron los permisos
-y la política de TDD, las decisiones aceptadas, las evidencias útiles, las preguntas pendientes
-importantes, las responsabilidades, el recuento de correcciones cuando corresponda y la
-siguiente acción. La exploración puede conservar decisiones y preguntas sin especificación ni
-cola de trabajo. `implement` y `refactor` crean o actualizan directamente su registro;
-ninguno exige un comando `specify` aparte. Crear, actualizar o usar una especificación exige una fila en `docs/lusona/work.md`.
-El coordinador crea la cola si falta y actualiza el mismo elemento sin reiniciar su estado,
-su ubicación en Icebox ni su historial. Los borradores empiezan en Ideas; Ready exige alcance
-y criterios aceptados, una política de TDD explícita y ninguna pregunta bloqueante.
-La planificación por sí sola nunca pasa a Doing, y el seguimiento no autoriza la ejecución.
-El trabajo directo sin especificación puede conservar notas y seguir sin seguimiento; el trabajo
-ya registrado mantiene su seguimiento. Las notas por sí solas no exigen una cola, ni es necesario
-registrar especificaciones ajenas al trabajo seleccionado.
+Los registros conservan el resultado solicitado, los permisos, la política de TDD, las decisiones
+actuales, las evidencias útiles, las preguntas pendientes y la siguiente acción, además de las
+responsabilidades y el recuento de correcciones cuando sea necesario. Las decisiones de arquitectura
+con consecuencias importantes requieren ADR. Una especificación exige seguimiento en
+`docs/lusona/work.md`; el trabajo sin especificación puede usar solo notas. Los estados de la cola
+describen el progreso, no qué habilidad debe ejecutarse después, y no autorizan la ejecución.
+Consulta [registros y conservación](plugins/lusona/references/retention.md) y las
+[reglas de la cola](plugins/lusona/references/queue.md).
 
-Las restricciones de solo lectura, las prohibiciones de guardar y las limitaciones del lugar
-de almacenamiento tienen prioridad. Los revisores delegados con acceso de solo lectura devuelven
-sus hallazgos al coordinador, que los guarda dentro de sus permisos. Si no puede guardar o tiene prohibido hacerlo, el agente
-deja la información de traspaso en la conversación y explica las limitaciones para recuperar
-el contexto. Una interrupción repentina puede impedir crear un punto de control. Al reanudar, el agente comprueba los registros que se conserven y las evidencias del
-árbol de trabajo; después pregunta solo por los hechos importantes o los permisos que no
-pueda recuperar. Consulta [registros y conservación](plugins/lusona/references/retention.md).
+Al reanudar, el agente contrasta los registros conservados con el árbol de trabajo y pregunta solo
+por la información importante que no puede recuperar. Los permisos existentes se mantienen.
+Usa **status** para evaluar lo que queda pendiente o indica el trabajo que quieres continuar:
 
-Para continuar en otra sesión, puedes usar una instrucción como esta:
+> Continúa investigando la caducidad de las invitaciones a partir de las conclusiones guardadas.
+> Comprueba la reproducción conservada con la compilación actual. No cambies el comportamiento
+> en producción.
 
-> Continúa investigando la caducidad de las invitaciones a partir del registro de ese
-> trabajo. Reproduce el caso conservado en la compilación proporcionada antes de proponer una
-> corrección. Mantén el alcance de diagnóstico registrado; los cambios en el código de
-> producción siguen sin autorización.
-
-Esta instrucción permite un traspaso real. El agente actual continúa el trabajo que puede
-realizar dentro de sus permisos.
+Una interrupción repentina puede impedir guardar los registros. Cuando no puede guardarlos, el
+agente explica esa limitación para recuperar el contexto y aporta las conclusiones en la conversación.
 
 <a id="results-and-handoffs"></a>
 ## Resultados y traspasos
 
-Lusona está probando un formato común para evaluaciones detalladas y traspasos:
-**Resultado**, **Evidencias** y **Siguiente acción**. Acompaña el resultado con **✅ Completado**,
-**🔄 En curso**, **❓ Necesita información** o **⏸ En pausa**, con texto que explique el estado.
-Si una pregunta o una solicitud de aprobación bloquea el avance, empieza por ella.
-El diálogo habitual, las preguntas y las actualizaciones breves mantienen un tono natural.
+Los informes de trabajo indican el resultado, las evidencias que lo sustentan y cualquier siguiente
+acción. Distinguen el trabajo completado del trabajo en curso, la información que falta y el trabajo
+en pausa. La finalización se refiere a la petición autorizada: completar un diagnóstico no significa
+que el defecto esté corregido.
 
 Ejemplo ilustrativo de traspaso; no demuestra que se haya realizado el trabajo:
 
-> **✅ Completado · Resultado:** Diagnóstico completo; la reproducción confirma que la
-> comprobación de caducidad usa una marca de tiempo incorrecta. La corrección en el código de
-> producción sigue sin autorización.
+> **✅ Completado · Resultado:** Diagnóstico completo; la reproducción confirma que la comprobación
+> de caducidad usa una marca de tiempo incorrecta. La corrección en el código de producción sigue
+> sin autorización.
 >
-> **Evidencias:** El caso guardado y la comprobación específica dan el mismo resultado. Falta probar el
-> comportamiento en las distintas plataformas.
+> **Evidencias:** El caso conservado y la comprobación específica dan el mismo resultado. No se ha
+> probado el comportamiento en las distintas plataformas.
 >
-> **Siguiente acción:** Puedes autorizar la corrección de la marca de tiempo y seleccionar su
-> política de TDD; entonces el agente podrá implementar y verificar esa corrección de alcance acotado.
+> **Siguiente acción:** Puedes autorizar la corrección de la marca de tiempo y seleccionar su política
+> de TDD; entonces el agente podrá implementar y verificar esa corrección de alcance acotado.
 
-En un traspaso, la siguiente acción identifica quién la realizará, qué información necesita y
-qué permisos quedan pendientes. Al finalizar, puede ser **Ninguna para esta solicitud**.
-
-El formato que solicites y las restricciones de la aplicación tienen prioridad. Este formato
-está en fase de prueba; aún no se ha comprobado su comportamiento en las
-distintas aplicaciones. Consulta [revisión y comunicación](plugins/lusona/README.md#review-and-communication)
-para conocer los detalles de formato.
+Cuando queda trabajo pendiente, la siguiente acción indica quién la realizará, qué información
+necesita y qué permisos faltan. La conversación habitual no necesita una estructura de informe.
+El formato ilustrado está en fase de prueba; el formato que solicites y las restricciones de la
+aplicación tienen prioridad, y no se ha comprobado su comportamiento en las distintas aplicaciones.
+Consulta [revisión y comunicación](plugins/lusona/README.md#review-and-communication).
 
 <a id="reference"></a>
 ## Referencias
@@ -375,8 +331,7 @@ para conocer los detalles de formato.
 Consulta [CONTRIBUTING.md](CONTRIBUTING.md) para conocer el alcance de las contribuciones, las
 comprobaciones locales y las pull requests. Usa los
 [formularios de errores y solicitudes de funciones](https://github.com/lusona/ai-skills/issues/new/choose)
-para informar de problemas o proponer mejoras. El equipo `@lusona/core` se encarga de la revisión
-del repositorio.
+para informar de problemas o proponer mejoras. El equipo `@lusona/core` se encarga de la revisión del repositorio.
 
 <a id="license"></a>
 ## Licencia
@@ -386,11 +341,10 @@ Las habilidades, plantillas, documentación y scripts están disponibles bajo la
 <a id="development"></a>
 ## Desarrollo
 
-Los archivos originales del flujo de trabajo están en `plugins/lusona/`. Cada proyecto que
-utiliza el plugin guarda sus propios datos en `docs/lusona/`; la plantilla de una cola vacía
-está en `templates/work.md`.
+Los archivos originales del flujo de trabajo están en `plugins/lusona/`. Cada proyecto que utiliza
+el plugin guarda sus propios datos en `docs/lusona/`; la plantilla de una cola vacía está en `templates/work.md`.
 
-Los asistentes para crear registros del plugin usan Bash o PowerShell; consulta los [requisitos de ejecución](INSTALL.md#requirements). Python 3 sigue siendo necesario para crear paquetes y ejecutar las evaluaciones en Python, pero no para el uso habitual del plugin.
+Los scripts auxiliares para gestionar los registros del plugin usan Bash o PowerShell; consulta los [requisitos de ejecución](INSTALL.md#requirements). Python 3 sigue siendo necesario para crear paquetes y ejecutar las evaluaciones en Python, pero no para el uso habitual del plugin.
 
 ```bash
 claude plugin validate plugins/lusona
@@ -398,14 +352,12 @@ claude plugin validate .claude-plugin/marketplace.json
 python3 scripts/package.py
 ```
 
-El generador de paquetes comprueba la identidad y versión de los manifiestos nativos, los
-enlaces, las rutas del catálogo y la selección de archivos. Escribe en `tmp/lusona-package/`
-dentro del repositorio; usa `--output tmp/<new-directory>` para generar otro paquete. Todos los
-manifiestos nativos deben usar la misma versión. La instalación desde GitHub utiliza el código
-guardado en commits y enviado al repositorio remoto; puedes usar una copia de trabajo
-local antes de publicar. Ni la instalación ni la creación de paquetes inicializan los
-registros del proyecto.
+El generador de paquetes comprueba la identidad y versión de los manifiestos nativos, los enlaces,
+las rutas del catálogo y la selección de archivos. Escribe en `tmp/lusona-package/` dentro del
+repositorio; usa `--output tmp/<new-directory>` para generar otro paquete. Todos los manifiestos
+nativos deben usar la misma versión. La instalación desde GitHub utiliza el código incluido en
+commits y enviado al repositorio remoto; puedes usar una copia de trabajo local antes de publicar.
+Ni la instalación ni la creación de paquetes inicializan los registros del proyecto.
 
 Reducir el tamaño del código fuente no demuestra que se consuman menos tokens ni que disminuya
-la latencia; para ello hacen falta mediciones que incluyan al coordinador y a todos los agentes
-de trabajo.
+la latencia; para ello hacen falta mediciones que incluyan al coordinador y a todos los agentes de trabajo.

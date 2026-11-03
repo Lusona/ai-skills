@@ -2,10 +2,20 @@
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Lusona hilft einem KI-Agenten, deine Anfrage zu verstehen, umzusetzen und das Ergebnis zu
-prüfen. Du bestimmst das Ziel, die Vorgaben und die Befugnisse. Anhand der vorliegenden Belege
-wählt der Agent den nächsten sinnvollen Schritt und setzt die freigegebene Arbeit fort.
-Wenn er Informationen oder eine Erlaubnis von dir braucht, fragt er nach.
+Lusona verbindet Skills für Programmieragenten durch einen gemeinsamen Arbeitszyklus:
+
+- **Auswählen, ausführen, prüfen, wiederholen.** Das Ziel und die aktuellen Belege bestimmen
+  den nächsten Schritt. Bei Bedarf geht es zurück zur Erkundung, Untersuchung, zum Entwurf,
+  zur Implementierung oder zum Review. Eine feste Reihenfolge der Skills gibt es nicht.
+- **Entscheidungen bei neuen Erkenntnissen überarbeiten.** Stellen Belege eine frühere
+  Entscheidung infrage, wird sie im Rahmen der vereinbarten Befugnisse neu geprüft.
+  Betroffene Aufzeichnungen werden aktualisiert, damit die weitere Arbeit der neuen Entscheidung folgt.
+- **Im Rahmen der Freigabe weiterarbeiten.** Übliche Detailfragen klärt der Agent selbst und
+  arbeitet ohne wiederholte Freigabe weiter. Geht eine Entscheidung über seine bisherigen
+  Befugnisse hinaus, fragt er nach.
+- **Den Abschluss prüfen.** Der vereinbarte Umfang, erforderliche Prüfungen und Reviews sowie
+  eine verlangte Abnahme oder Auslieferung müssen erfüllt sein. Ist der Abschluss blockiert,
+  nennt der Agent die verbleibende Arbeit.
 
 Für Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Programmieragenten in Xcode 27](INSTALL.md#xcode) und [Google Antigravity App, CLI und IDE](INSTALL.md#antigravity) · Version des Quellcodes in dieser Arbeitskopie: **1.4.0**
 
@@ -21,7 +31,7 @@ Lokale Änderungen sind damit noch nicht veröffentlicht.
 <a id="index"></a>
 ## Inhalt
 
-- [Mit einem Ziel beginnen](#start-with-an-outcome)
+- [Wo anfangen?](#where-to-start)
 - [Einen Befehl wählen](#choose-a-command)
 - [Installation](#installation)
 - [Wie die Arbeit weitergeht](#how-the-work-continues)
@@ -33,25 +43,74 @@ Lokale Änderungen sind damit noch nicht veröffentlicht.
 - [Lizenz](#license)
 - [Entwicklung](#development)
 
-<a id="start-with-an-outcome"></a>
-## Mit einem Ziel beginnen
+<a id="where-to-start"></a>
+## Wo anfangen?
 
-Für eine klar umrissene Änderung nutzt du `/lusona:implement` in Claude Code oder wählst
-`implement` in Codex. Gib in deiner Anfrage die Vorgaben für testgetriebene Entwicklung
-(Test-driven Development, TDD) an:
+Beginne mit **status**, wenn du in ein Projekt einsteigst, Arbeit wieder aufnimmst oder
+entscheiden möchtest, was als Nächstes ansteht. Der Skill bewertet die vorhandenen
+Aufzeichnungen und Belege, erklärt, was noch offen ist, und empfiehlt den nächsten Schritt.
+Das funktioniert auch, wenn es im Projekt noch keine Lusona-Aufzeichnungen gibt. Eine
+Statusabfrage erteilt keine Freigabe für neue Implementierungsarbeit.
 
-> Lass Einladungen nach sieben Tagen ablaufen. Lass bereits angenommene Einladungen unverändert.
-> Fertig bedeutet: Einladungen, die älter als sieben Tage sind, werden abgelehnt, angenommene
-> Einladungen bleiben unverändert, und alle Tests sind erfolgreich. Nutze gezieltes TDD (`targeted`)
-> für den Ablaufzeitpunkt. Prüfe lokal; führe kein Deployment durch. Frage nach, falls eine
-> folgenreiche Entscheidung die Änderung blockiert.
+Bei einer neuen Idee hilft **explore**, Möglichkeiten und ihre Vor- und Nachteile zu
+untersuchen; **frame-product** klärt Nutzer, Problem und Produktausrichtung. Sobald diese
+Ausrichtung klarer wird, ermittelt **map-capabilities**, welche Funktionen das Produkt
+braucht und in welcher Reihenfolge sie sinnvoll umgesetzt werden können. **specify** und
+**architect** klären die nötigen Verhaltens- und Designentscheidungen für eine Änderung;
+**implement** setzt eine freigegebene Änderung um und prüft das Ergebnis.
 
-Beschreibe das Ziel, die Abschlusskriterien und was der Agent tun darf. Er übernimmt die
-nötige Planung und führt die freigegebenen Schritte ohne weiteren Befehl aus. Anschließend
-berichtet er das Ergebnis, die durchgeführten Prüfungen und ihre Ergebnisse sowie offene
-Entscheidungen oder Einschränkungen.
+Das sind typische Verläufe, keine vorgeschriebenen Phasen. Beginne mit dem Aufgabenbereich,
+der zum aktuellen Bedarf passt, überspringe geklärte Fragen und kehre bei neuen Belegen zu
+jedem Bereich zurück. Eine Untersuchung kann vor einer Spezifikation nötig sein oder eine
+Implementierung unterbrechen; ein Review kann Anlass geben, einen Entwurf zu überarbeiten.
 
-Lege die TDD-Vorgaben ausdrücklich in deiner Anfrage oder als dauerhafte Einstellung fest:
+| Aufgabenbereich | Skills und Aufgaben |
+| --- | --- |
+| Orientierung gewinnen | [status](plugins/lusona/skills/status/SKILL.md): Fortschritt, offene Arbeit und den nächsten sinnvollen Schritt bewerten |
+| Ausrichtung entwickeln | [explore](plugins/lusona/skills/explore/SKILL.md): Möglichkeiten und ihre Vor- und Nachteile untersuchen<br/>[frame-product](plugins/lusona/skills/frame-product/SKILL.md): Nutzer, gewünschte Ergebnisse und Grenzen festlegen<br />[map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md): Funktionsumfang, Abhängigkeiten und Reihenfolge der Umsetzung erfassen |
+| Eine Änderung definieren | [specify](plugins/lusona/skills/specify/SKILL.md): Verhalten, Akzeptanzkriterien und TDD-Vorgaben vereinbaren |
+| Umsetzen und beurteilen | [implement](plugins/lusona/skills/implement/SKILL.md): eine Verhaltensänderung oder Fehlerkorrektur planen und umsetzen<br />[review](plugins/lusona/skills/review/SKILL.md): einen Diff auf Fehler und fehlende Prüfungen untersuchen<br />[refactor](plugins/lusona/skills/refactor/SKILL.md): die Struktur verbessern und dabei das Verhalten erhalten |
+| Belege gewinnen | [investigate](plugins/lusona/skills/investigate/SKILL.md): Ursachen oder Machbarkeit klären<br />[measure](plugins/lusona/skills/measure/SKILL.md): Größen, Qualität, Kosten oder Veränderungen feststellen<br />[experiment](plugins/lusona/skills/experiment/SKILL.md): eine gezielte Maßnahme oder Alternativen erproben |
+| Ausgewählte Arbeit koordinieren | [batch](plugins/lusona/skills/batch/SKILL.md): mehrere ausgewählte Ziele mit ausdrücklicher Erlaubnis zur unbeaufsichtigten Ausführung koordinieren |
+
+Übliche Designentscheidungen gehören zur Implementierung oder zum Refactoring. Wenn du eine
+Implementierung oder ein Refactoring eindeutig beauftragst, kann der Agent ohne gesonderten
+`specify`-Befehl beginnen, sobald Umfang, Vorgaben für testgetriebene Entwicklung (TDD) und
+Voraussetzungen geklärt sind.
+
+<a id="choose-a-command"></a>
+## Einen Befehl wählen
+
+Rufe den Skill auf, der zum aktuellen Bedarf passt. Der Agent nutzt bei Bedarf weitere
+Skills im Rahmen deiner Freigabe; du musst nicht jeden Übergang selbst anweisen.
+
+In Claude Code rufst du `/lusona:<command>` auf. In Codex wählst du den Lusona-Skill in der
+Skill-Oberfläche aus. In Cursor gibst du `/` im Agent-Chat ein und wählst den Skill. In Xcode
+gibst du `/` in einer Agentenunterhaltung ein und wählst den installierten Skill.
+In Antigravity App/CLI nutzt du `/<skill-name>`; in der eigenständigen IDE prüfst du
+**Customizations** und nennst den Lusona-Skill in deiner Anfrage.
+[Installiere Lusona](#installation), bevor du diese Befehle nutzt.
+
+Nenne die Frage oder das Ziel und die Grenzen der Befugnisse des Agenten. Zum Beispiel:
+
+> **status:** Bewerte dieses Projekt anhand der vorhandenen Aufzeichnungen und des
+> Arbeitsverzeichnisses. Nenne die verbleibende Arbeit und empfiehl, wo ich anfangen sollte.
+
+> **explore:** Hilf mir, Einladungslinks mit Einladungen ausschließlich per E-Mail
+> zu vergleichen. Erkläre die Folgen für unser Supportteam, bevor wir uns entscheiden.
+> Führe dieses Gespräch im Chat; speichere keine Dateien.
+
+> **implement:** Lass Einladungen nach sieben Tagen ablaufen. Lass bereits angenommene
+> Einladungen unverändert. Fertig bedeutet: Einladungen, die älter als sieben Tage sind,
+> werden abgelehnt, angenommene Einladungen bleiben unverändert, und alle Tests sind
+> erfolgreich. Nutze gezieltes TDD für den Ablaufzeitpunkt. Prüfe lokal; führe kein Deployment durch.
+
+Für eine reine Planung bitte `implement` um ein Vorgehen und einen Prüfplan, ohne
+Implementierung oder Abhängigkeiten zu bearbeiten. Ein Gespräch, eine Spezifikation, ein
+Plan, eine Architekturentscheidung oder ein Review erteilt keine Freigabe zur Implementierung.
+
+Lege die TDD-Vorgaben vor einer Implementierung oder einem Refactoring ausdrücklich in deiner
+Anfrage oder als dauerhafte Einstellung fest:
 
 - `none`: Prüfungen bleiben erforderlich; Tests müssen aber nicht vor der Implementierung entstehen.
 - `targeted`: Für die angegebenen Verhaltensweisen schreibt der Agent zuerst die Tests.
@@ -61,68 +120,6 @@ Hinterlege eine dauerhafte Einstellung in der `docs/lusona/README.md` des Projek
 Agentenanweisungen (`CLAUDE.md` oder `AGENTS.md`), zum Beispiel
 `TDD: targeted for changed behavior`. Ohne ausdrückliche Auswahl kann der Agent untersuchen
 und planen; vor der Implementierung fragt er nach.
-
-Weitere Einstiegsmöglichkeiten:
-
-> **explore:** Hilf mir, Einladungslinks mit Einladungen ausschließlich per E-Mail
-> zu vergleichen. Erkläre die Folgen für unser Supportteam, bevor wir uns entscheiden. Führe
-> dieses Gespräch im Chat; speichere keine Dateien.
-
-> **investigate:** Finde heraus, warum abgelaufene Einladungen in diesem reproduzierbaren Beispiel
-> noch funktionieren. Führe Experimente durch, die zwischen möglichen Ursachen unterscheiden,
-> und dokumentiere die Belege. Ändere das Verhalten des Produktionscodes nicht.
-
-> **implement, nur Planung:** Schlage vor, wie wir eine Ablauffrist für Einladungen umsetzen
-> und prüfen können. Bearbeite weder Implementierung noch Abhängigkeiten.
-
-> **status:** Bewerte die Arbeit an den Einladungen anhand der aktuellen Aufzeichnungen und
-> des Arbeitsverzeichnisses. Nenne die verbleibenden Aufgaben und den nächsten klar abgegrenzten Schritt.
-
-Mit einem Gespräch, einer Spezifikation, einem Plan, einer Architekturentscheidung oder einem
-Review erteilst du noch keine Erlaubnis zur Implementierung. Wenn du die Implementierung oder
-ein Refactoring ausdrücklich beauftragst, kann der Agent ohne gesonderten `specify`-Befehl
-beginnen, sobald Umfang, TDD-Vorgaben und Voraussetzungen geklärt sind.
-
-<a id="choose-a-command"></a>
-## Einen Befehl wählen
-
-Wähle den Befehl, der zu deiner Anfrage passt. Der Agent übernimmt vereinbarte Entscheidungen
-und nutzt bei Bedarf weitere Skills im Rahmen der Befugnisse, die du ihm erteilst.
-Eine feste Reihenfolge gibt es nicht.
-
-In Claude Code rufst du `/lusona:<command>` auf. In Codex wählst du den Lusona-Skill in der
-Skill-Oberfläche aus. In Cursor gibst du `/` im Agent-Chat ein und wählst den Skill. In Xcode
-gibst du `/` in einer Agentenunterhaltung ein und wählst den installierten Skill. [Installiere Lusona](#installation), bevor du diese Befehle nutzt.
-
-In Antigravity App/CLI nutzt du `/<skill-name>`; in der eigenständigen IDE prüfst du **Customizations** und nennst den Lusona-Skill in deiner Anfrage.
-
-| Befehl | Aufgabe |
-| --- | --- |
-| [explore](plugins/lusona/skills/explore/SKILL.md) | Im Gespräch Verständnis vertiefen, Möglichkeiten erkunden und Präferenzen klären |
-| [status](plugins/lusona/skills/status/SKILL.md) | Den Fortschritt und alle bekannten offenen Aufgaben bewerten und den nächsten Schritt bestimmen |
-| [frame-product](plugins/lusona/skills/frame-product/SKILL.md) | Nutzer, Problem, gewünschte Ergebnisse und Produktgrenzen festlegen |
-| [map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md) | Produktfunktionen, Abhängigkeiten und die Reihenfolge der Umsetzung erfassen |
-| [specify](plugins/lusona/skills/specify/SKILL.md) | Verhalten, Vorgaben, Akzeptanzkriterien und TDD-Vorgaben für eine Änderung vereinbaren |
-| [architect](plugins/lusona/skills/architect/SKILL.md) | Weitreichende Entscheidungen zu Design, technischen Verträgen und Zuständigkeiten treffen |
-| [investigate](plugins/lusona/skills/investigate/SKILL.md) | Ursachen, Fakten oder Machbarkeit anhand von Belegen und Experimenten feststellen |
-| [measure](plugins/lusona/skills/measure/SKILL.md) | Entscheidungsrelevante Größen, Qualität, Kosten oder Veränderungen messen |
-| [experiment](plugins/lusona/skills/experiment/SKILL.md) | Eine Intervention oder Alternativen anhand festgelegter Kriterien prüfen |
-| [implement](plugins/lusona/skills/implement/SKILL.md) | Eine freigegebene Verhaltensänderung oder Fehlerbehebung planen und umsetzen |
-| [review](plugins/lusona/skills/review/SKILL.md) | Einen konkreten Diff auf Fehler und fehlende Prüfungen untersuchen |
-| [refactor](plugins/lusona/skills/refactor/SKILL.md) | Die Struktur bestehenden Codes verbessern und dabei Verhalten und Kompatibilität erhalten |
-| [batch](plugins/lusona/skills/batch/SKILL.md) | Die Arbeit an mehreren ausgewählten Zielen mit ausdrücklicher Erlaubnis zur unbeaufsichtigten Ausführung koordinieren |
-
-Nutze **measure**, um festzustellen, wie viel; **experiment**, um eine Intervention oder
-Alternativen zu prüfen; und **investigate**, um Ursachen oder technische Machbarkeit zu klären.
-Mit **architect** entscheidest du über technische Grenzen und Abwägungen mit weitreichenden Folgen. Nutze **refactor** für ein
-konkretes Strukturproblem bei unverändertem Verhalten und **implement** für geändertes
-Verhalten oder eine Fehlerkorrektur. Übliche Designentscheidungen gehören zur Implementierung
-oder zum Refactoring.
-
-Entscheidungsrelevante Messungen und Experimente liegen in `docs/lusona/evidence/` des
-Projekts, das Lusona nutzt. Spezifikationen, Notizen und Verlauf verlinken die genauen Läufe,
-auf denen sie beruhen; bestehende Aufzeichnungen bleiben an ihrem Ort. Diese Fähigkeiten
-können sich innerhalb freigegebener Arbeit ohne ausdrücklichen Befehl ergeben.
 
 <a id="installation"></a>
 ## Installation
@@ -140,12 +137,12 @@ Installiere direkt von GitHub:
 agy plugin install https://github.com/lusona/ai-skills.git
 ```
 
-Die URL installiert Lusona über das Manifest im Repository-Stamm. Prüfe für App und eigenständige IDE nach dieser globalen
-CLI-Installation **Customizations**. Rufe in App/CLI `/status` auf; bitte in der IDE um
-den Lusona-Skill `status`. Die [Antigravity-Anleitung](INSTALL.md#antigravity) beschreibt
-lokale Arbeitskopien, portable Pakete, Updates, Entfernung und die Grenzen der Prüfung.
-Die GitHub-Installation wurde mit CLI 1.4.12 unter Linux geprüft; das interaktive
-Verhalten in App/IDE wurde nicht getestet.
+Die URL installiert Lusona über das Manifest im Repository-Stamm. Prüfe für App und
+eigenständige IDE nach dieser globalen CLI-Installation **Customizations**.
+Rufe in App/CLI `/status` auf; bitte in der IDE um den Lusona-Skill `status`.
+Die [Antigravity-Installationsanleitung](INSTALL.md#antigravity) beschreibt lokale Arbeitskopien,
+portable Pakete, Updates, Deinstallation und die Grenzen der Prüfung. Die GitHub-Installation
+wurde mit CLI 1.4.12 unter Linux geprüft; das interaktive Verhalten in App/IDE wurde nicht getestet.
 
 <a id="claude-code"></a>
 ### Claude Code
@@ -187,158 +184,134 @@ lokale Arbeitskopie oder GitHub.
 <a id="how-the-work-continues"></a>
 ## Wie die Arbeit weitergeht
 
-Der Agent berücksichtigt das Ziel, vereinbarte Entscheidungen, aktuelle Belege und noch
-offene Kriterien. Er wählt einen klar abgegrenzten Schritt, führt ihn im Rahmen seiner
-Befugnisse aus und prüft das Ergebnis. Diesen Ablauf wiederholt er, solange sinnvolle,
-freigegebene Arbeit übrig ist. Die Skills legen dabei die Aufgaben fest und liefern Fachwissen.
+Derselbe Arbeitszyklus gilt für alle Aufgabenbereiche. Je nach aktueller Frage und den
+vorliegenden Belegen kann als Nächstes ein Gespräch, ein Experiment, eine Codeänderung oder
+ein Review nötig sein. Wo eine Reihenfolge erforderlich ist, bestimmen weiterhin
+Abhängigkeiten, gemeinsam genutzter Zustand, ausdrückliche Nutzerentscheidungen und die
+gewählten TDD-Vorgaben den Ablauf.
+
+Planung gehört zur Implementierung und passt sich dem Verlauf der Arbeit an. Für kleine,
+klare Änderungen reichen ein Ziel und die nötigen Prüfungen; Abhängigkeiten, Unsicherheit,
+Koordination oder die Wiederaufnahme unterbrochener Arbeit können einen ausdrücklichen
+Plan erfordern. Du kannst auch einen Plan anfordern, ohne die Ausführung freizugeben.
 
 ```mermaid
 flowchart TD
-    Understand[Ergebnis und Belege verstehen] --> Assess{Nächste Aktion?}
-    Assess -->|Freigegebene Arbeit übrig| Act[Klar begrenzte Aktion ausführen]
-    Act --> Check[Ergebnis prüfen]
+    Assess{Aktuellen Stand bewerten}
+    Assess -->|Sinnvolle freigegebene Arbeit steht bereit| Act[Klar begrenzten Schritt ausführen]
+    Act --> Check[Ergebnis prüfen und Belege aktualisieren]
     Check --> Assess
-    Assess -->|Informationen oder Befugnisse nötig| Ask[Frage stellen]
-    Ask -->|Unabhängige freigegebene Arbeit| Act
-    Ask -->|Keine verfügbar| Wait[Antwort abwarten; Ziel bleibt aktiv]
-    Wait -->|Nötige Antwort oder Erlaubnis liegt vor| Understand
-    Assess -->|Pause angefordert oder Voraussetzung fehlt| Pause[Betroffene Arbeit pausieren]
-    Pause -->|Bedingungen zur Fortsetzung erfüllt| Understand
-    Assess -->|Abschlussanforderungen erfüllt| Done[Angefragtes Ziel erreichen]
+    Assess -->|Entscheidung infrage gestellt| Revise[Entscheidung neu prüfen]
+    Revise -->|Innerhalb der Befugnisse klären und Aufzeichnungen abgleichen| Assess
+    Revise -->|Rückmeldung oder Freigabe nötig| Blocked[Nachfragen oder betroffene Arbeit pausieren]
+    Assess -->|Voraussetzung fehlt, Pause oder Korrekturgrenze erreicht| Blocked
+    Blocked -->|Unabhängige Arbeit bereit oder Fortsetzung möglich| Assess
+    Assess -->|Abschlussanforderungen erfüllt| Done[Auftrag abschließen]
 
     classDef work fill:#dbeafe,stroke:#2563eb,color:#172554
     classDef input fill:#fef3c7,stroke:#b45309,color:#451a03
     classDef complete fill:#dcfce7,stroke:#15803d,color:#14532d
-    class Understand,Assess,Act,Check work
-    class Ask,Wait,Pause input
+    class Assess,Act,Check,Revise work
+    class Blocked input
     class Done complete
 ```
 
-Das Diagramm fasst den [gemeinsamen Arbeitsablauf](plugins/lusona/README.md#work-loop) zusammen.
-Die Einschränkungen gelten für die jeweils betroffene Arbeit. Andere freigegebene Aufgaben
-können weitergehen, sofern sie nicht davon abhängen.
+Das Diagramm zeigt den [gemeinsamen Arbeitszyklus](plugins/lusona/README.md#work-loop), keine
+Reihenfolge von Skills. Warten und Pausieren betreffen jeweils die betroffene Arbeit;
+unabhängige Aufgaben können innerhalb der bestehenden Freigabe weitergehen. Für den
+Arbeitszyklus gelten vier Regeln:
 
-- **Fortsetzen:** Den nächsten sinnvollen, freigegebenen Schritt ausführen. Eine Empfehlung oder
-  Aufforderung zum Fortsetzen ersetzt keine Arbeit, die der aktuelle Agent selbst leisten kann.
-- **Fragen und abwarten:** Die fehlende Entscheidung oder Erlaubnis mit einem zulässigen
-  integrierten Fragetool der Anwendung oder mit einer kurzen Nachricht erfragen. Unabhängige Arbeit
-  fortsetzen; sobald keine mehr übrig ist, die Antwort abwarten. Die Anfrage bleibt währenddessen
-  offen. Schweigen gilt weder als Entscheidung noch als Erlaubnis.
-- **Pausieren:** Betroffene Arbeit anhalten, wenn du eine Pause anforderst, nötige Informationen
-  oder Fähigkeiten fehlen, die Erlaubnis fehlt oder die zulässige Zahl von Korrekturen erreicht ist. Die genauen
-  Bedingungen zur Fortsetzung nennen. Wenn du eine Pause anforderst, wartet der Agent auf deine
-  Aufforderung zur Fortsetzung. Andere Pausen enden, sobald die genannte Voraussetzung erfüllt
-  ist oder die nötigen Belege oder Befugnisse vorliegen. Ein gespeicherter Checkpoint erfüllt
-  diese Bedingungen nicht.
-- **Abschließen:** Den gesamten freigegebenen Umfang und die Akzeptanzkriterien erfüllen,
-  erforderliche Prüfungen und die vorgeschriebenen unabhängigen Reviews durchführen sowie eine verlangte menschliche
-  Abnahme oder Übergabe abschließen. Bestandene Tests allein belegen keinen Abschluss. Wenn
-  eine Pflichtprüfung fehlschlägt oder noch aussteht, darf der Agent die Arbeit nicht als abgeschlossen melden.
+- **Fortsetzen**, solange sinnvolle freigegebene Arbeit übrig ist, ohne dich zum Aufruf des
+  nächsten Skills aufzufordern.
+- **Nachfragen**, wenn eine Entscheidung oder Erlaubnis fehlt. Währenddessen unabhängige
+  freigegebene Arbeit fortsetzen; Schweigen gilt weder als Antwort noch als Erlaubnis.
+- **Pausieren**, wenn du es verlangst, eine Voraussetzung fehlt oder die Korrekturgrenze
+  erreicht ist. Nennen, was zur Fortsetzung nötig ist. Nach einer von dir angeforderten
+  Pause musst du die Fortsetzung veranlassen.
+- **Abschließen** erst dann, wenn der gesamte freigegebene Umfang, erforderliche Prüfungen
+  und Reviews sowie eine verlangte Abnahme oder Auslieferung erfüllt sind. Fehlgeschlagene
+  oder noch ausstehende Pflichtprüfungen verhindern den Abschluss.
 
-Fragen und Pausieren können zusammenfallen: Der Agent kann nach dem fragen, was er zum
-Fortsetzen pausierter Arbeit braucht. In beiden Fällen nennt er, was fehlt, und setzt
-freigegebene Aufgaben fort, die er unabhängig davon erledigen kann.
+Stellen Belege eine akzeptierte Entscheidung infrage, benennt der Agent den Widerspruch und
+prüft die Entscheidung innerhalb seiner bestehenden Befugnisse neu. Geht eine Änderung
+darüber hinaus, fragt er dich. Er gleicht betroffene Aufzeichnungen und Aufgaben ab,
+bewahrt weiterhin nützliche frühere Begründungen und setzt die Arbeit auf Grundlage der
+neuen Vereinbarung fort. Veraltete Aufzeichnungen dürfen überholte Entscheidungen nicht
+wieder in Kraft setzen.
 
-Du bestimmst den Umfang und triffst folgenreiche Entscheidungen. Der Agent klärt übliche
-Details innerhalb deiner Vorgaben und fragt nach, bevor er vereinbarte Ergebnisse ändert oder
-destruktive Aktionen außerhalb seiner Befugnisse ausführt. Unabhängige Reviews sind nach den
-Regeln des Nutzers oder Repositorys erforderlich sowie bei Sicherheitsgrenzen, persistenten
-Daten, gemeinsam genutzten technischen Verträgen oder wenn mehrere Beteiligte ihre Änderungen
-aufeinander abstimmen müssen.
+Bei wiederholten Fehlern gelten [Korrekturgrenzen](plugins/lusona/references/corrections.md);
+für Batches gilt ein vereinbartes Budget für Korrekturversuche. Hält eine solche Grenze die
+betroffene Arbeit an, nennt der Agent die Belege und die Bedingungen für die Fortsetzung.
 
-Der Agent passt sein Vorgehen an die gewonnenen Belege an und hält dabei den vereinbarten
-Umfang und die Kriterien ein. Bringen Korrekturen keinen Fortschritt mehr, nennt er die
-Belege und die Bedingungen für die Fortsetzung. Die zulässige Zahl von Korrekturen bestimmt, wann er deine
-Entscheidung einholen muss; für Batches gilt der vereinbarte Rahmen für Korrekturversuche. Siehe die
-[Korrekturregeln](plugins/lusona/README.md#work-loop).
-
-Der Hauptagent koordiniert Fragen, Aufgabenverteilung, Integration und Prüfung. Er
-delegiert wesentliche Produkt- und Entwicklungsarbeit an Spezialisten mit geeigneten Rollen
-und Modellen; Gespräche zur Erkundung und zum Status kann er selbst führen. Ist Delegation
-verboten oder nicht verfügbar, kann er freigegebene Arbeit selbst erledigen. Ein erforderliches
-unabhängiges Review braucht weiterhin einen anderen Reviewer. Unter
-[Delegation](plugins/lusona/references/delegation.md) findest du Angaben zu Zuständigkeiten und Übergaben.
+Der Hauptagent koordiniert Fragen, Aufgabenverteilung, Integration und Prüfung und delegiert
+wesentliche Produkt- und Entwicklungsarbeit an Spezialisten. Gespräche zur Erkundung und zum
+Status kann er selbst führen. Unabhängige Reviews sind nach den Regeln des Nutzers oder
+Repositorys erforderlich sowie bei Sicherheitsgrenzen, persistenten Daten, gemeinsam
+genutzten technischen Verträgen oder wenn mehrere Beteiligte ihre Änderungen aufeinander
+abstimmen müssen. Ist Delegation nicht verfügbar oder verboten, kann freigegebene Arbeit
+lokal weitergehen; ein erforderliches unabhängiges Review braucht weiterhin einen anderen
+Reviewer. Siehe [Delegation](plugins/lusona/references/delegation.md).
 
 <a id="questions-and-evidence"></a>
 ## Fragen und Belege
 
-Der Agent passt Fragen, Erklärungen, Beispiele und Experimente an deinen erkennbaren Kenntnisstand
-an. Er beantwortet direkte Fragen zuerst, nutzt bereits geklärte Antworten und fragt bei
-folgenreichen Unsicherheiten nach. Deine Fachkenntnisse bestimmen, wie ausführlich er etwas erklärt;
-die Anforderungen an Belege und Entscheidungen gelten weiterhin.
-
-Bei der Erkundung hilft dir der Agent mit konkreten Szenarien und Abwägungen, deine Optionen
-zu verstehen, ohne eine Entscheidung zu verlangen. Er setzt das Gespräch fort, solange ein
-weiterer Austausch dein Verständnis verbessern oder die nächste Aktion ändern könnte.
-Bei einer Untersuchung führt er weitere Experimente durch, wenn sie zwischen möglichen
-Ursachen unterscheiden könnten. Blockieren fehlende Belege den Fortschritt, nennt er,
-was er braucht.
-
-Ein erfahrener Maintainer, der Kompatibilitätsvorgaben genannt hat, muss sie zum Beispiel nicht
-erneut angeben. Kennst du eine Migrationsoption noch nicht, erklärt der Agent ihre Folgen,
-bevor er dich fragt, welche Option du bevorzugst. Siehe
+Die Fragen richten sich nach den offenen Entscheidungen der Arbeit. Der Agent nutzt bereits
+geklärte Antworten, prüft ermittelbare Fakten und fragt dich nach deiner Absicht und
+folgenreichen Abwägungen. Er erklärt Optionen so ausführlich, wie du es brauchst; eine
+Erkundung kann mit besserem Verständnis statt mit einer Entscheidung enden. Siehe
 [Gespräche zur Klärung der Absicht](plugins/lusona/references/interviews.md).
 
-Der Agent ergänzt Diagramme, wenn sie eine Entscheidung verdeutlichen. Lässt sich eine Konzept-, Architektur- oder UI-Entscheidung visuell besser
-beurteilen, bietet er 2 bis 4 mit Buchstaben gekennzeichnete Optionen an. Die gewählte Darstellung
-wird unter `docs/lusona/visuals/` mit einer Liste verbindlicher Aspekte gespeichert, die
-Implementierung und Review prüfen; siehe [visuelle Darstellungen](plugins/lusona/references/visuals.md).
+Untersuchungen, Messungen und Experimente können in jedem Aufgabenbereich hilfreich sein.
+Weitere Arbeit muss eine sinnvolle Frage innerhalb des freigegebenen Umfangs und des
+geltenden Budgets beantworten. Die Ergebnisse unterscheiden zwischen Belegen, Annahmen und
+Unsicherheit; ein vorgeschlagener Folgeschritt erteilt keine Freigabe für dessen Umsetzung.
+
+Diagramme und visuelle Alternativen kommen zum Einsatz, wenn sie bei einer Entscheidung
+helfen. Akzeptierte visuelle Referenzen bleiben unter `docs/lusona/visuals/` erhalten;
+ihre verbindlichen Vorgaben werden bei Implementierung und Review geprüft.
+Siehe [visuelle Darstellungen](plugins/lusona/references/visuals.md).
+
+Entscheidungsrelevante Messungen und Experimente liegen in `docs/lusona/evidence/` des
+Projekts, das Lusona nutzt. Spezifikationen, Notizen und Verlauf verlinken die genauen Läufe,
+auf denen sie beruhen; bestehende Aufzeichnungen bleiben an ihrem Ort.
 
 <a id="recovery-and-resumption"></a>
 ## Wiederherstellung und Fortsetzung
 
-Substantive Arbeitsergebnisse werden auch bei kleinen Aufgaben ohne gesonderte Aufforderung gespeichert,
-innerhalb der Schreibrechte und deiner Einschränkungen. Specify speichert jede Definition;
-folgenreiche Architekturentscheidungen benötigen ADRs. Erkundung und Untersuchung halten
-wesentliche Schlussfolgerungen und offene Fragen fest; entscheidungsrelevante Belege und
-Review-Ergebnisse bleiben erhalten. Der Agent aktualisiert das bestehende Dokument oder nutzt
-einen knappen geeigneten Eintrag, ohne Fakten zu duplizieren. Gewöhnliche Gespräche und kurze
-Statusauskünfte brauchen keine Datei. Geänderte Fakten werden an sinnvollen Zwischenständen
-und vor Übergabe oder Abschluss gespeichert.
+Der Agent speichert wesentliche Entscheidungen, Erkenntnisse und Prüfbelege ohne gesonderte
+Aufforderung in den Projektaufzeichnungen, auch bei kleinen Aufgaben. Wenn möglich,
+aktualisiert er bestehende Aufzeichnungen; gewöhnliche Gespräche und kurze Statusauskünfte
+brauchen keine Datei. Vorgaben zu reinem Lesezugriff, Speicherverboten und Ablageorten haben Vorrang.
 
-In diesen Notizen hält der Agent das Ziel fest, worauf seine Befugnisse und die TDD-Vorgaben
-beruhen, sowie vereinbarte Entscheidungen, nützliche Belege, wichtige offene Fragen,
-Zuständigkeiten, gegebenenfalls die Zahl der Korrekturen und den nächsten Schritt. Bei der
-Erkundung lassen sich Entscheidungen und Fragen ohne Spezifikation oder Warteschlange festhalten. `implement` und
-`refactor` erstellen oder aktualisieren ihr Dokument direkt; keiner der beiden Skills erfordert
-einen gesonderten `specify`-Befehl. Das Erstellen, Aktualisieren oder Verwenden einer Spezifikation erfordert einen Eintrag in
-`docs/lusona/work.md`. Der koordinierende Agent erstellt die Warteschlange bei Bedarf und gleicht
-denselben Eintrag ab, ohne seinen Zustand, seine Ablage in Icebox oder seine Historie zurückzusetzen.
-Entwürfe beginnen in Ideas; Ready erfordert akzeptierten Umfang und Kriterien, eine ausdrücklich
-gewählte TDD-Vorgabe und keine blockierenden Fragen. Planung allein führt nie zu Doing;
-ein Eintrag erteilt keine Ausführungsbefugnis. Direkte Arbeit ohne Spezifikation kann Notizen nutzen
-und ohne Warteschlangeneintrag bleiben; bereits erfasste Arbeit bleibt erfasst.
-Notizen allein erfordern keine Warteschlange. Nicht betroffene Spezifikationen müssen nicht
-nachträglich erfasst werden.
+Die Aufzeichnungen halten das Ziel, die Befugnisse, die TDD-Vorgaben, aktuelle Entscheidungen,
+nützliche Belege, offene Fragen und den nächsten Schritt fest, bei Bedarf auch
+Zuständigkeiten und die Zahl der Korrekturen. Folgenreiche Architekturentscheidungen
+benötigen ADRs. Eine Spezifikation erfordert einen Eintrag in `docs/lusona/work.md`; Arbeit
+ohne Spezifikation kann allein mit Notizen auskommen. Der Status eines Eintrags beschreibt
+den Fortschritt, legt aber weder den nächsten Skill fest noch erteilt er eine Freigabe zur
+Ausführung. Siehe [Aufzeichnungen und Aufbewahrung](plugins/lusona/references/retention.md)
+und [Regeln für die Warteschlange](plugins/lusona/references/queue.md).
 
-Vorgaben zu reinem Lesezugriff, Speicherverboten und Ablageorten haben Vorrang. Delegierte Reviewer
-mit reinem Lesezugriff liefern ihre Ergebnisse an den koordinierenden Agenten, der sie innerhalb
-seiner Befugnisse speichert. Darf oder kann
-der Agent nichts speichern, stellt er die Informationen zur Übergabe im Gespräch bereit und
-erklärt, welche Einschränkung sich daraus für eine spätere Fortsetzung ergibt. Bei einer
-plötzlichen Unterbrechung kann der letzte Zwischenstand ungespeichert bleiben. Bei der Fortsetzung prüft der Agent erhaltene Aufzeichnungen und Belege im Arbeitsverzeichnis. Er fragt
-dann nur nach wesentlichen Fakten oder Befugnissen, die er nicht wiederherstellen kann. Siehe
-[Aufzeichnungen und Aufbewahrung](plugins/lusona/references/retention.md).
+Bei der Fortsetzung gleicht der Agent erhaltene Aufzeichnungen mit dem Arbeitsverzeichnis
+ab und fragt nur nach wesentlichen Informationen, die er nicht wiederherstellen kann.
+Bestehende Freigaben gelten weiter. Mit **status** lässt sich die verbleibende Arbeit
+bewerten; alternativ kannst du die Arbeit nennen, die fortgesetzt werden soll:
 
-Für eine andere Sitzung könnte eine Anweisung zur Fortsetzung so lauten:
+> Setze die Untersuchung zum Ablauf von Einladungen anhand der gespeicherten Erkenntnisse
+> fort. Prüfe den festgehaltenen Reproduktionsfall mit dem aktuellen Build.
+> Ändere das Verhalten des Produktionscodes nicht.
 
-> Setze die Untersuchung zum Ablauf von Einladungen anhand der dafür maßgeblichen Aufzeichnung fort.
-> Reproduziere den festgehaltenen Fall mit dem bereitgestellten Build, bevor du eine Korrektur
-> vorschlägst. Behalte den dokumentierten Diagnoseumfang bei; Änderungen am Produktionscode
-> sind weiterhin nicht freigegeben.
-
-Eine solche Anweisung unterstützt eine tatsächliche Übergabe. Der aktuelle Agent setzt die
-Arbeit fort, die er innerhalb seiner Befugnisse leisten kann.
+Eine plötzliche Unterbrechung kann das Speichern verhindern. Können Aufzeichnungen nicht
+gespeichert werden, erklärt der Agent die Einschränkung für eine spätere Fortsetzung und
+stellt die Erkenntnisse im Gespräch bereit.
 
 <a id="results-and-handoffs"></a>
 ## Ergebnisse und Übergaben
 
-Lusona erprobt ein gemeinsames Format für ausführliche Bewertungen und Übergaben:
-**Ergebnis**, **Belege** und **Nächste Aktion**. Verbinde das Ergebnis mit **✅ Abgeschlossen**,
-**🔄 In Bearbeitung**, **❓ Rückmeldung nötig** oder **⏸ Pausiert**. Verwende die Wörter zusammen
-mit den Symbolen, damit der Status verständlich bleibt. Fehlt eine Antwort oder Freigabe,
-die zum Weiterarbeiten nötig ist, beginne mit der entsprechenden Frage oder Bitte. Für normale
-Gespräche, Fragen und kurze Zwischenmeldungen ist kein festes Format nötig.
+Ausführliche Berichte nennen das Ergebnis, die Belege dafür und einen gegebenenfalls nötigen
+nächsten Schritt. Sie unterscheiden zwischen abgeschlossener Arbeit, laufender Arbeit,
+fehlenden Informationen und pausierter Arbeit. Der Abschluss bezieht sich auf die
+freigegebene Anfrage: Eine abgeschlossene Diagnose bedeutet nicht, dass der Fehler behoben ist.
 
 Beispiel einer Übergabe, kein Nachweis geleisteter Arbeit:
 
@@ -352,13 +325,11 @@ Beispiel einer Übergabe, kein Nachweis geleisteter Arbeit:
 > **Nächste Aktion:** Du kannst die Korrektur des Zeitstempels freigeben und die TDD-Vorgaben
 > festlegen; anschließend kann der Agent diese klar begrenzte Korrektur umsetzen und prüfen.
 
-Bei einer Übergabe steht unter „Nächste Aktion“, wer sie ausführt, welche Informationen dafür
-nötig sind und welche Freigaben noch fehlen. Ist die Anfrage abgeschlossen, kann dort
-**Keine für diese Anfrage** stehen.
-
-Dein gewünschtes Format und die Einschränkungen der Anwendung haben Vorrang. Dieses
-Format wird noch erprobt. Wie es sich in den verschiedenen Anwendungen bewährt, ist noch
-nicht überprüft. Einzelheiten zur Formatierung findest du unter
+Bleibt Arbeit übrig, nennt der nächste Schritt die zuständige Person oder den zuständigen
+Agenten, die nötigen Informationen und noch fehlende Freigaben. Gewöhnliche Gespräche
+brauchen kein Berichtsformat. Das gezeigte Format wird erprobt; dein gewünschtes Format
+und die Einschränkungen der Anwendung haben Vorrang. Wie es sich in den verschiedenen
+Anwendungen verhält, ist noch nicht überprüft. Siehe
 [Review und Kommunikation](plugins/lusona/README.md#review-and-communication).
 
 <a id="reference"></a>
@@ -367,7 +338,7 @@ nicht überprüft. Einzelheiten zur Formatierung findest du unter
 - [Installation und Deinstallation](INSTALL.md)
 - [Datenschutzerklärung](PRIVACY.md)
 - [Nutzungsbedingungen](TERMS.md)
-- [Workflow-Regeln und Arbeitsablauf](plugins/lusona/README.md#work-loop)
+- [Workflow-Regeln und Arbeitszyklus](plugins/lusona/README.md#work-loop)
 - [Skill-Auswahl und Begriffe](plugins/lusona/references/workflow-guide.md)
 - [TDD-Vorgaben und Reihenfolge](plugins/lusona/references/tdd.md)
 - [Batch-Ausführung und Wiederherstellung](plugins/lusona/references/batch-execution.md)
@@ -395,7 +366,9 @@ Die maßgeblichen Workflow-Quellen liegen in `plugins/lusona/`. Projektdaten geh
 `docs/lusona/` des Projekts, das Lusona nutzt. Die Vorlage für eine leere Warteschlange liegt
 in `templates/work.md`.
 
-Die Hilfsskripte für Projektdokumente verwenden Bash oder PowerShell; siehe [Laufzeitanforderungen](INSTALL.md#requirements). Python 3 wird weiterhin für die Paketerstellung und Python-Evaluationen benötigt, jedoch nicht für die normale Plugin-Nutzung.
+Die Hilfsskripte für Projektaufzeichnungen verwenden Bash oder PowerShell; siehe
+[Laufzeitanforderungen](INSTALL.md#requirements). Python 3 wird weiterhin für die Paketerstellung
+und Python-Evaluationen benötigt, jedoch nicht für die normale Plugin-Nutzung.
 
 ```bash
 claude plugin validate plugins/lusona
@@ -405,10 +378,10 @@ python3 scripts/package.py
 
 Der Paketgenerator prüft Identität und Version der nativen Manifeste, Links, Katalogpfade und
 die Dateiauswahl. Er schreibt nach `tmp/lusona-package/` innerhalb des Repositorys; für einen
-weiteren Build nutzt du `--output tmp/<new-directory>`. Alle nativen Manifeste müssen dieselbe Version
-verwenden. Die Installation über GitHub nutzt Quellen, die per Commit erfasst und gepusht
-wurden; eine lokale Arbeitskopie kannst du vor der Veröffentlichung verwenden. Weder bei der
-Installation noch beim Erstellen der Pakete werden Projektdokumente angelegt.
+weiteren Build nutzt du `--output tmp/<new-directory>`. Alle nativen Manifeste müssen dieselbe
+Version verwenden. Die Installation über GitHub nutzt Quellen, die per Commit erfasst und
+gepusht wurden; eine lokale Arbeitskopie kannst du vor der Veröffentlichung verwenden.
+Weder bei der Installation noch beim Erstellen der Pakete werden Projektaufzeichnungen angelegt.
 
-Weniger Quelltext allein belegt keine Einsparungen beim Tokenverbrauch oder bei der Latenz. Dafür braucht es Messungen,
-die den Koordinator und sämtliche ausführenden Agenten einschließen.
+Weniger Quelltext allein belegt keine Einsparungen beim Tokenverbrauch oder bei der Latenz.
+Dafür braucht es Messungen, die den Koordinator und sämtliche ausführenden Agenten einschließen.

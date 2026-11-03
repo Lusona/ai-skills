@@ -12,11 +12,11 @@ command namespace remain `lusona`, for example `/lusona:status`.
 
 ## Requirements
 
+- For Antigravity: the App, CLI (`agy`), or standalone IDE with native plugin support.
+  The CLI requires its own host setup/authentication for agent sessions.
 - For Claude Code/Codex installation: Git and the selected host with plugin support.
 - For Cursor installation: a current Cursor release with plugin support.
 - For Xcode installation: Xcode 27 with a coding agent enabled in Intelligence settings.
-- For Antigravity: the App, CLI (`agy`), or standalone IDE with native plugin support.
-  The CLI requires its own host setup/authentication for agent sessions.
 - Network access to GitHub for installation and updates from the repository.
 
 Creating workflow records uses the bundled Bash or PowerShell helper. Use Bash in a
@@ -291,7 +291,7 @@ steps for Cursor. For Antigravity App, CLI, and standalone IDE, use the extracte
 
 The Vercel Skills installer is not supported. It installs individual skill
 directories without the shared resources Lusona requires. Use the native plugin
-installation for [Claude Code](#claude-code), [Codex](#codex), [Cursor](#cursor), [Xcode](#xcode), or [Antigravity](#antigravity).
+installation for [Antigravity](#antigravity), [Claude Code](#claude-code), [Codex](#codex), [Cursor](#cursor), or [Xcode](#xcode).
 
 ## Updates
 
