@@ -39,7 +39,7 @@ Lusona 的编程智能体技能围绕同一套工作循环协同运作：
 
 刚接手项目、恢复工作，或不确定该先处理什么时，可以从 **status** 开始。它会查看现有记录和依据，说明剩余工作，并建议下一步。项目尚无 Lusona 记录时也可以使用。请求查看状态并不等于授权新的实现工作。
 
-对于新想法，**explore** 帮助你比较可能的方案与取舍；**frame-product** 帮助明确用户、问题和产品方向。方向逐渐清晰后，**map-capabilities** 梳理产品需要具备的能力和合理的交付顺序。**specify** 和 **architect** 明确一项变更所需的行为与设计决策；**implement** 负责执行并验证已获授权的变更。
+对于新想法，**explore** 帮助你比较可能的方案与取舍；**frame-product** 帮助明确用户、问题和产品方向。方向逐渐清晰后，**map-capabilities** 梳理产品需要具备的能力和合理的交付顺序。**specify** 明确行为和验收标准；**architect** 解决涉及边界、契约和职责归属的重要技术决策。**design** 专注于界面设计稿、界面流程和图示，可以直接请求，无须先完成其他阶段。**implement** 负责执行并验证已获授权的变更。
 
 这些是工作通常的推进方式，并非必须依次完成的阶段。从当前需要的工作类别入手，跳过已经解决的问题，并在证据表明有必要时重新处理之前的问题。调查可以先于规格说明，也可以在实现过程中展开；审查也可能发现需要重新考虑设计的原因。
 
@@ -47,7 +47,8 @@ Lusona 的编程智能体技能围绕同一套工作循环协同运作：
 | --- | --- |
 | 了解现状 | [status](plugins/lusona/skills/status/SKILL.md)：评估进展、剩余工作及下一项有意义的行动 |
 | 明确方向 | [explore](plugins/lusona/skills/explore/SKILL.md)：比较可能的方案与取舍<br />[frame-product](plugins/lusona/skills/frame-product/SKILL.md)：明确用户、目标和边界<br />[map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md)：梳理能力覆盖、依赖关系和交付顺序 |
-| 定义变更 | [specify](plugins/lusona/skills/specify/SKILL.md)：就行为、验收标准和 TDD 策略达成一致 |
+| 定义变更 | [specify](plugins/lusona/skills/specify/SKILL.md)：就行为、验收标准和 TDD 策略达成一致<br />[architect](plugins/lusona/skills/architect/SKILL.md)：解决涉及边界、契约和职责归属的重要技术决策 |
+| 视觉设计 | [design](plugins/lusona/skills/design/SKILL.md)：创建界面设计稿、界面流程和图示 |
 | 实现与评估 | [implement](plugins/lusona/skills/implement/SKILL.md)：规划并交付行为变更或缺陷修复<br />[review](plugins/lusona/skills/review/SKILL.md)：检查实际代码差异，找出缺陷和验证遗漏<br />[refactor](plugins/lusona/skills/refactor/SKILL.md)：在保持行为不变的前提下改善代码结构 |
 | 获取依据 | [investigate](plugins/lusona/skills/investigate/SKILL.md)：查明原因或验证可行性<br />[measure](plugins/lusona/skills/measure/SKILL.md)：衡量规模、质量、成本或变化<br />[experiment](plugins/lusona/skills/experiment/SKILL.md)：检验某项措施或备选方案 |
 | 协调选定的工作 | [batch](plugins/lusona/skills/batch/SKILL.md)：在获得明确的无人值守执行授权后，协调多个选定目标的相关工作 |
@@ -66,6 +67,8 @@ Lusona 的编程智能体技能围绕同一套工作循环协同运作：
 > **status：** 根据现有记录和工作区评估这个项目。告诉我还剩哪些工作，并建议从哪里开始。
 
 > **explore：** 帮我比较邀请链接与仅通过电子邮件邀请这两种方式。在做选择前，说明它们对支持团队的影响。只在对话中讨论，不要保存文件。
+
+> **design：** 使用现有页面、导航和文案，比较两种邀请流程。展示各步骤和邀请过期状态，并说明每种方案的取舍。仅进行视觉设计，不要实现界面。
 
 > **implement：** 将邀请的有效期设为七天。保留已接受的邀请。完成标准：拒绝超过七天的邀请，已接受的邀请不受影响，测试套件通过。针对有效期的边界条件采用 targeted TDD。在本地验证，不要部署。
 
@@ -176,7 +179,11 @@ flowchart TD
 
 调查、测量和实验可以为任何类别的工作提供依据。进一步的工作必须在授权范围和适用的预算内回答有意义的问题。结论须区分证据、假设和不确定性；提出后续工作建议并不代表获得实现授权。
 
-有助于作出选择时，智能体会使用图示或视觉方案。已确认的视觉参考保存在 `docs/lusona/visuals/` 下，其中具有约束力的要求会在实现和审查时逐项检查。详见[视觉方案与参考](plugins/lusona/references/visuals.md)。
+多项技能都支持视觉工作：**explore** 比较视觉方案，帮助选择方向；**specify** 用视觉方案明确行为和验收标准；**architect** 用技术图示说明边界、契约和职责归属。需要专门制作界面设计稿、界面流程或图示时，使用 **design**；设计已确定时也可以直接使用。
+
+界面草稿会在浏览器中打开供你查看；如果无法打开，智能体会提供 HTML 文件的绝对路径。图示及其备选方案使用回复或 Markdown 文件中的 Mermaid 代码块。确认草稿或选定方案后，智能体会在写入权限和禁止保存等限制允许的范围内，将参考资料保存在 `docs/lusona/visuals/`，并从所属规格说明、ADR 或笔记链接到该资料。界面截图取决于可用工具；无法截图时，会保留 HTML 并说明缺少哪些图片。
+
+参考资料区分具有约束力的要求和仅供示意的细节。**implement** 报告每项约束要求的状态，**review** 逐项标记为满足、未满足或未检查。对于保留了图片的界面参考，有渲染和截图工具时，审查会比较截图；否则检查代码或标记，并说明尚未进行视觉比较。详见[视觉方案与参考](plugins/lusona/references/visuals.md)。
 
 重要的测量和实验记录保存在使用该插件的项目的 `docs/lusona/evidence/` 中。规格说明、笔记和历史记录须链接到其依据的具体运行记录；已有记录保留在原处。
 

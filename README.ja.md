@@ -47,8 +47,9 @@ Lusona の記録がまだないプロジェクトでも使えます。状況確�
 
 新しいアイデアについては、**explore** で可能性とトレードオフを検討し、**frame-product** で利用者、課題、
 プロダクトの方向性を定めます。方向性が明確になってきたら、**map-capabilities** で必要な機能と適切な提供順序を
-整理します。**specify** と **architect** で変更に必要な動作や設計上の判断を固め、**implement** で
-許可された変更の実装と検証を進めます。
+整理します。**specify** で動作と受け入れ基準を明確にし、**architect** で境界、契約、責任分担に関わる
+重要な技術判断を行います。**design** は UI モックアップ、画面フロー、図の作成に集中するスキルで、
+ほかの工程を経ずに直接依頼できます。**implement** で許可された変更の実装と検証を進めます。
 
 これはよくある進め方であり、必須の工程ではありません。現在の必要に合う作業区分から始め、解決済みの問いは
 飛ばし、根拠に応じてどの区分にも立ち戻れます。仕様を定める前に調査することも、実装の途中で調査が必要に
@@ -58,7 +59,8 @@ Lusona の記録がまだないプロジェクトでも使えます。状況確�
 | --- | --- |
 | 状況を把握する | [status](plugins/lusona/skills/status/SKILL.md)：進捗、残作業、次に取り組むべき作業を確認する |
 | 方向性を定める | [explore](plugins/lusona/skills/explore/SKILL.md)：可能性とトレードオフを検討する<br/>[frame-product](plugins/lusona/skills/frame-product/SKILL.md)：利用者、成果、範囲を定める<br />[map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md)：機能の充足状況、依存関係、提供順序を整理する |
-| 変更内容を定義する | [specify](plugins/lusona/skills/specify/SKILL.md)：動作、受け入れ基準、TDD 方針に合意する |
+| 変更内容を定義する | [specify](plugins/lusona/skills/specify/SKILL.md)：動作、受け入れ基準、TDD 方針に合意する<br />[architect](plugins/lusona/skills/architect/SKILL.md)：境界、契約、責任分担に関わる重要な技術判断を行う |
+| 視覚的に設計する | [design](plugins/lusona/skills/design/SKILL.md)：UI モックアップ、画面フロー、図を作成する |
 | 実装して評価する | [implement](plugins/lusona/skills/implement/SKILL.md)：動作変更や修正を計画し、完了まで進める<br />[review](plugins/lusona/skills/review/SKILL.md)：差分を確認し、不具合や検証の不足を指摘する<br />[refactor](plugins/lusona/skills/refactor/SKILL.md)：動作を保ちながら構造を改善する |
 | 根拠を得る | [investigate](plugins/lusona/skills/investigate/SKILL.md)：原因や実現可能性を確かめる<br />[measure](plugins/lusona/skills/measure/SKILL.md)：規模、品質、コスト、変化を測定する<br />[experiment](plugins/lusona/skills/experiment/SKILL.md)：施策や代替案を検証する |
 | 選択した作業を調整する | [batch](plugins/lusona/skills/batch/SKILL.md)：無人で作業を進める明示的な許可のもとで、選択した複数の成果に向けた作業を調整する |
@@ -85,6 +87,10 @@ Cursor では Agent チャットで `/` を入力し、スキルを選びます�
 
 > **explore:** 招待リンクと、メールだけで行う招待を比較してください。選択する前に、
 > サポートチームへの影響を説明してください。この対話はチャット内にとどめ、ファイルに保存しないでください。
+
+> **design:** 既存の画面、ナビゲーション、文言を使って、二つの招待フローを比較してください。
+> 各ステップと招待の有効期限切れの状態を示し、それぞれの案のトレードオフを説明してください。
+> ビジュアルデザインだけを行い、UI は実装しないでください。
 
 > **implement:** 招待の有効期限を 7 日間にしてください。受諾済みの招待は変更しないでください。
 > 完了条件：7 日を過ぎた招待を拒否し、受諾済みの招待には影響を与えず、テストスイートが通ること。
@@ -229,8 +235,21 @@ flowchart TD
 上限の中で、有用な問いに答えるものでなければなりません。調査結果では、根拠、仮定、不確実な点を区別します。
 後続作業の提案は、その実装を許可するものではありません。
 
-選択に役立つ場合は、図や視覚的な比較案を使います。採用されたビジュアル資料は `docs/lusona/visuals/` に保存し、
-必ず満たすべき要件を実装とレビューで確認します。[ビジュアル](plugins/lusona/references/visuals.md)を参照してください。
+複数のスキルでビジュアルを扱えます。**explore** は視覚的な代替案を比較して方向性を検討し、**specify** は
+図や画面案で動作と受け入れ基準を明確にします。**architect** は技術図で境界、契約、責任分担を説明します。
+UI モックアップ、画面フロー、図の作成に集中したい場合は **design** を使います。設計がすでに決まっている
+場合も利用できます。
+
+UI の草案はブラウザーで開いて確認します。開けない場合は、HTML の絶対パスを報告します。図とその代替案は、
+返信または Markdown ファイル内の Mermaid コードブロックで提示します。草案を承認するか、複数の案から選択した後、書き込み権限や
+保存禁止などの制約に従い、選択した資料を `docs/lusona/visuals/` に保存し、対応する仕様書、ADR、ノートから
+リンクします。UI の画像は利用可能なツールで撮影します。撮影できない場合は HTML を残し、欠けている画像を
+報告します。
+
+資料では、必須要件と説明用の詳細を区別します。**implement** は各必須要件の状態を報告し、**review** は
+それぞれを充足、未充足、未確認として確認します。画像が保存されている UI の資料では、描画と撮影の
+ツールが使える場合にスクリーンショットを比較します。それ以外はコードやマークアップを確認し、視覚的な比較は未実施と報告します。
+[ビジュアル](plugins/lusona/references/visuals.md)を参照してください。
 
 重要な測定や実験の記録は、利用先プロジェクトの `docs/lusona/evidence/` に保存します。
 仕様書、ノート、履歴は、根拠とする実行記録へ正確にリンクします。既存の記録は元の場所に残します。

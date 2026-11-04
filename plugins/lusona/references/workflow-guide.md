@@ -12,6 +12,7 @@ Read the relevant section for skill selection, invocation, or terminology; this 
 | [frame-product](../skills/frame-product/SKILL.md) | Product strategist: long-term vision, users, problem, outcomes, boundaries | [Product brief](../templates/product.md) |
 | [map-capabilities](../skills/map-capabilities/SKILL.md) | Product planner: long-term capability coverage, dependencies, useful delivery sequence | Capability map in the [product template](../templates/product.md) |
 | [specify](../skills/specify/SKILL.md) | Change analyst: one change's observable behavior and acceptance | [Change agreement and TDD policy](../templates/spec.md) |
+| [design](../skills/design/SKILL.md) | Visual designer: UI mockups, screen flows, and diagrams using existing context and references | Inspectable drafts and chosen [visual references](../templates/visual-reference.md), linked from the owning record or notes |
 | [architect](../skills/architect/SKILL.md) | Architect: responsibilities, interfaces, data ownership, tradeoffs | Shared or change-specific [ADRs](../templates/adr.md) |
 | [implement](../skills/implement/SKILL.md) | Engineer: planning, implementation, explicit TDD, and assigned verification | Code and evidence in the owning record or [notes](../templates/notes.md) |
 | [review](../skills/review/SKILL.md) | Reviewer: defects and verification gaps in the actual diff | [Review findings](../templates/review.md), without silent fixes |
@@ -23,7 +24,8 @@ Read the relevant section for skill selection, invocation, or terminology; this 
 For routing, use **measure** to establish magnitude or compare observed performance;
 **experiment** to test a proposed intervention or alternatives against stated criteria;
 **investigate** when causes or technical feasibility are unknown and need evidence;
-**architect** for consequential design, contract, or ownership choices and their rationale; **refactor** for an authorized structural improvement that preserves observable
+**design** for UI mockups, screen flows, and diagrams;
+**architect** for consequential technical design, contract, or ownership choices and their rationale; **refactor** for an authorized structural improvement that preserves observable
 behavior and compatibility; and **implement** for changed behavior or defect correction.
 Measurements and experiments can arise within existing authorized work without a new command.
 Use the [evidence rules](evidence.md) for recording them.

@@ -1,6 +1,6 @@
 # Install Lusona Skills
 
-Lusona provides thirteen product and engineering workflow skills for Claude Code,
+Lusona provides product and engineering workflow skills for Claude Code,
 Codex, Cursor, Xcode's coding agents, and Google Antigravity App, CLI, and standalone IDE.
 Claude Code and Codex use the `lusona` plugin from the `lusona-ai-skills` marketplace in the
 public [lusona/ai-skills repository](https://github.com/lusona/ai-skills).
@@ -74,7 +74,7 @@ repository project records.
 ### Antigravity CLI
 
 After installation, check that `lusona` is enabled and that the listed skills match the canonical
-`plugins/lusona/skills/` directories (currently thirteen). Start a new project session;
+`plugins/lusona/skills/` directories. Start a new project session;
 open `/plugin` to inspect the installation and type `/` to discover skill commands.
 Invoke `/status` to request a workflow explanation. For a defined change, invoke
 `/implement` and supply the outcome, acceptance criteria, TDD policy, and authority.
@@ -124,15 +124,15 @@ installation of `plugins/lusona/` excludes those repository records.
 Earlier isolated GitHub checks used published 1.3.2 through Claude compatibility; those
 historical observations do not describe the current root-manifest installation behavior.
 
-For the native **1.4.0** source and portable plugin in this checkout, strict validation
+For the native **1.4.0** source and portable plugin checked on **2026-10-31**, strict validation
 passed, discovering all thirteen skills. Earlier native lifecycle checks used version
 **1.3.2** and a synthetic **1.3.3** update in a network-isolated environment with disposable
 configuration: install, enabled-plugin/skill listing, reinstallation, and removal passed. The bundled Bash
 helper created a spec in the consuming test project; project records and unrelated
 configuration were preserved during update/removal. The real user configuration was untouched.
-The repository-root manifest also discovers all thirteen skills. Root validation passes
+At that check, the repository-root manifest also discovered thirteen skills. Root validation passed
 with a warning that the repository's `AGENTS.md` is not a plugin rule; strict validation
-therefore fails at the checkout root. The packaged root passes strict validation because
+therefore failed at the checkout root. The packaged root passed strict validation because
 repository instructions and project records are excluded from the package.
 Model-driven `status`/`specify` invocation and shared-resource loading by an agent have
 not been tested. App and standalone IDE installation and interactive behavior have not
@@ -228,7 +228,7 @@ TDD policy, and limits:
 > Use targeted TDD for the expiry boundary. Verify locally; do not deploy.
 
 You can start with any skill that fits your request. See the
-[command reference](plugins/lusona/references/workflow-guide.md#skills) for all thirteen skills and the
+[command reference](plugins/lusona/references/workflow-guide.md#skills) for all skills and the
 [batch examples](plugins/lusona/references/batch-use.md) for authorized unattended work.
 
 During authorized work, the agent saves project records under that project's

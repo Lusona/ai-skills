@@ -55,8 +55,10 @@ Statusabfrage erteilt keine Freigabe für neue Implementierungsarbeit.
 Bei einer neuen Idee hilft **explore**, Möglichkeiten und ihre Vor- und Nachteile zu
 untersuchen; **frame-product** klärt Nutzer, Problem und Produktausrichtung. Sobald diese
 Ausrichtung klarer wird, ermittelt **map-capabilities**, welche Funktionen das Produkt
-braucht und in welcher Reihenfolge sie sinnvoll umgesetzt werden können. **specify** und
-**architect** klären die nötigen Verhaltens- und Designentscheidungen für eine Änderung;
+braucht und in welcher Reihenfolge sie sinnvoll umgesetzt werden können. **specify** klärt
+Verhalten und Akzeptanzkriterien; **architect** trifft folgenreiche technische Entscheidungen
+über Grenzen, Verträge und Zuständigkeiten. **design** konzentriert sich auf UI-Mockups,
+Bildschirmabläufe und Diagramme und kann ohne vorherige Phase direkt angefragt werden.
 **implement** setzt eine freigegebene Änderung um und prüft das Ergebnis.
 
 Das sind typische Verläufe, keine vorgeschriebenen Phasen. Beginne mit dem Aufgabenbereich,
@@ -68,7 +70,8 @@ Implementierung unterbrechen; ein Review kann Anlass geben, einen Entwurf zu üb
 | --- | --- |
 | Orientierung gewinnen | [status](plugins/lusona/skills/status/SKILL.md): Fortschritt, offene Arbeit und den nächsten sinnvollen Schritt bewerten |
 | Ausrichtung entwickeln | [explore](plugins/lusona/skills/explore/SKILL.md): Möglichkeiten und ihre Vor- und Nachteile untersuchen<br/>[frame-product](plugins/lusona/skills/frame-product/SKILL.md): Nutzer, gewünschte Ergebnisse und Grenzen festlegen<br />[map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md): Funktionsumfang, Abhängigkeiten und Reihenfolge der Umsetzung erfassen |
-| Eine Änderung definieren | [specify](plugins/lusona/skills/specify/SKILL.md): Verhalten, Akzeptanzkriterien und TDD-Vorgaben vereinbaren |
+| Eine Änderung definieren | [specify](plugins/lusona/skills/specify/SKILL.md): Verhalten, Akzeptanzkriterien und TDD-Vorgaben vereinbaren<br />[architect](plugins/lusona/skills/architect/SKILL.md): folgenreiche technische Entscheidungen über Grenzen, Verträge und Zuständigkeiten treffen |
+| Visuell entwerfen | [design](plugins/lusona/skills/design/SKILL.md): UI-Mockups, Bildschirmabläufe und Diagramme erstellen |
 | Umsetzen und beurteilen | [implement](plugins/lusona/skills/implement/SKILL.md): eine Verhaltensänderung oder Fehlerkorrektur planen und umsetzen<br />[review](plugins/lusona/skills/review/SKILL.md): einen Diff auf Fehler und fehlende Prüfungen untersuchen<br />[refactor](plugins/lusona/skills/refactor/SKILL.md): die Struktur verbessern und dabei das Verhalten erhalten |
 | Belege gewinnen | [investigate](plugins/lusona/skills/investigate/SKILL.md): Ursachen oder Machbarkeit klären<br />[measure](plugins/lusona/skills/measure/SKILL.md): Größen, Qualität, Kosten oder Veränderungen feststellen<br />[experiment](plugins/lusona/skills/experiment/SKILL.md): eine gezielte Maßnahme oder Alternativen erproben |
 | Ausgewählte Arbeit koordinieren | [batch](plugins/lusona/skills/batch/SKILL.md): mehrere ausgewählte Ziele mit ausdrücklicher Erlaubnis zur unbeaufsichtigten Ausführung koordinieren |
@@ -99,6 +102,11 @@ Nenne die Frage oder das Ziel und die Grenzen der Befugnisse des Agenten. Zum Be
 > **explore:** Hilf mir, Einladungslinks mit Einladungen ausschließlich per E-Mail
 > zu vergleichen. Erkläre die Folgen für unser Supportteam, bevor wir uns entscheiden.
 > Führe dieses Gespräch im Chat; speichere keine Dateien.
+
+> **design:** Vergleiche zwei Einladungsabläufe mit unseren vorhandenen Ansichten,
+> Navigationselementen und Texten. Zeige die Schritte und den Zustand einer abgelaufenen
+> Einladung und erkläre die Vor- und Nachteile jeder Option. Erstelle nur den visuellen
+> Entwurf; implementiere die Oberfläche nicht.
 
 > **implement:** Lass Einladungen nach sieben Tagen ablaufen. Lass bereits angenommene
 > Einladungen unverändert. Fertig bedeutet: Einladungen, die älter als sieben Tage sind,
@@ -266,10 +274,26 @@ Weitere Arbeit muss eine sinnvolle Frage innerhalb des freigegebenen Umfangs und
 geltenden Budgets beantworten. Die Ergebnisse unterscheiden zwischen Belegen, Annahmen und
 Unsicherheit; ein vorgeschlagener Folgeschritt erteilt keine Freigabe für dessen Umsetzung.
 
-Diagramme und visuelle Alternativen kommen zum Einsatz, wenn sie bei einer Entscheidung
-helfen. Akzeptierte visuelle Referenzen bleiben unter `docs/lusona/visuals/` erhalten;
-ihre verbindlichen Vorgaben werden bei Implementierung und Review geprüft.
-Siehe [visuelle Darstellungen](plugins/lusona/references/visuals.md).
+Mehrere Skills unterstützen visuelle Arbeit: **explore** vergleicht visuelle Alternativen,
+um eine Richtung zu finden; **specify** nutzt Darstellungen, um Verhalten und Akzeptanzkriterien
+zu klären; **architect** nutzt technische Diagramme, um Grenzen, Verträge und Zuständigkeiten
+zu verdeutlichen. Nutze **design** gezielt für UI-Mockups, Bildschirmabläufe oder Diagramme,
+auch wenn der Entwurf bereits feststeht.
+
+UI-Entwürfe werden zur Prüfung im Browser geöffnet; ist das nicht möglich, nennt der Agent
+den absoluten HTML-Pfad. Diagramme und Diagrammalternativen stehen als Mermaid-Codeblöcke
+in einer Antwort oder Markdown-Datei. Wenn du einen Entwurf akzeptierst oder eine Option
+auswählst, speichert der Agent die entsprechende
+Referenz unter `docs/lusona/visuals/` und verlinkt sie aus der zugehörigen Spezifikation,
+dem ADR oder den Notizen, soweit Schreibrechte und Speichervorgaben es erlauben. UI-Aufnahmen
+hängen von den verfügbaren Werkzeugen ab; ohne Aufnahmemöglichkeit bleibt das HTML erhalten,
+und fehlende Bilder werden gemeldet.
+
+Die Referenz unterscheidet verbindliche Vorgaben von illustrativen Details. **implement**
+meldet den Status jeder verbindlichen Vorgabe; **review** prüft sie als erfüllt, nicht erfüllt
+oder ungeprüft. Bei UI-Referenzen mit gespeicherten Bildern vergleicht das Review Screenshots,
+wenn Rendering- und Aufnahmewerkzeuge verfügbar sind. Andernfalls prüft es Code oder Markup
+und meldet den visuellen Vergleich als nicht durchgeführt. Siehe [visuelle Darstellungen](plugins/lusona/references/visuals.md).
 
 Entscheidungsrelevante Messungen und Experimente liegen in `docs/lusona/evidence/` des
 Projekts, das Lusona nutzt. Spezifikationen, Notizen und Verlauf verlinken die genauen Läufe,

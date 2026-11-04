@@ -1,7 +1,7 @@
 # Visual options and references
 
-Read for explore, specify, and architect when a choice is easier to judge visually or a diagram
-clarifies the decision, and for implement and review when the
+Read for design, and for explore, specify, and architect when a choice is easier to judge
+visually or a diagram clarifies the decision, and for implement and review when the
 owning record links a visual reference. Paths under `docs/lusona/` are in the consuming project.
 
 ## When

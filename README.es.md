@@ -50,8 +50,10 @@ con status no autoriza nuevas tareas de implementación.
 Para una idea nueva, **explore** ayuda a examinar posibilidades y valorar sus ventajas e inconvenientes;
 **frame-product** ayuda a definir los usuarios, el problema y la dirección del producto. A medida que esa
 dirección se concreta, **map-capabilities** identifica qué debe permitir el producto y un orden de entrega
-útil. **specify** y **architect** resuelven las decisiones de comportamiento y diseño necesarias para un
-cambio; **implement** ejecuta y verifica un cambio autorizado.
+útil. **specify** aclara el comportamiento y los criterios de aceptación; **architect** resuelve
+decisiones técnicas importantes sobre límites, contratos y responsabilidades. **design** se centra
+en maquetas de interfaz, flujos de pantallas y diagramas; puedes pedirlo directamente sin pasar por
+otra etapa. **implement** ejecuta y verifica un cambio autorizado.
 
 Estas son formas habituales de desarrollar el trabajo, no etapas obligatorias. Empieza por el grupo
 que responda a la necesidad actual, omite las cuestiones resueltas y vuelve a cualquier grupo cuando las
@@ -62,7 +64,8 @@ implementación; una revisión puede revelar motivos para reconsiderar un diseñ
 | --- | --- |
 | Orientarse | [status](plugins/lusona/skills/status/SKILL.md): evaluar el progreso, el trabajo pendiente y la siguiente acción útil |
 | Definir la dirección | [explore](plugins/lusona/skills/explore/SKILL.md): examinar posibilidades y valorar sus ventajas e inconvenientes<br/>[frame-product](plugins/lusona/skills/frame-product/SKILL.md): definir usuarios, resultados y límites<br />[map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md): organizar la cobertura de capacidades, las dependencias y el orden de entrega |
-| Definir un cambio | [specify](plugins/lusona/skills/specify/SKILL.md): acordar el comportamiento, los criterios de aceptación y la política de TDD |
+| Definir un cambio | [specify](plugins/lusona/skills/specify/SKILL.md): acordar el comportamiento, los criterios de aceptación y la política de TDD<br />[architect](plugins/lusona/skills/architect/SKILL.md): resolver decisiones técnicas importantes sobre límites, contratos y responsabilidades |
+| Diseñar visualmente | [design](plugins/lusona/skills/design/SKILL.md): crear maquetas de interfaz, flujos de pantallas y diagramas |
 | Construir y evaluar | [implement](plugins/lusona/skills/implement/SKILL.md): planificar y entregar un cambio de comportamiento o una corrección<br />[review](plugins/lusona/skills/review/SKILL.md): examinar un diff para detectar defectos y aspectos sin verificar<br />[refactor](plugins/lusona/skills/refactor/SKILL.md): mejorar la estructura sin alterar el comportamiento |
 | Obtener evidencias | [investigate](plugins/lusona/skills/investigate/SKILL.md): determinar causas o viabilidad<br />[measure](plugins/lusona/skills/measure/SKILL.md): medir magnitud, calidad, coste o cambios<br />[experiment](plugins/lusona/skills/experiment/SKILL.md): probar una intervención o alternativas |
 | Coordinar el trabajo seleccionado | [batch](plugins/lusona/skills/batch/SKILL.md): coordinar varios resultados seleccionados con autorización expresa para trabajar sin supervisión |
@@ -92,6 +95,10 @@ Indica la pregunta o el resultado solicitado y los límites de los permisos del 
 > **explore:** Ayúdame a comparar los enlaces de invitación con las invitaciones solo por correo
 > electrónico. Explica las consecuencias para nuestro equipo de soporte antes de elegir. Mantén
 > esta conversación en el chat; no guardes archivos.
+
+> **design:** Compara dos flujos de invitación usando nuestras pantallas, navegación y textos
+> existentes. Muestra los pasos y el estado de invitación caducada, y explica las ventajas e
+> inconvenientes de cada opción. Limita el trabajo al diseño visual; no implementes la interfaz.
 
 > **implement:** Añade la caducidad de las invitaciones a los siete días. Conserva las invitaciones
 > ya aceptadas. El trabajo estará completo cuando se rechacen las invitaciones de más de siete días,
@@ -248,9 +255,26 @@ acciones. El trabajo adicional debe responder a una pregunta útil dentro del al
 el presupuesto aplicable. Las conclusiones distinguen evidencias, supuestos e incertidumbre;
 proponer un trabajo posterior no autoriza su implementación.
 
-Se usan diagramas y alternativas visuales cuando ayudan a resolver una elección. Las referencias
-visuales aceptadas se conservan en `docs/lusona/visuals/`, y sus requisitos vinculantes se comprueban
-durante la implementación y la revisión. Consulta [elementos visuales](plugins/lusona/references/visuals.md).
+Varias habilidades permiten trabajar con elementos visuales: **explore** compara alternativas
+visuales para elegir una dirección; **specify** usa elementos visuales para aclarar el comportamiento
+y los criterios de aceptación; **architect** usa diagramas técnicos para aclarar límites, contratos
+y responsabilidades. Usa **design** para centrarte en maquetas de interfaz, flujos de pantallas o
+diagramas, incluso cuando el diseño ya está decidido.
+
+Los borradores de interfaz se abren en el navegador para examinarlos; si no es posible abrirlos,
+el agente indica la ruta absoluta del HTML. Los diagramas y sus alternativas usan bloques Mermaid
+en la respuesta o en un archivo Markdown. Tras aceptar un borrador o elegir una opción, el agente
+conserva la referencia
+en `docs/lusona/visuals/` y la enlaza desde la especificación, ADR o notas correspondientes,
+respetando los permisos de escritura y las prohibiciones de guardar. Las capturas de interfaz
+dependen de las herramientas disponibles; si no puede capturarlas, conserva el HTML e indica
+qué imágenes faltan.
+
+La referencia distingue requisitos vinculantes de detalles ilustrativos. **implement** informa
+del estado de cada requisito vinculante y **review** comprueba si se cumple, no se cumple o no se
+ha comprobado. Para las interfaces con imágenes conservadas, la revisión compara capturas cuando
+hay herramientas para renderizar y capturar; en caso contrario, comprueba el código o marcado
+e indica que la comparación visual no se ha realizado. Consulta [elementos visuales](plugins/lusona/references/visuals.md).
 
 Las mediciones y los experimentos relevantes se guardan en `docs/lusona/evidence/` del proyecto que
 utiliza el plugin. Las especificaciones, notas y el historial enlazan las ejecuciones exactas en las

@@ -175,8 +175,9 @@ arise from narrower loading or supplemental domain skills.
 ## Personas and subagents
 
 Coordinator-only: coordinate questions, assignments, reconciliation, integration, verification, shared
-state. Delegate substantive framing, mapping, specification, architecture, implementation planning/
-execution, refactoring, investigation, measurement, experimentation, and review, except task-local
+state. Delegate substantive framing, mapping, specification, visual design, architecture,
+implementation planning/execution, refactoring, investigation, measurement, experimentation,
+and review, except task-local
 measurement/experiment checks under Work loop. Preliminary inspection is insufficient. Explore/status conversation and
 orientation may stay local; one sequential worker suffices.
 

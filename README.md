@@ -49,7 +49,9 @@ not authorize new implementation work.
 For a new idea, **explore** helps examine possibilities and tradeoffs; **frame-product** helps
 establish the users, problem, and product direction. As that direction becomes clearer,
 **map-capabilities** identifies what the product needs to support and useful delivery order.
-**specify** and **architect** resolve the behavior and design decisions needed for a change;
+**specify** clarifies behavior and acceptance criteria; **architect** resolves consequential
+technical decisions about boundaries, contracts, and ownership. **design** focuses on UI
+mockups, screen flows, and diagrams; you can request it directly without another stage first.
 **implement** carries an authorized change through execution and verification.
 
 These are common ways work develops, not required stages. Start with the group that fits the
@@ -61,7 +63,8 @@ reason to revisit a design.
 | --- | --- |
 | Orient | [status](plugins/lusona/skills/status/SKILL.md): assess progress, remaining work, and the next useful action |
 | Develop direction | [explore](plugins/lusona/skills/explore/SKILL.md): examine possibilities and tradeoffs<br/>[frame-product](plugins/lusona/skills/frame-product/SKILL.md): establish users, outcomes, and boundaries<br />[map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md): map coverage, dependencies, and delivery order |
-| Define a change | [specify](plugins/lusona/skills/specify/SKILL.md): agree on behavior, acceptance criteria, and TDD policy
+| Define a change | [specify](plugins/lusona/skills/specify/SKILL.md): agree on behavior, acceptance criteria, and TDD policy<br />[architect](plugins/lusona/skills/architect/SKILL.md): resolve consequential technical decisions about boundaries, contracts, and ownership |
+| Design visually | [design](plugins/lusona/skills/design/SKILL.md): create UI mockups, screen flows, and diagrams |
 | Build and assess | [implement](plugins/lusona/skills/implement/SKILL.md): plan and deliver a behavior change or fix<br />[review](plugins/lusona/skills/review/SKILL.md): inspect a diff for defects and verification gaps<br />[refactor](plugins/lusona/skills/refactor/SKILL.md): improve structure while preserving behavior |
 | Establish evidence | [investigate](plugins/lusona/skills/investigate/SKILL.md): establish causes or feasibility<br />[measure](plugins/lusona/skills/measure/SKILL.md): establish magnitude, quality, cost, or change<br />[experiment](plugins/lusona/skills/experiment/SKILL.md): test an intervention or alternatives |
 | Coordinate selected work | [batch](plugins/lusona/skills/batch/SKILL.md): coordinate several selected outcomes under explicit unattended-work authority |
@@ -88,6 +91,10 @@ Name the question or outcome and the limits of the agent's authority. For exampl
 
 > **explore:** Help me compare invitation links and email-only invitations. Explain the
 > consequences for our support team before we choose. Keep this discussion in chat; do not save files.
+
+> **design:** Compare two invitation flows using our existing screens, navigation, and copy.
+> Show the steps and the expired-invitation state, and explain each option’s tradeoff.
+> Keep this to visual design; do not implement the UI.
 
 > **implement:** Add invitation expiry after seven days. Preserve existing accepted invitations.
 > Done means: invitations older than seven days are rejected, accepted invitations are unchanged,
@@ -231,9 +238,24 @@ Investigation, measurement, and experiments can inform any action group. Further
 answer a useful question within the authorized scope and applicable budget. Findings distinguish
 evidence, assumptions, and uncertainty; a proposed follow-up does not authorize its implementation.
 
-Diagrams and visual alternatives are used when they help resolve a choice. Accepted visual
-references are retained under `docs/lusona/visuals/`, with the binding requirements checked
-during implementation and review. See [visuals](plugins/lusona/references/visuals.md).
+Visual work is available in several skills: **explore** compares visual alternatives to help
+you choose a direction; **specify** uses visuals to clarify behavior and acceptance criteria;
+**architect** uses technical diagrams to clarify boundaries, contracts, and ownership. Use
+**design** for focused UI mockups, screen flows, or diagrams, including an already settled design.
+
+UI drafts open in the browser for inspection; when opening is unavailable, the agent reports
+the absolute HTML path. Diagrams and diagram alternatives use fenced Mermaid in a reply or
+Markdown file. After you accept a draft or choose an option, the agent retains the reference under
+`docs/lusona/visuals/` and links it from the owning spec, ADR, or notes, subject to write and
+no-save restrictions. UI capture uses available tools; if capture is unavailable, the HTML
+is retained and missing images are reported.
+
+The reference distinguishes binding requirements from illustrative details. **implement**
+reports each binding item’s status, and **review** checks each as met, unmet, or unchecked.
+For UI references with retained images, review compares screenshots when rendering and capture
+tools are available; otherwise it checks code or markup and reports the visual comparison as
+unrun. See
+[visuals](plugins/lusona/references/visuals.md).
 
 Material measurements and experiments live in the consuming project’s `docs/lusona/evidence/`.
 Specs, notes, and history link the exact runs they rely on; existing records stay in place.
