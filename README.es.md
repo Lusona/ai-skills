@@ -335,8 +335,8 @@ Ejemplo ilustrativo de traspaso; no demuestra que se haya realizado el trabajo:
 
 Cuando queda trabajo pendiente, la siguiente acción indica quién la realizará, qué información
 necesita y qué permisos faltan. La conversación habitual no necesita una estructura de informe.
-El formato ilustrado está en fase de prueba; el formato que solicites y las restricciones de la
-aplicación tienen prioridad, y no se ha comprobado su comportamiento en las distintas aplicaciones.
+El formato ilustrado es el formato predeterminado permanente; el formato que solicites y las
+restricciones de la aplicación tienen prioridad.
 Consulta [revisión y comunicación](plugins/lusona/README.md#review-and-communication).
 
 <a id="reference"></a>

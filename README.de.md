@@ -355,9 +355,8 @@ Beispiel einer Übergabe, kein Nachweis geleisteter Arbeit:
 
 Bleibt Arbeit übrig, nennt der nächste Schritt die zuständige Person oder den zuständigen
 Agenten, die nötigen Informationen und noch fehlende Freigaben. Gewöhnliche Gespräche
-brauchen kein Berichtsformat. Das gezeigte Format wird erprobt; dein gewünschtes Format
-und die Einschränkungen der Anwendung haben Vorrang. Wie es sich in den verschiedenen
-Anwendungen verhält, ist noch nicht überprüft. Siehe
+brauchen kein Berichtsformat. Das gezeigte Format ist der feste Standard; dein gewünschtes
+Format und die Einschränkungen der Anwendung haben Vorrang. Siehe
 [Review und Kommunikation](plugins/lusona/README.md#review-and-communication).
 
 <a id="reference"></a>

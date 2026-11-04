@@ -304,9 +304,8 @@ Illustrative handoff, not evidence of work performed:
 > the agent can then implement and verify that bounded fix.
 
 When work remains, the next action names its owner, required inputs, and any missing authority.
-Ordinary conversation needs no report structure. The illustrated format is a trial; your
-requested format and host constraints take precedence, and behavior across hosts has not been
-established. See [review and communication](plugins/lusona/README.md#review-and-communication).
+Ordinary conversation needs no report structure. The illustrated format is the standing default; your
+requested format and host constraints take precedence. See [review and communication](plugins/lusona/README.md#review-and-communication).
 
 ## Reference
 

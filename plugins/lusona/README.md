@@ -143,8 +143,8 @@ briefly then continue authorized work. For user-visible
 changes give concrete actions/expected results. Update existing product/architecture documentation for
 enduring behavior/constraint changes, distinguishing proposals from current behavior.
 
-For this provisional trial, substantive assessments and handoffs default to **Result**, **Evidence**,
-and **Next action** labels or headings, keeping blocking decisions first. Use `None for this request`
+Substantive assessments and handoffs default to **Result**, **Evidence**, and **Next action**
+labels or headings, keeping blocking decisions first. Use `None for this request`
 when complete. Pair Result with **✅ Complete**, **🔄 In progress**, **❓ Needs input**, or **⏸ Paused**:
 fulfilled scope, continuing work, missing prerequisite, or affected work awaiting resumption. Status
 describes the response or authorized outcome, not queue state; a finished assessment need not mean
@@ -155,7 +155,7 @@ Use lists for parallel items and steps, and tables for useful comparisons. Statu
 queue states; comparisons use stable useful columns (e.g. `Option | Benefit | Tradeoff`). Preserve
 specialized tables and schemas. User and host formatting overrides these defaults; retain outcome,
 evidence, and next action with supported formatting and status words. Lusona owns meaning, priority,
-and actionability; the trial establishes no behavior across hosts.
+and actionability.
 
 ## Assigned leaves
 
