@@ -128,7 +128,7 @@ Anfrage oder als dauerhafte Einstellung fest:
 
 Hinterlege eine dauerhafte Einstellung in der `docs/lusona/README.md` des Projekts oder in den
 Agentenanweisungen (`CLAUDE.md` oder `AGENTS.md`), zum Beispiel
-`TDD: targeted for changed behavior`. Ohne ausdrückliche Auswahl kann der Agent untersuchen
+`TDD: targeted for validation and persistence boundaries`. Ohne ausdrückliche Auswahl kann der Agent untersuchen
 und planen; vor der Implementierung fragt er nach.
 
 <a id="installation"></a>
@@ -305,11 +305,11 @@ auf denen sie beruhen; bestehende Aufzeichnungen bleiben an ihrem Ort.
 ## Wiederherstellung und Fortsetzung
 
 Der Agent speichert wesentliche Entscheidungen, Erkenntnisse und Prüfbelege vor einer Übergabe
-oder dem Abschluss in den Projektaufzeichnungen. Notizen sind die Standardaufzeichnung für
-direkte Arbeit; eine Spezifikation und ein Eintrag in der Warteschlange werden verwendet, wenn du
-Nachverfolgung verlangst, wenn eine spätere Sitzung die Arbeit fortsetzen wird oder wenn bereits
-eine Spezifikation existiert. Ein Ergebnis, das vollständig in die Antwort passt, braucht keine
-Datei. Vorgaben zu reinem Lesezugriff, Speicherverboten und Ablageorten haben Vorrang.
+oder dem Abschluss in den Projektaufzeichnungen. Eine Spezifikation und ein Eintrag in der
+Warteschlange werden immer dann angelegt, wenn der Workflow eine Spezifikation vorsieht, wenn du
+eine verlangst oder Nachverfolgung wünschst oder wenn bereits eine existiert; die Größe
+entscheidet nicht darüber. Direkte Arbeit ohne Spezifikation verwendet Notizen. Gewöhnliche
+Unterhaltung und kurze Statusmeldungen brauchen keine Datei. Vorgaben zu reinem Lesezugriff, Speicherverboten und Ablageorten haben Vorrang.
 
 Die Aufzeichnungen halten das Ziel, die Befugnisse, die TDD-Vorgaben, aktuelle Entscheidungen,
 nützliche Belege, offene Fragen und den nächsten Schritt fest, bei Bedarf auch
@@ -371,7 +371,8 @@ Format und die Einschränkungen der Anwendung haben Vorrang. Siehe
 - [Batch-Ausführung und Wiederherstellung](plugins/lusona/references/batch-execution.md)
 - [Aufzeichnungen und Aufbewahrung](plugins/lusona/references/retention.md)
 - [Abschluss und Wiederaufnahme](plugins/lusona/references/closeout.md)
-- [Delegation und Modellzuordnung](plugins/lusona/references/delegation.md)
+- [Delegation](plugins/lusona/references/delegation.md)
+- [Modellzuordnung](plugins/lusona/references/model-routing.md)
 
 <a id="contributing"></a>
 ## Mitwirken

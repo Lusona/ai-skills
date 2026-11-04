@@ -73,8 +73,9 @@ Small clear work needs no task list; retain its substantive output under the Con
   amendments, and rewriting others' or shared/published history need separate authority. Before
   commits/integration read [commits](references/commits.md), including staging and linear-history rules.
 - Project-data paths belong to the consuming repository; bundled links resolve relative to the loaded
-  resource. Never save project data in installed plugin resources. Only coordinators write shared queues
-  and saved handoffs.
+  resource. Never save project data in installed plugin resources. Only coordinators write shared queues,
+  batch records, and the handoffs saved in them; a leaf with write ownership of a change record or
+  notes may update that record's current handoff and returns other handoff changes to the parent.
 - Save substantive workflow outputs before handoff or completion, proportionate to the work, under
   [retention](references/retention.md), which owns the record choice, the spec and queue
   requirement, and the no-record cases. Explicit read-only, no-save, destination limits, and write
@@ -143,8 +144,8 @@ briefly then continue authorized work. For user-visible
 changes give concrete actions/expected results. Update existing product/architecture documentation for
 enduring behavior/constraint changes, distinguishing proposals from current behavior.
 
-Substantive assessments and handoffs default to **Result**, **Evidence**, and **Next action**
-labels or headings, keeping blocking decisions first. Use `None for this request`
+Substantive assessments and handoff replies addressed to the user default to **Result**,
+**Evidence**, and **Next action** labels or headings, keeping blocking decisions first. Use `None for this request`
 when complete. Pair Result with **✅ Complete**, **🔄 In progress**, **❓ Needs input**, or **⏸ Paused**:
 fulfilled scope, continuing work, missing prerequisite, or affected work awaiting resumption. Status
 describes the response or authorized outcome, not queue state; a finished assessment need not mean
@@ -155,7 +156,8 @@ Use lists for parallel items and steps, and tables for useful comparisons. Statu
 queue states; comparisons use stable useful columns (e.g. `Option | Benefit | Tradeoff`). Preserve
 specialized tables and schemas. User and host formatting overrides these defaults; retain outcome,
 evidence, and next action with supported formatting and status words. Lusona owns meaning, priority,
-and actionability.
+and actionability. Assignment results returned to a coordinator use the fields in
+[Assignment results](references/delegation.md#assignment-results) instead.
 
 ## Assigned leaves
 

@@ -8,7 +8,7 @@ instructions (`CLAUDE.md` or `AGENTS.md`). Record selection and source in the ow
 record under [retention](retention.md); use conversation when saving is prohibited or unavailable.
 Unset TDD permits definition
 and planning, not implementation; no definition phase is required for a clear request. When unset,
-recommend a level and ask through the contract's question guidance.
+recommend a level and ask under [Questions and next actions](../README.md#questions-and-next-actions).
 
 | Level | Requirement |
 | --- | --- |

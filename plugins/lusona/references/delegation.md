@@ -12,7 +12,7 @@ self-assign another workflow skill/phase. Additional work requires a new assignm
 an explicit grant. Domain skills supplement assigned scope without expanding responsibility or authority.
 Route missing/contradictory context, questions, and recommended next actions to the coordinator;
 it reconciles findings, asks users through the permitted native tool, and alone writes shared
-queues/saved handoffs. Preserve the result and stop owned work before cooperating with shutdown;
+queues, batch records, and their handoffs. Preserve the result and stop owned work before cooperating with shutdown;
 report unfinished operations preventing safe shutdown.
 
 ## Assignment results
@@ -25,7 +25,8 @@ Final reports contain these fields (`none` where applicable):
 - Remaining work and concerns: unfinished scope, findings, limits, blockers.
 - Recovery: retained work, active operations/children, next action/input.
 - Correction rounds: for correction/diagnostic work, each round, material progress, resulting
-  consecutive/total counts for the failure under [correction limits](corrections.md).
+  consecutive/total counts for the failure under [correction limits](corrections.md), or the
+  charged rounds under the batch repair budget inside a batch.
 
 | Status | Meaning |
 | --- | --- |

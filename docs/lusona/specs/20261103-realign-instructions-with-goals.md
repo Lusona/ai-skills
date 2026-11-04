@@ -63,15 +63,15 @@ Context: [Audit baseline and rationale](#evidence); [Why we built Lusona Skills]
   the phrases "without a separate save request", "does not authorize", and "permitted native
   question tool" outside a link to the owning section; the check passes after the change.
   Each skill keeps its persona and judgment, distinctive rules, and Next action section.
-- [x] AC3: Proportional records. Retention, queue, implement, refactor, specify, and the
-  spec and notes templates no longer require a record "even for small work". The default
-  owner for direct work is notes; a spec and queue row are required when the user requests
-  tracking, when the work is expected to be resumed by a later session, or when a spec
-  already exists. Delegated assignments and handoffs within one session keep their handoff
-  in notes or the owning record and do not trigger a spec. No record is needed when the
-  reply contains the whole result and nothing is needed to resume or to explain a later
-  decision; otherwise a short notes entry. Creating or updating a spec still requires its
-  queue row. Material evidence
+- [x] AC3: Proportional records (amended 2026-11-03, see Decisions). Retention, queue,
+  implement, refactor, specify, and the spec and notes templates no longer require a record
+  "even for small work". A spec and queue row are required whenever the workflow calls for a
+  spec (Specify defines every change in one), the user requests a spec or tracking, or a spec
+  already exists; size and scope do not decide this. Direct implement or refactor work without
+  a spec uses notes; investigations, measurements, and experiments use notes and evidence
+  records. Delegated assignments and handoffs within one session keep their handoff in notes
+  or the owning record. Ordinary dialogue and brief status need no record. Creating or
+  updating a spec still requires its queue row. Material evidence
   records are required for comparative claims and named test-first behaviors; routine
   verification stays with its owner.
 - [x] AC4: One skill catalog and one canonical skill-routing table. Both live only in
@@ -138,6 +138,11 @@ Context: [Audit baseline and rationale](#evidence); [Why we built Lusona Skills]
   the always-loaded core. User feedback names knowing the next action as the most valued
   part of the workflow; removing ambiguity about where to go next is a central goal, so the
   format is an invariant, not an optional procedure.
+- Decision, 2026-11-03 (user, after the contradiction review): a spec is recorded whenever the
+  workflow calls for one or the user requests one; size and scope are not deciding factors,
+  because a rigid rule is simpler than judging each case. The "resumed by a later session"
+  trigger is removed, Specify always produces a spec, and investigations, measurements, and
+  experiments use notes and evidence. AC3 amended accordingly.
 - No consequential architecture decision identified; no ADR.
 
 ### TDD policy
@@ -236,6 +241,16 @@ Implementation, 2026-11-03. Exact runs: [evidence](../evidence/2026-11-03-realig
   and R3 below. R1 (specify created a spec unconditionally): record selection now follows
   retention first, the spec creation, queue reconciliation, and returned path are conditional
   on a spec being required, and the independent-review R1–R3 section below records the findings.
+- Contradiction review, 2026-11-03, after the version bump to 2.0.0 (fresh read-only agent over
+  the core, all references, 14 skills, templates, and the root README): 0 P1, 6 P2, 8 P3; all
+  links and anchors resolved. All 14 corrected on the user's instruction: spec trigger
+  (decision above); saved-handoff definition in the core, delegation, and queue; implement's
+  closeout routed to the coordinator; correction counts in retention's list and the notes
+  handoff; assignment results versus the user-facing format in the core; study-entry authority
+  in the routing preamble; TDD question link; batch repair budget in assignment results; the
+  root README's targeted-TDD example; review queue-write sentence; batch links to its shared
+  rules; Leaf in the terminology table; presentation scope; root README reference list and
+  records paragraph. Translations follow the root README changes with parity checks.
 - Translations, 2026-11-03, on the user's request: the four translated READMEs carry the new
   workflow-guide sentence and the rewritten records paragraph. Parity check
   (`tmp/readme-localization/check.py`): section hierarchy, link targets, anchors, command blocks,
@@ -357,9 +372,9 @@ authorized correction starts, then recheck the changed instructions and checker 
 - Authorized work: implement AC1–AC7 (`lusona:implement`, 2026-11-03); translations and
   commit authorized by the user on 2026-11-03. Push and publication are not authorized.
 - Completed and remaining work: AC1–AC7 implemented, verified, independently reviewed, and
-  corrected after two review rounds (P2-1, P2-2, R1–R3); translations aligned with parity
-  checks; committed. Queue state Review. Remaining: the user's acceptance after using the
-  plugin in another project.
+  corrected after three review rounds (P2-1, P2-2, R1–R3, contradiction review 1–14);
+  translations aligned with parity checks; committed; version 2.0.0. Queue state Review.
+  Remaining: the user's acceptance after using the plugin in another project.
 - Ownership: parent owns all records; no active workers or children.
 - Try it: install from this checkout (INSTALL.md, local checkout) in another project, start a
   new session, run `/lusona:status` and one `/lusona:implement` with explicit TDD. Expected:

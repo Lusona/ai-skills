@@ -22,7 +22,7 @@ a background execution guarantee.
   Freeze membership before execution; discovered work remains outside it. Queue presence,
   Ready state, and selection alone are not implementation authority.
 - Record authority, routine decision delegation, TDD/completion references, and existing active
-  ownership under the shared batch exceptions. Reconcile ownership before claiming work;
+  ownership under the [batch execution exceptions](../../references/batch-execution.md). Reconcile ownership before claiming work;
   reuse settled decisions and verified results only while their inputs still match.
 - Create `docs/lusona/batches/<batch-slug>.md` in the consuming project from
   [the batch template](../../templates/batch.md). Derive the slug with
@@ -35,8 +35,8 @@ a background execution guarantee.
 - Record a requested assignment ceiling of four by default, or five if selected, reduced by
   host capacity. All responsibilities and nested grants share one pool. Reserve parent occupancy when
   the host counts it; a four-agent host permits at most three delegates alongside the parent.
-  Parent-executed specialist assignments are permitted only under the shared local fallback
-  conditions and also consume the assignment pool; waiting agents still occupy host capacity. Record both limits and actual grants. Default to two corrective rounds per item.
+  Parent-executed specialist assignments are permitted only under the core's
+  [local fallback conditions](../../README.md#personas-and-subagents) and also consume the assignment pool; waiting agents still occupy host capacity. Record both limits and actual grants. Default to two corrective rounds per item.
 - Read [execution and recovery](references/execution.md) before dispatch, production edits,
   or resumption. Only the parent writes coordination facts; requirements and evidence remain
   in their existing owning documents. Use the record helper for independent creation and handle its collision responses.
@@ -79,7 +79,7 @@ writers. Safe deferral releases scheduling capacity without rewinding the queue'
 Dependent items needing the missing result remain ineligible; continue independent selected work.
 If safe separation or ownership cannot be established, stop and preserve the recoverable state.
 
-Apply the shared batch completion gates to final relevant content, including independent review
+Apply the [batch completion gates](../../references/batch-execution.md) to final relevant content, including independent review
 and any required human acceptance or delivery. The parent performs
 [closeout](../../references/closeout.md), verifies preserved links, and updates batch
 pointers to history before removing completed queue rows.

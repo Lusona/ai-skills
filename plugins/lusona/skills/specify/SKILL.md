@@ -28,13 +28,13 @@ capabilities; a bug fix or direct bounded request does not require product defin
   in the agreement. Clarify missing preferences only when they materially affect the outcome;
   a clear visual request does not require a design interview.
 - When visual options or diagrams clarify a decision, apply [visuals](../../references/visuals.md).
-- Choose the record under [retention](../../references/retention.md): a one-off clarification
-  can stay in the reply or in notes. When a spec is required, create or update
-  `docs/lusona/specs/<change-id>.md` from [the spec template](../../templates/spec.md) using the
-  helper and [naming rules](../../references/naming.md), reusing existing specs or legacy feature
-  documents. An already clear request can proceed directly to authorized implementation. Link an
-  external issue or ticket when provided; do not create one or copy a full ticket into a second
-  maintained specification by default.
+- Create or update `docs/lusona/specs/<change-id>.md` from
+  [the spec template](../../templates/spec.md) using the helper and
+  [naming rules](../../references/naming.md); every definition produces a spec regardless of
+  size, reusing existing specs or legacy feature documents under
+  [retention](../../references/retention.md). An already clear request can proceed directly to
+  authorized implementation. Link an external issue or ticket when provided; do not create one
+  or copy a full ticket into a second maintained specification by default.
 - Propose `none`, `targeted`, or `strict` under the [TDD rules](../../references/tdd.md).
   Record the user's choice or standing preference if supplied; otherwise leave it unset and ask.
 - Define observable outcomes, not a proposed implementation. Preserve user-required or established
@@ -48,13 +48,12 @@ capabilities; a bug fix or direct bounded request does not require product defin
   requirements, and unresolved decisions that block the selected work. Fix routine omissions
   from known evidence; preserve unknowns as explicit questions rather than inventing answers.
   This check does not add a review cycle or another approval gate.
-- When a spec exists, reconcile its row under the [queue rules](../../references/queue.md).
+- Reconcile the spec's row under the [queue rules](../../references/queue.md).
   Agree what completion means, including human acceptance or delivery when required. Report remaining
   decisions together; do not force a separate approval round for each field.
 
 ## Next action
 
-Return the record (spec path, notes, or the agreement in the reply) and any unresolved
-decisions together. Ask a blocking behavior, scope,
+Return the spec path and any unresolved decisions together. Ask a blocking behavior, scope,
 or TDD question; otherwise name the next action from unmet criteria or uncertainty: an
 experiment, a consequential design decision, or an authorized increment.

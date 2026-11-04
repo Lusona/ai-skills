@@ -107,7 +107,7 @@ Cursor では Agent チャットで `/` を入力し、スキルを選びます�
 - `strict`：変更する動作のうち、テスト可能なものすべてについて、テストを先に書きます。
 
 共通の設定は、プロジェクトの `docs/lusona/README.md` またはエージェントへの指示
-（`CLAUDE.md` や `AGENTS.md`）に記載します。例：`TDD: targeted for changed behavior`。
+（`CLAUDE.md` や `AGENTS.md`）に記載します。例：`TDD: targeted for validation and persistence boundaries`。
 明示的な選択がない場合、エージェントは確認と計画まで進め、実装前に質問します。
 
 <a id="installation"></a>
@@ -259,8 +259,9 @@ UI の草案はブラウザーで開いて確認します。開けない場合�
 ## 復旧と再開
 
 エージェントは、引き継ぎや完了の前に、重要な判断、調査結果、検証の根拠をプロジェクトの記録に残します。
-直接進める作業では、ノートが既定の記録です。利用者が追跡を求めた場合、後のセッションで作業を再開する場合、
-すでに仕様書がある場合は、仕様書とキューの行を使います。返答に収まる結果にはファイルは不要です。
+ワークフローが仕様書を求める場合、利用者が仕様書や追跡を求めた場合、すでに仕様書がある場合は、
+必ず仕様書とキューの行を記録します。規模は判断基準ではありません。仕様書のない直接の作業にはノートを
+使います。通常の対話や簡単な状況報告にファイルは不要です。
 読み取り専用、保存禁止、保存先の制約を優先します。
 
 記録には、目指す成果、権限、TDD 方針、現在の判断、有用な根拠、未解決の問い、次の作業を残します。
@@ -311,7 +312,8 @@ UI の草案はブラウザーで開いて確認します。開けない場合�
 - [バッチ実行と復旧](plugins/lusona/references/batch-execution.md)
 - [記録と保持](plugins/lusona/references/retention.md)
 - [完了処理と再オープン](plugins/lusona/references/closeout.md)
-- [委任とモデルの割り当て](plugins/lusona/references/delegation.md)
+- [委任](plugins/lusona/references/delegation.md)
+- [モデルの割り当て](plugins/lusona/references/model-routing.md)
 
 <a id="contributing"></a>
 ## 貢献

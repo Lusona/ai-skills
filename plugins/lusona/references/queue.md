@@ -2,7 +2,7 @@
 
 Read when creating, updating, or using a spec, or maintaining or assessing tracked state, selection, or parking.
 
-The coordinator alone updates queue and saved handoff state during authorized work. The queue
+The coordinator alone updates queue state and the queue and batch handoffs during authorized work. The queue
 tracks whole outcomes, not individual coding tasks; Ready does not authorize execution.
 Prefer finishing active work before starting another item. A blocker or pending acceptance
 need not prevent independent work already authorized by the user, provided writers and unfinished
@@ -56,7 +56,7 @@ any required acceptance or delivery. Failed or unrun required checks block compl
 tests do not establish human acceptance. Return rejected work to Doing for authorized correction,
 or Ideas/Ready when scope needs reconsideration. A transition does not authorize fixes.
 Completed items stay Done unless explicitly reopened; separately requested refactoring may use
-its own item. Reviews recommend a state without writing the queue unless saving is authorized.
+its own item. Reviews recommend a state without writing the queue.
 
 Before removing a completed row or reopening archived work, the coordinator applies
 [closeout](closeout.md), preserving history and affected links.

@@ -61,7 +61,7 @@ Maintain existing separate plans in place; do not migrate records or create a co
 - Evaluate success against agreed behavior, not task completion. Record human acceptance only
   when given.
 - Record results, check and review evidence, limitations, and the current handoff in the owning
-  change record under [retention](../../references/retention.md), and apply
+  change record under [retention](../../references/retention.md); the coordinator applies
   [closeout](../../references/closeout.md) before removing a Done row.
 
 ## Commit verified increments

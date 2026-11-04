@@ -119,7 +119,7 @@ preferencia permanente:
 - `strict`: escribir primero las pruebas de cada comportamiento comprobable que se modifique.
 
 Guarda una preferencia permanente en `docs/lusona/README.md` del proyecto o en las instrucciones
-para agentes (`CLAUDE.md` o `AGENTS.md`), por ejemplo `TDD: targeted for changed behavior`.
+para agentes (`CLAUDE.md` o `AGENTS.md`), por ejemplo `TDD: targeted for validation and persistence boundaries`.
 Sin una elección explícita, el agente puede inspeccionar y planificar, pero pregunta antes de implementar.
 
 <a id="installation"></a>
@@ -286,10 +286,11 @@ que se basan; los registros existentes permanecen en su lugar.
 ## Recuperación y reanudación
 
 El agente guarda las decisiones, conclusiones y evidencias de verificación sustantivas en los
-registros del proyecto antes de un traspaso o de dar por terminado el trabajo. Las notas son el
-registro predeterminado para el trabajo directo; se usan una especificación y una fila en la cola
-cuando pides seguimiento, cuando el trabajo lo reanudará una sesión posterior o cuando ya existe
-una especificación. Un resultado que cabe por completo en la respuesta no necesita ningún archivo.
+registros del proyecto antes de un traspaso o de dar por terminado el trabajo. Se registran una
+especificación y una fila en la cola siempre que el flujo de trabajo requiera una especificación,
+cuando la pides o solicitas seguimiento, o cuando ya existe una; el tamaño no lo decide. El trabajo
+directo sin especificación usa notas. La conversación habitual y los avisos breves de estado no
+necesitan ningún archivo.
 Las restricciones de solo lectura, las prohibiciones de guardar y las limitaciones del lugar de
 almacenamiento tienen prioridad.
 
@@ -351,7 +352,8 @@ Consulta [revisión y comunicación](plugins/lusona/README.md#review-and-communi
 - [Ejecución de lotes y recuperación](plugins/lusona/references/batch-execution.md)
 - [Registros y conservación](plugins/lusona/references/retention.md)
 - [Cierre y reapertura](plugins/lusona/references/closeout.md)
-- [Delegación y asignación de modelos](plugins/lusona/references/delegation.md)
+- [Delegación](plugins/lusona/references/delegation.md)
+- [Asignación de modelos](plugins/lusona/references/model-routing.md)
 
 <a id="contributing"></a>
 ## Contribuir

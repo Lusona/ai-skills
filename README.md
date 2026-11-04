@@ -114,7 +114,7 @@ standing preference:
 - `strict`: use test-first sequencing for every changed testable behavior.
 
 Put a standing preference in the project's `docs/lusona/README.md` or agent instructions
-(`CLAUDE.md` or `AGENTS.md`), for example `TDD: targeted for changed behavior`. Without an
+(`CLAUDE.md` or `AGENTS.md`), for example `TDD: targeted for validation and persistence boundaries`. Without an
 explicit selection, the agent can inspect and plan, then asks before implementation.
 
 ## Installation
@@ -265,10 +265,10 @@ Specs, notes, and history link the exact runs they rely on; existing records sta
 ## Recovery and resumption
 
 The agent saves substantive decisions, findings, and verification evidence in project records
-before a handoff or completion. Notes are the default record for direct work; a spec and queue
-row are used when you request tracking, when the work will be resumed by a later session, or
-when a spec already exists. A result that fits entirely in the reply needs no file. Read-only,
-no-save, and destination restrictions take precedence.
+before a handoff or completion. A spec and queue row are recorded whenever the workflow calls
+for a spec, you request one or ask for tracking, or a spec already exists; size does not decide
+this. Direct work without a spec uses notes. Ordinary dialogue and brief status need no file.
+Read-only, no-save, and destination restrictions take precedence.
 
 Records retain the outcome, authority, TDD policy, current decisions, useful evidence, unresolved
 questions, and next action, plus ownership and correction counts where needed. Consequential
@@ -318,7 +318,8 @@ requested format and host constraints take precedence. See [review and communica
 - [Batch execution and recovery](plugins/lusona/references/batch-execution.md)
 - [Records and retention](plugins/lusona/references/retention.md)
 - [Closeout and reopening](plugins/lusona/references/closeout.md)
-- [Delegation and model routing](plugins/lusona/references/delegation.md)
+- [Delegation](plugins/lusona/references/delegation.md)
+- [Model routing](plugins/lusona/references/model-routing.md)
 
 ## Contributing
 

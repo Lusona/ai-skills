@@ -3,10 +3,12 @@
 Context: <work item or bounded question; link an existing owning record when available>
 
 Save substantive understanding, alternatives, decisions, open questions, or findings without
-an existing owner. Notes are the default owner for direct work: retain agreement, decisions,
-explicit TDD/source, checks/evidence, and in-session handoffs here without queue tracking,
-unless the user requests tracking, the work will be resumed by a later session, or a spec
-already exists. Creating a spec requires tracking; existing tracked work remains tracked.
+an existing owner. Notes are the owner for direct implement or refactor work without a spec
+and for investigations, measurements, and experiments: retain agreement, decisions, explicit
+TDD/source, checks/evidence, and in-session handoffs here without queue tracking. A spec is
+required whenever the workflow calls for one, the user requests a spec or tracking, or a spec
+already exists; size and scope do not decide this. Creating a spec requires tracking; existing
+tracked work remains tracked.
 Use one dated section per
 distinct question; update it as evidence changes instead of appending a session diary.
 For material measurements and experiments, link exact saved runs;
@@ -40,4 +42,5 @@ Replace it as work progresses. Do not duplicate evidence or queue state here.
 - Authorized work: <outcome, scope and source; TDD and source when applicable; findings alone do not authorize a fix>
 - Open questions or blockers:
 - Ownership: <current owner when needed for recovery>
+- Correction rounds: <failure, consecutive and total counts, last material progress; omit when none>
 - Next action: <owner, bounded action, and required inputs>

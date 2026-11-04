@@ -80,7 +80,7 @@ Lusona 的编程智能体技能围绕同一套工作循环协同运作：
 - `targeted`：对指定行为先写测试，再实现。
 - `strict`：对每项发生变更且可测试的行为，先写测试，再实现。
 
-可将长期偏好写入项目的 `docs/lusona/README.md` 或智能体指令文件（`CLAUDE.md` 或 `AGENTS.md`），例如 `TDD: targeted for changed behavior`。如果没有明确选择，智能体可以检查和规划，但会在实现前询问。
+可将长期偏好写入项目的 `docs/lusona/README.md` 或智能体指令文件（`CLAUDE.md` 或 `AGENTS.md`），例如 `TDD: targeted for validation and persistence boundaries`。如果没有明确选择，智能体可以检查和规划，但会在实现前询问。
 
 <a id="installation"></a>
 ## 安装
@@ -190,7 +190,7 @@ flowchart TD
 <a id="recovery-and-resumption"></a>
 ## 恢复与继续工作
 
-智能体会在交接或完成工作之前，将实质性的决策、工作结论和验证依据保存到项目记录中。直接开展的工作默认使用笔记作为记录；当你要求跟踪、工作将由后续会话继续，或已存在规格说明时，使用规格说明和队列条目。能够完整写在回复中的结果无须写入文件。只读、禁止保存和保存位置方面的限制优先适用。
+智能体会在交接或完成工作之前，将实质性的决策、工作结论和验证依据保存到项目记录中。只要工作流需要规格说明、你提出要求或要求跟踪，或已存在规格说明，就会记录规格说明和队列条目；规模不是判断依据。没有规格说明的直接工作使用笔记。普通对话和简短的状态说明无须写入文件。只读、禁止保存和保存位置方面的限制优先适用。
 
 记录保留目标、授权、TDD 策略、当前决策、有用依据、待解决问题和下一步行动，必要时还包括职责分工和纠错轮数。重要的架构决策须有架构决策记录（ADR）。规格说明须在 `docs/lusona/work.md` 中跟踪；没有规格说明的工作可以只使用笔记。队列状态表示进展，不决定下一步必须使用哪个技能，也不构成执行授权。详见[记录保留规则](plugins/lusona/references/retention.md)和[队列规则](plugins/lusona/references/queue.md)。
 
@@ -227,7 +227,8 @@ flowchart TD
 - [批处理执行与恢复](plugins/lusona/references/batch-execution.md)
 - [记录与保留](plugins/lusona/references/retention.md)
 - [收尾与重新开启](plugins/lusona/references/closeout.md)
-- [委派与模型路由](plugins/lusona/references/delegation.md)
+- [委派](plugins/lusona/references/delegation.md)
+- [模型路由](plugins/lusona/references/model-routing.md)
 
 <a id="contributing"></a>
 ## 参与贡献

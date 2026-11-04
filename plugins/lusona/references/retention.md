@@ -4,18 +4,18 @@ Read when saving findings or evidence. Closing or reopening tracked work is a se
 [coordinator procedure](closeout.md).
 
 Apply the [core recording authority and restrictions](../README.md#contract). Save substantive
-workflow outputs before handoff or completion. The default owner for direct work is notes. A spec
-and queue row are required when the user requests tracking, when the work is expected to be
-resumed by a later session, or when a spec already exists. Delegated assignments and handoffs
-within one session keep their handoff in notes or the owning record and do not trigger a spec.
-No record is needed when the reply contains the whole result and nothing is needed to resume or
-to explain a later decision; otherwise write a short notes entry. Ordinary dialogue and brief
+workflow outputs before handoff or completion. A spec and its queue row are required whenever the
+workflow calls for a spec (Specify defines every change in one), the user requests a spec or
+tracking, or a spec already exists; size and scope do not decide this. Direct implement or
+refactor work without a spec uses notes. Investigations, measurements, and experiments use notes
+and evidence records. Delegated assignments and handoffs within one session keep their handoff
+in notes or the owning record. Ordinary dialogue and brief
 status need no record. Explicit no-save/read-only restrictions and write permissions prevail;
 report prevented saving and return the result through a permitted channel. A delegated read-only
 worker returns findings to its coordinator, which saves them within its own write authority.
 Reuse the existing owner; without one, use the smallest suitable notes or change record.
 Keep only the outcome, authority and TDD source when applicable, decisions, useful evidence,
-material open questions, ownership, and next action needed to resume. Omit irrelevant fields.
+material open questions, ownership, correction counts when any, and next action needed to resume. Omit irrelevant fields.
 Notes do not require a full spec or execution plan. Direct implement/refactor work without a spec
 may use notes for its agreement, decisions, explicit TDD/source, checks/evidence, and handoff.
 It can also create a spec directly without Specify; use only relevant template sections.

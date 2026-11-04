@@ -25,8 +25,8 @@ Read the relevant section for skill selection, invocation, or terminology; this 
 
 Consult this table when skill selection is unclear. It maps an observed need to a skill or a
 direct action; it is a distinction of responsibilities, not a required sequence. Routine design
-choices stay with implementation or refactoring. Measurements and experiments can arise within
-existing authorized work without a new command; record them under the [evidence rules](evidence.md).
+choices stay with implementation or refactoring. Measurements and experiments within
+existing authorized work need no new command and enter under the [study entry rules](evidence.md#study-entry).
 
 | Evidence or gap | Action | Inputs |
 | --- | --- | --- |
@@ -64,6 +64,7 @@ the skill, selected outcome or input document, and authorized scope.
 | Task | A verifiable implementation step within a change |
 | Assignment | Bounded work delegated to a subagent |
 | Coordinator | The parent agent responsible for delegation, integration, and verification |
+| Leaf | An agent executing one assignment; also called worker or delegate |
 
 A change can contain one task. Use only the skills needed for its unresolved work;
 definition, planning, implementation, and review are responsibilities, not mandatory phases.
