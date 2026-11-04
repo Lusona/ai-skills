@@ -6,7 +6,7 @@ States: Ideas → Ready → Doing → Review → Done. Ready does not authorize 
 
 | Item / change | State | Completion condition | Current blocker or next action |
 | --- | --- | --- | --- |
-| [Realign instructions with goals](specs/20261103-realign-instructions-with-goals.md) | Review | AC1–AC7, required checks, independent review, and before/after measurement | Verified, reviewed twice, translations aligned, committed; awaiting user acceptance from use in another project |
+| [Realign instructions with goals](specs/20261103-realign-instructions-with-goals.md) | Review | AC1–AC7, required checks, independent review, and before/after measurement | Evidence summary corrected and independently verified; correction uncommitted; awaiting user acceptance from use in another project |
 | [Add Antigravity support](specs/20261031-add-antigravity-support.md) | Review | AC1–AC6 and selected-surface verification, with explicit limits | CLI GitHub/local installation verified; App/IDE discovery and model-driven invocation checks remain |
 | [Track specs in the work queue](specs/20261030-track-specs-in-work-queue.md) | Done | AC1–AC4, required checks and independent review pass | Verified; local commit authorized for 1.3.2 |
 

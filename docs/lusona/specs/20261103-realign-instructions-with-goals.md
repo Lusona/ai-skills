@@ -367,18 +367,78 @@ No implementation fixes were made. Review findings were saved in this owner; que
 was not changed. Recommendation: address R1–R3 before acceptance; move to Doing when
 authorized correction starts, then recheck the changed instructions and checker fixtures.
 
+### Current-change consistency review, 2026-11-03
+
+Scope: the six local commits `7e889a9..ea99970` (`origin/develop...HEAD`), with a clean
+working tree at review entry. User requested review for contradictions and inconsistencies;
+this review makes no implementation changes. Two independent read-only reviewers covered
+the changed core/references and all 14 skills/templates; the parent checked documentation,
+checker/tests, manifests, and measurement evidence.
+
+Result: no confirmed contradictions in the workflow instructions; one P3 evidence-summary
+inconsistency remains. In
+[the measurement summary](../evidence/2026-11-03-realign-instructions/README.md#result),
+the after value for the whole core README is 1,358 words, but its supporting
+[after run](../evidence/2026-11-03-realign-instructions/after.md#coordinator) records 1,529.
+The summary also reports 25,435 words in 49 Markdown files, whereas that run records
+25,408 words in 48 files. These are incompatible values for the cited run, so readers
+cannot reproduce the summary from its stated evidence. Historical runs need not match
+later source revisions; the defect is the summary's disagreement with its own source.
+
+Verification: all 21 Python instruction/package tests, the instruction checker, Bash
+work-record behavioral checks, and diff whitespace checks passed. Installation,
+interactive behavior, and agent behavior trials were not tested; native-host validation
+and a full link/anchor audit were not rerun. Queue state remains unchanged.
+
+Next action: reconcile the summary with a clearly identified supporting run, preserving
+historical observations. This review does not authorize fixes. User acceptance from use
+in another project remains outstanding.
+
+### Measurement-summary correction, 2026-11-03
+
+Authority: the user approved the proposed correction with "ok": retain the historical
+runs, record a new run for `ea99970`, reconcile every summary row, and explain the
+correction. The existing targeted TDD policy covers checker behavior; this correction
+changes evidence documentation only and adds no test-first behavior. No commit, push,
+or publication is authorized by this approval.
+
+Resolution: the P3 finding above is closed. The
+[corrected summary](../evidence/2026-11-03-realign-instructions/README.md#result) now cites
+[the final ea99970 run](../evidence/2026-11-03-realign-instructions/final-ea99970.md).
+Every summary row was recomputed, including baseline whole-file and routing counts.
+The correction note preserves the previous claims and distinguishes them from the
+new observations. Historical runs and the measurement instrument are unchanged.
+
+Verification: the parent reproduced the saved instrument output and checked the skill
+counts/hashes, evidence links, unchanged historical files, and absence of plugin/script
+edits. An independent reviewer recomputed every summary row from both pinned revisions,
+verified all 28 skill count/hash rows and instrument/role-file hashes, and found no defects.
+Whitespace checks passed. Existing test results remain applicable to unchanged code;
+installation and interactive behavior were not retested.
+
+Correction round 1 resolved this finding; consecutive rounds without material progress: 0;
+total: 1. The evidence editor and reviewer returned complete with no active operations
+or children; the parent reconciled their results. The queue returns to Review pending
+the previously required user acceptance. This correction remains uncommitted.
+
 ## Current handoff
 
 - Authorized work: implement AC1–AC7 (`lusona:implement`, 2026-11-03); translations and
   commit authorized by the user on 2026-11-03. Push and publication are not authorized.
+  The current evidence correction was approved separately with "ok"; no new commit
+  authorization was given for it.
 - Completed and remaining work: AC1–AC7 implemented, verified, independently reviewed, and
   corrected after three review rounds (P2-1, P2-2, R1–R3, contradiction review 1–14);
   translations aligned with parity checks; committed; version 2.0.0. Queue state Review.
-  Remaining: the user's acceptance after using the plugin in another project.
+  The later P3 measurement-summary correction is verified and independently reviewed,
+  with its documentation changes uncommitted. Remaining: the user's acceptance after
+  using the plugin in another project.
 - Ownership: parent owns all records; no active workers or children.
+- Correction rounds: measurement-summary finding resolved; consecutive without material
+  progress 0, total 1.
 - Try it: install from this checkout (INSTALL.md, local checkout) in another project, start a
   new session, run `/lusona:status` and one `/lusona:implement` with explicit TDD. Expected:
   the same authority, TDD, and completion behavior; skills no longer restate core rules; the
   agent uses notes for direct work unless tracking is requested.
-- Next action: user reports acceptance or defects from the other project. On acceptance,
-  closeout to history.
+- Next action: none for the evidence correction. User reports acceptance or defects from
+  the other project; on acceptance, closeout to history.
