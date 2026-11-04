@@ -13,8 +13,8 @@ split records in place; do not copy their evidence here or require a companion p
 Implement/refactor can create this record directly; Specify is not a prerequisite. Creating or
 updating a spec requires the coordinator to reconcile its queue row,
 subject to explicit no-save/read-only restrictions. Preserve existing state, Icebox, and history.
-A spec is required whenever the workflow calls for one, the user requests a spec or tracking, or
-one already exists; size and scope do not decide this. Direct work without a spec uses notes and
+A spec is required when [retention](../references/retention.md) says so; size and scope do not
+decide this. Direct work without a spec uses notes and
 remains untracked.
 User and host formatting constraints apply.
 

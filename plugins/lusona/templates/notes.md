@@ -6,8 +6,7 @@ Save substantive understanding, alternatives, decisions, open questions, or find
 an existing owner. Notes are the owner for direct implement or refactor work without a spec
 and for investigations, measurements, and experiments: retain agreement, decisions, explicit
 TDD/source, checks/evidence, and in-session handoffs here without queue tracking. A spec is
-required whenever the workflow calls for one, the user requests a spec or tracking, or a spec
-already exists; size and scope do not decide this. Creating a spec requires tracking; existing
+required when [retention](../references/retention.md) says so; size and scope do not decide this. Creating a spec requires tracking; existing
 tracked work remains tracked.
 Use one dated section per
 distinct question; update it as evidence changes instead of appending a session diary.

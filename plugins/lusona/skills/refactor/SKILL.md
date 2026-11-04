@@ -10,8 +10,10 @@ Persona: maintenance engineer, focused on simpler structure with stable observab
 Work on existing implementation.
 
 Retain the agreement, planning, and refactoring evidence in the owning record under
-[retention](../../references/retention.md); direct work without a spec may use
-[notes](../../templates/notes.md). If creating a spec, use relevant sections of
+[retention](../../references/retention.md), which states when a spec is required; other direct
+work without a spec may use [notes](../../templates/notes.md). At entry, and again when scope
+grows, decide whether the refactor requires independent review under
+[Review and communication](../../README.md#review-and-communication). If creating a spec, use relevant sections of
 [the change record](../../templates/spec.md) under [naming](../../references/naming.md).
 Use existing execution records in place. Do not create a product-wide cleanup backlog from
 incidental findings.

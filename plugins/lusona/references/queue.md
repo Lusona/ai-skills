@@ -29,6 +29,8 @@ add sections when next updating them without silently parking existing rows.
 | Done | Agreed completion condition met | [implement](../skills/implement/SKILL.md) |
 
 Every new spec requires a row in `docs/lusona/work.md`, regardless of which skill creates it.
+A follow-up found during untracked work takes an Ideas row linking the notes that found it;
+a delegated worker returns the row to its coordinator.
 The coordinator creates a missing queue from [its template](../templates/work.md). Reconcile the
 selected spec with its existing row or historical entry before adding anything; updates reuse
 that item without duplication. New drafts start Ideas. Ready requires accepted scope and criteria,

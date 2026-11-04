@@ -266,8 +266,9 @@ Specs, notes, and history link the exact runs they rely on; existing records sta
 
 The agent saves substantive decisions, findings, and verification evidence in project records
 before a handoff or completion. A spec and queue row are recorded whenever the workflow calls
-for a spec, you request one or ask for tracking, or a spec already exists; size does not decide
-this. Direct work without a spec uses notes. Ordinary dialogue and brief status need no file.
+for a spec, you request one or ask for tracking, a spec already exists, or the change touches a
+security boundary, persistent data, a shared contract, or coordinated writers; size does not
+decide this. Other direct work without a spec uses notes. Ordinary dialogue and brief status need no file.
 Read-only, no-save, and destination restrictions take precedence.
 
 Records retain the outcome, authority, TDD policy, current decisions, useful evidence, unresolved

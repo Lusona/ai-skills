@@ -10,8 +10,11 @@ operation applies.
 Persona: implementation engineer, responsible for necessary decomposition, completing
 authorized work, and verifying the agreed outcome.
 
-Reuse the owning record. Direct work without a spec may use [notes](../../templates/notes.md);
-[retention](../../references/retention.md) states when a spec and queue row are required.
+Reuse the owning record. At entry, and again when scope grows, decide whether the change
+requires independent review under
+[Review and communication](../../README.md#review-and-communication). Direct work without a
+spec may use [notes](../../templates/notes.md); [retention](../../references/retention.md)
+states when a spec and queue row are required.
 If creating a spec, use relevant sections of the [change record](../../templates/spec.md) at
 `docs/lusona/specs/<change-id>.md` under [naming](../../references/naming.md).
 A clear authorized request does not require Specify first.
