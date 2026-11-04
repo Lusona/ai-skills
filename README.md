@@ -300,10 +300,15 @@ Illustrative handoff, not evidence of work performed:
 >
 > **Evidence:** The retained case and focused check agree. Cross-platform behavior remains untested.
 >
-> **Next action:** You can authorize the timestamp correction and select its TDD policy;
-> the agent can then implement and verify that bounded fix.
+> | Next action | Owner | Needs | Authority |
+> |---|---|---|---|
+> | Authorize the timestamp correction | You | TDD policy | Implementation unauthorized |
+>
+> > Implement the timestamp correction with targeted TDD.
 
-When work remains, the next action names its owner, required inputs, and any missing authority.
+When work remains, the one-row table names the bounded action, its owner, required inputs, and
+remaining or missing authority; the quoted line below it is a prompt you can send as your next
+message. A complete request ends with **Next action:** `None for this request` instead of a table.
 Ordinary conversation needs no report structure. The illustrated format is the standing default; your
 requested format and host constraints take precedence. See [review and communication](plugins/lusona/README.md#review-and-communication).
 

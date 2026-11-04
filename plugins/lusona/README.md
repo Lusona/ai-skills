@@ -144,9 +144,12 @@ briefly then continue authorized work. For user-visible
 changes give concrete actions/expected results. Update existing product/architecture documentation for
 enduring behavior/constraint changes, distinguishing proposals from current behavior.
 
-Substantive assessments and handoff replies addressed to the user default to **Result**,
-**Evidence**, and **Next action** labels or headings, keeping blocking decisions first. Use `None for this request`
-when complete. Pair Result with **✅ Complete**, **🔄 In progress**, **❓ Needs input**, or **⏸ Paused**:
+Substantive assessments and handoff replies addressed to the user default to **Result** and
+**Evidence** labels or headings followed by the next action, keeping blocking decisions first.
+When work remains, present the next action as a one-row table `Next action | Owner | Needs | Authority`:
+the bounded action, its owner, required inputs, and remaining or missing authority, or `Authorized`.
+Put the continuation directive, when given, in a blockquote below the table. When complete, write the plain label **Next action:** `None for this request` without a table.
+Pair Result with **✅ Complete**, **🔄 In progress**, **❓ Needs input**, or **⏸ Paused**:
 fulfilled scope, continuing work, missing prerequisite, or affected work awaiting resumption. Status
 describes the response or authorized outcome, not queue state; a finished assessment need not mean
 its subject is complete. Words carry meaning without glyphs.
@@ -155,7 +158,8 @@ Use lists for parallel items and steps, and tables for useful comparisons. Statu
 `Outcome | State | Remaining work`, preserving blockers and dependencies and identifying recorded
 queue states; comparisons use stable useful columns (e.g. `Option | Benefit | Tradeoff`). Preserve
 specialized tables and schemas. User and host formatting overrides these defaults; retain outcome,
-evidence, and next action with supported formatting and status words. Lusona owns meaning, priority,
+evidence, and next action with supported formatting and status words, using **Next action:**
+with the same fields in prose where tables do not render. Lusona owns meaning, priority,
 and actionability. Assignment results returned to a coordinator use the fields in
 [Assignment results](references/delegation.md#assignment-results) instead.
 
