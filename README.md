@@ -20,7 +20,7 @@ For Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Xcode 27 coding agents](IN
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
 
-Read why we built Lusona Skills: [When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/).
+Read why we built Lusona Skills: [Why we built Lusona Skills](https://blog.lusona.com/blog/why-we-built-lusona-skills/).
 
 This README describes the source in this checkout. GitHub installation uses committed,
 pushed sources; local changes do not establish a published release.

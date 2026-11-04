@@ -18,7 +18,7 @@ Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディン
 > [!WARNING]
 > Lusona のインストールには Vercel Skills（`npx skills@latest`）を使わず、[ホスト標準のプラグイン機能](#installation)を使ってください。
 
-Lusona Skills を開発した背景：[When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/)（英語）。
+Lusona Skills を開発した背景：[Why we built Lusona Skills](https://blog.lusona.com/blog/why-we-built-lusona-skills/).（英語）。
 
 この README は、チェックアウトしたソースの内容を説明しています。GitHub からのインストールには、
 コミットしてプッシュしたソースを使います。ローカルの変更だけでは、公開リリースにはなりません。

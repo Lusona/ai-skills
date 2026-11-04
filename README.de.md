@@ -22,7 +22,7 @@ Für Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Programmieragenten in Xco
 > [!WARNING]
 > Installiere Lusona nicht mit Vercel Skills (`npx skills@latest`); nutze die [Installation als natives Plugin](#installation).
 
-Warum wir Lusona Skills entwickelt haben: [When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/) (auf Englisch).
+Warum wir Lusona Skills entwickelt haben: [Why we built Lusona Skills](https://blog.lusona.com/blog/why-we-built-lusona-skills/). (auf Englisch).
 
 Diese README beschreibt den Stand dieser Arbeitskopie. Bei der Installation über GitHub
 wird der Stand verwendet, der per Commit gespeichert und ins Remote-Repository gepusht wurde.

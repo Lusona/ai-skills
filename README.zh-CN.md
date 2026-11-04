@@ -15,7 +15,7 @@ Lusona 的编程智能体技能围绕同一套工作循环协同运作：
 > [!WARNING]
 > 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#installation)。
 
-了解我们为什么开发 Lusona Skills：[When the workflow became another job](https://blog.lusona.com/blog/when-the-workflow-became-another-job/)（英文）。
+了解我们为什么开发 Lusona Skills：[Why we built Lusona Skills](https://blog.lusona.com/blog/why-we-built-lusona-skills/)（英文）。
 
 本 README 介绍当前工作副本中的源码。通过 GitHub 安装时使用的是已提交并推送的源码；本地修改不代表已发布版本。
 
