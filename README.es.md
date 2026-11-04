@@ -15,7 +15,7 @@ Lusona organiza las habilidades de los agentes de programación en torno a un ci
 - **Verificar que el trabajo esté completo.** Completar el alcance acordado, las comprobaciones y la revisión
   obligatorias, y cualquier aceptación o entrega requerida. Indicar qué queda pendiente si algo impide terminar.
 
-Para Claude Code, Codex, [Cursor](INSTALL.md#cursor), [agentes de programación de Xcode 27](INSTALL.md#xcode) y [Google Antigravity App, CLI e IDE](INSTALL.md#antigravity) · Versión del código en esta copia de trabajo: **1.4.0**
+Para Claude Code, Codex, [Cursor](INSTALL.md#cursor), [agentes de programación de Xcode 27](INSTALL.md#xcode) y [Google Antigravity App, CLI e IDE](INSTALL.md#antigravity) · Versión del código en esta copia de trabajo: **1.5.0**
 
 > [!WARNING]
 > No instales Lusona mediante Vercel Skills (`npx skills@latest`); usa la [instalación nativa del plugin](#installation).

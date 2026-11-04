@@ -10,7 +10,7 @@ Lusona 的编程智能体技能围绕同一套工作循环协同运作：
 - **在授权范围内持续推进。** 自行处理常规选择，继续工作，无须反复请求批准。决定超出现有授权时，再向你询问。
 - **验证后再确认完成。** 完成约定范围内的工作、必要的检查和审查，以及要求的验收或交付。无法完成时，明确说明剩余工作。
 
-适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 编程智能体](INSTALL.md#xcode) 和 [Google Antigravity App、CLI 与 IDE](INSTALL.md#antigravity) · 当前工作副本的源码版本：**1.4.0**
+适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 编程智能体](INSTALL.md#xcode) 和 [Google Antigravity App、CLI 与 IDE](INSTALL.md#antigravity) · 当前工作副本的源码版本：**1.5.0**
 
 > [!WARNING]
 > 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#installation)。

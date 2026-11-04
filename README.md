@@ -15,7 +15,7 @@ Lusona organizes coding-agent skills around a shared work loop:
 - **Verify completion.** Complete the agreed scope, required checks and review, and any
   required acceptance or delivery. Report what remains when completion is blocked.
 
-For Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Xcode 27 coding agents](INSTALL.md#xcode), and [Google Antigravity App, CLI, and IDE](INSTALL.md#antigravity) · Checked-out source version **1.4.0**
+For Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Xcode 27 coding agents](INSTALL.md#xcode), and [Google Antigravity App, CLI, and IDE](INSTALL.md#antigravity) · Checked-out source version **1.5.0**
 
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
