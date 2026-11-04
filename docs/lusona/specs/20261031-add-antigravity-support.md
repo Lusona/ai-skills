@@ -136,3 +136,11 @@ checked source preservation and structural parity. No installation/interactive t
 performed for this documentation task. User intends to test after publication and considers
 amend/force-push only if subsequent issues require it; no Git mutation was performed here.
 The separate root-native-manifest installation behavior remains unverified.
+
+## Closeout — 2026-11-03
+
+The user marked this item Done ("mark in review items as done") with the remaining AC2 checks
+unrun: App and IDE installation and discovery, and model-driven `status`/`specify` invocation
+in a disposable project. These surfaces remain unverified and are recorded as explicit limits.
+The queue row is removed; archived state:
+[history](../history/2026-11-week-01.md#2026-11-03--add-antigravity-support).

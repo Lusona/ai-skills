@@ -55,3 +55,8 @@ Next action: create the authorized local commit.
 Installation, PowerShell/native Windows execution, and installed-host interactions not tested.
 Version set to 1.3.2. Raw evidence consolidated into a byte-verified archive with readable
 results and independent review retained. No push or publication authorized.
+
+## Closeout — 2026-11-03
+
+Completed 2026-10-31 in commit `61ec6da`. The Done queue row is removed; archived state:
+[history](../history/2026-10-week-05.md#2026-10-31--track-specs-in-work-queue).

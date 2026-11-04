@@ -442,3 +442,10 @@ the previously required user acceptance. This correction remains uncommitted.
   agent uses notes for direct work unless tracking is requested.
 - Next action: none for the evidence correction. User reports acceptance or defects from
   the other project; on acceptance, closeout to history.
+
+## Closeout — 2026-11-03
+
+The user marked this item Done ("mark in review items as done"); the planned acceptance trial
+in another project was not reported. The measurement correction is committed as `df8d364`.
+The queue row is removed; archived state:
+[history](../history/2026-11-week-01.md#2026-11-03--realign-instructions-with-goals).
