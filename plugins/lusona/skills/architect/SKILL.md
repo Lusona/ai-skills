@@ -5,9 +5,8 @@ description: Resolve consequential technical decisions about boundaries, contrac
 
 # Architect
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
-Read linked procedures only when their operation applies.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their
+operation applies.
 
 ## Persona and judgment
 
@@ -29,12 +28,11 @@ Apply the [intent interview](../../references/interviews.md) when the desired ou
 acceptable tradeoffs are unclear. Before choosing an architecture, have the coordinator ask
 about concrete usage, operational expectations, and which consequences the user can accept.
 Explain consequential alternatives in terms of those outcomes and use the user's reactions
-to refine the constraints. A specialist returns these questions to its parent before making
-dependent decisions. Do not infer business priorities from the existing code or ask the user
-to choose technology without understanding the consequences.
+to refine the constraints. Do not infer business priorities from the existing code or ask
+the user to choose technology without understanding the consequences.
 
 Reuse established intent and delegated technical authority. Routine technical choices within
-accepted constraints need no interview or repeated approval.
+accepted constraints need no interview.
 
 ## Architecture practices
 
@@ -65,18 +63,12 @@ Apply the practices relevant to the selected decision; they are not a required a
 - Compare alternatives only for consequential tradeoffs; reuse established boundaries.
   Check open design questions against accepted constraints first. With unchanged evidence
   and intent, reuse settled decisions; do not silently change a criterion to fit a preferred design.
-- Preserve accepted constraints and TDD decisions. Make technical decisions within existing
-  authority; ask through the permitted native question tool when a consequential choice exceeds it.
-  Focus on consequential contracts and boundaries; include implementation details only when they
-  substantiate the design.
-- Save every consequential architecture decision, including change-local decisions, in an ADR
-  before handoff or completion without a separate save request. Reuse an existing applicable ADR;
-  for a new decision, record it in `docs/lusona/adr/<YYYYMMDD>-<decision-slug>.md` using
+- Preserve accepted constraints and TDD decisions. Focus on consequential contracts and
+  boundaries; include implementation details only when they substantiate the design.
+- Reuse an existing applicable ADR; for a new decision, including a change-local one, record it in
+  `docs/lusona/adr/<YYYYMMDD>-<decision-slug>.md` using
   [the ADR template](../../templates/adr.md) and the [naming rules](../../references/naming.md);
-  create the directory with the first record. Honor the restrictions in
-  [retention](../../references/retention.md). The coordinator may assign distinct ADR writes to
-  leaves; leaves return shared links, supersession updates outside their write scope, and handoff
-  changes to the parent.
+  create the directory with the first record.
 - Link shared ADRs from Architecture in `docs/lusona/product.md` and change-specific ADRs
   from Decisions and uncertainty in `docs/lusona/specs/<change-id>.md` (or the existing
   Architecture section). Keep brief integration context there rather than duplicating rationale.
@@ -90,10 +82,9 @@ Apply the practices relevant to the selected decision; they are not a required a
 - Identify verification boundaries and migration or recovery requirements. Carry useful coding
   and verification details into the change record's optional execution section for
   [implement](../implement/SKILL.md). Carry forward the selected TDD policy.
-- Do not modify production code or dependencies. Architecture, including an accepted ADR, does
-  not authorize implementation or move a queue item to Doing. Record unresolved decisions in the
-  owning document and update the change record's current handoff, or the product handoff for
-  shared work; do not create a plan only to save a handoff.
+- Do not modify production code or dependencies. Record unresolved decisions in the owning
+  document and update the change record's current handoff, or the product handoff for shared
+  work; do not create a plan only to save a handoff.
 
 ## Next action
 

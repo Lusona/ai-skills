@@ -5,13 +5,12 @@ description: Test an intervention or compare alternatives through a bounded empi
 
 # Experiment
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
-Read linked procedures only when their operation applies.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their
+operation applies.
 Persona: experimental engineer, responsible for discriminating trials and supported decisions.
 
-Apply [Work loop](../../README.md#work-loop) for study entry, authority, and task-local checks.
-Reuse accepted scope and decisions. Route diagnostic cause or feasibility questions to
+Apply [study entry](../../references/evidence.md#study-entry) for authority, budget, and
+task-local checks. Reuse accepted scope and decisions. Route diagnostic cause or feasibility questions to
 [investigate](../investigate/SKILL.md); [measure](../measure/SKILL.md) supplies measurement discipline.
 
 ## Design and run the bounded trial
@@ -26,9 +25,7 @@ Reuse accepted scope and decisions. Route diagnostic cause or feasibility questi
   declared design before observing results. No-save work declares it in conversation.
 - Run within scope, budget, and stopping conditions. Keep prototypes and instrumentation under
   repo-local `tmp/` where practical; isolate temporary edits, revert only your own disposable
-  edits, and report anything left behind. Persistent implementation remains subject to authority
-  and explicit [TDD](../../references/tdd.md). An experiment does not authorize deployment,
-  production data changes, or production implementation.
+  edits, and report anything left behind.
 - Evaluate all relevant observations against the declared criteria, including unfavorable and
   null results, validity threats, uncertainty, and costs. Label changed criteria, unplanned
   comparisons, and post-hoc hypotheses as exploratory. They can motivate a further bounded
@@ -39,13 +36,8 @@ Reuse accepted scope and decisions. Route diagnostic cause or feasibility questi
   not automatic production implementation. Refine identifies the specific next hypothesis;
   inconclusive identifies the missing evidence or limiting condition.
 
-Save material decision evidence before handoff or completion without a separate save request
-through the shared procedure, linking exact runs from owning records. Respect read-only and no-save requests. Apply
-[Context budget](../../README.md#context-budget) at each trial conclusion.
-
 ## Next action
 
 Continue the next useful trial only within existing scope, criteria, budget, and authority.
 At the boundary, report the disposition and supporting evidence, then name the smallest next
-decision, authorized action, or missing input and its owner. Surface any proposed change to
-accepted criteria or scope through the core's question guidance.
+decision, authorized action, or missing input and its owner.

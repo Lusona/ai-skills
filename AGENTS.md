@@ -12,8 +12,11 @@
   in repo-local `tmp/`, never system `/tmp`.
 - Validate changed skills, native manifests/catalogs, links, and packaging as appropriate.
   Say when installation or interactive behavior has not been tested.
-- Use bounded subagents for independent work when useful; give each a persona, minimal
-  context, and disjoint write ownership. Keep queue and handoff updates with the parent.
+- The coordinator delegates substantive specialist work to bounded subagents and owns
+  questions, reconciliation, integration, verification, and shared state. Give each
+  subagent a persona, minimal context, and disjoint write ownership. Local execution is
+  the fallback when delegation is prohibited or unavailable; it never satisfies required
+  independent review. Keep queue and handoff updates with the parent.
 - Target context handoff before 50% usage when measured; otherwise checkpoint at task
   boundaries without inventing a percentage. Preserve authorization across handoffs.
 - Do not commit, push, or publish unless requested. Preserve unrelated changes.

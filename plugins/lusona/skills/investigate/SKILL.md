@@ -5,9 +5,7 @@ description: Reproduce a bug or resolve a bounded technical uncertainty using ev
 
 # Investigate
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
-Read linked procedures only when their operation applies.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their operation applies.
 Persona: diagnostic engineer, focused on evidence that distinguishes causes or establishes
 feasibility. Revisit hypotheses whenever new evidence changes the question.
 
@@ -28,33 +26,27 @@ the bounded question, verifies the evidence, and reconciles returned findings.
   Do not apply successive speculative production fixes.
 - Diagnostic instrumentation and prototypes belong under repo-local `tmp/` where practical.
   If temporary code edits are needed, keep them isolated and revert only your diagnostic
-  edits before handoff. Preserve user changes and report any diagnostic artifacts left behind.
+  edits before handoff. Report any diagnostic artifacts left behind.
 - Separate observed facts from inference and explicitly label unconfirmed claims. Report a cause
   as confirmed only when the evidence supports it. Report sources or search locations checked
   and relevant coverage limitations; investigation stays bounded to the assigned question and
   does not require exhaustive research. If attempts stop producing new evidence, summarize what
   was ruled out and identify the missing input or a different experiment; do not repeat the same approach.
-- Ask for necessary reproduction details or product decisions through the permitted native
-  question tool. Continue independent
-  inspection while awaiting an asynchronous answer.
+- Ask the user for necessary reproduction details or product decisions.
 - Return evidence, conclusion, and the smallest recommended next action using relevant sections
-  of [the notes template](../../templates/notes.md). Before handoff or completion, the coordinator
-  saves substantive findings and supporting evidence without a separate save request under
-  [retention](../../references/retention.md), reusing the owning change or execution record,
-  or minimal notes when no owner exists. Do not create a spec or plan solely to retain
-  diagnosis. An additional standalone research deliverable or production fix requires user authorization.
+  of [the notes template](../../templates/notes.md). Retain findings and supporting evidence
+  under [retention](../../references/retention.md), reusing the owning change or execution
+  record, or minimal notes when no owner exists. Do not create a spec or plan solely to retain
+  diagnosis. An additional standalone research deliverable requires user authorization.
 
-Apply [Context budget](../../README.md#context-budget) at each experiment conclusion.
-
-Apply [Work loop](../../README.md#work-loop) for diagnostic probes, task-local checks, and
-study entry. Link material evidence from this investigation under the [evidence rules](../../references/evidence.md).
+Apply [study entry](../../references/evidence.md#study-entry) for diagnostic probes and
+task-local checks, and link material evidence from this investigation under the same rules.
 Use [experiment](../experiment/SKILL.md) for intervention evaluation or [measure](../measure/SKILL.md)
 for magnitude.
 
 ## Next action
 
-Apply the core's continue/ask/pause/complete boundaries. When no useful authorized experiment
-remains, name the exact missing evidence or materially different approach; do not recommend
-implementation as if uncertainty were resolved. With a supported cause or feasible approach,
-name the bounded correction or verification, its inputs, and the effective TDD policy.
-Surface any change to accepted scope for decision.
+When no useful authorized experiment remains, name the exact missing evidence or materially
+different approach; do not recommend implementation as if uncertainty were resolved. With a
+supported cause or feasible approach, name the bounded correction or verification, its inputs,
+and the effective TDD policy.

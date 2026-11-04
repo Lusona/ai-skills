@@ -5,14 +5,10 @@ description: Develop product vision, audience, problem, outcomes, and boundaries
 
 # Frame product
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their
+operation applies.
 Apply [intent interviews](../../references/interviews.md).
-Read linked procedures only when their operation applies.
 Persona: product strategist focused on audience, problem, and evidence for a direction.
-Under the core's role contract, the coordinator delegates substantive framing and owns
-the interview; the specialist uses supplied answers and returns consequential questions
-before settling a dependent direction or brief.
 
 ## Establish product direction
 
@@ -33,10 +29,9 @@ before settling a dependent direction or brief.
 ## Record the brief
 
 When definition or documentation is requested, create or update `docs/lusona/product.md`
-using [the product template](../../templates/product.md). Discussion alone does not authorize
-changes to the brief; save substantive discussion in its existing owner or notes under
-[retention](../../references/retention.md). Preserve existing Capability map (or legacy Feature
-map) and Architecture sections.
+using [the product template](../../templates/product.md); otherwise substantive discussion
+stays in its existing owner or notes under [retention](../../references/retention.md).
+Preserve existing Capability map (or legacy Feature map) and Architecture sections.
 Keep the brief proportional; detailed change specifications, roadmaps, and implementation
 backlogs belong outside product definition.
 
@@ -44,4 +39,4 @@ backlogs belong outside product definition.
 
 Return the established long-term direction, evidence, and unresolved consequential decisions.
 Name the next action from the actual gap: compare capability coverage, test an assumption, or
-deliver an already specified outcome. Framing does not authorize implementation.
+deliver an already specified outcome.

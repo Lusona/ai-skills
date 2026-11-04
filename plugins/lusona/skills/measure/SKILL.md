@@ -5,15 +5,10 @@ description: Establish magnitude, quality, cost, or change with comparable obser
 
 # Measure
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
-Read linked procedures only when their operation applies.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their operation applies.
 Persona: measurement engineer, responsible for valid instruments, comparable observations,
 and conclusions proportionate to the evidence.
-
-Apply [Work loop](../../README.md#work-loop) for study entry, authority, and task-local checks.
-Reuse settled decisions and evidence. Measurement does not authorize production changes or
-consequential data collection beyond scope.
+Apply [study entry](../../references/evidence.md#study-entry) before starting a measurement.
 
 ## Establish and interpret the measurement
 
@@ -35,20 +30,14 @@ consequential data collection beyond scope.
   a candidate until comparable observations and validity checks support its magnitude and scope.
   Report absolute and relative change where useful, including regressions and cost tradeoffs.
 - Follow the [evidence procedure](../../references/evidence.md) and relevant sections of the
-  [evidence template](../../templates/evidence.md). Read-only and no-save requests stay in the
-  response. Save measurements that materially support a decision before handoff or completion,
-  without a separate save request. Routine test logs remain task verification evidence; reuse
-  existing owners and avoid an unnecessary separate report.
+  [evidence template](../../templates/evidence.md). Routine test logs remain task verification
+  evidence; reuse existing owners and avoid an unnecessary separate report.
 
-Keep temporary instruments and harnesses under repo-local `tmp/` where practical. Persistent
-implementation changes still require authority and an explicit policy under the
-[TDD rules](../../references/tdd.md); measurement is not a shortcut around them.
-
-Apply [Context budget](../../README.md#context-budget) at each bounded measurement conclusion.
+Keep temporary instruments and harnesses under repo-local `tmp/` where practical.
 
 ## Next action
 
 Report the result, reference and comparability, uncertainty, and supported decision. Continue
 the smallest useful authorized measurement when it can change that decision. Otherwise name
 the decision owner and exact missing input or recommended action; do not present a candidate
-gain as verified or expand into implementation without authority.
+gain as verified.

@@ -5,45 +5,29 @@ description: Implement an authorized bounded change with adaptive planning, expl
 
 # Implement
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
-Read linked procedures only when their operation applies.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their
+operation applies.
 Persona: implementation engineer, responsible for necessary decomposition, completing
 authorized work, and verifying the agreed outcome.
 
-Save the agreement, substantive planning, and implementation evidence even for small changes
-without a separate save request. Reuse the owning record. Direct work without a spec may use
-[notes](../../templates/notes.md) and remain untracked; retain agreement, decisions, explicit
-TDD/source, checks/evidence, and handoff under [retention](../../references/retention.md).
+Reuse the owning record. Direct work without a spec may use [notes](../../templates/notes.md);
+[retention](../../references/retention.md) states when a spec and queue row are required.
 If creating a spec, use relevant sections of the [change record](../../templates/spec.md) at
 `docs/lusona/specs/<change-id>.md` under [naming](../../references/naming.md).
 A clear authorized request does not require Specify first.
 Maintain existing separate plans in place; do not migrate records or create a companion plan by default.
 
-Authorization for a selected task does not authorize the whole change. An implementation
-request authorizes its stated scope, including necessary planning; skill transitions do not
-require another approval or expand that scope. **An explicit planning-only request ends with
-the proposed approach. Do not edit implementation or dependencies, execute the proposed change,
-or treat readiness as authorization.** An unset TDD policy blocks implementation, not planning.
-
 ## Assess the agreement and current evidence
 
-- Inspect the working tree, relevant code, callers, and tests. Preserve unrelated work.
-  When using or creating a spec, the coordinator reconciles its queue row under the
-  [queue rules](../../references/queue.md), repairing missing tracking before execution within
-  permitted writes. Preserve existing state, Icebox, and history; workers return queue changes
-  to the parent. This also applies to planning-only work, which never enters Doing.
-  Read acceptance criteria, constraints, explicit TDD and its source, completion conditions,
-  applicable ADRs, and existing evidence. Reuse settled decisions. For a linked visual reference,
-  apply [visuals](../../references/visuals.md).
+- Inspect the working tree, relevant code, callers, and tests. When using or creating a spec,
+  apply the [queue rules](../../references/queue.md). Read acceptance criteria, constraints,
+  explicit TDD and its source, completion conditions, applicable ADRs, and existing evidence.
+  Reuse settled decisions. For a linked visual reference, apply
+  [visuals](../../references/visuals.md).
 - Resolve missing behavior or scope through [specify](../specify/SKILL.md),
   consequential technical decisions through [architect](../architect/SKILL.md), and empirical
-  uncertainty through [investigate](../investigate/SKILL.md) when needed. These are specialist
-  responsibilities to delegate as needed, not mandatory stages. An assigned leaf returns an
-  out-of-scope need to its parent.
-- Apply the [TDD rules](../../references/tdd.md): record a supplied policy or standing
-  preference, or recommend a level and ask before implementation. Continue useful independent
-  inspection while awaiting decisions. Do not silently change agreed behavior, scope, or criteria.
+  uncertainty through [investigate](../investigate/SKILL.md) when needed.
+- Apply the [TDD rules](../../references/tdd.md).
 - Choose planning depth from dependencies, uncertainty, coordination, and recovery needs,
   including a long run whose earlier context will be summarized before it finishes.
   Straightforward work needs an outcome and checks, not a manufactured task list. Add an
@@ -55,47 +39,35 @@ or treat readiness as authorization.** An unset TDD policy blocks implementation
   check. Establish consumed/produced interfaces, ownership,
   and mutable verification resources before dependent or concurrent work.
 - Establish verification and recovery before authorized persistent-data or deployment operations,
-  including migration ordering when needed. Plans do not authorize deployment.
+  including migration ordering when needed.
 - Before execution, check that scoped acceptance criteria have planned or existing verification
   and the next increment has expected results and no blocking ambiguity. Fix routine omissions
   inline without adding an approval gate. Revise the approach as evidence changes within authority.
 - For planning-only work, report the proposed execution section, assumptions, unresolved decisions,
-  verification approach, and concrete next action. Save the plan before handoff or completion
-  under the retention rules, honoring explicit no-save/read-only and destination restrictions;
-  do not move the item to Doing. Stop before implementation.
+  verification approach, and concrete next action.
 
 ## Implement and check bounded increments
 
-- For spec-linked or already tracked work, the coordinator maintains lifecycle state under the
-  [queue rules](../../references/queue.md), moving authorized work to Doing when execution starts.
-  Spec-free untracked work may retain notes alone. Keep internal tasks out of queue rows.
+- Maintain lifecycle state under the [queue rules](../../references/queue.md).
 - Follow the recorded TDD sequence in coherent bounded increments through observable interfaces,
   with red/green evidence for test-first behaviors.
-- Resolve routine technical choices within authorization. Investigate uncertainty before escalating
-  a decision. Ask about consequential choices beyond authority through the permitted native question
-  tool; continue independent authorized work.
+- Investigate uncertainty before escalating a decision.
 - Run agreed and applicable repository checks. Judge status and output against defined expected
   results, including explicitly required error behavior; an arbitrary nonzero exit is not success.
-  Failed assertions and unrun required checks prevent completion. Report environmental blockers.
+  Report environmental blockers.
 - Inspect each increment's evidence and choose the next action from remaining criteria or
   uncertainty; revisit clarification, design, or investigation when evidence requires it,
   preserving accepted constraints and authority. Inspect the final diff for defects, unintended changes, and unnecessary complexity.
-  Obtain independent review when the core requires it; self-inspection does not satisfy it.
-- Evaluate success against agreed behavior, not task completion. For user-visible work, provide
-  where to try it, concrete actions, and expected results. Record human acceptance only when given.
-  Update existing product or architecture documentation when enduring behavior changes.
-- The coordinator records results, check and review evidence, limitations, and the current handoff
-  in the owning change record under the [retention rules](../../references/retention.md), and
-  applies [closeout](../../references/closeout.md) before removing a Done row. Batch records
-  link per-change evidence.
+- Evaluate success against agreed behavior, not task completion. Record human acceptance only
+  when given.
+- Record results, check and review evidence, limitations, and the current handoff in the owning
+  change record under [retention](../../references/retention.md), and apply
+  [closeout](../../references/closeout.md) before removing a Done row.
 
 ## Commit verified increments
 
 Complete the selected TDD sequence and required verification, then apply the
 [commit procedure](../../references/commits.md), subject to user and repository restrictions.
-Planning does not authorize commits.
-
-Apply [Context budget](../../README.md#context-budget) at each verified task boundary.
 
 ## Next action
 

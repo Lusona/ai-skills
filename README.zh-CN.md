@@ -53,7 +53,7 @@ Lusona 的编程智能体技能围绕同一套工作循环协同运作：
 | 获取依据 | [investigate](plugins/lusona/skills/investigate/SKILL.md)：查明原因或验证可行性<br />[measure](plugins/lusona/skills/measure/SKILL.md)：衡量规模、质量、成本或变化<br />[experiment](plugins/lusona/skills/experiment/SKILL.md)：检验某项措施或备选方案 |
 | 协调选定的工作 | [batch](plugins/lusona/skills/batch/SKILL.md)：在获得明确的无人值守执行授权后，协调多个选定目标的相关工作 |
 
-常规设计选择在实现或重构过程中解决。对于明确的实现或重构请求，只要范围、测试驱动开发（TDD）策略和前置条件已确定，就无须单独执行 `specify` 命令。
+角色、产出和路由规则的完整目录见[工作流指南](plugins/lusona/references/workflow-guide.md)。常规设计选择在实现或重构过程中解决。对于明确的实现或重构请求，只要范围、测试驱动开发（TDD）策略和前置条件已确定，就无须单独执行 `specify` 命令。
 
 <a id="choose-a-command"></a>
 ## 选择命令
@@ -190,7 +190,7 @@ flowchart TD
 <a id="recovery-and-resumption"></a>
 ## 恢复与继续工作
 
-智能体会将实质性的决策、工作结论和验证依据保存到项目记录中，即使工作很小，也无须另行要求保存。它会尽量更新已有记录；普通对话和简短的状态说明无须写入文件。只读、禁止保存和保存位置方面的限制优先适用。
+智能体会在交接或完成工作之前，将实质性的决策、工作结论和验证依据保存到项目记录中。直接开展的工作默认使用笔记作为记录；当你要求跟踪、工作将由后续会话继续，或已存在规格说明时，使用规格说明和队列条目。能够完整写在回复中的结果无须写入文件。只读、禁止保存和保存位置方面的限制优先适用。
 
 记录保留目标、授权、TDD 策略、当前决策、有用依据、待解决问题和下一步行动，必要时还包括职责分工和纠错轮数。重要的架构决策须有架构决策记录（ADR）。规格说明须在 `docs/lusona/work.md` 中跟踪；没有规格说明的工作可以只使用笔记。队列状态表示进展，不决定下一步必须使用哪个技能，也不构成执行授权。详见[记录保留规则](plugins/lusona/references/retention.md)和[队列规则](plugins/lusona/references/queue.md)。
 

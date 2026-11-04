@@ -4,7 +4,12 @@ Read when saving findings or evidence. Closing or reopening tracked work is a se
 [coordinator procedure](closeout.md).
 
 Apply the [core recording authority and restrictions](../README.md#contract). Save substantive
-workflow outputs even for small work, without a separate save request. Ordinary dialogue and brief
+workflow outputs before handoff or completion. The default owner for direct work is notes. A spec
+and queue row are required when the user requests tracking, when the work is expected to be
+resumed by a later session, or when a spec already exists. Delegated assignments and handoffs
+within one session keep their handoff in notes or the owning record and do not trigger a spec.
+No record is needed when the reply contains the whole result and nothing is needed to resume or
+to explain a later decision; otherwise write a short notes entry. Ordinary dialogue and brief
 status need no record. Explicit no-save/read-only restrictions and write permissions prevail;
 report prevented saving and return the result through a permitted channel. A delegated read-only
 worker returns findings to its coordinator, which saves them within its own write authority.

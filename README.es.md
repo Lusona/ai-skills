@@ -70,6 +70,8 @@ implementación; una revisión puede revelar motivos para reconsiderar un diseñ
 | Obtener evidencias | [investigate](plugins/lusona/skills/investigate/SKILL.md): determinar causas o viabilidad<br />[measure](plugins/lusona/skills/measure/SKILL.md): medir magnitud, calidad, coste o cambios<br />[experiment](plugins/lusona/skills/experiment/SKILL.md): probar una intervención o alternativas |
 | Coordinar el trabajo seleccionado | [batch](plugins/lusona/skills/batch/SKILL.md): coordinar varios resultados seleccionados con autorización expresa para trabajar sin supervisión |
 
+El catálogo completo de roles, resultados y reglas de selección de habilidades está en la
+[guía del flujo de trabajo](plugins/lusona/references/workflow-guide.md).
 Las decisiones de diseño habituales se resuelven durante la implementación o la refactorización.
 Una petición clara de implementación o refactorización puede ejecutarse sin un comando `specify`
 aparte cuando ya se han acordado su alcance, su política de desarrollo guiado por pruebas (TDD)
@@ -284,10 +286,12 @@ que se basan; los registros existentes permanecen en su lugar.
 ## Recuperación y reanudación
 
 El agente guarda las decisiones, conclusiones y evidencias de verificación sustantivas en los
-registros del proyecto sin una petición adicional, incluso para trabajos pequeños. Actualiza los
-registros existentes cuando es posible; el diálogo habitual y las consultas breves de estado no
-necesitan archivos. Las restricciones de solo lectura, las prohibiciones de guardar y las
-limitaciones del lugar de almacenamiento tienen prioridad.
+registros del proyecto antes de un traspaso o de dar por terminado el trabajo. Las notas son el
+registro predeterminado para el trabajo directo; se usan una especificación y una fila en la cola
+cuando pides seguimiento, cuando el trabajo lo reanudará una sesión posterior o cuando ya existe
+una especificación. Un resultado que cabe por completo en la respuesta no necesita ningún archivo.
+Las restricciones de solo lectura, las prohibiciones de guardar y las limitaciones del lugar de
+almacenamiento tienen prioridad.
 
 Los registros conservan el resultado solicitado, los permisos, la política de TDD, las decisiones
 actuales, las evidencias útiles, las preguntas pendientes y la siguiente acción, además de las

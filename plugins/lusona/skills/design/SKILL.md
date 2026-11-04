@@ -5,18 +5,16 @@ description: Create UI mockups, screen flows, and Mermaid diagrams for direct in
 
 # Design
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
-Apply [visual options and references](../../references/visuals.md); read other linked
-procedures only when their operation applies.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their
+operation applies.
+Apply [visual options and references](../../references/visuals.md).
 Persona: visual designer, responsible for making the requested structure, interaction,
 or visual choice inspectable within established constraints.
 
 ## Establish the visual task
 
 - Direct visual work needs no preceding workflow stage. Reuse accepted intent and constraints;
-  ask only consequential missing questions through the core's permitted native question tool.
-  An assigned leaf returns questions to its parent.
+  ask only consequential missing questions.
 - Inspect the existing UI and supplied references before drawing. Preserve established screen
   names, navigation, copy, platform/theme conventions, and binding constraints. Distinguish
   supplied references from new proposals; retain a supplied reference only when requested.
@@ -46,13 +44,10 @@ or visual choice inspectable within established constraints.
   drafts and the comparison index; retain consequential rejection reasons in the owning record.
 - Link the chosen reference from its existing spec, ADR, or notes. Record binding and
   illustrative aspects and fidelity under the shared defaults; keep implement/review's
-  binding-item checks intact. Save substantive decisions and open questions under
-  [retention](../../references/retention.md), respecting no-save and write restrictions.
+  binding-item checks intact.
 
 ## Next action
 
 Return the inspectable draft or chosen reference, relevant open questions, and the concrete
 next action: inspect a draft, choose an unresolved option, revise a named aspect, or proceed
-to an authorized implementation increment. Visual agreement alone does not authorize
-production implementation; [implement](../implement/SKILL.md) preserves the existing
-authority and explicit TDD contract. Continue available visual work within the request.
+to an authorized implementation increment. Continue available visual work within the request.

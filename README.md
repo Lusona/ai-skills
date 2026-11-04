@@ -69,6 +69,8 @@ reason to revisit a design.
 | Establish evidence | [investigate](plugins/lusona/skills/investigate/SKILL.md): establish causes or feasibility<br />[measure](plugins/lusona/skills/measure/SKILL.md): establish magnitude, quality, cost, or change<br />[experiment](plugins/lusona/skills/experiment/SKILL.md): test an intervention or alternatives |
 | Coordinate selected work | [batch](plugins/lusona/skills/batch/SKILL.md): coordinate several selected outcomes under explicit unattended-work authority |
 
+The full catalog of personas, outputs, and routing lives in the
+[workflow guide](plugins/lusona/references/workflow-guide.md).
 Routine design choices stay within implementation or refactoring. A clear implementation or
 refactoring request can proceed without a separate `specify` command once its scope,
 test-driven development (TDD) policy, and prerequisites are settled.
@@ -263,9 +265,10 @@ Specs, notes, and history link the exact runs they rely on; existing records sta
 ## Recovery and resumption
 
 The agent saves substantive decisions, findings, and verification evidence in project records
-without a separate save request, even for small work. It updates existing records where possible;
-ordinary dialogue and brief status need no file. Read-only, no-save, and destination restrictions
-take precedence.
+before a handoff or completion. Notes are the default record for direct work; a spec and queue
+row are used when you request tracking, when the work will be resumed by a later session, or
+when a spec already exists. A result that fits entirely in the reply needs no file. Read-only,
+no-save, and destination restrictions take precedence.
 
 Records retain the outcome, authority, TDD policy, current decisions, useful evidence, unresolved
 questions, and next action, plus ownership and correction counts where needed. Consequential

@@ -5,14 +5,9 @@ description: Map capability coverage, dependencies, and delivery order toward a 
 
 # Map capabilities
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their operation applies.
 Apply [intent interviews](../../references/interviews.md).
-Read linked procedures only when their operation applies.
 Persona: product planner focused on coverage, dependencies, and delivery order.
-Under the core's role contract, the coordinator delegates substantive mapping and owns
-the interview; the specialist uses supplied answers and returns consequential questions
-before settling a dependent map or sequence.
 
 ## Establish coverage and order
 
@@ -44,11 +39,11 @@ For a requested map or update, use the product document's Capability map (or leg
 map) section and relevant [product template](../../templates/product.md) fields. Preserve
 other product sections. Link existing specs; do not generate detailed specifications, tasks,
 tickets, queue entries, or separate documents per capability. The map is not execution state.
-Discussion alone does not authorize changes to the map; save substantive discussion in its
-existing owner or notes under [retention](../../references/retention.md).
+Without a requested map or update, substantive discussion stays in its existing owner or
+notes under [retention](../../references/retention.md).
 
 ## Next action
 
 Return coverage, supported dependencies, and the recommended next outcome. Name the next action
 for the remaining gap: resolve a shared decision, test a dependency, clarify behavior, or execute
-an agreed increment. Mapping does not authorize implementation.
+an agreed increment.

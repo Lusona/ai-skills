@@ -1,6 +1,6 @@
 # Workflow guide
 
-Read the relevant section for skill selection, invocation, or terminology; this catalog is not required for every assignment.
+Read the relevant section for skill selection, invocation, or terminology; this catalog and the routing table are not required for every assignment.
 
 ## Skills
 
@@ -21,27 +21,34 @@ Read the relevant section for skill selection, invocation, or terminology; this 
 | [measure](../skills/measure/SKILL.md) | Measurement analyst: decision-relevant magnitude, quality, cost, or change | [Measurement evidence](../templates/evidence.md) with method and limitations |
 | [experiment](../skills/experiment/SKILL.md) | Experimenter: evaluate an intervention or alternatives | [Experiment evidence](../templates/evidence.md) with design and exact runs |
 
-For routing, use **measure** to establish magnitude or compare observed performance;
-**experiment** to test a proposed intervention or alternatives against stated criteria;
-**investigate** when causes or technical feasibility are unknown and need evidence;
-**design** for UI mockups, screen flows, and diagrams;
-**architect** for consequential technical design, contract, or ownership choices and their rationale; **refactor** for an authorized structural improvement that preserves observable
-behavior and compatibility; and **implement** for changed behavior or defect correction.
-Measurements and experiments can arise within existing authorized work without a new command.
-Use the [evidence rules](evidence.md) for recording them.
-This is a distinction of responsibilities, not a required sequence: routine design choices
-stay with implementation or refactoring.
+## Routing
 
-Use the linked template for each skill's substantive output under the
-[shared presentation contract](../README.md#review-and-communication). Apply relevant sections in
-conversation or in the existing owning document; omit irrelevant fields and keep short
-answers short. Substantive assessments and handoffs default to Result, Evidence, and Next action
-with the shared status words and glyphs; ordinary dialogue remains natural. This presentation
-default does not replace specialized tables or saved record schemas. Save substantive outputs
-under [retention](retention.md) without a separate save request; templates do not force duplicate
-files or migration. Preserve user-requested formats and project-local conventions. Explicit
-no-save/read-only restrictions and delegated review ownership remain binding; ordinary dialogue
-and read-only status need no saved record.
+Consult this table when skill selection is unclear. It maps an observed need to a skill or a
+direct action; it is a distinction of responsibilities, not a required sequence. Routine design
+choices stay with implementation or refactoring. Measurements and experiments can arise within
+existing authorized work without a new command; record them under the [evidence rules](evidence.md).
+
+| Evidence or gap | Action | Inputs |
+| --- | --- | --- |
+| Start or resume unattended selected work | [batch](../skills/batch/SKILL.md) | Exact selection or batch record, and execution authority |
+| Explore possibilities or tradeoffs | [explore](../skills/explore/SKILL.md) | The idea or decision |
+| Product audience, outcome, or boundaries unclear | [frame-product](../skills/frame-product/SKILL.md) | The missing decision |
+| Capabilities or delivery order unclear | [map-capabilities](../skills/map-capabilities/SKILL.md) | Product context |
+| Change behavior or acceptance criteria unclear | [specify](../skills/specify/SKILL.md) | The selected outcome |
+| UI mockup, screen flow, or diagram needed | [design](../skills/design/SKILL.md) | Existing UI, references, and the visual question |
+| Consequential technical design, contract, or ownership decision unresolved | [architect](../skills/architect/SKILL.md) | That decision and accepted constraints |
+| Cause or technical feasibility unknown | [investigate](../skills/investigate/SKILL.md) | One bounded question |
+| Magnitude, quality, cost, or change to establish | [measure](../skills/measure/SKILL.md) | The decision the result informs and a reference |
+| Proposed intervention or alternatives to test | [experiment](../skills/experiment/SKILL.md) | Declared criteria, budget, and stopping condition |
+| Defined work needs decomposition or execution, or changed behavior or defect correction | [implement](../skills/implement/SKILL.md) | The selected outcome, explicit TDD, and authorization; a planning-only request stops before implementation |
+| Implementation needs review or verification | [review](../skills/review/SKILL.md) when warranted, or name the missing check | The actual diff, intended behavior, and evidence |
+| Authorized structural improvement preserving observable behavior | [refactor](../skills/refactor/SKILL.md) | The behavior and interfaces to preserve |
+| Required acceptance or delivery remains | Name the exact action and owner | The recorded completion condition |
+| Requested scope complete | Say so; propose another outcome only when asked | None |
+
+Use the linked template for each skill's substantive output, applying relevant sections in
+conversation or in the existing owning document. Format under the [shared presentation rules](../README.md#review-and-communication)
+and save under [retention](retention.md). Preserve project-local conventions.
 
 See [installation and compatibility](https://github.com/lusona/ai-skills/blob/main/INSTALL.md). In Claude Code, invoke
 `/lusona:<skill>`; in other harnesses, use their exposed skill UI. A useful prompt names

@@ -5,14 +5,12 @@ description: Explore ideas, decisions, scenarios, and long-term possibilities th
 
 # Explore
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their
+operation applies.
 Apply [intent interviews](../../references/interviews.md).
-Read linked procedures only when their operation applies.
 Persona: discussion partner helping the user reason, learn, and choose. Understanding,
 a preference, alternatives, or an experiment can be the outcome; a decision is optional.
-Exploration is available at any stage, not a prerequisite for other work. Keep conversation
-local; delegate substantive specialist work under the core's role contract.
+Exploration is available at any stage, not a prerequisite for other work.
 
 ## Develop the long view
 
@@ -35,10 +33,9 @@ use their reactions to develop an informed preference. Challenge assumptions wit
 or counterexamples and distinguish facts, hypotheses, preferences, and decisions.
 
 Verify material external claims when permitted; cite support or state uncertainty and where
-you looked. Apply [Work loop](../../README.md#work-loop) before optional studies; uncertainty
-alone does not block discussion. Route causal or technical feasibility probes to
-[investigate](../investigate/SKILL.md).
-Keep research within the request.
+you looked. Before an optional study, apply [study entry](../../references/evidence.md#study-entry);
+uncertainty alone does not block discussion. Route causal or technical feasibility probes to
+[investigate](../investigate/SKILL.md). Keep research within the request.
 
 If a technique needs illustration, consult only the relevant optional
 [interview example](../../references/interview-examples.md): future experience, context reuse,
@@ -49,13 +46,12 @@ When visual options or diagrams clarify a decision, apply [visuals](../../refere
 ## Outcome and next action
 
 Use relevant [brainstorm template](../../templates/brainstorm.md) sections for substantive
-synthesis. Measure progress by clearer understanding, useful alternatives, or a supported
-preference; a decision is optional. Before handoff or completion, the coordinator saves substantive
-synthesis, alternatives, decisions, and open questions in the existing owner or concise notes under
-[retention](../../references/retention.md), without a separate save request. Ordinary dialogue and
-disposable discussion need no document. Discussion alone does not require a spec, ADR, plan, queue item, commit, or TDD selection.
+synthesis, retained in the existing owner or concise notes under
+[retention](../../references/retention.md). Measure progress by clearer understanding, useful
+alternatives, or a supported preference; a decision is optional. Discussion alone does not
+require a spec, ADR, plan, queue item, commit, or TDD selection.
 
-Apply the core's continue/ask/pause/complete boundaries: use a question, scenario, or bounded
-experiment while it can improve the requested understanding. At a boundary, return the
-direction or remaining alternatives, reasons, and the exact unresolved decision or useful
-action. Awaiting an answer leaves exploration active. A settled request needs no extra definition step.
+Use a question, scenario, or bounded experiment while it can improve the requested
+understanding. At a boundary, return the direction or remaining alternatives, reasons, and the
+exact unresolved decision or useful action. Awaiting an answer leaves exploration active.
+A settled request needs no extra definition step.

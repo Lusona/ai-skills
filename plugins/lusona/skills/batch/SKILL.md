@@ -5,23 +5,20 @@ description: Coordinate explicitly authorized unattended work on selected queue 
 
 # Batch
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
-Read linked procedures only when their operation applies.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their
+operation applies.
 Read [batch execution](../../references/batch-execution.md), applicable project instructions,
-and the selected queue items and their owning records. Selection for discussion or planning
-alone does not authorize implementation.
+and the selected queue items and their owning records.
 Persona: batch coordinator. Own scheduling, reconciliation, integration, the queue, and
-shared handoffs. Delegate specialist work under the core's role contract; this skill supplies coordination,
-not a second implementation workflow or a background execution guarantee.
+shared handoffs. This skill supplies coordination, not a second implementation workflow or
+a background execution guarantee.
 
 ## Establish the batch
 
 - Resolve an explicit subset or all current active queue items. Exclude Icebox unless the user
   explicitly reactivates selected parked outcomes under the [queue rules](../../references/queue.md).
   On resume, keep parked members ineligible until explicitly reactivated; retain their repair counts
-  and defer dependents that need them. Ambiguous selection blocks dispatch;
-  use the contract's permitted native question tool, or a concise question, to resolve it.
+  and defer dependents that need them. Ambiguous selection blocks dispatch; ask to resolve it.
   Freeze membership before execution; discovered work remains outside it. Queue presence,
   Ready state, and selection alone are not implementation authority.
 - Record authority, routine decision delegation, TDD/completion references, and existing active
@@ -49,7 +46,8 @@ not a second implementation workflow or a background execution guarantee.
 Screen selected work for shared behavior, interfaces, data ownership, assumptions, dependencies,
 write scopes, and mutable check environments. Disjoint files or isolated copies do not establish
 independence. Only dispatch when prerequisites, authority, required policy, ownership, and resources
-are available. Keep unused capacity when independence is uncertain.
+are available. Keep unused capacity when independence is uncertain. Responsibilities are
+described in the [workflow guide](../../references/workflow-guide.md#skills).
 
 | Responsibility | Inputs and dispatch condition |
 | --- | --- |
@@ -86,11 +84,11 @@ and any required human acceptance or delivery. The parent performs
 [closeout](../../references/closeout.md), verifies preserved links, and updates batch
 pointers to history before removing completed queue rows.
 
-Apply [context budget](../../README.md#context-budget) at assignment boundaries and preserve one
-current batch handoff. Finish with links to completed outcomes, deferred items and their questions,
-interrupted/remaining work, and a concrete owner/action/input for every blocker. Distinguish exhausted
-selected work from interruption or unsafe continuation. Report actual concurrency and unavailable
-host capabilities without claiming execution or independent review that did not occur.
+Preserve one current batch handoff. Finish with links to completed outcomes, deferred items and
+their questions, interrupted/remaining work, and a concrete owner/action/input for every blocker.
+Distinguish exhausted selected work from interruption or unsafe continuation. Report actual
+concurrency and unavailable host capabilities without claiming execution or independent review
+that did not occur.
 
 ## Next action
 

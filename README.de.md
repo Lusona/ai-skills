@@ -76,6 +76,8 @@ Implementierung unterbrechen; ein Review kann Anlass geben, einen Entwurf zu üb
 | Belege gewinnen | [investigate](plugins/lusona/skills/investigate/SKILL.md): Ursachen oder Machbarkeit klären<br />[measure](plugins/lusona/skills/measure/SKILL.md): Größen, Qualität, Kosten oder Veränderungen feststellen<br />[experiment](plugins/lusona/skills/experiment/SKILL.md): eine gezielte Maßnahme oder Alternativen erproben |
 | Ausgewählte Arbeit koordinieren | [batch](plugins/lusona/skills/batch/SKILL.md): mehrere ausgewählte Ziele mit ausdrücklicher Erlaubnis zur unbeaufsichtigten Ausführung koordinieren |
 
+Der vollständige Katalog der Rollen, Ergebnisse und Zuordnungsregeln steht im
+[Workflow-Leitfaden](plugins/lusona/references/workflow-guide.md).
 Übliche Designentscheidungen gehören zur Implementierung oder zum Refactoring. Wenn du eine
 Implementierung oder ein Refactoring eindeutig beauftragst, kann der Agent ohne gesonderten
 `specify`-Befehl beginnen, sobald Umfang, Vorgaben für testgetriebene Entwicklung (TDD) und
@@ -302,10 +304,12 @@ auf denen sie beruhen; bestehende Aufzeichnungen bleiben an ihrem Ort.
 <a id="recovery-and-resumption"></a>
 ## Wiederherstellung und Fortsetzung
 
-Der Agent speichert wesentliche Entscheidungen, Erkenntnisse und Prüfbelege ohne gesonderte
-Aufforderung in den Projektaufzeichnungen, auch bei kleinen Aufgaben. Wenn möglich,
-aktualisiert er bestehende Aufzeichnungen; gewöhnliche Gespräche und kurze Statusauskünfte
-brauchen keine Datei. Vorgaben zu reinem Lesezugriff, Speicherverboten und Ablageorten haben Vorrang.
+Der Agent speichert wesentliche Entscheidungen, Erkenntnisse und Prüfbelege vor einer Übergabe
+oder dem Abschluss in den Projektaufzeichnungen. Notizen sind die Standardaufzeichnung für
+direkte Arbeit; eine Spezifikation und ein Eintrag in der Warteschlange werden verwendet, wenn du
+Nachverfolgung verlangst, wenn eine spätere Sitzung die Arbeit fortsetzen wird oder wenn bereits
+eine Spezifikation existiert. Ein Ergebnis, das vollständig in die Antwort passt, braucht keine
+Datei. Vorgaben zu reinem Lesezugriff, Speicherverboten und Ablageorten haben Vorrang.
 
 Die Aufzeichnungen halten das Ziel, die Befugnisse, die TDD-Vorgaben, aktuelle Entscheidungen,
 nützliche Belege, offene Fragen und den nächsten Schritt fest, bei Bedarf auch

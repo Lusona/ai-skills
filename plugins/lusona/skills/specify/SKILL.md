@@ -5,10 +5,8 @@ description: Specify one bounded feature, bug fix, refactor, or other change wit
 
 # Specify
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
-Read linked procedures only when their operation applies. Read the relevant
-product context if available and any existing spec, issue, or ticket for this change.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their operation applies.
+Read the relevant product context if available and any existing spec, issue, or ticket for this change.
 Persona: change analyst, focused on one verifiable outcome. Use the capability map for mapped
 capabilities; a bug fix or direct bounded request does not require product definition first.
 
@@ -30,17 +28,15 @@ capabilities; a bug fix or direct bounded request does not require product defin
   in the agreement. Clarify missing preferences only when they materially affect the outcome;
   a clear visual request does not require a design interview.
 - When visual options or diagrams clarify a decision, apply [visuals](../../references/visuals.md).
-- Create or update `docs/lusona/specs/<change-id>.md` from
-  [the spec template](../../templates/spec.md) for every definition, including small changes,
-  before handoff or completion without a separate save request. Use the helper and
-  [naming rules](../../references/naming.md); missing directories or a queue do not waive saving.
-  Reuse existing specs or legacy feature documents under [retention](../../references/retention.md),
-  honoring explicit no-save/read-only restrictions and write permissions. An already clear request
-  can proceed directly to authorized implementation. Link an external issue or ticket when provided; do not
-  create one or copy a full ticket into a second maintained specification by default.
+- Choose the record under [retention](../../references/retention.md): a one-off clarification
+  can stay in the reply or in notes. When a spec is required, create or update
+  `docs/lusona/specs/<change-id>.md` from [the spec template](../../templates/spec.md) using the
+  helper and [naming rules](../../references/naming.md), reusing existing specs or legacy feature
+  documents. An already clear request can proceed directly to authorized implementation. Link an
+  external issue or ticket when provided; do not create one or copy a full ticket into a second
+  maintained specification by default.
 - Propose `none`, `targeted`, or `strict` under the [TDD rules](../../references/tdd.md).
-  Record the user's choice or standing preference if supplied; otherwise leave it unset and ask
-  through the permitted native question tool.
+  Record the user's choice or standing preference if supplied; otherwise leave it unset and ask.
 - Define observable outcomes, not a proposed implementation. Preserve user-required or established
   technical constraints with their source; do not turn a design proposal into an acceptance
   criterion. Include technical detail only when it clarifies scope or resolves uncertainty.
@@ -52,23 +48,13 @@ capabilities; a bug fix or direct bounded request does not require product defin
   requirements, and unresolved decisions that block the selected work. Fix routine omissions
   from known evidence; preserve unknowns as explicit questions rather than inventing answers.
   This check does not add a review cycle or another approval gate.
-- Every created or updated spec requires the coordinator to reconcile its row under the
-  [queue rules](../../references/queue.md), creating a missing queue within permitted writes.
-  New drafts start Ideas; reuse existing rows and preserve lifecycle state, Icebox, and history.
-  Agree what completion means, including human acceptance or delivery when required.
-  Delegated workers return the required queue change to the parent. Explicit no-save/read-only
-  restrictions still apply. Keep workflow state in the queue.
-- The coordinator marks a new or Ideas item Ready only when the user has accepted its
-  scope and criteria and selected its TDD policy, with no blocking definition questions. Existing explicit authorization counts,
-  including delegated routine decisions within batch authority after required reconciliation;
-  it does not supply a missing TDD choice or authorize consequential scope changes.
-  Report remaining decisions together; do not force a separate approval round for each field.
-
-Apply [Context budget](../../README.md#context-budget) at the definition handoff.
+- When a spec exists, reconcile its row under the [queue rules](../../references/queue.md).
+  Agree what completion means, including human acceptance or delivery when required. Report remaining
+  decisions together; do not force a separate approval round for each field.
 
 ## Next action
 
-Return the spec path and any unresolved decisions together; if saving was prevented, return
-the concise agreement and state the restriction or failure. Ask a blocking
-behavior, scope, or TDD question; otherwise name the next action from unmet criteria or
-uncertainty: an experiment, a consequential design decision, or an authorized increment.
+Return the record (spec path, notes, or the agreement in the reply) and any unresolved
+decisions together. Ask a blocking behavior, scope,
+or TDD question; otherwise name the next action from unmet criteria or uncertainty: an
+experiment, a consequential design decision, or an authorized increment.

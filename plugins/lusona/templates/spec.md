@@ -8,12 +8,14 @@ Work item: <required queue item or historical completion entry; state lives ther
 Context: <existing product, issue, or ticket link when relevant>
 
 Use relevant sections only. This change record owns agreement, optional execution, evidence,
-and one current handoff, including for small changes. Apply the core recording restrictions. Preserve existing
+and one current handoff. Apply the core recording restrictions. Preserve existing
 split records in place; do not copy their evidence here or require a companion plan.
 Implement/refactor can create this record directly; Specify is not a prerequisite. Creating or
 updating a spec requires the coordinator to reconcile its queue row,
 subject to explicit no-save/read-only restrictions. Preserve existing state, Icebox, and history.
-Direct work without a spec can use notes and remain untracked. User and host formatting constraints apply.
+A spec is required when the user requests tracking, when the work will be resumed by a later
+session, or when one already exists; otherwise direct work uses notes and remains untracked.
+User and host formatting constraints apply.
 
 ## Agreement
 

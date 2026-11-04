@@ -14,6 +14,10 @@ operation, or source changes. Installation or another worker's read does not est
 Host/project restrictions apply. A change is a bounded outcome; a task is one implementation step.
 Task selection does not authorize its whole change.
 
+Select the next responsibility from the unresolved need; when skill selection is unclear, consult
+the [routing table](references/workflow-guide.md#routing). The table is not required reading for a
+role whose assignment is settled.
+
 ## Work loop
 
 Carry outcome, accepted decisions, authority, explicit TDD/source, evidence, and uncertainty across
@@ -45,16 +49,9 @@ reports without saving. Do not invent requirements or audit the whole product by
 proposals, splits, deferrals, and priority changes do not expand authority, batch selection, or
 accepted priorities.
 
-Optional [measurement](skills/measure/SKILL.md)/[experimentation](skills/experiment/SKILL.md)
-requires explicit or standing authority and a finite scope/resource budget; uncertainty alone does
-not launch studies or repeated offers. Choose routine details within authority without repeated approval;
-ask only for missing consequential decisions/commitments, otherwise state uncertainty and continue.
-Small self-contained empirical checks with available tools/inputs may
-stay with their owner without a separate study, delegate, stage, or evidence file; diagnostic probes remain
-[investigation](skills/investigate/SKILL.md). Keep routine evidence with its task; retain material
-evidence/provenance under [evidence rules](references/evidence.md). Improvement claims need comparable
-support; report unmet requirements/unsupported claims. Checks, TDD, empirical acceptance, and resource
-boundaries remain binding.
+Before starting a measurement or experiment, read [evidence rules](references/evidence.md).
+Choose routine details within authority without repeated approval; ask only for missing
+consequential decisions/commitments, otherwise state uncertainty and continue.
 
 Adapt routine approaches without weakening acceptance or resetting progress. Planning belongs to
 implementation; tasks need dependencies, uncertainty, coordination, recovery, or a requested plan.
@@ -78,19 +75,14 @@ Small clear work needs no task list; retain its substantive output under the Con
 - Project-data paths belong to the consuming repository; bundled links resolve relative to the loaded
   resource. Never save project data in installed plugin resources. Only coordinators write shared queues
   and saved handoffs.
-- Save substantive workflow outputs, including small definitions, plans, decisions, findings, and
-  verification evidence, before handoff or completion without a separate save request. Use relevant
-  linked-template sections; omit irrelevant fields. Explicit read-only, no-save, destination limits,
-  and write permissions prevail; report prevented saving and provide the result through a permitted
-  channel. Delegated read-only workers return findings for the coordinator to save within its authority.
-  Reuse the existing owner or smallest suitable record under [retention](references/retention.md),
-  preserving split ownership/local conventions and linking rather than migrating/duplicating facts.
-  Ordinary dialogue, brief status, and disposable discussion need no file. Creating, updating, or
-  using a spec requires its queue tracking under [queue](references/queue.md), subject to the saving
-  restrictions above; preserve existing state and archived history. Direct work without a spec may
-  remain untracked and use notes; existing tracked work stays tracked. Records do not force a plan;
-  consequential architecture decisions require ADRs. Saving neither selects TDD
-  nor requires Specify nor authorizes implementation. Requested standalone documents remain deliverables.
+- Save substantive workflow outputs before handoff or completion, proportionate to the work, under
+  [retention](references/retention.md), which owns the record choice, the spec and queue
+  requirement, and the no-record cases. Explicit read-only, no-save, destination limits, and write
+  permissions prevail; report prevented saving and provide the result through a permitted channel.
+  Delegated read-only workers return findings for the coordinator to save within its authority.
+  Creating, updating, or using a spec requires its queue tracking under [queue](references/queue.md).
+  Consequential architecture decisions require ADRs. Saving neither selects TDD nor requires Specify
+  nor authorizes implementation. Requested standalone documents remain deliverables.
 
 ## References
 
@@ -113,6 +105,7 @@ Leaves receive applicable paths/text and loading instructions. Paths are relativ
 | Before dispatch | [model routing](references/model-routing.md) |
 | After results/closeout/handoff | [worker lifecycle](references/worker-lifecycle.md) |
 | Observed failure/review correction | [corrections](references/corrections.md) |
+| Checkpoint/handoff content | [handoff](references/handoff.md) |
 | Authorized unattended batch | [batch execution](references/batch-execution.md) |
 | Start/resume batch | [batch use](references/batch-use.md) |
 | Catalog/invocation/terminology | [workflow guide](references/workflow-guide.md) |
@@ -150,20 +143,19 @@ briefly then continue authorized work. For user-visible
 changes give concrete actions/expected results. Update existing product/architecture documentation for
 enduring behavior/constraint changes, distinguishing proposals from current behavior.
 
-For this provisional trial, substantive assessments/handoffs default to **Result**, **Evidence**,
-**Next action** labels/headings, keeping blocking decisions first. Use `None for this request` when
-complete; ordinary dialogue/questions/brief updates remain natural. Pair Result with **✅ Complete**,
-**🔄 In progress**, **❓ Needs input**, or **⏸ Paused**: fulfilled scope, continuing work, missing
-prerequisite, or affected work awaiting resumption. Status describes the response/authorized outcome,
-not queue state; a finished assessment need not mean its subject is complete. Words carry meaning
-without glyphs.
+For this provisional trial, substantive assessments and handoffs default to **Result**, **Evidence**,
+and **Next action** labels or headings, keeping blocking decisions first. Use `None for this request`
+when complete. Pair Result with **✅ Complete**, **🔄 In progress**, **❓ Needs input**, or **⏸ Paused**:
+fulfilled scope, continuing work, missing prerequisite, or affected work awaiting resumption. Status
+describes the response or authorized outcome, not queue state; a finished assessment need not mean
+its subject is complete. Words carry meaning without glyphs.
 
-Use lists for parallel items/steps, tables for useful comparisons. Status summaries use
-`Outcome | State | Remaining work`, preserving blockers/dependencies and identifying recorded queue
-states; comparisons use stable useful columns (e.g. `Option | Benefit | Tradeoff`). Preserve specialized
-tables/schemas. User/host formatting overrides defaults; retain outcome, evidence, next action with
-supported formatting/status words. Lusona owns meaning, priority, actionability; the trial establishes
-no behavior across hosts.
+Use lists for parallel items and steps, and tables for useful comparisons. Status summaries use
+`Outcome | State | Remaining work`, preserving blockers and dependencies and identifying recorded
+queue states; comparisons use stable useful columns (e.g. `Option | Benefit | Tradeoff`). Preserve
+specialized tables and schemas. User and host formatting overrides these defaults; retain outcome,
+evidence, and next action with supported formatting and status words. Lusona owns meaning, priority,
+and actionability; the trial establishes no behavior across hosts.
 
 ## Assigned leaves
 
@@ -177,8 +169,8 @@ arise from narrower loading or supplemental domain skills.
 Coordinator-only: coordinate questions, assignments, reconciliation, integration, verification, shared
 state. Delegate substantive framing, mapping, specification, visual design, architecture,
 implementation planning/execution, refactoring, investigation, measurement, experimentation,
-and review, except task-local
-measurement/experiment checks under Work loop. Preliminary inspection is insufficient. Explore/status conversation and
+and review, except task-local empirical checks under
+[study entry](references/evidence.md#study-entry). Preliminary inspection is insufficient. Explore/status conversation and
 orientation may stay local; one sequential worker suffices.
 
 If delegation is prohibited/unavailable, explain and act locally within authority; this cannot satisfy
@@ -191,10 +183,5 @@ Leaves need these only if granted those responsibilities.
 ## Context budget
 
 With telemetry, prepare handoff around 40%, target before 50%; invent neither usage nor transfer.
-Otherwise checkpoint at task boundaries, not skill changes. In the owning current handoff preserve
-objective, decisions, authority, TDD reference, paths, evidence, correction counts, blockers, ownership,
-next action; replace its predecessor under retention rules. If saving is prohibited/unavailable, return
-handoff through the permitted channel and state the recovery limit. Resume from surviving records/tree;
-ask only for unrecoverable material facts/authority. Do not claim checkpoints prevented by abrupt
-interruption. Finish/safely pause bounded operations before transfer; checkpointing ends neither
-authorization nor requires a new session.
+Otherwise checkpoint at task boundaries, not skill changes. Before a checkpoint or handoff, read
+[handoff](references/handoff.md).

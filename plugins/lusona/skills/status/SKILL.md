@@ -5,17 +5,12 @@ description: Explain the Lusona workflow, assess project progress from its queue
 
 # Status
 
-Apply [core loading rules](../../README.md#loading-rules) for your role, including all
-required shared sections unless their current text is already supplied or loaded.
-Read linked procedures only when their operation applies.
+Apply the [core](../../README.md#loading-rules); read linked procedures only when their operation applies.
 Read the project's `docs/lusona/README.md` when present. Persona: workflow guide, focused on evidence,
 dependencies, the next bounded action, and all known remaining work.
 
-Guidance is read-only unless saving or execution is authorized. A status request preserves
-existing execution authority; recommendations do not create it.
-
-Keep conversation and orientation local. Delegate substantive specialist work arising here,
-preserving existing authority.
+Guidance is read-only unless saving or execution is authorized; a status request preserves
+existing execution authority.
 
 ## Assess the evidence
 
@@ -34,7 +29,7 @@ preserving existing authority.
 - Distinguish recorded claims from verified results. Flag stale handoffs, conflicting state,
   missing records, and unmet completion conditions without silently correcting them.
   A selected unfinished spec without a queue row is a tracking gap; report the coordinator's
-  repair as a next action. Read-only status does not create a queue, backfill specs, or reopen history.
+  repair as a next action.
   Queue-row removal, file existence, checked tasks, or passing tests alone do not establish
   acceptance or delivery. Follow relevant history links without loading the whole archive.
 - Missing Lusona documents do not imply no progress. Use available project evidence without
@@ -48,24 +43,9 @@ existing document does not determine the next responsibility. Skip settled decis
 product mapping is optional for a bounded change, and small requests can supply their own
 agreement and any necessary execution approach. Queue states describe progress, not workflow activities.
 
-| Evidence or gap | Recommended action |
-| --- | --- |
-| Start or resume unattended selected work | [batch](../batch/SKILL.md) with exact selection or batch record and execution authority |
-| Explore possibilities or tradeoffs | [explore](../explore/SKILL.md) with the idea or decision |
-| Product audience, outcome, or boundaries unclear | [frame-product](../frame-product/SKILL.md) with the missing decision |
-| Capabilities or delivery order unclear | [map-capabilities](../map-capabilities/SKILL.md) with product context |
-| Change behavior or acceptance criteria unclear | [specify](../specify/SKILL.md) for the selected outcome |
-| Consequential structural decision unresolved | [architect](../architect/SKILL.md) for that decision |
-| Technical uncertainty blocks progress | [investigate](../investigate/SKILL.md) with one bounded question |
-| Defined work needs decomposition or execution | [implement](../implement/SKILL.md) with the selected outcome, preserving explicit TDD and authorization; a planning-only request stops before implementation |
-| Implementation needs review or verification | [review](../review/SKILL.md) when warranted, or name the missing check |
-| Selected structural improvement | [refactor](../refactor/SKILL.md) with behavior to preserve |
-| Required acceptance or delivery remains | Name the exact action and owner |
-| Requested scope complete | Say so; propose another outcome only when asked |
-
-Preserve explicit TDD and its source; unset TDD blocks implementation, not orientation or
-planning. Apply the [queue rules](../../references/queue.md). Read [batch use](../../references/batch-use.md)
-when supplying start/resume prompts.
+Choose the next action with the [routing table](../../references/workflow-guide.md#routing).
+Preserve explicit TDD and its source. Apply the [queue rules](../../references/queue.md).
+Read [batch use](../../references/batch-use.md) when supplying start/resume prompts.
 
 ## Report the known remainder
 
@@ -92,6 +72,4 @@ total remaining work is unknown.
 Lead with the assessment and next bounded action, then the relevant workflow explanation and
 remaining-work inventory with source paths. Name the owner and inputs, and give a usable skill
 prompt or the direct acceptance/delivery action with its expected result; identify missing
-owners or procedures. Continue
-already-authorized execution after the status update. Read-only handoffs stay in the response
-unless saving is authorized.
+owners or procedures.

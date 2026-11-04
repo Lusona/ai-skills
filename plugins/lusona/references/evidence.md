@@ -1,6 +1,21 @@
 # Decision evidence
 
-Read when producing or retaining material measurements, evaluations, or experiments.
+Read before starting a measurement or experiment, and when producing or retaining material
+measurements, evaluations, or experiments.
+
+## Study entry
+
+Optional [measurement](../skills/measure/SKILL.md) or [experimentation](../skills/experiment/SKILL.md)
+requires explicit or standing authority and a finite scope and resource budget; uncertainty alone does
+not launch studies or repeated offers. Small self-contained empirical checks with available tools and
+inputs may stay with their owner without a separate study, delegate, stage, or evidence file;
+diagnostic probes remain [investigation](../skills/investigate/SKILL.md). Keep routine evidence with its
+task; retain material evidence and provenance under the rules below. Improvement claims need
+comparable support; report unmet requirements and unsupported claims. Checks, TDD, empirical
+acceptance, and resource boundaries remain binding.
+
+## Retain material evidence
+
 Save material decision evidence before handoff or completion without a separate save request
 under [retention](retention.md) and the core's write restrictions. Disposable work needs no record.
 Read-only/no-save restrictions prevail; saving does not authorize new collection, implementation,
