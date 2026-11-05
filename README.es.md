@@ -350,6 +350,7 @@ Consulta [revisión y comunicación](plugins/lusona/README.md#review-and-communi
 <a id="reference"></a>
 ## Referencias
 
+- [Historial de cambios (en inglés)](CHANGELOG.md)
 - [Instalación y desinstalación](INSTALL.md)
 - [Política de privacidad](PRIVACY.md)
 - [Condiciones de uso](TERMS.md)

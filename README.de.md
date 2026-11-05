@@ -370,6 +370,7 @@ Format und die Einschränkungen der Anwendung haben Vorrang. Siehe
 <a id="reference"></a>
 ## Referenzen
 
+- [Änderungsprotokoll (auf Englisch)](CHANGELOG.md)
 - [Installation und Deinstallation](INSTALL.md)
 - [Datenschutzerklärung](PRIVACY.md)
 - [Nutzungsbedingungen](TERMS.md)

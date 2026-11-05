@@ -222,6 +222,7 @@ flowchart TD
 <a id="reference"></a>
 ## 参考资料
 
+- [更新日志（英文）](CHANGELOG.md)
 - [安装与移除](INSTALL.md)
 - [隐私政策](PRIVACY.md)
 - [使用条款](TERMS.md)

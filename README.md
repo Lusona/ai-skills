@@ -315,6 +315,7 @@ requested format and host constraints take precedence. See [review and communica
 
 ## Reference
 
+- [Changelog](CHANGELOG.md)
 - [Installation and removal](INSTALL.md)
 - [Privacy policy](PRIVACY.md)
 - [Terms of use](TERMS.md)

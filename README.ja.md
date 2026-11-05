@@ -310,6 +310,7 @@ UI の草案はブラウザーで開いて確認します。開けない場合�
 <a id="reference"></a>
 ## 参考資料
 
+- [変更履歴（英語）](CHANGELOG.md)
 - [インストールと削除](INSTALL.md)
 - [プライバシーポリシー](PRIVACY.md)
 - [利用規約](TERMS.md)

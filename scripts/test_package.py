@@ -43,7 +43,7 @@ class PackageTests(unittest.TestCase):
         shutil.copytree(ROOT / package.PLUGIN, self.root / package.PLUGIN)
         for relative in (*package.CATALOGS, *(Path(name) for name in (
             'README.md', 'README.es.md', 'README.de.md', 'README.zh-CN.md', 'README.ja.md',
-            'CONTRIBUTING.md', 'INSTALL.md', 'PRIVACY.md', 'TERMS.md', 'LICENSE',
+            'CHANGELOG.md', 'CONTRIBUTING.md', 'INSTALL.md', 'PRIVACY.md', 'TERMS.md', 'LICENSE',
             'scripts/package.py', 'scripts/test_package.py',
         ))):
             destination = self.root / relative
