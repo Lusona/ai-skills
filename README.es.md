@@ -225,7 +225,8 @@ trabajo independiente puede continuar dentro de sus permisos existentes. El cicl
   ejecutar impiden dar el trabajo por terminado.
 
 Cuando las evidencias cuestionan una decisión aceptada, el agente identifica el conflicto y la
-reconsidera dentro de los permisos existentes; te pregunta si revisarla exige más permisos.
+reconsidera dentro de los permisos existentes; te consulta cuando revisarla exige permisos
+adicionales.
 Actualiza los registros y las tareas asignadas que se vean afectados, conserva los razonamientos
 anteriores que sigan siendo útiles y continúa a partir del acuerdo revisado. Los registros
 desactualizados no deben restablecer decisiones sustituidas.
@@ -265,10 +266,9 @@ diagramas, incluso cuando el diseño ya está decidido.
 
 Los borradores de interfaz se abren en el navegador para examinarlos; si no es posible abrirlos,
 el agente indica la ruta absoluta del HTML. Los diagramas y sus alternativas usan bloques Mermaid
-en la respuesta o en un archivo Markdown. Tras aceptar un borrador o elegir una opción, el agente
-conserva la referencia
-en `docs/lusona/visuals/` y la enlaza desde la especificación, ADR o notas correspondientes,
-respetando los permisos de escritura y las prohibiciones de guardar. Las capturas de interfaz
+en la respuesta o en un archivo Markdown. Cuando aceptas un borrador o eliges una opción, el agente
+conserva la referencia en `docs/lusona/visuals/` y la enlaza desde la especificación, ADR o notas
+correspondientes, respetando los permisos de escritura y las prohibiciones de guardar. Las capturas de interfaz
 dependen de las herramientas disponibles; si no puede capturarlas, conserva el HTML e indica
 qué imágenes faltan.
 
@@ -288,9 +288,10 @@ que se basan; los registros existentes permanecen en su lugar.
 El agente guarda las decisiones, conclusiones y evidencias de verificación sustantivas en los
 registros del proyecto antes de un traspaso o de dar por terminado el trabajo. Se registran una
 especificación y una fila en la cola siempre que el flujo de trabajo requiera una especificación,
-cuando la pides o solicitas seguimiento, o cuando ya existe una; el tamaño no lo decide. El trabajo
-directo sin especificación usa notas. La conversación habitual y los avisos breves de estado no
-necesitan ningún archivo.
+cuando la pides o solicitas seguimiento, cuando ya existe una, o cuando el cambio afecta a un límite
+de seguridad, a datos persistentes o a un contrato compartido, o implica modificaciones coordinadas
+de varios participantes; el tamaño no lo decide. El resto del trabajo directo sin especificación usa
+notas. La conversación habitual y los avisos breves de estado no necesitan ningún archivo.
 Las restricciones de solo lectura, las prohibiciones de guardar y las limitaciones del lugar de
 almacenamiento tienen prioridad.
 
@@ -331,11 +332,17 @@ Ejemplo ilustrativo de traspaso; no demuestra que se haya realizado el trabajo:
 > **Evidencias:** El caso conservado y la comprobación específica dan el mismo resultado. No se ha
 > probado el comportamiento en las distintas plataformas.
 >
-> **Siguiente acción:** Puedes autorizar la corrección de la marca de tiempo y seleccionar su política
-> de TDD; entonces el agente podrá implementar y verificar esa corrección de alcance acotado.
+> | Siguiente acción | Responsable | Necesita | Autorización |
+> |---|---|---|---|
+> | Autorizar la corrección de la marca de tiempo | Tú | Política de TDD | Implementación no autorizada |
+>
+> > Implementa la corrección de la marca de tiempo con TDD `targeted`.
 
-Cuando queda trabajo pendiente, la siguiente acción indica quién la realizará, qué información
-necesita y qué permisos faltan. La conversación habitual no necesita una estructura de informe.
+Cuando queda trabajo pendiente, la tabla de una fila indica la acción acotada, quién la realizará,
+qué información necesita y qué autorización queda pendiente o falta; la línea citada debajo es un
+mensaje que puedes enviar como tu siguiente petición. Una petición completada termina con
+**Siguiente acción:** `None for this request` en lugar de la tabla. La conversación habitual no
+necesita una estructura de informe.
 El formato ilustrado es el formato predeterminado permanente; el formato que solicites y las
 restricciones de la aplicación tienen prioridad.
 Consulta [revisión y comunicación](plugins/lusona/README.md#review-and-communication).

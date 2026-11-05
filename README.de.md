@@ -22,7 +22,7 @@ Für Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Programmieragenten in Xco
 > [!WARNING]
 > Installiere Lusona nicht mit Vercel Skills (`npx skills@latest`); nutze die [Installation als natives Plugin](#installation).
 
-Warum wir Lusona Skills entwickelt haben: [Why we built Lusona Skills](https://blog.lusona.com/blog/why-we-built-lusona-skills/). (auf Englisch).
+Warum wir Lusona Skills entwickelt haben: [Why we built Lusona Skills](https://blog.lusona.com/blog/why-we-built-lusona-skills/) (auf Englisch).
 
 Diese README beschreibt den Stand dieser Arbeitskopie. Bei der Installation über GitHub
 wird der Stand verwendet, der per Commit gespeichert und ins Remote-Repository gepusht wurde.
@@ -174,7 +174,7 @@ codex plugin add lusona@lusona-ai-skills
 ### Cursor
 
 Öffne **Customize > From GitHub Repository**, gib `https://github.com/lusona/ai-skills` ein
-und installiere **Lusona Skills** für dein Projekt oder deinen Nutzer. Gib im Agent-Chat `/`
+und installiere **Lusona Skills** für dein Projekt oder dein Benutzerkonto. Gib im Agent-Chat `/`
 ein, um die Lusona-Skills zu finden. Die [Cursor-Anleitung](INSTALL.md#cursor) verlinkt die
 aktuelle Cursor-Dokumentation und nennt den Teststatus.
 
@@ -265,7 +265,7 @@ Reviewer. Siehe [Delegation](plugins/lusona/references/delegation.md).
 <a id="questions-and-evidence"></a>
 ## Fragen und Belege
 
-Die Fragen richten sich nach den offenen Entscheidungen der Arbeit. Der Agent nutzt bereits
+Die Fragen richten sich danach, welche Entscheidungen noch offen sind. Der Agent nutzt bereits
 geklärte Antworten, prüft ermittelbare Fakten und fragt dich nach deiner Absicht und
 folgenreichen Abwägungen. Er erklärt Optionen so ausführlich, wie du es brauchst; eine
 Erkundung kann mit besserem Verständnis statt mit einer Entscheidung enden. Siehe
@@ -307,8 +307,10 @@ auf denen sie beruhen; bestehende Aufzeichnungen bleiben an ihrem Ort.
 Der Agent speichert wesentliche Entscheidungen, Erkenntnisse und Prüfbelege vor einer Übergabe
 oder dem Abschluss in den Projektaufzeichnungen. Eine Spezifikation und ein Eintrag in der
 Warteschlange werden immer dann angelegt, wenn der Workflow eine Spezifikation vorsieht, wenn du
-eine verlangst oder Nachverfolgung wünschst oder wenn bereits eine existiert; die Größe
-entscheidet nicht darüber. Direkte Arbeit ohne Spezifikation verwendet Notizen. Gewöhnliche
+eine verlangst oder Nachverfolgung wünschst, wenn bereits eine existiert oder wenn die Änderung
+eine Sicherheitsgrenze, persistente Daten oder einen gemeinsam genutzten technischen Vertrag
+betrifft oder mehrere Beteiligte ihre Änderungen aufeinander abstimmen müssen; die Größe
+entscheidet nicht darüber. Andere direkte Arbeit ohne Spezifikation verwendet Notizen. Gewöhnliche
 Unterhaltung und kurze Statusmeldungen brauchen keine Datei. Vorgaben zu reinem Lesezugriff, Speicherverboten und Ablageorten haben Vorrang.
 
 Die Aufzeichnungen halten das Ziel, die Befugnisse, die TDD-Vorgaben, aktuelle Entscheidungen,
@@ -336,9 +338,9 @@ stellt die Erkenntnisse im Gespräch bereit.
 <a id="results-and-handoffs"></a>
 ## Ergebnisse und Übergaben
 
-Ausführliche Berichte nennen das Ergebnis, die Belege dafür und einen gegebenenfalls nötigen
-nächsten Schritt. Sie unterscheiden zwischen abgeschlossener Arbeit, laufender Arbeit,
-fehlenden Informationen und pausierter Arbeit. Der Abschluss bezieht sich auf die
+Berichte über wesentliche Arbeitsergebnisse nennen das Ergebnis, die Belege dafür und
+einen gegebenenfalls nötigen nächsten Schritt. Sie unterscheiden zwischen abgeschlossener Arbeit,
+laufender Arbeit, fehlenden Informationen und pausierter Arbeit. Der Abschluss bezieht sich auf die
 freigegebene Anfrage: Eine abgeschlossene Diagnose bedeutet nicht, dass der Fehler behoben ist.
 
 Beispiel einer Übergabe, kein Nachweis geleisteter Arbeit:
@@ -350,12 +352,18 @@ Beispiel einer Übergabe, kein Nachweis geleisteter Arbeit:
 > **Belege:** Der festgehaltene Fall und die gezielte Prüfung stimmen überein.
 > Plattformübergreifendes Verhalten wurde noch nicht getestet.
 >
-> **Nächste Aktion:** Du kannst die Korrektur des Zeitstempels freigeben und die TDD-Vorgaben
-> festlegen; anschließend kann der Agent diese klar begrenzte Korrektur umsetzen und prüfen.
+> | Nächste Aktion | Zuständig | Benötigt | Freigabe |
+> |---|---|---|---|
+> | Korrektur des Zeitstempels freigeben | Du | TDD-Vorgaben | Umsetzung nicht freigegeben |
+>
+> > Setze die Korrektur des Zeitstempels mit `targeted` TDD um.
 
-Bleibt Arbeit übrig, nennt der nächste Schritt die zuständige Person oder den zuständigen
-Agenten, die nötigen Informationen und noch fehlende Freigaben. Gewöhnliche Gespräche
-brauchen kein Berichtsformat. Das gezeigte Format ist der feste Standard; dein gewünschtes
+Bleibt Arbeit übrig, nennt die Tabelle mit einer Datenzeile den begrenzten Schritt, die zuständige Person
+oder den zuständigen Agenten, die nötigen Informationen und die verbleibende oder fehlende
+Freigabe; die zitierte Zeile darunter ist eine Aufforderung, die du als nächste Nachricht senden
+kannst. Eine abgeschlossene Anfrage endet statt der Tabelle mit **Nächste Aktion:**
+`None for this request`. Gewöhnliche Gespräche brauchen kein Berichtsformat. Das gezeigte
+Format ist der feste Standard; dein gewünschtes
 Format und die Einschränkungen der Anwendung haben Vorrang. Siehe
 [Review und Kommunikation](plugins/lusona/README.md#review-and-communication).
 
