@@ -53,3 +53,19 @@ cross-host improvement follows from these checks.
   ChatGPT sessions using this revision, retaining outputs and saved records. This
   broader host comparison was not performed; installation/publication remain outside
   the current authority.
+
+## 2026-11-05 — Version 2.0.1
+
+User authorized a version bump to distinguish the updated instructions across sessions.
+Updated all four canonical native manifests, the root Antigravity reference, the five
+public README version labels, and the changelog. Historical version references and
+frozen behavioral snapshots remain unchanged. This metadata update follows the
+behavioral trial; its archived candidate manifests still identify version 2.0.0.
+The user subsequently authorized a local release-metadata commit. No installation,
+push, or publication was performed.
+
+Verification: 2.0.1 package build, all 10 packaging tests, Claude plugin and
+marketplace validation, and whitespace checks passed. All five manifest versions
+were verified as 2.0.1.
+Next action: update/reload installed copies before live host testing; the version
+bump alone does not change already loaded sessions.

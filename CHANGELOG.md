@@ -1,10 +1,20 @@
 # Changelog
 
-Changes in the latest four source versions. Dates below use the tagged commit's
-local date, not a verified publication date. Version 2.0.0 is untagged; its entry
-covers current source through the commit identified below.
+Changes in recent source versions. Dates for tagged versions use the tagged commit's
+local date, not a verified publication date. Versions 2.0.1 and 2.0.0 are untagged;
+the entries distinguish source updates from published releases.
 
-## 2.0.0 — Current source, untagged
+## 2.0.1 — Current source, untagged
+
+Version metadata changed on 2026-11-05. Publication and installation are not implied.
+
+- Require every command to provide a concrete next step or explicitly state that
+  none is warranted and why, including after a completed assessment.
+- Make Explore proactively offer useful questions, alternatives, and recommendations,
+  and save reusable synthesis during discussion within existing write permissions.
+- Align completion routing and translated documentation with the shared rule.
+
+## 2.0.0 — Untagged source snapshot
 
 Version metadata changed on 2026-11-03. Includes subsequent changes through
 2026-11-04 ([`5e39db8`](https://github.com/Lusona/ai-skills/commit/5e39db8a5d507aca4360c222cc4f5d2ba3ef234f)).
