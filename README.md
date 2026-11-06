@@ -309,9 +309,12 @@ Illustrative handoff, not evidence of work performed:
 
 When work remains, the one-row table names the bounded action, its owner, required inputs, and
 remaining or missing authority; the quoted line below it is a prompt you can send as your next
-message. A complete request ends with **Next action:** `None for this request` instead of a table.
-Ordinary conversation needs no report structure. The illustrated format is the standing default; your
-requested format and host constraints take precedence. See [review and communication](plugins/lusona/README.md#review-and-communication).
+message. Every command identifies a useful next step or explicitly states that none is warranted,
+with a brief reason. A completed assessment can still recommend a follow-up without authorizing it.
+Use **Next action:** `None for this request` only when no useful follow-up remains.
+Ordinary conversation needs no report structure; substantive exploration still proposes a focused
+question or action and saves reusable conclusions under the retention rules. The illustrated format
+is the standing default; your requested format and host constraints take precedence. See [review and communication](plugins/lusona/README.md#review-and-communication).
 
 ## Reference
 

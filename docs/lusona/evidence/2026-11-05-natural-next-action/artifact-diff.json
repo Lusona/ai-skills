@@ -1,0 +1,22 @@
+{
+  "baseline": {
+    "explore/docs/lusona/notes/invitations.md": {
+      "before": "f37ce8ff6c17d9790864338b415e19529505796a87304f90b95d6e37ddc07676",
+      "after": "52616fe67ec4c2589f89d13c4fc754796bcbf80923457ff4771b417d20f645eb"
+    },
+    "responses.md": {
+      "before": null,
+      "after": "09ac7227b67f2f008ca3aa94c08e122d7b9ce30cb4218716547075ef2552e663"
+    }
+  },
+  "candidate": {
+    "explore/docs/lusona/notes/invitations.md": {
+      "before": "f37ce8ff6c17d9790864338b415e19529505796a87304f90b95d6e37ddc07676",
+      "after": "a0fa32a55df16a09615faa0d4c68137b383085bc085023c8186d31d767e1eb48"
+    },
+    "responses.md": {
+      "before": null,
+      "after": "96271b90ba1d2e3b775166d02067cd9b13f962a4aa5eb3c791b3e54a059d47e7"
+    }
+  }
+}

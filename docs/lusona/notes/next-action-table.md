@@ -35,7 +35,15 @@ Context: direct documentation change without a spec; the user requested a distin
 - Decision, 2026-11-03 (parent): where tables do not render, the label form carries the
   same fields in prose, consistent with the existing host-formatting override.
 
+## 2026-11-05 — Follow-up distinction
+
+The user clarified that every command needs a natural next step or an explicit none.
+[The updated agreement](natural-next-action.md) preserves the table but distinguishes
+completed scope from the absence of a useful proposed follow-up.
+
 ## Current handoff
 
-- Authorized work: documentation edits only; no commit was requested.
-- Next action: user reviews the two README diffs; commit requires a separate request.
+- Authorized work: documentation edits and grouped local commits, authorized by the
+  user on 2026-11-05.
+- Next action: follow [the current validation handoff](natural-next-action.md);
+  the earlier presentation work is complete.

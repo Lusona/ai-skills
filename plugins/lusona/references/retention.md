@@ -4,7 +4,14 @@ Read when saving findings or evidence. Closing or reopening tracked work is a se
 [coordinator procedure](closeout.md).
 
 Apply the [core recording authority and restrictions](../README.md#contract). Save substantive
-workflow outputs before handoff or completion. A spec and its queue row are required whenever the
+workflow outputs without waiting for the user to request a record. In discussion, save when a
+synthesis captures reusable alternatives and tradeoffs, a supported preference, a meaningful
+change in understanding, or an open question and next step needed to resume. Do this once the
+synthesis is useful, and update it for material changes; do not defer all recording until the
+conversation ends. Ordinary explanations, greetings, acknowledgments, and disposable questions
+need no record. Use the existing owner or concise notes; discussion alone requires no spec,
+queue item, plan, decision, or TDD selection. Save other substantive outputs before handoff or
+completion. A spec and its queue row are required whenever the
 workflow calls for a spec (Specify defines every change in one), the user requests a spec or
 tracking, a spec already exists, or the change requires independent review for security
 boundaries, persistent data, shared contracts, or coordinated multiple writers under
@@ -13,8 +20,8 @@ acceptance criteria recorded before implementation starts; a blanket repository 
 does not by itself require a spec. Size and scope do not decide this. Other direct implement or
 refactor work without a spec uses notes. Investigations, measurements, and experiments use notes
 and evidence records. Delegated assignments and handoffs within one session keep their handoff
-in notes or the owning record. Ordinary dialogue and brief
-status need no record. Explicit no-save/read-only restrictions and write permissions prevail;
+in notes or the owning record. Brief status needs no record.
+Explicit no-save/read-only restrictions and write permissions prevail;
 report prevented saving and return the result through a permitted channel. A delegated read-only
 worker returns findings to its coordinator, which saves them within its own write authority.
 Reuse the existing owner; without one, use the smallest suitable notes or change record.

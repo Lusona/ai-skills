@@ -361,8 +361,12 @@ Beispiel einer Übergabe, kein Nachweis geleisteter Arbeit:
 Bleibt Arbeit übrig, nennt die Tabelle mit einer Datenzeile den begrenzten Schritt, die zuständige Person
 oder den zuständigen Agenten, die nötigen Informationen und die verbleibende oder fehlende
 Freigabe; die zitierte Zeile darunter ist eine Aufforderung, die du als nächste Nachricht senden
-kannst. Eine abgeschlossene Anfrage endet statt der Tabelle mit **Nächste Aktion:**
-`None for this request`. Gewöhnliche Gespräche brauchen kein Berichtsformat. Das gezeigte
+kannst. Jeder Befehl nennt einen sinnvollen nächsten Schritt oder erklärt ausdrücklich mit kurzer
+Begründung, dass keiner nötig ist. Eine abgeschlossene Bewertung kann weitere Arbeit empfehlen,
+ohne sie freizugeben. **Nächste Aktion:** `None for this request` gilt nur, wenn kein sinnvoller
+Folgeschritt bleibt. Gewöhnliche Gespräche brauchen kein Berichtsformat; eine inhaltliche Erkundung
+schlägt dennoch eine konkrete Frage oder Handlung vor und speichert wiederverwendbare Ergebnisse
+gemäß den Aufbewahrungsregeln. Das gezeigte
 Format ist der feste Standard; dein gewünschtes
 Format und die Einschränkungen der Anwendung haben Vorrang. Siehe
 [Review und Kommunikation](plugins/lusona/README.md#review-and-communication).

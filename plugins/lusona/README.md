@@ -78,7 +78,9 @@ Small clear work needs no task list; retain its substantive output under the Con
   notes may update that record's current handoff and returns other handoff changes to the parent.
 - Save substantive workflow outputs before handoff or completion, proportionate to the work, under
   [retention](references/retention.md), which owns the record choice, the spec and queue
-  requirement, and the no-record cases. Explicit read-only, no-save, destination limits, and write
+  requirement, and the no-record cases. Save a substantive synthesis when it becomes useful to
+  resume or guide work; do not wait for a save request or the end of the conversation. Explicit
+  read-only, no-save, destination limits, and write
   permissions prevail; report prevented saving and provide the result through a permitted channel.
   Delegated read-only workers return findings for the coordinator to save within its authority.
   Creating, updating, or using a spec requires its queue tracking under [queue](references/queue.md).
@@ -116,6 +118,13 @@ and recovery; TDD, completion, approval, and repository rules remain binding.
 
 ## Questions and next actions
 
+Every skill must reach a natural concrete next step or explicitly state that none is needed.
+In substantive conversation, answer first, then ask the focused question, offer the supported proposal, or take
+the bounded authorized action that can improve the outcome. Do not wait for the user to request
+options, synthesis, saving, or continuation. If further work would add no value to the request,
+stop and state that no next action is needed, with a brief reason. Greetings and acknowledgments need no workflow
+boilerplate or invented follow-up. A proposed next step does not authorize its execution.
+
 Use permitted native question UI for the purpose/mode (`AskUserQuestion`, exposed `request_user_input`
 or `request_user_input_async`), otherwise concise plain text. Do not switch modes to ask. Ask missing
 consequential questions; recommend answers when useful. For optional preferences, state an assumption
@@ -148,7 +157,11 @@ Substantive assessments and handoff replies addressed to the user default to **R
 **Evidence** labels or headings followed by the next action, keeping blocking decisions first.
 When work remains, present the next action as a one-row table `Next action | Owner | Needs | Authority`:
 the bounded action, its owner, required inputs, and remaining or missing authority, or `Authorized`.
-Put the continuation directive, when given, in a blockquote below the table. When complete, write the plain label **Next action:** `None for this request` without a table.
+Use the same table for a useful proposed follow-up after the requested scope is complete;
+label it proposed and state any missing authority. Completion does not mean that no
+useful follow-up exists. Put the continuation directive, when given, in a blockquote below the
+table. Only when no useful next action is warranted, write the plain label **Next action:**
+`None for this request` without a table.
 Pair Result with **✅ Complete**, **🔄 In progress**, **❓ Needs input**, or **⏸ Paused**:
 fulfilled scope, continuing work, missing prerequisite, or affected work awaiting resumption. Status
 describes the response or authorized outcome, not queue state; a finished assessment need not mean

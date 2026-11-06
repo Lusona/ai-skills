@@ -1,0 +1,17 @@
+[
+  {
+    "id": "explore",
+    "skill": "explore",
+    "request": "Compare invitation links and email-only invitations for our volunteer portal. Coordinators onboard occasional volunteers, many of whom share a household email account. We want a low-support onboarding process and do not yet know whether forwarded links cause real problems. Explain the tradeoffs and your recommendation. Do not implement anything."
+  },
+  {
+    "id": "finished",
+    "skill": "explore",
+    "request": "In this hypothetical example, an invitation can be used once, whereas an account can sign in repeatedly. Does that explain why invitation expiry would not itself close the account? I only need this conceptual clarification, not a project decision or design."
+  },
+  {
+    "id": "status",
+    "skill": "status",
+    "request": "Read-only: assess the invitation issue from the supplied project notes. What is the status?"
+  }
+]

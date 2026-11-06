@@ -340,9 +340,12 @@ Ejemplo ilustrativo de traspaso; no demuestra que se haya realizado el trabajo:
 
 Cuando queda trabajo pendiente, la tabla de una fila indica la acción acotada, quién la realizará,
 qué información necesita y qué autorización queda pendiente o falta; la línea citada debajo es un
-mensaje que puedes enviar como tu siguiente petición. Una petición completada termina con
-**Siguiente acción:** `None for this request` en lugar de la tabla. La conversación habitual no
-necesita una estructura de informe.
+mensaje que puedes enviar como tu siguiente petición. Cada comando identifica un siguiente paso útil
+o indica expresamente que no se justifica ninguno, con una breve razón. Una evaluación completada
+puede recomendar trabajo posterior sin autorizarlo. Usa **Siguiente acción:** `None for this request`
+solo cuando no quede ningún seguimiento útil. La conversación habitual no necesita una estructura
+de informe; una exploración sustantiva sí propone una pregunta concreta o una acción y guarda las
+conclusiones reutilizables según las reglas de conservación.
 El formato ilustrado es el formato predeterminado permanente; el formato que solicites y las
 restricciones de la aplicación tienen prioridad.
 Consulta [revisión y comunicación](plugins/lusona/README.md#review-and-communication).

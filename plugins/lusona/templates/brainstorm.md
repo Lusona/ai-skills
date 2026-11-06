@@ -2,7 +2,8 @@
 
 <!-- Use for a substantive synthesis, not every turn. Omit irrelevant or empty sections.
 Apply core recording authority and retention: save substantive synthesis, alternatives, decisions,
-and open questions in the existing owner or concise notes before handoff or completion.
+and open questions in the existing owner or concise notes once useful to guide work or resume,
+without waiting for a save request. Update for material changes before handoff or completion.
 Ordinary dialogue and disposable discussion stay in conversation.
 Honor no-save/read-only/destination restrictions. Link facts owned elsewhere.
 This structure does not require a decision, spec, plan, TDD selection, or execution. -->
@@ -32,6 +33,8 @@ note how present choices support or constrain that future and which assumptions 
 
 ## Next action
 
-<Smallest useful question, scenario, or bounded action, with owner and inputs when needed.
+<Concrete next question, proposed direction, evidence probe, or bounded action and its purpose,
+with owner, required inputs, and remaining authority when needed.
 Carry forward existing authorization and policy when handing off to work; discussion alone
-does not authorize execution. If understanding is sufficient, no further action is required.>
+does not authorize execution. A completed discussion may suggest a useful follow-up. If none
+is warranted, state: None for this request, with a brief reason.>

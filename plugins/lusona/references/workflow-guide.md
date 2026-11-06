@@ -44,7 +44,7 @@ existing authorized work need no new command and enter under the [study entry ru
 | Implementation needs review or verification | [review](../skills/review/SKILL.md) when warranted, or name the missing check | The actual diff, intended behavior, and evidence |
 | Authorized structural improvement preserving observable behavior | [refactor](../skills/refactor/SKILL.md) | The behavior and interfaces to preserve |
 | Required acceptance or delivery remains | Name the exact action and owner | The recorded completion condition |
-| Requested scope complete | Say so; propose another outcome only when asked | None |
+| Requested scope complete | State completion; recommend a supported useful follow-up, or explicitly state none and why | Established goals and observed findings; follow-up authority remains separate |
 
 Use the linked template for each skill's substantive output, applying relevant sections in
 conversation or in the existing owning document. Format under the [shared presentation rules](../README.md#review-and-communication)
