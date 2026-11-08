@@ -4,6 +4,10 @@
 
 Lusona organizes coding-agent skills around a shared work loop:
 
+![Lusona interaction loop and supporting commands](plugins/lusona/assets/workflow-loop.svg)
+
+This is a common interaction loop. Start where needed and revisit steps as evidence changes.
+
 - **Choose, act, check, repeat.** Choose the next action from the outcome and current
   evidence. Revisit exploration, investigation, design, implementation, or review as needed.
   There is no fixed skill sequence.

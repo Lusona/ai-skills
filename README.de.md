@@ -4,6 +4,10 @@
 
 Lusona verbindet Skills für Programmieragenten durch einen gemeinsamen Arbeitszyklus:
 
+![Lusona-Arbeitszyklus und ergänzende Befehle](plugins/lusona/assets/workflow-loop.svg)
+
+Das ist ein üblicher Arbeitszyklus. Beginne dort, wo es nötig ist, und kehre zu Schritten zurück, wenn neue Erkenntnisse es nahelegen.
+
 - **Auswählen, ausführen, prüfen, wiederholen.** Das Ziel und die aktuellen Belege bestimmen
   den nächsten Schritt. Bei Bedarf geht es zurück zur Erkundung, Untersuchung, zum Entwurf,
   zur Implementierung oder zum Review. Eine feste Reihenfolge der Skills gibt es nicht.

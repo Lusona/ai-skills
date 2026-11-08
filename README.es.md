@@ -4,6 +4,10 @@
 
 Lusona organiza las habilidades de los agentes de programación en torno a un ciclo de trabajo compartido:
 
+![Ciclo de interacción de Lusona y comandos complementarios](plugins/lusona/assets/workflow-loop.svg)
+
+Este es un ciclo de interacción habitual. Empieza donde lo necesites y vuelve a cualquier paso cuando las evidencias lo indiquen.
+
 - **Elegir, actuar, comprobar y repetir.** Elegir la siguiente acción según el resultado solicitado y
   las evidencias disponibles. Volver a explorar, investigar, diseñar, implementar o revisar cuando
   haga falta. No hay una secuencia fija de habilidades.

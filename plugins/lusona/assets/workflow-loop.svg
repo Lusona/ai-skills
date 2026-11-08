@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700" role="img" aria-labelledby="title description">
+  <title id="title">Lusona workflow: optional transitions and supporting commands</title>
+  <desc id="description">A solid clockwise circular example connects explore, specify, architect, implement, measure, and investigate back to explore. Dashed directed examples also connect specify to implement, implement to investigate, and investigate to specify. All links are illustrative, not required or exhaustive: enter or revisit any command as needed. Supporting commands are frame-product and map-capabilities for product direction; design, review, and refactor for delivery; experiment for evaluating alternatives; and status and batch for coordination.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#59819a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="optional-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#44677e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+      .command { font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace; font-size: 19px; font-weight: 600; fill: #183c56; }
+      .detail { font-size: 15px; fill: #4b6373; }
+      .group { font-size: 13px; font-weight: 700; letter-spacing: 1.6px; fill: #587282; }
+      .side-command { font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace; font-size: 17px; font-weight: 600; fill: #183c56; }
+    </style>
+  </defs>
+  <rect width="1100" height="700" rx="20" fill="#f8fafc"/>
+  <text x="40" y="47" font-size="23" font-weight="700" fill="#183c56">Use the command the work needs</text>
+  <text x="40" y="76" class="detail">Enter or revisit anywhere. The cycle illustrates iteration, not required steps.</text>
+  <circle cx="324" cy="365" r="222" fill="none" stroke="#e1eaf0" stroke-width="2"/>
+  <path d="M 417.82 163.80 A 222 222 0 0 1 480.98 208.02" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 535.13 296.40 A 222 222 0 0 1 538.44 422.46" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 488.98 513.55 A 222 222 0 0 1 428.22 561.01" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 230.18 566.20 A 222 222 0 0 1 167.02 521.98" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 112.87 433.60 A 222 222 0 0 1 109.56 307.54" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 159.02 216.45 A 222 222 0 0 1 219.78 168.99" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <g fill="none" stroke="#44677e" stroke-width="2.2" stroke-dasharray="7 6" stroke-linecap="round" marker-end="url(#optional-arrow)">
+    <path d="M 450 292 C 432 370 383 460 373 547"/>
+    <path d="M 275 549 C 268 465 225 365 194 294"/>
+    <path d="M 231 275 C 282 316 365 316 414 278"/>
+  </g>
+  <text x="324" y="359" text-anchor="middle" font-size="21" font-weight="700" fill="#214b65">Bounded work</text>
+  <text x="324" y="389" text-anchor="middle" font-size="16" fill="#44677e">Choose · act · check</text>
+  <text x="324" y="416" text-anchor="middle" font-size="16" fill="#44677e">Repeat as needed</text>
+  <g>
+    <rect x="226.00" y="107.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
+    <text x="324.00" y="139.00" text-anchor="middle" class="command">explore</text>
+    <text x="324.00" y="163.00" text-anchor="middle" class="detail">Ideas and tradeoffs</text>
+  </g>
+  <g>
+    <rect x="418.26" y="218.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
+    <text x="516.26" y="250.00" text-anchor="middle" class="command">specify</text>
+    <text x="516.26" y="274.00" text-anchor="middle" class="detail">Behavior and acceptance</text>
+  </g>
+  <g>
+    <rect x="418.26" y="440.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
+    <text x="516.26" y="472.00" text-anchor="middle" class="command">architect</text>
+    <text x="516.26" y="496.00" text-anchor="middle" class="detail">Boundaries and contracts</text>
+  </g>
+  <g>
+    <rect x="226.00" y="551.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
+    <text x="324.00" y="583.00" text-anchor="middle" class="command">implement</text>
+    <text x="324.00" y="607.00" text-anchor="middle" class="detail">Build and verify</text>
+  </g>
+  <g>
+    <rect x="33.74" y="440.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
+    <text x="131.74" y="472.00" text-anchor="middle" class="command">measure</text>
+    <text x="131.74" y="496.00" text-anchor="middle" class="detail">Magnitude and change</text>
+  </g>
+  <g>
+    <rect x="33.74" y="218.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
+    <text x="131.74" y="250.00" text-anchor="middle" class="command">investigate</text>
+    <text x="131.74" y="274.00" text-anchor="middle" class="detail">Causes and unknowns</text>
+  </g>
+  <path d="M 661 112 V 625" stroke="#dce6ed" stroke-width="1.5"/>
+  <text x="698" y="132" class="group">PRODUCT DIRECTION</text>
+  <text x="698" y="162" class="side-command">frame-product</text>
+  <text x="698" y="184" class="detail">Vision, users, and outcomes</text>
+  <text x="698" y="216" class="side-command">map-capabilities</text>
+  <text x="698" y="238" class="detail">Coverage, dependencies, delivery order</text>
+
+  <text x="698" y="283" class="group">DELIVERY SUPPORT</text>
+  <text x="698" y="313" class="side-command">design</text>
+  <text x="838" y="313" class="detail">Mockups and flows</text>
+  <text x="698" y="345" class="side-command">review</text>
+  <text x="838" y="345" class="detail">Defects and evidence gaps</text>
+  <text x="698" y="377" class="side-command">refactor</text>
+  <text x="838" y="377" class="detail">Structure; preserve behavior</text>
+
+  <text x="698" y="425" class="group">EVALUATE ALTERNATIVES</text>
+  <text x="698" y="455" class="side-command">experiment</text>
+  <text x="698" y="477" class="detail">Test interventions against declared criteria</text>
+
+  <rect x="682" y="510" width="390" height="116" rx="12" fill="#eaf0f5"/>
+  <text x="698" y="536" class="group">COORDINATION · ANYWHERE</text>
+  <text x="698" y="566" class="side-command">status</text>
+  <text x="804" y="566" class="detail">Progress and next action</text>
+  <text x="698" y="598" class="side-command">batch</text>
+  <text x="804" y="598" class="detail">Authorized unattended work</text>
+  <path d="M 40 650 H 84" fill="none" stroke="#59819a" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text x="100" y="655" class="detail">Illustrative cycle</text>
+  <path d="M 280 650 H 324" fill="none" stroke="#44677e" stroke-width="2.2" stroke-dasharray="7 6" marker-end="url(#optional-arrow)"/>
+  <text x="340" y="655" class="detail">Optional transitions</text>
+  <text x="40" y="682" class="detail">All links are examples, not required or exhaustive.</text>
+</svg>
