@@ -29,8 +29,10 @@ the bounded question, verifies the evidence, and reconciles returned findings.
   edits before handoff. Report any diagnostic artifacts left behind.
 - Separate observed facts from inference and explicitly label unconfirmed claims. Report a cause
   as confirmed only when the evidence supports it. Report sources or search locations checked
-  and relevant coverage limitations; investigation stays bounded to the assigned question and
-  does not require exhaustive research. If attempts stop producing new evidence, summarize what
+  and relevant coverage limitations. Before using missing telemetry as evidence that an event
+  did not occur, establish whether capture was active and covered that event during the
+  relevant interval. Investigation stays bounded to the assigned question and does not require
+  exhaustive research. If attempts stop producing new evidence, summarize what
   was ruled out and identify the missing input or a different experiment; do not repeat the same approach.
 - Ask the user for necessary reproduction details or product decisions.
 - Return evidence, conclusion, and the smallest recommended next action using relevant sections

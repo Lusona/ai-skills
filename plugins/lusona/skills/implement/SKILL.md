@@ -55,14 +55,21 @@ Maintain existing separate plans in place; do not migrate records or create a co
 - Follow the recorded TDD sequence in coherent bounded increments through observable interfaces,
   with red/green evidence for test-first behaviors.
 - Investigate uncertainty before escalating a decision.
-- Run agreed and applicable repository checks. Judge status and output against defined expected
-  results, including explicitly required error behavior; an arbitrary nonzero exit is not success.
-  Report environmental blockers.
+- Run agreed and applicable repository checks. Compare observed behavior and relevant
+  process, protocol, or application results with defined expected results, including
+  required error behavior. An exit code alone is sufficient only when the check's
+  contract establishes the expected result. Report environmental blockers and behavior
+  that remains unverified.
 - Inspect each increment's evidence and choose the next action from remaining criteria or
   uncertainty; revisit clarification, design, or investigation when evidence requires it,
   preserving accepted constraints and authority. Inspect the final diff for defects, unintended changes, and unnecessary complexity.
 - Evaluate success against agreed behavior, not task completion. Record human acceptance only
   when given.
+- When substantial setup discovery reveals reusable execution or verification steps,
+  update existing project instructions or scripts within write authority. Include the
+  commands and interactions that worked and relevant environment assumptions. Verify
+  newly documented steps where safe to repeat; identify untested steps. Do not create
+  a new harness solely to document the procedure.
 - Record results, check and review evidence, limitations, and the current handoff in the owning
   change record under [retention](../../references/retention.md); the coordinator applies
   [closeout](../../references/closeout.md) before removing a Done row.

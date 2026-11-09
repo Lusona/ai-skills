@@ -1,10 +1,22 @@
 # Changelog
 
 Changes in recent source versions. Dates for tagged versions use the tagged commit's
-local date, not a verified publication date. Versions 2.0.1 and 2.0.0 are untagged;
+local date, not a verified publication date. Versions 2.0.2, 2.0.1, and 2.0.0 are untagged;
 the entries distinguish source updates from published releases.
 
-## 2.0.1 — Current source, untagged
+## 2.0.2 — Current source, untagged
+
+Local source update prepared on 2026-11-08. Publication and installation are not implied.
+
+- Check that removed or replaced behavior preserves required obligations, while
+  respecting intentionally retired behavior.
+- Establish telemetry coverage before inferring that an unrecorded event did not occur.
+- Assess verification results against the operation's contract, including application
+  errors that a process exit code alone may not expose.
+- Preserve reusable execution steps after substantial setup discovery in existing
+  project instructions or scripts, within write authority and safe replay limits.
+
+## 2.0.1 — Untagged source snapshot
 
 Version metadata changed on 2026-11-05. Publication and installation are not implied.
 

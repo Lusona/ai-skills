@@ -28,6 +28,9 @@ Select checks from the changed behavior and its risks; do not turn every diff in
 
 - Trace changed inputs through callers, state transitions, and observable outputs. Check
   relevant boundary values, absent data, and error paths against the intended contract.
+- For removed or replaced behavior, identify the invariant or contract it enforced and
+  check where that obligation remains satisfied, unless its retirement is part of the
+  accepted change.
 - Where work can overlap or repeat, inspect ordering, atomicity, retries, duplicate effects,
   cancellation, and resource cleanup. Support a concurrency finding with a possible sequence
   of events and its consequence.
