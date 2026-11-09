@@ -15,6 +15,14 @@ approval bypass, and persisted sessions for true multi-turn resume. No installed
 user configuration, or external app is changed. Authentication/session storage remains
 host-managed. Ambient host instructions and managed restrictions are a comparison limit.
 
+Newly prepared runs explicitly assign the actor as coordinator for the synthetic consuming project
+and retain `actor_role` in run.json. The actor owns questions, assignments, reconciliation,
+integration, verification, and shared project records within the user's authority. Normal workflow
+delegation and local fallback rules apply; running in a separate host task does not make it a leaf.
+The initial input supplies this role; resumed turns retain that session and exact frozen user turns.
+Future specialist-leaf evaluations must explicitly assign their bounded role and responsibilities.
+Existing frozen inputs and evidence remain unchanged.
+
 From repository root, freeze baseline before changing canonical behavior:
 
 ```sh

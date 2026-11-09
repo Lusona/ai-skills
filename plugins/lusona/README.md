@@ -8,6 +8,9 @@ and subagents. Use References to locate applicable procedures not already linked
 or assignment. Read complete applicable procedures, following role/section guidance; optional
 examples/catalogs permit excerpts. Leaves receive relevant procedures with their assignment.
 
+Workflow role follows assigned responsibilities. A separate host task or a prohibition on children
+does not establish a leaf role. Assignments explicitly name the workflow role and responsibilities.
+
 Identify the source of current supplied or demonstrably inherited text; it satisfies loading.
 Reuse unchanged instructions across skills/assignments; load missing or changed text when role,
 operation, or source changes. Installation or another worker's read does not establish availability.
@@ -106,7 +109,7 @@ Leaves receive applicable paths/text and loading instructions. Paths are relativ
 | Commit/integrate | [commits](references/commits.md) |
 | Dispatch/perform/evaluate assignment | [delegation](references/delegation.md) |
 | Before dispatch | [model routing](references/model-routing.md) |
-| After results/closeout/handoff | [worker lifecycle](references/worker-lifecycle.md) |
+| Responsible for workers/results: after results, before closing or handing off responsibility | [worker lifecycle](references/worker-lifecycle.md) |
 | Observed failure/review correction | [corrections](references/corrections.md) |
 | Checkpoint/handoff content | [handoff](references/handoff.md) |
 | Authorized unattended batch | [batch execution](references/batch-execution.md) |
@@ -196,7 +199,8 @@ If delegation is prohibited/unavailable, explain and act locally within authorit
 required independent review. Occupied capacity is not unavailability: wait/reuse/release finished workers.
 Apply host capacity accounting and the single batch pool. Before dispatch read
 [assignment contract](references/delegation.md#assignment-contract) and [model routing](references/model-routing.md);
-after results and before closeout/handoff read [worker lifecycle](references/worker-lifecycle.md).
+when responsible for workers or their results, read [worker lifecycle](references/worker-lifecycle.md)
+after results and before closing or handing off that responsibility.
 Leaves need these only if granted those responsibilities.
 
 ## Context budget

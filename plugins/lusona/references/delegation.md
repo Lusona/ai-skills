@@ -3,7 +3,8 @@
 Leaves read Assigned leaves and Assignment results; coordinators read all sections. Reuse current
 text under [core loading rules](../README.md#loading-rules). Coordinators also read
 [model routing](model-routing.md) before dispatch and [worker lifecycle](worker-lifecycle.md)
-after results; leaves need neither without those responsibilities.
+when responsible for workers or their results, after results and before closing or handing off
+that responsibility. Leaves load these procedures only for granted responsibilities.
 
 ## Assigned leaves
 
@@ -39,8 +40,9 @@ A complete review may find defects; unmet required checks prevent implementation
 
 ## Assignment contract
 
-Delegate the substantive specialist outcome, not merely inspection. Supply persona, bounded outcome,
-completion checks, write ownership, authority, explicit TDD/source, relevant workflow/domain skills,
+Delegate the substantive specialist outcome, not merely inspection. Supply explicit workflow role
+and responsibilities, persona, bounded outcome, completion checks, write ownership, authority,
+explicit TDD/source, relevant workflow/domain skills,
 role-specific core sections, and Assignment results. Supply accessible paths with explicit loading
 instructions or current text; identify supplied/inherited sources and fill gaps under Loading rules.
 Installation and anchor links do not prove context inheritance or section-only host loading.

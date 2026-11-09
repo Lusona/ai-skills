@@ -88,11 +88,15 @@ def prepare(condition, scenario, trial, out):
     for index, prompt in enumerate(case["turns"], 1):
         prefix = (f"Use the Lusona {case['skill']} skill at "
                   f"{condition}/plugin/skills/{case['skill']}/SKILL.md and applicable linked instructions. "
-                  "The synthetic workspace is your consuming project. Read only this workspace and the frozen plugin resources. "
+                  "Role: coordinator for this isolated project task. The synthetic workspace is your consuming project. "
+                  "Own questions, assignments, reconciliation, integration, verification, and shared project records within user authority; "
+                  "apply the workflow's normal delegation rules and local fallback when delegation is prohibited or unavailable. "
+                  "Read only this workspace and the frozen plugin resources. "
                   "Do not inspect evaluator files, parent directories, rubrics, or other trials.\n\n") if index == 1 else ""
         (out / f"turn-{index}.input.txt").write_text(prefix + prompt + "\n")
     save(out / "run.json", {"condition": str(condition), "scenario": scenario,
-         "trial": trial, "turns": len(case["turns"]), "prepared_runner_sha256": RUNNER_SHA256,
+         "trial": trial, "turns": len(case["turns"]), "actor_role": "coordinator",
+         "prepared_runner_sha256": RUNNER_SHA256,
          "initial_hashes": hashes(workspace),
          "input_hashes": {p.name: digest(p) for p in out.glob("*.input.txt")}})
     return out

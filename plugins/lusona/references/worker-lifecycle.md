@@ -1,8 +1,10 @@
 # Worker lifecycle
 
-Coordinators read after each assignment result and before closeout or handoff.
+Agents responsible for workers or their results read after each result and before closing or handing
+off that responsibility. This includes inherited, reassigned, or earlier-session workers even when
+no new worker is dispatched. Leaves apply this procedure only for granted worker responsibilities.
 
-The coordinator owns lifecycle decisions for dispatched workers, including coordinating
+The responsible agent owns lifecycle decisions for those workers, including coordinating
 any granted children. After each result:
 
 1. Preserve the result and recovery evidence, inspect it against the assignment, and decide
@@ -22,7 +24,7 @@ For other hosts, use the exposed lifecycle controls. If shutdown or confirmation
 report the limitation and surviving worker identity; do not claim cleanup or delete transcripts,
 workspaces, or team directories as a substitute. Apply the host's actual capacity accounting.
 
-At batch completion, deferral, interruption, or handoff, reconcile every dispatched worker
-and granted child. Preserve unfinished work before shutdown, and record surviving workers,
-ownership, and pending lifecycle actions in the existing handoff when one is needed.
+At batch completion, deferral, interruption, or handoff, reconcile every worker within that
+responsibility and granted child. Preserve unfinished work before shutdown, and record surviving
+workers, ownership, and pending lifecycle actions in the existing handoff when one is needed.
 Assignment completion, write-ownership release, and host-capacity release are separate facts.

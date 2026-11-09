@@ -57,6 +57,23 @@ class HarnessTest(unittest.TestCase):
         with self.assertRaises(FileExistsError):
             self.runner.prepare(self.condition, "simple", 1, self.temp / "first")
 
+    def test_prepared_run_declares_coordinator_role_and_preserves_user_turns(self):
+        self.freeze()
+        cases = json.loads((self.condition / "scenarios.json").read_text())
+        for scenario, case in cases.items():
+            with self.subTest(scenario=scenario):
+                run = self.runner.prepare(self.condition, scenario, 1, self.temp / scenario)
+                metadata = json.loads((run / "run.json").read_text())
+                self.assertEqual(metadata["actor_role"], "coordinator")
+                first_input = (run / "turn-1.input.txt").read_text()
+                instructions = first_input.removesuffix(case["turns"][0] + "\n")
+                self.assertIn("coordinator", instructions.lower())
+                for index, user_turn in enumerate(case["turns"], 1):
+                    supplied = (run / f"turn-{index}.input.txt").read_text()
+                    self.assertTrue(supplied.endswith(user_turn + "\n"))
+                    if index > 1:
+                        self.assertEqual(supplied, user_turn + "\n")
+
     def test_resume_uses_same_session_and_setup_failure_is_retained(self):
         self.freeze()
         run = self.runner.prepare(self.condition, "revision", 1, self.temp / "run")

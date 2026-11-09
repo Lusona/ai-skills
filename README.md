@@ -19,7 +19,7 @@ This is a common interaction loop. Start where needed and revisit steps as evide
 - **Verify completion.** Complete the agreed scope, required checks and review, and any
   required acceptance or delivery. Report what remains when completion is blocked.
 
-For Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Xcode 27 coding agents](INSTALL.md#xcode), and [Google Antigravity App, CLI, and IDE](INSTALL.md#antigravity) · Checked-out source version **2.0.2**
+For Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Xcode 27 coding agents](INSTALL.md#xcode), and [Google Antigravity App, CLI, and IDE](INSTALL.md#antigravity) · Checked-out source version **2.0.3**
 
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
