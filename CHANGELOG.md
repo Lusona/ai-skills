@@ -1,10 +1,17 @@
 # Changelog
 
 Changes in recent source versions. Dates for tagged versions use the tagged commit's
-local date, not a verified publication date. Versions 2.0.3, 2.0.2, 2.0.1, and 2.0.0 are untagged;
+local date, not a verified publication date. Versions 2.0.4, 2.0.3, 2.0.2, 2.0.1, and 2.0.0 are untagged;
 the entries distinguish source updates from published releases.
 
-## 2.0.3 — Current source, untagged
+## 2.0.4 — Current source, untagged
+
+Local source update prepared on 2026-11-09. Publication and installation are not implied.
+
+- Consolidate record-helper invocation guidance in its existing reference, preserving
+  mandatory helper use and record-specific rules for retention, naming, and closeout.
+
+## 2.0.3 — Untagged source snapshot
 
 Local source update prepared on 2026-11-08. Publication and installation are not implied.
 

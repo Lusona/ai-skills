@@ -19,7 +19,7 @@ Este es un ciclo de interacción habitual. Empieza donde lo necesites y vuelve a
 - **Verificar que el trabajo esté completo.** Completar el alcance acordado, las comprobaciones y la revisión
   obligatorias, y cualquier aceptación o entrega requerida. Indicar qué queda pendiente si algo impide terminar.
 
-Para Claude Code, Codex, [Cursor](INSTALL.md#cursor), [agentes de programación de Xcode 27](INSTALL.md#xcode) y [Google Antigravity App, CLI e IDE](INSTALL.md#antigravity) · Versión del código en esta copia de trabajo: **2.0.3**
+Para Claude Code, Codex, [Cursor](INSTALL.md#cursor), [agentes de programación de Xcode 27](INSTALL.md#xcode) y [Google Antigravity App, CLI e IDE](INSTALL.md#antigravity) · Versión del código en esta copia de trabajo: **2.0.4**
 
 > [!WARNING]
 > No instales Lusona mediante Vercel Skills (`npx skills@latest`); usa la [instalación nativa del plugin](#installation).

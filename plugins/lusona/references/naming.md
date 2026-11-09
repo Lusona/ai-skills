@@ -9,24 +9,10 @@ timezone, not a sequence or priority. Preserve the ID and filename on later edit
 Existing spec/plan pairs retain their shared basename. Do not create a companion plan
 for new changes by default.
 
-Use the bundled work-record helper ([Bash](../scripts/work-record.sh) or
-[PowerShell](../scripts/work-record.ps1)) to generate the name,
-check the destination, and create the record exclusively from its template. Resolve the
-helper relative to the loaded plugin, not the consuming project's working directory.
+Use the bundled work-record helper to generate the name, check the destination, and create
+the record exclusively from its template: `init-change` for specs or `init-adr` for ADRs.
 Choose a descriptive functional slug; use `slug` to normalize a title when needed.
-Follow [shell selection and invocation](work-record.md) for the available environment.
-
-```bash
-bash /resolved/plugin/scripts/work-record.sh slug "Add Python support"
-bash /resolved/plugin/scripts/work-record.sh init-change /absolute/project/root add-python-support
-bash /resolved/plugin/scripts/work-record.sh init-adr /absolute/project/root python-runtime
-```
-
-```powershell
-powershell.exe -NoProfile -File "C:\resolved\plugin\scripts\work-record.ps1" slug "Add Python support"
-powershell.exe -NoProfile -File "C:\resolved\plugin\scripts\work-record.ps1" init-change "C:\project" add-python-support
-powershell.exe -NoProfile -File "C:\resolved\plugin\scripts\work-record.ps1" init-adr "C:\project" python-runtime
-```
+Follow [shell selection, paths, and invocation](work-record.md).
 
 Both creation commands accept an optional `YYYY-MM-DD` creation date; otherwise they
 use local today. They return one JSON object on stdout with `status`, `path`, and `message`:

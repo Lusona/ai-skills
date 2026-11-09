@@ -21,7 +21,7 @@ Das ist ein üblicher Arbeitszyklus. Beginne dort, wo es nötig ist, und kehre z
   eine verlangte Abnahme oder Auslieferung müssen erfüllt sein. Ist der Abschluss blockiert,
   nennt der Agent die verbleibende Arbeit.
 
-Für Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Programmieragenten in Xcode 27](INSTALL.md#xcode) und [Google Antigravity App, CLI und IDE](INSTALL.md#antigravity) · Version des Quellcodes in dieser Arbeitskopie: **2.0.3**
+Für Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Programmieragenten in Xcode 27](INSTALL.md#xcode) und [Google Antigravity App, CLI und IDE](INSTALL.md#antigravity) · Version des Quellcodes in dieser Arbeitskopie: **2.0.4**
 
 > [!WARNING]
 > Installiere Lusona nicht mit Vercel Skills (`npx skills@latest`); nutze die [Installation als natives Plugin](#installation).
