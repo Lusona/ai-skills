@@ -18,21 +18,18 @@ boundaries, persistent data, shared contracts, or coordinated multiple writers u
 [Review and communication](../README.md#review-and-communication), so the reviewer has
 acceptance criteria recorded before implementation starts; a blanket repository review rule
 does not by itself require a spec. Size and scope do not decide this. Other direct implement or
-refactor work without a spec uses notes. Investigations, measurements, and experiments use notes
+refactor work without a spec uses notes, which may hold its agreement, decisions, explicit
+TDD/source, checks/evidence, and handoff. Any direct implement or refactor work can also create
+a spec directly without Specify, using only relevant template sections.
+Investigations, measurements, and experiments use notes
 and evidence records. Delegated assignments and handoffs within one session keep their handoff
 in notes or the owning record. Brief status needs no record.
-Explicit no-save/read-only restrictions and write permissions prevail;
-report prevented saving and return the result through a permitted channel. A delegated read-only
-worker returns findings to its coordinator, which saves them within its own write authority.
 Reuse the existing owner; without one, use the smallest suitable notes or change record.
 Keep only the outcome, authority and TDD source when applicable, decisions, useful evidence,
 material open questions, ownership, correction counts when any, and next action needed to resume. Omit irrelevant fields.
-Notes do not require a full spec or execution plan. Direct implement/refactor work without a spec
-may use notes for its agreement, decisions, explicit TDD/source, checks/evidence, and handoff.
-It can also create a spec directly without Specify; use only relevant template sections.
+Notes do not require a full spec or execution plan.
 
-Creating, updating, or using a spec requires tracking under [queue](queue.md), regardless of the
-skill used. Reconcile only the selected item, preserving lifecycle state, Icebox, and history.
+A spec's queue tracking follows the [queue rules](queue.md).
 Notes alone do not require tracking: do not enroll spec-free work or restore deleted records
 merely to save recovery context; an Ideas row for a distinct follow-up does not enroll the
 current work. Existing tracked work remains tracked.
@@ -45,16 +42,15 @@ is separate from completion and historical archival.
 During authorized work beyond discussion, tracked or not, keep unresolved supported
 goal-relevant outcomes discoverable when the current assignment closes: link an existing open
 item or add a distinct proposal under the queue rules, creating the queue from its template when
-absent. When saving is restricted, report the unowned follow-up through a permitted channel. Reference the owning evidence once; do not leave the only next action buried
+absent. When saving is prevented, report the unowned follow-up through a permitted channel. Reference the owning evidence once; do not leave the only next action buried
 in completed work. Retain evidence, uncertainty, and a next action; deferred proposals need a
 reason or revisit condition. A proposal does not authorize execution or join an active batch.
 
 Record each fact once. New change records own accepted scope, acceptance criteria, explicit
 TDD, optional execution steps, verification evidence, and one current handoff replaced as work
 progresses. Preserve established ownership for existing separate specs and plans. ADRs own
-consequential architecture decisions. Add an execution section only when sequencing,
-dependencies, uncertainty, recovery, or a long run whose earlier context will be summarized
-before it finishes makes it useful; straightforward work needs no task list.
+consequential architecture decisions. Add an execution section only when the
+[core task conditions](../README.md#work-loop) make it useful.
 Tasks reference acceptance criteria rather than restating them. Save routine verification
 evidence directly in the change record whether or not it has tasks. For material measurements and experiments, follow
 [evidence](evidence.md): new records live in `docs/lusona/evidence/`, and change records, notes,

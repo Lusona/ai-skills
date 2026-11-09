@@ -46,10 +46,10 @@ Use the host's completion notification or message mechanism; workers do not wait
 assignments or batch consolidation and do not edit the shared queue or batch handoff.
 
 The coordinator handles available results individually as they arrive, rather than waiting for
-all dispatched workers. After any in-progress serialized operation reaches a safe boundary,
-inspect the result and its evidence, persist the assignment outcome and recovery references,
-and, when the item's state, blocker, or next action changed, update its row in `docs/lusona/work.md`
-before further dispatch or waiting. Do not rewrite an unchanged row. Keep the row concise:
+all dispatched workers. Before further dispatch or waiting, and after any in-progress serialized
+operation reaches a safe boundary, inspect the result and its evidence, persist the assignment
+outcome and recovery references, and, when the item's state, blocker, or next action changed,
+update its row in `docs/lusona/work.md`. Do not rewrite an unchanged row. Keep the row concise:
 truthful lifecycle state, current blocker or next action, and owning evidence link.
 If evidence is missing, record the pending verification or missing report as the next action;
 do not infer success from a completion notification. Refresh the current batch handoff's affected

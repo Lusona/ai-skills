@@ -53,8 +53,9 @@ or new constraints under [retention](retention.md).
 
 ## Retention after a choice
 
-After the user chooses, retain the reference before recording the decision, within the core
-write authority and no-save restrictions; otherwise report the reference in the response.
+After the user chooses, retain the reference before recording the decision, within the
+[core recording authority and restrictions](../README.md#contract); when saving is prevented,
+report the reference in the response.
 Records never link draft pages.
 
 - Directory: `docs/lusona/visuals/<record-id>/`, where `<record-id>` is the owning spec or ADR

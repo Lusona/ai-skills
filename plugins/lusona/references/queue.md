@@ -40,18 +40,16 @@ When planning, implementing, or refactoring from an existing spec, repair its mi
 planning handoff or execution, using supported current state. Do not scan or backfill unrelated specs
 or restore archived completed items. Reopening requires explicit authority and [closeout](closeout.md).
 
-These requirements remain subject to explicit no-save/read-only restrictions and write permissions.
-If saving is prohibited or unavailable, report the missing tracking through a permitted channel.
+These requirements remain subject to the [core recording restrictions](../README.md#contract).
+When saving is prevented, report the missing tracking through a permitted channel.
 Delegated workers return required queue changes to the coordinator; they do not write shared state.
 Read-only assessment reports gaps without repairing them.
 
 The coordinator moves selected authorized implementation or refactoring to Doing when execution
 starts; planning-only work never enters Doing. Queue membership does not authorize implementation
-or select TDD. Direct work without a spec may remain untracked and retain agreement, decisions,
-TDD/source, checks/evidence, and handoff in notes under [retention](retention.md), which also
-states when a spec is required. Creating a spec
-activates the tracking requirement; existing tracked work remains tracked. A recovery note alone
-does not require a queue, full spec, or history entry.
+or select TDD. Direct work without a spec may remain untracked; [retention](retention.md) states
+what its notes retain and when a spec is required. Existing tracked work remains tracked.
+A recovery note alone does not require a queue, full spec, or history entry.
 Move work to Review when evidence is ready; list outstanding checks explicitly.
 Done requires the whole item's completion condition, acceptance criteria, required checks, and
 any required acceptance or delivery. Failed or unrun required checks block completion; passing

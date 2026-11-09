@@ -63,9 +63,7 @@ After each result, choose each outcome's next eligible action from current evide
 criteria, and authority. Revisit any responsibility when needed, without a batch-wide stage
 barrier. An unrelated settled item may advance while other definitions continue. New coupling stops affected writers for
 reconciliation and reassessment of designs, plans, and evidence before dependent work resumes.
-Apply [incremental reporting](references/execution.md#incremental-reporting) as results arrive:
-persist each result before further dispatch or waiting, and update its queue row only when its
-state, blocker, or next action changed, without waiting for batch closeout.
+Apply [incremental reporting](references/execution.md#incremental-reporting) as results arrive.
 
 Apply [delegation](../../references/delegation.md) and
 [model routing](../../references/model-routing.md) through the shared pool. Persist dispatch intent before starting and evidence links before

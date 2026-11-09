@@ -57,7 +57,8 @@ Choose routine details within authority without repeated approval; ask only for 
 consequential decisions/commitments, otherwise state uncertainty and continue.
 
 Adapt routine approaches without weakening acceptance or resetting progress. Planning belongs to
-implementation; tasks need dependencies, uncertainty, coordination, recovery, or a requested plan.
+implementation; tasks need sequencing, dependencies, uncertainty, coordination, recovery, a long run
+whose earlier context will be summarized before it finishes, or a requested plan.
 Small clear work needs no task list; retain its substantive output under the Contract.
 
 ## Contract

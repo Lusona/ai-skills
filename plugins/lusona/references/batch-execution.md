@@ -37,10 +37,8 @@ shared dependencies, ownership, and required review still determine eligibility.
   within their assigned ownership using the helper and must report naming conflicts.
   Review delegates remain read-only; the parent schedules authorized repairs separately.
 - Workers report each assignment result as soon as it is available. The parent applies
-  [incremental reporting](../skills/batch/references/execution.md#incremental-reporting),
-  persisting the result and recovery pointers before further dispatch or waiting, and updating
-  the item's `docs/lusona/work.md` row only when its state, blocker, or next action changed.
-  Queue updates and eligible per-item closeout do not wait for batch-wide consolidation.
+  [incremental reporting](../skills/batch/references/execution.md#incremental-reporting)
+  to each result as it arrives.
 - Multiple selected items may be Doing or in Review concurrently. A deferred item keeps its
   truthful queue state and blocker but releases execution capacity after its writers stop
   and unfinished changes are safely isolated. Do not continue on a baseline contaminated by

@@ -1,10 +1,23 @@
 # Changelog
 
 Changes in recent source versions. Dates for tagged versions use the tagged commit's
-local date, not a verified publication date. Versions 2.0.4, 2.0.3, 2.0.2, 2.0.1, and 2.0.0 are untagged;
+local date, not a verified publication date. Versions 2.0.5, 2.0.4, 2.0.3, 2.0.2, 2.0.1, and 2.0.0 are untagged;
 the entries distinguish source updates from published releases.
 
-## 2.0.4 — Current source, untagged
+## 2.0.5 — Current source, untagged
+
+Local source update prepared on 2026-11-09. Publication and installation are not implied.
+
+- State save restrictions, spec queue tracking, batch incremental reporting, and task
+  conditions once each; other files point to the owning rule and keep their local consequence.
+- Use the core Contract's condition, "when saving is prevented", wherever a procedure says
+  what to do when a record cannot be saved.
+- List sequencing and a long run whose earlier context will be summarized among the core
+  conditions for adding tasks, matching the spec template.
+- Make the batch deadline "before further dispatch or waiting" cover inspecting and
+  persisting a result as well as updating its queue row.
+
+## 2.0.4 — Untagged source snapshot
 
 Local source update prepared on 2026-11-09. Publication and installation are not implied.
 

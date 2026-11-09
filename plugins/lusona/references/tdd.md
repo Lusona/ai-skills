@@ -5,7 +5,7 @@ Read when selecting, recording, or applying a TDD policy.
 Implementation requires explicit user selection or a standing preference, with no implicit default.
 A standing preference is recorded in the project's `docs/lusona/README.md` or its agent
 instructions (`CLAUDE.md` or `AGENTS.md`). Record selection and source in the owning change
-record under [retention](retention.md); use conversation when saving is prohibited or unavailable.
+record under [retention](retention.md); when saving is prevented, use conversation.
 Unset TDD permits definition
 and planning, not implementation; no definition phase is required for a clear request. When unset,
 recommend a level and ask under [Questions and next actions](../README.md#questions-and-next-actions).

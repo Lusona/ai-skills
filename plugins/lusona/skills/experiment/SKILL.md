@@ -22,7 +22,7 @@ task-local checks. Reuse accepted scope and decisions. Route diagnostic cause or
 - Pin revisions or artifacts, local modifications, inputs or samples, instruments, and conditions
   for each alternative. Follow the [evidence procedure](../../references/evidence.md) and
   relevant sections of the [evidence template](../../templates/evidence.md); preserve the
-  declared design before observing results. No-save work declares it in conversation.
+  declared design before observing results. When saving is prevented, declare the design in conversation.
 - Run within scope, budget, and stopping conditions. Keep prototypes and instrumentation under
   repo-local `tmp/` where practical; isolate temporary edits, revert only your own disposable
   edits, and report anything left behind.

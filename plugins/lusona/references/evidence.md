@@ -18,8 +18,7 @@ acceptance, and resource boundaries remain binding.
 
 Save material decision evidence before handoff or completion without a separate save request
 under [retention](retention.md) and the core's write restrictions. Disposable work needs no record.
-Read-only/no-save restrictions prevail; saving does not authorize new collection, implementation,
-or external actions.
+Saving does not authorize new collection, implementation, or external actions.
 
 ## Choose the smallest record
 
