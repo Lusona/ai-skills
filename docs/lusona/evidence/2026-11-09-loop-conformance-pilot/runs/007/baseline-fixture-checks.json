@@ -1,0 +1,64 @@
+[
+  {
+    "scenario": "tdd-stated",
+    "kind": "actor-added-suite",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests"
+    ],
+    "workspace": "/home/jg/.cache/lusona-evals/tdd-stated-t1-0b9e73d4",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n",
+    "observed_at_unix": 1794293314.3134356
+  },
+  {
+    "scenario": "tdd-stated",
+    "kind": "independent-observable-interface",
+    "command": [
+      "python3",
+      "-c",
+      "import pager\nassert pager.paginate([1,2,3,4],2)==[[1,2],[3,4]]\nassert pager.paginate([1,2,3,4,5],2)==[[1,2],[3,4],[5]]\nassert pager.page_label(0,3)=='Page 1 of 3'\nprint('exact-multiple, existing short-last-page, first-page label: pass')"
+    ],
+    "workspace": "/home/jg/.cache/lusona-evals/tdd-stated-t1-0b9e73d4",
+    "exit_code": 0,
+    "stdout": "exact-multiple, existing short-last-page, first-page label: pass\n",
+    "stderr": "",
+    "observed_at_unix": 1794293314.3213084
+  },
+  {
+    "scenario": "authz-change",
+    "kind": "actor-added-suite",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests"
+    ],
+    "workspace": "/home/jg/.cache/lusona-evals/authz-change-t1-148095b9",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+    "observed_at_unix": 1794293314.3536084
+  },
+  {
+    "scenario": "authz-change",
+    "kind": "independent-observable-interface",
+    "command": [
+      "python3",
+      "-c",
+      "import lists\ns={};lists.create_list(s,'groceries','ana');lists.share_list(s,'groceries','ana','ben')\ntry:lists.delete_list(s,'groceries','ben')\nexcept lists.Forbidden:pass\nelse:raise AssertionError('shared user deleted list')\nassert 'groceries' in s\nlists.add_item(s,'groceries','ben','milk');assert s['groceries']['items']==['milk']\ntry:lists.delete_list(s,'groceries','cy')\nexcept lists.Forbidden:pass\nelse:raise AssertionError('stranger deleted list')\nlists.delete_list(s,'groceries','ana');assert 'groceries' not in s\nprint('shared/stranger delete forbidden, rejected delete retains list, shared add preserved, owner delete: pass')"
+    ],
+    "workspace": "/home/jg/.cache/lusona-evals/authz-change-t1-148095b9",
+    "exit_code": 0,
+    "stdout": "shared/stranger delete forbidden, rejected delete retains list, shared add preserved, owner delete: pass\n",
+    "stderr": "",
+    "observed_at_unix": 1794293314.3661385
+  }
+]

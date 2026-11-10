@@ -1,0 +1,29 @@
+{
+  "repository_commit": "9f2260f57d5dfd713a39ed80ba38b4a8a6bde1b3",
+  "raw_archive_sha256": "6a0d78d94efb2977300fb3f2f3bb8e272f0361ce95da45dcb22e0081e775af7a",
+  "raw_archive_bytes": 1764772,
+  "raw_member_prefix": "tmp/direct-instruction-checkpoints/",
+  "final_source_prefix": "final-source/",
+  "retained_sha256": {
+    "baseline-fixture-checks.json": "1d78269269b5651a454831809060ec7b7db78bc0ca47092d8f7dcacb11c11250",
+    "baseline-grades.md": "e41c8d409788cf57b72a77109ab3acdd219ab3d1ca7596a9c541e1b34e232454",
+    "baseline-ledger.json": "014c5906cc8cbef8fdf64ddf7fd9608f91ea01f05730e121c5d7f3cdf962a36c",
+    "baseline-pin.json": "9b613ac7e540769156cf464a1f5551d6512f020533a9d3c66eec02881416663e",
+    "candidate-fixture-checks.json": "704cf941a5532e31dda07767c55d8b5e6210aaf4acd558eae546f34f42627c08",
+    "candidate-grades.md": "061361ecb839632c0223751c5ce09b9fc127500614468dca4315b962ba08f7de",
+    "candidate-ledger.json": "7d4b3efe391080ffd7f7a028b6de32af063a3e34bcb5934dbf08400b82addf37",
+    "candidate-pin.json": "9097f8e56aa4e242e99d35a5708e6e2024303aaf08f3381c1cfec7ba7f7f1b29",
+    "candidate-source-hashes.json": "24cf5b11b4bcd761fc31ac5fb04e960a739fee808efe081b1b9b447171ffe268",
+    "collection-summary.json": "048ed77131445cc87c38cbf0d34efb075c67100abf7f3556c89de151598a151f",
+    "continuation-pin.json": "a4ee0d308adbaac33f6d772c205f173965b914aece035ea62d0ca5a27eafc90f",
+    "design.md": "cbce3d669a89467381a23c93282400b463d0e6249e1c7d6e6ec60e1501f809ff",
+    "final-code-review.json": "72847e3a93841fed89fb30988de925c2639be42b2f940f0628ea99a0430605ac",
+    "final-review.md": "9e2080881abc02b369c34de57954cb0efdeb82f54ea75f6815539fbdf7ce2e2e",
+    "final-source-hashes.json": "6263522f9f620300b1e649d7a738b481448194c643cea921b6cea0e09070b397",
+    "hook-observations.json": "2393bf70db22371bb8472030fad3b58c4221fb1ab35282ece4641e1b929b47bb",
+    "native-stop-observations.json": "7e1731e75657264f8eb71c07bc45c96f4b37244afdaf4ca7e8a4eae2bdf8d827",
+    "planned-cases.json": "30367342172a20aedb51382fd9116237c53e715bc9af2b987a7967d6fcdd81d1",
+    "static-checks.json": "b639c8f089c1e19ff96b0f9ed2ef71190505a66bac47d3728c1cde8c9103c7e1",
+    "timing-amendment.md": "af00ae4ef8a0c073b930b9a97224e5727efe5d582a110898620b6d3593e77f02"
+  }
+}

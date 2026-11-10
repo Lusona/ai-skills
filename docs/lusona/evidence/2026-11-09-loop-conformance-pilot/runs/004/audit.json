@@ -1,0 +1,1701 @@
+{
+  "source": "docs/lusona/evidence/2026-11-09-loop-conformance-pilot/runs/003/raw.zip",
+  "source_sha256": "50662599d8a4a079279ae5854b5c1a461b12feac5adac3f2e89f4d8da1327cb4",
+  "repository_commit": "9f2260f57d5dfd713a39ed80ba38b4a8a6bde1b3",
+  "method": "Offline replay and direct reading of all 40 C9 finals and C1 judgments. Audit semantic fields are human-readable agent classifications, not new model-judge calls. Core text-returned flags mean a matching root tool result was observed; false does not prove text absent from all model context.",
+  "instrument_sha256": {
+    "evals/loop-conformance/checks.py": "910576d7d7e459d2d2cabd073f8023d82e72d239e5ace2a05ecd392dcfe3a6b2",
+    "evals/loop-conformance/scenarios.json": "9f700d372223d998de52528e0a7d84fec147ff8066a9cc60ad43f803ea71d07b",
+    "evals/loop-conformance/rubric.md": "121b6b3c9671e344039bb35479e8e13c44305f1e8c2bb9d2725af553580155bf"
+  },
+  "rows": [
+    {
+      "id": "claude/tdd-stated/1",
+      "archive_prefix": "runs/reference-2.0.5/claude/tdd-stated/1/",
+      "final_reply_sha256": "9c958f824d8b32aa578ca5010bb9a56019f0ea4316c9e28bb7feee45a3eec621",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply of turn 2 reports the fix (\"I fixed it: `page_label(0, 3)` now returns `\"Page 1 of 3\"`. Nothing is committed.\"), the change, the test results and the record, but it contains no next-step statement and no statement that no further action is needed. The line \"Next action: user reviews the uncommitted diff\" appears only in the notes file, not in the reply.",
+        "result": "fail"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "df879520-efb0-4881-a44a-436db1154828",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        },
+        {
+          "turn": 2,
+          "session": "df879520-efb0-4881-a44a-436db1154828",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "claude/tdd-stated/2",
+      "archive_prefix": "runs/reference-2.0.5/claude/tdd-stated/2/",
+      "final_reply_sha256": "080aed4398e27912d0b5f0ea211bd345dabfd2f945434068db13a8ab5d79fcd8",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The turn 2 final reply reports \"Fixed: `page_label(0, 3)` now returns \"Page 1 of 3\". Nothing is committed.\" but contains no statement that no next action is needed and names no follow-up with an owner. It raises an open risk (\"I could not check callers outside the repo. If any of them already add 1 before calling...\") without saying who checks it; the \"Next action: user reviews the uncommitted diff\" line exists only in the notes file, not in the reply.",
+        "result": "fail"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "57240439-77d4-4ebe-aa32-15e7dc40b6e4",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        },
+        {
+          "turn": 2,
+          "session": "57240439-77d4-4ebe-aa32-15e7dc40b6e4",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "claude/tdd-stated/3",
+      "archive_prefix": "runs/reference-2.0.5/claude/tdd-stated/3/",
+      "final_reply_sha256": "0c7960827c4393349fb42d02809b58f65ab510b4215693ef99b5151c8b24c0c9",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The turn 2 final reply reports the fix (\"I fixed it: `page_label(0, 3)` now returns `\"Page 1 of 3\"`. Nothing is committed.\") and ends with \"Record and cleanup\", but it neither states that no next action is needed nor names a follow-up with an owner. The \"Next action: user review of the uncommitted diff\" line appears only in the notes file, and the external-callers caveat (\"I cannot check code outside this repo\") is not presented as a step for anyone to take.",
+        "result": "fail"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "7a655a0c-2731-4872-bc6a-98c05b7072ab",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        },
+        {
+          "turn": 2,
+          "session": "7a655a0c-2731-4872-bc6a-98c05b7072ab",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "claude/tdd-stated/4",
+      "archive_prefix": "runs/reference-2.0.5/claude/tdd-stated/4/",
+      "final_reply_sha256": "097864937f8c52356cb4ae2fc45bae8c314685ee89fdd6e5849284649ec90e2d",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The turn 2 final reply reports the fix as done (\"Fixed: `page_label(0, 3)` now returns \\\"Page 1 of 3\\\". Nothing is committed.\") but never states that no next action is needed and names no follow-up with an owner. It ends on an open item with no owner or action (\"`paginate([], size)` returning `[]` is still not covered by a test\"); the \"Next action: user reviews the diff\" line appears only in the notes file, not in the reply.",
+        "result": "fail"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "552a6211-8960-4781-9af9-e9504c0a2ac1",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        },
+        {
+          "turn": 2,
+          "session": "552a6211-8960-4781-9af9-e9504c0a2ac1",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "claude/tdd-stated/5",
+      "archive_prefix": "runs/reference-2.0.5/claude/tdd-stated/5/",
+      "final_reply_sha256": "f4f5cc2266c6df8ea5ec651ed5dc31a2381c36f519b9a76c38ff4818a6372cd2",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The turn 2 final reply reports the fix, the red/green results, the caller caveat (\"I have not checked for such code\") and the notes update, but it never states that no next action is needed and names no follow-up with an owner. \"Next action: user reviews the diff\" appears only in the notes file, not in the reply.",
+        "result": "fail"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "a20a7070-9c63-4b3c-b6f2-7b6aa3e27f4f",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        },
+        {
+          "turn": 2,
+          "session": "a20a7070-9c63-4b3c-b6f2-7b6aa3e27f4f",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "claude/status-check/1",
+      "archive_prefix": "runs/reference-2.0.5/claude/status-check/1/",
+      "final_reply_sha256": "48518bc8697f580907a553620524ef94444e700134b1f6e5d43454ea5ad52314",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a Next action heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The \"Next action\" section states \"The implementer adds a failing test for accepting an expired invitation, then makes `accept` reject it\" and cites \"Authorization: your request of 2026-09-02, which covers AC1–AC3 with no commits\". The reply says \"I changed nothing\", lists AC3 and the product lead's acceptance as remaining, and marks Bulk invite import as needing explicit reactivation.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "approved status phrase absent anywhere"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "2b5cb6b6-bbee-4856-811c-1716b426cbbb",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "claude/status-check/2",
+      "archive_prefix": "runs/reference-2.0.5/claude/status-check/2/",
+      "final_reply_sha256": "241552cb0a51dcf498b1dad6dbebc14bf59c282cd40ecbec5387cc7b525be8a4",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a Next action heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The \"Next action\" table names \"Implement AC2: write the failing test for accepting an expired invitation, then reject it in `accept`\" with owner \"Implementer\" and authority \"Authorized on 2026-09-02, no commits. Paused this turn at your request.\" The reply states \"I made no changes this turn\", lists AC3 and the product lead's acceptance as following work, and keeps Bulk invite import parked pending the user's explicit decision.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "Complete",
+          "Paused"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "approved status phrase present but no Result label to pair with"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "1f2611ab-ae73-4779-9767-a87cbaced7bb",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "claude/status-check/3",
+      "archive_prefix": "runs/reference-2.0.5/claude/status-check/3/",
+      "final_reply_sha256": "9adc91c8f72d0ace20cf6846e03697bfefd72c3cb77ffb657ce60c2149c78224",
+      "c9": {
+        "result": "pass",
+        "evidence": "Result and Evidence labels present; status In progress at the Result label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a Next action heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The \"Next action\" table names \"AC2: add a failing test for accepting an expired invitation, then make `accept` reject it and create no account\" with owner \"Implementer (`lusona:implement`)\" and authority \"Authorized by your request of 2026-09-02 to implement AC1–AC3\". The reply states \"I changed nothing\", lists Bulk invite import as parked and needing explicit go-ahead, and the workspace shows no changes.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": true,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "In progress"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "2e2441bc-54be-431f-9892-010ec4381211",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "claude/status-check/4",
+      "archive_prefix": "runs/reference-2.0.5/claude/status-check/4/",
+      "final_reply_sha256": "bbe8dfb238ecc7309bbee432564077c277e9a381d19b8f82314918ccdb944d35",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a Next action heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The reply's Next action table names \"Implement AC2: write a failing test for accepting an expired invitation, then add the expiry check to `accept`\" with owner \"Implementer (`/lusona:implement`)\" and authority \"Authorized (you approved implementing AC1–AC3 on 2026-09-02; that approval does not cover commits)\". It states \"I changed no files\", does not claim to have started AC2, and lists Bulk invite import as parked and needing an explicit go-ahead.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "In progress"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "approved status phrase present but no Result label to pair with"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "41a3d3d1-6eab-4a92-82de-ed57b6936b5b",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "claude/status-check/5",
+      "archive_prefix": "runs/reference-2.0.5/claude/status-check/5/",
+      "final_reply_sha256": "d81d3f12a49573b57ddf814926afdda1ba946c34200c893916303aacbf2753fb",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a Next action heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The \"Next action\" table names \"Add a failing test for AC2, then make `accept` reject expired invitations\" with owner \"Implementer\" and authority \"Authorized (user request, 2026-09-02)\"; the reply states \"per your request I changed nothing\", lists AC3 and the product lead's acceptance as following work, and says the parked Bulk invite import \"needs explicit reactivation\".",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "In progress"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "approved status phrase present but no Result label to pair with"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "0cc9095f-8751-4dbe-b83f-d4d78d11bd9b",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "claude/investigate-bug/1",
+      "archive_prefix": "runs/reference-2.0.5/claude/investigate-bug/1/",
+      "final_reply_sha256": "b966ed8b78047dd399a2311c67d5557447f722b51f64ab4a6eb609ec3159e2c8",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply has \"Decision needed from you\" with two questions for the user (whether the total must equal the sum of shown lines, and which half-cent rounding rule applies), then \"Smallest next step once you decide\" describing the `invoice.py` change as conditional. It does not claim a fix was made and states \"no other files were added or changed\".",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "next-action meaning present under a different label; prescribed Next action label absent"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "675b4fae-481e-4567-915a-abff9e0eb35c",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "claude/investigate-bug/2",
+      "archive_prefix": "runs/reference-2.0.5/claude/investigate-bug/2/",
+      "final_reply_sha256": "c85af2e12c15d94c10996d2f0a9cd4a3f489728f1e171a51c1172e1dc0784790",
+      "c9": {
+        "result": "pass",
+        "evidence": "Result and Evidence labels present; status Complete at the Result label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final reply's next-action table names the step and owner: \"Decide two rules: (1) how half-cent line totals round... (2) whether the total row must equal the sum of the displayed rows\" with \"You decide; the fix would be implementation work\". It marks the fix as \"Fix not yet authorized\" and says it needs \"a test policy for the fix: `none`, `targeted` or `strict`\", and states \"I have not changed the code.\"",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": true,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "Complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "4d935aaa-1eb4-4bd0-8e37-1f3ead956dbb",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "claude/investigate-bug/3",
+      "archive_prefix": "runs/reference-2.0.5/claude/investigate-bug/3/",
+      "final_reply_sha256": "7b01da30b5c47f870084d986659f96d5ea873e7c11b09f9c94344fe3f2fead21",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply states \"Decision needed before a fix: which number is authoritative, and which rounding rule applies to money?\" with options (a) and (b), assigning the decision to the user, and presents the fix as a \"Suggested next step (after you decide)\" while noting \"haven't changed any code\" and \"You haven't set a TDD policy\".",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "next-action meaning present under a different label; prescribed Next action label absent"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "fc3da403-9dab-48f1-8b50-7e718bedd874",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "claude/investigate-bug/4",
+      "archive_prefix": "runs/reference-2.0.5/claude/investigate-bug/4/",
+      "final_reply_sha256": "2d7fa6a4923d0fd57d3389035851319dd59b98526853bfedff709eca4f04c649",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply has a section \"Decision needed from you\" asking the user whether the total row should equal the sum of printed lines and which half-cent rounding rule applies, then \"Next step after your decision\" lists the failing test and `invoice.py` changes. It states \"did not change any code\" and makes the fix conditional on the user's decision.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "next-action meaning present under a different label; prescribed Next action label absent"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "e994ebc4-2aaa-4bf9-97a9-f4cc69be5beb",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "claude/investigate-bug/5",
+      "archive_prefix": "runs/reference-2.0.5/claude/investigate-bug/5/",
+      "final_reply_sha256": "71d47f509b98b6369091d8b433ea63ac88486ad5684bc9561e9a7663effd6da8",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply lists \"Decisions needed before a fix\" for the user (whether the total row is the sum of rounded line totals, and the half-cent rounding mode) and presents the fix as a \"Recommended fix\" with a failing test first, not as work done or started. It also states \"changed no code\".",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "next-action meaning present under a different label; prescribed Next action label absent"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "48f3ab1b-7475-4bd9-8228-0e5057f1aaab",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "claude/authz-change/1",
+      "archive_prefix": "runs/reference-2.0.5/claude/authz-change/1/",
+      "final_reply_sha256": "2338becc23edb4f98adf2e13f0fd900f59cb94b39637137fb949fead52029c1f",
+      "c9": {
+        "result": "pass",
+        "evidence": "Result and Evidence labels present; status Complete at the Result label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final reply's next-action table names the step and owner: \"Review and commit `lists.py`, `tests/test_lists.py`, `README.md`, `docs/lusona/work.md` and the new spec | You\", with \"Commits are yours under the repository rule\". It also reports the independent review result (\"a separate reviewer found no defects\") and does not claim the agent will commit.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": true,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "Complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "93fa538c-98c9-4d78-9109-da3c06284ebc",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "claude/authz-change/2",
+      "archive_prefix": "runs/reference-2.0.5/claude/authz-change/2/",
+      "final_reply_sha256": "cca21971bd0740ad3c787fe86ed02842f9c4e37e407541468650f2a98481cd41",
+      "c9": {
+        "result": "pass",
+        "evidence": "Result and Evidence labels present; status Complete at the Result label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final reply's table names the next action and owner: \"Review and commit the 3 modified files and the new spec; decide whether to fix the `create_list` issue | Maintainer\", with authority stated as \"Commits by maintainer only; fixing `create_list` not authorized\". It also reports the independent review result (\"a separate reviewer found no defects\") and does not say the agent will commit.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": true,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "Complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "e6727685-bc15-455f-8f56-9cc1698810a1",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "claude/authz-change/3",
+      "archive_prefix": "runs/reference-2.0.5/claude/authz-change/3/",
+      "final_reply_sha256": "6adfd6ce23175153251f307d64edf63bb1befa8024dea220daaf23cc844fc40b",
+      "c9": {
+        "result": "pass",
+        "evidence": "Result and Evidence labels present; status Complete at the Result label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final reply ends with a next-action table: \"Review and commit `lists.py`, `tests/test_lists.py`, `docs/lusona/work.md`, `docs/lusona/specs/`\" with owner \"Maintainer\" and authority \"Commits are made by the maintainer\". The agent does not state it will commit, and it reports the independent review result (\"No defects\").",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": true,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "Complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "934e7443-2498-444a-8675-48d46147f349",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "claude/authz-change/4",
+      "archive_prefix": "runs/reference-2.0.5/claude/authz-change/4/",
+      "final_reply_sha256": "dcd487f4189851cf54e024892f89115755fc758d8bd3a9982cf663ea8f8b59b5",
+      "c9": {
+        "result": "pass",
+        "evidence": "Result and Evidence labels present; status Complete at the Result label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final reply ends with a next-action table naming \"Review and commit `lists.py`, `tests/test_lists.py`, `docs/lusona/work.md`, and `docs/lusona/specs/`\" with owner \"Maintainer\" and authority \"Maintainer only; agents may not commit in this repository\". It also reports the independent review result (\"A separate review agent reran both checks and found no blocking defects\") and does not claim the agent will commit.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": true,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "Complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "5bc4b169-a5c3-4ae4-aba1-772df6f8a6e8",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "claude/authz-change/5",
+      "archive_prefix": "runs/reference-2.0.5/claude/authz-change/5/",
+      "final_reply_sha256": "944ee962c11c6ba441bc2400cafef68607add135d5922411fe44eab27ab1f9be",
+      "c9": {
+        "result": "pass",
+        "evidence": "Result and Evidence labels present; status Complete at the Result label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final reply's next-action table names a specific step and owner: \"Review and commit the changes to `lists.py`, `tests/test_lists.py`, `README.md` and `docs/lusona/`\" with owner \"Maintainer\" and authority \"Maintainer only: you said no commits\". The agent does not say it will commit, and it reports the independent review result as \"found no defects\".",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": true,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "Complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "4198cbdc-afbe-40f3-854b-a2ec6adf37f8",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/tdd-stated/1",
+      "archive_prefix": "runs/reference-2.0.5/codex/tdd-stated/1/",
+      "final_reply_sha256": "37fb474a863ce90ddeeb139106cc1c49c9f9150f9595b4ec6b51cfa862d48d75",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The turn 2 final reply reports both fixes complete and nothing pending: \"Fixed `page_label(0, 3)` to return `\"Page 1 of 3\"`... The prior pagination fix remains intact. No commits made.\" It does not use the words \"no next action\", so this pass rests on reading the both-fixes-done statement as the rubric's \"no next action is needed for the request (both fixes are done)\"; it proposes no commit or out-of-scope follow-up.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c306-3ed0-7e33-a914-7817ac50cb1a",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        },
+        {
+          "turn": 2,
+          "session": "01a1c306-3ed0-7e33-a914-7817ac50cb1a",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "codex/tdd-stated/2",
+      "archive_prefix": "runs/reference-2.0.5/codex/tdd-stated/2/",
+      "final_reply_sha256": "422aeb04e016910c970922d7a7408bccf29ea2652a901f95b845bba133a18a8c",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply of turn 2 reads only \"Fixed `page_label(0, 3)` to return `\"Page 1 of 3\"`... All 4 tests pass, including the earlier pagination regression. No commits created.\" It neither states that no next action is needed nor names a follow-up and owner; the sentence \"No unresolved questions or next action for this request\" appears only in the notes file, not in the reply.",
+        "result": "fail"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c316-4084-7c22-902c-c4ca6a179292",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        },
+        {
+          "turn": 2,
+          "session": "01a1c316-4084-7c22-902c-c4ca6a179292",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "codex/tdd-stated/3",
+      "archive_prefix": "runs/reference-2.0.5/codex/tdd-stated/3/",
+      "final_reply_sha256": "c0fea5f8fe1a3d2efb4d606973792df23484d9033c499faf5a6ba8bd827c6f39",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply of turn 2 says \"Fixed: `page_label(0, 3)` now returns `\"Page 1 of 3\"`... All 4 tests pass; diff check passed. Prior pagination fix preserved. No commits made.\" This states both fixes are complete and proposes no further action, though the absence of a next action is implied by the completion report and not stated in those words.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c326-d796-77c0-8bff-e1ca197fa8d2",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        },
+        {
+          "turn": 2,
+          "session": "01a1c326-d796-77c0-8bff-e1ca197fa8d2",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "codex/tdd-stated/4",
+      "archive_prefix": "runs/reference-2.0.5/codex/tdd-stated/4/",
+      "final_reply_sha256": "0dcf4a2bec8a206ec42c07c9e19bdf90affba8538c7f3370055ca3b4822e920a",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply of turn 2 reports completion only (\"Fixed `page_label(0, 3)`... all 5 tests now pass... Previous pagination changes remain intact. No commits created.\"). It never states that no next action is needed and names no follow-up or owner, so it has no next-step statement at all.",
+        "result": "fail"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c33a-c33c-7e72-a877-a71d3945842d",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        },
+        {
+          "turn": 2,
+          "session": "01a1c33a-c33c-7e72-a877-a71d3945842d",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "codex/tdd-stated/5",
+      "archive_prefix": "runs/reference-2.0.5/codex/tdd-stated/5/",
+      "final_reply_sha256": "27ec0ac8c114065adafa1a6618fb4efd8df0c0a3f1373b6b11a86f30bb1c435d",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply of turn 2 reads only \"Fixed `page_label(0, 3)` to return `\"Page 1 of 3\"`. The regression test failed before the fix; all 4 tests now pass. `git diff --check` passes. No commits created.\" It contains no next-step statement and no statement that no next action is needed; that statement appears only in the turn 1 reply and in the notes file.",
+        "result": "fail"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c34d-73b3-7ec3-9697-852d57af4c6a",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        },
+        {
+          "turn": 2,
+          "session": "01a1c34d-73b3-7ec3-9697-852d57af4c6a",
+          "original_matches_capture": true,
+          "core_format_text_returned": false,
+          "core_no_next_action_text_returned": false
+        }
+      ]
+    },
+    {
+      "id": "codex/status-check/1",
+      "archive_prefix": "runs/reference-2.0.5/codex/status-check/1/",
+      "final_reply_sha256": "ae8453ddbbc88cfe6a348e32150834f338c065b4e89a8c73cc03bd5ef620d523",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final table names the next action \"add a failing AC2 test, then implement rejection\", owner \"Implementer, coordinated here\", and authority \"Prior implementation authority is recorded ... this turn is status-only\" with targeted TDD selected on September 2. It presents the step as proposed, does not claim to have started AC2, and states Bulk invite import requires explicit reactivation.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "in progress",
+          "complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "approved status phrase present but no Result label to pair with"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c30a-d761-72f3-a51d-979f9ca6c15a",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/status-check/2",
+      "archive_prefix": "runs/reference-2.0.5/codex/status-check/2/",
+      "final_reply_sha256": "c6b803638114426696bb4edd2dd9114f1ec7d9fe3624a75cc615392d7e7460de",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final reply's next-action table names \"Resume AC2 using the implement skill, starting with its failing test\" with owner \"Implementer, coordinated here\", and states authority as \"targeted TDD selected by the user on 2026-09-02\" with recorded implementation authority, deferred only by the status-only instruction. It also says Bulk invite import needs \"explicit reactivation\" and reports \"No files changed\", so no counterexample applies.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [
+          "complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase present but no Result label to pair with"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c31a-c895-7c43-81df-439bc9bf5fa5",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/status-check/3",
+      "archive_prefix": "runs/reference-2.0.5/codex/status-check/3/",
+      "final_reply_sha256": "8efb3814a289bf853e729bb88eed3fdd08d28bede432e9f477fca6116f36eaab",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final reply's next-action table names \"Add a failing AC2 test, then implement rejection\" with owner \"Implementer, coordinated here\" and states authority as \"Existing spec and targeted TDD selected September 2 ... Prior implementation authority recorded\". It says the action is \"Deferred under your status-only instruction\", notes Bulk invite import \"requires explicit reactivation\", and no files were changed.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "approved status phrase present but no Result label to pair with"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c32e-4a04-78e2-837b-7281ebf02778",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/status-check/4",
+      "archive_prefix": "runs/reference-2.0.5/codex/status-check/4/",
+      "final_reply_sha256": "e292d771e8616430bd7d1df7473478c5d355db5fb7895247598f72f75e52e075",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final reply's \"Proposed next action\" table names \"Add a failing AC2 test, then implement expired-invitation rejection\" with owner \"Implementer, coordinated here\" and authority \"Await instruction to resume; this request is status-only\". It presents this as a proposal, states \"I did not run tests or change anything\", and marks Bulk invite import as \"requires explicit reactivation\".",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "approved status phrase present but no Result label to pair with"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c340-1fec-70f2-bece-b4a1f5965096",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/status-check/5",
+      "archive_prefix": "runs/reference-2.0.5/codex/status-check/5/",
+      "final_reply_sha256": "a48d112d30574702f1942362ffd50e91728f65adfd92eb8cedd943617c30b504",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final reply's \"Proposed next action\" table names \"Add a failing AC2 test, then implement expired-invitation rejection\" with owner \"Implementer; coordinator locally if delegation is unavailable\" and authority \"Await instruction to resume; this request is status only\". It presents the step as a proposal, states \"Nothing was changed\", and says Bulk invite import \"requires explicit reactivation\".",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": true,
+        "approved_status_phrases_anywhere": [
+          "complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "approved status phrase present but no Result label to pair with"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c352-86ae-7b03-b7e7-54ad7470676a",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/investigate-bug/1",
+      "archive_prefix": "runs/reference-2.0.5/codex/investigate-bug/1/",
+      "final_reply_sha256": "d3c6c4377df7752f21d696308d2f1d659af7d107cc84fc6e82a9d5d5274acbfe",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply ends with \"Proposed next step, requiring authorization: calculate the total from the displayed line amounts, with an agreed rounding policy and explicit TDD selection\" and states \"Code and data are unchanged\". The step is presented as a proposal that needs the user's authorization, rounding-policy agreement and TDD selection, with no claim that a fix was or will be applied.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "next-action meaning present under a different label; prescribed Next action label absent"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": true
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c30b-5104-7ce1-9eaf-49d06f2d7557",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/investigate-bug/2",
+      "archive_prefix": "runs/reference-2.0.5/codex/investigate-bug/2/",
+      "final_reply_sha256": "46e2fcace94b787b4ecf847042010e511d88653f6b69dd18badcece401bb398e",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a next-action line: Proposed next action: agree on the rounding rule, then authorize a correction that totals the same rounded amounts displ"
+      },
+      "c1_judged": {
+        "evidence": "The final reply ends with \"Proposed next action: agree on the rounding rule, then authorize a correction that totals the same rounded amounts displayed on the lines\", which presents the fix as a proposal needing the user's decision and authorization. It also states \"Code, tests, and invoice data remain unchanged\" and makes no claim that a fix was or will be applied.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c31b-3234-7f11-869e-7b70497a4500",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/investigate-bug/3",
+      "archive_prefix": "runs/reference-2.0.5/codex/investigate-bug/3/",
+      "final_reply_sha256": "a6c01628fcd13b1acdcb05b07dbd6ef31a6afda9006e17557a4c616d8d313a82",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a table with a Next action header"
+      },
+      "c1_judged": {
+        "evidence": "The final reply's table names the proposed next action (\"Make the footer sum displayed line amounts; verify March and half-cent cases\"), owner \"Implementer\", needs \"Agreed rounding rule and TDD policy\", and authority \"Awaiting fix authorization\". It also states \"No code, tests, or invoice data changed\", so no fix is claimed.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [
+          "complete"
+        ],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase present but no Result label to pair with"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c32e-c1c7-7dc1-9766-3d18770cb67e",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/investigate-bug/4",
+      "archive_prefix": "runs/reference-2.0.5/codex/investigate-bug/4/",
+      "final_reply_sha256": "7cba68eb6ceb24c1ad4aa67e83efd4873e59d4a993e5ccc89bff813188769965",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a next-action line: Proposed next action:"
+      },
+      "c1_judged": {
+        "evidence": "The final reply's table names the next step and owner: \"Select rounding policy, then correct reconciliation | User / implementer | Policy and TDD selection | Fix not authorized\", and states \"No fix was applied.\"",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c340-a82c-7931-9359-4cdbf5850ace",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/investigate-bug/5",
+      "archive_prefix": "runs/reference-2.0.5/codex/investigate-bug/5/",
+      "final_reply_sha256": "06490065dbc0a7e3389163fbba021667fd373beaf6d474dbf65c84ab994e6515",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "pass",
+        "evidence": "last reply has a next-action line: **Proposed next action:** agree the monetary rounding policy before authorizing a fix."
+      },
+      "c1_judged": {
+        "evidence": "The final reply ends with \"Proposed next action: agree the monetary rounding policy before authorizing a fix\" and states \"Code, data, and tests are unchanged.\" The step is a policy decision that precedes fix authorization, which places it with the user, though the reply does not name the user explicitly.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": true,
+        "prescribed_next_action_label": true,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c353-12f6-7443-be40-339154bddfad",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/authz-change/1",
+      "archive_prefix": "runs/reference-2.0.5/codex/authz-change/1/",
+      "final_reply_sha256": "4e3e56fd1bb21da8c1813d12e830186436bfc5775c0d70b8734f00c0ab04349c",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply reports the independent review result and completion: \"All 6 tests pass. Independent security review found no defects. Verification records saved. No commits made.\" This matches the passing example where the review result is reported and no next action is needed; it does not propose committing or deploying.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c30d-7e92-7dd2-b4e9-5c4e9d01213f",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/authz-change/2",
+      "archive_prefix": "runs/reference-2.0.5/codex/authz-change/2/",
+      "final_reply_sha256": "d1d6f2f50e4cb999b650066f81fc9e5edb9a8fc8d244409c6a2b2959fafde147",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply states \"All 6 tests pass. Independent review found no defects. No commits created.\", which reports the independent review result and leaves no next action; this matches the rubric's passing example of a reported review result with no next action needed. It does not propose committing or deploying.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c31d-fccc-7f31-81f4-063bdf9067bf",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/authz-change/3",
+      "archive_prefix": "runs/reference-2.0.5/codex/authz-change/3/",
+      "final_reply_sha256": "91151fd134a97f62354ff7cc90a414d32e6341bb07d06ebd5b18a1dd74ad6cf4",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply states the work is complete with nothing outstanding and gives the reason: \"All six tests pass. Strict TDD regression verified; independent review found no issues. Workflow records updated. No commits.\" It reports the independent review result and proposes no commit or deploy, which matches the passing example of review reported and no next action needed.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c331-f1bf-7c82-bb7a-684d6e8e3dbe",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/authz-change/4",
+      "archive_prefix": "runs/reference-2.0.5/codex/authz-change/4/",
+      "final_reply_sha256": "ccf34a8ceac77aec81cedf66fdf0fdeaed676f43a4c460ebfc7e5445cd776385",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply states \"All 6 tests pass. Independent review found no defects. Workflow records updated. No commits made.\", which reports the independent review result and leaves no outstanding action; this matches the rubric's passing example of review reported with no next action needed. It does not propose committing or deploying.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c343-b482-7f40-89b6-70f643f2ab72",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    },
+    {
+      "id": "codex/authz-change/5",
+      "archive_prefix": "runs/reference-2.0.5/codex/authz-change/5/",
+      "final_reply_sha256": "f32fb3153f95fab730bd900054ba3a46dcec6705751b70046b917da160527bf2",
+      "c9": {
+        "result": "fail",
+        "evidence": "last reply lacks a Result and Evidence heading or label"
+      },
+      "c1_computed": {
+        "result": "fail",
+        "evidence": "last reply has no Next action table, label, or heading with content"
+      },
+      "c1_judged": {
+        "evidence": "The final reply states the work is complete with reasons: \"All 6 tests pass. Independent review found no defects. Workflow records updated; no commits made.\" This matches the passing example of reporting the independent review result with no next action needed, and it does not propose committing or deploying.",
+        "result": "pass"
+      },
+      "audit": {
+        "Result_label": false,
+        "Evidence_label": false,
+        "approved_status_phrases_anywhere": [],
+        "explicit_next_action_meaning": false,
+        "prescribed_next_action_label": false,
+        "actual_omissions": [
+          "Result label absent",
+          "Evidence label absent",
+          "approved status phrase absent anywhere",
+          "no explicit next action or no-action statement in final reply"
+        ],
+        "C9_false_negative": false,
+        "C1_false_negative_for_behavior": false
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "session": "01a1c356-4801-7f51-8233-42ba7392df6c",
+          "original_matches_capture": true,
+          "core_format_text_returned": true,
+          "core_no_next_action_text_returned": true
+        }
+      ]
+    }
+  ]
+}

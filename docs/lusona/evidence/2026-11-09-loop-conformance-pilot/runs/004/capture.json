@@ -1,0 +1,122 @@
+[
+  {
+    "id": "claude/tdd-stated/1",
+    "calls": 14,
+    "results": 14,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/tdd-stated/2",
+    "calls": 15,
+    "results": 15,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/tdd-stated/3",
+    "calls": 16,
+    "results": 16,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/tdd-stated/4",
+    "calls": 14,
+    "results": 14,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/tdd-stated/5",
+    "calls": 14,
+    "results": 14,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/status-check/1",
+    "calls": 3,
+    "results": 3,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/status-check/2",
+    "calls": 9,
+    "results": 9,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/status-check/3",
+    "calls": 5,
+    "results": 5,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/status-check/4",
+    "calls": 5,
+    "results": 5,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/status-check/5",
+    "calls": 9,
+    "results": 9,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/investigate-bug/1",
+    "calls": 7,
+    "results": 7,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/investigate-bug/2",
+    "calls": 12,
+    "results": 12,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/investigate-bug/3",
+    "calls": 9,
+    "results": 9,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/investigate-bug/4",
+    "calls": 8,
+    "results": 8,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/investigate-bug/5",
+    "calls": 9,
+    "results": 9,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/authz-change/1",
+    "calls": 29,
+    "results": 29,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/authz-change/2",
+    "calls": 28,
+    "results": 28,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/authz-change/3",
+    "calls": 25,
+    "results": 25,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/authz-change/4",
+    "calls": 32,
+    "results": 32,
+    "unmatched_ids": []
+  },
+  {
+    "id": "claude/authz-change/5",
+    "calls": 33,
+    "results": 33,
+    "unmatched_ids": []
+  }
+]

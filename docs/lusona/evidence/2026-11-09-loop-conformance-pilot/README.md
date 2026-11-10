@@ -2,6 +2,11 @@
 
 Owner: [spec 20261109-loop-conformance-suite](../../specs/20261109-loop-conformance-suite.md).
 
+Latest bounded implementation verification: [run 007](runs/007/README.md) covers direct
+instructions, examples and scoped completion hooks. Its three candidate final replies pass
+structure after one repair, but both candidate tasks fail substantive delegation. The change
+remains open; this small smoke does not replace the reference or establish reliability.
+
 ## Decision and scope
 
 - Decision this evidence informs: whether the suite's capture, grading, and judging work on
@@ -76,9 +81,24 @@ Owner: [spec 20261109-loop-conformance-suite](../../specs/20261109-loop-conforma
 
 ## Runs
 
+- [Run 008](runs/008/README.md): offline loading audit of runs 003, 006 and 007, 148 trials.
+  Claude's root agent received the core README in 35/60 run 003 trials, by scenario (0/5 or
+  5/5 in 10 of 12 cells); Codex in 72/72. References were mostly read once their operation
+  occurred. No actor run.
+- [Run 006](runs/006/README.md): matched old/new actor evaluation with corrected grading;
+  24 trials, disposition **refine**. Codex improves in the authorization scenario; Claude
+  does not improve and both hosts remain 0/3 per version on the two-turn scenario's C1/C9.
+  This is the current actor-evaluation conclusion, not a replacement reference.
+- [Run 005](runs/005/README.md): completion-rule/C1 correction with fresh judge-only
+  baseline and candidate calibration; focused agreement 5/6 → 6/6, all candidate cases 22/22.
+  No actor trial or replacement behavioral reference; changed suite hashes prevent a matched
+  comparison with run 003.
+- [Run 004](runs/004/README.md): offline audit of all 40 C9 replies from run 003; separates
+  actual omissions, five form-only C1 failures, and seven semantic-judge false passes.
+  No new actor run or replacement reference; run 003 remains the behavioral reference.
 - Run 001: this file (first pilot, superseded permission configuration).
-- [Run 003](runs/003/README.md): reference run for plugin 2.0.5, 120 trials; the current
-  conclusion and the source of the stored reference files.
+- [Run 003](runs/003/README.md): behavioral reference run for plugin 2.0.5, 120 trials;
+  the source of the stored reference files. Later calibration does not replace this reference.
 - [Run 002](runs/002/README.md): second pilot on the committed suite. Not comparable with run 001 for Claude Code (different permission
   configuration and shell).
 

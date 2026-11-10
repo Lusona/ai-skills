@@ -1,0 +1,170 @@
+[
+  {
+    "sequence": 1,
+    "host": "claude",
+    "scenario": "tdd-stated",
+    "trial": 1,
+    "variant": "A"
+  },
+  {
+    "sequence": 2,
+    "host": "claude",
+    "scenario": "tdd-stated",
+    "trial": 1,
+    "variant": "B"
+  },
+  {
+    "sequence": 3,
+    "host": "codex",
+    "scenario": "authz-change",
+    "trial": 1,
+    "variant": "A"
+  },
+  {
+    "sequence": 4,
+    "host": "codex",
+    "scenario": "authz-change",
+    "trial": 1,
+    "variant": "B"
+  },
+  {
+    "sequence": 5,
+    "host": "claude",
+    "scenario": "authz-change",
+    "trial": 1,
+    "variant": "B"
+  },
+  {
+    "sequence": 6,
+    "host": "claude",
+    "scenario": "authz-change",
+    "trial": 1,
+    "variant": "A"
+  },
+  {
+    "sequence": 7,
+    "host": "codex",
+    "scenario": "tdd-stated",
+    "trial": 1,
+    "variant": "B"
+  },
+  {
+    "sequence": 8,
+    "host": "codex",
+    "scenario": "tdd-stated",
+    "trial": 1,
+    "variant": "A"
+  },
+  {
+    "sequence": 9,
+    "host": "claude",
+    "scenario": "authz-change",
+    "trial": 2,
+    "variant": "A"
+  },
+  {
+    "sequence": 10,
+    "host": "claude",
+    "scenario": "authz-change",
+    "trial": 2,
+    "variant": "B"
+  },
+  {
+    "sequence": 11,
+    "host": "codex",
+    "scenario": "tdd-stated",
+    "trial": 2,
+    "variant": "A"
+  },
+  {
+    "sequence": 12,
+    "host": "codex",
+    "scenario": "tdd-stated",
+    "trial": 2,
+    "variant": "B"
+  },
+  {
+    "sequence": 13,
+    "host": "claude",
+    "scenario": "tdd-stated",
+    "trial": 2,
+    "variant": "B"
+  },
+  {
+    "sequence": 14,
+    "host": "claude",
+    "scenario": "tdd-stated",
+    "trial": 2,
+    "variant": "A"
+  },
+  {
+    "sequence": 15,
+    "host": "codex",
+    "scenario": "authz-change",
+    "trial": 2,
+    "variant": "B"
+  },
+  {
+    "sequence": 16,
+    "host": "codex",
+    "scenario": "authz-change",
+    "trial": 2,
+    "variant": "A"
+  },
+  {
+    "sequence": 17,
+    "host": "claude",
+    "scenario": "tdd-stated",
+    "trial": 3,
+    "variant": "A"
+  },
+  {
+    "sequence": 18,
+    "host": "claude",
+    "scenario": "tdd-stated",
+    "trial": 3,
+    "variant": "B"
+  },
+  {
+    "sequence": 19,
+    "host": "codex",
+    "scenario": "authz-change",
+    "trial": 3,
+    "variant": "A"
+  },
+  {
+    "sequence": 20,
+    "host": "codex",
+    "scenario": "authz-change",
+    "trial": 3,
+    "variant": "B"
+  },
+  {
+    "sequence": 21,
+    "host": "claude",
+    "scenario": "authz-change",
+    "trial": 3,
+    "variant": "B"
+  },
+  {
+    "sequence": 22,
+    "host": "claude",
+    "scenario": "authz-change",
+    "trial": 3,
+    "variant": "A"
+  },
+  {
+    "sequence": 23,
+    "host": "codex",
+    "scenario": "tdd-stated",
+    "trial": 3,
+    "variant": "B"
+  },
+  {
+    "sequence": 24,
+    "host": "codex",
+    "scenario": "tdd-stated",
+    "trial": 3,
+    "variant": "A"
+  }
+]

@@ -1,0 +1,5837 @@
+[
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "explore-save",
+  "trial": 1,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/corrections.md",
+   "references/files.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "skills/explore/SKILL.md",
+   "templates/brainstorm.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "README.md": 3,
+   "references/interviews.md": 3,
+   "references/retention.md": 3,
+   "references/files.md": 5,
+   "references/work-record.md": 5,
+   "templates/brainstorm.md": 5,
+   "templates/notes.md": 9,
+   "references/corrections.md": 10
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "explore-save",
+  "trial": 2,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/files.md",
+   "references/interviews.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/explore/SKILL.md",
+   "templates/brainstorm.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "references/retention.md": 3,
+   "README.md": 4,
+   "references/interviews.md": 5,
+   "references/evidence.md": 7,
+   "templates/brainstorm.md": 8,
+   "references/files.md": 9,
+   "references/work-record.md": 10,
+   "references/worker-lifecycle.md": 11,
+   "references/delegation.md": 12,
+   "references/naming.md": 13,
+   "references/model-routing.md": 14,
+   "templates/notes.md": 18
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "explore-save",
+  "trial": 3,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/evidence.md",
+   "references/files.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "skills/explore/SKILL.md",
+   "templates/brainstorm.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "README.md": 3,
+   "references/interviews.md": 3,
+   "references/retention.md": 3,
+   "references/evidence.md": 5,
+   "references/files.md": 5,
+   "references/work-record.md": 5,
+   "templates/brainstorm.md": 5
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "explore-save",
+  "trial": 4,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/evidence.md",
+   "references/files.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "skills/explore/SKILL.md",
+   "templates/brainstorm.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "README.md": 3,
+   "references/interviews.md": 3,
+   "references/retention.md": 3,
+   "references/evidence.md": 5,
+   "references/files.md": 5,
+   "references/work-record.md": 5,
+   "templates/brainstorm.md": 5,
+   "templates/notes.md": 8
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "explore-save",
+  "trial": 5,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/interviews.md",
+   "references/naming.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "skills/explore/SKILL.md",
+   "templates/brainstorm.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "README.md": 3,
+   "references/interviews.md": 3,
+   "references/retention.md": 3,
+   "templates/brainstorm.md": 3,
+   "references/files.md": 5,
+   "references/work-record.md": 5,
+   "references/naming.md": 6,
+   "templates/notes.md": 8
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "explore-no-save",
+  "trial": 1,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "skills/explore/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "README.md": 2,
+   "references/interviews.md": 2,
+   "references/retention.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "explore-no-save",
+  "trial": 2,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/interviews.md",
+   "skills/explore/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "README.md": 2,
+   "references/interviews.md": 2
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "explore-no-save",
+  "trial": 3,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "skills/explore/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "README.md": 2,
+   "references/interviews.md": 2,
+   "references/retention.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "explore-no-save",
+  "trial": 4,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "skills/explore/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "README.md": 2,
+   "references/interviews.md": 2,
+   "references/retention.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "explore-no-save",
+  "trial": 5,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "skills/explore/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "README.md": 2,
+   "references/interviews.md": 2,
+   "references/retention.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "review-readonly",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/worker-lifecycle.md",
+   "skills/review/SKILL.md",
+   "templates/review.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/review/SKILL.md": 1,
+   "templates/review.md": 5,
+   "README.md": 6,
+   "references/retention.md": 7,
+   "references/delegation.md": 8,
+   "references/queue.md": 9,
+   "references/model-routing.md": 10,
+   "references/worker-lifecycle.md": 14
+  },
+  "first_dispatch": 12
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "review-readonly",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/corrections.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/worker-lifecycle.md",
+   "skills/review/SKILL.md",
+   "templates/review.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/review/SKILL.md": 1,
+   "README.md": 3,
+   "references/queue.md": 3,
+   "references/retention.md": 3,
+   "templates/review.md": 3,
+   "references/delegation.md": 5,
+   "references/evidence.md": 5,
+   "references/model-routing.md": 5,
+   "references/corrections.md": 6,
+   "references/worker-lifecycle.md": 6
+  },
+  "first_dispatch": 8
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "review-readonly",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/worker-lifecycle.md",
+   "skills/review/SKILL.md",
+   "templates/review.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/review/SKILL.md": 1,
+   "README.md": 2,
+   "references/delegation.md": 4,
+   "references/model-routing.md": 4,
+   "references/queue.md": 4,
+   "references/retention.md": 4,
+   "templates/review.md": 4,
+   "references/worker-lifecycle.md": 6
+  },
+  "first_dispatch": 8
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "review-readonly",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/worker-lifecycle.md",
+   "skills/review/SKILL.md",
+   "templates/review.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/review/SKILL.md": 1,
+   "README.md": 3,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/queue.md": 5,
+   "references/retention.md": 5,
+   "templates/review.md": 5,
+   "references/worker-lifecycle.md": 7
+  },
+  "first_dispatch": 8
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "review-readonly",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/worker-lifecycle.md",
+   "skills/review/SKILL.md",
+   "templates/review.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/review/SKILL.md": 1,
+   "README.md": 3,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/queue.md": 5,
+   "references/retention.md": 5,
+   "templates/review.md": 5,
+   "references/tdd.md": 6,
+   "references/worker-lifecycle.md": 6
+  },
+  "first_dispatch": 8
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "greeting",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/interviews.md",
+   "skills/explore/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "references/interviews.md": 2,
+   "README.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "greeting",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/interviews.md",
+   "skills/explore/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "references/interviews.md": 2,
+   "README.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "greeting",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/interviews.md",
+   "skills/explore/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "references/interviews.md": 2,
+   "README.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "greeting",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/interviews.md",
+   "skills/explore/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "references/interviews.md": 2,
+   "README.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "greeting",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/interviews.md",
+   "skills/explore/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/explore/SKILL.md": 1,
+   "README.md": 2,
+   "references/interviews.md": 2
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "workflow-question",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/workflow-guide.md",
+   "skills/status/SKILL.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/status/SKILL.md": 1,
+   "README.md": 2,
+   "references/workflow-guide.md": 2,
+   "templates/spec.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "workflow-question",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/workflow-guide.md",
+   "skills/status/SKILL.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/status/SKILL.md": 1,
+   "README.md": 2,
+   "references/workflow-guide.md": 4,
+   "templates/spec.md": 5
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "workflow-question",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/workflow-guide.md",
+   "skills/status/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/status/SKILL.md": 1,
+   "README.md": 2,
+   "references/workflow-guide.md": 4
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "workflow-question",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/workflow-guide.md",
+   "skills/status/SKILL.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/status/SKILL.md": 1,
+   "README.md": 2,
+   "references/workflow-guide.md": 2,
+   "templates/spec.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "workflow-question",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/workflow-guide.md",
+   "skills/status/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/status/SKILL.md": 1,
+   "README.md": 2,
+   "references/workflow-guide.md": 4
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "tdd-unset",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/naming.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 4,
+   "references/retention.md": 6,
+   "references/tdd.md": 6,
+   "templates/notes.md": 6,
+   "references/work-record.md": 8,
+   "references/naming.md": 9
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "tdd-unset",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/notes.md": 3,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/work-record.md": 5
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "tdd-unset",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 5,
+   "references/tdd.md": 5,
+   "templates/notes.md": 5,
+   "references/work-record.md": 7
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "tdd-unset",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "skills/implement/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/retention.md": 5,
+   "references/tdd.md": 5
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "tdd-unset",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/tdd.md": 5,
+   "references/retention.md": 6,
+   "references/files.md": 7,
+   "references/work-record.md": 9,
+   "templates/notes.md": 11
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "refactor-unset",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "skills/refactor/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/refactor/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "templates/notes.md": 4,
+   "references/delegation.md": 6,
+   "references/model-routing.md": 6,
+   "references/work-record.md": 6
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "refactor-unset",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "skills/refactor/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/refactor/SKILL.md": 1,
+   "README.md": 2,
+   "references/retention.md": 2,
+   "references/tdd.md": 2,
+   "references/files.md": 3,
+   "references/work-record.md": 3,
+   "templates/notes.md": 6
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "refactor-unset",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/naming.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "skills/refactor/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/refactor/SKILL.md": 1,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/notes.md": 3,
+   "README.md": 4,
+   "references/files.md": 6,
+   "references/work-record.md": 6,
+   "references/naming.md": 7
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "refactor-unset",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "skills/refactor/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/refactor/SKILL.md": 1,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/notes.md": 3,
+   "README.md": 4,
+   "references/files.md": 6,
+   "references/work-record.md": 6
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "refactor-unset",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "skills/refactor/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/refactor/SKILL.md": 1,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/notes.md": 3,
+   "README.md": 4,
+   "references/files.md": 6,
+   "references/work-record.md": 6
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "tdd-stated",
+  "trial": 1,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/delegation.md": 5,
+   "references/evidence.md": 5,
+   "references/model-routing.md": 5,
+   "references/retention.md": 5,
+   "references/tdd.md": 5,
+   "templates/notes.md": 5,
+   "references/work-record.md": 6,
+   "references/worker-lifecycle.md": 8
+  },
+  "first_dispatch": 10
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "tdd-stated",
+  "trial": 2,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "templates/notes.md": 4,
+   "references/delegation.md": 6,
+   "references/model-routing.md": 6,
+   "references/work-record.md": 7,
+   "references/worker-lifecycle.md": 10
+  },
+  "first_dispatch": 11
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "tdd-stated",
+  "trial": 3,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 2,
+   "references/delegation.md": 4,
+   "references/evidence.md": 4,
+   "references/model-routing.md": 4,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "references/work-record.md": 6,
+   "templates/notes.md": 6,
+   "references/worker-lifecycle.md": 9
+  },
+  "first_dispatch": 10
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "tdd-stated",
+  "trial": 4,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/files.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "templates/notes.md": 4,
+   "references/delegation.md": 6,
+   "references/model-routing.md": 6,
+   "references/work-record.md": 6,
+   "references/files.md": 7,
+   "references/worker-lifecycle.md": 7
+  },
+  "first_dispatch": 9
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "tdd-stated",
+  "trial": 5,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/notes.md": 3,
+   "README.md": 4,
+   "references/delegation.md": 6,
+   "references/model-routing.md": 6,
+   "references/work-record.md": 6,
+   "references/worker-lifecycle.md": 9
+  },
+  "first_dispatch": 12
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "specify-change",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/handoff.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/specify/SKILL.md",
+   "templates/spec.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/specify/SKILL.md": 1,
+   "README.md": 3,
+   "references/naming.md": 3,
+   "references/queue.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/spec.md": 3,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/work-record.md": 5,
+   "templates/work.md": 5,
+   "references/handoff.md": 6,
+   "references/worker-lifecycle.md": 6
+  },
+  "first_dispatch": 7
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "specify-change",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/corrections.md",
+   "references/delegation.md",
+   "references/handoff.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/specify/SKILL.md",
+   "templates/spec.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/specify/SKILL.md": 1,
+   "README.md": 3,
+   "references/delegation.md": 4,
+   "references/model-routing.md": 4,
+   "references/naming.md": 4,
+   "references/queue.md": 4,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "templates/spec.md": 4,
+   "references/handoff.md": 5,
+   "references/work-record.md": 5,
+   "references/worker-lifecycle.md": 5,
+   "templates/work.md": 5,
+   "references/corrections.md": 14
+  },
+  "first_dispatch": 7
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "specify-change",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/handoff.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/specify/SKILL.md",
+   "templates/spec.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/specify/SKILL.md": 1,
+   "README.md": 3,
+   "references/naming.md": 5,
+   "references/queue.md": 5,
+   "references/retention.md": 5,
+   "references/tdd.md": 5,
+   "templates/spec.md": 5,
+   "references/delegation.md": 6,
+   "references/handoff.md": 6,
+   "references/model-routing.md": 6,
+   "references/work-record.md": 6,
+   "templates/work.md": 6,
+   "references/worker-lifecycle.md": 7
+  },
+  "first_dispatch": 10
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "specify-change",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/corrections.md",
+   "references/delegation.md",
+   "references/handoff.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/specify/SKILL.md",
+   "templates/spec.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/specify/SKILL.md": 1,
+   "README.md": 3,
+   "references/naming.md": 4,
+   "references/queue.md": 4,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "templates/spec.md": 4,
+   "references/delegation.md": 6,
+   "references/model-routing.md": 6,
+   "references/work-record.md": 6,
+   "templates/work.md": 7,
+   "references/handoff.md": 8,
+   "references/worker-lifecycle.md": 8,
+   "references/corrections.md": 13
+  },
+  "first_dispatch": 10
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "specify-change",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/handoff.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/specify/SKILL.md",
+   "templates/spec.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/specify/SKILL.md": 1,
+   "README.md": 3,
+   "references/delegation.md": 6,
+   "references/model-routing.md": 6,
+   "references/naming.md": 6,
+   "references/queue.md": 6,
+   "references/retention.md": 6,
+   "references/tdd.md": 6,
+   "templates/spec.md": 6,
+   "references/work-record.md": 7,
+   "templates/work.md": 7,
+   "references/handoff.md": 8,
+   "references/worker-lifecycle.md": 8
+  },
+  "first_dispatch": 10
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "status-check",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/queue.md",
+   "references/workflow-guide.md",
+   "skills/status/SKILL.md",
+   "templates/status.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/status/SKILL.md": 1,
+   "README.md": 2,
+   "references/files.md": 3,
+   "references/queue.md": 3,
+   "references/workflow-guide.md": 3,
+   "templates/status.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "status-check",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/queue.md",
+   "references/workflow-guide.md",
+   "skills/status/SKILL.md",
+   "templates/status.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/status/SKILL.md": 1,
+   "README.md": 3,
+   "references/files.md": 5,
+   "references/queue.md": 5,
+   "references/workflow-guide.md": 5,
+   "templates/status.md": 5
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "status-check",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/queue.md",
+   "references/workflow-guide.md",
+   "skills/status/SKILL.md",
+   "templates/status.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/status/SKILL.md": 1,
+   "README.md": 2,
+   "references/files.md": 4,
+   "references/queue.md": 4,
+   "references/workflow-guide.md": 4,
+   "templates/status.md": 4
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "status-check",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/queue.md",
+   "references/workflow-guide.md",
+   "skills/status/SKILL.md",
+   "templates/status.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/status/SKILL.md": 1,
+   "README.md": 2,
+   "references/files.md": 3,
+   "references/queue.md": 3,
+   "references/workflow-guide.md": 3,
+   "templates/status.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "status-check",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/queue.md",
+   "references/workflow-guide.md",
+   "skills/status/SKILL.md",
+   "templates/status.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/status/SKILL.md": 1,
+   "README.md": 3,
+   "references/files.md": 5,
+   "references/queue.md": 5,
+   "references/workflow-guide.md": 5,
+   "templates/status.md": 5
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "investigate-bug",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/corrections.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/investigate/SKILL.md",
+   "templates/evidence.md",
+   "templates/notes.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/investigate/SKILL.md": 1,
+   "README.md": 3,
+   "references/corrections.md": 5,
+   "references/delegation.md": 5,
+   "references/evidence.md": 5,
+   "references/model-routing.md": 5,
+   "references/retention.md": 5,
+   "templates/notes.md": 5,
+   "references/queue.md": 6,
+   "references/tdd.md": 6,
+   "references/work-record.md": 6,
+   "templates/evidence.md": 6,
+   "templates/work.md": 6,
+   "references/naming.md": 7,
+   "references/worker-lifecycle.md": 7
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "investigate-bug",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/investigate/SKILL.md",
+   "templates/notes.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/investigate/SKILL.md": 1,
+   "README.md": 2,
+   "references/delegation.md": 4,
+   "references/evidence.md": 4,
+   "references/model-routing.md": 4,
+   "references/retention.md": 4,
+   "templates/notes.md": 4,
+   "references/queue.md": 6,
+   "references/work-record.md": 6,
+   "references/worker-lifecycle.md": 6,
+   "references/tdd.md": 9,
+   "templates/work.md": 9
+  },
+  "first_dispatch": 14
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "investigate-bug",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/corrections.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/investigate/SKILL.md",
+   "templates/evidence.md",
+   "templates/notes.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/investigate/SKILL.md": 1,
+   "README.md": 2,
+   "references/delegation.md": 4,
+   "references/evidence.md": 4,
+   "references/model-routing.md": 4,
+   "references/retention.md": 4,
+   "templates/notes.md": 4,
+   "references/corrections.md": 6,
+   "references/queue.md": 6,
+   "references/tdd.md": 6,
+   "references/work-record.md": 6,
+   "references/worker-lifecycle.md": 6,
+   "templates/evidence.md": 9,
+   "templates/work.md": 9
+  },
+  "first_dispatch": 13
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "investigate-bug",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/corrections.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/files.md",
+   "references/model-routing.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/investigate/SKILL.md",
+   "templates/evidence.md",
+   "templates/notes.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/investigate/SKILL.md": 1,
+   "README.md": 3,
+   "references/evidence.md": 4,
+   "references/retention.md": 5,
+   "templates/notes.md": 6,
+   "references/delegation.md": 8,
+   "references/model-routing.md": 9,
+   "references/corrections.md": 10,
+   "references/work-record.md": 11,
+   "references/files.md": 12,
+   "references/worker-lifecycle.md": 13,
+   "references/tdd.md": 14,
+   "references/queue.md": 15,
+   "templates/work.md": 16,
+   "templates/evidence.md": 21
+  },
+  "first_dispatch": 20
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "investigate-bug",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/corrections.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/investigate/SKILL.md",
+   "templates/evidence.md",
+   "templates/notes.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/investigate/SKILL.md": 1,
+   "README.md": 3,
+   "references/delegation.md": 5,
+   "references/evidence.md": 5,
+   "references/model-routing.md": 5,
+   "references/retention.md": 5,
+   "templates/notes.md": 5,
+   "references/corrections.md": 7,
+   "references/queue.md": 7,
+   "references/tdd.md": 7,
+   "references/work-record.md": 7,
+   "references/naming.md": 9,
+   "references/worker-lifecycle.md": 9,
+   "templates/work.md": 9,
+   "templates/evidence.md": 14
+  },
+  "first_dispatch": 15
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "authz-change",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/closeout.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "skills/review/SKILL.md",
+   "templates/history.md",
+   "templates/review.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "references/delegation.md": 6,
+   "references/model-routing.md": 6,
+   "references/naming.md": 6,
+   "references/queue.md": 6,
+   "templates/spec.md": 6,
+   "references/evidence.md": 8,
+   "references/work-record.md": 8,
+   "references/closeout.md": 11,
+   "references/worker-lifecycle.md": 11,
+   "skills/review/SKILL.md": 11,
+   "templates/review.md": 16,
+   "templates/history.md": 24
+  },
+  "first_dispatch": 12
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "authz-change",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "skills/review/SKILL.md",
+   "templates/notes.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/notes.md": 3,
+   "README.md": 4,
+   "references/delegation.md": 6,
+   "references/model-routing.md": 6,
+   "references/naming.md": 6,
+   "references/queue.md": 6,
+   "templates/spec.md": 6,
+   "references/evidence.md": 8,
+   "references/work-record.md": 8,
+   "references/worker-lifecycle.md": 8,
+   "skills/review/SKILL.md": 11
+  },
+  "first_dispatch": 12
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "authz-change",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "skills/review/SKILL.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/naming.md": 5,
+   "references/queue.md": 5,
+   "templates/spec.md": 5,
+   "references/work-record.md": 6,
+   "references/worker-lifecycle.md": 9,
+   "skills/review/SKILL.md": 9
+  },
+  "first_dispatch": 10
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "authz-change",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "skills/review/SKILL.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/naming.md": 5,
+   "references/queue.md": 5,
+   "templates/spec.md": 5,
+   "references/evidence.md": 6,
+   "references/work-record.md": 6,
+   "references/worker-lifecycle.md": 9,
+   "skills/review/SKILL.md": 9
+  },
+  "first_dispatch": 10
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "codex",
+  "scenario": "authz-change",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "skills/review/SKILL.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/retention.md": 5,
+   "references/tdd.md": 5,
+   "references/evidence.md": 7,
+   "references/naming.md": 7,
+   "references/queue.md": 7,
+   "templates/spec.md": 7,
+   "references/work-record.md": 8,
+   "references/worker-lifecycle.md": 11,
+   "skills/review/SKILL.md": 11
+  },
+  "first_dispatch": 12
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "explore-save",
+  "trial": 1,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/evidence.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "templates/brainstorm.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/retention.md": 3,
+   "references/interviews.md": 4,
+   "references/evidence.md": 6,
+   "references/work-record.md": 8,
+   "templates/brainstorm.md": 8,
+   "templates/notes.md": 10
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "explore-save",
+  "trial": 2,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/evidence.md",
+   "references/files.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "templates/brainstorm.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/interviews.md": 2,
+   "references/retention.md": 2,
+   "templates/brainstorm.md": 2,
+   "references/evidence.md": 3,
+   "references/work-record.md": 3,
+   "references/files.md": 5,
+   "templates/notes.md": 5
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "explore-save",
+  "trial": 3,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/evidence.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "templates/brainstorm.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 5,
+   "references/retention.md": 6,
+   "references/interviews.md": 7,
+   "references/evidence.md": 8,
+   "references/work-record.md": 8,
+   "templates/brainstorm.md": 8,
+   "templates/notes.md": 11
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "explore-save",
+  "trial": 4,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/evidence.md",
+   "references/files.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "templates/brainstorm.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/interviews.md": 4,
+   "references/retention.md": 5,
+   "references/evidence.md": 6,
+   "references/work-record.md": 6,
+   "templates/brainstorm.md": 6,
+   "references/files.md": 8,
+   "templates/notes.md": 8
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "explore-save",
+  "trial": 5,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/evidence.md",
+   "references/interviews.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "templates/brainstorm.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/interviews.md": 4,
+   "references/retention.md": 5,
+   "references/evidence.md": 6,
+   "references/work-record.md": 6,
+   "templates/brainstorm.md": 6,
+   "templates/notes.md": 9
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "explore-no-save",
+  "trial": 1,
+  "turns": 2,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "explore-no-save",
+  "trial": 2,
+  "turns": 2,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "explore-no-save",
+  "trial": 3,
+  "turns": 2,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "explore-no-save",
+  "trial": 4,
+  "turns": 2,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "explore-no-save",
+  "trial": 5,
+  "turns": 2,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "review-readonly",
+  "trial": 1,
+  "turns": 1,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "review-readonly",
+  "trial": 2,
+  "turns": 1,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "review-readonly",
+  "trial": 3,
+  "turns": 1,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "review-readonly",
+  "trial": 4,
+  "turns": 1,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "review-readonly",
+  "trial": 5,
+  "turns": 1,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "greeting",
+  "trial": 1,
+  "turns": 1,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "greeting",
+  "trial": 2,
+  "turns": 1,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "greeting",
+  "trial": 3,
+  "turns": 1,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "greeting",
+  "trial": 4,
+  "turns": 1,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "greeting",
+  "trial": 5,
+  "turns": 1,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "workflow-question",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/workflow-guide.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Contract",
+   "Personas and subagents",
+   "Review and communication",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 1,
+   "references/workflow-guide.md": 1
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "workflow-question",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/workflow-guide.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Contract",
+   "Personas and subagents",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 1,
+   "references/files.md": 1,
+   "references/workflow-guide.md": 1
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "workflow-question",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/workflow-guide.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Contract",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 1,
+   "references/workflow-guide.md": 1
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "workflow-question",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/workflow-guide.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Contract",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 1,
+   "references/files.md": 1,
+   "references/workflow-guide.md": 1
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "workflow-question",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/workflow-guide.md",
+   "skills/implement/SKILL.md",
+   "skills/specify/SKILL.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Contract",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 1,
+   "references/files.md": 1,
+   "references/workflow-guide.md": 1,
+   "skills/implement/SKILL.md": 1,
+   "skills/specify/SKILL.md": 1
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "tdd-unset",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/retention.md",
+   "references/tdd.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Questions and next actions",
+   "Review and communication",
+   "TDD"
+  ],
+  "first_seen": {
+   "references/retention.md": 1,
+   "references/tdd.md": 1,
+   "README.md": 2
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "tdd-unset",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/retention.md",
+   "references/tdd.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Questions and next actions"
+  ],
+  "first_seen": {
+   "references/tdd.md": 2,
+   "references/retention.md": 3,
+   "README.md": 4
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "tdd-unset",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/tdd.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Questions and next actions"
+  ],
+  "first_seen": {
+   "references/tdd.md": 2,
+   "README.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "tdd-unset",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/tdd.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "references/tdd.md": 2,
+   "README.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "tdd-unset",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/retention.md",
+   "references/tdd.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Loading rules",
+   "Questions and next actions"
+  ],
+  "first_seen": {
+   "references/tdd.md": 2,
+   "references/retention.md": 3,
+   "README.md": 4
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "refactor-unset",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/tdd.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/tdd.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "refactor-unset",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/tdd.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/tdd.md": 4
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "refactor-unset",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "references/work-record.md": 4,
+   "templates/notes.md": 4
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "refactor-unset",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/retention.md",
+   "references/tdd.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/tdd.md": 3,
+   "references/retention.md": 6
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "refactor-unset",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/commits.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/commits.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/notes.md": 3,
+   "references/work-record.md": 6
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 1,
+  "turns": 2,
+  "returned": [
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/tdd.md": 1,
+   "references/retention.md": 2,
+   "references/work-record.md": 3,
+   "templates/notes.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 2,
+  "turns": 2,
+  "returned": [
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/tdd.md": 1,
+   "references/retention.md": 2,
+   "references/work-record.md": 3,
+   "templates/notes.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 3,
+  "turns": 2,
+  "returned": [
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/tdd.md": 1,
+   "references/retention.md": 2,
+   "references/work-record.md": 3,
+   "templates/notes.md": 9
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 4,
+  "turns": 2,
+  "returned": [
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/tdd.md": 1,
+   "references/retention.md": 2,
+   "references/work-record.md": 3,
+   "templates/notes.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 5,
+  "turns": 2,
+  "returned": [
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/tdd.md": 1,
+   "references/retention.md": 2,
+   "references/work-record.md": 4,
+   "templates/notes.md": 4
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "specify-change",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/spec.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/naming.md": 3,
+   "references/queue.md": 3,
+   "references/tdd.md": 3,
+   "templates/spec.md": 3,
+   "references/delegation.md": 4,
+   "references/model-routing.md": 4,
+   "references/retention.md": 4,
+   "references/work-record.md": 4,
+   "templates/work.md": 7
+  },
+  "first_dispatch": 8
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "specify-change",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/spec.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 1,
+   "references/naming.md": 2,
+   "references/queue.md": 2,
+   "references/retention.md": 2,
+   "references/tdd.md": 2,
+   "templates/spec.md": 2,
+   "references/work-record.md": 3,
+   "templates/work.md": 3,
+   "references/delegation.md": 4,
+   "references/model-routing.md": 4
+  },
+  "first_dispatch": 5
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "specify-change",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "templates/spec.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/naming.md": 4,
+   "references/queue.md": 4,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "templates/spec.md": 4,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/work-record.md": 5,
+   "references/worker-lifecycle.md": 5,
+   "templates/work.md": 5
+  },
+  "first_dispatch": 6
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "specify-change",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/spec.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "templates/spec.md": 3,
+   "references/naming.md": 4,
+   "references/tdd.md": 5,
+   "references/queue.md": 6,
+   "references/retention.md": 10,
+   "references/work-record.md": 11,
+   "templates/work.md": 12,
+   "references/delegation.md": 13,
+   "references/model-routing.md": 14
+  },
+  "first_dispatch": 15
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "specify-change",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/spec.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 1,
+   "references/naming.md": 3,
+   "references/queue.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/spec.md": 3,
+   "references/files.md": 5,
+   "references/work-record.md": 5,
+   "templates/work.md": 5
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "status-check",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "references/queue.md",
+   "references/workflow-guide.md",
+   "templates/status.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/queue.md": 3,
+   "references/workflow-guide.md": 3,
+   "templates/status.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "status-check",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/queue.md",
+   "references/workflow-guide.md",
+   "templates/status.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/queue.md": 8,
+   "references/workflow-guide.md": 8,
+   "templates/status.md": 8
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "status-check",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/queue.md",
+   "references/workflow-guide.md",
+   "templates/status.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 3,
+   "references/files.md": 4,
+   "references/queue.md": 4,
+   "references/workflow-guide.md": 4,
+   "templates/status.md": 4
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "status-check",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/files.md",
+   "references/queue.md",
+   "references/workflow-guide.md",
+   "templates/status.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/files.md": 3,
+   "references/queue.md": 3,
+   "references/workflow-guide.md": 3,
+   "templates/status.md": 3
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "status-check",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/workflow-guide.md",
+   "templates/status.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/workflow-guide.md": 8,
+   "templates/status.md": 8
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "investigate-bug",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "references/evidence.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/evidence.md": 4,
+   "references/retention.md": 4,
+   "templates/notes.md": 4,
+   "references/work-record.md": 5
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "investigate-bug",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/evidence.md",
+   "references/files.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/evidence.md": 4,
+   "references/retention.md": 4,
+   "templates/notes.md": 4,
+   "references/files.md": 7,
+   "references/work-record.md": 7
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "investigate-bug",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "references/evidence.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/evidence.md": 5,
+   "references/retention.md": 5,
+   "templates/notes.md": 5,
+   "references/work-record.md": 6
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "investigate-bug",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "references/evidence.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/evidence.md": 5,
+   "references/retention.md": 5,
+   "templates/notes.md": 5,
+   "references/work-record.md": 6
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "investigate-bug",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "references/evidence.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/work-record.md",
+   "templates/notes.md",
+   "templates/work.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/evidence.md": 5,
+   "references/retention.md": 5,
+   "templates/notes.md": 5,
+   "references/queue.md": 6,
+   "references/work-record.md": 6,
+   "templates/work.md": 7
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "templates/notes.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 3,
+   "references/queue.md": 4,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "templates/notes.md": 4,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/naming.md": 5,
+   "references/worker-lifecycle.md": 5,
+   "templates/spec.md": 5,
+   "references/work-record.md": 6
+  },
+  "first_dispatch": 11
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/closeout.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "templates/notes.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/queue.md": 4,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "templates/notes.md": 4,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/naming.md": 5,
+   "templates/spec.md": 5,
+   "references/closeout.md": 6,
+   "references/work-record.md": 6,
+   "references/worker-lifecycle.md": 6
+  },
+  "first_dispatch": 12
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/corrections.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/queue.md": 4,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/naming.md": 5,
+   "references/worker-lifecycle.md": 5,
+   "templates/spec.md": 5,
+   "references/work-record.md": 6,
+   "references/corrections.md": 18
+  },
+  "first_dispatch": 16
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 4,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/commits.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "templates/notes.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/tdd.md": 4,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/retention.md": 5,
+   "templates/notes.md": 5,
+   "references/naming.md": 6,
+   "references/queue.md": 6,
+   "references/worker-lifecycle.md": 6,
+   "templates/spec.md": 6,
+   "references/commits.md": 7,
+   "references/work-record.md": 7
+  },
+  "first_dispatch": 13
+ },
+ {
+  "run": "003",
+  "condition": "2.0.5",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 5,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/closeout.md",
+   "references/commits.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/tdd.md": 4,
+   "references/retention.md": 5,
+   "references/naming.md": 6,
+   "references/queue.md": 6,
+   "templates/spec.md": 6,
+   "references/delegation.md": 7,
+   "references/model-routing.md": 7,
+   "references/closeout.md": 8,
+   "references/commits.md": 8,
+   "references/work-record.md": 8,
+   "references/worker-lifecycle.md": 8
+  },
+  "first_dispatch": 14
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "templates/notes.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 3,
+   "references/queue.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/notes.md": 3,
+   "references/naming.md": 4,
+   "templates/spec.md": 4,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/work-record.md": 5,
+   "references/worker-lifecycle.md": 6
+  },
+  "first_dispatch": 11
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/notes.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/tdd.md": 4,
+   "references/retention.md": 5,
+   "templates/notes.md": 6,
+   "references/naming.md": 7,
+   "references/queue.md": 7,
+   "templates/spec.md": 7,
+   "references/work-record.md": 8,
+   "references/delegation.md": 17,
+   "references/model-routing.md": 17
+  },
+  "first_dispatch": 18
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/tdd.md": 4,
+   "references/retention.md": 5,
+   "references/naming.md": 6,
+   "references/queue.md": 6,
+   "templates/spec.md": 6,
+   "references/work-record.md": 7,
+   "references/delegation.md": 15,
+   "references/model-routing.md": 15
+  },
+  "first_dispatch": 17
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 1,
+  "turns": 2,
+  "returned": [
+   "references/tdd.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/tdd.md": 1
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 2,
+  "turns": 2,
+  "returned": [
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/tdd.md": 1,
+   "references/retention.md": 2,
+   "references/work-record.md": 3,
+   "templates/notes.md": 8
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 3,
+  "turns": 2,
+  "returned": [
+   "references/tdd.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/tdd.md": 1
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "codex",
+  "scenario": "authz-change",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/closeout.md",
+   "references/corrections.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "skills/review/SKILL.md",
+   "templates/history.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/tdd.md": 6,
+   "references/retention.md": 7,
+   "references/delegation.md": 8,
+   "references/model-routing.md": 9,
+   "references/evidence.md": 10,
+   "templates/spec.md": 11,
+   "references/naming.md": 12,
+   "references/queue.md": 13,
+   "references/work-record.md": 14,
+   "skills/review/SKILL.md": 17,
+   "references/worker-lifecycle.md": 18,
+   "references/corrections.md": 19,
+   "references/closeout.md": 20,
+   "templates/history.md": 33
+  },
+  "first_dispatch": 21
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "codex",
+  "scenario": "authz-change",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/closeout.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/handoff.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "skills/review/SKILL.md",
+   "templates/history.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/tdd.md": 5,
+   "references/retention.md": 6,
+   "references/delegation.md": 7,
+   "references/model-routing.md": 8,
+   "references/queue.md": 10,
+   "references/handoff.md": 11,
+   "references/evidence.md": 12,
+   "references/closeout.md": 13,
+   "references/naming.md": 14,
+   "templates/spec.md": 15,
+   "references/worker-lifecycle.md": 16,
+   "references/work-record.md": 17,
+   "skills/review/SKILL.md": 21,
+   "templates/history.md": 32
+  },
+  "first_dispatch": 22
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "codex",
+  "scenario": "authz-change",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "skills/review/SKILL.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 2,
+   "references/delegation.md": 3,
+   "references/model-routing.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "references/evidence.md": 4,
+   "references/naming.md": 4,
+   "references/queue.md": 4,
+   "templates/spec.md": 4,
+   "references/work-record.md": 5,
+   "references/worker-lifecycle.md": 8,
+   "skills/review/SKILL.md": 8
+  },
+  "first_dispatch": 9
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "codex",
+  "scenario": "tdd-stated",
+  "trial": 1,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/delegation.md": 5,
+   "references/evidence.md": 5,
+   "references/model-routing.md": 5,
+   "references/retention.md": 5,
+   "references/tdd.md": 5,
+   "references/work-record.md": 6,
+   "templates/notes.md": 6,
+   "references/worker-lifecycle.md": 8
+  },
+  "first_dispatch": 10
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "codex",
+  "scenario": "tdd-stated",
+  "trial": 2,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/notes.md": 3,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/work-record.md": 5,
+   "references/worker-lifecycle.md": 7
+  },
+  "first_dispatch": 9
+ },
+ {
+  "run": "006",
+  "condition": "A",
+  "host": "codex",
+  "scenario": "tdd-stated",
+  "trial": 3,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/notes.md": 3,
+   "references/delegation.md": 5,
+   "references/evidence.md": 5,
+   "references/model-routing.md": 5,
+   "references/work-record.md": 5,
+   "references/worker-lifecycle.md": 6
+  },
+  "first_dispatch": 8
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "skills/review/SKILL.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Contract",
+   "Loading rules",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "references/naming.md": 4,
+   "references/queue.md": 4,
+   "templates/spec.md": 4,
+   "references/delegation.md": 5,
+   "references/work-record.md": 5,
+   "skills/review/SKILL.md": 5
+  },
+  "first_dispatch": 14
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 3,
+   "references/queue.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "references/delegation.md": 4,
+   "references/model-routing.md": 4,
+   "references/naming.md": 4,
+   "templates/spec.md": 4,
+   "references/work-record.md": 5,
+   "references/worker-lifecycle.md": 16
+  },
+  "first_dispatch": 11
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "templates/notes.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 3,
+   "references/queue.md": 4,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "templates/notes.md": 4,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/naming.md": 5,
+   "templates/spec.md": 5,
+   "references/work-record.md": 6,
+   "references/worker-lifecycle.md": 18
+  },
+  "first_dispatch": 12
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 1,
+  "turns": 2,
+  "returned": [
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/notes.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/tdd.md": 1,
+   "references/retention.md": 2,
+   "references/work-record.md": 3,
+   "templates/notes.md": 8
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 2,
+  "turns": 2,
+  "returned": [
+   "references/tdd.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/tdd.md": 2
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 3,
+  "turns": 2,
+  "returned": [
+   "references/tdd.md"
+  ],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {
+   "references/tdd.md": 2
+  },
+  "first_dispatch": null
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "codex",
+  "scenario": "authz-change",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "skills/review/SKILL.md",
+   "templates/review.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/delegation.md": 6,
+   "references/model-routing.md": 6,
+   "references/retention.md": 6,
+   "references/tdd.md": 6,
+   "references/evidence.md": 7,
+   "references/naming.md": 7,
+   "references/queue.md": 7,
+   "templates/spec.md": 7,
+   "references/work-record.md": 8,
+   "references/worker-lifecycle.md": 11,
+   "skills/review/SKILL.md": 11,
+   "templates/review.md": 16
+  },
+  "first_dispatch": 12
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "codex",
+  "scenario": "authz-change",
+  "trial": 2,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/corrections.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "skills/review/SKILL.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 2,
+   "references/delegation.md": 3,
+   "references/model-routing.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "references/evidence.md": 4,
+   "references/naming.md": 4,
+   "references/queue.md": 4,
+   "templates/spec.md": 4,
+   "references/work-record.md": 5,
+   "references/worker-lifecycle.md": 5,
+   "references/corrections.md": 8,
+   "skills/review/SKILL.md": 8
+  },
+  "first_dispatch": 9
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "codex",
+  "scenario": "authz-change",
+  "trial": 3,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/evidence.md",
+   "references/files.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "skills/review/SKILL.md",
+   "templates/spec.md",
+   "templates/work.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "references/queue.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "README.md": 4,
+   "references/delegation.md": 6,
+   "references/evidence.md": 6,
+   "references/files.md": 6,
+   "references/model-routing.md": 6,
+   "references/naming.md": 6,
+   "templates/spec.md": 6,
+   "templates/work.md": 6,
+   "references/work-record.md": 7,
+   "references/worker-lifecycle.md": 10,
+   "skills/review/SKILL.md": 10
+  },
+  "first_dispatch": 11
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "codex",
+  "scenario": "tdd-stated",
+  "trial": 1,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/files.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "templates/notes.md": 3,
+   "references/delegation.md": 5,
+   "references/files.md": 5,
+   "references/model-routing.md": 5,
+   "references/work-record.md": 5,
+   "references/worker-lifecycle.md": 14
+  },
+  "first_dispatch": 10
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "codex",
+  "scenario": "tdd-stated",
+  "trial": 2,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "references/delegation.md": 6,
+   "references/model-routing.md": 6,
+   "references/work-record.md": 6,
+   "templates/notes.md": 6,
+   "references/worker-lifecycle.md": 9
+  },
+  "first_dispatch": 11
+ },
+ {
+  "run": "006",
+  "condition": "B",
+  "host": "codex",
+  "scenario": "tdd-stated",
+  "trial": 3,
+  "turns": 2,
+  "returned": [
+   "README.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "references/worker-lifecycle.md",
+   "skills/implement/SKILL.md",
+   "templates/notes.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true,
+   false
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "skills/implement/SKILL.md": 1,
+   "README.md": 3,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/retention.md": 5,
+   "references/tdd.md": 5,
+   "references/work-record.md": 7,
+   "references/worker-lifecycle.md": 7,
+   "templates/notes.md": 7,
+   "references/naming.md": 8
+  },
+  "first_dispatch": 10
+ },
+ {
+  "run": "007",
+  "condition": "BASELINE",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Review and communication"
+  ],
+  "first_seen": {
+   "README.md": 3,
+   "references/retention.md": 3,
+   "references/tdd.md": 3,
+   "references/naming.md": 4,
+   "references/queue.md": 4,
+   "templates/spec.md": 4,
+   "references/work-record.md": 5
+  },
+  "first_dispatch": 11
+ },
+ {
+  "run": "007",
+  "condition": "BASELINE",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 1,
+  "turns": 2,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ },
+ {
+  "run": "007",
+  "condition": "CANDIDATE",
+  "host": "claude",
+  "scenario": "authz-change",
+  "trial": 1,
+  "turns": 1,
+  "returned": [
+   "README.md",
+   "references/corrections.md",
+   "references/delegation.md",
+   "references/model-routing.md",
+   "references/naming.md",
+   "references/queue.md",
+   "references/retention.md",
+   "references/tdd.md",
+   "references/work-record.md",
+   "templates/notes.md",
+   "templates/spec.md"
+  ],
+  "core": true,
+  "core_turns": [
+   true
+  ],
+  "core_sections": [
+   "Assigned leaves",
+   "Context budget",
+   "Contract",
+   "Loading rules",
+   "Personas and subagents",
+   "Questions and next actions",
+   "References",
+   "Review and communication",
+   "TDD",
+   "Work loop"
+  ],
+  "first_seen": {
+   "README.md": 2,
+   "references/corrections.md": 4,
+   "references/retention.md": 4,
+   "references/tdd.md": 4,
+   "templates/notes.md": 4,
+   "references/delegation.md": 5,
+   "references/model-routing.md": 5,
+   "references/naming.md": 5,
+   "references/queue.md": 5,
+   "templates/spec.md": 5,
+   "references/work-record.md": 6
+  },
+  "first_dispatch": 17
+ },
+ {
+  "run": "007",
+  "condition": "CANDIDATE",
+  "host": "claude",
+  "scenario": "tdd-stated",
+  "trial": 1,
+  "turns": 2,
+  "returned": [],
+  "core": false,
+  "core_turns": [
+   false,
+   false
+  ],
+  "core_sections": [],
+  "first_seen": {},
+  "first_dispatch": null
+ }
+]

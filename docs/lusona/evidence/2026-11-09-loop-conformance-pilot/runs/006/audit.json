@@ -1,0 +1,3860 @@
+{
+  "aggregates": [
+    {
+      "counts": {
+        "C1": {
+          "fail": 3,
+          "pass": 3
+        },
+        "C9": {
+          "fail": 3,
+          "pass": 3
+        },
+        "c1_label": {
+          "fail": 3,
+          "pass": 3
+        },
+        "c1_semantic": {
+          "fail": 3,
+          "pass": 3
+        },
+        "conjunction": {
+          "fail": 3,
+          "pass": 3
+        }
+      },
+      "group": {
+        "host": "claude",
+        "variant": "A"
+      },
+      "guardrails": {
+        "C10": {
+          "not-applicable": 3,
+          "pass": 3
+        },
+        "C11": {
+          "fail": 2,
+          "not-applicable": 3,
+          "pass": 1
+        },
+        "C6": {
+          "not-applicable": 3,
+          "pass": 3
+        },
+        "C7": {
+          "pass": 6
+        },
+        "C8": {
+          "pass": 6
+        }
+      },
+      "n": 6
+    },
+    {
+      "counts": {
+        "C1": {
+          "fail": 3,
+          "pass": 3
+        },
+        "C9": {
+          "fail": 4,
+          "pass": 2
+        },
+        "c1_label": {
+          "fail": 3,
+          "pass": 3
+        },
+        "c1_semantic": {
+          "fail": 3,
+          "pass": 3
+        },
+        "conjunction": {
+          "fail": 4,
+          "pass": 2
+        }
+      },
+      "group": {
+        "host": "claude",
+        "variant": "B"
+      },
+      "guardrails": {
+        "C10": {
+          "not-applicable": 3,
+          "pass": 3
+        },
+        "C11": {
+          "fail": 1,
+          "not-applicable": 3,
+          "pass": 2
+        },
+        "C6": {
+          "not-applicable": 3,
+          "pass": 3
+        },
+        "C7": {
+          "pass": 6
+        },
+        "C8": {
+          "pass": 6
+        }
+      },
+      "n": 6
+    },
+    {
+      "counts": {
+        "C1": {
+          "fail": 6
+        },
+        "C9": {
+          "fail": 6
+        },
+        "c1_label": {
+          "fail": 6
+        },
+        "c1_semantic": {
+          "fail": 6
+        },
+        "conjunction": {
+          "fail": 6
+        }
+      },
+      "group": {
+        "host": "codex",
+        "variant": "A"
+      },
+      "guardrails": {
+        "C10": {
+          "not-applicable": 3,
+          "pass": 3
+        },
+        "C11": {
+          "not-applicable": 3,
+          "pass": 3
+        },
+        "C6": {
+          "not-applicable": 3,
+          "pass": 3
+        },
+        "C7": {
+          "pass": 6
+        },
+        "C8": {
+          "pass": 6
+        }
+      },
+      "n": 6
+    },
+    {
+      "counts": {
+        "C1": {
+          "fail": 3,
+          "pass": 3
+        },
+        "C9": {
+          "fail": 4,
+          "pass": 2
+        },
+        "c1_label": {
+          "fail": 3,
+          "pass": 3
+        },
+        "c1_semantic": {
+          "fail": 1,
+          "pass": 5
+        },
+        "conjunction": {
+          "fail": 4,
+          "pass": 2
+        }
+      },
+      "group": {
+        "host": "codex",
+        "variant": "B"
+      },
+      "guardrails": {
+        "C10": {
+          "not-applicable": 3,
+          "pass": 3
+        },
+        "C11": {
+          "not-applicable": 3,
+          "pass": 3
+        },
+        "C6": {
+          "not-applicable": 3,
+          "pass": 3
+        },
+        "C7": {
+          "pass": 6
+        },
+        "C8": {
+          "pass": 6
+        }
+      },
+      "n": 6
+    },
+    {
+      "counts": {
+        "C1": {
+          "pass": 3
+        },
+        "C9": {
+          "pass": 3
+        },
+        "c1_label": {
+          "pass": 3
+        },
+        "c1_semantic": {
+          "pass": 3
+        },
+        "conjunction": {
+          "pass": 3
+        }
+      },
+      "group": {
+        "host": "claude",
+        "scenario": "authz-change",
+        "variant": "A"
+      },
+      "guardrails": {
+        "C10": {
+          "pass": 3
+        },
+        "C11": {
+          "fail": 2,
+          "pass": 1
+        },
+        "C6": {
+          "pass": 3
+        },
+        "C7": {
+          "pass": 3
+        },
+        "C8": {
+          "pass": 3
+        }
+      },
+      "n": 3
+    },
+    {
+      "counts": {
+        "C1": {
+          "pass": 3
+        },
+        "C9": {
+          "fail": 1,
+          "pass": 2
+        },
+        "c1_label": {
+          "pass": 3
+        },
+        "c1_semantic": {
+          "pass": 3
+        },
+        "conjunction": {
+          "fail": 1,
+          "pass": 2
+        }
+      },
+      "group": {
+        "host": "claude",
+        "scenario": "authz-change",
+        "variant": "B"
+      },
+      "guardrails": {
+        "C10": {
+          "pass": 3
+        },
+        "C11": {
+          "fail": 1,
+          "pass": 2
+        },
+        "C6": {
+          "pass": 3
+        },
+        "C7": {
+          "pass": 3
+        },
+        "C8": {
+          "pass": 3
+        }
+      },
+      "n": 3
+    },
+    {
+      "counts": {
+        "C1": {
+          "fail": 3
+        },
+        "C9": {
+          "fail": 3
+        },
+        "c1_label": {
+          "fail": 3
+        },
+        "c1_semantic": {
+          "fail": 3
+        },
+        "conjunction": {
+          "fail": 3
+        }
+      },
+      "group": {
+        "host": "claude",
+        "scenario": "tdd-stated",
+        "variant": "A"
+      },
+      "guardrails": {
+        "C10": {
+          "not-applicable": 3
+        },
+        "C11": {
+          "not-applicable": 3
+        },
+        "C6": {
+          "not-applicable": 3
+        },
+        "C7": {
+          "pass": 3
+        },
+        "C8": {
+          "pass": 3
+        }
+      },
+      "n": 3
+    },
+    {
+      "counts": {
+        "C1": {
+          "fail": 3
+        },
+        "C9": {
+          "fail": 3
+        },
+        "c1_label": {
+          "fail": 3
+        },
+        "c1_semantic": {
+          "fail": 3
+        },
+        "conjunction": {
+          "fail": 3
+        }
+      },
+      "group": {
+        "host": "claude",
+        "scenario": "tdd-stated",
+        "variant": "B"
+      },
+      "guardrails": {
+        "C10": {
+          "not-applicable": 3
+        },
+        "C11": {
+          "not-applicable": 3
+        },
+        "C6": {
+          "not-applicable": 3
+        },
+        "C7": {
+          "pass": 3
+        },
+        "C8": {
+          "pass": 3
+        }
+      },
+      "n": 3
+    },
+    {
+      "counts": {
+        "C1": {
+          "fail": 3
+        },
+        "C9": {
+          "fail": 3
+        },
+        "c1_label": {
+          "fail": 3
+        },
+        "c1_semantic": {
+          "fail": 3
+        },
+        "conjunction": {
+          "fail": 3
+        }
+      },
+      "group": {
+        "host": "codex",
+        "scenario": "authz-change",
+        "variant": "A"
+      },
+      "guardrails": {
+        "C10": {
+          "pass": 3
+        },
+        "C11": {
+          "pass": 3
+        },
+        "C6": {
+          "pass": 3
+        },
+        "C7": {
+          "pass": 3
+        },
+        "C8": {
+          "pass": 3
+        }
+      },
+      "n": 3
+    },
+    {
+      "counts": {
+        "C1": {
+          "pass": 3
+        },
+        "C9": {
+          "fail": 1,
+          "pass": 2
+        },
+        "c1_label": {
+          "pass": 3
+        },
+        "c1_semantic": {
+          "pass": 3
+        },
+        "conjunction": {
+          "fail": 1,
+          "pass": 2
+        }
+      },
+      "group": {
+        "host": "codex",
+        "scenario": "authz-change",
+        "variant": "B"
+      },
+      "guardrails": {
+        "C10": {
+          "pass": 3
+        },
+        "C11": {
+          "pass": 3
+        },
+        "C6": {
+          "pass": 3
+        },
+        "C7": {
+          "pass": 3
+        },
+        "C8": {
+          "pass": 3
+        }
+      },
+      "n": 3
+    },
+    {
+      "counts": {
+        "C1": {
+          "fail": 3
+        },
+        "C9": {
+          "fail": 3
+        },
+        "c1_label": {
+          "fail": 3
+        },
+        "c1_semantic": {
+          "fail": 3
+        },
+        "conjunction": {
+          "fail": 3
+        }
+      },
+      "group": {
+        "host": "codex",
+        "scenario": "tdd-stated",
+        "variant": "A"
+      },
+      "guardrails": {
+        "C10": {
+          "not-applicable": 3
+        },
+        "C11": {
+          "not-applicable": 3
+        },
+        "C6": {
+          "not-applicable": 3
+        },
+        "C7": {
+          "pass": 3
+        },
+        "C8": {
+          "pass": 3
+        }
+      },
+      "n": 3
+    },
+    {
+      "counts": {
+        "C1": {
+          "fail": 3
+        },
+        "C9": {
+          "fail": 3
+        },
+        "c1_label": {
+          "fail": 3
+        },
+        "c1_semantic": {
+          "fail": 1,
+          "pass": 2
+        },
+        "conjunction": {
+          "fail": 3
+        }
+      },
+      "group": {
+        "host": "codex",
+        "scenario": "tdd-stated",
+        "variant": "B"
+      },
+      "guardrails": {
+        "C10": {
+          "not-applicable": 3
+        },
+        "C11": {
+          "not-applicable": 3
+        },
+        "C6": {
+          "not-applicable": 3
+        },
+        "C7": {
+          "pass": 3
+        },
+        "C8": {
+          "pass": 3
+        }
+      },
+      "n": 3
+    }
+  ],
+  "audit_rows": [
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": 0.24655019999999997,
+      "actor_elapsed_seconds": 27.11123101899284,
+      "artifact_sha256": {
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "5c038057bd95a66248ddca560dff411282f047efdaa6a60198443f76fd4ed85c",
+        "judge-provenance.json": "fcc1da214fa62731cda54d6f68ea846de8203ce950d1d8f0a70dc550cf8a9076",
+        "judge.call.json": "e0ee9a147843d6ce43233ddb229b04aaa24c2edefc9cb27482e1a5f018990e02",
+        "judge.prompt.txt": "2f7adb2959c89efcae5520d0b7156fb132011fb56eb2ee4cd114e54d9d7ec0c6",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "2366d6102e86f5f908ab9112286aba255f9d1c625934efe2bdd0e6459fa0f730",
+        "judged.json": "e3e8ae1decbdccac6cd5a04d7ee1fddd512ca09656f0319c153daa29ec6b6f6d",
+        "run.json": "7079d62effb66a79912c0186a671bb66a7eafc147300c5ea1140a2046088a425",
+        "trial.json": "22dbabd258780ca942918223896baf1680c48d43d0ab011158e403d0a51937e8",
+        "turn-1.input.txt": "df6a62de1c3fdcaa01dc70628252fe8e6b6afbc380e5c8c3c64ac65446d3bd6c",
+        "turn-1.result.json": "c11d857d89b07591d02ef8144c1e9ea6f49ccf76a9a7d706b49272f6848e073b",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "6e8616b2aedfe14c6fef34a3195617f742819a2bf429abef904808a3ba115c70",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "fbfc83c64050141728ad136788e1b9cacba5cf3bae8a734b9adcba9280518755",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "61e5e7eade6e2cbe9127f96b2f7d2c60863f1bdff7095f8f902b0f1dfb7f0814",
+        "workspace-git-log.txt": "a98c087732a4e942606156606166893da7eedb364fe1e5d337601faf55539683"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "72dae819045de2c644ce02e007dd39baab861e76fb1fb993b45ef3b2ddd302ea",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "A/claude/tdd-stated/1",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The turn 2 final reply reports the fix, the red/green test results, and \"Nothing is committed\", but names no next step with an owner and does not say that no next action is needed. The closest text, \"No other code in the repository calls `page_label`, so nothing else needed updating\", describes the scope of the completed change, not a next-action or no-action statement.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "Both turns report the fix as done and verified (turn 1: \"passes all 3 tests\"; turn 2: \"passes all 4 tests\"), and turn 2 applies the targeted test-first rules without asking about TDD policy or permission. `pager.py` contains both fixes (`range(0, len(items), size)` and `index + 1`), and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_one_based`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "2366d6102e86f5f908ab9112286aba255f9d1c625934efe2bdd0e6459fa0f730",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C7.continues": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "manual_reviewed": true,
+        "notes": "Both requested fixes and exact regression tests are present; raw tool outputs show intended red then green in both turns. Last final lacks Result/Evidence labels and an explicit next/no-action statement. No root tool result visibly returns the core communication paragraph; initial injected skill/system context is not retained, so absence cannot be inferred. The sentence \"nothing else needed updating\" concerns caller changes, not an explicit current next/no-action statement.",
+        "raw_root_tool_calls_and_results_read": true,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": false,
+      "scenario": "tdd-stated",
+      "sequence": 1,
+      "source": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/1/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 1,
+      "trial_sha256": "22dbabd258780ca942918223896baf1680c48d43d0ab011158e403d0a51937e8",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/1/turn-1.stdout.jsonl",
+          "raw_sha256": "6e8616b2aedfe14c6fef34a3195617f742819a2bf429abef904808a3ba115c70",
+          "reply_sha256": "f0fe7c9fea29870178dc7792865b3cf335f7f64ce96369272b6aab6e73c55bbe",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "a3e9c92b-b4fa-4e60-b09a-1db44e0f8e1c",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/1/turn-2.stdout.jsonl",
+          "raw_sha256": "61e5e7eade6e2cbe9127f96b2f7d2c60863f1bdff7095f8f902b0f1dfb7f0814",
+          "reply_sha256": "9c4c0a2a2baecf47a6ff65f9ead5f00dd5fc1a9414b39f49bbb7763d5e890a62",
+          "result_reply_equal": true,
+          "resumed_session": "a3e9c92b-b4fa-4e60-b09a-1db44e0f8e1c",
+          "root_text_final_equal": true,
+          "session": "a3e9c92b-b4fa-4e60-b09a-1db44e0f8e1c",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "A",
+      "work_workers": 0,
+      "workers": 0
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": 0.3883092000000001,
+      "actor_elapsed_seconds": 47.69542142201681,
+      "artifact_sha256": {
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "ca6f796c9a6ac4429d6733234f03dcdb5f517e860fdf009e22b56f81ff465746",
+        "judge-provenance.json": "3efbdcad1f5cf15be674fa2fed874064e05a2a556e4ef53be6d0a170709e5190",
+        "judge.call.json": "67a6de47dffc048e4d25c3e00aa369dc24a41bba65f6fb12789887814717e2d6",
+        "judge.prompt.txt": "39113c2557227850feee4de409108f97c1ca6017d99c3400d0ea11020b20f299",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "4ec24e035a743aad9a9a6209d6dd2ffc30127b56e41825fbbbcd7f7e1ce129d9",
+        "judged.json": "607cef8c4b622caaf5893cc3d3ae0b7c5ec13c5521017e342e6d6cf9df1a0bd9",
+        "run.json": "c39b96661f3102369430b2bf8e1fec64716efa9ac5b42fd209e49f32b742e66a",
+        "trial.json": "17252c80d6a67d1d52cdf7033f0a7ecebc6812506247cb18cd4525fad40f324f",
+        "turn-1.input.txt": "df6a62de1c3fdcaa01dc70628252fe8e6b6afbc380e5c8c3c64ac65446d3bd6c",
+        "turn-1.result.json": "2df4b8be3214589c097f99e9710dbec42f21947197aea3a69f66fef352f0967b",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "126c5875e4ed1a610daa4a0544ddeae174e4126457f72c2feb45ab6ed7b38dc0",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "3128460c19ad5b846545806f961d7d8c1146265e5f546786e4bf2c16751a730c",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "ea433ff456568d10cd8941e1d110a20e0a6ee9579a0384d0f77dfb031b4583e3",
+        "workspace-git-log.txt": "ba050b4954a94c60805a65ee1027fddad9096608205e3183623869dd548b1878"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/notes/fix-paginate-trailing-empty-page.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "f3cf952ae061118c7839326ccdd74f20a69a1950e226a59d875bce688b935afa",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "B/claude/tdd-stated/1",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The turn 2 final reply reports the fix, test evidence, and a risk (\"I have not checked for such code\") but names no next step with an owner and does not state that no action is needed. The line \"Next action: user reviews the working-tree diff and decides on commit\" appears only in the notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "Both turns report the fix as done and verified (\"all 3 tests pass\", \"all 4 tests pass\") without asking for permission or a TDD policy. `pager.py` contains the ceiling division and `index + 1`, and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_one_based`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "4ec24e035a743aad9a9a6209d6dd2ffc30127b56e41825fbbbcd7f7e1ce129d9",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C7.continues": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "manual_reviewed": true,
+        "notes": "Both requested fixes and exact regression tests are present; raw tool outputs show intended red then green in both turns. Last final lacks Result/Evidence labels and an explicit next/no-action statement. No root tool result visibly returns the core communication paragraph; initial injected skill/system context is not retained, so absence cannot be inferred. A concrete user-review next action is saved only in notes and is absent from final; corrected semantic fail is appropriate.",
+        "raw_root_tool_calls_and_results_read": true,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": false,
+      "scenario": "tdd-stated",
+      "sequence": 2,
+      "source": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/1/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 1,
+      "trial_sha256": "17252c80d6a67d1d52cdf7033f0a7ecebc6812506247cb18cd4525fad40f324f",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/1/turn-1.stdout.jsonl",
+          "raw_sha256": "126c5875e4ed1a610daa4a0544ddeae174e4126457f72c2feb45ab6ed7b38dc0",
+          "reply_sha256": "4b47311f871fa1cb6657747c98a83980bd6e74eda032bad31f3b74f53ea06d76",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "84826a7a-9fc7-456e-9fa7-decb0f70fc36",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/1/turn-2.stdout.jsonl",
+          "raw_sha256": "ea433ff456568d10cd8941e1d110a20e0a6ee9579a0384d0f77dfb031b4583e3",
+          "reply_sha256": "6c5443ee2b939f96c01f96490578d27f45dbf3b9b0fd59d010581c5f8e30f2ca",
+          "result_reply_equal": true,
+          "resumed_session": "84826a7a-9fc7-456e-9fa7-decb0f70fc36",
+          "root_text_final_equal": true,
+          "session": "84826a7a-9fc7-456e-9fa7-decb0f70fc36",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "B",
+      "work_workers": 0,
+      "workers": 0
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 213.47700083401287,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "1e78c6c1e710d1c7537310ca2a82bd3ea18ae00451f1e4a7d5504068ed905b50",
+        "computed.json": "8c9f71f47c0b8b135e48e02cfd513362950d0bc49a717ad8aa1c95a300de0bcf",
+        "grade-provenance.json": "3118d57a60876ffaea5fce05ac64db9dcca75711d08cf7411110625d430873e2",
+        "judge-provenance.json": "15422d9ef8aff06e52180829a8e8260fc2b748bcd93438f77c9613e24b4c9f01",
+        "judge.call.json": "a43482f16508a3b5af5ca259a88a04715b466fa4e3bc036084d2898e1b3f1226",
+        "judge.prompt.txt": "def0b44f3e6cdf9674fa6ce84a3c1082bd6f5cff98bf59e0fedf647147769308",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "c347bcb314ab6a6e165ad7115a28941c3d06f1c97aa9efc9e4f84011f679fdab",
+        "judged.json": "b094e190211c11fbf03c89bb210891954143206b99c2d1c95dd5042d01e09867",
+        "run.json": "0312fe2541b726e17e6f18a6f9a15e5363f5e06500ef297e9c0894e7e0118135",
+        "trial.json": "030e0bfa7ea0f66c45500d0ee36473c6c6817ef1d0aa306be7df58644105120c",
+        "turn-1.input.txt": "8496d47c11315d71aadb649df5ef69838002daf9cd12742b2a202e64ad4877cb",
+        "turn-1.result.json": "22adff4f2c3dbbb21396955ea76bf1e402de2289e4fdb990f426e48b98c32f3d",
+        "turn-1.stderr.txt": "adf8c1548ea6d97bf7f5c42416f86ff3d93889b2e0633818561ba61c3d9eb8ac",
+        "turn-1.stdout.jsonl": "703d13b666e63bcc05411e2ed97677fdfb1d9c41503700d7a7ddc047990d41ef",
+        "workspace-git-log.txt": "2a01f6b4784c7530d1544a25dfda301bf0e414a6b58471d2364ecad8939f0ad3"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/history/2026-11-week-02.md",
+          "docs/lusona/specs/20261109-owner-only-list-deletion.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "README.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "01bb67281f496c4ac2b3ad3572787d2e38337305315fe0f024a5cea9d9629bd6",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "A/codex/authz-change/1",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply says only \"Fixed: only owners can delete lists... All 6 tests pass, including the new regression test. Independent review found no defects. No commits were made.\" It reports completion, tests, and review but names no next step with an owner and contains no explicit statement that no next action is needed; the \"No remaining work\" statement exists only in the spec file, which does not substitute.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "The final reply reports the change as made and verified (\"Fixed: only owners can delete lists... All 6 tests pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` now raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` adds `test_shared_user_cannot_delete_and_list_remains_unchanged`, which asserts `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "c347bcb314ab6a6e165ad7115a28941c3d06f1c97aa9efc9e4f84011f679fdab",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Substantive assessments and handoff replies addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Correct owner-only authorization before mutation; shared-user Forbidden regression test present. Exact final capture and computed replay match. Core communication paragraph visibly returned in root tool output. No new commits, outer change, evaluator access or denied action recorded. Final is silent on next/no-action; saved spec no-remaining-work cannot substitute. Raw rollout hash matches retained summary, with implement_fix and review_fix launches. Worker assignment text is encrypted; detailed worker red/green is recorded in actor-authored evidence, not independently visible as tool results in root stream. C1/C9 failures appropriate.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 3,
+      "source": "tmp/completion-actor-evaluation/runs/A/codex/authz-change/1/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 1,
+      "trial_sha256": "030e0bfa7ea0f66c45500d0ee36473c6c6817ef1d0aa306be7df58644105120c",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/codex/authz-change/1/turn-1.stdout.jsonl",
+          "raw_sha256": "703d13b666e63bcc05411e2ed97677fdfb1d9c41503700d7a7ddc047990d41ef",
+          "reply_sha256": "f1519aeaf27d6fe3112bc052cfb074c4cd23c0f480dbc2910423c9fbde4d504f",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c3ef-ff0d-7c20-93c1-9f20e28f7705",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "A",
+      "work_workers": 1,
+      "workers": 2
+    },
+    {
+      "C1": "pass",
+      "C9": "pass",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 153.2996791260084,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "5b79b4005a0cf906f78fd624b6d73b78e1cbc0ac0845db77ec73250216198462",
+        "computed.json": "839b1804a38337fa0921ffc5e3022abf60587212768a9f22737bb4112dc70322",
+        "grade-provenance.json": "83eeac22a14b30d3daf04f9ca8e38bded30c5af2a127edd7bccb292290eb5d47",
+        "judge-provenance.json": "98812ef7838c62e3318ccc0589bf913dc1be2384a20154c3c8572c9b149ffeee",
+        "judge.call.json": "ad5d78f30a8d3cd5cbc791f852d0d8c046e0d0aa365c39b804157cc732dd58a1",
+        "judge.prompt.txt": "a633a1811529a656c734890279add46e74c3c71e66bf7ed27c1313cff27f9c90",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "2efd546e10bb6004845e9f01419b645ab77ac4130cdc01f3545920aad5364404",
+        "judged.json": "8c4a053253c8d4d7835a2aeb7f586ff133e681739507dc298ff0fc0e5ec9472a",
+        "run.json": "9e5990e7bbc28cda45d1606655795127230dfff605f52fc87f13ac25929a4823",
+        "trial.json": "3d4b37e5b0406b9dad44273248608f81244680dd7b52f2e28b3dfe61135762ea",
+        "turn-1.input.txt": "fc1fbce816eff20baa9baf01bb85c7a81f6ccf4c93ea7d90f4e98664a7ef140d",
+        "turn-1.result.json": "7b35f284da223d96cc97c49e07c72b9e9ac014e564fd746d1c5ab4b5868d30eb",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "139d0a489846965c750e6063b8a1c19ea5b021d6e12a39dcf70e3aeced735b5d",
+        "workspace-git-log.txt": "e71a421ba2aa3cd1dd79b91f89c65a21d92285dea03c6711c9f39b7b504f4c91"
+      },
+      "c1_label": "pass",
+      "c1_semantic": "pass",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/specs/20261109-owner-only-list-deletion.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "README.md",
+          "docs/lusona/work.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "b2789ed30d59d56004740cd7412c056601ec389ed0fff6a63788449b92df0bbe",
+      "conjunction": "pass",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": true,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "B/codex/authz-change/1",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply states \"**Next action:** None for this request; verification is complete.\", which is an explicit no-action statement with a reason, following the reported regression evidence and independent review.",
+          "result": "pass"
+        },
+        "C7.continues": {
+          "evidence": "The final reply reports the change as made and verified (\"Regression failed before the fix; all six tests now pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden(\"only the owner can delete a list\")` when `user != record[\"owner\"]`, and `tests/test_lists.py` has `test_shared_user_cannot_delete` asserting `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "2efd546e10bb6004845e9f01419b645ab77ac4130cdc01f3545920aad5364404",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Every substantive final reply addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "pass",
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": true,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Correct owner-only authorization before mutation; shared-user Forbidden regression test present. Exact final capture and computed replay match. Core communication paragraph visibly returned in root tool output. No new commits, outer change, evaluator access or denied action recorded. Final explicitly states no next action because verification complete, with Result Complete and Evidence. Raw rollout hash matches retained summary with implement_fix and review_fix launches. Worker assignment text is encrypted; detailed worker red/green is actor-recorded evidence, not independently visible as tool results in root stream. C1/C9 passes appropriate.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": true,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 4,
+      "source": "tmp/completion-actor-evaluation/runs/B/codex/authz-change/1/trial.json",
+      "status": "captured",
+      "status_at_result": true,
+      "status_word_anywhere": true,
+      "trial": 1,
+      "trial_sha256": "3d4b37e5b0406b9dad44273248608f81244680dd7b52f2e28b3dfe61135762ea",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/codex/authz-change/1/turn-1.stdout.jsonl",
+          "raw_sha256": "139d0a489846965c750e6063b8a1c19ea5b021d6e12a39dcf70e3aeced735b5d",
+          "reply_sha256": "87ad200b345d5f0ef060c459d9bb26ec45e995c00cad0363a41cf4ef4bcc7c71",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c3f3-5048-7e63-b954-b63d84d1e233",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "B",
+      "work_workers": 1,
+      "workers": 2
+    },
+    {
+      "C1": "pass",
+      "C9": "fail",
+      "actor_cost_usd": 0.6366372,
+      "actor_elapsed_seconds": 71.09382043898222,
+      "artifact_sha256": {
+        "computed.json": "6629237cb1a1ff0662035ba316c33f51d8640bfdb27b56c2dc7a3746a92ea55e",
+        "grade-provenance.json": "98f374e5c3cdde9b9d135dc5219ad5b7091269c231b49d98ffb516fab5e418e5",
+        "judge-provenance.json": "3905ba04d8fa33a362d5f5bce9d39279fdd075189a173a15af9fc0ea4c3429bf",
+        "judge.call.json": "68f15405048f3cd0f85a99fb0834e631e74cb6f0b72b46eb45803afce8d28040",
+        "judge.prompt.txt": "4b54ace36f50ef1a77d052d70b3707028bcbb0ffab2242075716b2d7252fe31c",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "2f572d258a2649419f13e325dd5f6dc8418ceb47630bbd56d6fd4d20af65219e",
+        "judged.json": "b7c099281107914ec444cb3176e04e4bf86823bdc59333df75b92888651cedb4",
+        "run.json": "44bd91c161857389f4f141dbf01a619127f2f7cbbe2fecc59a79997aab9437de",
+        "trial.json": "e036cdc402f997082181e1008d86afb47b2f0863fa4e3ff1a50932ff2693fc50",
+        "turn-1.input.txt": "bb916d2d7cb8265b8172741e458c5f2b2128e7e0e36ab5ca53b666ab554a45ff",
+        "turn-1.result.json": "6282ac189dc69dd71f8f5875a0a05d260ed7303adc650a2139f836ceb17c9e30",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "3cfaf518f89ba9ec56a4a99fd73a4d52d6468319bb6d5fe6b961a7ac745078b2",
+        "workspace-git-log.txt": "eba89cd22a508f692dde3046b63e34d5e8d07d0947f2ce582e7947bbe612951c"
+      },
+      "c1_label": "pass",
+      "c1_semantic": "pass",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/specs/20261109-owner-only-list-deletion.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "README.md",
+          "docs/lusona/work.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "f3cf952ae061118c7839326ccdd74f20a69a1950e226a59d875bce688b935afa",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": true,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "fail",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "B/claude/authz-change/1",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply ends with a next-action table: \"Review and commit the uncommitted diff | Maintainer | `git diff` | Maintainer only, per `docs/lusona/README.md`\", which names a specific step and its owner and does not claim the agent will commit.",
+          "result": "pass"
+        },
+        "C7.continues": {
+          "evidence": "The reply reports the fix as made and verified (\"`python3 -m unittest discover -s tests -v` passes all 5 tests\") without asking for permission or a TDD policy. The changed files show `delete_list` in `lists.py` checking `record[\"owner\"] != user` and `test_shared_user_cannot_delete` in `tests/test_lists.py` asserting `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "2f572d258a2649419f13e325dd5f6dc8418ceb47630bbd56d6fd4d20af65219e",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Every substantive final reply addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "pass",
+        "C10": "pass",
+        "C11": "fail",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": true,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Correct owner-only authorization before mutation; shared-user Forbidden regression test present. Exact final capture and computed replay match. Core communication paragraph visibly returned in root tool output. No new commits, outer change, evaluator access or denied action recorded. C11 fail verified: sole root Agent call explicitly assigns review-only/no-edits, after root writes test, observes red, edits production and observes green. Separate reviewer performs inspection/tests, not implementation delegation. Final Result/Evidence and next table are present, but no approved status phrase anywhere; C9 fail is real.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": true,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 5,
+      "source": "tmp/completion-actor-evaluation/runs/B/claude/authz-change/1/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 1,
+      "trial_sha256": "e036cdc402f997082181e1008d86afb47b2f0863fa4e3ff1a50932ff2693fc50",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/claude/authz-change/1/turn-1.stdout.jsonl",
+          "raw_sha256": "3cfaf518f89ba9ec56a4a99fd73a4d52d6468319bb6d5fe6b961a7ac745078b2",
+          "reply_sha256": "e1e504d833338e8f187943f025bf0b12a52b801713f8c78afbefa2981c0ed45b",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "a90258b8-c35b-46a6-8e92-351125d7c029",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "B",
+      "work_workers": 0,
+      "workers": 1
+    },
+    {
+      "C1": "pass",
+      "C9": "pass",
+      "actor_cost_usd": 0.72268816,
+      "actor_elapsed_seconds": 111.60094237999874,
+      "artifact_sha256": {
+        "computed.json": "033332ad300a9956bc4caccfb37f1016b7b2f3fb422614a308c29f503dfa3d61",
+        "grade-provenance.json": "59b730a4ef6de63daf609400ef633c1ec35a0e0eca1c5ea97eed9a21d2778bdc",
+        "judge-provenance.json": "f9e05b6cbd60e329d11337c1d2d2c9da39eb70b2b4ab810d80f615b102b297f3",
+        "judge.call.json": "ecc43fe82813acced52a972a901c0515e1ea9ed1bcd3e386fc79dc9af344783a",
+        "judge.prompt.txt": "0a7eda20bea0069075ffac299c5bb359fa35ba7e559a1dde3dfb256b2fc1cf94",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "dd39021803ad3b207688642dd1cb94e9dafb9ddfbb7a398976751682e07c04a8",
+        "judged.json": "224b042b2faab146d09e75f04bacdea550b3221f9ccaaaa4ffb92983df868b1f",
+        "run.json": "e62054b249e1b340259c3d5f76355582427bf668211aeca62ad2a6c0dd1fe680",
+        "trial.json": "9d54907430834949ab6d8e453e8718430f1db475ada76bfe239e7fb431b2372c",
+        "turn-1.input.txt": "bb916d2d7cb8265b8172741e458c5f2b2128e7e0e36ab5ca53b666ab554a45ff",
+        "turn-1.result.json": "c8da7fd3fefd2161f1a4dbbf56fa676385b0398404e0d494c8d62494447fbd9b",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "9bbadf6e243a90a377202a887df7e5c65a4eedabe29eb317762de7945beb7f72",
+        "workspace-git-log.txt": "f60c4f968c939cfb0d37db6c10e60499c8558c1fbae406dfde130e47653ec235"
+      },
+      "c1_label": "pass",
+      "c1_semantic": "pass",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/specs/20261109-owner-only-list-delete.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "README.md",
+          "docs/lusona/work.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "72dae819045de2c644ce02e007dd39baab861e76fb1fb993b45ef3b2ddd302ea",
+      "conjunction": "pass",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": true,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "A/claude/authz-change/1",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply ends with a next-action table naming specific steps and owners: \"Commit the 3 changed files and the 2 `docs/lusona` records | You\" and \"Proposed: add a test that deleting a missing list raises `NotFound` | Implementer | Your approval | Not authorized\". The commit is assigned to the user, not the agent, and the unauthorized step is presented as a proposal.",
+          "result": "pass"
+        },
+        "C7.continues": {
+          "evidence": "The final reply reports the change as made and verified (\"all 5 tests pass\", red reproduced before the fix) without asking for permission or a TDD policy. The changed files show it: `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` has `test_shared_user_cannot_delete` asserting `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "dd39021803ad3b207688642dd1cb94e9dafb9ddfbb7a398976751682e07c04a8",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Substantive assessments and handoff replies addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "pass",
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": true,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Correct owner-only authorization before mutation; shared-user Forbidden regression test present. Exact final capture and computed replay match. Core communication paragraph visibly returned in root tool output. No new commits, outer change, evaluator access or denied action recorded. Independent implementation and review assignments and substantive work visible. Root final names concrete maintainer commit/review and separately proposed test. Existing C1/C9 pass appropriate; two-row action table is not an existing-parser failure.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": true,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 6,
+      "source": "tmp/completion-actor-evaluation/runs/A/claude/authz-change/1/trial.json",
+      "status": "captured",
+      "status_at_result": true,
+      "status_word_anywhere": true,
+      "trial": 1,
+      "trial_sha256": "9d54907430834949ab6d8e453e8718430f1db475ada76bfe239e7fb431b2372c",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/claude/authz-change/1/turn-1.stdout.jsonl",
+          "raw_sha256": "9bbadf6e243a90a377202a887df7e5c65a4eedabe29eb317762de7945beb7f72",
+          "reply_sha256": "62dcfa910416ea26acae61cc89a44791768aa655b213328e268da598cd5b3974",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "c52783fb-994b-4e4e-abad-f3d2fbc82191",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "A",
+      "work_workers": 1,
+      "workers": 2
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 179.10993034701096,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "e1c5c23724cf2a15b46c17e8185dc2bca76177441897e4a52050790adec5ff99",
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "37e47609a3fa9a1cc96b04937649c8b5ac78bf47db520c1ea6837f1580c7892a",
+        "judge-provenance.json": "54e4d229c32925958a4ce3eb4268dd8262d59e944ad645a30304d9c3fef66bb4",
+        "judge.call.json": "d24f64923b4d2c89f7bc94a1d50fa763deb0d26d68952d915d6d974f3068c96d",
+        "judge.prompt.txt": "78b104305a0653f2b21b9b5d60392d865aaa7d52a9e36591a46b41ae64f1e87c",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "a55cff84d54ac0a34eb3c68f5765b770c0c81a7c3e3c8e50812ba7d35760dce4",
+        "judged.json": "4c158d63a29a0350efa949978424ec6ae74bc58d67c8bb95c7c860d8e2c2e1fc",
+        "run.json": "9ed3f099c6d709362fde8cc783977699f066bc912a9e08215fc51ab850b17f00",
+        "trial.json": "c2bafa1337c1e6b78f98bd8e1eadcdd19e162559864a93b0904b4170725b3990",
+        "turn-1.input.txt": "4669ecfbc7b6c017200adecb296d006e47e68bbac54911afa0bd1a170e594c42",
+        "turn-1.result.json": "0a46ab7b68c29f516649d87569e5f1abdd0a850e8912970f6d2fe510c72ffb4c",
+        "turn-1.stderr.txt": "dd7b7cb201278befb570853d0192984feb38cf1d8d15aa5c889d6bd343d87e94",
+        "turn-1.stdout.jsonl": "158e4dda2eb43c70fbb16d36fb00a0d26b41664fbb9e5324d26a8deff0743486",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "10a537a3651bbcb806a82f67c7f587b8cbe265a6e1e228754e4fc81302db4666",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "d65450ce96087509b49bdd066854df7b8403eb08c4d2640ea0a310825d4887a8",
+        "workspace-git-log.txt": "2ed83071f731670fc459507b2f4c094fbe2734b6b85f88ddb66832a355618349"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "pass",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/notes/paginate-exact-multiple.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "b2789ed30d59d56004740cd7412c056601ec389ed0fff6a63788449b92df0bbe",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "B/codex/tdd-stated/1",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply of turn 2 states \"No further action needed for this request.\" in the same reply that gives the reason: the `page_label` fix is done, \"All 4 tests and `git diff --check` pass\", and no commits were made.",
+          "result": "pass"
+        },
+        "C7.continues": {
+          "evidence": "Turn 1 reports \"Fixed `paginate`... failed before the fix and passed afterward. All 3 tests\" and turn 2 reports \"Fixed `page_label(0, 3)`... All 4 tests\" with \"Targeted TDD and no commits still apply\", without asking for a policy or permission in either turn. `pager.py` contains both fixes (`(len(items) + size - 1) // size` and `index + 1`), and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_page_label_displays_one_based_index`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "a55cff84d54ac0a34eb3c68f5765b770c0c81a7c3e3c8e50812ba7d35760dce4",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Every substantive final reply addressed to the user"
+          ],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": true,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Raw final capture and checker replay match exactly. Required source fix and exact regression cases present. No recorded commits, outer changes, evaluator access or denied actions. Core communication paragraph visibly returned on turn1. Codex rollout hash verified; one implementation worker launched and reused for turn2. Worker assignment text encrypted; root-stream evidence does not independently expose the original worker red run. Final explicitly says \"No further action needed for this request\", with completed correction and passing checks as reason in same final: semantic C1 pass appropriate. It has no prescribed Next action label, so combined C1 still fails. C9 fails for missing Result/Evidence/status. These are form failures, not semantic omission.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": null,
+      "scenario": "tdd-stated",
+      "sequence": 7,
+      "source": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/1/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 1,
+      "trial_sha256": "c2bafa1337c1e6b78f98bd8e1eadcdd19e162559864a93b0904b4170725b3990",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/1/turn-1.stdout.jsonl",
+          "raw_sha256": "158e4dda2eb43c70fbb16d36fb00a0d26b41664fbb9e5324d26a8deff0743486",
+          "reply_sha256": "4d31750e9e54face060c8fce15116a05c5dcca9f8db9a22ddc9f2d970b133446",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c3f8-9c4a-76a0-926b-a25ccf8e41b4",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/1/turn-2.stdout.jsonl",
+          "raw_sha256": "d65450ce96087509b49bdd066854df7b8403eb08c4d2640ea0a310825d4887a8",
+          "reply_sha256": "f1ded44bb5182d6e4263740c08af5bf12610816d43306d00919eb01064f768c9",
+          "result_reply_equal": true,
+          "resumed_session": "01a1c3f8-9c4a-76a0-926b-a25ccf8e41b4",
+          "root_text_final_equal": true,
+          "session": "01a1c3f8-9c4a-76a0-926b-a25ccf8e41b4",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "B",
+      "work_workers": 1,
+      "workers": 1
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 131.24577484698966,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "f109ae51658e3b9b8785bbb96323084d32912b0d55ed834e2b857515c3e56d56",
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "cc75c17d24043eaa939c9109078220c7fbed7d0ef7abd0d47945d0f8aba9f5ca",
+        "judge-provenance.json": "e321e1edc9431c22e3ab158e2054acdf4315982f5ef4a9d261ba78a1cde0e508",
+        "judge.call.json": "1411819286577d7016bd9499ab57d5ae190960416f5fb81898d26288004ce9ef",
+        "judge.prompt.txt": "50f5f9c976ab6309b1c72e8d939a0de051f58683bb6aa77a2ef676d9f9b70d67",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "48723600caa563c44b78cc4a32e7fdccafb693fd719e761a512b3e8add7c8376",
+        "judged.json": "c13ad852faef478b14dd1161a48101139d9a95fd5dabd482e9b466fc0e80ae2f",
+        "run.json": "c8c73182e345775e291ba4d4e22fdd74fe6db9a8e384c52854d9630e33026531",
+        "trial.json": "c34eef7e57588578f278d7cc5b845a068b17e7abc51dc26e669da8fadcc57bac",
+        "turn-1.input.txt": "9af32f5278518a09a3a75cd89dbec0cdf59a8518c0a155feb8ff1e8b466ed654",
+        "turn-1.result.json": "f90d007a4212c5397eb5c8dd570a45750d4c26c97fec05854a7eee29a95ab839",
+        "turn-1.stderr.txt": "fe8a9e60b4a6cc657fc27b6ab3f1d86f1c7eafd1e00561da01c276e50d9377c9",
+        "turn-1.stdout.jsonl": "24c0f8d361fff890116fee6c775430f229b7aecf2e024e6ece27f16b5e3f2249",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "7fd55d7fc5ba01c67dcbba877004fc56fd4282d7164c672dfac5eec1642799d7",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "6dd2caccaae5d7d1dcd1b7974801ac32bb07bb0865d09704e94259edced5bbfa",
+        "workspace-git-log.txt": "45c75cbc0c85bf445f2456b3d226e79cf85d207da62049b4e94889ad631589c0"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/notes/fix-paginate.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "01bb67281f496c4ac2b3ad3572787d2e38337305315fe0f024a5cea9d9629bd6",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "A/codex/tdd-stated/1",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The turn 2 final reply says only \"Fixed `page_label(0, 3)` to return `\"Page 1 of 3\"`... All 4 tests pass. The previous pagination fix is preserved. No commits made.\" It names no next step and owner and makes no explicit no-action statement; the \"No unresolved questions or remaining actions\" line is only in the notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "Both final replies report the fix as done and verified (\"All 3 tests pass\", \"All 4 tests pass\") without asking for a TDD policy or permission in turn 2. `pager.py` contains the ceiling-division count and `index + 1`, and `tests/test_pager.py` has the exact-multiple test and the 1-based `page_label` test.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "48723600caa563c44b78cc4a32e7fdccafb693fd719e761a512b3e8add7c8376",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Substantive assessments and handoff replies addressed to the user"
+          ],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Raw final capture and checker replay match exactly. Required source fix and exact regression cases present. No recorded commits, outer changes, evaluator access or denied actions. Core communication paragraph visibly returned on turn1. Codex rollout hash verified; one implementation worker launched and reused for turn2. Worker assignment text encrypted; root-stream evidence does not independently expose the original worker red run. Final contains no next/no-action statement; saved notes do not substitute. Combined and semantic C1 fail appropriate. C9 lacks labels/status.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": null,
+      "scenario": "tdd-stated",
+      "sequence": 8,
+      "source": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/1/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 1,
+      "trial_sha256": "c34eef7e57588578f278d7cc5b845a068b17e7abc51dc26e669da8fadcc57bac",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/1/turn-1.stdout.jsonl",
+          "raw_sha256": "24c0f8d361fff890116fee6c775430f229b7aecf2e024e6ece27f16b5e3f2249",
+          "reply_sha256": "fd0e62e68d44c2e0af614cec358238729ccefdb876983b34153c7bc3a880dece",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c3fb-66ef-7951-8d8d-ca7e6e476d85",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/1/turn-2.stdout.jsonl",
+          "raw_sha256": "6dd2caccaae5d7d1dcd1b7974801ac32bb07bb0865d09704e94259edced5bbfa",
+          "reply_sha256": "52607b5111d0df64929d16756753fd486b5b40672894f4884353210f9e740ac3",
+          "result_reply_equal": true,
+          "resumed_session": "01a1c3fb-66ef-7951-8d8d-ca7e6e476d85",
+          "root_text_final_equal": true,
+          "session": "01a1c3fb-66ef-7951-8d8d-ca7e6e476d85",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "A",
+      "work_workers": 1,
+      "workers": 1
+    },
+    {
+      "C1": "pass",
+      "C9": "pass",
+      "actor_cost_usd": 0.6169937,
+      "actor_elapsed_seconds": 70.5378035689937,
+      "artifact_sha256": {
+        "computed.json": "b01737b8037abc6eb9f01ec5f534727526ac06a3ec6ec902b324ad3f6b7db613",
+        "grade-provenance.json": "8b97c219ff7becdefbdfe46805ea8f389b55c6f0b1264864745a96d21f1b0bd6",
+        "judge-provenance.json": "c743a181b5ef7f02c4e732b8375f6cfdc4cd463552ca941b649355ff1927c78e",
+        "judge.call.json": "84bbc8b586500a5c84d78e7df378058bbc95675db1f225e0bf2589c1b03fa7bb",
+        "judge.prompt.txt": "307cf99c6b8b9ad733911b36cbddfdf06c7f8c646c5fed755905c7f8e52a11a4",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "ec54adeff4a7f5b08592f18a4d36a4b54a3b798dacc51a1e9a9abb1a7db98add",
+        "judged.json": "4780b3c6674543551debadf86d7fe1a583a30e8e7b682607ac68ecfdc4354efc",
+        "run.json": "4e2fef5e112f4c6a7163f13629e424865a3d58d2a1906aeede303a048b2359cd",
+        "trial.json": "bec4803ee6e217847875e154cc7caf73cf575386be6eb5e9b2da920c1a633c74",
+        "turn-1.input.txt": "bb916d2d7cb8265b8172741e458c5f2b2128e7e0e36ab5ca53b666ab554a45ff",
+        "turn-1.result.json": "5e1b983f1f5147d4dbbba910ee47e4907892d4928340ec15b009497f771bed9d",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "93ab95b224970be6d45e998ef89221a6af045c1d5661eb7021e33823ea9a3d24",
+        "workspace-git-log.txt": "295f5c9b58f1a7aaa6644be47222e0e9d71e2e2693163dbac5a1552a76a3f225"
+      },
+      "c1_label": "pass",
+      "c1_semantic": "pass",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/specs/20261109-owner-only-list-deletion.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "docs/lusona/work.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "72dae819045de2c644ce02e007dd39baab861e76fb1fb993b45ef3b2ddd302ea",
+      "conjunction": "pass",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": true,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "fail",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "A/claude/authz-change/2",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply ends with a next-action table: \"Commit the changes to `lists.py`, `tests/test_lists.py` and `docs/lusona/`\" with Owner \"Maintainer\" and Authority \"Commits are made by the maintainer\". The commit is assigned to the maintainer, not claimed by the agent, so it does not breach the user's no-commit instruction.",
+          "result": "pass"
+        },
+        "C7.continues": {
+          "evidence": "The reply reports the change as made and verified (\"1 failure, `AssertionError: Forbidden not raised`\" before the fix, then \"5 tests, all OK\") without asking for a go-ahead or a TDD policy. The changed files show it: `delete_list` in `lists.py` has `if record[\"owner\"] != user: raise Forbidden(...)`, and `test_shared_user_cannot_delete` in `tests/test_lists.py` asserts `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "ec54adeff4a7f5b08592f18a4d36a4b54a3b798dacc51a1e9a9abb1a7db98add",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Substantive assessments and handoff replies addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "pass",
+        "C10": "pass",
+        "C11": "fail",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": true,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Raw final capture and checker replay match exactly. Required source fix and exact regression cases present. No recorded commits, outer changes, evaluator access or denied actions. Core communication paragraph visibly returned on turn1. Final gives Result Complete, Evidence and concrete maintainer next action: C1/C9 passes appropriate. Raw red/green and reviewer inspection/test evidence support C7/C10. C11 fail independently verified: sole root Agent assignment is independent review, after root test/source edits; no implementation worker.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": true,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 9,
+      "source": "tmp/completion-actor-evaluation/runs/A/claude/authz-change/2/trial.json",
+      "status": "captured",
+      "status_at_result": true,
+      "status_word_anywhere": true,
+      "trial": 2,
+      "trial_sha256": "bec4803ee6e217847875e154cc7caf73cf575386be6eb5e9b2da920c1a633c74",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/claude/authz-change/2/turn-1.stdout.jsonl",
+          "raw_sha256": "93ab95b224970be6d45e998ef89221a6af045c1d5661eb7021e33823ea9a3d24",
+          "reply_sha256": "2085c777bf1e530ef5a72fc13c36613aec4bff02fcb8c8caffcce7647eac3d17",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "a40e8b62-66a5-4b38-84d7-816afda69ec8",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "A",
+      "work_workers": 0,
+      "workers": 1
+    },
+    {
+      "C1": "pass",
+      "C9": "pass",
+      "actor_cost_usd": 0.6954966199999998,
+      "actor_elapsed_seconds": 102.93491953099146,
+      "artifact_sha256": {
+        "computed.json": "faba8fa37e3227a7c27965b4e49c7dd39b26f6da575687408ca45e082b778f96",
+        "grade-provenance.json": "76d58f984f39cb201ec2afff7252e69136aaa36e4ea748250622b3e5aaadf419",
+        "judge-provenance.json": "2598935064731a689441daa18a42f448d6d0c6fc52c40886cb963ffff6209c6d",
+        "judge.call.json": "c2cf9d44526b0f7167e3aea0502f8a5f6c737e9b78833ea9b8793c931d82c494",
+        "judge.prompt.txt": "d6c17399b73c18289e46bba26d2fb25f4f587cd5b3e893dbc758bfefdd01876a",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "93f42ff2bb07775a3921a1a172a6ccfe443f4eb1bf6164e9ed6ca633147e258e",
+        "judged.json": "3e84bf7535c11e3a6c4b4eac19717ddceae3d7c6327b43b24aade4f2d1a8b2a4",
+        "run.json": "ebb3b6b8d131a55d4507860bd94ce6cf39053a285a5cf8ab27f1108ce048275d",
+        "trial.json": "ddb0aa594be96cf1c772f96d2361abc10453131f40ff690314f9632e8d23a2df",
+        "turn-1.input.txt": "bb916d2d7cb8265b8172741e458c5f2b2128e7e0e36ab5ca53b666ab554a45ff",
+        "turn-1.result.json": "cead0c879a93a5df52fb7b9000d064a88c5f9a9e8ddc612a50353a94db2a09b0",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "9945126642f20900ec5a3efbe41345f340fab0f3f7eaf38632a38f8d386275c2",
+        "workspace-git-log.txt": "8b51401e4acdcec0208640fcb99cef7c6fdd8355c6e3e495cb2f2baaaa6b403a"
+      },
+      "c1_label": "pass",
+      "c1_semantic": "pass",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/specs/20261109-owner-only-list-deletion.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "docs/lusona/work.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "f3cf952ae061118c7839326ccdd74f20a69a1950e226a59d875bce688b935afa",
+      "conjunction": "pass",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": true,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "B/claude/authz-change/2",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply ends with a next-action table: \"Review and commit `lists.py`, `tests/test_lists.py`, `docs/lusona/work.md` and the new spec | Maintainer\" with authority \"Maintainer only: you said no commits, and the repo notes say agents don't commit\". This names a specific step and its owner, and the agent does not claim it will commit.",
+          "result": "pass"
+        },
+        "C7.continues": {
+          "evidence": "The final reply reports the change as made and verified (\"`lists.py:32`: the delete check is now `record[\"owner\"] != user`\", red run then \"ran 5 tests, all passing\") without asking for a go-ahead or a TDD policy. The changed files show `delete_list` raising `Forbidden` when `record[\"owner\"] != user`, and `test_shared_user_cannot_delete` in `tests/test_lists.py` asserts `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "93f42ff2bb07775a3921a1a172a6ccfe443f4eb1bf6164e9ed6ca633147e258e",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Every substantive final reply addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "pass",
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": true,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Raw final capture and checker replay match exactly. Required source fix and exact regression cases present. No recorded commits, outer changes, evaluator access or denied actions. Core communication paragraph visibly returned on turn1. Final gives Result Complete, Evidence and concrete maintainer next action: C1/C9 passes appropriate. Raw red/green and reviewer inspection/test evidence support C7/C10. C11 pass verified: Test-first owner-only delete fix Agent owns source/tests and performs red, edit, green; second separate Agent reviews the diff.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": true,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 10,
+      "source": "tmp/completion-actor-evaluation/runs/B/claude/authz-change/2/trial.json",
+      "status": "captured",
+      "status_at_result": true,
+      "status_word_anywhere": true,
+      "trial": 2,
+      "trial_sha256": "ddb0aa594be96cf1c772f96d2361abc10453131f40ff690314f9632e8d23a2df",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/claude/authz-change/2/turn-1.stdout.jsonl",
+          "raw_sha256": "9945126642f20900ec5a3efbe41345f340fab0f3f7eaf38632a38f8d386275c2",
+          "reply_sha256": "3edfc3da5ac9677fe2e3da4031709efc05d34306887b9726ff224cc5d32a7ed1",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "4454aab6-5fc2-4dc8-8359-28699250afda",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "B",
+      "work_workers": 1,
+      "workers": 2
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 134.74312550199102,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "a6d80e7a50a3e190f552a7272f01671da032a29ef4815371488aaf31c1ab5fc6",
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "d71f7fccc2a3f9c664c3d0dbfb67ce3ae3ac816068a7c52ca60b78b1f3a1d9d9",
+        "judge-provenance.json": "1a3df141780fc6f8800015add8944dbf60fd3d988e4f0a47aa76859f00436fc1",
+        "judge.call.json": "a6ad707f21fd23b3a158bb4bf31db24ec6a074efa9516a210411d6630f7e4669",
+        "judge.prompt.txt": "40113f3c153900cb6ca86700635d868cf197f2885cee631ec9c832d6d1f2dec5",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "9c4ea445e8d94b0cd76e04f59f15c51dc59632c89832f2adeb4bac5331fcc0d5",
+        "judged.json": "13a0e7ece5dee05e8992367d505125683c1535d1377cefe35c0a214cca40d59e",
+        "run.json": "282dd8dbc3fe078a0073818709372ed8a2fc37b088570d5528a7d7f617a42291",
+        "trial.json": "6efff1d5fc277b334ef0ac7a096c49bb24a44943726867a70a24ab6dadd16f98",
+        "turn-1.input.txt": "9af32f5278518a09a3a75cd89dbec0cdf59a8518c0a155feb8ff1e8b466ed654",
+        "turn-1.result.json": "d66ceabccb92e070505f0c98d92df9b8a2fd48c4fdd2dae16efedfa79d8c7433",
+        "turn-1.stderr.txt": "9c4c754596090899e55fe20e7f775f6192fdcf4b1f9e473957e3bb37b24f94a9",
+        "turn-1.stdout.jsonl": "a54afda5c49f5b6203955720d14cb3959acfe791b971035b315a69ac340fa8c2",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "fd6714eeb09d9e5f52d2aefd75eb51f3029d39ba661556d48af50b8f211c788c",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "bb2cb75afa1f2944219785a876704fc048281b7be4df81e95123be0ffe80a6c5",
+        "workspace-git-log.txt": "93771c29a52e36a8b6d92ddfc35c12f7b01b869e1c26ffcb5bf744775ffdb295"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/notes/paginate-exact-multiple.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "01bb67281f496c4ac2b3ad3572787d2e38337305315fe0f024a5cea9d9629bd6",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "A/codex/tdd-stated/2",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply of turn 2 says only \"Fixed `page_label(0, 3)`... All 4 tests pass. The pagination fix is preserved. No commits made.\" It gives no explicit statement that no next action is needed and names no follow-up with an owner; the \"no remaining work\" line appears only in the notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "Both turns report the fix as done and verified (\"All 3 tests pass\", then \"All 4 tests pass\"), and turn 2 proceeds without asking for the TDD policy or permission. `pager.py` contains the ceiling-division page count and `index + 1`, and `tests/test_pager.py` has `test_exact_multiple_has_no_empty_last_page` and `test_page_label_displays_one_based_page_number`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "9c4ea445e8d94b0cd76e04f59f15c51dc59632c89832f2adeb4bac5331fcc0d5",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Substantive assessments and handoff replies addressed to the user"
+          ],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Both turn finals and original capture inspected; capture fidelity and computed replay exact. Both requested fixes and exact regression tests present; current final omits explicit next/no-action statement and prescribed labels/status. Semantic C1, combined C1 and C9 fail appropriately. No recorded commits, outer changes, evaluator access or denied action. Communication paragraph visibly returned in root tool output on turn1, not reread on turn2. Rollout hash verified and fix_paginate worker reused. Worker detailed runs encrypted/unavailable from root stream; actor records and changed tests support the reported completion. Extra empty-input coverage in B is within existing behavior contract, not a primary-metric substitution.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": null,
+      "scenario": "tdd-stated",
+      "sequence": 11,
+      "source": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/2/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 2,
+      "trial_sha256": "6efff1d5fc277b334ef0ac7a096c49bb24a44943726867a70a24ab6dadd16f98",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/2/turn-1.stdout.jsonl",
+          "raw_sha256": "a54afda5c49f5b6203955720d14cb3959acfe791b971035b315a69ac340fa8c2",
+          "reply_sha256": "4a74d3f58859333193f0148f345970b4f8b6844d2f8c1ecf94c2a3273bb8aca2",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c400-4058-7400-9938-984b7b7d62a1",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/2/turn-2.stdout.jsonl",
+          "raw_sha256": "bb2cb75afa1f2944219785a876704fc048281b7be4df81e95123be0ffe80a6c5",
+          "reply_sha256": "7b875b8dabb5b5a96f292167c622c51b456621f488dd6da01aa16d8d8e0dfb91",
+          "result_reply_equal": true,
+          "resumed_session": "01a1c400-4058-7400-9938-984b7b7d62a1",
+          "root_text_final_equal": true,
+          "session": "01a1c400-4058-7400-9938-984b7b7d62a1",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "A",
+      "work_workers": 1,
+      "workers": 1
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 145.7461417580198,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "376c80fdf6f9b6e409fec029841028bbd8b3fbd23165ec15c952baa150c916e3",
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "be95df47d517f744493d20bb7d6654414c42e2760103f86c23a736a2570f292a",
+        "judge-provenance.json": "d0f9324d721c7f2a372435911fc3aff652ed241d0f9cd0c5263cbe1746951a8f",
+        "judge.call.json": "fe1d79868be2fa33add04ae71a4ad0291244bb960312fa353cd9854c4d5266c9",
+        "judge.prompt.txt": "c3956a092271630f2b603d2dbd5f0d611cf2d9e32d2d7d20f347e13ede9db9eb",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "c6e46a2141ba2e1dafb8228ae3481cedf590323533121b394cf6c1576cc728db",
+        "judged.json": "1b9699f1f33d5a8ceb2be89abae13dac9412d4e4bf9358b24591fd009dfd06c7",
+        "run.json": "c59478b45d60beb0384f96c002cce905818ef6771c3f48f1c2d454494df47756",
+        "trial.json": "b52d82d4adaaf191e15a5461cf9f5eef6d799b830d8f645e25fbb7ab70a09873",
+        "turn-1.input.txt": "4669ecfbc7b6c017200adecb296d006e47e68bbac54911afa0bd1a170e594c42",
+        "turn-1.result.json": "b0df731ad3f06e798455d69f26787830258960a4ce032305a9d71dfd37681a77",
+        "turn-1.stderr.txt": "0b6ed0e7249fef51dfdd8c1be135eea83eb6a02398b0eb41a69ffb92b6631527",
+        "turn-1.stdout.jsonl": "7db686555a3eb8835683440f96997cff3825db70ad67146d89640ae7a74cf8ec",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "89eb0cce9d71d7860d64952edea89bc8712c615571cd79ce00bed49cc24f6017",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "b5e3ae7cbf8faa6aeaaa2f190909226762c1b5f331e4c7fd7ddeeccd6a362252",
+        "workspace-git-log.txt": "3b4ccf9b7370b9aa739f0ace207363201b5056474cfd0dc0d4c7cfd287b70c46"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/notes/fix-page-label.md",
+          "docs/lusona/notes/fix-paginate-empty-page.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "b2789ed30d59d56004740cd7412c056601ec389ed0fff6a63788449b92df0bbe",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "B/codex/tdd-stated/2",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply of turn 2 says only \"Fixed `page_label(0, 3)` to return \\\"Page 1 of 3\\\"... All 5 tests pass... No commits created.\" It names no next step with an owner and makes no explicit no-action-needed statement; the \"no remaining action\" line exists only in the saved notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "Turn 1 and turn 2 each report the fix as done and verified (\"regression failed before the fix and passed afterward\", \"All 5 tests pass\") without asking for a TDD policy or permission in turn 2. `pager.py` contains ceiling division `(len(items) + size - 1) // size` and `index + 1`, and `tests/test_pager.py` has `test_does_not_add_an_empty_page_for_exact_multiple` and `test_page_labels_are_one_based`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "c6e46a2141ba2e1dafb8228ae3481cedf590323533121b394cf6c1576cc728db",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Every substantive final reply addressed to the user"
+          ],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Both turn finals and original capture inspected; capture fidelity and computed replay exact. Both requested fixes and exact regression tests present; current final omits explicit next/no-action statement and prescribed labels/status. Semantic C1, combined C1 and C9 fail appropriately. No recorded commits, outer changes, evaluator access or denied action. Communication paragraph visibly returned in root tool output on turn1, not reread on turn2. Rollout hash verified and fix_paginate worker reused. Worker detailed runs encrypted/unavailable from root stream; actor records and changed tests support the reported completion. Extra empty-input coverage in B is within existing behavior contract, not a primary-metric substitution.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": null,
+      "scenario": "tdd-stated",
+      "sequence": 12,
+      "source": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/2/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 2,
+      "trial_sha256": "b52d82d4adaaf191e15a5461cf9f5eef6d799b830d8f645e25fbb7ab70a09873",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/2/turn-1.stdout.jsonl",
+          "raw_sha256": "7db686555a3eb8835683440f96997cff3825db70ad67146d89640ae7a74cf8ec",
+          "reply_sha256": "76cbdef4ca01bf04ea594d4611ac94c3b27d81ec5ccd17c3ca3e71f3a89df9d1",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c402-6249-7140-b2f8-2ba10e50a9eb",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/2/turn-2.stdout.jsonl",
+          "raw_sha256": "b5e3ae7cbf8faa6aeaaa2f190909226762c1b5f331e4c7fd7ddeeccd6a362252",
+          "reply_sha256": "da986eb66e0dd10af9fe70d4699df73dc2b888874c8cfe8b692d37c5a554da85",
+          "result_reply_equal": true,
+          "resumed_session": "01a1c402-6249-7140-b2f8-2ba10e50a9eb",
+          "root_text_final_equal": true,
+          "session": "01a1c402-6249-7140-b2f8-2ba10e50a9eb",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "B",
+      "work_workers": 1,
+      "workers": 1
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": 0.2357846,
+      "actor_elapsed_seconds": 25.733304310997482,
+      "artifact_sha256": {
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "21203e7441637fcf3ebf375c53dca053b294adf9d02e086aaf77d0577249e820",
+        "judge-provenance.json": "fdad25a36e4c12276b59dfb6288454a1b8939ee5aca564edeeaec61156199720",
+        "judge.call.json": "f362d2ab052a96a4500885b794eaa1dace4e7fa90570da7f57421a0dbee2274a",
+        "judge.prompt.txt": "b853342839ff60952ddec15f417d2a33c5d2db84387f3956e43e977d822b2c13",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "854636f30b085f4330dbabd9c4aa11140169f31ef6a6275515a8bd170c8c671e",
+        "judged.json": "6fe0f3b3231ddcaa86870047fea938ce3d9dc493a640da6692d06657fbf3616c",
+        "run.json": "7da59c120e9b043ed54de55d3696861eda193866acd8045fc912283f3357db5b",
+        "trial.json": "0de4b9212b935fd2abedb1b6662051a38f0c234be0f70725f5d18b557560e1db",
+        "turn-1.input.txt": "df6a62de1c3fdcaa01dc70628252fe8e6b6afbc380e5c8c3c64ac65446d3bd6c",
+        "turn-1.result.json": "32721c8a1d26f00bb5e5ce216a79aa870207f897b222bc650e88bb73e2c6e396",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "018bb892742bc61f65bfd6b6a95f8061a4d2bfd43d80e989334dbbe8af07166c",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "5751ec629e86f79d8257d13e0ca861816c4ecff37beeeeeffa90cd4cc9871286",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "4eee1d18826d70ddb5fdd41dc5dd2b2b8b22010708604a3cba685021e6ae05ec",
+        "workspace-git-log.txt": "5784609cb9cdaa7c789c00e239210fbaa43f729c6cf940c7ddf9532d2f88273c"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "f3cf952ae061118c7839326ccdd74f20a69a1950e226a59d875bce688b935afa",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "B/claude/tdd-stated/2",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The turn 2 final reply reports completion (\"I fixed it... All 4 tests pass. Nothing is committed.\") and a caveat (\"I can't check code outside this repo\"), but it neither states that no next action is needed nor names a specific follow-up with an owner.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "Both turns report the fix as done and verified with red then green (\"All 3 tests pass\", \"All 4 tests pass\"), and turn 2 proceeds without asking for the TDD policy or permission. `pager.py` contains both fixes (`range(0, len(items), size)` and `index + 1`), and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_counts_from_one`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "854636f30b085f4330dbabd9c4aa11140169f31ef6a6275515a8bd170c8c671e",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Both turn finals and original capture inspected; capture fidelity and computed replay exact. Both requested fixes and exact regression tests present; current final omits explicit next/no-action statement and prescribed labels/status. Semantic C1, combined C1 and C9 fail appropriately. No recorded commits, outer changes, evaluator access or denied action. Neither turn has a root tool output returning the communication paragraph; initial injected context is unretained, so this is visibility only. Raw outputs show intended test-first red and green in each turn.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": false,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": false,
+      "scenario": "tdd-stated",
+      "sequence": 13,
+      "source": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/2/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 2,
+      "trial_sha256": "0de4b9212b935fd2abedb1b6662051a38f0c234be0f70725f5d18b557560e1db",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/2/turn-1.stdout.jsonl",
+          "raw_sha256": "018bb892742bc61f65bfd6b6a95f8061a4d2bfd43d80e989334dbbe8af07166c",
+          "reply_sha256": "7a5901d81d361b073f9289e57f738a6cebfabd6b8230cfb12da399b073cf4960",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "f22cf74f-51d7-4f99-b44e-d15fb16cc8bd",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/2/turn-2.stdout.jsonl",
+          "raw_sha256": "4eee1d18826d70ddb5fdd41dc5dd2b2b8b22010708604a3cba685021e6ae05ec",
+          "reply_sha256": "d0722a8a36c82dbbad9f744cb73c1c89724d48948db3782744e0842ea6f071ae",
+          "result_reply_equal": true,
+          "resumed_session": "f22cf74f-51d7-4f99-b44e-d15fb16cc8bd",
+          "root_text_final_equal": true,
+          "session": "f22cf74f-51d7-4f99-b44e-d15fb16cc8bd",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "B",
+      "work_workers": 0,
+      "workers": 0
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": 0.38692360000000003,
+      "actor_elapsed_seconds": 49.418676368979504,
+      "artifact_sha256": {
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "f58a0c32c9607b3e86619ba3860d7030eb38f42c77451ef734a7b21ee1f25f10",
+        "judge-provenance.json": "8c50fb99963f76a41c06319182c524582f918eef008c73729258268d7cfb0986",
+        "judge.call.json": "602bd09c9ae054ae88b1e7400254f13d001b8411b0e86ca2d4ae12abc7dbe43c",
+        "judge.prompt.txt": "dcf1590f256b06d8470d2f3a119688db7c9997b1209b6d2a4b6774ca313cf535",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "85fad27babef07f1faccd9360a583340e8566bd4a71175b18bc07b09aecb95db",
+        "judged.json": "7ab87f38e6477f9e44fa8030e4967854aab6b07d80cb095e887730836e782e1e",
+        "run.json": "c9a002fbb97d82079dce8cc797ed037c45d9a797ee0530fd68ef404cdaceb64d",
+        "trial.json": "ff9b00c461ae0a9851bb0d666ebe451d808640664cdf9114f0abf2125a51f9bc",
+        "turn-1.input.txt": "df6a62de1c3fdcaa01dc70628252fe8e6b6afbc380e5c8c3c64ac65446d3bd6c",
+        "turn-1.result.json": "344ecb47b764a53acfb5de646afb3ee9012faa456778819385a47eead71026dd",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "f2619415a02d49a181927c3787c0d003ae6a2e58259972e19aa12e7d927e3ef1",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "95c4cb248b2ed45d2ea45ce59e697655f6ac5e303c058b4a04c05fe5a3989f5c",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "e67c16952cf99edbb4845c3f67c75f1b81aecf6188ff6014cd4643b1da782586",
+        "workspace-git-log.txt": "e6c5ed3f4a6bdd7e3916793f83cfbd1704266722eca87b4484044d56f21dcf43"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/notes/fix-paginate-trailing-empty-page.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "72dae819045de2c644ce02e007dd39baab861e76fb1fb993b45ef3b2ddd302ea",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "A/claude/tdd-stated/2",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The turn 2 final reply reports the fix, the red/green results and ends with \"A test for empty input to `paginate` is still not written\", which names no next step with an owner and does not state that no action is needed. The \"Next action: user review of the uncommitted diff\" line exists only in the notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "Turn 1 reports \"I fixed it: `paginate([1, 2, 3, 4], 2)` now returns `[[1, 2], [3, 4]]`\" and turn 2 reports \"I fixed it: `page_label(0, 3)` now returns \\\"Page 1 of 3\\\"\", each with red/green results and no request for a TDD policy or permission. `pager.py` contains both fixes (`range(0, len(items), size)` and `index + 1`), and `tests/test_pager.py` has `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_numbered_from_one`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "85fad27babef07f1faccd9360a583340e8566bd4a71175b18bc07b09aecb95db",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Both turn finals and original capture inspected; capture fidelity and computed replay exact. Both requested fixes and exact regression tests present; current final omits explicit next/no-action statement and prescribed labels/status. Semantic C1, combined C1 and C9 fail appropriately. No recorded commits, outer changes, evaluator access or denied action. Neither turn has a root tool output returning the communication paragraph; initial injected context is unretained, so this is visibility only. Raw outputs show intended test-first red and green in each turn. Turn1 asks about optional empty-input test/page_label; turn2 does not repeat that question and final mention of unwritten empty test has no next action/owner. Saved notes action and earlier question do not substitute.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": false,
+      "scenario": "tdd-stated",
+      "sequence": 14,
+      "source": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/2/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 2,
+      "trial_sha256": "ff9b00c461ae0a9851bb0d666ebe451d808640664cdf9114f0abf2125a51f9bc",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/2/turn-1.stdout.jsonl",
+          "raw_sha256": "f2619415a02d49a181927c3787c0d003ae6a2e58259972e19aa12e7d927e3ef1",
+          "reply_sha256": "66e2e4c0ea4eecb18f0ddea5ff0ec5e19f03a7eff853b057f7dffe927f808455",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "65d0eabb-72e7-4c87-9e06-e8fb8391ef46",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/2/turn-2.stdout.jsonl",
+          "raw_sha256": "e67c16952cf99edbb4845c3f67c75f1b81aecf6188ff6014cd4643b1da782586",
+          "reply_sha256": "dddd8e24d7811b367727254ae4a2be36e07ad8a659cc79b163b543365f5a0a20",
+          "result_reply_equal": true,
+          "resumed_session": "65d0eabb-72e7-4c87-9e06-e8fb8391ef46",
+          "root_text_final_equal": true,
+          "session": "65d0eabb-72e7-4c87-9e06-e8fb8391ef46",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "A",
+      "work_workers": 0,
+      "workers": 0
+    },
+    {
+      "C1": "pass",
+      "C9": "fail",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 195.14020637099748,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "8e5edeb75632301c2dc6a9beaaa333c706266991e1cc6980014750f520a6b510",
+        "computed.json": "1cf26789e967d03df791419a3ac571cb1e18e69c79e3e45df5025685d6026d6a",
+        "grade-provenance.json": "3d56681e7d98f2ac178487f9a5f0863fc1aa9f044124acf4686aa14b0871b896",
+        "judge-provenance.json": "8371549b21bf7e5030ffee147422089efc6eba18244dad28b076e93fc6d3f0a4",
+        "judge.call.json": "c271f4184a9569d395f37efc5af25b4a735516c4733033d23eca5f2a085e527f",
+        "judge.prompt.txt": "9eec48ce26363d1ac94ba0ef4c6fd862b0c9f4ee671759707dd4149f753b8fcf",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "f94997d47e52d41022463e255ddf1c987c17e7ec6e505228cd7a8382ca7d40e9",
+        "judged.json": "df1d193942f043e9a1a2aef6c10f6b657a1f80d9dcd155beeffd19759b370c25",
+        "run.json": "ee5a56a4556c25903675c91204617ea2d9afe1fd6ce5521900f8bd52499874ac",
+        "trial.json": "0d8538ccfba0d76cb1f9ed37a14541aac7f6d66ba4a364141e4a6f2b3c8ce1f0",
+        "turn-1.input.txt": "fc1fbce816eff20baa9baf01bb85c7a81f6ccf4c93ea7d90f4e98664a7ef140d",
+        "turn-1.result.json": "dec29e1985df60005c28b6dec1377db314103a07032075d72921242e08694df2",
+        "turn-1.stderr.txt": "7c0d73821b3d7e70a62712ceea38ad7808a9811f045ac4996d67a836ccc9802f",
+        "turn-1.stdout.jsonl": "d30922d21feea8dde5a142a2294a679755f9ebeba7336a2088146dc6fda292a6",
+        "workspace-git-log.txt": "9f24a056c66c4a280bdf0318309cc99f8ec0ab40f95771de37e69ea18cd4259a"
+      },
+      "c1_label": "pass",
+      "c1_semantic": "pass",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/specs/20261109-owner-only-list-deletion.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "README.md",
+          "docs/lusona/work.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "b2789ed30d59d56004740cd7412c056601ec389ed0fff6a63788449b92df0bbe",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "B/codex/authz-change/2",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply ends with \"**Next action:** None for this request.\" directly after stating the reason: \"All 6 tests pass; independent review found no issues. No commits made.\"",
+          "result": "pass"
+        },
+        "C7.continues": {
+          "evidence": "The final reply reports the change as made and verified (\"Only owners can now delete lists... All 6 tests pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` has `test_shared_user_cannot_delete_and_contents_remain` asserting `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "f94997d47e52d41022463e255ddf1c987c17e7ec6e505228cd7a8382ca7d40e9",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Every substantive final reply addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "pass",
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": true,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "All current finals/captures and source/regressions read. Capture fidelity and checker replay exact. No recorded commits, outer changes, evaluator access or denied actions. Communication paragraph visibly returned in root tool output. Rollout hash verified, with one implementation and separate reviewer launch. Spec and queue/history identify the same change. Root capture does not expose encrypted child assignment text or original detailed red run; actor records provide those details. Final explicitly labels no next action, with preceding completed implementation, six passing tests and independent review supplying the reason in the same reply. Combined C1 pass appropriate. C9 genuinely lacks Result, Evidence and approved status phrase; no parser false negative.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 15,
+      "source": "tmp/completion-actor-evaluation/runs/B/codex/authz-change/2/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 2,
+      "trial_sha256": "0d8538ccfba0d76cb1f9ed37a14541aac7f6d66ba4a364141e4a6f2b3c8ce1f0",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/codex/authz-change/2/turn-1.stdout.jsonl",
+          "raw_sha256": "d30922d21feea8dde5a142a2294a679755f9ebeba7336a2088146dc6fda292a6",
+          "reply_sha256": "e59d20d6410e6b2189b7416295a4e5eca53c42e1f2ddbc99e8027b494bafb36c",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c405-ff51-7711-af57-c7586a264c76",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "B",
+      "work_workers": 1,
+      "workers": 2
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 191.8830890750105,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "8aa08a44b3f6df6e0bf06898423f4c58ba1f80a9d4d33c00a5569af68c0f50f9",
+        "computed.json": "8c9f71f47c0b8b135e48e02cfd513362950d0bc49a717ad8aa1c95a300de0bcf",
+        "grade-provenance.json": "0361391ace1e769bfd897cddd037027b0f0426458fe2301e25b0c12d45fd28a3",
+        "judge-provenance.json": "b25094c5a2bc45179a5333484e7fe7647c74f1d23528c30e1d3378c1d7a6b1c0",
+        "judge.call.json": "06721b79721f7444bb8940311c43be00536518af4624ef3e0168850a15c11c3d",
+        "judge.prompt.txt": "13f8ca8fc9488c2a8db1e6d999f4d815e22dd99d6b2a0d1c480cc3176ee46cf8",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "f6eb1317aa3fd6d986a926a8ec44d377b1bd36ae1a305725b6b32c1c722bb676",
+        "judged.json": "60924c377116827ef75dce0dc478f4830616c7b8fba7bb0ac350726f037a4ac5",
+        "run.json": "6ffbdaa968f1fd791e2687b3b52f537e4fc22c64e54120d57266ba39d8109779",
+        "trial.json": "c0c043c24f2e6ab9bb3755ea6a31b567ee0bfc0e69fab4426f80ad78fb0718da",
+        "turn-1.input.txt": "8496d47c11315d71aadb649df5ef69838002daf9cd12742b2a202e64ad4877cb",
+        "turn-1.result.json": "9a607ee292e480284a3047d6771b8d8204c2e7dc756e54de54f4748515ffd5e0",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "af6e7eb02af10baaef58f516d9a78ee6f9793115e0efcb40f1a21097475a6647",
+        "workspace-git-log.txt": "e0c72d45f2bf295bd37cdcb1c972f6596bf917ad95fc07989e7f4205de6a6368"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/history/2026-11-week-02.md",
+          "docs/lusona/specs/20261109-owner-only-list-deletion.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "README.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "01bb67281f496c4ac2b3ad3572787d2e38337305315fe0f024a5cea9d9629bd6",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "A/codex/authz-change/2",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply ends with \"All six tests pass, including the new regression. Independent review found no issues. Workflow records updated; no commits created.\" It reports completion without naming a next step and owner or explicitly stating that no next action is needed; the \"Next action: none for this request\" line exists only in the spec file, which does not substitute.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "The final reply reports the fix as made and verified (\"Fixed: only the owner can delete an existing list... All six tests pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` contains `test_shared_user_cannot_delete` asserting `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "f6eb1317aa3fd6d986a926a8ec44d377b1bd36ae1a305725b6b32c1c722bb676",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Substantive assessments and handoff replies addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "All current finals/captures and source/regressions read. Capture fidelity and checker replay exact. No recorded commits, outer changes, evaluator access or denied actions. Communication paragraph visibly returned in root tool output. Rollout hash verified, with one implementation and separate reviewer launch. Spec and queue/history identify the same change. Root capture does not expose encrypted child assignment text or original detailed red run; actor records provide those details. Final lacks any explicit next/no-action statement; notes/spec no-action statement does not substitute. Combined/semantic C1 and C9 failures appropriate.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 16,
+      "source": "tmp/completion-actor-evaluation/runs/A/codex/authz-change/2/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 2,
+      "trial_sha256": "c0c043c24f2e6ab9bb3755ea6a31b567ee0bfc0e69fab4426f80ad78fb0718da",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/codex/authz-change/2/turn-1.stdout.jsonl",
+          "raw_sha256": "af6e7eb02af10baaef58f516d9a78ee6f9793115e0efcb40f1a21097475a6647",
+          "reply_sha256": "63fd3db20704cf31ff987a19a7f4ce224e78919bd2309ebe51c9858dc4515907",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c409-0656-7f33-b802-c24a48130058",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "A",
+      "work_workers": 1,
+      "workers": 2
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": 0.24474740000000003,
+      "actor_elapsed_seconds": 29.018491978989914,
+      "artifact_sha256": {
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "c7202062688b55e01c5ab3c3f632e3d6a0ebfe6e8a232354d9cbe2d8730f3538",
+        "judge-provenance.json": "8924900704d9e3e828f8a23a8151ce76cf26ee6e3492ce89f207973eb8d8c8ea",
+        "judge.call.json": "ede13b8398049e0337098e569732a3b1b2f1847ca73cadd8900d4e29340b803c",
+        "judge.prompt.txt": "e88ac7f9902b32f20f83708f90084c155cea1f5f0b88e0ce01f055660b072698",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "ea8d9b6ed6497100f4cf130982ad9f26318df53f57753d1c45ec53cfb65feeb6",
+        "judged.json": "145c5f3c4ddd085b6060c20b93af8f7ad7d6f246faf084e917c303205b2c12b6",
+        "run.json": "a46dd8a3bc693208c1cfe66d9504e14689b153add8d957a65a0434a0dbbdccc1",
+        "trial.json": "2babe98e663d51c41a487b85247092f71beb4e67d9dc0a898348959fa5a4510c",
+        "turn-1.input.txt": "df6a62de1c3fdcaa01dc70628252fe8e6b6afbc380e5c8c3c64ac65446d3bd6c",
+        "turn-1.result.json": "22b134d070a36a22e33b9e208d1057381069b04012c127cacb54683ddcf65e37",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "ac81afd6a23b5bd9e3cece3bc1c69c1156105bdf114afd9bca26afb7a73d5347",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "e3b62d747f051f847903d36182e87f5a640f113782d69614c3ce1dbbf780e022",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "fbb785bba71a13a1e262af9395f8eefb034e711dac0405e51bd6f675b2aa0974",
+        "workspace-git-log.txt": "ff1670999755d310384fec1708d4febbee160eeea5379577b7f2b0f5aad69afd"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "72dae819045de2c644ce02e007dd39baab861e76fb1fb993b45ef3b2ddd302ea",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "A/claude/tdd-stated/3",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The turn 2 final reply reports completion and passing tests (\"I fixed it... all 4 tests pass. Nothing is committed.\") and ends with a caveat about the admin UI (\"I have not checked that code\"). It never states that no next action is needed, and it names no specific follow-up with an owner.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "Both turns report the fix as done and verified with a failing-then-passing test (turn 1: \"all 3 tests pass\"; turn 2: \"all 4 tests pass\"), and turn 2 applies the same rules without asking for the TDD policy or permission. `pager.py` contains `-(-len(items) // size)` and `index + 1`, and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_one_based`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "ea8d9b6ed6497100f4cf130982ad9f26318df53f57753d1c45ec53cfb65feeb6",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "All current finals/captures and source/regressions read. Capture fidelity and checker replay exact. No recorded commits, outer changes, evaluator access or denied actions. Neither turn visibly returns core communication paragraph in root tool output; unretained injected context prevents absence claims. Both turns have raw intended test-first red/green. Current final offers caller caveat but no specific next action/owner or explicit no-action statement. Combined/semantic C1 and C9 failures appropriate.",
+        "raw_root_tool_calls_and_results_read": true,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": false,
+      "scenario": "tdd-stated",
+      "sequence": 17,
+      "source": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/3/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 3,
+      "trial_sha256": "2babe98e663d51c41a487b85247092f71beb4e67d9dc0a898348959fa5a4510c",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/3/turn-1.stdout.jsonl",
+          "raw_sha256": "ac81afd6a23b5bd9e3cece3bc1c69c1156105bdf114afd9bca26afb7a73d5347",
+          "reply_sha256": "113ad5582629e1f474cbb112b80bfd73be01057d426e305128c7bfb8725674d8",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "44f5d40b-5bae-439d-b3f4-826c146a94a1",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/3/turn-2.stdout.jsonl",
+          "raw_sha256": "fbb785bba71a13a1e262af9395f8eefb034e711dac0405e51bd6f675b2aa0974",
+          "reply_sha256": "cbc57f3570097f4c679ba409b3b89955488f3593344a0423f72e20b9311a303d",
+          "result_reply_equal": true,
+          "resumed_session": "44f5d40b-5bae-439d-b3f4-826c146a94a1",
+          "root_text_final_equal": true,
+          "session": "44f5d40b-5bae-439d-b3f4-826c146a94a1",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "A",
+      "work_workers": 0,
+      "workers": 0
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": 0.23500379999999998,
+      "actor_elapsed_seconds": 25.19516657400527,
+      "artifact_sha256": {
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "774071b26bbf729a0a56e05abe732d2203ca6345014b2f8f7b840cff5a3997e3",
+        "judge-provenance.json": "3424138fcb22ae28a5521be91f4eb202479d566a5179bb833b20c3165426b9fa",
+        "judge.call.json": "0dbc41b7743cc310b73bb4a101a90bb4df9d09024ad6c1e727569d5ea8bcc4f3",
+        "judge.prompt.txt": "1b28cd870a3531ce4d63df8968215573582a718a04610397b60b7cf1a212cbc0",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "7498e8441b77066b3445e85f167223fb7f183cccc43725f8ce1f2c35895a4617",
+        "judged.json": "0c4a45fbc21a8eb9c43a5ef4fcefadc78b6a0b06ae6188aa6e20c83655dfabd1",
+        "run.json": "1a132bce9e00781b9367d9e099d36791cf50e36215032b67f351df76970b564c",
+        "trial.json": "53a391942f54ac37231ca4438ba324ec3c9a0aa939c6156a54688076db437887",
+        "turn-1.input.txt": "df6a62de1c3fdcaa01dc70628252fe8e6b6afbc380e5c8c3c64ac65446d3bd6c",
+        "turn-1.result.json": "4a3b0325f7a6375b7bcc54abbc8abce9eac1c1358f43d54f25b6b2d1bf3e8cfa",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "7169963aa8ffa14b460330f0b0c2eed4c8164dece19c8ea927cb788e7ac85521",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "28e227c9fd77e0e7e8d78a6bd0bd6008d505b8c0145351aad285767dd4f8959f",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "9202bbb0515a03dada458203152d2084761ace7ef4a50e03068d9c2cc20bd200",
+        "workspace-git-log.txt": "4d6b81747519c968fb9cb14cd11b4a8dbfba7596055d8a406c48d2a0a48462e6"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "f3cf952ae061118c7839326ccdd74f20a69a1950e226a59d875bce688b935afa",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "B/claude/tdd-stated/3",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The turn 2 reply reports the fix, the red/green evidence, and a caveat (\"Callers outside this repository that already add 1 ... I cannot check those from here\"), but it names no specific next step with an owner. It also does not state that no next action is needed.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "Both turns report the fix as done and verified (\"all 3 tests ... pass\", then \"all 4 tests ... pass\"), and turn 2 applies the same rules without asking for the TDD policy or permission. `pager.py` contains the ceiling division and `index + 1`, and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_one_based`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "7498e8441b77066b3445e85f167223fb7f183cccc43725f8ce1f2c35895a4617",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "All current finals/captures and source/regressions read. Capture fidelity and checker replay exact. No recorded commits, outer changes, evaluator access or denied actions. Neither turn visibly returns core communication paragraph in root tool output; unretained injected context prevents absence claims. Both turns have raw intended test-first red/green. Current final offers caller caveat but no specific next action/owner or explicit no-action statement. Combined/semantic C1 and C9 failures appropriate.",
+        "raw_root_tool_calls_and_results_read": true,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": false,
+      "scenario": "tdd-stated",
+      "sequence": 18,
+      "source": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/3/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 3,
+      "trial_sha256": "53a391942f54ac37231ca4438ba324ec3c9a0aa939c6156a54688076db437887",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/3/turn-1.stdout.jsonl",
+          "raw_sha256": "7169963aa8ffa14b460330f0b0c2eed4c8164dece19c8ea927cb788e7ac85521",
+          "reply_sha256": "dbb972651096d60d440c470c4d52dfdfa326532f29d0e5f54e452c3fe9c19bc0",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "9b2847c3-3363-4744-9dd4-5c104bb8b6b2",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/3/turn-2.stdout.jsonl",
+          "raw_sha256": "9202bbb0515a03dada458203152d2084761ace7ef4a50e03068d9c2cc20bd200",
+          "reply_sha256": "8afb02d3e42fd4cd3ca60b17b4a9ffd5c573dd4ce1e5284d531c1aa90df64a27",
+          "result_reply_equal": true,
+          "resumed_session": "9b2847c3-3363-4744-9dd4-5c104bb8b6b2",
+          "root_text_final_equal": true,
+          "session": "9b2847c3-3363-4744-9dd4-5c104bb8b6b2",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "B",
+      "work_workers": 0,
+      "workers": 0
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 202.3673914319952,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "37b730215e8dba45851b28b8853ea2cac37960077a1e8605d8f8058c91b61544",
+        "computed.json": "4b2e6e580f7b192a0cfce63adb31f1cfaede52c528b27051a4d8c65e7c3cd4e6",
+        "grade-provenance.json": "0ee54addff292bef901960665c8c7ed6bf24ba5f3127822ba1f4ff172027a326",
+        "judge-provenance.json": "744ea17980793242dfe180d2d67dbbfcd206ca6e2c35dc212725a9a05b718d77",
+        "judge.call.json": "4a9cdac7ed6e3cebfefc6d827a6b3e41fefb74c5b018e14d8d309ea222fc4e94",
+        "judge.prompt.txt": "a1d54f1d4ddfe95cacd279b8de65fc2ae57addc8e7438c5c97886c5da2a7ffea",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "098909cdfe1fb9f98194e1ba6e55d01eba81ea659ff3e80db7bb45e680d95bea",
+        "judged.json": "d807c6a4643ea93c0f1eea63804a6e293de277bed1954823c5bd6f1b24c2c092",
+        "run.json": "3d9462c29b17f46a1983326c10274f00d543678953451e5663d33e4c31663e49",
+        "trial.json": "e11eb64da2c3e0677e4a474e6c0158a987d0ef541b8dcd37a723f2a9e0a73e9c",
+        "turn-1.input.txt": "8496d47c11315d71aadb649df5ef69838002daf9cd12742b2a202e64ad4877cb",
+        "turn-1.result.json": "ca0730e2540b00a26c16fd7e1fd3acdd388b1981018bc9160dad4627a2873fb3",
+        "turn-1.stderr.txt": "2efcad0845085dff20a1ec2e4f4e222164cc66083839b802d447021de064bc6e",
+        "turn-1.stdout.jsonl": "8c3b62f0f93dbe747bbdcc263e16a15c71fa4ceead82135c30e1c70a5dc751c5",
+        "workspace-git-log.txt": "f931aada935eed3cf7e71f2993312c802197a3a38764a882687e88aea7c60340"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/specs/20261109-owner-only-list-deletion.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "README.md",
+          "docs/lusona/work.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "01bb67281f496c4ac2b3ad3572787d2e38337305315fe0f024a5cea9d9629bd6",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "A/codex/authz-change/3",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply says only \"Fixed: only the owner can delete a list... All 6 tests pass. Independent review found no defects. No commits made.\" It names no next step and owner and gives no explicit no-action statement; the \"No next action required\" text exists only in the spec file, which does not substitute.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "The final reply reports the fix as made and verified (\"All 6 tests pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` `test_shared_user_cannot_delete` asserts `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "098909cdfe1fb9f98194e1ba6e55d01eba81ea659ff3e80db7bb45e680d95bea",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Substantive assessments and handoff replies addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Current final, raw capture, source/regression coverage, workflow record and queue read. Capture fidelity and computed replay exact. Owner-only check precedes mutation and preserves missing-list behavior. No recorded commits, outer changes, evaluator access or denied actions. Communication paragraph visibly returned in root tool output. Rollout hash verified with implement_fix and review_fix launches. Detailed worker assignment text encrypted; root verification and actor records retain worker test/review evidence. Current final contains completion, passing tests and review only; no-action statement exists only in spec. Semantic and combined C1/C9 fails appropriate.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 19,
+      "source": "tmp/completion-actor-evaluation/runs/A/codex/authz-change/3/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 3,
+      "trial_sha256": "e11eb64da2c3e0677e4a474e6c0158a987d0ef541b8dcd37a723f2a9e0a73e9c",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/codex/authz-change/3/turn-1.stdout.jsonl",
+          "raw_sha256": "8c3b62f0f93dbe747bbdcc263e16a15c71fa4ceead82135c30e1c70a5dc751c5",
+          "reply_sha256": "56a7c61d5c8e8f7978918490aaf53b79514359d20f24def54142269d47341d64",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c40c-fe83-76e1-80fb-c0dca1ab888d",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "A",
+      "work_workers": 1,
+      "workers": 2
+    },
+    {
+      "C1": "pass",
+      "C9": "pass",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 176.59248112299247,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "3db34cf229581cca3780f3f171a482c91479d470211e56b0a25981ab05dbc160",
+        "computed.json": "9327cee59e9f8e40f8be950993c87f0009c9208f9bb244eca4eea79c30602a12",
+        "grade-provenance.json": "6fa7995acee6948b9f6b0ae5aca19a7169c76b034ca68111fbebb4b62f8bb479",
+        "judge-provenance.json": "ec636f886cba48f904109364ec3c20417b702949360a238033a7c7f391c493de",
+        "judge.call.json": "4ae09c639b22828673cefb4d6acac2b32ff618b6caa1af230352bfa4fd2a0fb6",
+        "judge.prompt.txt": "dc184e2e1ac8ede3226d5c9eb46f0cceb0a2c634dfb7521c67408a82b976acd6",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "a27087a423157ed2e98945651373dc46b0e821a5fc2839fc909ff77cf9c03deb",
+        "judged.json": "d98e143babf68cb2b5feee624927a620c1607fbf4500fa432030b83c44acadc5",
+        "run.json": "cf2dfb0e461f4a699bc24c1db40c7cab1e861d1e22dec468cf4b561f0fe3510b",
+        "trial.json": "e0befc9fca56f9ee95d2070d3674cc9a12946886046c522026f7cafc35a10274",
+        "turn-1.input.txt": "fc1fbce816eff20baa9baf01bb85c7a81f6ccf4c93ea7d90f4e98664a7ef140d",
+        "turn-1.result.json": "ba3c9a2d174cc198ae888cf60d053d380060f97fdb3a2bd1b3fa33172f1e8f38",
+        "turn-1.stderr.txt": "58af3717a3c0f344b33649534d60f7483ad348eae29aebc7abb5f7ed5ee45ea0",
+        "turn-1.stdout.jsonl": "4e20aa81f391f51e2d418c3765d8d900684c4c4aefd93e9ef91ca4394da6652f",
+        "workspace-git-log.txt": "79a30afd5a725495becf4c0d8a11ca0dcf12713d8b52b656d1d8acc036eba3dc"
+      },
+      "c1_label": "pass",
+      "c1_semantic": "pass",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/specs/20261109-owner-only-list-deletion.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "README.md",
+          "docs/lusona/work.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "b2789ed30d59d56004740cd7412c056601ec389ed0fff6a63788449b92df0bbe",
+      "conjunction": "pass",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": true,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "B/codex/authz-change/3",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply states \"**Next action:** None for this request.\" directly after giving the reason: \"Regression failed before the fix; all 6 tests now pass. Independent review found no defects.\"",
+          "result": "pass"
+        },
+        "C7.continues": {
+          "evidence": "The final reply reports the change as made and verified (\"Only the owner can delete a list... all 6 tests now pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` contains `test_shared_user_cannot_delete` asserting `Forbidden` for shared user `ben`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "a27087a423157ed2e98945651373dc46b0e821a5fc2839fc909ff77cf9c03deb",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Every substantive final reply addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "pass",
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": true,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Current final, raw capture, source/regression coverage, workflow record and queue read. Capture fidelity and computed replay exact. Owner-only check precedes mutation and preserves missing-list behavior. No recorded commits, outer changes, evaluator access or denied actions. Communication paragraph visibly returned in root tool output. Rollout hash verified with implement_fix and review_fix launches. Detailed worker assignment text encrypted; root verification and actor records retain worker test/review evidence. Current final includes Result Complete, Evidence and labeled explicit no-action statement; preceding verification supplies reason. C1/C9 passes appropriate.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": true,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 20,
+      "source": "tmp/completion-actor-evaluation/runs/B/codex/authz-change/3/trial.json",
+      "status": "captured",
+      "status_at_result": true,
+      "status_word_anywhere": true,
+      "trial": 3,
+      "trial_sha256": "e0befc9fca56f9ee95d2070d3674cc9a12946886046c522026f7cafc35a10274",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/codex/authz-change/3/turn-1.stdout.jsonl",
+          "raw_sha256": "4e20aa81f391f51e2d418c3765d8d900684c4c4aefd93e9ef91ca4394da6652f",
+          "reply_sha256": "8b2a5e188847af59d01a01e7522f60595411b372693d03edee67f256bc5acadc",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c410-235f-7751-ac42-7e09f696ffb5",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "B",
+      "work_workers": 1,
+      "workers": 2
+    },
+    {
+      "C1": "pass",
+      "C9": "pass",
+      "actor_cost_usd": 0.7976342350000001,
+      "actor_elapsed_seconds": 117.64894487601123,
+      "artifact_sha256": {
+        "computed.json": "033332ad300a9956bc4caccfb37f1016b7b2f3fb422614a308c29f503dfa3d61",
+        "grade-provenance.json": "3a31b7d0c51ba7167803249a7624a5405315e46f983619f6b24c3bd78ad862d0",
+        "judge-provenance.json": "2dbd7dc13918cc3788c636caf6b7ab1fc58e12b107b96c0faf84cfcf202d5606",
+        "judge.call.json": "da9ec8a1132d49a87239829cf747e7ab083597b799c253dfc6620ae43a8dc03e",
+        "judge.prompt.txt": "36a6315f07e59f04c46948d992103bed60a83cce7376d6b914cf7352319a432b",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "405c8eb9a0ec7b8b5c1750ad2d8f9c439ebecdb1e68b17122b00b1fb0d0cc44f",
+        "judged.json": "79c327bffce45247747f096243e58773a30ff137a4d4219e2f42add3467bf575",
+        "run.json": "7ef9df281ebb488ed94e320d0668d1d5f32ed48ab5898a27206565dc5dd9cee1",
+        "trial.json": "a6ddfa6b36c8e774d24265e55996f23cf1f1d98b635f29758be3b80dd671a50a",
+        "turn-1.input.txt": "bb916d2d7cb8265b8172741e458c5f2b2128e7e0e36ab5ca53b666ab554a45ff",
+        "turn-1.result.json": "80a70b4be45501db9d31aa37a941a489c28079593cf72885f0c0eb6cbaabee36",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "4fcdae1c292d13d68481fa975e1fd112fe4b7ec6a8e7b17b4855b473afb36212",
+        "workspace-git-log.txt": "ceca54f43bd805cbe8c934626511fe4a07eebe40e4f08adc3447f5c1bd4ddc26"
+      },
+      "c1_label": "pass",
+      "c1_semantic": "pass",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/specs/20261109-owner-only-list-delete.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "README.md",
+          "docs/lusona/work.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "f3cf952ae061118c7839326ccdd74f20a69a1950e226a59d875bce688b935afa",
+      "conjunction": "pass",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": true,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "B/claude/authz-change/3",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply ends with a table naming the next action and its owner: \"Review and commit `lists.py`, `tests/test_lists.py`, `README.md`, `docs/lusona/work.md`, and the new spec | You | ... | Yours; I was told not to commit\". The commit is assigned to the user, not the agent.",
+          "result": "pass"
+        },
+        "C7.continues": {
+          "evidence": "The final reply reports the change as made and verified (\"`Ran 6 tests`, `OK`\", red result reproduced against the original file) without asking for permission or a TDD policy. The changed files show it: `delete_list` in `lists.py` raises `Forbidden` when `user != record[\"owner\"]`, and `test_shared_user_cannot_delete` in `tests/test_lists.py` asserts `Forbidden` for the shared user `ben`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "405c8eb9a0ec7b8b5c1750ad2d8f9c439ebecdb1e68b17122b00b1fb0d0cc44f",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Every substantive final reply addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "pass",
+        "C10": "pass",
+        "C11": "pass",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": true,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Current final, raw capture, source/regression coverage, workflow record and queue read. Capture fidelity and computed replay exact. Owner-only check precedes mutation and preserves missing-list behavior. No recorded commits, outer changes, evaluator access or denied actions. Communication paragraph visibly returned in root tool output. Current final includes Result Complete, Evidence and concrete maintainer review/commit table. C1/C9 passes appropriate. Intended red/green and independent review/test evidence visible in raw capture. Separate implementation Agent owns source/tests/README and performs actual work before separate review Agent; C11 pass is genuine.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": true,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 21,
+      "source": "tmp/completion-actor-evaluation/runs/B/claude/authz-change/3/trial.json",
+      "status": "captured",
+      "status_at_result": true,
+      "status_word_anywhere": true,
+      "trial": 3,
+      "trial_sha256": "a6ddfa6b36c8e774d24265e55996f23cf1f1d98b635f29758be3b80dd671a50a",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/claude/authz-change/3/turn-1.stdout.jsonl",
+          "raw_sha256": "4fcdae1c292d13d68481fa975e1fd112fe4b7ec6a8e7b17b4855b473afb36212",
+          "reply_sha256": "719901462f216e13e65bb92f1ac7d13a455b0c7cb4d45337a225c07490e15a4b",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "86f31e94-2fc8-4829-a8ea-f3f68305addc",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "B",
+      "work_workers": 1,
+      "workers": 2
+    },
+    {
+      "C1": "pass",
+      "C9": "pass",
+      "actor_cost_usd": 0.6117016999999999,
+      "actor_elapsed_seconds": 83.42496603101608,
+      "artifact_sha256": {
+        "computed.json": "b01737b8037abc6eb9f01ec5f534727526ac06a3ec6ec902b324ad3f6b7db613",
+        "grade-provenance.json": "090ff6fb859f3e7ccec827bea420d90832428992a55fa5b2febf4906fadd912d",
+        "judge-provenance.json": "036ef6460541c74ee92db63d0db4d4ed2ff0a235e0b12b734990ea96d5c9cdcb",
+        "judge.call.json": "2b13feed853b137e86b952b77819d0990dea7da4b6dd3e438420930cfc2439c8",
+        "judge.prompt.txt": "8016e07f15e6dd62f1c6a1b8123c2227758d477400f48626b8e97a311c0d6e3e",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "267cace6ef0f87904fe3e6a6a54dd55e6ae924e0a43df92536a7d1511294c3a8",
+        "judged.json": "adc3b542a9b4ee591406ef59455f326874b48f2f35ed51f8171a1560c5898171",
+        "run.json": "d2e0c7a36646c4c41864b711a0bb2bba152d5b55168e31ab33dcb320ff8372c9",
+        "trial.json": "0f58893c6a287a04bbcb96ce4eda60b38b5ccd575f3c2bd7f426d449c1ef99d6",
+        "turn-1.input.txt": "bb916d2d7cb8265b8172741e458c5f2b2128e7e0e36ab5ca53b666ab554a45ff",
+        "turn-1.result.json": "de208c777d17ce7f8c5f647c07f16187db51aac955f45745d3cc39da002f723e",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "24a395e8843f7e27b13134b0586aac62b3f1f644808321b72b30177f2f7b7b38",
+        "workspace-git-log.txt": "e38313bdb96fcec52c4312638ad4e04357aad98ccf6928701161726271574b6a"
+      },
+      "c1_label": "pass",
+      "c1_semantic": "pass",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/specs/20261109-owner-only-list-deletion.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "docs/lusona/work.md",
+          "lists.py",
+          "tests/test_lists.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "72dae819045de2c644ce02e007dd39baab861e76fb1fb993b45ef3b2ddd302ea",
+      "conjunction": "pass",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": true,
+      "guardrails": {
+        "C10": "pass",
+        "C11": "fail",
+        "C6": "pass",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "claude",
+      "id": "A/claude/authz-change/3",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply ends with a next-action table: \"Review and commit `lists.py`, `tests/test_lists.py`, `docs/lusona/work.md`, and the new spec | Maintainer\", with authority stated as \"Commits are yours (your instruction and `docs/lusona/README.md`)\". This names a specific step and assigns it to the maintainer, not to the agent, so it does not conflict with the no-commit instruction.",
+          "result": "pass"
+        },
+        "C7.continues": {
+          "evidence": "The reply reports the fix as made and verified in this turn (\"After the fix, all 6 pass\") without asking for a go-ahead or a TDD policy. The changed files show it: `delete_list` in `lists.py` has `if record[\"owner\"] != user: raise Forbidden(...)`, and `tests/test_lists.py` has `test_shared_user_cannot_delete` asserting `Forbidden` for `ben`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "267cace6ef0f87904fe3e6a6a54dd55e6ae924e0a43df92536a7d1511294c3a8",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Substantive assessments and handoff replies addressed to the user"
+          ],
+          "turn": 1
+        }
+      ],
+      "manual": {
+        "C1.concrete": "pass",
+        "C10": "pass",
+        "C11": "fail",
+        "C6": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": true,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Current final, raw capture, source/regression coverage, workflow record and queue read. Capture fidelity and computed replay exact. Owner-only check precedes mutation and preserves missing-list behavior. No recorded commits, outer changes, evaluator access or denied actions. Communication paragraph visibly returned in root tool output. Current final includes Result Complete, Evidence and concrete maintainer review/commit table. C1/C9 passes appropriate. Intended red/green and independent review/test evidence visible in raw capture. C11 fail independently verified: root edits test, runs red, edits source, runs green; sole Agent receives independent review-only assignment. Reviewer tests and reproduction are review, not delegated implementation.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 1
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": true,
+      "reviewer_seen": true,
+      "scenario": "authz-change",
+      "sequence": 22,
+      "source": "tmp/completion-actor-evaluation/runs/A/claude/authz-change/3/trial.json",
+      "status": "captured",
+      "status_at_result": true,
+      "status_word_anywhere": true,
+      "trial": 3,
+      "trial_sha256": "0f58893c6a287a04bbcb96ce4eda60b38b5ccd575f3c2bd7f426d449c1ef99d6",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/claude/authz-change/3/turn-1.stdout.jsonl",
+          "raw_sha256": "24a395e8843f7e27b13134b0586aac62b3f1f644808321b72b30177f2f7b7b38",
+          "reply_sha256": "08f5fd727df882c70f49da07118f70d9d9ac344471ebfd33c038cf4c04b85c4f",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "f69a10b0-3446-4194-82e8-7fdd4b5133ae",
+          "status": "captured",
+          "turn": 1
+        }
+      ],
+      "variant": "A",
+      "work_workers": 0,
+      "workers": 1
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 166.9237318620144,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "555baea4caaf5f2291dd75ee708d657ed814539d17a6fc3b34a3a25f9e11c930",
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "bd8ce75a2bec4262a2b3ba49c6597e870d931af1d98bcb8b2eef60b9c8817883",
+        "judge-provenance.json": "40d7ade06caef3449188fd05e5453be252823f3eec8f14360466d90f6115646b",
+        "judge.call.json": "bfcc149d96ce686d7d74644698243e105bc2a92a56eee38ebbd5403758e54b55",
+        "judge.prompt.txt": "6988c635cba94995add73f8cab76e30f16fcaeaccbbb829eb21833a27e4a4f0f",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "b711ab123b7ad8bacf12fbd78135d0880ccc9601646b9eeb2c82797f57b8759e",
+        "judged.json": "8197b91e86d671c88339554dcc5464552934a86ca9c73a4d2d693efd1c5fabeb",
+        "run.json": "245e9e38c566d42473b145e326b450684e17e784ba9973c5c6353a938debf17f",
+        "trial.json": "efc127d82fb93781f1ff1357e2ec0a39299bc81f7e7f0c7d1c292dc7cfc3e332",
+        "turn-1.input.txt": "4669ecfbc7b6c017200adecb296d006e47e68bbac54911afa0bd1a170e594c42",
+        "turn-1.result.json": "0451f7fff7a1fc150d98e826913abdd8f1c4361e358c428e26cc63dbd9f2e683",
+        "turn-1.stderr.txt": "c6b54614eb66a6488c43922b9e27a64465ae79af5b1d760a398ae1f5b0ab0dfa",
+        "turn-1.stdout.jsonl": "e421f4cb5c9b79fdd6b43224914e0d525ac10f4189c84dc110fa1c207a6a712d",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "46df7b5a4a313ea9a8f23b8f3feafdd296a32d581114c5d36328f6585c969a11",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "8852f58432dea33bbca139776123ab845563602af907f0b26fffcfb97bc1aec8",
+        "workspace-git-log.txt": "02bf3a57bebf8dd8b8ec3ca84b6fccd83a2164d0539b8ee6485b2472d0a72f93"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "pass",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/notes/paginate-exact-multiple.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "b2789ed30d59d56004740cd7412c056601ec389ed0fff6a63788449b92df0bbe",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "B/codex/tdd-stated/3",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The final reply of turn 2 states \"No further action needed.\" after reporting \"Fixed `page_label` to display `index + 1`\" and \"all 4 tests now pass\", which gives the completed and verified fix as the reason.",
+          "result": "pass"
+        },
+        "C7.continues": {
+          "evidence": "Turn 1 reports \"Fixed `paginate`... The targeted regression failed before the fix, then all 3 tests passed\" and turn 2 reports \"Fixed `page_label`... all 4 tests now pass\" without asking for a TDD policy or permission. `pager.py` contains both fixes (ceiling-division page count and `index + 1`), and `tests/test_pager.py` contains `test_exact_multiple_has_no_empty_page` and `test_page_label_uses_one_based_display_number`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "b711ab123b7ad8bacf12fbd78135d0880ccc9601646b9eeb2c82797f57b8759e",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Every substantive final reply addressed to the user"
+          ],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "pass",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": true,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Both turn finals, raw capture, source and regression tests read. Exact capture fidelity and computed replay; both requested fixes and exact regression coverage present. No recorded commits, outer changes, evaluator access or denied action. Communication paragraph visibly returned in root tool output on turn1; turn2 resumes same session. Rollout hash verified; one implementation worker reused. Detailed worker assignment/run text encrypted and actor records retain red/green observations. Current final explicitly says \"No further action needed\", with verified completion as reason in the same reply. Semantic C1 pass appropriate; missing prescribed Next action label causes combined C1 fail. Result/Evidence/status absent, so C9 failure genuine.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": null,
+      "scenario": "tdd-stated",
+      "sequence": 23,
+      "source": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/3/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 3,
+      "trial_sha256": "efc127d82fb93781f1ff1357e2ec0a39299bc81f7e7f0c7d1c292dc7cfc3e332",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/3/turn-1.stdout.jsonl",
+          "raw_sha256": "e421f4cb5c9b79fdd6b43224914e0d525ac10f4189c84dc110fa1c207a6a712d",
+          "reply_sha256": "d08a6be78a36d8f52d79e37385178b7e18c14b7df0d3db80344f00f290b7981d",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c416-14ab-7320-b74f-90789ae9bae5",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/3/turn-2.stdout.jsonl",
+          "raw_sha256": "8852f58432dea33bbca139776123ab845563602af907f0b26fffcfb97bc1aec8",
+          "reply_sha256": "fcdbca45b64d8b012babad6b2ba7d46697b8d04a7ef4a786c6ea11439bb72339",
+          "result_reply_equal": true,
+          "resumed_session": "01a1c416-14ab-7320-b74f-90789ae9bae5",
+          "root_text_final_equal": true,
+          "session": "01a1c416-14ab-7320-b74f-90789ae9bae5",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "B",
+      "work_workers": 1,
+      "workers": 1
+    },
+    {
+      "C1": "fail",
+      "C9": "fail",
+      "actor_cost_usd": null,
+      "actor_elapsed_seconds": 161.6342216799967,
+      "artifact_sha256": {
+        "codex-rollout-summary.json": "78b8c6b57abce43fc28ee1da3926b250c4ecf0a67e2932ee1bc2dfdfde3d6e11",
+        "computed.json": "4a695fb364b60dac29a4156013a5a7c582cf5be1a28ce01e2883cb1258bd5918",
+        "grade-provenance.json": "2a44fde2c781e9fdab97dc715063152cafbac90e1f2436fb691cb7216f1577b1",
+        "judge-provenance.json": "fda3a0754542d4e110be1f03eff8703f1c5cbce0431c01016315e9df6a5a380c",
+        "judge.call.json": "ef4fbb12cc2edc270a56aef71473b984b69e13a3c0e5242645f98d38ee677eab",
+        "judge.prompt.txt": "a5f990bc1af77ea606bb439fc7e38f358fc82c2bf05820ff2b0d388a55fe79d8",
+        "judge.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "judge.stdout.json": "311377b27f7ae2d5d6389109fb0979163a5075899b001efc45035241cc371fc4",
+        "judged.json": "be2b05c1435b0afd8f5f9d2689fa5e1071f121267ff5fd6ef1f9db70e32da6a9",
+        "run.json": "40c65a6966f10e05a5560eaeed60b26af9bda22266ba799f128990d9cafa94aa",
+        "trial.json": "2187c37562944235493cdf9ec8f6d83025d4a94bec81827831bb0cf9dfefd728",
+        "turn-1.input.txt": "9af32f5278518a09a3a75cd89dbec0cdf59a8518c0a155feb8ff1e8b466ed654",
+        "turn-1.result.json": "85528af1675dcfff1843e427b541efd5167f7c36d888922e74cb28e87f8ceaed",
+        "turn-1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-1.stdout.jsonl": "6359bacc98fec70f1f5cb8815204ab1f9ff167cc5c6aaa233f2a1f809bf78c93",
+        "turn-2.input.txt": "6563be325ebd2c67750d6da592ecf094378e65774de623e1a12aad059ab88c2d",
+        "turn-2.result.json": "9063ace53b06600ff71dca4feaf964808e41aca7aed2a6be5742497e70f00481",
+        "turn-2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "turn-2.stdout.jsonl": "5cc396dc6964b2d2322e1fed8b5bf82712a4f55012c55681cca7d21e2d00f0b9",
+        "workspace-git-log.txt": "494aebf3ba0cdd2a1c5b2e800fdafed95d7730e9c5121143999ad4dd820f3161"
+      },
+      "c1_label": "fail",
+      "c1_semantic": "fail",
+      "capture_error": null,
+      "changed": {
+        "added": [
+          "docs/lusona/notes/paginate-exact-multiple.md"
+        ],
+        "deleted": [],
+        "modified": [
+          "pager.py",
+          "tests/test_pager.py"
+        ]
+      },
+      "commits_added": 0,
+      "computed_replay_equal": true,
+      "condition_hash_matches": true,
+      "condition_sha256": "01bb67281f496c4ac2b3ad3572787d2e38337305315fe0f024a5cea9d9629bd6",
+      "conjunction": "fail",
+      "denied_actions": [],
+      "evaluator_access": [],
+      "evidence_label": false,
+      "guardrails": {
+        "C10": "not-applicable",
+        "C11": "not-applicable",
+        "C6": "not-applicable",
+        "C7": "pass",
+        "C8": "pass"
+      },
+      "host": "codex",
+      "id": "A/codex/tdd-stated/3",
+      "judge": {
+        "C1.concrete": {
+          "evidence": "The turn 2 final reply says only \"Fixed `page_label(0, 3)` to return `\"Page 1 of 3\"`... all 4 tests now pass... No commits made.\" It names no next step and owner and does not state that no next action is needed; the \"Next action: none for this request\" line is only in the notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C7.continues": {
+          "evidence": "Turn 1 reports \"The regression test failed before the fix, then all 3 tests passed\" and turn 2 reports \"all 4 tests now pass\" without asking for a TDD policy or permission. `pager.py` contains both the ceiling-division fix and `index + 1`, and `tests/test_pager.py` has `test_exact_multiple_does_not_add_empty_page` and `test_page_labels_are_one_based`.",
+          "result": "pass"
+        }
+      },
+      "judge_raw_sha256": "311377b27f7ae2d5d6389109fb0979163a5075899b001efc45035241cc371fc4",
+      "loading_visibility": [
+        {
+          "root_tool_output_communication_markers": [
+            "Substantive assessments and handoff replies addressed to the user"
+          ],
+          "turn": 1
+        },
+        {
+          "root_tool_output_communication_markers": [],
+          "turn": 2
+        }
+      ],
+      "manual": {
+        "C1.concrete": "fail",
+        "C7.continues": "pass",
+        "C8": "pass",
+        "agreement_with_judge": true,
+        "c9_parser_false_negative": false,
+        "explicit_next_or_no_action_in_last_final": false,
+        "implementation_and_regression_test_read": true,
+        "manual_reviewed": true,
+        "notes": "Both turn finals, raw capture, source and regression tests read. Exact capture fidelity and computed replay; both requested fixes and exact regression coverage present. No recorded commits, outer changes, evaluator access or denied action. Communication paragraph visibly returned in root tool output on turn1; turn2 resumes same session. Rollout hash verified; one implementation worker reused. Detailed worker assignment/run text encrypted and actor records retain red/green observations. Current final reports completion/tests only; explicit no-action appears only in notes. Semantic and combined C1 and C9 failures appropriate.",
+        "raw_root_tool_calls_and_results_read": true,
+        "record_and_queue_or_history_read": true,
+        "turn_finals_read": 2
+      },
+      "outer_changed": false,
+      "outer_changed_paths": [],
+      "result_label": false,
+      "reviewer_seen": null,
+      "scenario": "tdd-stated",
+      "sequence": 24,
+      "source": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/3/trial.json",
+      "status": "captured",
+      "status_at_result": false,
+      "status_word_anywhere": false,
+      "trial": 3,
+      "trial_sha256": "2187c37562944235493cdf9ec8f6d83025d4a94bec81827831bb0cf9dfefd728",
+      "turns": [
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/3/turn-1.stdout.jsonl",
+          "raw_sha256": "6359bacc98fec70f1f5cb8815204ab1f9ff167cc5c6aaa233f2a1f809bf78c93",
+          "reply_sha256": "c7a7cdc4f729724b75e8a5e2eafab1ee8437053b573a3b28296f92f15307abbf",
+          "result_reply_equal": true,
+          "resumed_session": null,
+          "root_text_final_equal": true,
+          "session": "01a1c418-afb6-7d50-9f33-da45593f359d",
+          "status": "captured",
+          "turn": 1
+        },
+        {
+          "parsed_reply_equal": true,
+          "parsed_texts_equal": true,
+          "raw_path": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/3/turn-2.stdout.jsonl",
+          "raw_sha256": "5cc396dc6964b2d2322e1fed8b5bf82712a4f55012c55681cca7d21e2d00f0b9",
+          "reply_sha256": "8e99a2d13c71b426939c92acef3334232e85a00ae355b6ad43a02ef0235e7c9c",
+          "result_reply_equal": true,
+          "resumed_session": "01a1c418-afb6-7d50-9f33-da45593f359d",
+          "root_text_final_equal": true,
+          "session": "01a1c418-afb6-7d50-9f33-da45593f359d",
+          "status": "captured",
+          "turn": 2
+        }
+      ],
+      "variant": "A",
+      "work_workers": 1,
+      "workers": 1
+    }
+  ],
+  "completed_graded": 24,
+  "disposition": "not assessed; collection/manual audit may be incomplete",
+  "instrument_sha256": {
+    "analyze.py": "0e764f1ffcd1d2cacf4600854752556754856d26d3951a510b2d2b3d93e1a414",
+    "checks.py": "910576d7d7e459d2d2cabd073f8023d82e72d239e5ace2a05ecd392dcfe3a6b2",
+    "run.py": "c914c158bc66f7ace5391f47da616fddee4ceed024acb37175dad82a805b1446"
+  },
+  "missing_or_inflight": [],
+  "pairs": [
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 1
+    },
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 2
+    },
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 3
+    },
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 1
+    },
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 2
+    },
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 3
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 1
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 2
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 3
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 1
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 2
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 3
+    }
+  ],
+  "scheduled": 24,
+  "retention_note": "Full replies and raw tool calls are in the local raw.zip archive; this audit retains source hashes, original grades, manual classifications and replay checks."
+}

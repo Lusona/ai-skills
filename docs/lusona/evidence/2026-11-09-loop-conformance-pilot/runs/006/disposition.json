@@ -1,0 +1,571 @@
+{
+  "all_24_manual_scores_match_original_judge": true,
+  "all_36_turn_captures_faithful": true,
+  "all_42_claude_costs_match_original_capture": true,
+  "all_dollar_ceilings_nonbinding": true,
+  "budget": {
+    "all_calls_finished_exit0": true,
+    "budgeted_finished_calls": 42,
+    "calls": {
+      "actor": 36,
+      "judge": 24
+    },
+    "ceiling_range": [
+      9.04429239,
+      20.0
+    ],
+    "elapsed_seconds": 2920.5962266921997,
+    "finished": true,
+    "max_call_or_cumulative_session_cost": 0.7976342350000001,
+    "minimum_finished_timeout_headroom_seconds": 679.4078672798933,
+    "minimum_monetary_headroom": 8.823991990000001,
+    "reported_spend_usd": 11.176008014999997,
+    "stop": null,
+    "sum_incremental_claude_cost_matches_ledger": true,
+    "timeouts_seconds": [
+      684.6279507550062,
+      758.120532608009,
+      846.2469412560167,
+      850.0967754360172,
+      900
+    ],
+    "trial_order_matches_schedule": true
+  },
+  "budget_protocol_deviation": {
+    "interpretation": "Same aggregate stopping policy, different numerical ceilings by position; all calls completed without monetary or time truncation. Strict numerical setting equivalence was not achieved.",
+    "numeric_dollar_ceilings_pair_matched": false,
+    "numeric_last_four_timeouts_pair_matched": false
+  },
+  "components": [
+    {
+      "evidence_label": 3,
+      "explicit_semantically_valid_next_or_no_action": 3,
+      "host": "claude",
+      "n": 6,
+      "result_label": 3,
+      "status_at_result": 3,
+      "status_word_anywhere": 3,
+      "variant": "A"
+    },
+    {
+      "evidence_label": 3,
+      "explicit_semantically_valid_next_or_no_action": 3,
+      "host": "claude",
+      "n": 6,
+      "result_label": 3,
+      "status_at_result": 2,
+      "status_word_anywhere": 2,
+      "variant": "B"
+    },
+    {
+      "evidence_label": 0,
+      "explicit_semantically_valid_next_or_no_action": 0,
+      "host": "codex",
+      "n": 6,
+      "result_label": 0,
+      "status_at_result": 0,
+      "status_word_anywhere": 0,
+      "variant": "A"
+    },
+    {
+      "evidence_label": 2,
+      "explicit_semantically_valid_next_or_no_action": 5,
+      "host": "codex",
+      "n": 6,
+      "result_label": 2,
+      "status_at_result": 2,
+      "status_word_anywhere": 2,
+      "variant": "B"
+    }
+  ],
+  "condition_checks": {
+    "claude": {
+      "actual_plugin_trees_match_frozen_hashes": true,
+      "differing_matched_fields": [],
+      "matched_fields": [
+        "host",
+        "model",
+        "effort",
+        "judge_model",
+        "judge_effort",
+        "judge_prompt_sha256",
+        "suite_hashes",
+        "ambient_instruction_hashes",
+        "permission_config",
+        "code_hashes",
+        "timeout_seconds",
+        "max_trials",
+        "cli_version",
+        "judge_cli_version",
+        "shell_env",
+        "allowed_tools",
+        "claude_settings"
+      ],
+      "plugin_hash_changes": {
+        "README.md": {
+          "A": "c48fc4eeab41e4149aeefb8de5530e6fff85d0bf5fe28fa83a42315e25980a22",
+          "B": "0ceb03cb0005bff9928ead4ee4fdf8e5eee610135c57e330b9c5951570abb8a7"
+        }
+      }
+    },
+    "codex": {
+      "actual_plugin_trees_match_frozen_hashes": true,
+      "differing_matched_fields": [],
+      "matched_fields": [
+        "host",
+        "model",
+        "effort",
+        "judge_model",
+        "judge_effort",
+        "judge_prompt_sha256",
+        "suite_hashes",
+        "ambient_instruction_hashes",
+        "permission_config",
+        "code_hashes",
+        "timeout_seconds",
+        "max_trials",
+        "cli_version",
+        "judge_cli_version",
+        "shell_env",
+        "allowed_tools",
+        "claude_settings"
+      ],
+      "plugin_hash_changes": {
+        "README.md": {
+          "A": "c48fc4eeab41e4149aeefb8de5530e6fff85d0bf5fe28fa83a42315e25980a22",
+          "B": "0ceb03cb0005bff9928ead4ee4fdf8e5eee610135c57e330b9c5951570abb8a7"
+        }
+      }
+    }
+  },
+  "correction_rounds": {
+    "consecutive_without_progress": 0,
+    "new_rounds_charged": 0,
+    "total": 1
+  },
+  "criteria": {
+    "C7_all_pass": true,
+    "C8_all_pass": true,
+    "authz_C6_C10_C11_no_per_host_decline": true,
+    "each_host_C1_and_C9_gain_at_least2": false,
+    "full_valid": true,
+    "manual_judge_agreement": true,
+    "new_authz_C6_C10_C11_all_pass": false,
+    "no_host_conjunction_decline": false,
+    "no_host_scenario_primary_decline": false
+  },
+  "disposition": "refine",
+  "guardrail_failures": [
+    {
+      "check": "C11",
+      "id": "B/claude/authz-change/1",
+      "state": "fail"
+    },
+    {
+      "check": "C11",
+      "id": "A/claude/authz-change/2",
+      "state": "fail"
+    },
+    {
+      "check": "C11",
+      "id": "A/claude/authz-change/3",
+      "state": "fail"
+    }
+  ],
+  "host_metrics": {
+    "claude": {
+      "C1": {
+        "A": 3,
+        "B": 3,
+        "delta_passes": 0,
+        "delta_percentage_points": 0.0
+      },
+      "C9": {
+        "A": 3,
+        "B": 2,
+        "delta_passes": -1,
+        "delta_percentage_points": -16.666666666666668
+      },
+      "c1_label": {
+        "A": 3,
+        "B": 3,
+        "delta_passes": 0,
+        "delta_percentage_points": 0.0
+      },
+      "c1_semantic": {
+        "A": 3,
+        "B": 3,
+        "delta_passes": 0,
+        "delta_percentage_points": 0.0
+      },
+      "conjunction": {
+        "A": 3,
+        "B": 2,
+        "delta_passes": -1,
+        "delta_percentage_points": -16.666666666666668
+      }
+    },
+    "codex": {
+      "C1": {
+        "A": 0,
+        "B": 3,
+        "delta_passes": 3,
+        "delta_percentage_points": 50.0
+      },
+      "C9": {
+        "A": 0,
+        "B": 2,
+        "delta_passes": 2,
+        "delta_percentage_points": 33.333333333333336
+      },
+      "c1_label": {
+        "A": 0,
+        "B": 3,
+        "delta_passes": 3,
+        "delta_percentage_points": 50.0
+      },
+      "c1_semantic": {
+        "A": 0,
+        "B": 5,
+        "delta_passes": 5,
+        "delta_percentage_points": 83.33333333333333
+      },
+      "conjunction": {
+        "A": 0,
+        "B": 2,
+        "delta_passes": 2,
+        "delta_percentage_points": 33.333333333333336
+      }
+    }
+  },
+  "loading_visibility": {
+    "claude": {
+      "A": 3,
+      "B": 3
+    },
+    "codex": {
+      "A": 6,
+      "B": 6
+    }
+  },
+  "next_action": {
+    "action": "Coordinator retains this completed evaluation and states the observed host/scenario limits; any trial of a completion-step checklist requires a separate bounded proposal and user authority.",
+    "authority": "Evidence retention/reporting authorized; no new collection, rollback, or rule rewrite authorized.",
+    "owner": "Coordinator"
+  },
+  "next_hypothesis": "Delivering the unchanged reply-form checklist through the implementation completion step that actors actually read may improve final-reply compliance. The Claude root-read visibility gap motivates that hypothesis, while Codex failures despite visible core text require testing compliance as well as delivery; current evidence does not establish either cause.",
+  "no_denied_actions_or_evaluator_access": true,
+  "pairs": [
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 1
+    },
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 2
+    },
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 3
+    },
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 1
+    },
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 2
+    },
+    {
+      "complete": true,
+      "host": "claude",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 3
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 1
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 2
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "trial": 3
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 1
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "BA",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "fail",
+          "conjunction": "fail"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 2
+    },
+    {
+      "complete": true,
+      "host": "codex",
+      "order": "AB",
+      "outcomes": {
+        "A": {
+          "C1": "fail",
+          "C9": "fail",
+          "conjunction": "fail"
+        },
+        "B": {
+          "C1": "pass",
+          "C9": "pass",
+          "conjunction": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "trial": 3
+    }
+  ],
+  "raw_and_manual_results_identical": true,
+  "scenario_cells": {
+    "claude": {
+      "authz-change": {
+        "C1": {
+          "A": 3,
+          "B": 3
+        },
+        "C9": {
+          "A": 3,
+          "B": 2
+        },
+        "c1_semantic": {
+          "A": 3,
+          "B": 3
+        },
+        "conjunction": {
+          "A": 3,
+          "B": 2
+        }
+      },
+      "tdd-stated": {
+        "C1": {
+          "A": 0,
+          "B": 0
+        },
+        "C9": {
+          "A": 0,
+          "B": 0
+        },
+        "c1_semantic": {
+          "A": 0,
+          "B": 0
+        },
+        "conjunction": {
+          "A": 0,
+          "B": 0
+        }
+      }
+    },
+    "codex": {
+      "authz-change": {
+        "C1": {
+          "A": 0,
+          "B": 3
+        },
+        "C9": {
+          "A": 0,
+          "B": 2
+        },
+        "c1_semantic": {
+          "A": 0,
+          "B": 3
+        },
+        "conjunction": {
+          "A": 0,
+          "B": 2
+        }
+      },
+      "tdd-stated": {
+        "C1": {
+          "A": 0,
+          "B": 0
+        },
+        "C9": {
+          "A": 0,
+          "B": 0
+        },
+        "c1_semantic": {
+          "A": 0,
+          "B": 2
+        },
+        "conjunction": {
+          "A": 0,
+          "B": 0
+        }
+      }
+    }
+  },
+  "semantic_only_pass_but_combined_C1_fail": [
+    "B/codex/tdd-stated/1",
+    "B/codex/tdd-stated/3"
+  ]
+}

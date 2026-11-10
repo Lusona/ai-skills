@@ -1,0 +1,4 @@
+Catalog: /home/jg/code/_lusona_/ai-skills/tmp/completion-reply-implementation/package/lusona-ai-skills
+Plugin: /home/jg/code/_lusona_/ai-skills/tmp/completion-reply-implementation/package/lusona-ai-skills/plugins/lusona
+Archive: /home/jg/code/_lusona_/ai-skills/tmp/completion-reply-implementation/package/lusona-2.0.5.zip
+No harness configuration or project data was changed.

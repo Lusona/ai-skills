@@ -1,0 +1,131 @@
+[
+  {
+    "source": "runs/CANDIDATE/tdd-stated/1/native-sessions/9d5a2ec4-46a7-4ac9-bb0e-0078a7314677/root.jsonl",
+    "line": 77,
+    "event": {
+      "parentUuid": "c66ea1b6-0199-4ab8-b57d-2e63e1112baf",
+      "isSidechain": false,
+      "type": "system",
+      "subtype": "stop_hook_summary",
+      "hookCount": 1,
+      "hookInfos": [
+        {
+          "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/completion_reply.py\" hook"
+        }
+      ],
+      "hookErrors": [
+        "Repair this user-facing Lusona reply once: Missing Result status: Complete, In progress, Needs input, or Paused on the label or within two nonblank lines. Missing Next action: use a one-row Next action | Owner | Needs | Authority table with populated cells, or None for this request with a reason. Preserve the actual outcome, evidence and authority. Rewrite the reply only; do not perform more work or arm this repair again. User/host format overrides still prevail. The arm has been consumed; further structural correction requires manual review."
+      ],
+      "hookAdditionalContext": [],
+      "preventedContinuation": false,
+      "stopReason": "",
+      "hasOutput": true,
+      "level": "suggestion",
+      "timestamp": "2026-11-10T07:20:58.644Z",
+      "uuid": "4a1f24f5-fa9d-4e12-ba82-7d73091f8405",
+      "toolUseID": "75456717-d0ab-4d16-9ced-28f9af6c646b",
+      "userType": "external",
+      "entrypoint": "sdk-cli",
+      "cwd": "/home/jg/.cache/lusona-evals/tdd-stated-t1-76d00672",
+      "sessionId": "9d5a2ec4-46a7-4ac9-bb0e-0078a7314677",
+      "version": "2.1.322",
+      "gitBranch": "master"
+    }
+  },
+  {
+    "source": "runs/CANDIDATE/tdd-stated/1/native-sessions/9d5a2ec4-46a7-4ac9-bb0e-0078a7314677/root.jsonl",
+    "line": 83,
+    "event": {
+      "parentUuid": "d22e9b02-1113-4221-8182-b8fbc8eb0a17",
+      "isSidechain": false,
+      "type": "system",
+      "subtype": "stop_hook_summary",
+      "hookCount": 1,
+      "hookInfos": [
+        {
+          "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/completion_reply.py\" hook",
+          "durationMs": 33
+        }
+      ],
+      "hookErrors": [],
+      "hookAdditionalContext": [],
+      "preventedContinuation": false,
+      "stopReason": "",
+      "hasOutput": true,
+      "level": "suggestion",
+      "timestamp": "2026-11-10T07:21:04.556Z",
+      "uuid": "eb9d3b7d-d151-46f7-ada2-d710daae0f44",
+      "toolUseID": "7b94534a-6a31-4006-9b84-b566448b8686",
+      "userType": "external",
+      "entrypoint": "sdk-cli",
+      "cwd": "/home/jg/.cache/lusona-evals/tdd-stated-t1-76d00672",
+      "sessionId": "9d5a2ec4-46a7-4ac9-bb0e-0078a7314677",
+      "version": "2.1.322",
+      "gitBranch": "master"
+    }
+  },
+  {
+    "source": "runs/CANDIDATE/tdd-stated/1/native-sessions/9d5a2ec4-46a7-4ac9-bb0e-0078a7314677/root.jsonl",
+    "line": 125,
+    "event": {
+      "parentUuid": "be37ce56-27c7-4625-8285-52c6c36e5735",
+      "isSidechain": false,
+      "type": "system",
+      "subtype": "stop_hook_summary",
+      "hookCount": 1,
+      "hookInfos": [
+        {
+          "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/completion_reply.py\" hook",
+          "durationMs": 37
+        }
+      ],
+      "hookErrors": [],
+      "hookAdditionalContext": [],
+      "preventedContinuation": false,
+      "stopReason": "",
+      "hasOutput": true,
+      "level": "suggestion",
+      "timestamp": "2026-11-10T07:21:20.860Z",
+      "uuid": "aa36dce5-2472-4fa7-a8ce-2d4e76a37a78",
+      "toolUseID": "c7a38417-362c-4e58-8baf-98ba19a9a7e3",
+      "userType": "external",
+      "entrypoint": "sdk-cli",
+      "cwd": "/home/jg/.cache/lusona-evals/tdd-stated-t1-76d00672",
+      "sessionId": "9d5a2ec4-46a7-4ac9-bb0e-0078a7314677",
+      "version": "2.1.322",
+      "gitBranch": "master"
+    }
+  },
+  {
+    "source": "runs/CANDIDATE/authz-change/1/native-sessions/787971c0-d298-4823-ae51-97a4fc2dfcac/root.jsonl",
+    "line": 165,
+    "event": {
+      "parentUuid": "6461600e-1ba2-4905-b33f-9edfc3e27506",
+      "isSidechain": false,
+      "type": "system",
+      "subtype": "stop_hook_summary",
+      "hookCount": 1,
+      "hookInfos": [
+        {
+          "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/completion_reply.py\" hook",
+          "durationMs": 33
+        }
+      ],
+      "hookErrors": [],
+      "hookAdditionalContext": [],
+      "preventedContinuation": false,
+      "stopReason": "",
+      "hasOutput": true,
+      "level": "suggestion",
+      "timestamp": "2026-11-10T07:22:41.640Z",
+      "uuid": "67e8716e-40e8-487f-9155-c198df1de638",
+      "toolUseID": "713e68e5-3de9-4708-a1d9-ad70b6fee2a9",
+      "userType": "external",
+      "entrypoint": "sdk-cli",
+      "cwd": "/home/jg/.cache/lusona-evals/authz-change-t1-06868bb7",
+      "sessionId": "787971c0-d298-4823-ae51-97a4fc2dfcac",
+      "version": "2.1.322",
+      "gitBranch": "master"
+    }
+  }
+]

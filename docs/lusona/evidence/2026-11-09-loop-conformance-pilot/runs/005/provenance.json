@@ -1,0 +1,21 @@
+{
+  "repository_commit": "9f2260f57d5dfd713a39ed80ba38b4a8a6bde1b3",
+  "python_version": "3.14.9",
+  "calls": 28,
+  "total_cost_usd": 5.2512512,
+  "baseline_cost_usd": 1.2092664,
+  "candidate_cost_usd": 4.0419848,
+  "baseline_matches": 5,
+  "candidate_matches": 22,
+  "raw_archive_sha256": "370c955165d9f7a2cd89e10475c84edef0cd0003ccecb673226b703f672f057f",
+  "driver_sha256": "7d4ef58cf164d7eabf1b48a4f899afd222ffad0c6b33c75c1a2b30f6a736791b",
+  "source_sha256": {
+    "plugins/lusona/README.md": "0ceb03cb0005bff9928ead4ee4fdf8e5eee610135c57e330b9c5951570abb8a7",
+    "evals/loop-conformance/rubric.md": "c10a5755faacac986a33b3d58c179e90be3d7a40d6991c4a098d176d3095b10b",
+    "evals/loop-conformance/judge-calibration.json": "8e527abe4c2c062f36b3a577af37d9842798faeda9f64237a22d4cc7b7a3ab4f",
+    "evals/loop-conformance/suite.lock.json": "050a15269fd0b05a06da5059f8d72eac153a7501d5b01673457364e3e68b7e6c",
+    "evals/loop-conformance/checks.py": "910576d7d7e459d2d2cabd073f8023d82e72d239e5ace2a05ecd392dcfe3a6b2",
+    "evals/loop-conformance/run.py": "c914c158bc66f7ace5391f47da616fddee4ceed024acb37175dad82a805b1446",
+    "evals/loop-conformance/compare.py": "04545d734bf32423f1b71efbbf8b05301b1e7b0b937e76bed4b7ed45e7920672"
+  }
+}

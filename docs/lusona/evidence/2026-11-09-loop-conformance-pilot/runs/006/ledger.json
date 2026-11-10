@@ -1,0 +1,3303 @@
+{
+  "actor_trial_limit": 24,
+  "calls": [
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-A/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "20.00000000"
+      ],
+      "elapsed_seconds": 17.833104133605957,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.1922332,
+      "phase": "actor",
+      "reported_cost_usd": 0.1922332,
+      "started_at_unix": 1794288560.9544735,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/tdd-stated/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-A/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--resume",
+        "a3e9c92b-b4fa-4e60-b09a-1db44e0f8e1c",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "20.00000000"
+      ],
+      "elapsed_seconds": 9.159077882766724,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.054316999999999976,
+      "phase": "actor",
+      "reported_cost_usd": 0.24655019999999997,
+      "started_at_unix": 1794288578.788475,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/tdd-stated/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "19.75344980"
+      ],
+      "elapsed_seconds": 7.238624095916748,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2166444,
+      "phase": "judge",
+      "reported_cost_usd": 0.2166444,
+      "started_at_unix": 1794288587.9788501,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/tdd-stated/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-B/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "19.53680540"
+      ],
+      "elapsed_seconds": 30.58848762512207,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.28590080000000007,
+      "phase": "actor",
+      "reported_cost_usd": 0.28590080000000007,
+      "started_at_unix": 1794288595.3596432,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/tdd-stated/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-B/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--resume",
+        "84826a7a-9fc7-456e-9fa7-decb0f70fc36",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "19.53680540"
+      ],
+      "elapsed_seconds": 16.987344980239868,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.10240840000000001,
+      "phase": "actor",
+      "reported_cost_usd": 0.3883092000000001,
+      "started_at_unix": 1794288625.949365,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/tdd-stated/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "19.14849620"
+      ],
+      "elapsed_seconds": 4.851927042007446,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2271004,
+      "phase": "judge",
+      "reported_cost_usd": 0.2271004,
+      "started_at_unix": 1794288642.9675124,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/tdd-stated/1"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/authz-change-t1-c4223af0",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 213.42242741584778,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794288647.881409,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/authz-change/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "18.92139580"
+      ],
+      "elapsed_seconds": 3.8644044399261475,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.23052440000000002,
+      "phase": "judge",
+      "reported_cost_usd": 0.23052440000000002,
+      "started_at_unix": 1794288861.3450708,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/authz-change/1"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/authz-change-t1-998cf03e",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 153.2435028553009,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794288865.277312,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/authz-change/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "18.69087140"
+      ],
+      "elapsed_seconds": 3.431403636932373,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2243724,
+      "phase": "judge",
+      "reported_cost_usd": 0.2243724,
+      "started_at_unix": 1794289018.5650125,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/authz-change/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-B/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "18.46649900"
+      ],
+      "elapsed_seconds": 70.9773817062378,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.6366372,
+      "phase": "actor",
+      "reported_cost_usd": 0.6366372,
+      "started_at_unix": 1794289022.1250863,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/authz-change/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "17.82986180"
+      ],
+      "elapsed_seconds": 3.667607545852661,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.22697240000000002,
+      "phase": "judge",
+      "reported_cost_usd": 0.22697240000000002,
+      "started_at_unix": 1794289093.136489,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/authz-change/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-A/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "17.60288940"
+      ],
+      "elapsed_seconds": 111.48155975341797,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.72268816,
+      "phase": "actor",
+      "reported_cost_usd": 0.72268816,
+      "started_at_unix": 1794289096.9331415,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/authz-change/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "16.88020124"
+      ],
+      "elapsed_seconds": 3.7933707237243652,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2337804,
+      "phase": "judge",
+      "reported_cost_usd": 0.2337804,
+      "started_at_unix": 1794289208.452732,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/authz-change/1"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t1-c91c0505",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 118.30797863006592,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794289212.423292,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/tdd-stated/1"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t1-c91c0505",
+        "--skip-git-repo-check",
+        "resume",
+        "01a1c3f8-9c4a-76a0-926b-a25ccf8e41b4",
+        "-"
+      ],
+      "elapsed_seconds": 60.62775897979736,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794289330.7322085,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/tdd-stated/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "16.64642084"
+      ],
+      "elapsed_seconds": 3.9081814289093018,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2180524,
+      "phase": "judge",
+      "reported_cost_usd": 0.2180524,
+      "started_at_unix": 1794289391.4028053,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/tdd-stated/1"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t1-a9596140",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 81.67227387428284,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794289395.372422,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/tdd-stated/1"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t1-a9596140",
+        "--skip-git-repo-check",
+        "resume",
+        "01a1c3fb-66ef-7951-8d8d-ca7e6e476d85",
+        "-"
+      ],
+      "elapsed_seconds": 49.51555418968201,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794289477.0461524,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/tdd-stated/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "16.42836844"
+      ],
+      "elapsed_seconds": 4.712716579437256,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2193004,
+      "phase": "judge",
+      "reported_cost_usd": 0.2193004,
+      "started_at_unix": 1794289526.6048174,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/tdd-stated/1"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-A/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "16.20906804"
+      ],
+      "elapsed_seconds": 70.413902759552,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.6169937,
+      "phase": "actor",
+      "reported_cost_usd": 0.6169937,
+      "started_at_unix": 1794289531.458907,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/authz-change/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "15.59207434"
+      ],
+      "elapsed_seconds": 4.170013427734375,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2303884,
+      "phase": "judge",
+      "reported_cost_usd": 0.2303884,
+      "started_at_unix": 1794289601.9051037,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/authz-change/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-B/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "15.36168594"
+      ],
+      "elapsed_seconds": 102.80988383293152,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.6954966199999998,
+      "phase": "actor",
+      "reported_cost_usd": 0.6954966199999998,
+      "started_at_unix": 1794289606.2116582,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/authz-change/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "14.66618932"
+      ],
+      "elapsed_seconds": 4.05646276473999,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2327164,
+      "phase": "judge",
+      "reported_cost_usd": 0.2327164,
+      "started_at_unix": 1794289709.058446,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/authz-change/2"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t2-ed6537df",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 88.47158598899841,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794289713.1752102,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/tdd-stated/2"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t2-ed6537df",
+        "--skip-git-repo-check",
+        "resume",
+        "01a1c400-4058-7400-9938-984b7b7d62a1",
+        "-"
+      ],
+      "elapsed_seconds": 46.209898233413696,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794289801.6477828,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/tdd-stated/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "14.43347292"
+      ],
+      "elapsed_seconds": 4.954057216644287,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2195804,
+      "phase": "judge",
+      "reported_cost_usd": 0.2195804,
+      "started_at_unix": 1794289847.904516,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/tdd-stated/2"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t2-a124b0ff",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 94.58737206459045,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794289852.935042,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/tdd-stated/2"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t2-a124b0ff",
+        "--skip-git-repo-check",
+        "resume",
+        "01a1c402-6249-7140-b2f8-2ba10e50a9eb",
+        "-"
+      ],
+      "elapsed_seconds": 51.10043478012085,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794289947.5237105,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/tdd-stated/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "14.21389252"
+      ],
+      "elapsed_seconds": 3.9611518383026123,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.21850039999999998,
+      "phase": "judge",
+      "reported_cost_usd": 0.21850039999999998,
+      "started_at_unix": 1794289998.663831,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/tdd-stated/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-B/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "13.99539212"
+      ],
+      "elapsed_seconds": 15.85080099105835,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.1768672,
+      "phase": "actor",
+      "reported_cost_usd": 0.1768672,
+      "started_at_unix": 1794290002.7608898,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/tdd-stated/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-B/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--resume",
+        "f22cf74f-51d7-4f99-b44e-d15fb16cc8bd",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "13.99539212"
+      ],
+      "elapsed_seconds": 9.758312225341797,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.05891740000000001,
+      "phase": "actor",
+      "reported_cost_usd": 0.2357846,
+      "started_at_unix": 1794290018.6137316,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/tdd-stated/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "13.75960752"
+      ],
+      "elapsed_seconds": 5.364192962646484,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2090764,
+      "phase": "judge",
+      "reported_cost_usd": 0.2090764,
+      "started_at_unix": 1794290028.405163,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/tdd-stated/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-A/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "13.55053112"
+      ],
+      "elapsed_seconds": 33.21150326728821,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.29384160000000004,
+      "phase": "actor",
+      "reported_cost_usd": 0.29384160000000004,
+      "started_at_unix": 1794290033.9186313,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/tdd-stated/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-A/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--resume",
+        "65d0eabb-72e7-4c87-9e06-e8fb8391ef46",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "13.55053112"
+      ],
+      "elapsed_seconds": 16.01619029045105,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.093082,
+      "phase": "actor",
+      "reported_cost_usd": 0.38692360000000003,
+      "started_at_unix": 1794290067.1326113,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/tdd-stated/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "13.16360752"
+      ],
+      "elapsed_seconds": 5.974570274353027,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2327084,
+      "phase": "judge",
+      "reported_cost_usd": 0.2327084,
+      "started_at_unix": 1794290083.2537751,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/tdd-stated/2"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/authz-change-t2-8fb3215e",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 195.0362401008606,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794290089.3450167,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/authz-change/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "12.93089912"
+      ],
+      "elapsed_seconds": 3.323208808898926,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.22124439999999998,
+      "phase": "judge",
+      "reported_cost_usd": 0.22124439999999998,
+      "started_at_unix": 1794290284.4415877,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/authz-change/2"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/authz-change-t2-ae6708d5",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 191.82486128807068,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794290287.8246067,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/authz-change/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "12.70965472"
+      ],
+      "elapsed_seconds": 4.4979164600372314,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.22963640000000002,
+      "phase": "judge",
+      "reported_cost_usd": 0.22963640000000002,
+      "started_at_unix": 1794290479.6947668,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/authz-change/2"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-A/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "12.48001832"
+      ],
+      "elapsed_seconds": 19.328251838684082,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.18894260000000002,
+      "phase": "actor",
+      "reported_cost_usd": 0.18894260000000002,
+      "started_at_unix": 1794290484.3303225,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/tdd-stated/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-A/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--resume",
+        "44f5d40b-5bae-439d-b3f4-826c146a94a1",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "12.48001832"
+      ],
+      "elapsed_seconds": 9.570740222930908,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.055804800000000016,
+      "phase": "actor",
+      "reported_cost_usd": 0.24474740000000003,
+      "started_at_unix": 1794290503.6598783,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/tdd-stated/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "12.23527092"
+      ],
+      "elapsed_seconds": 5.087571144104004,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2105564,
+      "phase": "judge",
+      "reported_cost_usd": 0.2105564,
+      "started_at_unix": 1794290513.26162,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/tdd-stated/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-B/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "12.02471452"
+      ],
+      "elapsed_seconds": 16.124576807022095,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.17987519999999999,
+      "phase": "actor",
+      "reported_cost_usd": 0.17987519999999999,
+      "started_at_unix": 1794290518.4895124,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/tdd-stated/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-B/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--resume",
+        "9b2847c3-3363-4744-9dd4-5c104bb8b6b2",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "12.02471452"
+      ],
+      "elapsed_seconds": 8.947908878326416,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.0551286,
+      "phase": "actor",
+      "reported_cost_usd": 0.23500379999999998,
+      "started_at_unix": 1794290534.6154122,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/tdd-stated/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "11.78971072"
+      ],
+      "elapsed_seconds": 4.635379791259766,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2069084,
+      "phase": "judge",
+      "reported_cost_usd": 0.2069084,
+      "started_at_unix": 1794290543.592595,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/tdd-stated/3"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/authz-change-t3-83157ef8",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 202.31094336509705,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794290548.290091,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/authz-change/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "11.58280232"
+      ],
+      "elapsed_seconds": 3.6263225078582764,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.22355640000000002,
+      "phase": "judge",
+      "reported_cost_usd": 0.22355640000000002,
+      "started_at_unix": 1794290750.6460817,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/codex/authz-change/3"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/authz-change-t3-681ac16a",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 176.53810477256775,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794290754.334224,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/authz-change/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "11.35924592"
+      ],
+      "elapsed_seconds": 3.456684112548828,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.21995640000000002,
+      "phase": "judge",
+      "reported_cost_usd": 0.21995640000000002,
+      "started_at_unix": 1794290930.9144604,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/authz-change/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-B/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "11.13928952"
+      ],
+      "elapsed_seconds": 117.52721858024597,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.7976342350000001,
+      "phase": "actor",
+      "reported_cost_usd": 0.7976342350000001,
+      "started_at_unix": 1794290934.5020251,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/authz-change/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "10.34165529"
+      ],
+      "elapsed_seconds": 3.877383232116699,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2389964,
+      "phase": "judge",
+      "reported_cost_usd": 0.2389964,
+      "started_at_unix": 1794291052.0719817,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/claude/authz-change/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "/home/jg/code/_lusona_/ai-skills/tmp/completion-actor-evaluation/conditions/claude-A/plugin",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash",
+        "--max-budget-usd",
+        "10.10265889"
+      ],
+      "elapsed_seconds": 83.30534887313843,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.6117016999999999,
+      "phase": "actor",
+      "reported_cost_usd": 0.6117016999999999,
+      "started_at_unix": 1794291056.0846303,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/authz-change/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "9.49095719"
+      ],
+      "elapsed_seconds": 4.301184892654419,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2313404,
+      "phase": "judge",
+      "reported_cost_usd": 0.2313404,
+      "started_at_unix": 1794291139.4250975,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "A/claude/authz-change/3"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t3-b55f748b",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 104.7896978855133,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794291143.7881024,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/tdd-stated/3"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t3-b55f748b",
+        "--skip-git-repo-check",
+        "resume",
+        "01a1c416-14ab-7320-b74f-90789ae9bae5",
+        "-"
+      ],
+      "elapsed_seconds": 62.08388042449951,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794291248.579705,
+      "status": "finished",
+      "timeout_seconds": 900,
+      "trial_id": "B/codex/tdd-stated/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "9.25961679"
+      ],
+      "elapsed_seconds": 3.7884116172790527,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2153244,
+      "phase": "judge",
+      "reported_cost_usd": 0.2153244,
+      "started_at_unix": 1794291310.6981668,
+      "status": "finished",
+      "timeout_seconds": 850.0967754360172,
+      "trial_id": "B/codex/tdd-stated/3"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t3-a6f81c22",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "elapsed_seconds": 88.12452030181885,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794291314.548002,
+      "status": "finished",
+      "timeout_seconds": 846.2469412560167,
+      "trial_id": "A/codex/tdd-stated/3"
+    },
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "/home/jg/.cache/lusona-evals/tdd-stated-t3-a6f81c22",
+        "--skip-git-repo-check",
+        "resume",
+        "01a1c418-afb6-7d50-9f33-da45593f359d",
+        "-"
+      ],
+      "elapsed_seconds": 73.45037174224854,
+      "exit_code": 0,
+      "phase": "actor",
+      "started_at_unix": 1794291402.674407,
+      "status": "finished",
+      "timeout_seconds": 758.120532608009,
+      "trial_id": "A/codex/tdd-stated/3"
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--model",
+        "claude-fable-5-2",
+        "--effort",
+        "medium",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--permission-mode",
+        "dontAsk",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--max-budget-usd",
+        "9.04429239"
+      ],
+      "elapsed_seconds": 5.220083475112915,
+      "exit_code": 0,
+      "incremental_cost_usd": 0.2203004,
+      "phase": "judge",
+      "reported_cost_usd": 0.2203004,
+      "started_at_unix": 1794291476.1669908,
+      "status": "finished",
+      "timeout_seconds": 684.6279507550062,
+      "trial_id": "A/codex/tdd-stated/3"
+    }
+  ],
+  "claude_reported_spent_usd": 11.176008014999997,
+  "claude_reported_usd_limit": 20,
+  "elapsed_seconds": 2920.5962266921997,
+  "elapsed_seconds_limit": 3600,
+  "finished_at_unix": 1794291481.3911624,
+  "judge_call_limit": 24,
+  "started_at_unix": 1794288560.7949362,
+  "stop": null,
+  "trials": [
+    {
+      "host": "claude",
+      "id": "A/claude/tdd-stated/1",
+      "output": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/1",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The turn 2 final reply reports the fix, the red/green test results, and \"Nothing is committed\", but names no next step with an owner and does not say that no next action is needed. The closest text, \"No other code in the repository calls `page_label`, so nothing else needed updating\", describes the scope of the completed change, not a next-action or no-action statement.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Both turns report the fix as done and verified (turn 1: \"passes all 3 tests\"; turn 2: \"passes all 4 tests\"), and turn 2 applies the targeted test-first rules without asking about TDD policy or permission. `pager.py` contains both fixes (`range(0, len(items), size)` and `index + 1`), and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_one_based`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 1,
+      "status": "captured",
+      "trial": 1,
+      "variant": "A"
+    },
+    {
+      "host": "claude",
+      "id": "B/claude/tdd-stated/1",
+      "output": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/1",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The turn 2 final reply reports the fix, test evidence, and a risk (\"I have not checked for such code\") but names no next step with an owner and does not state that no action is needed. The line \"Next action: user reviews the working-tree diff and decides on commit\" appears only in the notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Both turns report the fix as done and verified (\"all 3 tests pass\", \"all 4 tests pass\") without asking for permission or a TDD policy. `pager.py` contains the ceiling division and `index + 1`, and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_one_based`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 2,
+      "status": "captured",
+      "trial": 1,
+      "variant": "B"
+    },
+    {
+      "host": "codex",
+      "id": "A/codex/authz-change/1",
+      "output": "tmp/completion-actor-evaluation/runs/A/codex/authz-change/1",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply says only \"Fixed: only owners can delete lists... All 6 tests pass, including the new regression test. Independent review found no defects. No commits were made.\" It reports completion, tests, and review but names no next step with an owner and contains no explicit statement that no next action is needed; the \"No remaining work\" statement exists only in the spec file, which does not substitute.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "1 work worker(s) launched",
+          "result": "pass"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-deletion.md in docs/lusona/history/2026-11-week-02.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The final reply reports the change as made and verified (\"Fixed: only owners can delete lists... All 6 tests pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` now raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` adds `test_shared_user_cannot_delete_and_list_remains_unchanged`, which asserts `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 3,
+      "status": "captured",
+      "trial": 1,
+      "variant": "A"
+    },
+    {
+      "host": "codex",
+      "id": "B/codex/authz-change/1",
+      "output": "tmp/completion-actor-evaluation/runs/B/codex/authz-change/1",
+      "results": {
+        "C1": {
+          "evidence": "last reply has a next-action line: **Next action:** None for this request; verification is complete.; C1.concrete: The final reply states \"**Next action:** None for this request; verification is complete.\", which is an explicit no-action statement with a reason, following the reported regression evidence and independent review.",
+          "result": "pass"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "1 work worker(s) launched",
+          "result": "pass"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-deletion.md in docs/lusona/work.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The final reply reports the change as made and verified (\"Regression failed before the fix; all six tests now pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden(\"only the owner can delete a list\")` when `user != record[\"owner\"]`, and `tests/test_lists.py` has `test_shared_user_cannot_delete` asserting `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "Result and Evidence labels present; status Complete at the Result label",
+          "result": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 4,
+      "status": "captured",
+      "trial": 1,
+      "variant": "B"
+    },
+    {
+      "host": "claude",
+      "id": "B/claude/authz-change/1",
+      "output": "tmp/completion-actor-evaluation/runs/B/claude/authz-change/1",
+      "results": {
+        "C1": {
+          "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply ends with a next-action table: \"Review and commit the uncommitted diff | Maintainer | `git diff` | Maintainer only, per `docs/lusona/README.md`\", which names a specific step and its owner and does not claim the agent will commit.",
+          "result": "pass"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+          "result": "fail"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-deletion.md in docs/lusona/work.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The reply reports the fix as made and verified (\"`python3 -m unittest discover -s tests -v` passes all 5 tests\") without asking for permission or a TDD policy. The changed files show `delete_list` in `lists.py` checking `record[\"owner\"] != user` and `test_shared_user_cannot_delete` in `tests/test_lists.py` asserting `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "no status word (Complete, In progress, Needs input, Paused) on the Result label line or the two non-blank lines before or after it",
+          "result": "fail"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 5,
+      "status": "captured",
+      "trial": 1,
+      "variant": "B"
+    },
+    {
+      "host": "claude",
+      "id": "A/claude/authz-change/1",
+      "output": "tmp/completion-actor-evaluation/runs/A/claude/authz-change/1",
+      "results": {
+        "C1": {
+          "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply ends with a next-action table naming specific steps and owners: \"Commit the 3 changed files and the 2 `docs/lusona` records | You\" and \"Proposed: add a test that deleting a missing list raises `NotFound` | Implementer | Your approval | Not authorized\". The commit is assigned to the user, not the agent, and the unauthorized step is presented as a proposal.",
+          "result": "pass"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "1 work worker(s) launched",
+          "result": "pass"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-delete.md in docs/lusona/work.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The final reply reports the change as made and verified (\"all 5 tests pass\", red reproduced before the fix) without asking for permission or a TDD policy. The changed files show it: `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` has `test_shared_user_cannot_delete` asserting `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "Result and Evidence labels present; status Complete at the Result label",
+          "result": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 6,
+      "status": "captured",
+      "trial": 1,
+      "variant": "A"
+    },
+    {
+      "host": "codex",
+      "id": "B/codex/tdd-stated/1",
+      "output": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/1",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Turn 1 reports \"Fixed `paginate`... failed before the fix and passed afterward. All 3 tests\" and turn 2 reports \"Fixed `page_label(0, 3)`... All 4 tests\" with \"Targeted TDD and no commits still apply\", without asking for a policy or permission in either turn. `pager.py` contains both fixes (`(len(items) + size - 1) // size` and `index + 1`), and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_page_label_displays_one_based_index`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 7,
+      "status": "captured",
+      "trial": 1,
+      "variant": "B"
+    },
+    {
+      "host": "codex",
+      "id": "A/codex/tdd-stated/1",
+      "output": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/1",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The turn 2 final reply says only \"Fixed `page_label(0, 3)` to return `\"Page 1 of 3\"`... All 4 tests pass. The previous pagination fix is preserved. No commits made.\" It names no next step and owner and makes no explicit no-action statement; the \"No unresolved questions or remaining actions\" line is only in the notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Both final replies report the fix as done and verified (\"All 3 tests pass\", \"All 4 tests pass\") without asking for a TDD policy or permission in turn 2. `pager.py` contains the ceiling-division count and `index + 1`, and `tests/test_pager.py` has the exact-multiple test and the 1-based `page_label` test.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 8,
+      "status": "captured",
+      "trial": 1,
+      "variant": "A"
+    },
+    {
+      "host": "claude",
+      "id": "A/claude/authz-change/2",
+      "output": "tmp/completion-actor-evaluation/runs/A/claude/authz-change/2",
+      "results": {
+        "C1": {
+          "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply ends with a next-action table: \"Commit the changes to `lists.py`, `tests/test_lists.py` and `docs/lusona/`\" with Owner \"Maintainer\" and Authority \"Commits are made by the maintainer\". The commit is assigned to the maintainer, not claimed by the agent, so it does not breach the user's no-commit instruction.",
+          "result": "pass"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+          "result": "fail"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-deletion.md in docs/lusona/work.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The reply reports the change as made and verified (\"1 failure, `AssertionError: Forbidden not raised`\" before the fix, then \"5 tests, all OK\") without asking for a go-ahead or a TDD policy. The changed files show it: `delete_list` in `lists.py` has `if record[\"owner\"] != user: raise Forbidden(...)`, and `test_shared_user_cannot_delete` in `tests/test_lists.py` asserts `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "Result and Evidence labels present; status Complete at the Result label",
+          "result": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 9,
+      "status": "captured",
+      "trial": 2,
+      "variant": "A"
+    },
+    {
+      "host": "claude",
+      "id": "B/claude/authz-change/2",
+      "output": "tmp/completion-actor-evaluation/runs/B/claude/authz-change/2",
+      "results": {
+        "C1": {
+          "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply ends with a next-action table: \"Review and commit `lists.py`, `tests/test_lists.py`, `docs/lusona/work.md` and the new spec | Maintainer\" with authority \"Maintainer only: you said no commits, and the repo notes say agents don't commit\". This names a specific step and its owner, and the agent does not claim it will commit.",
+          "result": "pass"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "1 work worker(s) launched",
+          "result": "pass"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-deletion.md in docs/lusona/work.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The final reply reports the change as made and verified (\"`lists.py:32`: the delete check is now `record[\"owner\"] != user`\", red run then \"ran 5 tests, all passing\") without asking for a go-ahead or a TDD policy. The changed files show `delete_list` raising `Forbidden` when `record[\"owner\"] != user`, and `test_shared_user_cannot_delete` in `tests/test_lists.py` asserts `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "Result and Evidence labels present; status Complete at the Result label",
+          "result": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 10,
+      "status": "captured",
+      "trial": 2,
+      "variant": "B"
+    },
+    {
+      "host": "codex",
+      "id": "A/codex/tdd-stated/2",
+      "output": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/2",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply of turn 2 says only \"Fixed `page_label(0, 3)`... All 4 tests pass. The pagination fix is preserved. No commits made.\" It gives no explicit statement that no next action is needed and names no follow-up with an owner; the \"no remaining work\" line appears only in the notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Both turns report the fix as done and verified (\"All 3 tests pass\", then \"All 4 tests pass\"), and turn 2 proceeds without asking for the TDD policy or permission. `pager.py` contains the ceiling-division page count and `index + 1`, and `tests/test_pager.py` has `test_exact_multiple_has_no_empty_last_page` and `test_page_label_displays_one_based_page_number`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 11,
+      "status": "captured",
+      "trial": 2,
+      "variant": "A"
+    },
+    {
+      "host": "codex",
+      "id": "B/codex/tdd-stated/2",
+      "output": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/2",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply of turn 2 says only \"Fixed `page_label(0, 3)` to return \\\"Page 1 of 3\\\"... All 5 tests pass... No commits created.\" It names no next step with an owner and makes no explicit no-action-needed statement; the \"no remaining action\" line exists only in the saved notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Turn 1 and turn 2 each report the fix as done and verified (\"regression failed before the fix and passed afterward\", \"All 5 tests pass\") without asking for a TDD policy or permission in turn 2. `pager.py` contains ceiling division `(len(items) + size - 1) // size` and `index + 1`, and `tests/test_pager.py` has `test_does_not_add_an_empty_page_for_exact_multiple` and `test_page_labels_are_one_based`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 12,
+      "status": "captured",
+      "trial": 2,
+      "variant": "B"
+    },
+    {
+      "host": "claude",
+      "id": "B/claude/tdd-stated/2",
+      "output": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/2",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The turn 2 final reply reports completion (\"I fixed it... All 4 tests pass. Nothing is committed.\") and a caveat (\"I can't check code outside this repo\"), but it neither states that no next action is needed nor names a specific follow-up with an owner.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Both turns report the fix as done and verified with red then green (\"All 3 tests pass\", \"All 4 tests pass\"), and turn 2 proceeds without asking for the TDD policy or permission. `pager.py` contains both fixes (`range(0, len(items), size)` and `index + 1`), and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_counts_from_one`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 13,
+      "status": "captured",
+      "trial": 2,
+      "variant": "B"
+    },
+    {
+      "host": "claude",
+      "id": "A/claude/tdd-stated/2",
+      "output": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/2",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The turn 2 final reply reports the fix, the red/green results and ends with \"A test for empty input to `paginate` is still not written\", which names no next step with an owner and does not state that no action is needed. The \"Next action: user review of the uncommitted diff\" line exists only in the notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Turn 1 reports \"I fixed it: `paginate([1, 2, 3, 4], 2)` now returns `[[1, 2], [3, 4]]`\" and turn 2 reports \"I fixed it: `page_label(0, 3)` now returns \\\"Page 1 of 3\\\"\", each with red/green results and no request for a TDD policy or permission. `pager.py` contains both fixes (`range(0, len(items), size)` and `index + 1`), and `tests/test_pager.py` has `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_numbered_from_one`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 14,
+      "status": "captured",
+      "trial": 2,
+      "variant": "A"
+    },
+    {
+      "host": "codex",
+      "id": "B/codex/authz-change/2",
+      "output": "tmp/completion-actor-evaluation/runs/B/codex/authz-change/2",
+      "results": {
+        "C1": {
+          "evidence": "last reply has a next-action line: **Next action:** None for this request.; C1.concrete: The final reply ends with \"**Next action:** None for this request.\" directly after stating the reason: \"All 6 tests pass; independent review found no issues. No commits made.\"",
+          "result": "pass"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "1 work worker(s) launched",
+          "result": "pass"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-deletion.md in docs/lusona/work.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The final reply reports the change as made and verified (\"Only owners can now delete lists... All 6 tests pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` has `test_shared_user_cannot_delete_and_contents_remain` asserting `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 15,
+      "status": "captured",
+      "trial": 2,
+      "variant": "B"
+    },
+    {
+      "host": "codex",
+      "id": "A/codex/authz-change/2",
+      "output": "tmp/completion-actor-evaluation/runs/A/codex/authz-change/2",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply ends with \"All six tests pass, including the new regression. Independent review found no issues. Workflow records updated; no commits created.\" It reports completion without naming a next step and owner or explicitly stating that no next action is needed; the \"Next action: none for this request\" line exists only in the spec file, which does not substitute.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "1 work worker(s) launched",
+          "result": "pass"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-deletion.md in docs/lusona/history/2026-11-week-02.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The final reply reports the fix as made and verified (\"Fixed: only the owner can delete an existing list... All six tests pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` contains `test_shared_user_cannot_delete` asserting `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 16,
+      "status": "captured",
+      "trial": 2,
+      "variant": "A"
+    },
+    {
+      "host": "claude",
+      "id": "A/claude/tdd-stated/3",
+      "output": "tmp/completion-actor-evaluation/runs/A/claude/tdd-stated/3",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The turn 2 final reply reports completion and passing tests (\"I fixed it... all 4 tests pass. Nothing is committed.\") and ends with a caveat about the admin UI (\"I have not checked that code\"). It never states that no next action is needed, and it names no specific follow-up with an owner.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Both turns report the fix as done and verified with a failing-then-passing test (turn 1: \"all 3 tests pass\"; turn 2: \"all 4 tests pass\"), and turn 2 applies the same rules without asking for the TDD policy or permission. `pager.py` contains `-(-len(items) // size)` and `index + 1`, and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_one_based`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 17,
+      "status": "captured",
+      "trial": 3,
+      "variant": "A"
+    },
+    {
+      "host": "claude",
+      "id": "B/claude/tdd-stated/3",
+      "output": "tmp/completion-actor-evaluation/runs/B/claude/tdd-stated/3",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The turn 2 reply reports the fix, the red/green evidence, and a caveat (\"Callers outside this repository that already add 1 ... I cannot check those from here\"), but it names no specific next step with an owner. It also does not state that no next action is needed.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Both turns report the fix as done and verified (\"all 3 tests ... pass\", then \"all 4 tests ... pass\"), and turn 2 applies the same rules without asking for the TDD policy or permission. `pager.py` contains the ceiling division and `index + 1`, and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_one_based`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 18,
+      "status": "captured",
+      "trial": 3,
+      "variant": "B"
+    },
+    {
+      "host": "codex",
+      "id": "A/codex/authz-change/3",
+      "output": "tmp/completion-actor-evaluation/runs/A/codex/authz-change/3",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply says only \"Fixed: only the owner can delete a list... All 6 tests pass. Independent review found no defects. No commits made.\" It names no next step and owner and gives no explicit no-action statement; the \"No next action required\" text exists only in the spec file, which does not substitute.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "1 work worker(s) launched",
+          "result": "pass"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-deletion.md in docs/lusona/work.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The final reply reports the fix as made and verified (\"All 6 tests pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` `test_shared_user_cannot_delete` asserts `Forbidden` for shared user \"ben\".",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 19,
+      "status": "captured",
+      "trial": 3,
+      "variant": "A"
+    },
+    {
+      "host": "codex",
+      "id": "B/codex/authz-change/3",
+      "output": "tmp/completion-actor-evaluation/runs/B/codex/authz-change/3",
+      "results": {
+        "C1": {
+          "evidence": "last reply has a next-action line: **Next action:** None for this request.; C1.concrete: The final reply states \"**Next action:** None for this request.\" directly after giving the reason: \"Regression failed before the fix; all 6 tests now pass. Independent review found no defects.\"",
+          "result": "pass"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "1 work worker(s) launched",
+          "result": "pass"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-deletion.md in docs/lusona/work.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The final reply reports the change as made and verified (\"Only the owner can delete a list... all 6 tests now pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` contains `test_shared_user_cannot_delete` asserting `Forbidden` for shared user `ben`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "Result and Evidence labels present; status Complete at the Result label",
+          "result": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 20,
+      "status": "captured",
+      "trial": 3,
+      "variant": "B"
+    },
+    {
+      "host": "claude",
+      "id": "B/claude/authz-change/3",
+      "output": "tmp/completion-actor-evaluation/runs/B/claude/authz-change/3",
+      "results": {
+        "C1": {
+          "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply ends with a table naming the next action and its owner: \"Review and commit `lists.py`, `tests/test_lists.py`, `README.md`, `docs/lusona/work.md`, and the new spec | You | ... | Yours; I was told not to commit\". The commit is assigned to the user, not the agent.",
+          "result": "pass"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "1 work worker(s) launched",
+          "result": "pass"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-delete.md in docs/lusona/work.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The final reply reports the change as made and verified (\"`Ran 6 tests`, `OK`\", red result reproduced against the original file) without asking for permission or a TDD policy. The changed files show it: `delete_list` in `lists.py` raises `Forbidden` when `user != record[\"owner\"]`, and `test_shared_user_cannot_delete` in `tests/test_lists.py` asserts `Forbidden` for the shared user `ben`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "Result and Evidence labels present; status Complete at the Result label",
+          "result": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 21,
+      "status": "captured",
+      "trial": 3,
+      "variant": "B"
+    },
+    {
+      "host": "claude",
+      "id": "A/claude/authz-change/3",
+      "output": "tmp/completion-actor-evaluation/runs/A/claude/authz-change/3",
+      "results": {
+        "C1": {
+          "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply ends with a next-action table: \"Review and commit `lists.py`, `tests/test_lists.py`, `docs/lusona/work.md`, and the new spec | Maintainer\", with authority stated as \"Commits are yours (your instruction and `docs/lusona/README.md`)\". This names a specific step and assigns it to the maintainer, not to the agent, so it does not conflict with the no-commit instruction.",
+          "result": "pass"
+        },
+        "C10": {
+          "evidence": "a reviewer subagent was launched",
+          "result": "pass"
+        },
+        "C11": {
+          "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+          "result": "fail"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "20261109-owner-only-list-deletion.md in docs/lusona/work.md",
+          "result": "pass"
+        },
+        "C7": {
+          "evidence": "C7.continues: The reply reports the fix as made and verified in this turn (\"After the fix, all 6 pass\") without asking for a go-ahead or a TDD policy. The changed files show it: `delete_list` in `lists.py` has `if record[\"owner\"] != user: raise Forbidden(...)`, and `tests/test_lists.py` has `test_shared_user_cannot_delete` asserting `Forbidden` for `ben`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "Result and Evidence labels present; status Complete at the Result label",
+          "result": "pass"
+        }
+      },
+      "scenario": "authz-change",
+      "sequence": 22,
+      "status": "captured",
+      "trial": 3,
+      "variant": "A"
+    },
+    {
+      "host": "codex",
+      "id": "B/codex/tdd-stated/3",
+      "output": "tmp/completion-actor-evaluation/runs/B/codex/tdd-stated/3",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Turn 1 reports \"Fixed `paginate`... The targeted regression failed before the fix, then all 3 tests passed\" and turn 2 reports \"Fixed `page_label`... all 4 tests now pass\" without asking for a TDD policy or permission. `pager.py` contains both fixes (ceiling-division page count and `index + 1`), and `tests/test_pager.py` contains `test_exact_multiple_has_no_empty_page` and `test_page_label_uses_one_based_display_number`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 23,
+      "status": "captured",
+      "trial": 3,
+      "variant": "B"
+    },
+    {
+      "host": "codex",
+      "id": "A/codex/tdd-stated/3",
+      "output": "tmp/completion-actor-evaluation/runs/A/codex/tdd-stated/3",
+      "results": {
+        "C1": {
+          "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The turn 2 final reply says only \"Fixed `page_label(0, 3)` to return `\"Page 1 of 3\"`... all 4 tests now pass... No commits made.\" It names no next step and owner and does not state that no next action is needed; the \"Next action: none for this request\" line is only in the notes file, which does not substitute.",
+          "result": "fail"
+        },
+        "C10": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C11": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C2": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C3": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C4": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C5": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C6": {
+          "evidence": "check not listed for this scenario",
+          "result": "not-applicable"
+        },
+        "C7": {
+          "evidence": "C7.continues: Turn 1 reports \"The regression test failed before the fix, then all 3 tests passed\" and turn 2 reports \"all 4 tests now pass\" without asking for a TDD policy or permission. `pager.py` contains both the ceiling-division fix and `index + 1`, and `tests/test_pager.py` has `test_exact_multiple_does_not_add_empty_page` and `test_page_labels_are_one_based`.",
+          "result": "pass"
+        },
+        "C8": {
+          "evidence": "no commit, no outer change, all changes inside allowed scope",
+          "result": "pass"
+        },
+        "C9": {
+          "evidence": "last reply lacks a Result and Evidence heading or label",
+          "result": "fail"
+        }
+      },
+      "scenario": "tdd-stated",
+      "sequence": 24,
+      "status": "captured",
+      "trial": 3,
+      "variant": "A"
+    }
+  ]
+}

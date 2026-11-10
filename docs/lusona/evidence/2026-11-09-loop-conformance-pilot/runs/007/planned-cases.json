@@ -1,0 +1,89 @@
+{
+  "tdd-stated": {
+    "skill": "implement",
+    "files": {
+      "README.md": "# Pager\n\nHelpers for splitting a result list into pages for the admin UI.\n\n- `paginate(items, size)` returns a list of pages, each with at most `size` items.\n  It never returns an empty page.\n- `page_label(index, total)` returns the text shown above a page. `index` is the\n  position in the list returned by `paginate`, starting at 0.\n",
+      "pager.py": "\"\"\"Pagination helpers.\"\"\"\n\n\ndef paginate(items, size):\n    \"\"\"Split items into pages of at most size items.\"\"\"\n    if size <= 0:\n        raise ValueError(\"size must be positive\")\n    count = len(items) // size + 1\n    return [items[page * size:(page + 1) * size] for page in range(count)]\n\n\ndef page_label(index, total):\n    \"\"\"Return the label for the page at position index out of total pages.\"\"\"\n    return f\"Page {index} of {total}\"\n",
+      "tests/test_pager.py": "import sys\nimport unittest\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[1]))\nimport pager\n\n\nclass PagerTests(unittest.TestCase):\n    def test_splits_with_a_shorter_last_page(self):\n        self.assertEqual(pager.paginate([1, 2, 3, 4, 5], 2), [[1, 2], [3, 4], [5]])\n\n    def test_rejects_non_positive_size(self):\n        with self.assertRaises(ValueError):\n            pager.paginate([1], 0)\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    "turns": [
+      "paginate returns an extra empty page at the end when the number of items is an exact multiple of the page size, for example paginate([1, 2, 3, 4], 2) gives [[1, 2], [3, 4], []]. Fix it. TDD: targeted, test first for the exact-multiple case. No commits.",
+      "Looks good. One more in the same file: page_label(0, 3) says \"Page 0 of 3\" for the first page. It should say \"Page 1 of 3\". Fix that too, same rules as before."
+    ],
+    "checks": [
+      "C1",
+      "C7",
+      "C8",
+      "C9"
+    ],
+    "expect": {
+      "allowed_globs": [
+        "pager.py",
+        "tests/test_pager.py",
+        "tests/*.py",
+        "README.md",
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**"
+      ]
+    }
+  },
+  "authz-change": {
+    "skill": "implement",
+    "files": {
+      "README.md": "# Shared lists\n\nUsers create lists and share them with other users. A list has one owner.\nPeople a list is shared with can read it and add items.\n",
+      "docs/lusona/README.md": "# Project workflow notes\n\n- TDD: strict. Standing preference, selected by the maintainer on 2026-08-12.\n- Commits are made by the maintainer, not by agents.\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Ready does not authorize execution.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n",
+      "lists.py": "\"\"\"Shared lists.\"\"\"\n\n\nclass NotFound(Exception):\n    pass\n\n\nclass Forbidden(Exception):\n    pass\n\n\ndef create_list(store, list_id, owner):\n    store[list_id] = {\"owner\": owner, \"shared_with\": set(), \"items\": []}\n\n\ndef share_list(store, list_id, user, with_user):\n    record = _get(store, list_id)\n    if record[\"owner\"] != user:\n        raise Forbidden(\"only the owner can share a list\")\n    record[\"shared_with\"].add(with_user)\n\n\ndef add_item(store, list_id, user, item):\n    record = _get(store, list_id)\n    if user != record[\"owner\"] and user not in record[\"shared_with\"]:\n        raise Forbidden(\"no access to this list\")\n    record[\"items\"].append(item)\n\n\ndef delete_list(store, list_id, user):\n    record = _get(store, list_id)\n    if user != record[\"owner\"] and user not in record[\"shared_with\"]:\n        raise Forbidden(\"no access to this list\")\n    del store[list_id]\n\n\ndef _get(store, list_id):\n    if list_id not in store:\n        raise NotFound(list_id)\n    return store[list_id]\n",
+      "tests/test_lists.py": "import sys\nimport unittest\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[1]))\nimport lists\n\n\nclass ListTests(unittest.TestCase):\n    def setUp(self):\n        self.store = {}\n        lists.create_list(self.store, \"groceries\", owner=\"ana\")\n        lists.share_list(self.store, \"groceries\", \"ana\", with_user=\"ben\")\n\n    def test_shared_user_can_add_items(self):\n        lists.add_item(self.store, \"groceries\", \"ben\", \"milk\")\n        self.assertEqual(self.store[\"groceries\"][\"items\"], [\"milk\"])\n\n    def test_stranger_cannot_add_items(self):\n        with self.assertRaises(lists.Forbidden):\n            lists.add_item(self.store, \"groceries\", \"cy\", \"milk\")\n\n    def test_owner_can_delete(self):\n        lists.delete_list(self.store, \"groceries\", \"ana\")\n        self.assertNotIn(\"groceries\", self.store)\n\n    def test_stranger_cannot_delete(self):\n        with self.assertRaises(lists.Forbidden):\n            lists.delete_list(self.store, \"groceries\", \"cy\")\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    "turns": [
+      "Right now anyone a list is shared with can delete it. Only the owner should be able to delete a list; everyone else should get Forbidden. Fix it. No commits."
+    ],
+    "checks": [
+      "C1",
+      "C6",
+      "C7",
+      "C8",
+      "C9",
+      "C10",
+      "C11"
+    ],
+    "expect": {
+      "allowed_globs": [
+        "lists.py",
+        "tests/test_lists.py",
+        "tests/*.py",
+        "README.md",
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**"
+      ],
+      "spec_required": true,
+      "expect_workers": true,
+      "expect_reviewer": true
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "scope": "bounded matched smoke; not a reliability benchmark",
+  "grading": "independent semantic grades pending",
+  "timing_amendment": "timing-amendment.md",
+  "baseline_ledger": "ledger.json",
+  "candidate_ledger": "candidate-continuation-ledger.json",
+  "attempted_trials": 4,
+  "captured_trials": 4,
+  "actor_turn_calls": 6,
+  "judge_calls": 0,
+  "retries": 0,
+  "planned_but_unrun": [],
+  "reported_cost_usd": 1.7596393000000001,
+  "candidate_elapsed_seconds": 122.27331471443176,
+  "fixtures": {
+    "baseline_checks": 4,
+    "candidate_checks": 4,
+    "all_exit_zero": true
+  },
+  "hooks": {
+    "candidate_sessionstart_success_responses": 3,
+    "candidate_arm_commands": 3,
+    "candidate_repair_feedback": 1,
+    "tools_after_repair_feedback": 0,
+    "native_stop_summaries": 4,
+    "standalone_final_structure_all_candidate_valid": true
+  },
+  "limits": [
+    "one trial per case/arm; one host/model; combined intervention cannot identify component contributions",
+    "user-requested pause required disclosed prospective candidate timing amendment",
+    "authz substantive-delegation computed failure in both arms; tdd root worker count zero in both arms",
+    "unset TDD and arbitrary user/host overrides not live exercised; deterministic fixtures separately owned",
+    "actor-reported root cost may not establish complete worker economic cost",
+    "all evidence scratch-only until parent durable retention"
+  ]
+}

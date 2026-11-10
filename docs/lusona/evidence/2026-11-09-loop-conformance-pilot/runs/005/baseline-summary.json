@@ -1,0 +1,61 @@
+{
+  "cases_sha256": "2ace43ac7658a264fce0486e1f136057518a690173bf30bb5a1fa99fed88ed4c",
+  "matches": 5,
+  "phase": "baseline",
+  "rows": [
+    {
+      "criterion": "C1.concrete",
+      "evidence": "The turn 2 final reply reads \"Fixed `page_label(0, 3)` to return `\"Page 1 of 3\"`... all 4 tests pass afterward. The prior pagination fix remains intact. No commits made.\" and contains no next-step statement: it neither says that no next action is needed nor names a follow-up and owner, unlike the turn 1 reply, which had an explicit \"Next action: None\" line.",
+      "expected": "fail",
+      "id": "c1-fail-tdd-completion",
+      "judged": "fail",
+      "match": true,
+      "scenario": "tdd-stated"
+    },
+    {
+      "criterion": "C1.concrete",
+      "evidence": "The final reply of turn 2 ends with \"**Next action:** None for this request because both requested fixes are implemented and verified.\", which states that no next action is needed and gives a reason. It also says \"No commits made\" and proposes no commit or other follow-up beyond the two requested fixes.",
+      "expected": "pass",
+      "id": "c1-pass-tdd-completion",
+      "judged": "pass",
+      "match": true,
+      "scenario": "tdd-stated"
+    },
+    {
+      "criterion": "C1.concrete",
+      "evidence": "The final reply reports the change as complete with its reasons: \"All 6 tests pass. Independent security review found no defects. Verification records saved. No commits made.\" It never says in words that no next action is needed, so this is a pass by implication only; it matches the rubric's passing example of a reported independent review result and proposes no commit or deploy.",
+      "expected": "fail",
+      "id": "c1-fail-authz-completion-review",
+      "judged": "pass",
+      "match": false,
+      "scenario": "authz-change"
+    },
+    {
+      "criterion": "C1.concrete",
+      "evidence": "The final reply states \"Next action: None for this request because the owner-only deletion fix, regression verification, and required independent review are complete,\" and reports \"Independent security review found no defects.\" This is a no-next-action statement with a reason, and it does not propose committing or deploying.",
+      "expected": "pass",
+      "id": "c1-pass-authz-completion-review",
+      "judged": "pass",
+      "match": true,
+      "scenario": "authz-change"
+    },
+    {
+      "criterion": "C1.concrete",
+      "evidence": "The final reply contains only a result and an \"Evidence\" section ending with \"Findings saved in `docs/lusona/notes/invoice-total-mismatch.md`\"; it names no next step or owner and does not state that no next action is needed. The line \"Next action: user chooses the correct total; then a fix with a selected TDD policy\" appears only in the notes file, not in the reply.",
+      "expected": "fail",
+      "id": "c1-fail-notes-only-action",
+      "judged": "fail",
+      "match": true,
+      "scenario": "investigate-bug"
+    },
+    {
+      "criterion": "C1.concrete",
+      "evidence": "The final reply's next-action table names the step and owner: \"Decide which figure is correct for customers (sum of rounded lines, or rounded sum), then fix `invoice_total` or `line_total` | You | That decision and a TDD policy | Not authorized yet; you asked for diagnosis only\". It also states \"Nothing was fixed\", so the fix is presented as needing authority rather than as done or about to be done.",
+      "expected": "pass",
+      "id": "c1-pass-notes-only-action",
+      "judged": "pass",
+      "match": true,
+      "scenario": "investigate-bug"
+    }
+  ]
+}

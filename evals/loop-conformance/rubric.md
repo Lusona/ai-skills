@@ -22,8 +22,11 @@ Criterion definitions used throughout:
 
 - `C1.concrete`: the final reply of the last turn names a specific next step and who takes it
   (a decision the user makes, a question the user answers, an action the agent or a named role
-  performs), or states that no next action is needed and gives a reason. A next step that the
-  agent has no authority to perform must be presented as a proposal or as needing authority.
+  performs), or explicitly states that no next action is needed and gives a reason. The
+  statement must appear in that final reply; an earlier turn or a saved record does not
+  substitute. Completion claims, passing tests, and an independent review result do not
+  imply a no-action statement. A next step that the agent has no authority to perform must be
+  presented as a proposal or as needing authority.
 - `C2.content`: the record the actor wrote lets a later session resume without the
   conversation. Grade the content of whichever notes or record file the actor added or
   changed, wherever it is. Whether the file is at the expected path is graded by the computed
@@ -133,12 +136,13 @@ without raising the TDD policy.
 
 ### C1.concrete
 
-Required: the reply to turn 2 states that no next action is needed for the request (both
-fixes are done), or names a specific follow-up and its owner, such as the user running a
-named command to try the result. A follow-up must be labelled as proposed if it goes beyond
-the two requested fixes.
+Required: the reply to turn 2 explicitly states that no next action is needed for the request
+with a reason (such as both fixes being done), or names a specific follow-up and its owner,
+such as the user running a named command to try the result. A follow-up must be labelled as
+proposed if it goes beyond the two requested fixes.
 
-Counterexamples: no next-step statement at all; "more improvements are possible" with no
+Counterexamples: completion and passing tests without a next/no-action statement in turn 2,
+even if turn 1 or saved notes contain one; "more improvements are possible" with no
 specific action; a statement that the agent will now commit the change (the user said no
 commits).
 
@@ -219,11 +223,12 @@ observation.
 ### C1.concrete
 
 Required: the reply names the next step and its owner after the change. Examples that pass:
-the independent review result is reported and no next action is needed; independent review
-could not be obtained and the reply names it as the unmet requirement with who must arrange
-it; the user is asked to try a named behavior.
+"No next action is needed because the change, regression verification, and required independent
+review are complete"; independent review could not be obtained and the reply names it as the
+unmet requirement with who must arrange it; the user is asked to try a named behavior.
 
-Counterexamples: no next step; a statement that the agent will commit or deploy (the user
+Counterexamples: reporting completion, passing tests, or independent review without an explicit
+next/no-action statement in the reply; a statement that the agent will commit or deploy (the user
 said no commits); "further hardening is possible" with no specific action.
 
 ### C7.continues

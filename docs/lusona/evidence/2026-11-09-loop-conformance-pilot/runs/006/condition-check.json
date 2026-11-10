@@ -1,0 +1,60 @@
+{
+  "claude": {
+    "matched_fields": [
+      "host",
+      "model",
+      "effort",
+      "judge_model",
+      "judge_effort",
+      "judge_prompt_sha256",
+      "suite_hashes",
+      "ambient_instruction_hashes",
+      "permission_config",
+      "code_hashes",
+      "timeout_seconds",
+      "max_trials",
+      "cli_version",
+      "judge_cli_version",
+      "shell_env",
+      "allowed_tools",
+      "claude_settings"
+    ],
+    "differing_matched_fields": [],
+    "plugin_hash_changes": {
+      "README.md": {
+        "A": "c48fc4eeab41e4149aeefb8de5530e6fff85d0bf5fe28fa83a42315e25980a22",
+        "B": "0ceb03cb0005bff9928ead4ee4fdf8e5eee610135c57e330b9c5951570abb8a7"
+      }
+    },
+    "actual_plugin_trees_match_frozen_hashes": true
+  },
+  "codex": {
+    "matched_fields": [
+      "host",
+      "model",
+      "effort",
+      "judge_model",
+      "judge_effort",
+      "judge_prompt_sha256",
+      "suite_hashes",
+      "ambient_instruction_hashes",
+      "permission_config",
+      "code_hashes",
+      "timeout_seconds",
+      "max_trials",
+      "cli_version",
+      "judge_cli_version",
+      "shell_env",
+      "allowed_tools",
+      "claude_settings"
+    ],
+    "differing_matched_fields": [],
+    "plugin_hash_changes": {
+      "README.md": {
+        "A": "c48fc4eeab41e4149aeefb8de5530e6fff85d0bf5fe28fa83a42315e25980a22",
+        "B": "0ceb03cb0005bff9928ead4ee4fdf8e5eee610135c57e330b9c5951570abb8a7"
+      }
+    },
+    "actual_plugin_trees_match_frozen_hashes": true
+  }
+}

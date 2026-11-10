@@ -48,6 +48,13 @@ then `inconclusive`; `pass` needs every remaining part to pass. Paths match a gl
 `fnmatch` (where `*` crosses `/`) or the `**`-aware matcher in `checks.py` matches.
 `.git`, `__pycache__/`, `.pytest_cache/`, and `*.pyc` are ignored when comparing workspace files.
 
+For `C1.concrete`, the final reply itself must name a specific next action and owner with
+supported authority, or explicitly state that none is needed with a reason. Completion,
+passing tests, independent review, saved notes, and an earlier reply do not substitute for
+that statement. This semantic judgment is separate from prescribed labels: where C9 applies,
+a concrete action under an alternative label can still fail computed C1, and missing
+Result/Evidence labels or status can still fail C9. Elsewhere C1 remains judged-only.
+
 Details of the computed parts:
 
 - C8 and AC8: a captured trial that changed files of the suite's repository fails C8 even
@@ -287,6 +294,15 @@ python3 evals/loop-conformance/run.py judge --calibration evals/loop-conformance
 
 This prints `agreement M / N` and every mismatch, and writes `calibration.json` and
 `calibration.md`. The judge settings come from the condition, so both hosts use the same judge.
+
+The 22 hand-labelled cases retain the original 16 controls and add three C1 pairs: silent
+implementation completion versus explicit no-action with a reason, silent completion with
+independent review versus explicit no-action with a reason, and an action only in saved notes
+versus the same action in the final reply. The implementation pair retains two turns and a
+first-turn next-action statement. Schema checks do not establish semantic agreement; use
+actual judge results. Changed rubric/calibration hashes require a new frozen condition and
+prevent a matched comparison with the historical reference. Judge calibration alone does
+not establish improved actor compliance.
 
 ### Pilot: 2 scenarios × 1 trial × 2 hosts, with judging
 

@@ -1,0 +1,24 @@
+{
+  "python_tests": {
+    "completion_validator": 32,
+    "packaging": 12,
+    "instructions": 11,
+    "unchanged_loop_suite": 122
+  },
+  "total": 177,
+  "other_checks": [
+    "instruction deduplication checker",
+    "quick_validate: implement/refactor",
+    "native Claude plugin and marketplace validation",
+    "native Antigravity source/extracted-plugin validation",
+    "package build and link checks",
+    "79 local link targets",
+    "both hypothetical examples accepted by validator",
+    "git diff --check"
+  ],
+  "limits": [
+    "No user installation, publication, live Codex or native Windows hook test",
+    "Actor capture predates final Next action label parser patch; only script and tests changed afterwards, covered by red/green tests and independent code review",
+    "Actor behavioral acceptance fails despite passing deterministic tests"
+  ]
+}

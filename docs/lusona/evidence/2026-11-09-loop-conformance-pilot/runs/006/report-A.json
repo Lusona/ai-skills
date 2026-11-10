@@ -1,0 +1,189 @@
+{
+  "claude": {
+    "C1": {
+      "fail": 3,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 0,
+      "pass": 3,
+      "setup-blocked": 0
+    },
+    "C10": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 3,
+      "pass": 3,
+      "setup-blocked": 0
+    },
+    "C11": {
+      "fail": 2,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 3,
+      "pass": 1,
+      "setup-blocked": 0
+    },
+    "C2": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 6,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C3": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 6,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C4": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 6,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C5": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 6,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C6": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 3,
+      "pass": 3,
+      "setup-blocked": 0
+    },
+    "C7": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 0,
+      "pass": 6,
+      "setup-blocked": 0
+    },
+    "C8": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 0,
+      "pass": 6,
+      "setup-blocked": 0
+    },
+    "C9": {
+      "fail": 3,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 0,
+      "pass": 3,
+      "setup-blocked": 0
+    }
+  },
+  "codex": {
+    "C1": {
+      "fail": 6,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 0,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C10": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 3,
+      "pass": 3,
+      "setup-blocked": 0
+    },
+    "C11": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 3,
+      "pass": 3,
+      "setup-blocked": 0
+    },
+    "C2": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 6,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C3": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 6,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C4": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 6,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C5": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 6,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C6": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 3,
+      "pass": 3,
+      "setup-blocked": 0
+    },
+    "C7": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 0,
+      "pass": 6,
+      "setup-blocked": 0
+    },
+    "C8": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 0,
+      "pass": 6,
+      "setup-blocked": 0
+    },
+    "C9": {
+      "fail": 6,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 0,
+      "pass": 0,
+      "setup-blocked": 0
+    }
+  },
+  "grading_code_hashes": [
+    {
+      "checks.py": "910576d7d7e459d2d2cabd073f8023d82e72d239e5ace2a05ecd392dcfe3a6b2",
+      "compare.py": "04545d734bf32423f1b71efbbf8b05301b1e7b0b937e76bed4b7ed45e7920672",
+      "run.py": "c914c158bc66f7ace5391f47da616fddee4ceed024acb37175dad82a805b1446"
+    }
+  ]
+}

@@ -104,6 +104,10 @@ loop); that scenario's checks passed in all five trials.
 - Six C1 computed fails are replies that state a next step under another label (“Next step”,
   “Suggested next step”); the judge passed their concreteness. They fail the label form the
   core prescribes, not the behavior.
+  **Correction, 2026-11-09:** the [complete offline audit](../004/README.md) found **five**,
+  not six: Claude `investigate-bug` trials 1, 3, 4, 5 and Codex `investigate-bug` trial 1.
+  The other 15 computed C1 failures omit an explicit next/no-action statement. Stored grades
+  and reference counts are unchanged.
 - C11 on Claude Code: the actor investigated the `investigate-bug` defect itself in all five
   trials; the rule names investigation as work to delegate, and the scenario's cause can be
   found with one command.

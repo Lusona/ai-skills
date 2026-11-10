@@ -1,0 +1,32 @@
+{
+  "repository_commit": "9f2260f57d5dfd713a39ed80ba38b4a8a6bde1b3",
+  "python": "3.14.9",
+  "raw_archive_sha256": "8cde31e4d9548052da535c75aec572a7a04b3f90ff56d157b79289a291f3c6c3",
+  "raw_archive_bytes": 2485617,
+  "replay_scripts": {
+    "analyze.py": "0e764f1ffcd1d2cacf4600854752556754856d26d3951a510b2d2b3d93e1a414",
+    "decide.py": "45f6fd133a4964eb9efa99fab99cd33e896f188b1f2793a59465caa50a2f1904",
+    "build_disposition.py": "5a4d92a28bca328e2ca0d8fed3da43164d997e1dc91772acd456eb560a75743d"
+  },
+  "declared_artifacts": {
+    "design_sha256": "a3a6ddd840ce18a82ab95adb931f0cd3735a905a98f727bf741c057eaf1ce7bf",
+    "schedule_sha256": "45796e0bab03869737f22e897e898d49368c498969056d7b9abf8a9931d3394d",
+    "driver_sha256": "61a71eba9f60a4838d8fe560ed5ccf503121a0119316465eb5b97b7cb500c1f9"
+  },
+  "retained_artifact_sha256": {
+    "schedule.json": "45796e0bab03869737f22e897e898d49368c498969056d7b9abf8a9931d3394d",
+    "snapshot-provenance.json": "e924d9fad6835a59fc3e1102f0c298522af7d15f100e046b8aab65c82d1ee889",
+    "condition-claude-A.json": "72dae819045de2c644ce02e007dd39baab861e76fb1fb993b45ef3b2ddd302ea",
+    "condition-claude-B.json": "f3cf952ae061118c7839326ccdd74f20a69a1950e226a59d875bce688b935afa",
+    "condition-codex-A.json": "01bb67281f496c4ac2b3ad3572787d2e38337305315fe0f024a5cea9d9629bd6",
+    "condition-codex-B.json": "b2789ed30d59d56004740cd7412c056601ec389ed0fff6a63788449b92df0bbe",
+    "ledger.json": "49d2316c0f5f59a7d3d591bbd2cdb8bbb40144cc37dc76ed0f7aaf40563da65e",
+    "preflight-hashes.json": "e31914f41ea6f3a85c68acd16b08179fa2bd8499f8b3ef9fa49f762c4cbdcbb2",
+    "disposition.json": "78cfc556cb629bce9d8dbd82f4d90301162bdaeeaf9077b47e0adfcd04c01970",
+    "condition-check.json": "fa420dd3f51b215f8b71d46f44fbf0591fdd357ecde3ef732f6e51249aa5e2c0",
+    "manual-audit.json": "8f38194f89a3302a47229a317339abe87b40b5fdbd4bf0290e3438ed8e0e5ce1",
+    "audit.json": "47441897bb746845a0ff2e6e718458e670af567ad559ae03c28211aa68201533",
+    "report-A.json": "86879d003f952adbdcbc33b50ad5930166724cdb0c89adac2027d533c9e8881a",
+    "report-B.json": "a73f154d7b57f1c4fbdc561121137a131252a93704c3435dae1e06725683291f"
+  }
+}
