@@ -1,0 +1,166 @@
+{
+  "claude": {
+    "C1": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 1,
+      "pass": 1,
+      "setup-blocked": 0
+    },
+    "C10": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C2": {
+      "fail": 1,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 1,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C3": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C4": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C5": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 1,
+      "pass": 1,
+      "setup-blocked": 0
+    },
+    "C6": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C7": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C8": {
+      "fail": 1,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 0,
+      "pass": 1,
+      "setup-blocked": 0
+    },
+    "C9": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    }
+  },
+  "codex": {
+    "C1": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 1,
+      "pass": 1,
+      "setup-blocked": 0
+    },
+    "C10": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C2": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 1,
+      "pass": 1,
+      "setup-blocked": 0
+    },
+    "C3": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C4": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C5": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 1,
+      "pass": 1,
+      "setup-blocked": 0
+    },
+    "C6": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C7": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    },
+    "C8": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 0,
+      "pass": 2,
+      "setup-blocked": 0
+    },
+    "C9": {
+      "fail": 0,
+      "inconclusive": 0,
+      "invalid": 0,
+      "not-applicable": 2,
+      "pass": 0,
+      "setup-blocked": 0
+    }
+  }
+}

@@ -1,3 +1,5 @@
 /tmp/
 __pycache__/
 *.pyc
+# Raw evaluation transcripts contain absolute local paths.
+docs/lusona/evidence/**/raw.zip

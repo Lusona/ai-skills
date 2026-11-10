@@ -1,0 +1,46 @@
+................................................................F......F............F..Ferror: duplicate trial ('claude', 'explore-a', 1): /home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-nof34zyb/runs/a and /home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-nof34zyb/runs/b; a report needs one directory per host, scenario, and trial
+............
+======================================================================
+FAIL: test_two_turns_resume_one_session_and_record_evidence (test_run.ClaudeRunTest.test_two_turns_resume_one_session_and_record_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 343, in test_two_turns_resume_one_session_and_record_evidence
+    self.assertEqual(computed[check]["result"], "pass", (check, computed[check]))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+ : ('C10', {'result': 'fail', 'evidence': 'reviewer_seen=True, 1 worker(s); a separate reviewer needs a reviewer launch and at least 2 workers'})
+
+======================================================================
+FAIL: test_glob_reaching_other_workspaces_is_flagged (test_run.EvaluatorAccessTest.test_glob_reaching_other_workspaces_is_flagged) (command='cat ${HOME}/.cache/lusona-evals/b-t1-2/README.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 657, in test_glob_reaching_other_workspaces_is_flagged
+    self.assertEqual(len(hits), 1, command)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : cat ${HOME}/.cache/lusona-evals/b-t1-2/README.md
+
+======================================================================
+FAIL: test_judge_parses_fenced_json_and_prompt_holds_only_own_section (test_run.JudgeAndReportTest.test_judge_parses_fenced_json_and_prompt_holds_only_own_section)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 806, in test_judge_parses_fenced_json_and_prompt_holds_only_own_section
+    self.assertIn(GOOD_REPLY.strip(), prompt)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '**Result** ✅ Complete\n\n**Evidence**\n\nSaved notes.\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Decide | User | - | - |' not found in 'You are an independent evaluator for a workflow conformance test. You did not produce the work below. Grade only the listed criteria, using only the rubric, the scripted user turns, the actor\'s final replies, and the changed files shown here. Do not use tools.\n\n# Rubric\n\n# Rubric preamble\n\nGrade each criterion as pass, fail, or inconclusive.\n\n## Scenario explore-a\n\n# Criteria to grade\n\n### C1.concrete\nRequired: a named next step and owner.\n\n### C7.continues\nRequired: continues without asking for a command.\n\n# Scripted user turns and actor replies\n\n## Turn 1\n\n### User\n\nWhat storage should we use?\n\n### Actor messages, in order; the last is the final reply\n\n(no reply captured)\n\n## Turn 2\n\n### User\n\nWhat would you do?\n\n### Actor messages, in order; the last is the final reply\n\n(no reply captured)\n\n# Workspace changes\n\nAdded: docs/lusona/notes/n.md\nModified: none\nDeleted: none\n\n## File `docs/lusona/notes/n.md`\n\n````\nnote\n\n````\n\n# Output\n\nReply with one JSON object and nothing else. Use each criterion id above as a key. Each value is an object with "result" set to "pass", "fail", or "inconclusive", and "evidence" set to one or two sentences that quote or locate the text you used. Example shape:\n{"C1.concrete": {"result": "pass", "evidence": "..."}}\n'
+
+======================================================================
+FAIL: test_report_reference_and_compare (test_run.JudgeAndReportTest.test_report_reference_and_compare)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 893, in test_report_reference_and_compare
+    self.assertEqual(set(counts), {"claude"})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Items in the first set but not the second:
+'grading_code_hashes'
+
+----------------------------------------------------------------------
+Ran 100 tests in 1.307s
+
+FAILED (failures=4)

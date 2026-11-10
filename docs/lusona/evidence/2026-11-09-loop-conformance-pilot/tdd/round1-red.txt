@@ -1,0 +1,37 @@
+................................F.................F.E......................
+======================================================================
+ERROR: test_workers_come_from_spawn_calls_in_the_session_rollout (test_run.CodexRunTest.test_workers_come_from_spawn_calls_in_the_session_rollout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 545, in test_workers_come_from_spawn_calls_in_the_session_rollout
+    reviewed = self.run_with_rollout(["review_diff"], "reviewed")
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 541, in run_with_rollout
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, codex_sessions=sessions)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'codex_sessions'
+
+======================================================================
+FAIL: test_refuses_each_mismatched_plugin_independent_field (test_compare.RefusalTest.test_refuses_each_mismatched_plugin_independent_field) (field='permission_config')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 53, in test_refuses_each_mismatched_plugin_independent_field
+    self.assertEqual(outcome["status"], "refused")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'refused'
+- pass
++ refused
+
+
+======================================================================
+FAIL: test_exec_jsonl_alone_never_sets_a_worker_count (test_run.CodexRunTest.test_exec_jsonl_alone_never_sets_a_worker_count)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 517, in test_exec_jsonl_alone_never_sets_a_worker_count
+    self.assertIsNone(parsed["workers"])
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 is not None
+
+----------------------------------------------------------------------
+Ran 75 tests in 0.517s
+
+FAILED (failures=2, errors=1)

@@ -1,0 +1,38 @@
+{
+  "C1": {
+    "evidence": "Next action label not required: C9 not listed",
+    "result": "not-applicable"
+  },
+  "C10": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C2": {
+    "evidence": "record saved: docs/lusona/notes/tally-storage-options.md",
+    "result": "pass"
+  },
+  "C3": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C4": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C5": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C6": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C8": {
+    "evidence": "no commit, no outer change, all changes inside allowed scope",
+    "result": "pass"
+  },
+  "C9": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  }
+}

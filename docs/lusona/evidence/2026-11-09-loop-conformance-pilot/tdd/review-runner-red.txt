@@ -1,0 +1,566 @@
+EEEEEEEEEEFEEEEE.EEEEEEEEEEEEEEEEEEEEEE.......EEEEEEEEF...F....
+======================================================================
+ERROR: test_actor_commit_and_outer_change_are_recorded (test_run.ClaudeRunTest.test_actor_commit_and_outer_change_are_recorded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 527, in test_actor_commit_and_outer_change_are_recorded
+    trial = self.run_trial(trial_dir, FakeHost([commit]))
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_amend_side_branch_and_worktree_commits_are_detected (test_run.ClaudeRunTest.test_amend_side_branch_and_worktree_commits_are_detected) (name='amend')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 508, in test_amend_side_branch_and_worktree_commits_are_detected
+    trial = self.git_trial(name, operation)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 487, in git_trial
+    return self.run_trial(trial_dir, FakeHost([call]))
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_amend_side_branch_and_worktree_commits_are_detected (test_run.ClaudeRunTest.test_amend_side_branch_and_worktree_commits_are_detected) (name='side')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 508, in test_amend_side_branch_and_worktree_commits_are_detected
+    trial = self.git_trial(name, operation)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 487, in git_trial
+    return self.run_trial(trial_dir, FakeHost([call]))
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_amend_side_branch_and_worktree_commits_are_detected (test_run.ClaudeRunTest.test_amend_side_branch_and_worktree_commits_are_detected) (name='worktree')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 508, in test_amend_side_branch_and_worktree_commits_are_detected
+    trial = self.git_trial(name, operation)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 487, in git_trial
+    return self.run_trial(trial_dir, FakeHost([call]))
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_amend_side_branch_and_worktree_commits_are_detected (test_run.ClaudeRunTest.test_amend_side_branch_and_worktree_commits_are_detected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 512, in test_amend_side_branch_and_worktree_commits_are_detected
+    untouched = self.git_trial("none", lambda ws: None)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 487, in git_trial
+    return self.run_trial(trial_dir, FakeHost([call]))
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_cli_version_change_blocks_before_any_turn (test_run.ClaudeRunTest.test_cli_version_change_blocks_before_any_turn)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 426, in test_cli_version_change_blocks_before_any_turn
+    trial = self.run_trial(self.prepare(), host)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_code_change_after_freeze_blocks_capture_but_not_grading (test_run.ClaudeRunTest.test_code_change_after_freeze_blocks_capture_but_not_grading)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 352, in test_code_change_after_freeze_blocks_capture_but_not_grading
+    self.run_trial(trial_dir, FakeHost([lambda a, k: subprocess.CompletedProcess(
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        a, 0, jsonl(init_event("s", plugin), result_event("s", "Hi")), "")]))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_duplicate_plugin_entry_or_model_mismatch_blocks (test_run.ClaudeRunTest.test_duplicate_plugin_entry_or_model_mismatch_blocks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 445, in test_duplicate_plugin_entry_or_model_mismatch_blocks
+    self.assertEqual(self.run_trial(self.prepare(scenario="greet", name="twice"), FakeHost([twice]))["status"],
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_failed_result_after_start_is_inconclusive (test_run.ClaudeRunTest.test_failed_result_after_start_is_inconclusive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 421, in test_failed_result_after_start_is_inconclusive
+    self.assertEqual(self.run_trial(self.prepare(), FakeHost([error]))["status"], "inconclusive")
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_plugin_path_mismatch_blocks_and_stops (test_run.ClaudeRunTest.test_plugin_path_mismatch_blocks_and_stops)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 390, in test_plugin_path_mismatch_blocks_and_stops
+    trial = self.run_trial(trial_dir, host)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_session_cost_is_last_cumulative_total (test_run.ClaudeRunTest.test_session_cost_is_last_cumulative_total)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 373, in test_session_cost_is_last_cumulative_total
+    trial = self.run_trial(trial_dir, FakeHost([turn(0.2885, 0.2885, "one"), turn(0.3748, 0.0863, GOOD_REPLY)]))
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_timeout_is_inconclusive_and_launch_failure_is_setup_blocked (test_run.ClaudeRunTest.test_timeout_is_inconclusive_and_launch_failure_is_setup_blocked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 406, in test_timeout_is_inconclusive_and_launch_failure_is_setup_blocked
+    timed = self.run_trial(self.prepare(name="timed"), FakeHost([timeout]))
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_turn_texts_keep_every_root_text_block (test_run.ClaudeRunTest.test_turn_texts_keep_every_root_text_block)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 473, in test_turn_texts_keep_every_root_text_block
+    trial = self.run_trial(trial_dir, host)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_two_turns_resume_one_session_and_record_evidence (test_run.ClaudeRunTest.test_two_turns_resume_one_session_and_record_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 312, in test_two_turns_resume_one_session_and_record_evidence
+    trial = self.run_trial(trial_dir, host)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_ambient_agents_change_blocks_before_turn_one (test_run.CodexRunTest.test_ambient_agents_change_blocks_before_turn_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 749, in test_ambient_agents_change_blocks_before_turn_one
+    trial = runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=home, environ={})
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_resume_by_thread_and_hidden_workers_are_null (test_run.CodexRunTest.test_resume_by_thread_and_hidden_workers_are_null)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 694, in test_resume_by_thread_and_hidden_workers_are_null
+    trial = self.run_trial(self.prepare(), host)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_workers_come_from_spawn_calls_in_the_session_rollout (test_run.CodexRunTest.test_workers_come_from_spawn_calls_in_the_session_rollout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 756, in test_workers_come_from_spawn_calls_in_the_session_rollout
+    reviewed = self.run_with_rollout(["review_diff"], "reviewed")
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 738, in run_with_rollout
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, codex_sessions=sessions,
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                            home=self.temp, environ={})
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_bash_access_to_suite_files_or_another_trial_invalidates_trial (test_run.EvaluatorAccessTest.test_bash_access_to_suite_files_or_another_trial_invalidates_trial) (call=('Bash', {'command': 'cat ../../suite/scenarios.json'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 597, in test_bash_access_to_suite_files_or_another_trial_invalidates_trial
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_bash_access_to_suite_files_or_another_trial_invalidates_trial (test_run.EvaluatorAccessTest.test_bash_access_to_suite_files_or_another_trial_invalidates_trial) (call=('Bash', {'command': 'ls /home/jg/code/_lusona_/ai-skills/evals/loop-conformance/reference/'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 597, in test_bash_access_to_suite_files_or_another_trial_invalidates_trial
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_bash_access_to_suite_files_or_another_trial_invalidates_trial (test_run.EvaluatorAccessTest.test_bash_access_to_suite_files_or_another_trial_invalidates_trial) (call=('Grep', {'pattern': 'x', 'path': '/home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-h9ku83uw/work/greet-t1-8193a8c0/README.md'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 597, in test_bash_access_to_suite_files_or_another_trial_invalidates_trial
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_bash_access_to_suite_files_or_another_trial_invalidates_trial (test_run.EvaluatorAccessTest.test_bash_access_to_suite_files_or_another_trial_invalidates_trial) (call=('Bash', {'command': 'find / -name judge-calibration.json'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 597, in test_bash_access_to_suite_files_or_another_trial_invalidates_trial
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_codex_command_items_are_scanned (test_run.EvaluatorAccessTest.test_codex_command_items_are_scanned)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 672, in test_codex_command_items_are_scanned
+    trial = self.run_trial(trial_dir, host)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_glob_reaching_other_workspaces_is_flagged (test_run.EvaluatorAccessTest.test_glob_reaching_other_workspaces_is_flagged) (command='ls $HOME/.cache/lusona-evals/*/README.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 654, in test_glob_reaching_other_workspaces_is_flagged
+    hits = runner.evaluator_access([(1, [("Bash", {"command": command})])], workspace=workspace,
+                                   plugin=plugin, condition_dir=plugin.parent, trial_dir=self.temp / "t",
+                                   work_root=work_root, repo_root=self.temp / "repo", environ=environ)
+TypeError: evaluator_access() got an unexpected keyword argument 'repo_root'
+
+======================================================================
+ERROR: test_glob_reaching_other_workspaces_is_flagged (test_run.EvaluatorAccessTest.test_glob_reaching_other_workspaces_is_flagged) (command='ls ~/.cache/lusona-*/*')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 654, in test_glob_reaching_other_workspaces_is_flagged
+    hits = runner.evaluator_access([(1, [("Bash", {"command": command})])], workspace=workspace,
+                                   plugin=plugin, condition_dir=plugin.parent, trial_dir=self.temp / "t",
+                                   work_root=work_root, repo_root=self.temp / "repo", environ=environ)
+TypeError: evaluator_access() got an unexpected keyword argument 'repo_root'
+
+======================================================================
+ERROR: test_glob_reaching_other_workspaces_is_flagged (test_run.EvaluatorAccessTest.test_glob_reaching_other_workspaces_is_flagged) (command='cat ${HOME}/.cache/lusona-evals/b-t1-2/README.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 654, in test_glob_reaching_other_workspaces_is_flagged
+    hits = runner.evaluator_access([(1, [("Bash", {"command": command})])], workspace=workspace,
+                                   plugin=plugin, condition_dir=plugin.parent, trial_dir=self.temp / "t",
+                                   work_root=work_root, repo_root=self.temp / "repo", environ=environ)
+TypeError: evaluator_access() got an unexpected keyword argument 'repo_root'
+
+======================================================================
+ERROR: test_glob_reaching_other_workspaces_is_flagged (test_run.EvaluatorAccessTest.test_glob_reaching_other_workspaces_is_flagged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 658, in test_glob_reaching_other_workspaces_is_flagged
+    own = runner.evaluator_access([(1, [("Bash", {"command": "ls ./*.md"})])], workspace=workspace, plugin=plugin,
+                                  condition_dir=plugin.parent, trial_dir=self.temp / "t", work_root=work_root,
+                                  repo_root=self.temp / "repo", environ=environ)
+TypeError: evaluator_access() got an unexpected keyword argument 'repo_root'
+
+======================================================================
+ERROR: test_parent_directory_and_repository_paths_are_invalid (test_run.EvaluatorAccessTest.test_parent_directory_and_repository_paths_are_invalid) (call=('Bash', {'command': 'ls ..'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 639, in test_parent_directory_and_repository_paths_are_invalid
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_parent_directory_and_repository_paths_are_invalid (test_run.EvaluatorAccessTest.test_parent_directory_and_repository_paths_are_invalid) (call=('Bash', {'command': 'ls ../..'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 639, in test_parent_directory_and_repository_paths_are_invalid
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_parent_directory_and_repository_paths_are_invalid (test_run.EvaluatorAccessTest.test_parent_directory_and_repository_paths_are_invalid) (call=('Bash', {'command': 'cd .. && ls'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 639, in test_parent_directory_and_repository_paths_are_invalid
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_parent_directory_and_repository_paths_are_invalid (test_run.EvaluatorAccessTest.test_parent_directory_and_repository_paths_are_invalid) (call=('Read', {'file_path': '/home/jg/code/_lusona_/ai-skills/docs/lusona/work.md'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 639, in test_parent_directory_and_repository_paths_are_invalid
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_parent_directory_and_repository_paths_are_invalid (test_run.EvaluatorAccessTest.test_parent_directory_and_repository_paths_are_invalid) (call=('Bash', {'command': 'cat /home/jg/code/_lusona_/ai-skills/plugins/lusona/README.md'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 639, in test_parent_directory_and_repository_paths_are_invalid
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_plugin_and_workspace_reads_are_legitimate (test_run.EvaluatorAccessTest.test_plugin_and_workspace_reads_are_legitimate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 610, in test_plugin_and_workspace_reads_are_legitimate
+    trial = self.run_trial(trial_dir, host)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_reading_condition_rubric_invalidates_trial (test_run.EvaluatorAccessTest.test_reading_condition_rubric_invalidates_trial)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 573, in test_reading_condition_rubric_invalidates_trial
+    trial = self.run_trial(trial_dir, host)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_reviewer_false_positive_cases_are_not_invalid (test_run.EvaluatorAccessTest.test_reviewer_false_positive_cases_are_not_invalid) (call=('Bash', {'command': "cat > docs/note.md <<'EOF'\nSee the [Work queue](../work.md).\nEOF"}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 625, in test_reviewer_false_positive_cases_are_not_invalid
+    trial = self.run_trial(trial_dir, self.read_turns(trial_dir, call))
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_reviewer_false_positive_cases_are_not_invalid (test_run.EvaluatorAccessTest.test_reviewer_false_positive_cases_are_not_invalid) (call=('Bash', {'command': 'cd tests && cat ../README.md'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 625, in test_reviewer_false_positive_cases_are_not_invalid
+    trial = self.run_trial(trial_dir, self.read_turns(trial_dir, call))
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_reviewer_false_positive_cases_are_not_invalid (test_run.EvaluatorAccessTest.test_reviewer_false_positive_cases_are_not_invalid) (call=('Agent', {'description': 'Draft notes', 'prompt': 'Follow [the contract](../README.md#contract).'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 625, in test_reviewer_false_positive_cases_are_not_invalid
+    trial = self.run_trial(trial_dir, self.read_turns(trial_dir, call))
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_reviewer_false_positive_cases_are_not_invalid (test_run.EvaluatorAccessTest.test_reviewer_false_positive_cases_are_not_invalid) (call=('Bash', {'command': "python3 - <<<'print(1)' ../../x"}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 625, in test_reviewer_false_positive_cases_are_not_invalid
+    trial = self.run_trial(trial_dir, self.read_turns(trial_dir, call))
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_grading_provenance_reaches_report_and_reference (test_run.JudgeAndReportTest.test_grading_provenance_reaches_report_and_reference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 858, in test_grading_provenance_reaches_report_and_reference
+    trial_dir = self.captured_trial("runs/a", GOOD_REPLY)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 783, in captured_trial
+    self.run_trial(trial_dir, FakeHost([turn("one", False), turn(reply, True)]))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_judge_parses_fenced_json_and_prompt_holds_only_own_section (test_run.JudgeAndReportTest.test_judge_parses_fenced_json_and_prompt_holds_only_own_section)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 792, in test_judge_parses_fenced_json_and_prompt_holds_only_own_section
+    trial_dir = self.captured_trial("trial", GOOD_REPLY)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 783, in captured_trial
+    self.run_trial(trial_dir, FakeHost([turn("one", False), turn(reply, True)]))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_malformed_judge_output_makes_every_criterion_inconclusive (test_run.JudgeAndReportTest.test_malformed_judge_output_makes_every_criterion_inconclusive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 811, in test_malformed_judge_output_makes_every_criterion_inconclusive
+    trial_dir = self.captured_trial("trial", GOOD_REPLY)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 783, in captured_trial
+    self.run_trial(trial_dir, FakeHost([turn("one", False), turn(reply, True)]))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_report_lists_boundary_evidence_of_excluded_trials (test_run.JudgeAndReportTest.test_report_lists_boundary_evidence_of_excluded_trials)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 876, in test_report_lists_boundary_evidence_of_excluded_trials
+    self.run_trial(trial_dir, FakeHost([wrong_plugin]))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_report_reference_and_compare (test_run.JudgeAndReportTest.test_report_reference_and_compare)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 887, in test_report_reference_and_compare
+    good = self.captured_trial("runs/a", GOOD_REPLY, trial=1)
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 783, in captured_trial
+    self.run_trial(trial_dir, FakeHost([turn("one", False), turn(reply, True)]))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_report_refuses_duplicate_trials (test_run.JudgeAndReportTest.test_report_refuses_duplicate_trials)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 850, in test_report_refuses_duplicate_trials
+    self.captured_trial("runs/a", GOOD_REPLY, trial=1)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 783, in captured_trial
+    self.run_trial(trial_dir, FakeHost([turn("one", False), turn(reply, True)]))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_scenario_without_criteria_skips_the_model_call (test_run.JudgeAndReportTest.test_scenario_without_criteria_skips_the_model_call)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 824, in test_scenario_without_criteria_skips_the_model_call
+    self.run_trial(trial_dir, FakeHost([lambda a, k: subprocess.CompletedProcess(
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        a, 0, jsonl(init_event("s", plugin), result_event("s", "Hi")), "")]))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 133, in run_trial
+    return runner.run_trial(trial_dir, executor=host, outer_status=self.outer_status, home=self.temp, environ={})
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_trial() got an unexpected keyword argument 'home'
+
+======================================================================
+ERROR: test_content_state_sees_edits_hidden_from_porcelain (test_run.OuterRepositoryTest.test_content_state_sees_edits_hidden_from_porcelain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 547, in test_content_state_sees_edits_hidden_from_porcelain
+    before = runner.outer_repo_state(repo)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'loop_conformance_run' has no attribute 'outer_repo_state'
+
+======================================================================
+FAIL: test_reviewer_detection_uses_description_and_type_only (test_run.ClaudeRunTest.test_reviewer_detection_uses_description_and_type_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 459, in test_reviewer_detection_uses_description_and_type_only
+    self.assertFalse(runner.parse_claude(implementer, "/p")["reviewer_seen"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_ignored_paths (test_run.SuiteContentTest.test_ignored_paths)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 202, in test_ignored_paths
+    self.assertTrue(runner.ignored(path), path)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : .pytest_cache/v/cache/nodeids
+
+======================================================================
+FAIL: test_validation_accepts_boolean_spec_required_only (test_run.SuiteContentTest.test_validation_accepts_boolean_spec_required_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 198, in test_validation_accepts_boolean_spec_required_only
+    self.assertTrue(any("spec_required" in p for p in runner.validate_scenarios(bad)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 47 tests in 1.182s
+
+FAILED (failures=3, errors=45)

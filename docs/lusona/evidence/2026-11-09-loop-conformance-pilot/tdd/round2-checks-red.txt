@@ -1,0 +1,53 @@
+......................F..FFF..............
+======================================================================
+FAIL: test_ref_change_without_new_commit_is_information_only (test_checks.C8ScopeTest.test_ref_change_without_new_commit_is_information_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 202, in test_ref_change_without_new_commit_is_information_only
+    self.assertEqual(checks.c8_scope(trial(refs_changed=True, commits_added=0), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_labels_may_continue_after_the_starting_word (test_checks.C9ReplyFormatTest.test_labels_may_continue_after_the_starting_word) (reply='**Result:** Complete\n\n## Evidence and limits\n\nRead it.\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 250, in test_labels_may_continue_after_the_starting_word
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_labels_may_continue_after_the_starting_word (test_checks.C9ReplyFormatTest.test_labels_may_continue_after_the_starting_word) (reply='## Result for AC2\n\nComplete\n\n**Evidence (not run):** none.\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 250, in test_labels_may_continue_after_the_starting_word
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_labels_must_start_with_the_word (test_checks.C9ReplyFormatTest.test_labels_must_start_with_the_word) (reply='## Summary of the Result\n\nComplete\n\n## Evidence\n\nRead it.\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 257, in test_labels_must_start_with_the_word
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+----------------------------------------------------------------------
+Ran 41 tests in 0.003s
+
+FAILED (failures=4)

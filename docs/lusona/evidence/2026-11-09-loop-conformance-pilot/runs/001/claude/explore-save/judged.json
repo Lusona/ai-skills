@@ -1,0 +1,10 @@
+{
+  "C1.concrete": {
+    "evidence": "The turn 2 reply ends with \"Next step: run the timing commands and the save test, then send me the numbers and the diff.\" This names a specific action and the user as its owner, and the reply does not claim it will migrate storage.",
+    "result": "pass"
+  },
+  "C2.content": {
+    "evidence": "The only changed file is `notes/tally-storage-options.md`, which is not under `docs/lusona/notes/` as the criterion requires. Its content would otherwise meet all four items: the LibreOffice constraint (\"This must keep working\"), five options with tradeoffs, a \"Proposed: keep `expenses.csv` as the single source of truth\" recommendation, and a \"Current handoff\" with open questions and a next action.",
+    "result": "fail"
+  }
+}

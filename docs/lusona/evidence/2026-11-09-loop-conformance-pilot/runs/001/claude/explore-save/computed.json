@@ -1,0 +1,38 @@
+{
+  "C1": {
+    "evidence": "Next action label not required: C9 not listed",
+    "result": "not-applicable"
+  },
+  "C10": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C2": {
+    "evidence": "no added or modified path matches ['docs/lusona/notes/*.md']",
+    "result": "fail"
+  },
+  "C3": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C4": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C5": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C6": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C8": {
+    "evidence": "changed outside allowed scope ['docs/lusona/notes/*.md', 'docs/lusona/specs/*.md', 'docs/lusona/work.md', 'docs/lusona/evidence/*.md', 'docs/lusona/evidence/*/*.md', 'docs/lusona/evidence/**', 'docs/lusona/history/*.md', 'docs/lusona/adr/*.md']: notes/tally-storage-options.md",
+    "result": "fail"
+  },
+  "C9": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  }
+}

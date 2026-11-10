@@ -1,0 +1,38 @@
+.F...F...................F...
+======================================================================
+FAIL: test_false_expectations_mean_not_required (test_checks.C10DelegationTest.test_false_expectations_mean_not_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 222, in test_false_expectations_mean_not_required
+    self.assertEqual(checks.c10_delegation(trial(workers=3, reviewer_seen=True), not_required)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_not_applicable_when_c9_not_listed (test_checks.C1NextActionTest.test_not_applicable_when_c9_not_listed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 88, in test_not_applicable_when_c9_not_listed
+    self.assertEqual(checks.c1_next_action(no_label, scenario(["C1"]))["result"], "not-applicable")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'not-applicable'
+- fail
++ not-applicable
+
+
+======================================================================
+FAIL: test_fnmatch_style_patterns_also_match (test_checks.GlobTest.test_fnmatch_style_patterns_also_match)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 71, in test_fnmatch_style_patterns_also_match
+    self.assertTrue(checks.glob_matches("src/exporter.py", "*.py"))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 29 tests in 0.002s
+
+FAILED (failures=3)

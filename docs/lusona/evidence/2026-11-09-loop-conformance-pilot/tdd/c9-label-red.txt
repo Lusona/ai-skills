@@ -1,0 +1,41 @@
+...................FFF..........
+======================================================================
+FAIL: test_pass_when_status_shares_the_label_or_heading (test_checks.C9ReplyFormatTest.test_pass_when_status_shares_the_label_or_heading) (reply='**Result: ✅ Complete**\n\n**Evidence:** read it.\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 209, in test_pass_when_status_shares_the_label_or_heading
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_pass_when_status_shares_the_label_or_heading (test_checks.C9ReplyFormatTest.test_pass_when_status_shares_the_label_or_heading) (reply='**Result — 🔄 In progress**\n\n**Evidence**\n\nread it.\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 209, in test_pass_when_status_shares_the_label_or_heading
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_pass_when_status_shares_the_label_or_heading (test_checks.C9ReplyFormatTest.test_pass_when_status_shares_the_label_or_heading) (reply='## 🔄 In progress — Result\n\nPartly done.\n\n## Evidence\n\nRead it.\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 209, in test_pass_when_status_shares_the_label_or_heading
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.002s
+
+FAILED (failures=3)

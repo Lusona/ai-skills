@@ -1,0 +1,138 @@
+....................FFFFFFF.....FFFF.............error: duplicate trial ('claude', 'explore-a', 1): /home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-89248c2n/runs/a and /home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-89248c2n/runs/b; a report needs one directory per host, scenario, and trial
+.............
+======================================================================
+FAIL: test_heredoc_receiver_skips_wrappers (test_run.EvaluatorAccessTest.test_heredoc_receiver_skips_wrappers) (before='timeout 60 python3 - ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 733, in test_heredoc_receiver_skips_wrappers
+    self.assertEqual(runner._heredoc_receiver(before), receiver)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'timeout' != 'python3'
+- timeout
++ python3
+
+
+======================================================================
+FAIL: test_heredoc_receiver_skips_wrappers (test_run.EvaluatorAccessTest.test_heredoc_receiver_skips_wrappers) (before='/usr/bin/env FOO=1 python3 - ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 733, in test_heredoc_receiver_skips_wrappers
+    self.assertEqual(runner._heredoc_receiver(before), receiver)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'env' != 'python3'
+- env
++ python3
+
+
+======================================================================
+FAIL: test_heredoc_receiver_skips_wrappers (test_run.EvaluatorAccessTest.test_heredoc_receiver_skips_wrappers) (before='A=1 env B=2 node ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 733, in test_heredoc_receiver_skips_wrappers
+    self.assertEqual(runner._heredoc_receiver(before), receiver)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'env' != 'node'
+- env
++ node
+
+
+======================================================================
+FAIL: test_heredoc_receiver_skips_wrappers (test_run.EvaluatorAccessTest.test_heredoc_receiver_skips_wrappers) (before='nice -n 5 ruby ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 733, in test_heredoc_receiver_skips_wrappers
+    self.assertEqual(runner._heredoc_receiver(before), receiver)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'nice' != 'ruby'
+- nice
++ ruby
+
+
+======================================================================
+FAIL: test_heredoc_receiver_skips_wrappers (test_run.EvaluatorAccessTest.test_heredoc_receiver_skips_wrappers) (before='time perl ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 733, in test_heredoc_receiver_skips_wrappers
+    self.assertEqual(runner._heredoc_receiver(before), receiver)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'time' != 'perl'
+- time
++ perl
+
+
+======================================================================
+FAIL: test_heredoc_receiver_skips_wrappers (test_run.EvaluatorAccessTest.test_heredoc_receiver_skips_wrappers) (before='uv run python - ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 733, in test_heredoc_receiver_skips_wrappers
+    self.assertEqual(runner._heredoc_receiver(before), receiver)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'uv' != 'python'
+- uv
++ python
+
+
+======================================================================
+FAIL: test_heredoc_receiver_skips_wrappers (test_run.EvaluatorAccessTest.test_heredoc_receiver_skips_wrappers) (before='cd x && timeout 5s bash ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 733, in test_heredoc_receiver_skips_wrappers
+    self.assertEqual(runner._heredoc_receiver(before), receiver)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'timeout' != 'bash'
+- timeout
++ bash
+
+
+======================================================================
+FAIL: test_wrapped_interpreters_receive_code_bodies (test_run.EvaluatorAccessTest.test_wrapped_interpreters_receive_code_bodies) (wrapper='timeout 60 python3 -', expected='captured')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 721, in test_wrapped_interpreters_receive_code_bodies
+    self.assertEqual(trial["status"], expected, trial["evaluator_access"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid' != 'captured'
+- invalid
++ captured
+ : [{'turn': 1, 'tool': 'Bash', 'token': '..', 'reason': 'relative path leaves the workspace', 'call': '{"command": "timeout 60 python3 - <<\'EOF\'\\nfrom pathlib import Path\\nprint(Path(\'tally\') / \'..\')\\nEOF"}'}]
+
+======================================================================
+FAIL: test_wrapped_interpreters_receive_code_bodies (test_run.EvaluatorAccessTest.test_wrapped_interpreters_receive_code_bodies) (wrapper='/usr/bin/env python3 -', expected='captured')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 721, in test_wrapped_interpreters_receive_code_bodies
+    self.assertEqual(trial["status"], expected, trial["evaluator_access"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid' != 'captured'
+- invalid
++ captured
+ : [{'turn': 1, 'tool': 'Bash', 'token': '..', 'reason': 'relative path leaves the workspace', 'call': '{"command": "/usr/bin/env python3 - <<\'EOF\'\\nfrom pathlib import Path\\nprint(Path(\'tally\') / \'..\')\\nEOF"}'}]
+
+======================================================================
+FAIL: test_wrapped_interpreters_receive_code_bodies (test_run.EvaluatorAccessTest.test_wrapped_interpreters_receive_code_bodies) (wrapper='uv run python -', expected='captured')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 721, in test_wrapped_interpreters_receive_code_bodies
+    self.assertEqual(trial["status"], expected, trial["evaluator_access"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid' != 'captured'
+- invalid
++ captured
+ : [{'turn': 1, 'tool': 'Bash', 'token': '..', 'reason': 'relative path leaves the workspace', 'call': '{"command": "uv run python - <<\'EOF\'\\nfrom pathlib import Path\\nprint(Path(\'tally\') / \'..\')\\nEOF"}'}]
+
+======================================================================
+FAIL: test_wrapped_interpreters_receive_code_bodies (test_run.EvaluatorAccessTest.test_wrapped_interpreters_receive_code_bodies) (wrapper='python3.14 -', expected='captured')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 721, in test_wrapped_interpreters_receive_code_bodies
+    self.assertEqual(trial["status"], expected, trial["evaluator_access"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid' != 'captured'
+- invalid
++ captured
+ : [{'turn': 1, 'tool': 'Bash', 'token': '..', 'reason': 'relative path leaves the workspace', 'call': '{"command": "python3.14 - <<\'EOF\'\\nfrom pathlib import Path\\nprint(Path(\'tally\') / \'..\')\\nEOF"}'}]
+
+----------------------------------------------------------------------
+Ran 53 tests in 2.926s
+
+FAILED (failures=11)

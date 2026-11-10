@@ -1,0 +1,143 @@
+.....................F.F............F.....F.........FFFFFEF..F...............
+======================================================================
+ERROR: test_plugin_and_workspace_reads_are_legitimate (test_run.EvaluatorAccessTest.test_plugin_and_workspace_reads_are_legitimate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 462, in test_plugin_and_workspace_reads_are_legitimate
+    self.assertEqual(trial["evaluator_access"], [])
+                     ~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'evaluator_access'
+
+======================================================================
+FAIL: test_fail_dominates_then_weakest_non_pass_state (test_checks.CombineTest.test_fail_dominates_then_weakest_non_pass_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 295, in test_fail_dominates_then_weakest_non_pass_state
+    self.assertEqual(checks.combine(self.part("invalid"), self.part("fail"))["result"], "invalid")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'invalid'
+- fail
++ invalid
+
+
+======================================================================
+FAIL: test_invalid_trial_is_invalid_for_every_applicable_check (test_checks.EvaluateTest.test_invalid_trial_is_invalid_for_every_applicable_check)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 263, in test_invalid_trial_is_invalid_for_every_applicable_check
+    self.assertEqual(results[check]["result"], "invalid", check)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'invalid'
+- inconclusive
++ invalid
+ : C1
+
+======================================================================
+FAIL: test_check_ungraded_on_both_sides_is_unavailable_and_does_not_block_pass (test_compare.RegressionRuleTest.test_check_ungraded_on_both_sides_is_unavailable_and_does_not_block_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 94, in test_check_ungraded_on_both_sides_is_unavailable_and_does_not_block_pass
+    self.assertEqual(outcome["checks"]["C10"]["status"], "unavailable")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'insufficient' != 'unavailable'
+- insufficient
++ unavailable
+
+
+======================================================================
+FAIL: test_not_applicable_only_check_is_not_reported_as_passing (test_compare.RegressionRuleTest.test_not_applicable_only_check_is_not_reported_as_passing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 88, in test_not_applicable_only_check_is_not_reported_as_passing
+    self.assertEqual(outcome["checks"]["C6"]["status"], "unavailable")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'insufficient' != 'unavailable'
+- insufficient
++ unavailable
+
+
+======================================================================
+FAIL: test_bash_access_to_suite_files_or_another_trial_invalidates_trial (test_run.EvaluatorAccessTest.test_bash_access_to_suite_files_or_another_trial_invalidates_trial) (call=('Bash', {'command': 'cat ../../suite/scenarios.json'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 449, in test_bash_access_to_suite_files_or_another_trial_invalidates_trial
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'captured' != 'invalid'
+- captured
++ invalid
+
+
+======================================================================
+FAIL: test_bash_access_to_suite_files_or_another_trial_invalidates_trial (test_run.EvaluatorAccessTest.test_bash_access_to_suite_files_or_another_trial_invalidates_trial) (call=('Bash', {'command': 'ls /home/jg/code/_lusona_/ai-skills/evals/loop-conformance/reference/'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 449, in test_bash_access_to_suite_files_or_another_trial_invalidates_trial
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'captured' != 'invalid'
+- captured
++ invalid
+
+
+======================================================================
+FAIL: test_bash_access_to_suite_files_or_another_trial_invalidates_trial (test_run.EvaluatorAccessTest.test_bash_access_to_suite_files_or_another_trial_invalidates_trial) (call=('Grep', {'pattern': 'x', 'path': '/home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-ny9exubr/work/greet-t1-109bd2a0/README.md'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 449, in test_bash_access_to_suite_files_or_another_trial_invalidates_trial
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'captured' != 'invalid'
+- captured
++ invalid
+
+
+======================================================================
+FAIL: test_bash_access_to_suite_files_or_another_trial_invalidates_trial (test_run.EvaluatorAccessTest.test_bash_access_to_suite_files_or_another_trial_invalidates_trial) (call=('Bash', {'command': 'find / -name judge-calibration.json'}))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 449, in test_bash_access_to_suite_files_or_another_trial_invalidates_trial
+    self.assertEqual(self.run_trial(trial_dir, self.read_turns(trial_dir, call))["status"], "invalid")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'captured' != 'invalid'
+- captured
++ invalid
+
+
+======================================================================
+FAIL: test_codex_command_items_are_scanned (test_run.EvaluatorAccessTest.test_codex_command_items_are_scanned)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 474, in test_codex_command_items_are_scanned
+    self.assertEqual(trial["status"], "invalid")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'captured' != 'invalid'
+- captured
++ invalid
+
+
+======================================================================
+FAIL: test_reading_condition_rubric_invalidates_trial (test_run.EvaluatorAccessTest.test_reading_condition_rubric_invalidates_trial)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 426, in test_reading_condition_rubric_invalidates_trial
+    self.assertEqual(trial["status"], "invalid")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'captured' != 'invalid'
+- captured
++ invalid
+
+
+======================================================================
+FAIL: test_freeze_records_condition_and_detects_mutation (test_run.FreezeAndPrepareTest.test_freeze_records_condition_and_detects_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 208, in test_freeze_records_condition_and_detects_mutation
+    self.assertIn("Bash(mkdir *)", data["allowed_tools"])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Bash(mkdir *)' not found in ['Read', 'Edit', 'Write', 'Skill', 'Task', 'Agent', 'Bash(git status)', 'Bash(git status *)', 'Bash(git diff)', 'Bash(git diff *)', 'Bash(git log)', 'Bash(git log *)', 'Bash(git add *)', 'Bash(git commit *)', 'Bash(ls)', 'Bash(ls *)', 'Bash(cat *)', 'Bash(python3 -m unittest)', 'Bash(python3 -m unittest *)', 'Bash(/home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-sjj18fbw/condition/plugin/scripts/work-record.sh *)', 'Bash(bash /home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-sjj18fbw/condition/plugin/scripts/work-record.sh *)', 'Bash(sh /home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-sjj18fbw/condition/plugin/scripts/work-record.sh *)']
+
+----------------------------------------------------------------------
+Ran 74 tests in 0.659s
+
+FAILED (failures=11, errors=1)

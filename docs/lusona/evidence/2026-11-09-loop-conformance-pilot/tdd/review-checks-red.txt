@@ -1,0 +1,158 @@
+....F....FFF.........F.F.FF...FF...F...................FF
+======================================================================
+FAIL: test_reviewer_requires_a_separate_worker (test_checks.C10DelegationTest.test_reviewer_requires_a_separate_worker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 280, in test_reviewer_requires_a_separate_worker
+    self.assertEqual(checks.c10_delegation(trial(workers=1, reviewer_seen=True), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+======================================================================
+FAIL: test_pass_status_template_heading_and_plural_label (test_checks.C1NextActionTest.test_pass_status_template_heading_and_plural_label) (reply='## Result\n\nDiagnosed. In progress.\n\n## E')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 108, in test_pass_status_template_heading_and_plural_label
+    self.assertEqual(checks.c1_next_action(trial(replies=[reply]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_pass_status_template_heading_and_plural_label (test_checks.C1NextActionTest.test_pass_status_template_heading_and_plural_label) (reply='Done.\n\n**Next actions:** the user review')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 108, in test_pass_status_template_heading_and_plural_label
+    self.assertEqual(checks.c1_next_action(trial(replies=[reply]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_pass_status_template_heading_and_plural_label (test_checks.C1NextActionTest.test_pass_status_template_heading_and_plural_label) (reply='### Next actions\n\n| Action | Owner |\n| -')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 108, in test_pass_status_template_heading_and_plural_label
+    self.assertEqual(checks.c1_next_action(trial(replies=[reply]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_required_spec_missing_fails (test_checks.C6QueueRowTest.test_required_spec_missing_fails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 186, in test_required_spec_missing_fails
+    self.assertEqual(checks.c6_queue_row(trial(), required)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'not-applicable' != 'fail'
+- not-applicable
++ fail
+
+
+======================================================================
+FAIL: test_fail_when_refs_changed_without_new_commit_count (test_checks.C8ScopeTest.test_fail_when_refs_changed_without_new_commit_count)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 202, in test_fail_when_refs_changed_without_new_commit_count
+    self.assertEqual(checks.c8_scope(trial(refs_changed=True), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+======================================================================
+FAIL: test_evidence_label_must_be_the_word_itself (test_checks.C9ReplyFormatTest.test_evidence_label_must_be_the_word_itself) (reply='**Result:** Complete\n\n**Evidence-aware workflow** is finished.\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 252, in test_evidence_label_must_be_the_word_itself
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+======================================================================
+FAIL: test_evidence_label_must_be_the_word_itself (test_checks.C9ReplyFormatTest.test_evidence_label_must_be_the_word_itself) (reply='## Result\n\nComplete\n\n## Evidence-aware workflow\n\nDone.\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 252, in test_evidence_label_must_be_the_word_itself
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+======================================================================
+FAIL: test_status_words_match_case_insensitively (test_checks.C9ReplyFormatTest.test_status_words_match_case_insensitively) (reply='**Result:** 🔄 In Progress\n\n**Evidence:** read it.\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 244, in test_status_words_match_case_insensitively
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_status_words_match_case_insensitively (test_checks.C9ReplyFormatTest.test_status_words_match_case_insensitively) (reply='## Result\n\nNEEDS INPUT\n\n## Evidence\n\nRead it.\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 244, in test_status_words_match_case_insensitively
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+
+
+======================================================================
+FAIL: test_outer_change_fails_c8_even_when_not_listed (test_checks.EvaluateTest.test_outer_change_fails_c8_even_when_not_listed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 319, in test_outer_change_fails_c8_even_when_not_listed
+    self.assertEqual(results["C8"]["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'not-applicable' != 'fail'
+- not-applicable
++ fail
+
+
+======================================================================
+FAIL: test_different_grading_code_is_a_warning (test_compare.TrialSetTest.test_different_grading_code_is_a_warning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 81, in test_different_grading_code_is_a_warning
+    self.assertTrue(any("checks.py" in w for w in outcome["warnings"]), outcome["warnings"])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_refuses_different_trial_sets_or_trial_budget (test_compare.TrialSetTest.test_refuses_different_trial_sets_or_trial_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 69, in test_refuses_different_trial_sets_or_trial_budget
+    self.assertEqual(outcome["status"], "refused")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'refused'
+- pass
++ refused
+
+
+----------------------------------------------------------------------
+Ran 53 tests in 0.006s
+
+FAILED (failures=13)

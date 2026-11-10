@@ -1,0 +1,6 @@
+.....................................................................................................error: duplicate trial ('claude', 'explore-a', 1): /home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-uew3ebwh/runs/a and /home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-uew3ebwh/runs/b; a report needs one directory per host, scenario, and trial
+.............
+----------------------------------------------------------------------
+Ran 114 tests in 4.282s
+
+OK

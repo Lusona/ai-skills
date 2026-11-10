@@ -1,0 +1,221 @@
+FFFFFFFFFFFFFEFE.FFE
+======================================================================
+ERROR: test_boundary_fail_outranks_insufficient (test_compare.RegressionRuleTest.test_boundary_fail_outranks_insufficient)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 63, in test_boundary_fail_outranks_insufficient
+    self.assertEqual(outcome["checks"]["C3"]["status"], "fail")
+                     ~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'C3'
+
+======================================================================
+ERROR: test_fewer_than_four_graded_trials_is_insufficient (test_compare.RegressionRuleTest.test_fewer_than_four_graded_trials_is_insufficient)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 81, in test_fewer_than_four_graded_trials_is_insufficient
+    self.assertEqual(outcome["checks"]["C1"]["status"], "insufficient")
+                     ~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'C1'
+
+======================================================================
+ERROR: test_not_applicable_only_check_is_not_reported_as_passing (test_compare.RegressionRuleTest.test_not_applicable_only_check_is_not_reported_as_passing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 88, in test_not_applicable_only_check_is_not_reported_as_passing
+    self.assertEqual(outcome["checks"]["C6"]["status"], "insufficient")
+                     ~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'C6'
+
+======================================================================
+FAIL: test_plugin_hash_difference_is_reported_not_refused (test_compare.RefusalTest.test_plugin_hash_difference_is_reported_not_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 35, in test_plugin_hash_difference_is_reported_not_refused
+    self.assertEqual(outcome["status"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'pass'
+- stub
++ pass
+
+
+======================================================================
+FAIL: test_refuses_each_mismatched_plugin_independent_field (test_compare.RefusalTest.test_refuses_each_mismatched_plugin_independent_field) (field='suite_hashes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 49, in test_refuses_each_mismatched_plugin_independent_field
+    self.assertEqual(outcome["status"], "refused")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'refused'
+- stub
++ refused
+
+
+======================================================================
+FAIL: test_refuses_each_mismatched_plugin_independent_field (test_compare.RefusalTest.test_refuses_each_mismatched_plugin_independent_field) (field='host')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 49, in test_refuses_each_mismatched_plugin_independent_field
+    self.assertEqual(outcome["status"], "refused")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'refused'
+- stub
++ refused
+
+
+======================================================================
+FAIL: test_refuses_each_mismatched_plugin_independent_field (test_compare.RefusalTest.test_refuses_each_mismatched_plugin_independent_field) (field='cli_version')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 49, in test_refuses_each_mismatched_plugin_independent_field
+    self.assertEqual(outcome["status"], "refused")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'refused'
+- stub
++ refused
+
+
+======================================================================
+FAIL: test_refuses_each_mismatched_plugin_independent_field (test_compare.RefusalTest.test_refuses_each_mismatched_plugin_independent_field) (field='model')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 49, in test_refuses_each_mismatched_plugin_independent_field
+    self.assertEqual(outcome["status"], "refused")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'refused'
+- stub
++ refused
+
+
+======================================================================
+FAIL: test_refuses_each_mismatched_plugin_independent_field (test_compare.RefusalTest.test_refuses_each_mismatched_plugin_independent_field) (field='effort')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 49, in test_refuses_each_mismatched_plugin_independent_field
+    self.assertEqual(outcome["status"], "refused")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'refused'
+- stub
++ refused
+
+
+======================================================================
+FAIL: test_refuses_each_mismatched_plugin_independent_field (test_compare.RefusalTest.test_refuses_each_mismatched_plugin_independent_field) (field='judge_model')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 49, in test_refuses_each_mismatched_plugin_independent_field
+    self.assertEqual(outcome["status"], "refused")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'refused'
+- stub
++ refused
+
+
+======================================================================
+FAIL: test_refuses_each_mismatched_plugin_independent_field (test_compare.RefusalTest.test_refuses_each_mismatched_plugin_independent_field) (field='judge_effort')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 49, in test_refuses_each_mismatched_plugin_independent_field
+    self.assertEqual(outcome["status"], "refused")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'refused'
+- stub
++ refused
+
+
+======================================================================
+FAIL: test_refuses_each_mismatched_plugin_independent_field (test_compare.RefusalTest.test_refuses_each_mismatched_plugin_independent_field) (field='judge_prompt_sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 49, in test_refuses_each_mismatched_plugin_independent_field
+    self.assertEqual(outcome["status"], "refused")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'refused'
+- stub
++ refused
+
+
+======================================================================
+FAIL: test_refuses_each_mismatched_plugin_independent_field (test_compare.RefusalTest.test_refuses_each_mismatched_plugin_independent_field) (field='ambient_instruction_hashes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 49, in test_refuses_each_mismatched_plugin_independent_field
+    self.assertEqual(outcome["status"], "refused")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'refused'
+- stub
++ refused
+
+
+======================================================================
+FAIL: test_boundary_fail_in_any_trial_fails_candidate (test_compare.RegressionRuleTest.test_boundary_fail_in_any_trial_fails_candidate) (check='C3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 58, in test_boundary_fail_in_any_trial_fails_candidate
+    self.assertEqual(outcome["status"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'fail'
+- stub
++ fail
+
+
+======================================================================
+FAIL: test_boundary_fail_in_any_trial_fails_candidate (test_compare.RegressionRuleTest.test_boundary_fail_in_any_trial_fails_candidate) (check='C5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 58, in test_boundary_fail_in_any_trial_fails_candidate
+    self.assertEqual(outcome["status"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'fail'
+- stub
++ fail
+
+
+======================================================================
+FAIL: test_boundary_fail_in_any_trial_fails_candidate (test_compare.RegressionRuleTest.test_boundary_fail_in_any_trial_fails_candidate) (check='C8')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 58, in test_boundary_fail_in_any_trial_fails_candidate
+    self.assertEqual(outcome["status"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'fail'
+- stub
++ fail
+
+
+======================================================================
+FAIL: test_drop_of_two_flags_and_drop_of_one_does_not (test_compare.RegressionRuleTest.test_drop_of_two_flags_and_drop_of_one_does_not)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 68, in test_drop_of_two_flags_and_drop_of_one_does_not
+    self.assertEqual(flagged["status"], "flagged")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'flagged'
+- stub
++ flagged
+
+
+======================================================================
+FAIL: test_markdown_rendering_lists_status_and_each_check (test_compare.RegressionRuleTest.test_markdown_rendering_lists_status_and_each_check)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 93, in test_markdown_rendering_lists_status_and_each_check
+    self.assertIn("Status: **fail**", text)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Status: **fail**' not found in ''
+
+======================================================================
+FAIL: test_non_boundary_fail_without_drop_is_not_a_candidate_failure (test_compare.RegressionRuleTest.test_non_boundary_fail_without_drop_is_not_a_candidate_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_compare.py", line 77, in test_non_boundary_fail_without_drop_is_not_a_candidate_failure
+    self.assertEqual(outcome["status"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stub' != 'pass'
+- stub
++ pass
+
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.002s
+
+FAILED (failures=16, errors=3)

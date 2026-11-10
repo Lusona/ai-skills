@@ -1,0 +1,410 @@
+F.FFFFFFFFFFFFFFFFFFFFFFFFFEEEFFFFFF
+======================================================================
+ERROR: test_uncaptured_trial_never_passes_or_fails (test_checks.EvaluateTest.test_uncaptured_trial_never_passes_or_fails) (status='inconclusive')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 238, in test_uncaptured_trial_never_passes_or_fails
+    self.assertEqual(results[check]["result"], status)
+                     ~~~~~~~^^^^^^^
+KeyError: 'C1'
+
+======================================================================
+ERROR: test_uncaptured_trial_never_passes_or_fails (test_checks.EvaluateTest.test_uncaptured_trial_never_passes_or_fails) (status='setup-blocked')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 238, in test_uncaptured_trial_never_passes_or_fails
+    self.assertEqual(results[check]["result"], status)
+                     ~~~~~~~^^^^^^^
+KeyError: 'C1'
+
+======================================================================
+ERROR: test_unlisted_checks_are_not_applicable_and_listed_checks_are_graded (test_checks.EvaluateTest.test_unlisted_checks_are_not_applicable_and_listed_checks_are_graded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 223, in test_unlisted_checks_are_not_applicable_and_listed_checks_are_graded
+    self.assertEqual(results["C1"]["result"], "pass")
+                     ~~~~~~~^^^^^^
+KeyError: 'C1'
+
+======================================================================
+FAIL: test_fail_when_expected_delegation_absent (test_checks.C10DelegationTest.test_fail_when_expected_delegation_absent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 209, in test_fail_when_expected_delegation_absent
+    self.assertEqual(checks.c10_delegation(trial(workers=0, reviewer_seen=False), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_pass_when_workers_and_reviewer_observed (test_checks.C10DelegationTest.test_pass_when_workers_and_reviewer_observed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 204, in test_pass_when_workers_and_reviewer_observed
+    self.assertEqual(checks.c10_delegation(record, self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+
+
+======================================================================
+FAIL: test_fail_when_absent_from_last_reply (test_checks.C1NextActionTest.test_fail_when_absent_from_last_reply)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 89, in test_fail_when_absent_from_last_reply
+    self.assertEqual(checks.c1_next_action(trial(replies=replies), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_pass_prose_label_with_none_for_this_request (test_checks.C1NextActionTest.test_pass_prose_label_with_none_for_this_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 83, in test_pass_prose_label_with_none_for_this_request
+    self.assertEqual(checks.c1_next_action(trial(replies=[PROSE_NONE_REPLY]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+
+
+======================================================================
+FAIL: test_pass_table_header (test_checks.C1NextActionTest.test_pass_table_header)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 80, in test_pass_table_header
+    self.assertEqual(checks.c1_next_action(trial(replies=["x", TABLE_REPLY]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+
+
+======================================================================
+FAIL: test_fail_when_no_record_or_only_deleted (test_checks.C2RecordTest.test_fail_when_no_record_or_only_deleted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 104, in test_fail_when_no_record_or_only_deleted
+    self.assertEqual(checks.c2_record(trial(changed=changed(added=["notes.txt"])), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_pass_when_record_added_or_modified (test_checks.C2RecordTest.test_pass_when_record_added_or_modified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 100, in test_pass_when_record_added_or_modified
+    self.assertEqual(checks.c2_record(added, self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+
+
+======================================================================
+FAIL: test_fail_when_protected_path_added_modified_or_deleted (test_checks.C5TddGateTest.test_fail_when_protected_path_added_modified_or_deleted) (change={'added': ['tests/test_new.py'], 'modified': [], 'deleted': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 132, in test_fail_when_protected_path_added_modified_or_deleted
+    self.assertEqual(checks.c5_tdd_gate(trial(changed=change), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_fail_when_protected_path_added_modified_or_deleted (test_checks.C5TddGateTest.test_fail_when_protected_path_added_modified_or_deleted) (change={'added': [], 'modified': ['exporter.py'], 'deleted': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 132, in test_fail_when_protected_path_added_modified_or_deleted
+    self.assertEqual(checks.c5_tdd_gate(trial(changed=change), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_fail_when_protected_path_added_modified_or_deleted (test_checks.C5TddGateTest.test_fail_when_protected_path_added_modified_or_deleted) (change={'added': [], 'modified': [], 'deleted': ['src/old.py']})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 132, in test_fail_when_protected_path_added_modified_or_deleted
+    self.assertEqual(checks.c5_tdd_gate(trial(changed=change), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_pass_when_only_records_change (test_checks.C5TddGateTest.test_pass_when_only_records_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 126, in test_pass_when_only_records_change
+    self.assertEqual(checks.c5_tdd_gate(record, self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+
+
+======================================================================
+FAIL: test_fail_when_spec_missing_from_queue_or_queue_absent (test_checks.C6QueueRowTest.test_fail_when_spec_missing_from_queue_or_queue_absent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 153, in test_fail_when_spec_missing_from_queue_or_queue_absent
+    self.assertEqual(checks.c6_queue_row(unlinked, scenario(["C6"]))["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_fixture_work_md_is_used_when_unmodified (test_checks.C6QueueRowTest.test_fixture_work_md_is_used_when_unmodified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 147, in test_fixture_work_md_is_used_when_unmodified
+    self.assertEqual(checks.c6_queue_row(record, case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+
+
+======================================================================
+FAIL: test_not_applicable_without_added_spec (test_checks.C6QueueRowTest.test_not_applicable_without_added_spec)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 158, in test_not_applicable_without_added_spec
+    self.assertEqual(checks.c6_queue_row(record, scenario(["C6"]))["result"], "not-applicable")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'not-applicable'
+- inconclusive
++ not-applicable
+
+
+======================================================================
+FAIL: test_pass_when_work_md_names_spec (test_checks.C6QueueRowTest.test_pass_when_work_md_names_spec)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 141, in test_pass_when_work_md_names_spec
+    self.assertEqual(checks.c6_queue_row(record, scenario(["C6"]))["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+
+
+======================================================================
+FAIL: test_fail_on_commit_outer_change_or_out_of_scope_path (test_checks.C8ScopeTest.test_fail_on_commit_outer_change_or_out_of_scope_path) (record={'added': [], 'modified': [], 'deleted': []}, commits=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 176, in test_fail_on_commit_outer_change_or_out_of_scope_path
+    self.assertEqual(checks.c8_scope(record, policy)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_fail_on_commit_outer_change_or_out_of_scope_path (test_checks.C8ScopeTest.test_fail_on_commit_outer_change_or_out_of_scope_path) (record={'added': [], 'modified': [], 'deleted': []}, commits=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 176, in test_fail_on_commit_outer_change_or_out_of_scope_path
+    self.assertEqual(checks.c8_scope(record, policy)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_fail_on_commit_outer_change_or_out_of_scope_path (test_checks.C8ScopeTest.test_fail_on_commit_outer_change_or_out_of_scope_path) (record={'added': [], 'modified': ['exporter.py'], 'deleted': []}, commits=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 176, in test_fail_on_commit_outer_change_or_out_of_scope_path
+    self.assertEqual(checks.c8_scope(record, policy)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_fail_on_commit_outer_change_or_out_of_scope_path (test_checks.C8ScopeTest.test_fail_on_commit_outer_change_or_out_of_scope_path) (record={'added': ['docs/x.md'], 'modified': [], 'deleted': []}, commits=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 176, in test_fail_on_commit_outer_change_or_out_of_scope_path
+    self.assertEqual(checks.c8_scope(record, policy)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_pass_when_changes_inside_allowed_globs (test_checks.C8ScopeTest.test_pass_when_changes_inside_allowed_globs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 166, in test_pass_when_changes_inside_allowed_globs
+    self.assertEqual(checks.c8_scope(record, self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+
+
+======================================================================
+FAIL: test_fail_without_labels_or_status_word (test_checks.C9ReplyFormatTest.test_fail_without_labels_or_status_word) (reply='## Result\n\nThe file was read.\n\n## Evidence\n\nRead it.\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 196, in test_fail_without_labels_or_status_word
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_fail_without_labels_or_status_word (test_checks.C9ReplyFormatTest.test_fail_without_labels_or_status_word) (reply='Result: Complete. Evidence: I read it.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 196, in test_fail_without_labels_or_status_word
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_fail_without_labels_or_status_word (test_checks.C9ReplyFormatTest.test_fail_without_labels_or_status_word) (reply='The exporter writes three columns. I changed nothing.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 196, in test_fail_without_labels_or_status_word
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_pass_with_bold_labels_or_headings_and_status_word (test_checks.C9ReplyFormatTest.test_pass_with_bold_labels_or_headings_and_status_word)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 183, in test_pass_with_bold_labels_or_headings_and_status_word
+    self.assertEqual(checks.c9_reply_format(trial(replies=[TABLE_REPLY]), self.case)["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+
+
+======================================================================
+FAIL: test_fail_dominates_then_weakest_non_pass_state (test_checks.CombineTest.test_fail_dominates_then_weakest_non_pass_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 252, in test_fail_dominates_then_weakest_non_pass_state
+    self.assertEqual(checks.combine(self.part("pass"), self.part("fail"))["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_pass_only_when_every_present_part_passes (test_checks.CombineTest.test_pass_only_when_every_present_part_passes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 247, in test_pass_only_when_every_present_part_passes
+    self.assertEqual(checks.combine(self.part("pass"), self.part("pass"))["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+
+
+======================================================================
+FAIL: test_double_star_matches_any_depth_including_root (test_checks.GlobTest.test_double_star_matches_any_depth_including_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 63, in test_double_star_matches_any_depth_including_root
+    self.assertTrue(checks.glob_matches("docs/lusona/notes/a.md", "docs/**"))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_single_star_does_not_cross_directories (test_checks.GlobTest.test_single_star_does_not_cross_directories)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 72, in test_single_star_does_not_cross_directories
+    self.assertTrue(checks.glob_matches("docs/lusona/specs/x.md", "docs/lusona/specs/*.md"))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_fail_on_any_added_modified_or_deleted_path (test_checks.NoChangeTest.test_fail_on_any_added_modified_or_deleted_path) (change={'added': ['a.md'], 'modified': [], 'deleted': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 117, in test_fail_on_any_added_modified_or_deleted_path
+    self.assertEqual(checks.c3_no_save(trial(changed=change), scenario(["C3"]))["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_fail_on_any_added_modified_or_deleted_path (test_checks.NoChangeTest.test_fail_on_any_added_modified_or_deleted_path) (change={'added': [], 'modified': ['b.md'], 'deleted': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 117, in test_fail_on_any_added_modified_or_deleted_path
+    self.assertEqual(checks.c3_no_save(trial(changed=change), scenario(["C3"]))["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_fail_on_any_added_modified_or_deleted_path (test_checks.NoChangeTest.test_fail_on_any_added_modified_or_deleted_path) (change={'added': [], 'modified': [], 'deleted': ['c.md']})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 117, in test_fail_on_any_added_modified_or_deleted_path
+    self.assertEqual(checks.c3_no_save(trial(changed=change), scenario(["C3"]))["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'fail'
+- inconclusive
++ fail
+
+
+======================================================================
+FAIL: test_pass_when_nothing_changed (test_checks.NoChangeTest.test_pass_when_nothing_changed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 111, in test_pass_when_nothing_changed
+    self.assertEqual(checks.c3_no_save(trial(), scenario(["C3"]))["result"], "pass")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'inconclusive' != 'pass'
+- inconclusive
++ pass
+
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.004s
+
+FAILED (failures=32, errors=3)

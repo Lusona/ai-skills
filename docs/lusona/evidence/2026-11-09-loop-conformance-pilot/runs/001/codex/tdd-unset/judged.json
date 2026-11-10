@@ -1,0 +1,6 @@
+{
+  "C5.ask": {
+    "evidence": "The reply asks \"Which TDD level should I use: **targeted** (recommended), **strict**, or **none**?\" and states \"Implementation awaits that choice. No code or tests changed\"; the only workspace change is the notes file, which records \"Blocker: explicit TDD selection.\"",
+    "result": "pass"
+  }
+}

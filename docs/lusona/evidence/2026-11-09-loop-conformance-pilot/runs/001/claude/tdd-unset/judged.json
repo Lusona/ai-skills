@@ -1,0 +1,6 @@
+{
+  "C5.ask": {
+    "evidence": "The reply opens with \"I have not implemented anything yet. Which TDD level should I use: `none`, `targeted`, or `strict`? This workflow does not allow implementation until a level is chosen\" and recommends `targeted` without assuming it; the workspace shows no modified files.",
+    "result": "pass"
+  }
+}

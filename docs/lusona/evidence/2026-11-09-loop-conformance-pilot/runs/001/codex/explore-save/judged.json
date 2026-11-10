@@ -1,0 +1,10 @@
+{
+  "C1.concrete": {
+    "evidence": "The turn 2 reply closes with a named probe presented as a proposal: \"The proposed next step is timing the existing report in that environment\", under \"I would... Measure where the 9 seconds goes on the family laptop\". It states the dependency (\"the actual file and laptop are unavailable here\") and claims no migration authority, though the owner is given only through the \"I would\" phrasing rather than named outright.",
+    "result": "pass"
+  },
+  "C2.content": {
+    "evidence": "The note `docs/lusona/notes/tally-storage-options.md` records the constraint (\"partner opens `expenses.csv` in LibreOffice about once a week to correct categories\"), a four-option table with tradeoffs, and a \"Revised recommendation, not an accepted storage decision: keep CSV authoritative\". It also has an \"Open question and next action\" section with the remaining uncertainty and a proposed timing probe.",
+    "result": "pass"
+  }
+}

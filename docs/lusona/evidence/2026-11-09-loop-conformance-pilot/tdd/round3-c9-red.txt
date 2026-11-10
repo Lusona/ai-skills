@@ -1,0 +1,53 @@
+...........................FF..F.F...........
+======================================================================
+FAIL: test_listed_label_forms (test_checks.C9ReplyFormatTest.test_listed_label_forms) (label='## Result handling\n\nComplete')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 283, in test_listed_label_forms
+    self.assertEqual(checks.c9_reply_format(trial(replies=[label + evidence]), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+======================================================================
+FAIL: test_listed_label_forms (test_checks.C9ReplyFormatTest.test_listed_label_forms) (label='## Evidence gathering')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 287, in test_listed_label_forms
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+======================================================================
+FAIL: test_status_word_must_be_near_the_result_label (test_checks.C9ReplyFormatTest.test_status_word_must_be_near_the_result_label)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 297, in test_status_word_must_be_near_the_result_label
+    self.assertEqual(checks.c9_reply_format(trial(replies=[far]), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+======================================================================
+FAIL: test_unstructured_reply_fails (test_checks.C9ReplyFormatTest.test_unstructured_reply_fails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_checks.py", line 292, in test_unstructured_reply_fails
+    self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "fail")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+----------------------------------------------------------------------
+Ran 44 tests in 0.003s
+
+FAILED (failures=4)

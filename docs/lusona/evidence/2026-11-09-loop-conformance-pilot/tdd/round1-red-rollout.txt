@@ -1,0 +1,21 @@
+F
+======================================================================
+FAIL: test_workers_come_from_spawn_calls_in_the_session_rollout (test_run.CodexRunTest.test_workers_come_from_spawn_calls_in_the_session_rollout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 546, in test_workers_come_from_spawn_calls_in_the_session_rollout
+    self.assertEqual((reviewed["workers"], reviewed["reviewer_seen"]), (1, True))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (0, False) != (1, True)
+
+First differing element 0:
+0
+1
+
+- (0, False)
++ (1, True)
+
+----------------------------------------------------------------------
+Ran 1 test in 0.021s
+
+FAILED (failures=1)

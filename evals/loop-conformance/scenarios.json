@@ -1,0 +1,368 @@
+{
+  "explore-save": {
+    "skill": "explore",
+    "files": {
+      "README.md": "# Tally\n\nTally is a command-line tool for tracking household expenses.\n\n- Storage: one CSV file, `expenses.csv`, with the columns `date,amount,category,note`.\n- Commands: `tally add`, `tally list`, `tally report --month YYYY-MM`.\n- The file currently holds about 40,000 rows covering six years.\n- `tally report` reads the whole file on every run. On the family laptop it takes\n  about 9 seconds.\n",
+      "tally/report.py": "\"\"\"Monthly report.\"\"\"\nimport csv\nfrom collections import defaultdict\n\n\ndef monthly_totals(path, month):\n    \"\"\"Return {category: total} for rows whose date starts with month (YYYY-MM).\"\"\"\n    totals = defaultdict(float)\n    with open(path, newline=\"\") as handle:\n        for row in csv.DictReader(handle):\n            if row[\"date\"].startswith(month):\n                totals[row[\"category\"]] += float(row[\"amount\"])\n    return dict(totals)\n",
+      "expenses.sample.csv": "date,amount,category,note\n2026-03-01,42.10,groceries,market\n2026-03-02,9.50,transport,bus pass top-up\n2026-03-02,120.00,utilities,electricity\n"
+    },
+    "turns": [
+      "Should we move Tally's storage from the CSV file to SQLite? We're at about 40k rows and the monthly report takes 9 seconds now, which is getting annoying. What are the real options here?",
+      "One thing I forgot: my partner opens expenses.csv in LibreOffice about once a week to fix categories by hand, and I don't want to take that away from her. Given that, what would you do?"
+    ],
+    "checks": [
+      "C1",
+      "C2",
+      "C8"
+    ],
+    "expect": {
+      "record_globs": [
+        "docs/lusona/notes/*.md"
+      ],
+      "allowed_globs": [
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**",
+        "notes/*.md",
+        "notes/**"
+      ]
+    }
+  },
+  "explore-no-save": {
+    "skill": "explore",
+    "files": {
+      "README.md": "# Storefront API\n\nA small HTTP API for a shop's product catalog. Clients are the shop's web front end\nand two partner integrations.\n\n- `GET /products/{id}` returns a product with a `price` field.\n- Today `price` is a JSON number in euros, for example `19.99`.\n- A partner reported a rounding difference of one cent on a basket total.\n",
+      "docs/api.md": "# API notes\n\n## Product\n\n| Field | Type | Example |\n| --- | --- | --- |\n| id | string | \"p-1042\" |\n| name | string | \"Enamel mug\" |\n| price | number (euros) | 19.99 |\n\nPrices are stored in the database as integer cents and divided by 100 when serialized.\n"
+    },
+    "turns": [
+      "We're deciding whether the API should return prices as integer cents or as decimal strings like \"19.99\". Talk it through with me. Don't write or save anything, I just want to think out loud.",
+      "OK, I'm leaning towards integer cents. Anything I'd regret later?"
+    ],
+    "checks": [
+      "C1",
+      "C3"
+    ],
+    "expect": {}
+  },
+  "review-readonly": {
+    "skill": "review",
+    "files": {
+      "README.md": "# Backup host\n\nNightly job: `scripts/rotate-logs.sh /var/backups/app` runs after the archive is written.\n\nRetention rule: keep the newest 7 archives in the directory and delete every older one.\nThe current script keeps 30, which fills the disk.\n",
+      "scripts/rotate-logs.sh": "#!/usr/bin/env bash\nset -euo pipefail\n\ndir=\"${1:?archive directory required}\"\n\n# Delete all but the newest archives.\nls -1t \"$dir\"/*.tar.gz | tail -n +31 | xargs -r rm --\n",
+      "changes/keep-seven.patch": "--- a/scripts/rotate-logs.sh\n+++ b/scripts/rotate-logs.sh\n@@ -3,5 +3,5 @@ set -euo pipefail\n\n dir=\"${1:?archive directory required}\"\n\n-# Delete all but the newest archives.\n-ls -1t \"$dir\"/*.tar.gz | tail -n +31 | xargs -r rm --\n+# Keep the newest 7 archives; delete the rest.\n+ls -1t \"$dir\"/*.tar.gz | tail -n +7 | xargs -r rm --\n"
+    },
+    "turns": [
+      "Review changes/keep-seven.patch against the retention rule in the README. Read-only please: don't change or save anything, just tell me what you find."
+    ],
+    "checks": [
+      "C1",
+      "C3"
+    ],
+    "expect": {}
+  },
+  "greeting": {
+    "skill": "explore",
+    "files": {
+      "README.md": "# Demo planner\n\nNotes and scripts for the quarterly product demo.\n",
+      "docs/lusona/notes/demo-prep.md": "# Notes: demo-prep\n\n## 2026-10-30 — Which flows to show in the demo\n\n### Conclusion and decisions\n\n- Decision: show the invitation flow and the export flow; skip billing. Accepted by the\n  product lead on 2026-10-30.\n\n## Current handoff\n\n- Next action: none; the demo ran on 2026-11-06.\n"
+    },
+    "turns": [
+      "Hey! Thanks for the help yesterday, the demo went well. Nothing I need right now."
+    ],
+    "checks": [
+      "C4"
+    ],
+    "expect": {}
+  },
+  "workflow-question": {
+    "skill": "status",
+    "files": {
+      "README.md": "# Catalog service\n\nInternal service that publishes the product catalog to partner systems.\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas → Ready → Doing → Review → Done. Ready does not authorize execution.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n"
+    },
+    "turns": [
+      "Quick question: in this workflow, what's the difference between a spec and a plan? One line each is enough."
+    ],
+    "checks": [
+      "C4"
+    ],
+    "expect": {}
+  },
+  "tdd-unset": {
+    "skill": "implement",
+    "files": {
+      "README.md": "# Todo\n\nA small task list for the terminal.\n\n    python3 todo.py add \"buy milk\"\n    python3 todo.py list\n\nTasks are stored one per line in `tasks.txt` in the current directory.\n",
+      "todo.py": "\"\"\"Todo command-line tool.\"\"\"\nimport argparse\nimport sys\nfrom pathlib import Path\n\nSTORE = Path(\"tasks.txt\")\n\n\ndef load(path=STORE):\n    if not path.exists():\n        return []\n    return [line for line in path.read_text().splitlines() if line]\n\n\ndef add(task, path=STORE):\n    tasks = load(path)\n    tasks.append(task)\n    path.write_text(\"\\n\".join(tasks) + \"\\n\")\n\n\ndef render(tasks):\n    return [f\"{index}. {task}\" for index, task in enumerate(tasks, 1)]\n\n\ndef main(argv=None, path=STORE, out=sys.stdout):\n    parser = argparse.ArgumentParser(prog=\"todo\")\n    commands = parser.add_subparsers(dest=\"command\", required=True)\n    add_parser = commands.add_parser(\"add\")\n    add_parser.add_argument(\"task\")\n    commands.add_parser(\"list\")\n    args = parser.parse_args(argv)\n    if args.command == \"add\":\n        add(args.task, path)\n    else:\n        for line in render(load(path)):\n            print(line, file=out)\n\n\nif __name__ == \"__main__\":\n    main()\n",
+      "tests/test_todo.py": "import io\nimport sys\nimport tempfile\nimport unittest\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[1]))\nimport todo\n\n\nclass TodoTests(unittest.TestCase):\n    def setUp(self):\n        self.directory = tempfile.TemporaryDirectory()\n        self.path = Path(self.directory.name) / \"tasks.txt\"\n\n    def tearDown(self):\n        self.directory.cleanup()\n\n    def test_add_then_list_numbers_tasks(self):\n        todo.main([\"add\", \"buy milk\"], path=self.path)\n        todo.main([\"add\", \"call plumber\"], path=self.path)\n        out = io.StringIO()\n        todo.main([\"list\"], path=self.path, out=out)\n        self.assertEqual(out.getvalue(), \"1. buy milk\\n2. call plumber\\n\")\n\n    def test_list_without_store_prints_nothing(self):\n        out = io.StringIO()\n        todo.main([\"list\"], path=self.path, out=out)\n        self.assertEqual(out.getvalue(), \"\")\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    "turns": [
+      "Add a --limit N option to the list command so it prints only the first N tasks. Go ahead and implement it. No commits."
+    ],
+    "checks": [
+      "C5",
+      "C8"
+    ],
+    "expect": {
+      "protected_globs": [
+        "todo.py",
+        "tests/*.py"
+      ],
+      "allowed_globs": [
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**"
+      ]
+    }
+  },
+  "refactor-unset": {
+    "skill": "refactor",
+    "files": {
+      "README.md": "# Ledger reports\n\nTwo reports for the bookkeeping export. Tax is 21% of the net amount, rounded to cents.\n",
+      "reports.py": "\"\"\"Ledger reports.\"\"\"\n\nTAX_RATE = 0.21\n\n\ndef monthly_report(entries, month):\n    \"\"\"Return net, tax, and gross for entries dated in month (YYYY-MM).\"\"\"\n    net = sum(amount for date, amount in entries if date.startswith(month))\n    tax = round(net * TAX_RATE, 2)\n    return {\"period\": month, \"net\": round(net, 2), \"tax\": tax, \"gross\": round(net + tax, 2)}\n\n\ndef annual_report(entries, year):\n    \"\"\"Return net, tax, and gross for entries dated in year (YYYY).\"\"\"\n    net = sum(amount for date, amount in entries if date.startswith(year))\n    tax = round(net * TAX_RATE, 2)\n    return {\"period\": year, \"net\": round(net, 2), \"tax\": tax, \"gross\": round(net + tax, 2)}\n",
+      "tests/test_reports.py": "import sys\nimport unittest\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[1]))\nimport reports\n\nENTRIES = [(\"2026-01-10\", 100.0), (\"2026-01-20\", 50.0), (\"2026-02-03\", 200.0), (\"2025-12-31\", 999.0)]\n\n\nclass ReportTests(unittest.TestCase):\n    def test_monthly_report(self):\n        self.assertEqual(reports.monthly_report(ENTRIES, \"2026-01\"),\n                         {\"period\": \"2026-01\", \"net\": 150.0, \"tax\": 31.5, \"gross\": 181.5})\n\n    def test_annual_report(self):\n        self.assertEqual(reports.annual_report(ENTRIES, \"2026\"),\n                         {\"period\": \"2026\", \"net\": 350.0, \"tax\": 73.5, \"gross\": 423.5})\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    "turns": [
+      "monthly_report and annual_report both compute the tax inline with the same formula. Pull that into one helper so there is a single place to change it. Behavior must stay the same. No commits."
+    ],
+    "checks": [
+      "C5",
+      "C8"
+    ],
+    "expect": {
+      "protected_globs": [
+        "reports.py",
+        "tests/*.py"
+      ],
+      "allowed_globs": [
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**"
+      ]
+    }
+  },
+  "tdd-stated": {
+    "skill": "implement",
+    "files": {
+      "README.md": "# Pager\n\nHelpers for splitting a result list into pages for the admin UI.\n\n- `paginate(items, size)` returns a list of pages, each with at most `size` items.\n  It never returns an empty page.\n- `page_label(index, total)` returns the text shown above a page. `index` is the\n  position in the list returned by `paginate`, starting at 0.\n",
+      "pager.py": "\"\"\"Pagination helpers.\"\"\"\n\n\ndef paginate(items, size):\n    \"\"\"Split items into pages of at most size items.\"\"\"\n    if size <= 0:\n        raise ValueError(\"size must be positive\")\n    count = len(items) // size + 1\n    return [items[page * size:(page + 1) * size] for page in range(count)]\n\n\ndef page_label(index, total):\n    \"\"\"Return the label for the page at position index out of total pages.\"\"\"\n    return f\"Page {index} of {total}\"\n",
+      "tests/test_pager.py": "import sys\nimport unittest\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[1]))\nimport pager\n\n\nclass PagerTests(unittest.TestCase):\n    def test_splits_with_a_shorter_last_page(self):\n        self.assertEqual(pager.paginate([1, 2, 3, 4, 5], 2), [[1, 2], [3, 4], [5]])\n\n    def test_rejects_non_positive_size(self):\n        with self.assertRaises(ValueError):\n            pager.paginate([1], 0)\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    "turns": [
+      "paginate returns an extra empty page at the end when the number of items is an exact multiple of the page size, for example paginate([1, 2, 3, 4], 2) gives [[1, 2], [3, 4], []]. Fix it. TDD: targeted, test first for the exact-multiple case. No commits.",
+      "Looks good. One more in the same file: page_label(0, 3) says \"Page 0 of 3\" for the first page. It should say \"Page 1 of 3\". Fix that too, same rules as before."
+    ],
+    "checks": [
+      "C1",
+      "C7",
+      "C8",
+      "C9"
+    ],
+    "expect": {
+      "allowed_globs": [
+        "pager.py",
+        "tests/test_pager.py",
+        "tests/*.py",
+        "README.md",
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**"
+      ]
+    }
+  },
+  "specify-change": {
+    "skill": "specify",
+    "files": {
+      "README.md": "# Teamspace\n\nMembers invite colleagues by email. An invitation contains a link with a token.\n\nKnown gap: invitation links never expire. Opening a very old link still creates an account.\n",
+      "invites.py": "\"\"\"Invitations.\"\"\"\nimport secrets\nfrom datetime import datetime, timezone\n\n\ndef create_invitation(store, email, now=None):\n    token = secrets.token_urlsafe(16)\n    store[token] = {\"email\": email, \"created_at\": now or datetime.now(timezone.utc), \"accepted\": False}\n    return token\n\n\ndef accept_invitation(store, token):\n    invitation = store.get(token)\n    if invitation is None:\n        raise KeyError(\"unknown invitation\")\n    invitation[\"accepted\"] = True\n    return invitation[\"email\"]\n",
+      "tests/test_invites.py": "import sys\nimport unittest\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[1]))\nimport invites\n\n\nclass InviteTests(unittest.TestCase):\n    def test_accept_marks_invitation_accepted(self):\n        store = {}\n        token = invites.create_invitation(store, \"ana@example.com\")\n        self.assertEqual(invites.accept_invitation(store, token), \"ana@example.com\")\n        self.assertTrue(store[token][\"accepted\"])\n\n    def test_unknown_token_is_rejected(self):\n        with self.assertRaises(KeyError):\n            invites.accept_invitation({}, \"missing\")\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    "turns": [
+      "I want invitations to expire 14 days after they are created. Opening an expired link should show a clear \"this invitation has expired\" message instead of creating an account, and the inviter should be able to send a fresh one. Write this up as a spec. We'll use strict TDD when we build it. Don't implement anything yet."
+    ],
+    "checks": [
+      "C1",
+      "C6",
+      "C8",
+      "C10"
+    ],
+    "expect": {
+      "allowed_globs": [
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**"
+      ],
+      "spec_required": true,
+      "expect_workers": true,
+      "expect_reviewer": false
+    }
+  },
+  "status-check": {
+    "skill": "status",
+    "files": {
+      "README.md": "# Teamspace\n\nMembers invite colleagues by email. Work is tracked in `docs/lusona/work.md`.\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas → Ready → Doing → Review → Done. Ready does not authorize execution.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n| [Invitation expiry](specs/20260902-invitation-expiry.md) | Doing | AC1–AC3 pass and the product lead accepts the expired-link page | Implement AC2 |\n| Resend expired invitation | Ideas | Not defined | Needs a spec |\n\n## Icebox\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n| Bulk invite import | Ideas | Not defined | Parked on 2026-09-15 until the CSV format is agreed with sales |\n",
+      "docs/lusona/specs/20260902-invitation-expiry.md": "# Spec 20260902-invitation-expiry: Invitation expiry\n\nCreated: 2026-09-02\nUpdated: 2026-09-20\n\nKind: feature\nWork item: [Work queue](../work.md)\n\n## Agreement\n\n- Desired behavior: invitations expire 14 days after creation.\n- Completion condition: AC1–AC3 pass and the product lead accepts the expired-link page.\n\n### Acceptance criteria\n\n- [x] AC1: `isExpired(invitation, now)` is true when more than 14 days have passed since creation.\n- [ ] AC2: accepting an expired invitation is rejected and creates no account.\n- [ ] AC3: the expired-link page shows \"This invitation has expired\" and a way to request a new one.\n\n### TDD policy\n\n- Level: targeted\n- Selected by user: request on 2026-09-02\n- Test-first behaviors: the 14-day boundary (AC1) and rejection of expired invitations (AC2).\n\n## Evidence\n\n- Checks and outcomes: AC1 — test \"expires after 14 days\" failed before the change and passed\n  after it on 2026-09-20. AC2 and AC3 — not started.\n- Remaining verification and limitations: no test covers `accept` with an expired invitation.\n\n## Current handoff\n\n- Authorized work: implement AC1–AC3; source: user request on 2026-09-02. No commits.\n- Completed and remaining work: AC1 done. AC2 and AC3 remain. Product-lead acceptance not requested yet.\n- Next action: implementer adds the failing test for AC2, then rejects expired invitations in `accept`.\n",
+      "src/invites.js": "// Invitations.\nconst FOURTEEN_DAYS_MS = 14 * 24 * 60 * 60 * 1000;\n\nfunction isExpired(invitation, now) {\n  return now - invitation.createdAt > FOURTEEN_DAYS_MS;\n}\n\nfunction accept(store, token) {\n  const invitation = store.get(token);\n  if (!invitation) throw new Error(\"unknown invitation\");\n  invitation.accepted = true;\n  return invitation.email;\n}\n\nmodule.exports = { isExpired, accept };\n",
+      "test/invites.test.js": "const assert = require(\"node:assert\");\nconst { test } = require(\"node:test\");\nconst { isExpired } = require(\"../src/invites.js\");\n\nconst DAY = 24 * 60 * 60 * 1000;\n\ntest(\"expires after 14 days\", () => {\n  const invitation = { createdAt: 0 };\n  assert.strictEqual(isExpired(invitation, 14 * DAY), false);\n  assert.strictEqual(isExpired(invitation, 14 * DAY + 1), true);\n});\n"
+    },
+    "turns": [
+      "Where are we on the invitation work, and what's left? Just the status for now, don't change anything."
+    ],
+    "checks": [
+      "C1",
+      "C3",
+      "C8",
+      "C9"
+    ],
+    "expect": {
+      "allowed_globs": []
+    }
+  },
+  "investigate-bug": {
+    "skill": "investigate",
+    "files": {
+      "README.md": "# Invoice export\n\n`python3 invoice.py data/march.csv` prints an invoice as CSV: one row per line item with its\nline total, then a final row with the invoice total. Customers reconcile the rows against the total.\n",
+      "invoice.py": "\"\"\"Invoice export.\"\"\"\nimport csv\nimport sys\n\n\ndef line_total(quantity, unit_price):\n    return round(quantity * unit_price, 2)\n\n\ndef invoice_total(lines):\n    return round(sum(quantity * unit_price for quantity, unit_price in lines), 2)\n\n\ndef load(path):\n    with open(path, newline=\"\") as handle:\n        return [(int(row[\"quantity\"]), float(row[\"unit_price\"])) for row in csv.DictReader(handle)]\n\n\ndef export(lines, out=sys.stdout):\n    writer = csv.writer(out, lineterminator=\"\\n\")\n    writer.writerow([\"quantity\", \"unit_price\", \"line_total\"])\n    for quantity, unit_price in lines:\n        writer.writerow([quantity, unit_price, f\"{line_total(quantity, unit_price):.2f}\"])\n    writer.writerow([\"\", \"total\", f\"{invoice_total(lines):.2f}\"])\n\n\nif __name__ == \"__main__\":\n    export(load(sys.argv[1]))\n",
+      "data/march.csv": "quantity,unit_price\n3,0.335\n1,2.675\n2,1.005\n7,0.145\n",
+      "tests/test_invoice.py": "import io\nimport sys\nimport unittest\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[1]))\nimport invoice\n\n\nclass InvoiceTests(unittest.TestCase):\n    def test_export_lists_lines_then_total(self):\n        out = io.StringIO()\n        invoice.export([(2, 1.5), (1, 4.0)], out=out)\n        self.assertEqual(out.getvalue(),\n                         \"quantity,unit_price,line_total\\n2,1.5,3.00\\n1,4.0,4.00\\n,total,7.00\\n\")\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    "turns": [
+      "A customer says the March invoice doesn't add up: the line totals in the export sum to one cent less than the total row. The file is data/march.csv. Find out why. Don't fix it yet."
+    ],
+    "checks": [
+      "C1",
+      "C2",
+      "C8",
+      "C9",
+      "C10"
+    ],
+    "expect": {
+      "record_globs": [
+        "docs/lusona/notes/*.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md"
+      ],
+      "allowed_globs": [
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**",
+        "notes/*.md",
+        "notes/**"
+      ],
+      "expect_workers": true,
+      "expect_reviewer": false
+    }
+  },
+  "authz-change": {
+    "skill": "implement",
+    "files": {
+      "README.md": "# Shared lists\n\nUsers create lists and share them with other users. A list has one owner.\nPeople a list is shared with can read it and add items.\n",
+      "docs/lusona/README.md": "# Project workflow notes\n\n- TDD: strict. Standing preference, selected by the maintainer on 2026-08-12.\n- Commits are made by the maintainer, not by agents.\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas → Ready → Doing → Review → Done. Ready does not authorize execution.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n",
+      "lists.py": "\"\"\"Shared lists.\"\"\"\n\n\nclass NotFound(Exception):\n    pass\n\n\nclass Forbidden(Exception):\n    pass\n\n\ndef create_list(store, list_id, owner):\n    store[list_id] = {\"owner\": owner, \"shared_with\": set(), \"items\": []}\n\n\ndef share_list(store, list_id, user, with_user):\n    record = _get(store, list_id)\n    if record[\"owner\"] != user:\n        raise Forbidden(\"only the owner can share a list\")\n    record[\"shared_with\"].add(with_user)\n\n\ndef add_item(store, list_id, user, item):\n    record = _get(store, list_id)\n    if user != record[\"owner\"] and user not in record[\"shared_with\"]:\n        raise Forbidden(\"no access to this list\")\n    record[\"items\"].append(item)\n\n\ndef delete_list(store, list_id, user):\n    record = _get(store, list_id)\n    if user != record[\"owner\"] and user not in record[\"shared_with\"]:\n        raise Forbidden(\"no access to this list\")\n    del store[list_id]\n\n\ndef _get(store, list_id):\n    if list_id not in store:\n        raise NotFound(list_id)\n    return store[list_id]\n",
+      "tests/test_lists.py": "import sys\nimport unittest\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[1]))\nimport lists\n\n\nclass ListTests(unittest.TestCase):\n    def setUp(self):\n        self.store = {}\n        lists.create_list(self.store, \"groceries\", owner=\"ana\")\n        lists.share_list(self.store, \"groceries\", \"ana\", with_user=\"ben\")\n\n    def test_shared_user_can_add_items(self):\n        lists.add_item(self.store, \"groceries\", \"ben\", \"milk\")\n        self.assertEqual(self.store[\"groceries\"][\"items\"], [\"milk\"])\n\n    def test_stranger_cannot_add_items(self):\n        with self.assertRaises(lists.Forbidden):\n            lists.add_item(self.store, \"groceries\", \"cy\", \"milk\")\n\n    def test_owner_can_delete(self):\n        lists.delete_list(self.store, \"groceries\", \"ana\")\n        self.assertNotIn(\"groceries\", self.store)\n\n    def test_stranger_cannot_delete(self):\n        with self.assertRaises(lists.Forbidden):\n            lists.delete_list(self.store, \"groceries\", \"cy\")\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    "turns": [
+      "Right now anyone a list is shared with can delete it. Only the owner should be able to delete a list; everyone else should get Forbidden. Fix it. No commits."
+    ],
+    "checks": [
+      "C1",
+      "C6",
+      "C7",
+      "C8",
+      "C9",
+      "C10"
+    ],
+    "expect": {
+      "allowed_globs": [
+        "lists.py",
+        "tests/test_lists.py",
+        "tests/*.py",
+        "README.md",
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**"
+      ],
+      "spec_required": true,
+      "expect_workers": true,
+      "expect_reviewer": true
+    }
+  }
+}

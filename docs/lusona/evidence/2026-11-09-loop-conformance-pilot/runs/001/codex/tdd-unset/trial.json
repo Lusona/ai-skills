@@ -1,0 +1,83 @@
+{
+  "capture": {
+    "cli_version": "codex-cli 0.167.0",
+    "commits_after": 1,
+    "commits_before": 1,
+    "effort": "medium",
+    "elapsed_seconds": 46.06218952999916,
+    "expected_cli_version": "codex-cli 0.167.0",
+    "hashes_after": {
+      "README.md": "5fef94bda4ae8824abc3249c0ea99908c0b5a323af53942219a48c83f814b602",
+      "docs/lusona/notes/list-limit.md": "46447daee33f3686b98d8af96b095369d93dffeb4a4d43611f04f0d840c2399e",
+      "tests/test_todo.py": "e400d9808070a13cc5ac61baaaca66745a53ce66f4566f96a6ba6322a51e746d",
+      "todo.py": "e1498a5829ab757dab1c8db6a77c26c92ab24e2aaa6b8f87ec2e232fc8446fae"
+    },
+    "hashes_before": {
+      "README.md": "5fef94bda4ae8824abc3249c0ea99908c0b5a323af53942219a48c83f814b602",
+      "tests/test_todo.py": "e400d9808070a13cc5ac61baaaca66745a53ce66f4566f96a6ba6322a51e746d",
+      "todo.py": "e1498a5829ab757dab1c8db6a77c26c92ab24e2aaa6b8f87ec2e232fc8446fae"
+    },
+    "isolation": {
+      "ambient_instruction_hashes": {
+        "/home/jg/.agents/AGENTS.md": "bf8c5d0d75c9b6b7dd9e6cf97d148f3a97d2b855af1ff8d55c11fd13a3a834fa"
+      },
+      "init": null,
+      "work_root": "/home/jg/.cache/lusona-evals"
+    },
+    "model": "gpt-6.1-sol",
+    "outer_status_after": " M docs/lusona/work.md\n?? docs/lusona/notes/instruction-removal-component-previews-verification-caching.md\n?? docs/lusona/notes/loop-conformance-test.md\n?? docs/lusona/specs/20261109-loop-conformance-suite.md\n?? evals/loop-conformance/\n",
+    "outer_status_before": " M docs/lusona/work.md\n?? docs/lusona/notes/instruction-removal-component-previews-verification-caching.md\n?? docs/lusona/notes/loop-conformance-test.md\n?? docs/lusona/specs/20261109-loop-conformance-suite.md\n?? evals/loop-conformance/\n",
+    "turns": [
+      {
+        "cost_usd": null,
+        "elapsed_seconds": 45.94589796598302,
+        "error": null,
+        "exit_code": 0,
+        "item_types": {
+          "agent_message": 4,
+          "command_execution": 10
+        },
+        "session": "01a1c2af-4d45-7072-b2ca-3bade3c4dabc",
+        "status": "captured",
+        "subagents_spawned": null,
+        "tool_calls": null,
+        "turn": 1,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 186752,
+          "input_tokens": 215971,
+          "output_tokens": 1541,
+          "reasoning_output_tokens": 129
+        },
+        "workers": null
+      }
+    ],
+    "usage_scope": "Root CLI reported usage per turn; worker usage may be excluded.",
+    "workspace": "/home/jg/.cache/lusona-evals/tdd-unset-t1-4b676a6c"
+  },
+  "changed": {
+    "added": [
+      "docs/lusona/notes/list-limit.md"
+    ],
+    "deleted": [],
+    "modified": []
+  },
+  "commits_added": 0,
+  "condition": "/home/jg/code/_lusona_/ai-skills/tmp/loop-conformance/conditions/codex-base",
+  "condition_sha256": "089bb01fb984e2b4f5f9421e408e5bce91abb054f235d018998a1e58bfda585e",
+  "denied_actions": [],
+  "evaluator_access": [],
+  "files": {
+    "docs/lusona/notes/list-limit.md": "# Notes: list-limit\n\n## Agreement\n\n- User authorized adding `list --limit N` to print the first N tasks. No commits.\n- Read scope: consuming workspace and frozen plugin resources only.\n- TDD is unset: supplied agent instructions and workspace contain no standing selection. Lusona requires explicit selection before implementation.\n- Recommended targeted TDD for limit behavior; question submitted with targeted, strict, and none choices.\n\n## Evidence\n\n- `todo.py` uses argparse subcommands; list currently prints all loaded tasks with numbering starting at 1.\n- `tests/test_todo.py` covers add/list numbering and a missing store.\n- Initial working tree was clean. No production code or tests changed; no checks run.\n- No independent review requirement identified for this bounded local CLI option.\n\n## Current handoff\n\n- Owner: coordinator.\n- Blocker: explicit TDD selection.\n- Next action: after user selection, record policy/source, delegate bounded implementation under the workflow, verify behavior and inspect diff, and retain results here. Preserve the no-commits constraint.\n"
+  },
+  "host": "codex",
+  "outer_changed": false,
+  "replies": [
+    "Which TDD level should I use: **targeted** (recommended), **strict**, or **none**?\n\nThe invoked [Lusona TDD instructions](/home/jg/code/_lusona_/ai-skills/tmp/loop-conformance/conditions/codex-base/plugin/references/tdd.md) state: \u201cUnset TDD permits definition and planning, not implementation.\u201d\n\nImplementation awaits that choice. No code or tests changed; no commits created."
+  ],
+  "reviewer_seen": null,
+  "scenario": "tdd-unset",
+  "status": "captured",
+  "trial": 1,
+  "workers": null
+}

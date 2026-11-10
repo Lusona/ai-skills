@@ -1,0 +1,75 @@
+.................................................................F.............FFFFF.................error: duplicate trial ('claude', 'explore-a', 1): /home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-ehulc763/runs/a and /home/jg/code/_lusona_/ai-skills/tmp/loop-conformance-build/test-ehulc763/runs/b; a report needs one directory per host, scenario, and trial
+.............
+======================================================================
+FAIL: test_new_commits_are_counted_and_ref_only_changes_are_not (test_run.ClaudeRunTest.test_new_commits_are_counted_and_ref_only_changes_are_not) (name='detached')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 548, in test_new_commits_are_counted_and_ref_only_changes_are_not
+    self.assertEqual(trial["commits_added"], added)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_interpreter_heredoc_code_is_not_read_as_relative_paths (test_run.EvaluatorAccessTest.test_interpreter_heredoc_code_is_not_read_as_relative_paths) (snippet="print(Path('tally') / '..' / 'README.md')")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 703, in test_interpreter_heredoc_code_is_not_read_as_relative_paths
+    self.assertEqual(trial["status"], "captured", trial["evaluator_access"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid' != 'captured'
+- invalid
++ captured
+ : [{'turn': 1, 'tool': 'Bash', 'token': '..', 'reason': 'relative path leaves the workspace', 'call': '{"command": "python3 - <<\'EOF\'\\nimport os\\nprint(Path(\'tally\') / \'..\' / \'README.md\')\\nEOF"}'}]
+
+======================================================================
+FAIL: test_interpreter_heredoc_code_is_not_read_as_relative_paths (test_run.EvaluatorAccessTest.test_interpreter_heredoc_code_is_not_read_as_relative_paths) (snippet="os.path.join(here, '..')")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 703, in test_interpreter_heredoc_code_is_not_read_as_relative_paths
+    self.assertEqual(trial["status"], "captured", trial["evaluator_access"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid' != 'captured'
+- invalid
++ captured
+ : [{'turn': 1, 'tool': 'Bash', 'token': '..', 'reason': 'relative path leaves the workspace', 'call': '{"command": "python3 - <<\'EOF\'\\nimport os\\nos.path.join(here, \'..\')\\nEOF"}'}]
+
+======================================================================
+FAIL: test_interpreter_heredoc_code_is_not_read_as_relative_paths (test_run.EvaluatorAccessTest.test_interpreter_heredoc_code_is_not_read_as_relative_paths) (snippet='from .. import x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 703, in test_interpreter_heredoc_code_is_not_read_as_relative_paths
+    self.assertEqual(trial["status"], "captured", trial["evaluator_access"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid' != 'captured'
+- invalid
++ captured
+ : [{'turn': 1, 'tool': 'Bash', 'token': '..', 'reason': 'relative path leaves the workspace', 'call': '{"command": "python3 - <<\'EOF\'\\nimport os\\nfrom .. import x\\nEOF"}'}]
+
+======================================================================
+FAIL: test_interpreter_heredoc_code_is_not_read_as_relative_paths (test_run.EvaluatorAccessTest.test_interpreter_heredoc_code_is_not_read_as_relative_paths) (snippet="print('see ../notes for details')")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 703, in test_interpreter_heredoc_code_is_not_read_as_relative_paths
+    self.assertEqual(trial["status"], "captured", trial["evaluator_access"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid' != 'captured'
+- invalid
++ captured
+ : [{'turn': 1, 'tool': 'Bash', 'token': '../notes', 'reason': 'relative path leaves the workspace', 'call': '{"command": "python3 - <<\'EOF\'\\nimport os\\nprint(\'see ../notes for details\')\\nEOF"}'}]
+
+======================================================================
+FAIL: test_interpreter_heredoc_code_is_not_read_as_relative_paths (test_run.EvaluatorAccessTest.test_interpreter_heredoc_code_is_not_read_as_relative_paths) (snippet="os.listdir('..')")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 703, in test_interpreter_heredoc_code_is_not_read_as_relative_paths
+    self.assertEqual(trial["status"], "captured", trial["evaluator_access"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'invalid' != 'captured'
+- invalid
++ captured
+ : [{'turn': 1, 'tool': 'Bash', 'token': '..', 'reason': 'relative path leaves the workspace', 'call': '{"command": "python3 - <<\'EOF\'\\nimport os\\nos.listdir(\'..\')\\nEOF"}'}]
+
+----------------------------------------------------------------------
+Ran 110 tests in 3.436s
+
+FAILED (failures=6)
