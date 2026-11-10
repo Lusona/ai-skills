@@ -4,7 +4,7 @@ Created: 2026-11-09
 Updated: 2026-11-09
 
 Kind: feature
-Work item: [Work queue](../work.md)
+Work item: [Historical completion](../history/2026-11-week-02.md#2026-11-09--loop-conformance-suite)
 Context: [discussion notes](../notes/loop-conformance-test.md); existing harness `evals/evidence-aware/`
 
 ## Agreement
@@ -40,9 +40,12 @@ Context: [discussion notes](../notes/loop-conformance-test.md); existing harness
   workspace hashes before and after, the workspace `git log`, the outer repository's
   `git status --porcelain` before and after, CLI version, model, effort, elapsed time, and
   reported usage. The trial count defaults to 5.
-- [ ] AC3 Isolation: each condition records how the actor was isolated and the result of an
-  isolation probe. On Claude Code the run is setup-blocked unless the init event reports the
-  frozen plugin path. Ambient instruction files that a host still loads are recorded by hash.
+- [x] AC3 Isolation: each condition records how the actor was isolated, and each trial records
+  the host's observed isolation (Claude Code init event: plugin path, model, MCP servers; Codex:
+  hash of the ambient instruction file, re-checked per trial). On Claude Code the run is
+  setup-blocked unless the init event reports the frozen plugin path. Ambient instruction files
+  that a host still loads are recorded by hash. Reworded on 2026-11-09 by the user's decision:
+  per-trial recording replaces the separate per-condition probe result first required.
 - [x] AC4 Checks: each check returns `pass`, `fail`, `inconclusive`, `setup-blocked`, or
   `not-applicable` for a trial. Each computed check has a unit test with a known-pass and a
   known-fail fixture. Checks follow the current rule text: a prose “Next action:” line and
@@ -324,8 +327,7 @@ suite tests (`tdd/review5-green.txt`); 8 evidence-aware and 21 repository tests 
 
 ### Open items and limits
 
-- AC3 is met in part (see the current handoff). The completion condition also needs the user's
-  acceptance of the reference run report.
+- Run-to-run variation is unmeasured. Decision, user, 2026-11-09: no repeat run for now.
 - C9 is a set of text patterns. Each review pass found another reply layout it misjudged; a
   layout the patterns do not recognise is reported as a C9 fail with its evidence text.
 - Evaluator-material detection is a transcript scan. It misses paths built at run time and
@@ -348,7 +350,10 @@ suite tests (`tdd/review5-green.txt`); 8 evidence-aware and 21 repository tests 
   and fails C8 for that trial.
 - CLI version, user, 2026-11-09: a CLI version difference is a warning in `compare`, not a refusal.
 - Each trial leaves a workspace in `~/.cache/lusona-evals`, a session folder in
-  `~/.claude/projects`, and (Codex) a rollout file in `~/.codex/sessions`. None were deleted.
+  `~/.claude/projects`, and (Codex) a rollout file in `~/.codex/sessions`. By the user's decision
+  of 2026-11-09 the 140 workspaces and 216 session folders of this work were deleted after the
+  commit; the Codex rollout files were kept. The per-trial records and transcripts remain in
+  `raw.zip` and in `tmp/loop-conformance/runs/` on this machine.
 - Spend reported by Claude Code for this work, summed from the captured files: $50.00 in
   total, of which the reference run is $40.08. Codex reports tokens only. Subagent usage inside
   this session is not included.
@@ -359,20 +364,15 @@ suite tests (`tdd/review5-green.txt`); 8 evidence-aware and 21 repository tests 
 
 ## Current handoff
 
-- Authorized work: the corrections for F1 and F2, the regeneration of the reference files, and
-  the commit of this work were requested by the user on 2026-11-09 and are done. No further
-  model run, correction, or push is authorized. TDD targeted.
-- Completed and remaining work: AC1, AC2, AC4–AC9 are met. AC3 is met in part: isolation is
-  recorded per trial from the Claude Code init event (plugin path, model, MCP servers) and the
-  Codex ambient hash is re-checked per trial, but no separate per-condition probe result is
-  stored. Remaining user decisions: accept the reference run report; accept AC3 as met or ask
-  for the probe; whether to repeat the run on 2.0.5 (about $40) to measure run-to-run noise;
-  whether to delete the trial workspaces in `~/.cache/lusona-evals` and the session folders in
-  `~/.claude/projects`.
-- Resume context: reference files in `evals/loop-conformance/reference/`; evidence in
-  `docs/lusona/evidence/2026-11-09-loop-conformance-pilot/`; raw trial data in
-  `tmp/loop-conformance/runs/reference-2.0.5` (git-ignored; the current report is in its
-  `report-f2/` folder).
+- Authorized work: complete. No model run, correction, or push is authorized. TDD targeted.
+- Completed and remaining work: AC1–AC9 are met. The user accepted the reference run report on
+  2026-11-09, accepted AC3 as reworded, declined a repeat run for now, and had the trial
+  workspaces and session folders deleted. Suite, reference files, and evidence are committed in
+  `7e25c1b`; the closing record edits are in the commit after it, made at the user's request.
+- Resume context: to check a rule change, follow the comparison steps in
+  `evals/loop-conformance/README.md` against `evals/loop-conformance/reference/`. A candidate
+  frozen from the current suite gets the accurate warning “suite code differs from the
+  reference: checks.py, run.py”.
 - Correction rounds: review findings — total 5 (the fifth approved by the user after the limit
   of four), resolved. C1 proposed-label false fail — total 1, resolved. Others resolved.
-- Next action: user accepts the report or names changes, and answers the remaining decisions.
+- Next action: none for this item. Follow-up Ideas rows are in the [work queue](../work.md).
