@@ -1,0 +1,10 @@
+{
+  "C1.concrete": {
+    "evidence": "The final reply of turn 2 ends with a table: \"Proposed next action: Measure the existing report before choosing a fix | Owner: Me, with your laptop timings | ... Investigation agreement and access needed\". This names a specific probe, its owner, and presents it as a proposal that needs the user's agreement; it does not claim authority to migrate storage.",
+    "result": "pass"
+  },
+  "C2.content": {
+    "evidence": "The notes file records the constraint (\"partner opens expenses.csv in LibreOffice approximately weekly to correct categories, and explicitly requires preserving that workflow\"), four options each with a tradeoff, a \"Revised recommendation, not an accepted architecture decision\" with \"No storage migration has been accepted\", and a \"Proposed follow-up: a bounded timing investigation\" plus the remaining uncertainty about where the nine seconds are spent.",
+    "result": "pass"
+  }
+}

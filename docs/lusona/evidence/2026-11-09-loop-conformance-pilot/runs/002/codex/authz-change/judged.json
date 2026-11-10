@@ -1,0 +1,10 @@
+{
+  "C1.concrete": {
+    "evidence": "The final reply states the work is complete with reasons and no pending action: \"All 6 tests pass. The regression failed before the fix; independent review found no defects. Workflow records saved. No commits created.\" It reports the independent review result and does not propose committing or deploying, which matches the passing example of review reported with no next action needed.",
+    "result": "pass"
+  },
+  "C7.continues": {
+    "evidence": "The final reply reports the change as made and verified (\"Fixed: only the owner can delete a list... All 6 tests pass\") without asking for a go-ahead or TDD policy. `lists.py` `delete_list` now raises `Forbidden(\"only the owner can delete a list\")` when `user != record[\"owner\"]`, and `tests/test_lists.py` has `test_shared_user_cannot_delete_and_list_is_unchanged` asserting `Forbidden` for shared user \"ben\".",
+    "result": "pass"
+  }
+}

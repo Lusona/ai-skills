@@ -196,6 +196,10 @@ class SuiteContentTest(unittest.TestCase):
         bad = {"x": {"skill": "specify", "files": {}, "turns": ["hi"], "checks": ["C6"],
                      "expect": {"spec_required": "yes"}}}
         self.assertTrue(any("spec_required" in p for p in runner.validate_scenarios(bad)))
+        missing = {"x": {"skill": "implement", "files": {}, "turns": ["hi"], "checks": ["C10", "C11"], "expect": {}}}
+        problems = runner.validate_scenarios(missing)
+        self.assertTrue(any("C10 needs expect.expect_reviewer" in p for p in problems), problems)
+        self.assertTrue(any("C11 needs expect.expect_workers" in p for p in problems), problems)
 
     def test_ignored_paths(self):
         for path in (".git/HEAD", "pkg/__pycache__/m.pyc", ".pytest_cache/v/cache/nodeids", "x.pyc"):
@@ -217,7 +221,7 @@ class FreezeAndPrepareTest(RunnerTestBase):
         self.assertEqual(data["cli_version"], CLAUDE_VERSION)
         self.assertEqual(data["ambient_instruction_hashes"], {})
         self.assertEqual(data["judge_prompt_sha256"], runner.JUDGE_PROMPT_SHA256)
-        self.assertEqual(data["allowed_tools"], ["Read", "Edit", "Write", "Skill", "Task", "Agent"])
+        self.assertEqual(data["allowed_tools"], ["Read", "Edit", "Write", "Skill", "Task", "Agent", "Bash"])
         self.assertTrue(data["claude_settings"]["sandbox"]["enabled"])
         self.assertFalse(data["claude_settings"]["sandbox"]["allowUnsandboxedCommands"])
         self.assertTrue(data["claude_settings"]["permissions"]["blockWritesOutsideWorkingDirectories"])
@@ -456,6 +460,19 @@ class ClaudeRunTest(RunnerTestBase):
         self.assertEqual(blocked["status"], "setup-blocked")
         self.assertIn("model", json.loads((self.temp / "model/turn-1.result.json").read_text())["error"])
 
+    def test_review_word_after_underscore_or_hyphen_is_a_reviewer(self):
+        for value in ("review", "reviewer", "Code-review", "review_delete", "delete_review", "Delete_Review"):
+            with self.subTest(value=value):
+                self.assertTrue(runner._mentions_review(value))
+        for value in ("preview", "PREVIEW", "page_preview", "interview"):
+            with self.subTest(value=value):
+                self.assertFalse(runner._mentions_review(value))
+        agent = jsonl({"type": "assistant", "parent_tool_use_id": None, "message": {"content": [
+            {"type": "tool_use", "id": "a1", "name": "Agent",
+             "input": {"description": "Run delete_review checks", "subagent_type": "general-purpose"}}]}})
+        parsed = runner.parse_claude(agent, "/p")
+        self.assertEqual((parsed["reviewer_seen"], parsed["work_workers"]), (True, 0))
+
     def test_reviewer_detection_uses_description_and_type_only(self):
         def agent(**data):
             return jsonl({"type": "assistant", "parent_tool_use_id": None, "message": {"content": [
@@ -476,9 +493,10 @@ class ClaudeRunTest(RunnerTestBase):
              "input": {"description": "Review existing tests", "subagent_type": "Explore"}}]}}]
         parsed = runner.parse_claude(jsonl(*events), "/p")
         self.assertEqual((parsed["workers"], parsed["reviewer_seen"]), (2, False))
+        self.assertEqual(parsed["work_workers"], 1, "the implementer counts; the Explore subagent does not")
         case = {"checks": ["C10"], "expect": {"expect_workers": True, "expect_reviewer": True}}
         record = {"workers": parsed["workers"], "reviewer_seen": parsed["reviewer_seen"]}
-        self.assertEqual(runner.checks.c10_delegation(record, case)["result"], "fail")
+        self.assertEqual(runner.checks.c10_reviewer(record, case)["result"], "fail")
 
     def test_turn_texts_keep_every_root_text_block(self):
         self.freeze()
@@ -867,18 +885,23 @@ class CodexRunTest(RunnerTestBase):
         self.assertEqual(host.calls, [])
         self.assertIn("AGENTS.md", trial["capture"]["error"])
 
+    def test_spawn_named_with_underscore_before_review_is_a_reviewer(self):
+        self.freeze()
+        trial = self.run_with_rollout(["delete_review"], "underscore")
+        self.assertEqual((trial["workers"], trial["reviewer_seen"], trial["work_workers"]), (1, True, 0))
+
     def test_workers_come_from_spawn_calls_in_the_session_rollout(self):
         self.freeze()
         reviewed = self.run_with_rollout(["review_diff"], "reviewed")
-        self.assertEqual((reviewed["workers"], reviewed["reviewer_seen"]), (1, True))
+        self.assertEqual((reviewed["workers"], reviewed["reviewer_seen"], reviewed["work_workers"]), (1, True, 0))
         self.assertTrue((self.temp / "reviewed/codex-rollout-summary.json").is_file())
         other = self.run_with_rollout(["storage_options", "preview_page"], "other")
-        self.assertEqual(other["workers"], 2)
+        self.assertEqual((other["workers"], other["work_workers"]), (2, 2))
         self.assertIsNone(other["reviewer_seen"], "spawn messages are encrypted; no review name is not proof")
         none = self.run_with_rollout([], "none")
         self.assertEqual((none["workers"], none["reviewer_seen"]), (0, False))
         missing = self.run_with_rollout(None, "missing")
-        self.assertEqual((missing["workers"], missing["reviewer_seen"]), (None, None))
+        self.assertEqual((missing["workers"], missing["reviewer_seen"], missing["work_workers"]), (None, None, None))
 
 
 class JudgeAndReportTest(RunnerTestBase):
@@ -983,6 +1006,17 @@ class JudgeAndReportTest(RunnerTestBase):
         with self.assertRaisesRegex(ValueError, "duplicate"):
             runner.report(self.temp / "runs", self.temp / "report")
         self.assertNotEqual(runner.main(["report", "--run", str(self.temp / "runs"), "--out", str(self.temp / "r2")]), 0)
+
+    def test_grading_code_hashes_hold_grade_step_hashes_only(self):
+        self.freeze()
+        trial_dir = self.captured_trial("runs/a", GOOD_REPLY)
+        grade_hashes = json.loads((trial_dir / "grade-provenance.json").read_text())["code_hashes"]
+        judged_by_other_code = dict(grade_hashes, **{"checks.py": "0" * 64})
+        runner.save(trial_dir / "judge-provenance.json", {"step": "judge", "code_hashes": judged_by_other_code})
+        counts = runner.report(self.temp / "runs", self.temp / "report")
+        self.assertEqual(counts["grading_code_hashes"], [grade_hashes])
+        reference = runner.make_reference(self.temp / "report/report.json", self.condition, self.temp / "ref.json")
+        self.assertEqual(reference["grading_code_hashes"], [grade_hashes])
 
     def test_grading_provenance_reaches_report_and_reference(self):
         self.freeze()

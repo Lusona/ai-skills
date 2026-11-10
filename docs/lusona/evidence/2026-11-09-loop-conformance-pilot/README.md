@@ -74,7 +74,14 @@ Owner: [spec 20261109-loop-conformance-suite](../../specs/20261109-loop-conforma
 - No scenario with delegation, implementation, or independent review was run; their time and
   usage are unmeasured.
 
+## Runs
+
+- Run 001: this file (first pilot, superseded permission configuration).
+- [Run 003](runs/003/README.md): reference run for plugin 2.0.5, 120 trials; the current
+  conclusion and the source of the stored reference files.
+- [Run 002](runs/002/README.md): second pilot on the committed suite. Not comparable with run 001 for Claude Code (different permission
+  configuration and shell).
+
 ## Next action
 
-Coordinator reports the pilot and the independent review to the user; a rerun of the affected
-Claude Code trial and any reference run need the user's approval.
+See run 003.

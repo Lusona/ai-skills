@@ -1,0 +1,185 @@
+{
+  "capture": {
+    "cli_version": "2.1.321 (Claude Code)",
+    "cost_basis": "Claude Code total_cost_usd of the last turn, which is cumulative for the session",
+    "effort": "high",
+    "elapsed_seconds": 2.4483321599836927,
+    "expected_cli_version": "2.1.321 (Claude Code)",
+    "git_after": {
+      "all_count": 1,
+      "commits": [
+        "f9df756b79723b778c5625401b1ffad848e0b820"
+      ],
+      "head": "f9df756b79723b778c5625401b1ffad848e0b820",
+      "reflog_available": true,
+      "refs": "refs/heads/master f9df756b79723b778c5625401b1ffad848e0b820"
+    },
+    "git_before": {
+      "all_count": 1,
+      "commits": [
+        "f9df756b79723b778c5625401b1ffad848e0b820"
+      ],
+      "head": "f9df756b79723b778c5625401b1ffad848e0b820",
+      "reflog_available": true,
+      "refs": "refs/heads/master f9df756b79723b778c5625401b1ffad848e0b820"
+    },
+    "hashes_after": {
+      "README.md": "2a195538bdd3f49650dd5ebfcd464dd7b9418a893d51fb15f738c2a70a1d78c4",
+      "docs/lusona/notes/demo-prep.md": "0fe29770f9fd414f986016d2cc00c22c52f450aca434fe8660be6af32cf12303"
+    },
+    "hashes_before": {
+      "README.md": "2a195538bdd3f49650dd5ebfcd464dd7b9418a893d51fb15f738c2a70a1d78c4",
+      "docs/lusona/notes/demo-prep.md": "0fe29770f9fd414f986016d2cc00c22c52f450aca434fe8660be6af32cf12303"
+    },
+    "isolation": {
+      "ambient_instruction_hashes": {},
+      "init": {
+        "claude_code_version": "2.1.321",
+        "cwd": "/home/jg/.cache/lusona-evals/greeting-t1-5ca88e40",
+        "mcp_servers": [],
+        "memory_paths": {
+          "auto": "/home/jg/.claude/projects/-home-jg--cache-lusona-evals-greeting-t1-5ca88e40/memory/"
+        },
+        "model": "claude-opus-5-5",
+        "permissionMode": "dontAsk",
+        "plugins": [
+          {
+            "name": "lusona",
+            "path": "/home/jg/code/_lusona_/ai-skills/tmp/loop-conformance/conditions/claude-v6/plugin",
+            "source": "lusona@inline",
+            "version": "2.0.5"
+          },
+          {
+            "name": "cc-plugin-agents-md",
+            "path": "builtin",
+            "source": "cc-plugin-agents-md@builtin"
+          },
+          {
+            "name": "cc-plugin-telemetry",
+            "path": "builtin",
+            "source": "cc-plugin-telemetry@builtin"
+          },
+          {
+            "name": "cc-plugin-privacy",
+            "path": "builtin",
+            "source": "cc-plugin-privacy@builtin"
+          },
+          {
+            "name": "cc-plugin-plugin-authoring",
+            "path": "builtin",
+            "source": "cc-plugin-plugin-authoring@builtin"
+          }
+        ],
+        "tools": [
+          "Task",
+          "Bash",
+          "CronCreate",
+          "CronDelete",
+          "CronList",
+          "DesignSync",
+          "Edit",
+          "ListAgents",
+          "Monitor",
+          "NotebookEdit",
+          "PushNotification",
+          "Read",
+          "RemoteTrigger",
+          "ReportFindings",
+          "ScheduleWakeup",
+          "SendMessage",
+          "Skill",
+          "TaskStop",
+          "ToolSearch",
+          "WebSearch",
+          "Workflow",
+          "Write"
+        ]
+      },
+      "work_root": "/home/jg/.cache/lusona-evals"
+    },
+    "model": "claude-opus-5-5",
+    "outer_changed_paths": [],
+    "outer_digest_after": "f1cdefee0cc1fcc94bd7eae8c8158c81ec28fa88131198a7c05d3ad8d8a7b303",
+    "outer_digest_before": "f1cdefee0cc1fcc94bd7eae8c8158c81ec28fa88131198a7c05d3ad8d8a7b303",
+    "turns": [
+      {
+        "cost_usd": 0.09746819999999999,
+        "elapsed_seconds": 2.40937488200143,
+        "error": null,
+        "exit_code": 0,
+        "item_types": null,
+        "session": "5bcb066e-a3a4-46c3-9ea0-0dbfdb3a359f",
+        "status": "captured",
+        "subagents_spawned": 0,
+        "tool_calls": {},
+        "turn": 1,
+        "turn_cost_usd": 0.09746819999999999,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 11706,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 11706,
+          "cache_read_input_tokens": 11661,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 2,
+          "iterations": [
+            {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 11706,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 11706,
+              "cache_read_input_tokens": 11661,
+              "input_tokens": 2,
+              "output_tokens": 74,
+              "type": "message"
+            }
+          ],
+          "output_tokens": 74,
+          "output_tokens_details": {
+            "thinking_tokens": 51
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        },
+        "workers": 0
+      }
+    ],
+    "usage_scope": "Root CLI reported usage per turn; worker usage may be excluded.",
+    "workspace": "/home/jg/.cache/lusona-evals/greeting-t1-5ca88e40"
+  },
+  "changed": {
+    "added": [],
+    "deleted": [],
+    "modified": []
+  },
+  "commits_added": 0,
+  "condition": "/home/jg/code/_lusona_/ai-skills/tmp/loop-conformance/conditions/claude-v6",
+  "condition_sha256": "7943ac2067cec8934c229fe784b656f373574fff3a0af33536df6de951fc0bdf",
+  "cost_usd": 0.09746819999999999,
+  "denied_actions": [],
+  "evaluator_access": [],
+  "files": {},
+  "host": "claude",
+  "outer_changed": false,
+  "refs_changed": false,
+  "replies": [
+    "Good to hear the demo went well. Nothing needs doing now."
+  ],
+  "reviewer_seen": false,
+  "scenario": "greeting",
+  "status": "captured",
+  "trial": 1,
+  "turn_texts": [
+    [
+      "Good to hear the demo went well. Nothing needs doing now."
+    ]
+  ],
+  "workers": 0
+}

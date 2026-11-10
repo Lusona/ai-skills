@@ -23,7 +23,7 @@ ROOT = HERE.parents[1]
 SUITE_FILES = ("scenarios.json", "rubric.md", "suite.lock.json")
 CODE_FILES = ("run.py", "checks.py", "compare.py")
 HOSTS = ("claude", "codex")
-CHECK_IDS = tuple(f"C{n}" for n in range(1, 11))
+CHECK_IDS = tuple(f"C{n}" for n in range(1, 12))
 STATES = ("pass", "fail", "inconclusive", "setup-blocked", "not-applicable", "invalid")
 JUDGED_STATES = ("pass", "fail", "inconclusive")
 INSTRUCTION_FILES = ("CLAUDE.md", "AGENTS.md")
@@ -250,6 +250,9 @@ def validate_scenarios(scenarios, rubric_text=None):
         for check, key in (("C2", "record_globs"), ("C5", "protected_globs"), ("C8", "allowed_globs")):
             if check in case["checks"] and not isinstance(expect.get(key), list):
                 problems.append(f"{sid}: {check} needs expect.{key} as a list")
+        for check, key in (("C10", "expect_reviewer"), ("C11", "expect_workers")):
+            if check in case["checks"] and key not in expect:
+                problems.append(f"{sid}: {check} needs expect.{key}")
         for key in ("spec_required", "expect_workers", "expect_reviewer"):
             if key in expect and not isinstance(expect[key], bool):
                 problems.append(f"{sid}: expect.{key} must be true or false")
@@ -298,8 +301,11 @@ CLAUDE_SETTINGS = {
     "permissions": {"blockWritesOutsideWorkingDirectories": True},
 }
 # Claude Code 2.1.321 lists the subagent tool as "Task" in the init event but emits
-# tool_use events named "Agent"; both names are allowed and counted.
-CLAUDE_ALLOWED_TOOLS = ["Read", "Edit", "Write", "Skill", "Task", "Agent"]
+# tool_use events named "Agent"; both names are allowed and counted. The bare "Bash" rule
+# allows every Bash command: without it, dontAsk refused sandboxed commands whose write target
+# Claude Code could not resolve before running (shell variables, command substitution,
+# "$TMPDIR", `alias`). The sandbox settings above still confine every Bash command.
+CLAUDE_ALLOWED_TOOLS = ["Read", "Edit", "Write", "Skill", "Task", "Agent", "Bash"]
 
 
 def claude_allowed_tools(plugin=None):
@@ -378,11 +384,13 @@ def _events(stdout):
             yield event
 
 
-_REVIEW = re.compile(r"\breview", re.IGNORECASE)
+# "review" not preceded by a letter or digit: `\b` would miss "delete_review" (no word
+# boundary between "_" and "r").
+_REVIEW = re.compile(r"(?<![a-z0-9])review", re.IGNORECASE)
 
 
 def _mentions_review(value):
-    """True for "review", "reviewer", "Code-review"; false for "preview"."""
+    """True for "review", "reviewer", "Code-review", "delete_review"; false for "preview"."""
     return isinstance(value, str) and _REVIEW.search(value) is not None
 
 
@@ -392,7 +400,7 @@ def parse_claude(stdout, plugin_path):
               "reply": None, "usage": None, "cost_usd": None, "turn_cost_usd": None, "workers": 0,
               "reviewer_seen": False,
               "denied_actions": [], "tool_calls": {}, "init": None, "subagents_spawned": None,
-              "texts": [], "init_model": None}
+              "texts": [], "init_model": None, "work_workers": 0}
     last_text, task_ids = None, set()
     for event in _events(stdout):
         kind = event.get("type")
@@ -422,8 +430,12 @@ def parse_claude(stdout, plugin_path):
                         # The prompt is not read: an implementer's prompt may mention a later review.
                         # An Explore subagent only reads, so it is never a reviewer.
                         explore = str(data.get("subagent_type") or "").lower() == "explore"
-                        if not explore and any(_mentions_review(data.get(k)) for k in ("description", "subagent_type")):
+                        review = not explore and any(_mentions_review(data.get(k))
+                                                     for k in ("description", "subagent_type"))
+                        if review:
                             parsed["reviewer_seen"] = True
+                        elif not explore:
+                            parsed["work_workers"] += 1
         elif kind == "result":
             parsed["session"] = event.get("session_id") or parsed["session"]
             parsed["result_ok"] = event.get("subtype") == "success" and not event.get("is_error")
@@ -481,14 +493,16 @@ def default_codex_sessions(environ=None):
 def codex_rollout_workers(thread, sessions_root):
     """Count spawn_agent calls of the root thread from its session rollout file.
 
-    Returns (workers, reviewer_seen, summary). workers is None when the rollout cannot be
-    found. Spawn messages are encrypted in storage, so reviewer_seen is True only when a
-    task_name mentions review, False when nothing was spawned, and None otherwise."""
+    Returns (workers, reviewer_seen, work_workers, summary). workers is None when the
+    rollout cannot be found; work_workers counts spawns whose task name does not mention
+    review, and is None when a spawn has no task name. Spawn messages are encrypted in
+    storage, so reviewer_seen is True only when a task_name mentions review, False when
+    nothing was spawned, and None otherwise."""
     summary = {"thread": thread, "sessions_root": str(sessions_root), "status": "unavailable"}
     matches = sorted(pathlib.Path(sessions_root).rglob(f"rollout-*-{thread}.jsonl")) if thread else []
     if len(matches) != 1:
         summary["error"] = f"expected one rollout for thread {thread}; found {len(matches)}"
-        return None, None, summary
+        return None, None, None, summary
     calls, spawns, malformed = {}, [], 0
     for line in matches[0].read_text(errors="replace").splitlines():
         try:
@@ -508,10 +522,13 @@ def codex_rollout_workers(thread, sessions_root):
                 arguments = {}
             spawns.append({k: arguments.get(k) for k in ("task_name", "model", "reasoning_effort")})
     reviewer = True if any(_mentions_review(s.get("task_name")) for s in spawns) else (False if not spawns else None)
+    named = all(isinstance(s.get("task_name"), str) and s["task_name"] for s in spawns)
+    work = sum(1 for s in spawns if not _mentions_review(s.get("task_name"))) if named else None
     summary.update({"status": "captured", "rollout": str(matches[0]), "rollout_sha256": digest(matches[0]),
                     "function_calls": calls, "spawns": spawns, "malformed_lines": malformed,
                     "basis": "spawn_agent function calls of the root thread; spawn messages are encrypted"})
-    return len(spawns), reviewer, summary
+    summary["work_workers"] = work
+    return len(spawns), reviewer, work, summary
 
 
 # ---------------------------------------------------------------- evaluator-material access
@@ -793,8 +810,8 @@ def freeze(plugin, out, host, model, effort, timeout, judge_model, judge_effort,
                                           "strict_mcp_config": True, "settings": CLAUDE_SETTINGS,
                                           "allowed_tools": claude_allowed_tools(),
                                           "shell_env": dict(CLAUDE_SHELL_ENV)}
-        condition["permissions"] = ("--permission-mode dontAsk; allowed_tools for file, skill, and subagent "
-                                    "tools; Bash runs in the Claude Code sandbox without allow rules, writing only "
+        condition["permissions"] = ("--permission-mode dontAsk; allowed_tools for file, skill, subagent, and "
+                                    "Bash tools; every Bash command runs in the Claude Code sandbox, writing only "
                                     "to the workspace and the sandbox temp directory, with no network; Write and "
                                     "Edit refused outside the workspace; refused calls listed in denied_actions")
         condition["isolation"] = ("Workspace under a work root with no CLAUDE.md or AGENTS.md in any ancestor; "
@@ -1023,11 +1040,12 @@ def run_trial(trial_dir, *, executor=execute, outer_status=outer_repo_state, cod
     claude = cond["host"] == "claude"
     workers = ([t.get("workers") for t in turns] if turns else [None])
     reviewers = [t.get("reviewer_seen") for t in turns] if turns else [None]
+    work = [t.get("work_workers") for t in turns] if turns else [None]
     if not claude and turns:
         thread = next((t.get("session") for t in turns if t.get("session")), None)
-        count, reviewer, summary = codex_rollout_workers(thread, codex_sessions or default_codex_sessions())
+        count, reviewer, work_count, summary = codex_rollout_workers(thread, codex_sessions or default_codex_sessions())
         save(trial_dir / "codex-rollout-summary.json", summary)
-        workers, reviewers = [count], [reviewer]
+        workers, reviewers, work = [count], [reviewer], [work_count]
     last = turns[-1] if turns else {}
     cost = last.get("cost_usd") if claude and last.get("status") == "captured" else None
     trial = {
@@ -1039,6 +1057,7 @@ def run_trial(trial_dir, *, executor=execute, outer_status=outer_repo_state, cod
         "refs_changed": (git_before.get("head"), git_before.get("refs")) != (git_after["head"], git_after["refs"]),
         "outer_changed": outer_before != outer_after,
         "workers": None if any(w is None for w in workers) else sum(workers),
+        "work_workers": None if any(w is None for w in work) else sum(work),
         "reviewer_seen": True if any(r is True for r in reviewers) else (None if any(r is None for r in reviewers) else False),
         "denied_actions": [d for t in turns for d in t.get("denied_actions") or []],
         "evaluator_access": access,
@@ -1087,8 +1106,28 @@ def save_provenance(trial_dir, step):
          {"step": step, "code_hashes": code_hashes(), "at_unix": time.time()})
 
 
+def derive_work_workers(trial_dir, trial):
+    """work_workers for a trial captured before the field existed: from the Claude Code
+    transcripts or the Codex rollout summary; None when neither gives it."""
+    if trial["host"] == "claude":
+        turns = sorted(trial_dir.glob("turn-*.stdout.jsonl"))
+        if not turns:
+            return None
+        cond_plugin = load_json(trial_dir / "run.json").get("condition", "")
+        return sum(parse_claude(t.read_text(), cond_plugin)["work_workers"] for t in turns)
+    summary_path = trial_dir / "codex-rollout-summary.json"
+    if not summary_path.exists():
+        return None
+    spawns = load_json(summary_path).get("spawns")
+    if spawns is None or not all(isinstance(s.get("task_name"), str) and s["task_name"] for s in spawns):
+        return None
+    return sum(1 for s in spawns if not _mentions_review(s["task_name"]))
+
+
 def grade(trial_dir):
     trial_dir, trial, _, case = _trial_context(trial_dir)
+    if "work_workers" not in trial:
+        trial = dict(trial, work_workers=derive_work_workers(trial_dir, trial))
     computed = checks.evaluate(trial, case)
     save(trial_dir / "computed.json", computed)
     save_provenance(trial_dir, "grade")
@@ -1307,12 +1346,13 @@ def report(run_dir, out):
     counts, trials, grading = {}, [], []
     for path in trial_files:
         trial, cond, results, was_judged = combined_results(path.parent)
-        for step in ("grade", "judge"):
-            record = path.parent / f"{step}-provenance.json"
-            if record.exists():
-                hashes_used = load_json(record)["code_hashes"]
-                if hashes_used not in grading:
-                    grading.append(hashes_used)
+        # Only the grade step decides the computed results; judge-provenance.json stays a
+        # record of the judge step and is not merged here.
+        record = path.parent / "grade-provenance.json"
+        if record.exists():
+            hashes_used = load_json(record)["code_hashes"]
+            if hashes_used not in grading:
+                grading.append(hashes_used)
         host_counts = counts.setdefault(trial["host"], {c: {s: 0 for s in STATES} for c in CHECK_IDS})
         for check, value in results.items():
             host_counts[check][value["result"]] += 1

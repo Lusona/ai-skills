@@ -1,0 +1,81 @@
+test_review_word_after_underscore_or_hyphen_is_a_reviewer (test_run.ClaudeRunTest.test_review_word_after_underscore_or_hyphen_is_a_reviewer) ... 
+  test_review_word_after_underscore_or_hyphen_is_a_reviewer (test_run.ClaudeRunTest.test_review_word_after_underscore_or_hyphen_is_a_reviewer) (value='delete_review') ... FAIL
+  test_review_word_after_underscore_or_hyphen_is_a_reviewer (test_run.ClaudeRunTest.test_review_word_after_underscore_or_hyphen_is_a_reviewer) (value='Delete_Review') ... FAIL
+test_review_word_after_underscore_or_hyphen_is_a_reviewer (test_run.ClaudeRunTest.test_review_word_after_underscore_or_hyphen_is_a_reviewer) ... FAIL
+test_spawn_named_with_underscore_before_review_is_a_reviewer (test_run.CodexRunTest.test_spawn_named_with_underscore_before_review_is_a_reviewer) ... FAIL
+test_grading_code_hashes_hold_grade_step_hashes_only (test_run.JudgeAndReportTest.test_grading_code_hashes_hold_grade_step_hashes_only) ... FAIL
+
+======================================================================
+FAIL: test_review_word_after_underscore_or_hyphen_is_a_reviewer (test_run.ClaudeRunTest.test_review_word_after_underscore_or_hyphen_is_a_reviewer) (value='delete_review')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 466, in test_review_word_after_underscore_or_hyphen_is_a_reviewer
+    self.assertTrue(runner._mentions_review(value))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_review_word_after_underscore_or_hyphen_is_a_reviewer (test_run.ClaudeRunTest.test_review_word_after_underscore_or_hyphen_is_a_reviewer) (value='Delete_Review')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 466, in test_review_word_after_underscore_or_hyphen_is_a_reviewer
+    self.assertTrue(runner._mentions_review(value))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_review_word_after_underscore_or_hyphen_is_a_reviewer (test_run.ClaudeRunTest.test_review_word_after_underscore_or_hyphen_is_a_reviewer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 474, in test_review_word_after_underscore_or_hyphen_is_a_reviewer
+    self.assertEqual((parsed["reviewer_seen"], parsed["work_workers"]), (True, 0))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (False, 1) != (True, 0)
+
+First differing element 0:
+False
+True
+
+- (False, 1)
++ (True, 0)
+
+======================================================================
+FAIL: test_spawn_named_with_underscore_before_review_is_a_reviewer (test_run.CodexRunTest.test_spawn_named_with_underscore_before_review_is_a_reviewer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 891, in test_spawn_named_with_underscore_before_review_is_a_reviewer
+    self.assertEqual((trial["workers"], trial["reviewer_seen"], trial["work_workers"]), (1, True, 0))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (1, None, 1) != (1, True, 0)
+
+First differing element 1:
+None
+True
+
+- (1, None, 1)
++ (1, True, 0)
+
+======================================================================
+FAIL: test_grading_code_hashes_hold_grade_step_hashes_only (test_run.JudgeAndReportTest.test_grading_code_hashes_hold_grade_step_hashes_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jg/code/_lusona_/ai-skills/evals/loop-conformance/test_run.py", line 1017, in test_grading_code_hashes_hold_grade_step_hashes_only
+    self.assertEqual(counts["grading_code_hashes"], [grade_hashes])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [{'ch[232 chars]5ae'}, {'checks.py': '000000000000000000000000[198 chars]ae'}] != [{'ch[232 chars]5ae'}]
+
+First list contains 1 additional elements.
+First extra element 1:
+{'checks.py': '0000000000000000000000000000000000000000000000000000000000000000', 'compare.py': '04545d734bf32423f1b71efbbf8b05301b1e7b0b937e76bed4b7ed45e7920672', 'run.py': '1d47b38e3ae50795f5217830861d6286db8330e86d5dd6ae8c91fe57ab73f5ae'}
+
+  [{'checks.py': '910576d7d7e459d2d2cabd073f8023d82e72d239e5ace2a05ecd392dcfe3a6b2',
+    'compare.py': '04545d734bf32423f1b71efbbf8b05301b1e7b0b937e76bed4b7ed45e7920672',
+-   'run.py': '1d47b38e3ae50795f5217830861d6286db8330e86d5dd6ae8c91fe57ab73f5ae'},
+-  {'checks.py': '0000000000000000000000000000000000000000000000000000000000000000',
+-   'compare.py': '04545d734bf32423f1b71efbbf8b05301b1e7b0b937e76bed4b7ed45e7920672',
+    'run.py': '1d47b38e3ae50795f5217830861d6286db8330e86d5dd6ae8c91fe57ab73f5ae'}]
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.075s
+
+FAILED (failures=5)

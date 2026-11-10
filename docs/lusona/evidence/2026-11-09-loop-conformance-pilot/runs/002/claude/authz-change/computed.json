@@ -1,0 +1,38 @@
+{
+  "C1": {
+    "evidence": "last reply has a table with a Next action header",
+    "result": "pass"
+  },
+  "C10": {
+    "evidence": "reviewer_seen=True, 1 worker(s); a separate reviewer needs a reviewer launch and at least 2 workers",
+    "result": "fail"
+  },
+  "C2": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C3": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C4": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C5": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C6": {
+    "evidence": "docs/lusona/work.md names docs/lusona/specs/20261109-owner-only-list-deletion.md",
+    "result": "pass"
+  },
+  "C8": {
+    "evidence": "no commit, no outer change, all changes inside allowed scope",
+    "result": "pass"
+  },
+  "C9": {
+    "evidence": "Result and Evidence labels present; status Complete at the Result label",
+    "result": "pass"
+  }
+}

@@ -107,6 +107,21 @@ class C1NextActionTest(unittest.TestCase):
             with self.subTest(reply=reply[:40]):
                 self.assertEqual(checks.c1_next_action(trial(replies=[reply]), self.case)["result"], "pass")
 
+    def test_proposed_next_action_label_passes(self):
+        # Core rule: a useful proposed follow-up uses the same form, labelled proposed.
+        for reply in ("Result text.\n\nProposed next action: agree on the rounding rule, then authorize a correction.\n",
+                      "Result text.\n\n**Proposed next action:** agree the monetary rounding policy before authorizing a fix.\n",
+                      "| Proposed next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Decide | User | - | Missing |\n",
+                      "## Proposed next action\n\nThe user decides the rounding rule.\n"):
+            with self.subTest(reply=reply[:50]):
+                self.assertEqual(checks.c1_next_action(trial(replies=[reply]), self.case)["result"], "pass")
+
+    def test_other_next_step_wordings_fail(self):
+        for reply in ("**Suggested next step** (after you decide): run the export.\n",
+                      "## Next step after your decision\n\nRun the export.\n"):
+            with self.subTest(reply=reply):
+                self.assertEqual(checks.c1_next_action(trial(replies=[reply]), self.case)["result"], "fail")
+
     def test_fail_when_next_action_heading_is_empty(self):
         for reply in ("## Next action\n\n## Evidence\n\nRead it.\n", "Done.\n\n## Next action\n\n"):
             with self.subTest(reply=reply):
@@ -180,6 +195,18 @@ class C6QueueRowTest(unittest.TestCase):
         no_queue = trial(changed=changed(added=[self.spec]), files={self.spec: "# Spec"})
         self.assertEqual(checks.c6_queue_row(unlinked, scenario(["C6"]))["result"], "fail")
         self.assertEqual(checks.c6_queue_row(no_queue, scenario(["C6"]))["result"], "fail")
+
+    def test_history_entry_names_spec(self):
+        # Pilot 2, Codex authz-change: the item was closed out to history; work.md unchanged.
+        history = "docs/lusona/history/2026-11-week-02.md"
+        case = scenario(["C6"])
+        case["files"] = {"docs/lusona/work.md": "| Outcome | State | Record |\n"}
+        record = trial(changed=changed(added=[self.spec, history]),
+                       files={self.spec: "# Spec", history: "- Item: [Export](../specs/20261109-export.md)\n"})
+        self.assertEqual(checks.c6_queue_row(record, case)["result"], "pass")
+        unrelated = trial(changed=changed(added=[self.spec, history]),
+                          files={self.spec: "# Spec", history: "- Item: another change\n"})
+        self.assertEqual(checks.c6_queue_row(unrelated, case)["result"], "fail")
 
     def test_required_spec_missing_fails(self):
         required = scenario(["C6"], spec_required=True)
@@ -332,38 +359,38 @@ class C9ReplyFormatTest(unittest.TestCase):
                 self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "fail")
 
 
-class C10DelegationTest(unittest.TestCase):
-    case = scenario(["C10"], expect_workers=True, expect_reviewer=True)
+class DelegationTest(unittest.TestCase):
+    """C10: a separate reviewer when review is required. C11: substantive work delegated."""
+    both = scenario(["C10", "C11"], expect_workers=True, expect_reviewer=True)
 
-    def test_pass_when_workers_and_reviewer_observed(self):
-        record = trial(workers=2, reviewer_seen=True)
-        self.assertEqual(checks.c10_delegation(record, self.case)["result"], "pass")
-        local = scenario(["C10"], expect_workers=False)
-        self.assertEqual(checks.c10_delegation(trial(workers=0), local)["result"], "pass")
+    def grade(self, record, case=None):
+        results = checks.evaluate(record, case or self.both)
+        return results["C10"]["result"], results["C11"]["result"]
 
-    def test_false_expectations_mean_not_required(self):
-        not_required = scenario(["C10"], expect_workers=False, expect_reviewer=False)
-        self.assertEqual(checks.c10_delegation(trial(workers=3, reviewer_seen=True), not_required)["result"], "pass")
-        workers_only = scenario(["C10"], expect_workers=True, expect_reviewer=False)
-        self.assertEqual(checks.c10_delegation(trial(workers=1, reviewer_seen=None), workers_only)["result"], "pass")
-        self.assertEqual(checks.c10_delegation(trial(workers=1, reviewer_seen=False), workers_only)["result"], "pass")
+    def test_pilot2_claude_shape_reviewer_without_delegated_work(self):
+        # The actor implemented locally and launched one reviewer subagent.
+        record = trial(workers=1, reviewer_seen=True, work_workers=0)
+        self.assertEqual(self.grade(record), ("pass", "fail"))
 
-    def test_reviewer_requires_a_separate_worker(self):
-        # One worker that both implements and is described as a reviewer is not a separate reviewer.
-        self.assertEqual(checks.c10_delegation(trial(workers=1, reviewer_seen=True), self.case)["result"], "fail")
-        reviewer_only = scenario(["C10"], expect_reviewer=True)
-        self.assertEqual(checks.c10_delegation(trial(workers=1, reviewer_seen=True), reviewer_only)["result"], "fail")
-        self.assertEqual(checks.c10_delegation(trial(workers=2, reviewer_seen=True), reviewer_only)["result"], "pass")
+    def test_implementer_plus_reviewer_passes_both(self):
+        self.assertEqual(self.grade(trial(workers=2, reviewer_seen=True, work_workers=1)), ("pass", "pass"))
 
-    def test_fail_when_expected_delegation_absent(self):
-        self.assertEqual(checks.c10_delegation(trial(workers=0, reviewer_seen=False), self.case)["result"], "fail")
-        self.assertEqual(checks.c10_delegation(trial(workers=1, reviewer_seen=False), self.case)["result"], "fail")
+    def test_implementer_only_when_review_required(self):
+        self.assertEqual(self.grade(trial(workers=1, reviewer_seen=False, work_workers=1)), ("fail", "pass"))
 
-    def test_inconclusive_when_host_hides_workers_or_reviewer(self):
-        self.assertEqual(checks.c10_delegation(trial(workers=None, reviewer_seen=None), self.case)["result"],
-                         "inconclusive")
-        self.assertEqual(checks.c10_delegation(trial(workers=1, reviewer_seen=None), self.case)["result"],
-                         "inconclusive")
+    def test_explore_only_is_not_delegated_work(self):
+        case = scenario(["C11"], expect_workers=True)
+        record = trial(workers=1, reviewer_seen=False, work_workers=0)
+        self.assertEqual(checks.evaluate(record, case)["C11"]["result"], "fail")
+
+    def test_unknown_roles_are_inconclusive(self):
+        self.assertEqual(self.grade(trial(workers=None, reviewer_seen=None, work_workers=None)),
+                         ("inconclusive", "inconclusive"))
+
+    def test_false_expectation_means_not_applicable(self):
+        case = scenario(["C10", "C11"], expect_workers=False, expect_reviewer=False)
+        self.assertEqual(self.grade(trial(workers=0, reviewer_seen=False, work_workers=0), case),
+                         ("not-applicable", "not-applicable"))
 
 
 class EvaluateTest(unittest.TestCase):
@@ -372,8 +399,9 @@ class EvaluateTest(unittest.TestCase):
         results = checks.evaluate(trial(), case)
         self.assertEqual(results["C1"]["result"], "pass")
         self.assertEqual(results["C3"]["result"], "pass")
-        for check in ("C2", "C4", "C5", "C6", "C8", "C10"):
+        for check in ("C2", "C4", "C5", "C6", "C8", "C10", "C11"):
             self.assertEqual(results[check]["result"], "not-applicable", check)
+        self.assertEqual(checks.CHECK_IDS, tuple(f"C{n}" for n in range(1, 12)))
         self.assertNotIn("C7", results)
         for value in results.values():
             self.assertIn(value["result"], checks.RESULTS)

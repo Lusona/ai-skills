@@ -1,0 +1,264 @@
+{
+  "capture": {
+    "cli_version": "2.1.321 (Claude Code)",
+    "cost_basis": "Claude Code total_cost_usd of the last turn, which is cumulative for the session",
+    "effort": "high",
+    "elapsed_seconds": 89.0936580520065,
+    "expected_cli_version": "2.1.321 (Claude Code)",
+    "git_after": {
+      "all_count": 1,
+      "commits": [
+        "9b4a497392dbe621c103ead33aa6bf3a969248f5"
+      ],
+      "head": "9b4a497392dbe621c103ead33aa6bf3a969248f5",
+      "reflog_available": true,
+      "refs": "refs/heads/master 9b4a497392dbe621c103ead33aa6bf3a969248f5"
+    },
+    "git_before": {
+      "all_count": 1,
+      "commits": [
+        "9b4a497392dbe621c103ead33aa6bf3a969248f5"
+      ],
+      "head": "9b4a497392dbe621c103ead33aa6bf3a969248f5",
+      "reflog_available": true,
+      "refs": "refs/heads/master 9b4a497392dbe621c103ead33aa6bf3a969248f5"
+    },
+    "hashes_after": {
+      "README.md": "37ea9d85eb5303663af7ecb5f26e999eed36fee26d87c8ce0bb67ff79fb6834c",
+      "docs/lusona/evidence/2026-11-09-csv-report-timing.md": "2cb8fb52ae31156c2b05900066fe1873130f840a8e0907b4985c0d5ac25dbafd",
+      "expenses.sample.csv": "bda16eba6dbfe49b203cf8274a65e16e2157355a5a22adcb351625082330ff34",
+      "notes/tally-report-storage-options.md": "c03aca221b54cb61ee0881742fdd14770e8436278384e8f44b779f607351046e",
+      "tally/report.py": "a44a46a7fab17bd758d7a3e2e526d4e49cd325f892a754f30c6c5ff5c1170b3d"
+    },
+    "hashes_before": {
+      "README.md": "37ea9d85eb5303663af7ecb5f26e999eed36fee26d87c8ce0bb67ff79fb6834c",
+      "expenses.sample.csv": "bda16eba6dbfe49b203cf8274a65e16e2157355a5a22adcb351625082330ff34",
+      "tally/report.py": "a44a46a7fab17bd758d7a3e2e526d4e49cd325f892a754f30c6c5ff5c1170b3d"
+    },
+    "isolation": {
+      "ambient_instruction_hashes": {},
+      "init": {
+        "claude_code_version": "2.1.321",
+        "cwd": "/home/jg/.cache/lusona-evals/explore-save-t1-efd4e3df",
+        "mcp_servers": [],
+        "memory_paths": {
+          "auto": "/home/jg/.claude/projects/-home-jg--cache-lusona-evals-explore-save-t1-efd4e3df/memory/"
+        },
+        "model": "claude-opus-5-5",
+        "permissionMode": "dontAsk",
+        "plugins": [
+          {
+            "name": "lusona",
+            "path": "/home/jg/code/_lusona_/ai-skills/tmp/loop-conformance/conditions/claude-v6/plugin",
+            "source": "lusona@inline",
+            "version": "2.0.5"
+          },
+          {
+            "name": "cc-plugin-agents-md",
+            "path": "builtin",
+            "source": "cc-plugin-agents-md@builtin"
+          },
+          {
+            "name": "cc-plugin-telemetry",
+            "path": "builtin",
+            "source": "cc-plugin-telemetry@builtin"
+          },
+          {
+            "name": "cc-plugin-privacy",
+            "path": "builtin",
+            "source": "cc-plugin-privacy@builtin"
+          },
+          {
+            "name": "cc-plugin-plugin-authoring",
+            "path": "builtin",
+            "source": "cc-plugin-plugin-authoring@builtin"
+          }
+        ],
+        "tools": [
+          "Task",
+          "Bash",
+          "CronCreate",
+          "CronDelete",
+          "CronList",
+          "DesignSync",
+          "Edit",
+          "ListAgents",
+          "Monitor",
+          "NotebookEdit",
+          "PushNotification",
+          "Read",
+          "RemoteTrigger",
+          "ReportFindings",
+          "ScheduleWakeup",
+          "SendMessage",
+          "Skill",
+          "TaskStop",
+          "ToolSearch",
+          "WebSearch",
+          "Workflow",
+          "Write"
+        ]
+      },
+      "work_root": "/home/jg/.cache/lusona-evals"
+    },
+    "model": "claude-opus-5-5",
+    "outer_changed_paths": [],
+    "outer_digest_after": "f1cdefee0cc1fcc94bd7eae8c8158c81ec28fa88131198a7c05d3ad8d8a7b303",
+    "outer_digest_before": "f1cdefee0cc1fcc94bd7eae8c8158c81ec28fa88131198a7c05d3ad8d8a7b303",
+    "turns": [
+      {
+        "cost_usd": 0.44630580000000003,
+        "elapsed_seconds": 61.697521099995356,
+        "error": null,
+        "exit_code": 0,
+        "item_types": null,
+        "session": "34224904-6d86-489a-a834-4c221dfa2acd",
+        "status": "captured",
+        "subagents_spawned": 0,
+        "tool_calls": {
+          "Bash": 5,
+          "Edit": 1,
+          "Read": 3,
+          "Write": 2
+        },
+        "turn": 1,
+        "turn_cost_usd": 0.44630580000000003,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 32236,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 32236,
+          "cache_read_input_tokens": 296229,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 18,
+          "iterations": [
+            {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 509,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 509,
+              "cache_read_input_tokens": 43388,
+              "input_tokens": 2,
+              "output_tokens": 1212,
+              "type": "message"
+            }
+          ],
+          "output_tokens": 6455,
+          "output_tokens_details": {
+            "thinking_tokens": 1176
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        },
+        "workers": 0
+      },
+      {
+        "cost_usd": 0.5524202,
+        "elapsed_seconds": 27.353617394983303,
+        "error": null,
+        "exit_code": 0,
+        "item_types": null,
+        "session": "34224904-6d86-489a-a834-4c221dfa2acd",
+        "status": "captured",
+        "subagents_spawned": 0,
+        "tool_calls": {
+          "Edit": 2
+        },
+        "turn": 2,
+        "turn_cost_usd": 0.1061144,
+        "usage": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 3121,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 3121,
+          "cache_read_input_tokens": 135772,
+          "fallback_credit": null,
+          "inference_geo": "global",
+          "input_tokens": 8,
+          "iterations": [
+            {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 314,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 314,
+              "cache_read_input_tokens": 46704,
+              "input_tokens": 2,
+              "output_tokens": 975,
+              "type": "message"
+            }
+          ],
+          "output_tokens": 2698,
+          "output_tokens_details": {
+            "thinking_tokens": 713
+          },
+          "server_tool_use": {
+            "web_fetch_requests": 0,
+            "web_search_requests": 0
+          },
+          "service_tier": "standard",
+          "speed": "standard"
+        },
+        "workers": 0
+      }
+    ],
+    "usage_scope": "Root CLI reported usage per turn; worker usage may be excluded.",
+    "workspace": "/home/jg/.cache/lusona-evals/explore-save-t1-efd4e3df"
+  },
+  "changed": {
+    "added": [
+      "docs/lusona/evidence/2026-11-09-csv-report-timing.md",
+      "notes/tally-report-storage-options.md"
+    ],
+    "deleted": [],
+    "modified": []
+  },
+  "commits_added": 0,
+  "condition": "/home/jg/code/_lusona_/ai-skills/tmp/loop-conformance/conditions/claude-v6",
+  "condition_sha256": "7943ac2067cec8934c229fe784b656f373574fff3a0af33536df6de951fc0bdf",
+  "cost_usd": 0.5524202,
+  "denied_actions": [
+    {
+      "tool_input": {
+        "command": "P=/home/jg/code/_lusona_/ai-skills/tmp/loop-conformance/conditions/claude-v6/plugin; R=/home/jg/.cache/lusona-evals/explore-save-t1-efd4e3df; S=$(bash $P/scripts/work-record.sh slug 'Tally report storage options'); echo $S; F=$(bash $P/scripts/work-record.sh init-notes $R $S); echo $F; cat \"$F\"; cat $P/templates/evidence.md",
+        "description": "Initialize notes record and read evidence template"
+      },
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01VfDtWkfR9Us8QjjrzEoX5a"
+    }
+  ],
+  "evaluator_access": [],
+  "files": {
+    "docs/lusona/evidence/2026-11-09-csv-report-timing.md": "# CSV monthly report timing at 40k rows \u2014 2026-11-09\n\n## Decision and scope\n\n- Decision this evidence informs: whether CSV parsing is the cause of the 9 s `tally report`\n  time, and so whether a storage change (e.g. SQLite) is expected to fix it.\n  Discussion: [notes](../../../notes/tally-report-storage-options.md).\n- Metric: wall time of `monthly_totals()` in `tally/report.py`, milliseconds, lower is better.\n- Workload: synthetic `expenses.csv`, 40,000 rows, columns `date,amount,category,note`,\n  dates spread over 2020-11-01..2026-11 (about six years), 8 categories, 19-character note,\n  1,859,575 bytes. Query month `2026-03`.\n\n## Method and provenance\n\n- Revision: commit `9b4a497`, `tally/report.py` unmodified.\n- Environment: Python 3.14.9, Linux 7.2.15, developer machine (not the family laptop).\n- Procedure: generate the file with `csv.writer` (seed 1) in `$TMPDIR`, import\n  `monthly_totals` from `tally/report.py`, call it 5 times, time each call with\n  `time.perf_counter()`. Interpreter startup (`python3 -c pass`) timed with `time`.\n- Artifacts: the synthetic file was disposable and is not retained; the procedure above\n  regenerates it.\n\n## Observations\n\n| Run | Result | Variation | Evidence |\n| --- | --- | --- | --- |\n| `monthly_totals` x5 | 33.0\u201334.0 ms per call | 1 ms spread | this file |\n| `python3 -c pass` | 7 ms | single run | this file |\n\n## Interpretation and decision\n\n- Not comparable to the family laptop: different hardware, unknown Python version, real data\n  (note lengths may be longer), and the real `tally` CLI entry point is not in this repository.\n- Even assuming the family laptop is 10x slower, the parse would take about 0.3 s, roughly\n  30x less than the reported 9 s.\n- Supported conclusion: reading and filtering 40k CSV rows with `csv.DictReader` does not\n  account for the 9 s. The time is very likely spent elsewhere (CLI startup/imports, other\n  report work, file location, or the laptop's environment). Cause not identified.\n\n## Next action\n\nProfile the real `tally report --month YYYY-MM` on the family laptop (see notes). Owner: user.\n\n## Related records\n\n- [notes/tally-report-storage-options.md](../../../notes/tally-report-storage-options.md)\n",
+    "notes/tally-report-storage-options.md": "# Notes: tally-report-storage-options\n\nContext: discussion of whether to move Tally storage from `expenses.csv` to SQLite because\n`tally report` takes about 9 s at 40k rows on the family laptop. No spec or queue item.\n\n## 2026-11-09 \u2014 Is CSV storage the cause of the 9 s report, and what are the options?\n\n### Current understanding\n\n- CSV parsing is not the likely cause. `monthly_totals()` takes 33 ms for 40k synthetic rows\n  on the developer machine ([evidence](../docs/lusona/evidence/2026-11-09-csv-report-timing.md)).\n- Proposed (not accepted): measure where the 9 s goes before choosing storage. A storage\n  change made now could leave most of the 9 s in place.\n\n### Context and evidence\n\n- Fact (README): one CSV, `date,amount,category,note`, about 40k rows over six years;\n  `tally report` reads the whole file each run; about 9 s on the family laptop (user report).\n- Fact (repo): only `tally/report.py` is present; the CLI entry point and any other report\n  code are not in this repository.\n- Hypotheses for the 9 s, untested: slow imports at startup (e.g. pandas or similar), extra\n  report work outside `monthly_totals`, the file living on a cloud-synced or network folder,\n  antivirus scanning, laptop power-saving mode.\n\n### Options and tradeoffs\n\n| Option | Benefit | Tradeoff |\n| --- | --- | --- |\n| A. Keep CSV, fix the measured hot spot | Smallest change; file stays editable in a spreadsheet and easy to back up/sync | Requires finding the cause first |\n| B. SQLite with an index on `date` | Month query reads only matching rows; transactions; room for more queries (by category, year-over-year) | Migration and new code paths; file no longer opened in a spreadsheet; unsafe if two devices write via a sync folder |\n| C. CSV split per year or month | Report reads one small file; still plain text | More files to manage; cross-month queries open many files |\n| D. Cached monthly totals | Report is near-instant | Cache invalidation when old rows are edited |\n\n- E. CSV stays the source of truth, plus a derived cache or SQLite index rebuilt when the CSV's\n  modification time or size changes. Keeps hand-editing; adds fast queries if ever needed.\n  Cost: a second file and rebuild logic. At 33 ms per full parse, likely unnecessary.\n\n### Decisions and open questions\n\n- Accepted (user, 2026-11-09): the user's partner opens and edits `expenses.csv` in LibreOffice\n  about once a week to fix categories; this must keep working.\n- Consequence: B (SQLite as primary storage) is ruled out. C makes her edits harder (several\n  files). A is preferred; D/E only as a cache derived from the CSV.\n- Proposed: keep CSV as the source of truth and profile the 9 s; fix the measured cause.\n- New risks to check (untested):\n  - Lost update: if `tally add` writes while the file is open in LibreOffice, her save\n    overwrites the new row. LibreOffice creates a lock file `.~lock.expenses.csv#` beside the\n    file; `tally add` could refuse to write while it exists.\n  - Format drift: LibreOffice may save dates or amounts in a locale format (e.g. `01/03/2026`,\n    `42.1`), which would make `row[\"date\"].startswith(month)` miss rows silently.\n- Unknown: what Tally should do in a few years (more reports, more users, other devices).\n\n## Current handoff\n\n- Authorized work: discussion only; no implementation authority.\n- Next action: user runs on the family laptop\n  `python -m cProfile -s cumtime <path-to-tally> report --month 2026-10 | head -30` and\n  `python -X importtime <path-to-tally> report --month 2026-10 2>&1 | sort -t'|' -k2 -n | tail -15`,\n  shares the output and the folder holding `expenses.csv`; also checks whether rows edited in\n  LibreOffice still have `YYYY-MM-DD` dates. Then fix the measured cause within option A.\n"
+  },
+  "host": "claude",
+  "outer_changed": false,
+  "refs_changed": false,
+  "replies": [
+    "**Result \u2014 \ud83d\udd04 In progress:** Don't switch to SQLite yet. Reading the CSV is very unlikely to be what takes 9 seconds, so SQLite may not make the report faster. Find out where the time goes first.\n\n**Evidence**\n- I made a 40,000-row CSV with six years of dates (1.86 MB) and ran `monthly_totals()` from `tally/report.py` on it, unchanged. It took **33 ms**, the same across 5 runs. Starting Python took 7 ms.\n- This ran on my machine, not the family laptop. Even if the laptop is 10\u00d7 slower, the CSV part would take about 0.3 s. That leaves roughly 8.7 s unexplained.\n- The `tally` command-line entry point isn't in this repository, so I can't see what else runs during `tally report`. Some possible causes, none of them tested:\n  - a slow import at startup (pandas, for example)\n  - other report work outside `monthly_totals`\n  - `expenses.csv` sitting in a cloud-synced or network folder\n  - antivirus scanning the file\n  - the laptop running in power-saving mode\n\n**The real options**\n\n| Option | Benefit | Tradeoff |\n| --- | --- | --- |\n| A. Keep CSV, fix whatever the profile shows | Smallest change. The file can still be opened in a spreadsheet and backed up by copying it. | You have to find the cause first. |\n| B. SQLite with an index on `date` | A month's report reads only that month's rows. Writes are safe if something crashes. Other queries (by category, year against year) become easy. | Needs a migration and new code. You can't edit the file in a spreadsheet any more. It can corrupt if two devices write to it through a sync folder (Dropbox, OneDrive). |\n| C. One CSV per year or month | The report reads one small file. Still plain text. | More files to manage. Reports that span many months have to open many files. |\n| D. Cache monthly totals | The report is almost instant. | The cache goes stale when someone edits an old row. |\n\nMy recommendation is A first. Pick B if the profile shows that reading the file really is the slow part, or if you want Tally to do more reporting later, where SQLite queries are much easier than CSV.\n\n**Question that could change this:** Does anyone open or edit `expenses.csv` directly, or is it synced between devices? If yes, that argues against SQLite whatever the profile shows.\n\nI saved the options and the timing in `notes/tally-report-storage-options.md` and `docs/lusona/evidence/2026-11-09-csv-report-timing.md`. I couldn't use the plugin's helper script to create the notes file (Bash permission was denied), so I wrote it directly.\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Profile `tally report` on the family laptop and share the output | You | The laptop, the path to the `tally` script, and the folder holding `expenses.csv` | No authority needed to run it. Changing Tally's code needs your go-ahead. |\n\n> On the family laptop:\n> `python -m cProfile -s cumtime <path-to-tally> report --month 2026-10 | head -30`\n> `python -X importtime <path-to-tally> report --month 2026-10 2>&1 | sort -t'|' -k2 -n | tail -15`\n>\n> The first command lists which functions take the most time. The second lists the slowest imports.",
+    "**Result \u2014 \ud83d\udd04 In progress:** Keep the CSV as the file Tally reads and writes. Profile the 9 s and fix whatever the profile shows (option A). Her weekly LibreOffice edits rule out SQLite as the main storage. SQLite was unlikely to help anyway, because reading the CSV takes about 33 ms.\n\n**How each option looks now**\n\n| Option | Status | Reason |\n| --- | --- | --- |\n| A. Keep CSV, fix the measured cause | **Recommended** | She keeps editing the file directly. Nothing changes for her. |\n| B. SQLite as main storage | Ruled out | LibreOffice Calc can't open a SQLite file as a spreadsheet. She would need a different tool or an export/import step. |\n| C. One CSV per year or month | Not recommended | Fixing categories would mean finding and opening the right file each time. |\n| D/E. Cache or SQLite index built from the CSV | Only if needed | The CSV stays the master copy. Tally rebuilds the cache when the CSV's modification time changes, so her edits are picked up. At 33 ms per full read, I expect this to be unnecessary. |\n\n**Two risks that come from her editing the file (not tested)**\n1. **Lost rows.** If you run `tally add` while she has the file open, her save overwrites your new row. LibreOffice creates a lock file named `.~lock.expenses.csv#` next to an open file. Tally could check for it and refuse to write while it exists. That is a small change.\n2. **Changed formats.** Depending on its settings, LibreOffice can save dates as `01/03/2026` or amounts as `42.1`. `report.py` matches rows with `row[\"date\"].startswith(month)`, so any row with a reformatted date is left out of the report without any error. This would give wrong totals, not slow ones. It's worth checking because it would have no visible symptom.\n\nI added her editing as an accepted requirement in `notes/tally-report-storage-options.md`, along with the two risks and the revised options.\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Run the two profiling commands on the family laptop. Check whether rows she edited still have dates in `YYYY-MM-DD` format. | You | The laptop and a copy of `expenses.csv` after one of her edits | No authority needed to run it. Fixing the cause or adding the lock-file check needs your go-ahead. |\n\n> Profiling commands, from the previous reply:\n> `python -m cProfile -s cumtime <path-to-tally> report --month 2026-10 | head -30`\n> `python -X importtime <path-to-tally> report --month 2026-10 2>&1 | sort -t'|' -k2 -n | tail -15`\n>\n> Date check: `grep -vE '^[0-9]{4}-[0-9]{2}-[0-9]{2},' expenses.csv | head` should print only the header line."
+  ],
+  "reviewer_seen": false,
+  "scenario": "explore-save",
+  "status": "captured",
+  "trial": 1,
+  "turn_texts": [
+    [
+      "Timing done: the CSV parse takes 33 ms for 40k rows, so it is not where the 9 s goes. Saving the notes now.",
+      "**Result \u2014 \ud83d\udd04 In progress:** Don't switch to SQLite yet. Reading the CSV is very unlikely to be what takes 9 seconds, so SQLite may not make the report faster. Find out where the time goes first.\n\n**Evidence**\n- I made a 40,000-row CSV with six years of dates (1.86 MB) and ran `monthly_totals()` from `tally/report.py` on it, unchanged. It took **33 ms**, the same across 5 runs. Starting Python took 7 ms.\n- This ran on my machine, not the family laptop. Even if the laptop is 10\u00d7 slower, the CSV part would take about 0.3 s. That leaves roughly 8.7 s unexplained.\n- The `tally` command-line entry point isn't in this repository, so I can't see what else runs during `tally report`. Some possible causes, none of them tested:\n  - a slow import at startup (pandas, for example)\n  - other report work outside `monthly_totals`\n  - `expenses.csv` sitting in a cloud-synced or network folder\n  - antivirus scanning the file\n  - the laptop running in power-saving mode\n\n**The real options**\n\n| Option | Benefit | Tradeoff |\n| --- | --- | --- |\n| A. Keep CSV, fix whatever the profile shows | Smallest change. The file can still be opened in a spreadsheet and backed up by copying it. | You have to find the cause first. |\n| B. SQLite with an index on `date` | A month's report reads only that month's rows. Writes are safe if something crashes. Other queries (by category, year against year) become easy. | Needs a migration and new code. You can't edit the file in a spreadsheet any more. It can corrupt if two devices write to it through a sync folder (Dropbox, OneDrive). |\n| C. One CSV per year or month | The report reads one small file. Still plain text. | More files to manage. Reports that span many months have to open many files. |\n| D. Cache monthly totals | The report is almost instant. | The cache goes stale when someone edits an old row. |\n\nMy recommendation is A first. Pick B if the profile shows that reading the file really is the slow part, or if you want Tally to do more reporting later, where SQLite queries are much easier than CSV.\n\n**Question that could change this:** Does anyone open or edit `expenses.csv` directly, or is it synced between devices? If yes, that argues against SQLite whatever the profile shows.\n\nI saved the options and the timing in `notes/tally-report-storage-options.md` and `docs/lusona/evidence/2026-11-09-csv-report-timing.md`. I couldn't use the plugin's helper script to create the notes file (Bash permission was denied), so I wrote it directly.\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Profile `tally report` on the family laptop and share the output | You | The laptop, the path to the `tally` script, and the folder holding `expenses.csv` | No authority needed to run it. Changing Tally's code needs your go-ahead. |\n\n> On the family laptop:\n> `python -m cProfile -s cumtime <path-to-tally> report --month 2026-10 | head -30`\n> `python -X importtime <path-to-tally> report --month 2026-10 2>&1 | sort -t'|' -k2 -n | tail -15`\n>\n> The first command lists which functions take the most time. The second lists the slowest imports."
+    ],
+    [
+      "**Result \u2014 \ud83d\udd04 In progress:** Keep the CSV as the file Tally reads and writes. Profile the 9 s and fix whatever the profile shows (option A). Her weekly LibreOffice edits rule out SQLite as the main storage. SQLite was unlikely to help anyway, because reading the CSV takes about 33 ms.\n\n**How each option looks now**\n\n| Option | Status | Reason |\n| --- | --- | --- |\n| A. Keep CSV, fix the measured cause | **Recommended** | She keeps editing the file directly. Nothing changes for her. |\n| B. SQLite as main storage | Ruled out | LibreOffice Calc can't open a SQLite file as a spreadsheet. She would need a different tool or an export/import step. |\n| C. One CSV per year or month | Not recommended | Fixing categories would mean finding and opening the right file each time. |\n| D/E. Cache or SQLite index built from the CSV | Only if needed | The CSV stays the master copy. Tally rebuilds the cache when the CSV's modification time changes, so her edits are picked up. At 33 ms per full read, I expect this to be unnecessary. |\n\n**Two risks that come from her editing the file (not tested)**\n1. **Lost rows.** If you run `tally add` while she has the file open, her save overwrites your new row. LibreOffice creates a lock file named `.~lock.expenses.csv#` next to an open file. Tally could check for it and refuse to write while it exists. That is a small change.\n2. **Changed formats.** Depending on its settings, LibreOffice can save dates as `01/03/2026` or amounts as `42.1`. `report.py` matches rows with `row[\"date\"].startswith(month)`, so any row with a reformatted date is left out of the report without any error. This would give wrong totals, not slow ones. It's worth checking because it would have no visible symptom.\n\nI added her editing as an accepted requirement in `notes/tally-report-storage-options.md`, along with the two risks and the revised options.\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Run the two profiling commands on the family laptop. Check whether rows she edited still have dates in `YYYY-MM-DD` format. | You | The laptop and a copy of `expenses.csv` after one of her edits | No authority needed to run it. Fixing the cause or adding the lock-file check needs your go-ahead. |\n\n> Profiling commands, from the previous reply:\n> `python -m cProfile -s cumtime <path-to-tally> report --month 2026-10 | head -30`\n> `python -X importtime <path-to-tally> report --month 2026-10 2>&1 | sort -t'|' -k2 -n | tail -15`\n>\n> Date check: `grep -vE '^[0-9]{4}-[0-9]{2}-[0-9]{2},' expenses.csv | head` should print only the header line."
+    ]
+  ],
+  "workers": 0
+}

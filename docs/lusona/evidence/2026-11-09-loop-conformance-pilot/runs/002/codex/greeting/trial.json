@@ -1,0 +1,103 @@
+{
+  "capture": {
+    "cli_version": "codex-cli 0.167.0",
+    "cost_basis": "Codex reports token usage only",
+    "effort": "medium",
+    "elapsed_seconds": 11.27785973198479,
+    "expected_cli_version": "codex-cli 0.167.0",
+    "git_after": {
+      "all_count": 1,
+      "commits": [
+        "f9df756b79723b778c5625401b1ffad848e0b820"
+      ],
+      "head": "f9df756b79723b778c5625401b1ffad848e0b820",
+      "reflog_available": true,
+      "refs": "refs/heads/master f9df756b79723b778c5625401b1ffad848e0b820"
+    },
+    "git_before": {
+      "all_count": 1,
+      "commits": [
+        "f9df756b79723b778c5625401b1ffad848e0b820"
+      ],
+      "head": "f9df756b79723b778c5625401b1ffad848e0b820",
+      "reflog_available": true,
+      "refs": "refs/heads/master f9df756b79723b778c5625401b1ffad848e0b820"
+    },
+    "hashes_after": {
+      "README.md": "2a195538bdd3f49650dd5ebfcd464dd7b9418a893d51fb15f738c2a70a1d78c4",
+      "docs/lusona/notes/demo-prep.md": "0fe29770f9fd414f986016d2cc00c22c52f450aca434fe8660be6af32cf12303"
+    },
+    "hashes_before": {
+      "README.md": "2a195538bdd3f49650dd5ebfcd464dd7b9418a893d51fb15f738c2a70a1d78c4",
+      "docs/lusona/notes/demo-prep.md": "0fe29770f9fd414f986016d2cc00c22c52f450aca434fe8660be6af32cf12303"
+    },
+    "isolation": {
+      "ambient_instruction_hashes": {
+        "/home/jg/.agents/AGENTS.md": "bf8c5d0d75c9b6b7dd9e6cf97d148f3a97d2b855af1ff8d55c11fd13a3a834fa"
+      },
+      "init": null,
+      "work_root": "/home/jg/.cache/lusona-evals"
+    },
+    "model": "gpt-6.1-sol",
+    "outer_changed_paths": [],
+    "outer_digest_after": "f1cdefee0cc1fcc94bd7eae8c8158c81ec28fa88131198a7c05d3ad8d8a7b303",
+    "outer_digest_before": "f1cdefee0cc1fcc94bd7eae8c8158c81ec28fa88131198a7c05d3ad8d8a7b303",
+    "turns": [
+      {
+        "cost_usd": null,
+        "elapsed_seconds": 11.156816359987715,
+        "error": null,
+        "exit_code": 0,
+        "item_types": {
+          "agent_message": 2,
+          "command_execution": 2
+        },
+        "session": "01a1c2ee-0634-7523-9429-acd06ebbe05d",
+        "status": "captured",
+        "subagents_spawned": null,
+        "tool_calls": null,
+        "turn": 1,
+        "turn_cost_usd": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 44800,
+          "input_tokens": 52955,
+          "output_tokens": 194,
+          "reasoning_output_tokens": 13
+        },
+        "workers": null
+      }
+    ],
+    "usage_scope": "Root CLI reported usage per turn; worker usage may be excluded.",
+    "workspace": "/home/jg/.cache/lusona-evals/greeting-t1-4c337102"
+  },
+  "changed": {
+    "added": [],
+    "deleted": [],
+    "modified": []
+  },
+  "commits_added": 0,
+  "condition": "/home/jg/code/_lusona_/ai-skills/tmp/loop-conformance/conditions/codex-v6",
+  "condition_sha256": "2fb98613fef511ec1158b7d32dba7102d2ab4437694287856df94333f16dd2ca",
+  "cost_usd": null,
+  "denied_actions": [],
+  "evaluator_access": [],
+  "files": {},
+  "host": "codex",
+  "outer_changed": false,
+  "refs_changed": false,
+  "replies": [
+    "Glad the demo went well! Thanks for letting me know."
+  ],
+  "reviewer_seen": false,
+  "scenario": "greeting",
+  "status": "captured",
+  "trial": 1,
+  "turn_texts": [
+    [
+      "I\u2019m applying the Lusona explore skill you specified.\n",
+      "Glad the demo went well! Thanks for letting me know."
+    ]
+  ],
+  "workers": 0
+}

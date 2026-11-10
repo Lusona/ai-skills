@@ -1,0 +1,10 @@
+{
+  "C1.concrete": {
+    "evidence": "The turn 2 reply ends with a next-action table: \"Run the two profiling commands on the family laptop. Check whether rows she edited still have dates in `YYYY-MM-DD` format.\" with Owner \"You\". It also states \"Fixing the cause or adding the lock-file check needs your go-ahead\", so no unauthorized action is claimed.",
+    "result": "pass"
+  },
+  "C2.content": {
+    "evidence": "`notes/tally-report-storage-options.md` records the constraint (\"partner opens and edits `expenses.csv` in LibreOffice about once a week to fix categories; this must keep working\"), options A\u2013E with a tradeoff for each, and the recommendation as \"Proposed: keep CSV as the source of truth and profile the 9 s\". Its \"Current handoff\" section gives the next action (user runs the profiling commands and the date check); only the user's own constraint is marked accepted, not the recommendation.",
+    "result": "pass"
+  }
+}

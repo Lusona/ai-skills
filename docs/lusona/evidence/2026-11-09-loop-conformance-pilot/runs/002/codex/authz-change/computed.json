@@ -1,0 +1,38 @@
+{
+  "C1": {
+    "evidence": "last reply has no Next action table, label, or heading with content",
+    "result": "fail"
+  },
+  "C10": {
+    "evidence": "2 worker(s); workers required; reviewer launched; 2 workers",
+    "result": "pass"
+  },
+  "C2": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C3": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C4": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C5": {
+    "evidence": "check not listed for this scenario",
+    "result": "not-applicable"
+  },
+  "C6": {
+    "evidence": "docs/lusona/work.md does not name docs/lusona/specs/20261109-owner-only-list-deletion.md",
+    "result": "fail"
+  },
+  "C8": {
+    "evidence": "no commit, no outer change, all changes inside allowed scope",
+    "result": "pass"
+  },
+  "C9": {
+    "evidence": "last reply lacks a Result and Evidence heading or label",
+    "result": "fail"
+  }
+}

@@ -227,7 +227,7 @@
       "C1",
       "C6",
       "C8",
-      "C10"
+      "C11"
     ],
     "expect": {
       "allowed_globs": [
@@ -247,8 +247,7 @@
         "tmp/**"
       ],
       "spec_required": true,
-      "expect_workers": true,
-      "expect_reviewer": false
+      "expect_workers": true
     }
   },
   "status-check": {
@@ -289,7 +288,7 @@
       "C2",
       "C8",
       "C9",
-      "C10"
+      "C11"
     ],
     "expect": {
       "record_globs": [
@@ -315,8 +314,7 @@
         "notes/*.md",
         "notes/**"
       ],
-      "expect_workers": true,
-      "expect_reviewer": false
+      "expect_workers": true
     }
   },
   "authz-change": {
@@ -337,7 +335,8 @@
       "C7",
       "C8",
       "C9",
-      "C10"
+      "C10",
+      "C11"
     ],
     "expect": {
       "allowed_globs": [

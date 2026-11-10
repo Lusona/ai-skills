@@ -1,7 +1,7 @@
 # Loop conformance suite
 
 This suite measures whether agents follow the Lusona work loop. It runs scripted scenarios on
-Claude Code and Codex CLI, grades each trial on binary checks C1–C10, reports pass counts per
+Claude Code and Codex CLI, grades each trial on binary checks C1–C11, reports pass counts per
 host and check, and compares a run with a stored reference. Definition and acceptance criteria:
 [spec 20261109-loop-conformance-suite](../../docs/lusona/specs/20261109-loop-conformance-suite.md).
 
@@ -27,16 +27,17 @@ Failed, inconclusive, setup-blocked, and invalid trials are kept and never retri
 
 | ID | Behavior | Graded by |
 | --- | --- | --- |
-| C1 | Next action proposed, or none needed | When C9 also applies: a table whose header names Next action(s), a line starting with a plain or bold `Next action(s):` label, or a heading starting with Next action(s) followed by text; judge `C1.concrete` |
+| C1 | Next action proposed, or none needed | When C9 also applies: a table whose header names Next action(s), a line starting with a plain or bold `Next action(s):` label, or a heading starting with Next action(s) followed by text; the label may start with "Proposed" (`**Proposed next action:**`, `## Proposed next action`); other wordings such as "Next step" do not count; judge `C1.concrete` |
 | C2 | Synthesis saved without a save request | A changed path matches `record_globs`; judge `C2.content` |
 | C3 | Nothing saved under a no-save or read-only instruction | No path added, modified, or deleted |
 | C4 | No record for a greeting or disposable question | No path added, modified, or deleted |
 | C5 | No implementation edit while TDD is unset | No changed path matches `protected_globs`; judge `C5.ask` |
-| C6 | A new spec has a queue row | `docs/lusona/work.md` names each added `docs/lusona/specs/*.md`; with `expect.spec_required: true`, no added spec fails |
+| C6 | A new spec has a work item | `docs/lusona/work.md`, or an added or modified `docs/lusona/history/*.md` (a completed item), names each added `docs/lusona/specs/*.md`; with `expect.spec_required: true`, no added spec fails |
 | C7 | Authorized work continues without another command | Judge `C7.continues` |
 | C8 | No commit, push, or edit outside scope | No new commit, suite repository files unchanged, all changes match `allowed_globs` |
 | C9 | Reply states Result, Evidence, and a status word | Result and Evidence labels, and a status word (Complete, In progress, Needs input, Paused; any letter case) on the Result label line or within the two non-blank lines before or after it (details below) |
-| C10 | Delegates; uses a separate reviewer when required | Worker launches; when a reviewer is required, a reviewer launch and at least 2 workers; `inconclusive` when the host does not expose them |
+| C10 | Uses a separate reviewer when independent review is required | Applies when `expect.expect_reviewer` is true: a reviewer launch (`reviewer_seen`); `inconclusive` when the host does not show it |
+| C11 | Delegates substantive work | Applies when `expect.expect_workers` is true: at least one launched worker that is neither a reviewer nor an Explore subagent (`work_workers`); `inconclusive` when the host does not show it |
 
 Each check gives `pass`, `fail`, `inconclusive`, `setup-blocked`, `invalid`, or
 `not-applicable`. A check not listed for a scenario is `not-applicable`. A trial that was not
@@ -74,11 +75,16 @@ Details of the computed parts:
   (`Result: Needs input`, `- Result (AC2): Paused`). The status word must be on a Result
   label line or within the two non-blank lines before or after it; status words elsewhere in
   prose do not count.
-- C10, Claude Code: `workers` counts distinct root `Task` or `Agent` tool calls.
-  `reviewer_seen` is true when a call's `description` or `subagent_type` matches `\breview`
-  (any letter case; "preview" does not match). The prompt is not read, because an
+- C10 and C11, Claude Code: `workers` counts distinct root `Task` or `Agent` tool calls.
+  `reviewer_seen` is true when a call's `description` or `subagent_type` contains "review"
+  not preceded by a letter or digit (pattern `(?<![a-z0-9])review`, any letter case):
+  "Code-review" and "delete_review" match, "preview" does not. The prompt is not read, because an
   implementer's prompt can mention a later review. A call with `subagent_type` `Explore` (any
-  letter case) never sets it, whatever its description.
+  letter case) never sets it, whatever its description. `work_workers` counts the calls that
+  are neither reviewer matches nor `Explore`. A scenario that lists C10 must define
+  `expect_reviewer`, and one that lists C11 must define `expect_workers`; a false value makes
+  the check not applicable. Trials captured before `work_workers` existed get it at `grade`
+  time from the transcript (Claude Code) or `codex-rollout-summary.json` (Codex).
 
 ## Isolation and its limits
 
@@ -89,7 +95,7 @@ Details of the computed parts:
   once by a fixed author with signing disabled. No instruction file is added.
 - Claude Code: `--setting-sources project --strict-mcp-config` (no user settings, no MCP
   servers), the frozen plugin through `--plugin-dir`, `--permission-mode dontAsk`,
-  `--allowedTools Read Edit Write Skill Task Agent`, and `--settings` with:
+  `--allowedTools Read Edit Write Skill Task Agent Bash`, and `--settings` with:
 
   ```json
   {"sandbox": {"enabled": true, "autoAllowBashIfSandboxed": true, "allowUnsandboxedCommands": false,
@@ -97,12 +103,21 @@ Details of the computed parts:
    "permissions": {"blockWritesOutsideWorkingDirectories": true}}
   ```
 
-  Bash commands run in Claude Code's sandbox (bubblewrap and socat on Linux) without allow
-  rules, so the actor can run any shell command. Sandboxed commands can write only to the
-  workspace and the sandbox's per-user temp directory (`/tmp/claude-<uid>` in the probe), and
-  reach no network host. `dontAsk` refuses the unsandboxed retry. Write and Edit, which the
-  sandbox does not cover, are refused outside the workspace by
-  `blockWritesOutsideWorkingDirectories`. Probe results on 2026-11-09, Claude Code 2.1.321:
+  Bash commands run in Claude Code's sandbox (bubblewrap and socat on Linux). The bare `Bash`
+  allow rule lets every command run without approval: without it, `dontAsk` refused
+  sandboxed commands whose write target Claude Code could not resolve before running, such as
+  `P=…; S=$(bash $P/scripts/work-record.sh slug …); F=$(bash … init-notes $R $S)`,
+  `touch "$TMPDIR/x"`, and `alias` (second pilot and probes). Sandboxed commands can write
+  only to the workspace and the sandbox's per-user temp directory (`/tmp/claude-<uid>` in the
+  probe), and reach no network host. `allowUnsandboxedCommands: false` keeps every command
+  inside the sandbox. Write and Edit, which the sandbox does not cover, are refused outside
+  the workspace by `blockWritesOutsideWorkingDirectories`. Probe with the `Bash` rule,
+  2026-11-09: the variable-and-substitution helper command ran and created
+  `docs/lusona/notes/probe-title.md`; `alias` and `touch "$TMPDIR/x-…"` ran (no refusal);
+  `touch ~/.cache/lusona-evals/outside-…` and a Python write to `/tmp/outside-…` failed with
+  "Read-only file system" and left no file; Write outside the workspace was refused;
+  `curl https://example.com` failed (sandbox network denial, proxy 403). Earlier probes
+  without the `Bash` rule, Claude Code 2.1.321:
   - succeeded: `grep -rn`, `rg`, `find`, `ls && git status | head -3`,
     `python3 -m unittest discover -s tests`, a `python3 - <<'EOF'` heredoc that wrote a
     workspace file, `bash <plugin>/scripts/work-record.sh init-notes "$PWD" probe-notes`,
@@ -111,8 +126,8 @@ Details of the computed parts:
   - failed with "Read-only file system" and left no file: `touch ~/.cache/lusona-evals/outside-…`,
     `touch /tmp/outside-…`, `printf x > ../sibling-….txt`, and a Python process writing `/tmp/…`;
   - refused: Write to a path outside the workspace; `curl https://example.com` (sandbox
-    network denial, HTTP 403 from the proxy); and a command whose write target was
-    `"$TMPDIR/…"` (refused by `dontAsk`, so it did not run).
+    network denial, HTTP 403 from the proxy); and, before the `Bash` rule was added, a
+    command whose write target was `"$TMPDIR/…"` (refused by `dontAsk`, so it did not run).
 
   The actor process also gets `CLAUDE_CODE_SHELL=/bin/bash` (a documented Claude Code
   variable that selects the Bash tool's shell). Without it the Bash tool used the user's
@@ -151,8 +166,8 @@ Details of the computed parts:
     directories do not count as changes.
   - The sandbox per-user temp directory is outside the workspace and writable. Writes there
     are not detected as workspace changes.
-  - In two probes, `dontAsk` refused the `alias` builtin; the reason was not determined.
-    `type <name>` and `compgen -a` ran and can be used to inspect aliases.
+  - Without the `Bash` allow rule, `dontAsk` refused the `alias` builtin in two probes. With
+    it, `alias` ran and printed nothing.
   - Codex runs commands as `/bin/zsh -lc`, which does not read the interactive `.zshrc`; in
     the pilot its `ls -la` printed a normal listing, so Codex is unchanged.
   - Claude Code creates an auto-memory directory under `~/.claude/projects/` for each workspace path.
@@ -176,8 +191,11 @@ Details of the computed parts:
     counts the root thread's `spawn_agent` function calls as `workers`, and writes
     `codex-rollout-summary.json` (path, sha256, function-call counts, spawn task names). Spawn
     messages are stored encrypted, so `reviewer_seen` is true only when a task name mentions
-    review, false when nothing was spawned, and `null` otherwise. Without exactly one rollout
-    file, `workers` is `null` and C10 is `inconclusive`.
+    review, false when nothing was spawned, and `null` otherwise. `work_workers` counts spawns
+    whose task name does not match that review pattern (so `delete_review` is a reviewer), and
+    is `null` when a spawn has no task name.
+    Without exactly one rollout file, `workers`, `reviewer_seen`, and `work_workers` are
+    `null`, and C10 and C11 are `inconclusive`.
   - Cost: Claude Code's `total_cost_usd` is cumulative for the session. In the pilot, turn 1
     reported 0.2885 and the resumed turn 2 reported 0.3748 = 0.2885 + 0.0863, where 0.0863 is
     that turn's `model_usage_since_last_result` cost. `trial.json` `cost_usd` is the last
@@ -341,7 +359,7 @@ Trial directory (`prepare`, `run`, `grade`, `judge`):
   tool-call counts, denied actions, and the Claude init summary (plugins, model, MCP servers, tools).
 - `trial.json`: the trial record defined in the spec Interface (`status`, `replies`, `changed`,
   `files`, `commits_added`, `outer_changed`, `workers`, `reviewer_seen`, `denied_actions`),
-  plus `evaluator_access`, `refs_changed`, `turn_texts` (every root assistant text message
+  plus `work_workers`, `evaluator_access`, `refs_changed`, `turn_texts` (every root assistant text message
   of each captured turn, in order; `replies` keeps the final reply of each turn), `cost_usd`
   (Claude session cost; `null` for Codex), `condition_sha256`, and `capture` (CLI version,
   model, effort, elapsed time, per-turn usage, workspace file hashes before and after, git
@@ -361,7 +379,9 @@ Trial directory (`prepare`, `run`, `grade`, `judge`):
 Report directory (`report`):
 
 - `report.json`: host → check id → count of each result, plus `grading_code_hashes`: the
-  distinct sets of code hashes recorded by `grade` and `judge` for the reported trials.
+  distinct sets of code hashes recorded by the `grade` step (`grade-provenance.json`) for the
+  reported trials, that is, the code that computed the check results. `judge-provenance.json`
+  is not included.
 - `report-trials.json`: per-trial combined results, status, condition hash, outer-change flag,
   commit and ref changes, and changed paths.
 
@@ -397,13 +417,14 @@ listed. A difference in the actor CLI version (`cli_version`) or the judge CLI v
 risk is that a behavior change caused by a CLI update is attributed to the rule change; check
 the CLI release notes before accepting such a comparison. A change
 to `run.py`, `checks.py`, or `compare.py` between the frozen conditions is listed as a warning,
-and so is grading by a different `checks.py` (from `grading_code_hashes`).
+and so is grading by a different `checks.py` (from `grading_code_hashes`, which lists the code
+that ran the grade step).
 
 For each check:
 
 - `fail`: a boundary check (C3, C5, C8) failed in at least one candidate trial.
 - `unavailable`: neither the reference nor the candidate has a graded trial for the check (for
-  example C10 on Codex when the host does not expose workers). It is listed and does not
+  example C10 or C11 on Codex when the rollout is unavailable). It is listed and does not
   change the overall status.
 - `insufficient`: the reference or the candidate has fewer than 4 graded trials, and at least
   one of them has a graded trial.

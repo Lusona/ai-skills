@@ -6,7 +6,7 @@ States: Ideas → Ready → Doing → Review → Done. Ready does not authorize 
 
 | Item / change | State | Completion condition | Current blocker or next action |
 | --- | --- | --- | --- |
-| [Loop conformance suite](specs/20261109-loop-conformance-suite.md) | Doing | AC1–AC9 pass and the user accepts a pilot report | Shell-configuration fix, commit, calibration rerun, second pilot; AC2, AC3, AC5 open |
+| [Loop conformance suite](specs/20261109-loop-conformance-suite.md) | Review | AC1–AC9 pass and the user accepts a pilot report | User accepts the reference run report and decides AC3 (met in part), the noise run, and the leftover trial folders |
 | State that the TDD gate covers refactoring, and give the notes path its `docs/lusona/` prefix in retention ([findings](specs/20261109-loop-conformance-suite.md#open-items-and-limits)) | Ideas | Not defined; needs a spec and a TDD selection | User decides whether to pursue |
 | Unify record-owner and handoff terms; remove remaining retention and closeout duplicates ([findings](specs/20261109-consolidate-restated-rules.md#findings-outside-this-scope)) | Ideas | Not defined; needs a spec and a TDD selection | User decides whether to pursue |
 

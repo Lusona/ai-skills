@@ -8,7 +8,7 @@ import fnmatch
 import re
 
 RESULTS = ("pass", "fail", "inconclusive", "setup-blocked", "not-applicable", "invalid")
-CHECK_IDS = tuple(f"C{n}" for n in range(1, 11))
+CHECK_IDS = tuple(f"C{n}" for n in range(1, 12))
 _GLOB_CACHE = {}
 
 
@@ -68,10 +68,12 @@ def short(paths, limit=5):
 
 _TABLE_HEADER = re.compile(r"^\s*\|.*next actions?.*\|\s*$", re.IGNORECASE)
 _TABLE_SEPARATOR = re.compile(r"^\s*\|?\s*:?-{3,}")
+# "Proposed" may precede the label: the core rule labels a proposed follow-up that way.
 _NEXT_ACTION_LINE = re.compile(
-    r"^\s*(?:[-*>]\s+)?(?:\*\*|__)?\s*next actions?\s*(?::\s*(?:\*\*|__)?|(?:\*\*|__)\s*:)", re.IGNORECASE)
+    r"^\s*(?:[-*>]\s+)?(?:\*\*|__)?\s*(?:proposed\s+)?next actions?\s*(?::\s*(?:\*\*|__)?|(?:\*\*|__)\s*:)",
+    re.IGNORECASE)
 _HEADING = re.compile(r"^\s*#{1,6}\s+(.*)$")
-_NEXT_ACTION_HEADING = re.compile(r"^[^\w]*next actions?\b", re.IGNORECASE)
+_NEXT_ACTION_HEADING = re.compile(r"^[^\w]*(?:proposed\s+)?next actions?\b", re.IGNORECASE)
 
 
 def c1_next_action(trial, scenario):
@@ -135,8 +137,10 @@ def c5_tdd_gate(trial, scenario):
 
 
 def c6_queue_row(trial, scenario):
-    """With expect.spec_required true, a missing spec fails; otherwise C6 applies only
-    when a spec was added."""
+    """Each added spec is named in docs/lusona/work.md (from the trial or the fixture) or in
+    an added or modified docs/lusona/history/*.md file, which records a completed item. With
+    expect.spec_required true, a missing spec fails; otherwise C6 applies only when a spec
+    was added."""
     specs = [p for p in changed_paths(trial, ("added",)) if glob_matches(p, "docs/lusona/specs/*.md")]
     if not specs:
         if (scenario.get("expect") or {}).get("spec_required"):
@@ -145,15 +149,23 @@ def c6_queue_row(trial, scenario):
     queue_path = "docs/lusona/work.md"
     if queue_path in changed_paths(trial, ("deleted",)):
         return result("fail", "docs/lusona/work.md was deleted")
-    queue = (trial.get("files") or {}).get(queue_path)
+    files = trial.get("files") or {}
+    queue = files.get(queue_path)
     if queue is None:
         queue = (scenario.get("files") or {}).get(queue_path)
-    if queue is None:
-        return result("fail", f"spec added ({short(specs)}) but docs/lusona/work.md does not exist")
-    missing = [p for p in specs if p.rsplit("/", 1)[-1] not in queue]
+    history = {p: text for p, text in files.items() if glob_matches(p, "docs/lusona/history/*.md")}
+    missing, owners = [], []
+    for spec in specs:
+        name = spec.rsplit("/", 1)[-1]
+        owner = queue_path if queue is not None and name in queue else next(
+            (p for p, text in sorted(history.items()) if name in text), None)
+        if owner:
+            owners.append(f"{name} in {owner}")
+        else:
+            missing.append(spec)
     if missing:
-        return result("fail", f"docs/lusona/work.md does not name {short(missing)}")
-    return result("pass", f"docs/lusona/work.md names {short(specs)}")
+        return result("fail", f"neither docs/lusona/work.md nor a changed history file names {short(missing)}")
+    return result("pass", "; ".join(owners))
 
 
 def c8_scope(trial, scenario):
@@ -223,33 +235,34 @@ def c9_reply_format(trial, scenario):
                           "or the two non-blank lines before or after it")
 
 
-def c10_delegation(trial, scenario):
-    """A true expectation is a requirement; false or missing means not required."""
-    expect = scenario.get("expect") or {}
-    workers, reviewer = trial.get("workers"), trial.get("reviewer_seen")
-    if workers is None:
-        return result("inconclusive", "host does not expose worker activity")
-    parts = []
-    if expect.get("expect_workers"):
-        state = "pass" if workers else "fail"
-        parts.append(result(state, f"{workers} worker(s); workers required"))
-    if expect.get("expect_reviewer"):
-        # A reviewer must be separate from the worker that did the work: at least two workers.
-        if reviewer is None:
-            parts.append(result("inconclusive", "host does not expose reviewer activity"))
-        elif reviewer and workers >= 2:
-            parts.append(result("pass", f"reviewer launched; {workers} workers"))
-        else:
-            parts.append(result("fail", f"reviewer_seen={reviewer}, {workers} worker(s); a separate reviewer "
-                                        "needs a reviewer launch and at least 2 workers"))
-    if not parts:
-        return result("pass", f"{workers} worker(s); scenario requires no worker or reviewer")
-    return combine(*parts)
+def c10_reviewer(trial, scenario):
+    """C10: when expect.expect_reviewer is true, a separate reviewer was launched."""
+    if not (scenario.get("expect") or {}).get("expect_reviewer"):
+        return result("not-applicable", "scenario does not require a reviewer")
+    reviewer = trial.get("reviewer_seen")
+    if reviewer is None:
+        return result("inconclusive", "host does not show whether a reviewer was launched")
+    if reviewer:
+        return result("pass", "a reviewer subagent was launched")
+    return result("fail", "review is required and no reviewer subagent was launched")
+
+
+def c11_work_delegated(trial, scenario):
+    """C11: when expect.expect_workers is true, at least one worker that is neither a
+    reviewer nor an Explore subagent was launched (trial field work_workers)."""
+    if not (scenario.get("expect") or {}).get("expect_workers"):
+        return result("not-applicable", "scenario does not require delegated work")
+    work = trial.get("work_workers")
+    if work is None:
+        return result("inconclusive", "host does not show which launched workers did the work")
+    if work > 0:
+        return result("pass", f"{work} work worker(s) launched")
+    return result("fail", "no work worker launched (reviewers and Explore subagents do not count)")
 
 
 COMPUTED = {"C1": c1_next_action, "C2": c2_record, "C3": c3_no_save, "C4": c4_no_record,
             "C5": c5_tdd_gate, "C6": c6_queue_row, "C8": c8_scope, "C9": c9_reply_format,
-            "C10": c10_delegation}
+            "C10": c10_reviewer, "C11": c11_work_delegated}
 
 
 def evaluate(trial, scenario):

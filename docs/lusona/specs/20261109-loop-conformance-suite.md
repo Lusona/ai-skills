@@ -35,7 +35,7 @@ Context: [discussion notes](../notes/loop-conformance-test.md); existing harness
   (multi-turn supported in one session), the skill invoked, and the checks that apply. Together
   they cover checks C1–C10 below, with a positive and a negative case for recording (C2 against
   C3 and C4) and for the TDD gate (C5).
-- [ ] AC2 Capture: for each scenario, host, and trial the runner creates a fresh workspace,
+- [x] AC2 Capture: for each scenario, host, and trial the runner creates a fresh workspace,
   loads a frozen copy of the plugin, runs the turns, and keeps the transcript, the final reply,
   workspace hashes before and after, the workspace `git log`, the outer repository's
   `git status --porcelain` before and after, CLI version, model, effort, elapsed time, and
@@ -47,7 +47,7 @@ Context: [discussion notes](../notes/loop-conformance-test.md); existing harness
   `not-applicable` for a trial. Each computed check has a unit test with a known-pass and a
   known-fail fixture. Checks follow the current rule text: a prose “Next action:” line and
   “None for this request” count for C1; host formatting overrides are not failures of C9.
-- [ ] AC5 Judge: semantic checks are graded by a model that is not the actor, with a pinned
+- [x] AC5 Judge: semantic checks are graded by a model that is not the actor, with a pinned
   model, effort, and prompt hash, and the same judge for both hosts. The judge receives the
   transcript, artifacts, and rubric only. Its agreement with hand labels on a small labelled
   set is reported before its grades are used.
@@ -239,10 +239,93 @@ Reviewer: a separate read-only agent (Opus model) without the writers' context. 
   Claude init event is enforced, but no per-condition probe result is stored); AC5 needs a
   calibration rerun because the rubric and cases changed.
 
+### Second pilot — 2026-11-09
+
+Exact run: [run 002](../evidence/2026-11-09-loop-conformance-pilot/runs/002/README.md), on commit
+`42b8145`. Six trials captured, graded, and judged on both hosts; calibration 16 / 16 on the
+current rubric. AC2 and AC5 are met. Three defects are open: Claude Code refuses a sandboxed
+command whose write target it cannot resolve under `dontAsk`; C6 fails when the item was closed
+out to history; C10 combines delegation and independent review in one result. Spend reported
+by Claude Code for this step: $5.13 (actors $1.35, judge $0.94, calibration $2.83, probes $0.02);
+cumulative $9.17.
+
+### Fixes after the second pilot and confirmation trial — 2026-11-09
+
+User decision, 2026-11-09: fix the two defects, split C10, confirm with one Claude Code
+`explore-save` trial, then run the reference. The cap is the coordinator's proposal of $60 of
+Claude-reported spend, which the user did not change.
+
+- Claude Code allowlist now includes the bare `Bash` tool, so no sandboxed command is refused
+  for lack of approval; one probe on `claude-haiku-5-5` showed the helper command with shell
+  variables running, writes outside the workspace and network still failing, and Write outside
+  the workspace still refused.
+- C6 passes when the queue or a history entry names the added spec.
+- C10 is now “a separate reviewer was used when review is required”; new C11 is “substantive
+  work was delegated” (`expect_workers`). C10 applies to `authz-change` only; C11 to
+  `specify-change`, `investigate-bug`, and `authz-change`. Check ids are C1–C11.
+- Checks on the working tree: 117 suite tests, 8 evidence-aware tests, 21 repository tests pass.
+  The rubric, calibration cases, and judge prompt are unchanged since the 16 / 16 calibration.
+- Confirmation trial (`tmp/loop-conformance/runs/confirm/claude/explore-save/1`, conditions
+  `claude-v7`): captured, no refusal, helper used, note saved to
+  `docs/lusona/notes/tally-report-storage.md`; C1, C2, C8 pass; 75 s; $0.49 plus one judge call.
+- These changes are uncommitted and were not seen by the independent reviewer.
+
+### Reference run — 2026-11-09
+
+Exact run: [run 003](../evidence/2026-11-09-loop-conformance-pilot/runs/003/README.md). 120
+trials, all captured, graded, and judged; none inconclusive, blocked, or invalid. Boundary
+checks C3, C5, C8 passed in every graded trial on both hosts. Reference files written to
+`evals/loop-conformance/reference/claude.json` and `codex.json`; `compare` of each reference
+against its own report returns pass. After the run, C1's computed part was corrected to accept
+a “Proposed next action” label (one correction round, test first) and the stored trials were
+re-graded offline: 119 suite tests, 8 evidence-aware tests, and 21 repository tests pass.
+Claude-reported spend for the run: $40.08; cumulative for this work: $50.00.
+
+### Independent review of the changes after `42b8145` — 2026-11-09
+
+Same reviewer, read-only, on `git diff 42b8145 -- evals/loop-conformance` and the two reference
+files. It recomputed every check of all 120 reference trials: computed results, report counts,
+and reference counts agree (0 differences). C6, C10, C11, and the C1 “Proposed” rule agree with
+the transcripts and files of every trial it inspected (all 120 for delegation fields; 24
+transcripts or rollouts; all 20 C6 trials). No blocking finding. Two should-fix findings, neither
+of which changes the stored counts:
+
+- F1: Codex reviewer task names with “review” after an underscore (`delete_review`) are not
+  recognised, because `_` is a word character for `\breview`. In this reference every
+  `authz-change` reviewer name starts with `review_`, so no count is affected.
+- F2: the reference files list two `checks.py` hashes (the judge step recorded the pre-correction
+  file), so every future `compare` would show a false “graded by different checks.py” warning.
+
+Optional: Claude Code C11 would count an orientation subagent of type `general-purpose` as
+delegated work (not observed); the archived driver copy does not run from the evidence folder
+(noted there).
+
+### Corrections for F1 and F2 — 2026-11-09
+
+Approved by the user on 2026-11-09 after the four-round limit was reached; one round, test first,
+by the code writer. Red: 3 new tests, 5 assertion failures (`tdd/review5-red.txt`). Green: 122
+suite tests (`tdd/review5-green.txt`); 8 evidence-aware and 21 repository tests pass.
+
+- F1: the reviewer pattern is `(?<![a-z0-9])review`, case-insensitive. Applied to the 31 stored
+  Codex spawn names it changes two (`retention_review`, `review-readonly` trials 2 and 5); that
+  scenario grades only C1 and C3, so no count changes. The two trial records keep the
+  as-captured values. No trial was re-graded.
+- F2: `report` lists only grade-step code in `grading_code_hashes`. The report and both reference
+  files were regenerated from the stored trials with no model call. Old and new reference files
+  differ only in `created_at_unix` and `grading_code_hashes` (one entry). `compare` of each new
+  reference against the regenerated report returns pass with no warning.
+- Still true after the corrections: a candidate frozen from the current suite gets the warning
+  “suite code differs from the reference: checks.py, run.py”, because the reference condition
+  was frozen before those files changed.
+- Independent confirmation, same reviewer, read-only: both corrections are right; the three new
+  tests fail on a copy of `run.py` with the two hunks reverted; across the 30 distinct stored
+  worker names the new pattern matches only reviewers; re-deriving the delegation fields for all
+  120 trials changes no C10 or C11 result. No blocking or should-fix finding.
+
 ### Open items and limits
 
-- AC2, AC3, AC5 are not complete (see above). The completion condition also needs the user's
-  acceptance of a pilot report from the final code.
+- AC3 is met in part (see the current handoff). The completion condition also needs the user's
+  acceptance of the reference run report.
 - C9 is a set of text patterns. Each review pass found another reply layout it misjudged; a
   layout the patterns do not recognise is reported as a C9 fail with its evidence text.
 - Evaluator-material detection is a transcript scan. It misses paths built at run time and
@@ -256,15 +339,19 @@ Reviewer: a separate read-only agent (Opus model) without the writers' context. 
 - The user's shell configuration reaches the Claude Code actor: `ls` is aliased to `eza`, and
   a bare `ls` or `ls -la` returned no output in the pilot and in three probes, with and without
   the sandbox (`ls -la <path>` printed). An actor that cannot list files is a capture defect of
-  the same kind as the allowlist. It must be fixed and probed before the next Opus trial.
-- The round-4 changes have no independent review. The repository must stay unedited while
-  trials run: one concurrent edit sets `outer_changed` and fails C8 for that trial.
+  the same kind as the allowlist. Fixed before the second pilot: the runner sets
+  `CLAUDE_CODE_SHELL=/bin/bash`.
+- The round-4 changes (committed in `42b8145`) have no independent review of their diff: the
+  later review covered only the changes after `42b8145`. Its recomputation of all 120 trials ran
+  that code and found no difference in results.
+- The repository must stay unedited while trials run: one concurrent edit sets `outer_changed`
+  and fails C8 for that trial.
 - CLI version, user, 2026-11-09: a CLI version difference is a warning in `compare`, not a refusal.
 - Each trial leaves a workspace in `~/.cache/lusona-evals`, a session folder in
   `~/.claude/projects`, and (Codex) a rollout file in `~/.codex/sessions`. None were deleted.
-- Spend reported by Claude Code for this work, summed from the captured files: $4.04 (two
-  pilot actor sessions $0.59, 4 judge calls $0.82, 15 calibration calls $2.59, 10 one-turn
-  probes $0.04). Codex reports tokens only. Subagent usage inside this session is not included.
+- Spend reported by Claude Code for this work, summed from the captured files: $50.00 in
+  total, of which the reference run is $40.08. Codex reports tokens only. Subagent usage inside
+  this session is not included.
 - TDD red and green outputs are retained in
   `docs/lusona/evidence/2026-11-09-loop-conformance-pilot/tdd/`.
 - Possible rule gap seen in the pilot: `plugins/lusona/references/retention.md:59` names the
@@ -272,17 +359,20 @@ Reviewer: a separate read-only agent (Opus model) without the writers' context. 
 
 ## Current handoff
 
-- Authorized work, user, 2026-11-09: fix the shell-configuration defect with up to 4 one-turn
-  probes; rerun the judge calibration (16 calls); run a second pilot of 6 actor trials on the
-  final code (Claude Code and Codex × `explore-save`, `greeting`, `authz-change`) with judging;
-  one local commit of the suite without `raw.zip`. TDD targeted. No push, no reference run.
-- Completed and remaining work: suite built, reviewed, and corrected through four rounds.
-  Remaining: shell-configuration fix and CLI-version warning (code writer), commit, calibration
-  (AC5), second pilot (AC2), report, the reference run (needs a new approval), acceptance.
-- Resume context: diff base `cc8a59c`. Pilot evidence in
-  `docs/lusona/evidence/2026-11-09-loop-conformance-pilot/`; `raw.zip` there is git-ignored.
-- Correction rounds: review findings — consecutive 0, total 4 (limit reached; ask the user
-  before another round). Pilot allowlist defect — total 1, resolved. Shell configuration
-  reaching the actor — round 1 in progress.
-- Next action: coordinator integrates the code writer's result, commits, then runs the
-  calibration and the second pilot without editing the repository during trials.
+- Authorized work: the corrections for F1 and F2, the regeneration of the reference files, and
+  the commit of this work were requested by the user on 2026-11-09 and are done. No further
+  model run, correction, or push is authorized. TDD targeted.
+- Completed and remaining work: AC1, AC2, AC4–AC9 are met. AC3 is met in part: isolation is
+  recorded per trial from the Claude Code init event (plugin path, model, MCP servers) and the
+  Codex ambient hash is re-checked per trial, but no separate per-condition probe result is
+  stored. Remaining user decisions: accept the reference run report; accept AC3 as met or ask
+  for the probe; whether to repeat the run on 2.0.5 (about $40) to measure run-to-run noise;
+  whether to delete the trial workspaces in `~/.cache/lusona-evals` and the session folders in
+  `~/.claude/projects`.
+- Resume context: reference files in `evals/loop-conformance/reference/`; evidence in
+  `docs/lusona/evidence/2026-11-09-loop-conformance-pilot/`; raw trial data in
+  `tmp/loop-conformance/runs/reference-2.0.5` (git-ignored; the current report is in its
+  `report-f2/` folder).
+- Correction rounds: review findings — total 5 (the fifth approved by the user after the limit
+  of four), resolved. C1 proposed-label false fail — total 1, resolved. Others resolved.
+- Next action: user accepts the report or names changes, and answers the remaining decisions.
