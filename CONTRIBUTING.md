@@ -44,6 +44,68 @@ retain any required third-party notices.
 - Keep the native manifests' plugin names and versions aligned. Coordinate release
   version changes with maintainers rather than bumping versions for each pull request.
 
+## Edit the text that every skill shares
+
+Two blocks of text appear in all 14 `SKILL.md` files. Each block has one source file in the
+repository-level `shared/` directory, and `scripts/sync_shared.py` copies that source into
+every skill.
+
+| Source | Region name | Position in each `SKILL.md` |
+| --- | --- | --- |
+| `shared/every-task.md` | `every-task` | Directly after the H1 title |
+| `shared/final-reply.md` | `final-reply` | Inside the `## Final reply` section |
+
+A region is the text between two marker lines. The region name is the source file name
+without `.md`:
+
+```markdown
+<!-- lusona:begin every-task -->
+...generated text...
+<!-- lusona:end every-task -->
+```
+
+To change shared text:
+
+1. Edit the source file in `shared/`. Do not edit the text between the markers in a
+   `SKILL.md`; the next sync overwrites it.
+2. Run the sync from the repository root. It replaces each region body with its source and
+   prints one `synced skills/<name>/SKILL.md` line for each file it changes:
+
+   ```bash
+   python3 scripts/sync_shared.py --source shared plugins/lusona
+   ```
+
+3. Verify the result. With `--check` the script writes nothing. It prints
+   `Shared regions in sync.` and exits 0, or prints one line for each region that differs
+   from its source and exits 1:
+
+   ```bash
+   python3 scripts/sync_shared.py --source shared plugins/lusona --check
+   ```
+
+4. Commit the source file and the regenerated `SKILL.md` files together.
+
+The script enforces these rules. When one is broken, it prints the finding, writes nothing,
+and exits 1:
+
+- Every `SKILL.md` holds exactly one region for each `.md` file in `shared/`, and no region
+  without a source file.
+- Each marker is a whole line, and every begin marker has its end marker.
+- `shared/every-task.md` holds at most 300 words, counted as `wc -w` counts them.
+
+When you write shared text:
+
+- Write links relative to a `SKILL.md`, for example `../../references/delegation.md`. They
+  do not resolve from `shared/`; they resolve in each skill after the sync.
+- `shared/` is not packaged. The package contains the generated text in each `SKILL.md`.
+  Do not link to `shared/` from a file under `plugins/lusona/`.
+- Text outside the regions belongs to the skill. Edit it in that `SKILL.md`.
+- To add a shared block, create `shared/<name>.md` and add its marker pair to every
+  `SKILL.md` first. The sync reports `missing region <name>` for each skill without the pair.
+
+`scripts/test_sync_shared.py` holds the script's tests. `scripts/check_skill_template.py`
+checks the position of both regions.
+
 ## Verify your change
 
 Use `mise` for tools when available. The package builder requires Python 3; native
@@ -55,6 +117,7 @@ From the repository root:
 git diff --check
 claude plugin validate plugins/lusona
 claude plugin validate .claude-plugin/marketplace.json
+python3 scripts/sync_shared.py --source shared plugins/lusona --check
 python3 scripts/package.py
 python3 scripts/test_package.py
 ```
