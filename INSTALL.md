@@ -77,7 +77,7 @@ After installation, check that `lusona` is enabled and that the listed skills ma
 `plugins/lusona/skills/` directories. Start a new project session;
 open `/plugin` to inspect the installation and type `/` to discover skill commands.
 Invoke `/status` to request a workflow explanation. For a defined change, invoke
-`/implement` and supply the outcome, acceptance criteria, TDD policy, and authority.
+`/implement` and supply the outcome, acceptance criteria, TDD level, and authority.
 These commands use skill names, without the Claude Code `/lusona:` prefix.
 
 ### Antigravity App
@@ -106,7 +106,7 @@ instructions above.
 Open the agent side panel's **Customizations** dropdown and inspect the loaded Lusona
 skills. Start a new project conversation and ask the agent to use Lusona's `status`
 skill to explain the workflow. For implementation, name Lusona's `implement` skill and
-state the outcome, acceptance criteria, TDD policy, and authority.
+state the outcome, acceptance criteria, TDD level, and authority.
 
 ### Verification status and sources
 
@@ -221,7 +221,7 @@ For example, select `explore` and ask:
 > Keep this discussion in chat; do not save files.
 
 For a defined change, select `implement` and describe the outcome, acceptance criteria,
-TDD policy, and limits:
+TDD level, and limits:
 
 > Add invitation expiry after seven days. Preserve accepted invitations.
 > Done means: expired invitations are rejected and the test suite passes.

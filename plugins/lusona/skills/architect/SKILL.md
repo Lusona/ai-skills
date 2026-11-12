@@ -73,7 +73,7 @@ Apply each practice that matches the selected decision; do not run them all as a
 5. Record context, decision, alternatives, consequences and status. Set Status `accepted` only with existing authorization or the user's explicit decision; otherwise `proposed`.
 6. Before updating a spec, read [queue](../../references/queue.md). Link a shared ADR from Architecture in `docs/lusona/product.md`. Link a change-specific ADR from Decisions and uncertainty in its spec. Keep one or two sentences of integration context beside each link; do not copy the rationale or the criteria.
 7. Before replacing an accepted decision, read [revisions](../../references/revisions.md). Create a new ADR, mark the old one superseded, keep its rationale, and link both directions.
-8. Identify verification boundaries and migration or recovery requirements. Put coding and verification details in the spec's Execution section for [implement](../implement/SKILL.md). Do not change the TDD policy.
+8. Identify verification boundaries and migration or recovery requirements. Put coding and verification details in the spec's Execution section for [implement](../implement/SKILL.md). Do not change the TDD level.
 9. Before saving a routine local choice in the change record without an ADR, read [retention](../../references/retention.md).
 10. Record unresolved decisions in the owning record. Update the spec's Current handoff, or the Current handoff in `docs/lusona/product.md` for shared work. Do not create a plan only to save a handoff.
 

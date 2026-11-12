@@ -6,7 +6,7 @@ Describe the problem and resulting behavior. Link a related issue if applicable.
 
 Follow [behavioral evidence requirements](../CONTRIBUTING.md#behavioral-evidence).
 
-- TDD policy and source; named test-first behaviors and red/green references, if applicable:
+- TDD level and source; named test-first behaviors and red/green references, if applicable:
 - Selected positive/boundary/multi-turn cases and coverage rationale:
 - Applicable candidate/comparison and condition identifiers; exact evidence references and access:
 - Independent grader, grades, rationale, and any disagreement:

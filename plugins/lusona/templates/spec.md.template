@@ -33,7 +33,7 @@ and remains untracked. Follow user and host formatting constraints.
 - Assumptions and unresolved questions: <distinguish technical questions from user decisions>
 - Architecture: <ADR links, or none>
 
-### TDD policy
+### TDD level
 
 - Level: unset | none | targeted | strict
 - Selected by user: <request or standing preference; unset until selected>

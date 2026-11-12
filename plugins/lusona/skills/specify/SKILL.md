@@ -1,6 +1,6 @@
 ---
 name: specify
-description: Specify one bounded feature, bug fix, refactor or other change, and produce a spec in `docs/lusona/specs/` with intended behavior, scope, acceptance criteria and TDD policy. Split the spec into work items when the user asks. Use when intended behavior, scope or acceptance needs definition or revision. Not for establishing an unknown cause; use investigate.
+description: Specify one bounded feature, bug fix, refactor or other change, and produce a spec in `docs/lusona/specs/` with intended behavior, scope, acceptance criteria and TDD level. Split the spec into work items when the user asks. Use when intended behavior, scope or acceptance needs definition or revision. Not for establishing an unknown cause; use investigate.
 ---
 
 # Specify

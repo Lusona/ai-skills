@@ -39,5 +39,5 @@ counts only with supported scope and units. Do not invent tasks, estimates, or p
 
 <Next bounded action, owner, required inputs, and skill prompt, or
 None for this request. Distinguish readiness from authorization. For resumed execution, reference
-authorization, selected TDD policy and source, owning change record and current handoff. Recommendations do not
+authorization, selected TDD level and source, owning change record and current handoff. Recommendations do not
 authorize execution; continue work already authorized. Name only the skills that the next action needs.>

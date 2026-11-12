@@ -89,7 +89,7 @@ and must preserve the command and file-safety contract. Test native Windows sepa
 from PowerShell on macOS/Linux; passing on one platform does not establish the others.
 
 For script behavior changes, add or update tests that exercise the affected behavior.
-Record an explicitly selected TDD policy (`none`, `targeted`, or `strict`) and its
+Record an explicitly selected TDD level (`none`, `targeted`, or `strict`) and its
 user or standing-preference source; `none` still requires verification.
 Documentation changes need relevant content and link checks. Apply the behavioral
 evidence requirements below when instructions change skill behavior. Packaging checks

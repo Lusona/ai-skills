@@ -35,7 +35,9 @@ Local source update prepared on 2026-11-11. Publication and installation are not
   "Repair budget", the table headers "Allowance and source" and "Remaining allowance" are now
   "Budget and source" and "Remaining budget", and the column "Relevant items" is now "Items".
   In the product template, the field "Useful horizon, if established" is now "Horizon, if
-  established". Records created from earlier templates stay readable.
+  established". In the spec template, the heading "TDD policy" is now "TDD level"; the
+  `specify` description, the status template, `CONTRIBUTING.md`, `INSTALL.md` and the pull
+  request template use the same term. Records created from earlier templates stay readable.
 - Use one term for each concept: "repair budget", "queue state", and "execution record" for
   an existing file in `docs/lusona/plans/`. The terminology table in the workflow guide
   defines these, plus accepted decision, settled decision, skill prompt and continuation
