@@ -1,93 +1,137 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700" role="img" aria-labelledby="title description">
-  <title id="title">Lusona workflow: optional transitions and supporting commands</title>
-  <desc id="description">A solid clockwise circular example connects explore, specify, architect, implement, measure, and investigate back to explore. Dashed directed examples also connect specify to implement, implement to investigate, and investigate to specify. All links are illustrative, not required or exhaustive: enter or revisit any command as needed. Supporting commands are frame-product and map-capabilities for product direction; design, review, and refactor for delivery; experiment for evaluating alternatives; and status and batch for coordination.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="830" viewBox="0 0 1100 830" role="img" aria-labelledby="title description">
+  <title id="title">Lusona: choose, act, check and refine under user authority</title>
+  <desc id="description">A clockwise loop on the left illustrates eight principles shared by all skills. P1: choose a skill from the unresolved need; any skill can follow any other. P7: act on the next bounded, authorized task and pause only affected work. P5: check observed evidence against the intended outcome; failed or unrun required checks block completion. P2: refine the system and design, separating facts from assumptions and carrying the outcome, decisions, authority, TDD level, evidence and uncertainty into the next pass. User authority, P6, is at the center: records do not grant permission. A conditional branch from Check to Refine shows P3, revisiting a conflicting decision with the user, and P4, marking superseded decisions with date and source while retaining their rationale. P8: every reply names the next action and owner, or says none remains and why. On the right, all fourteen skills are grouped by need with no arrows or required sequence between them.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#59819a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
-    <marker id="optional-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#44677e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="blue-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 2 L10 6 L2 10" fill="none" stroke="#245fe5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="orange-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 2 L10 6 L2 10" fill="none" stroke="#c44b00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="teal-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 2 L10 6 L2 10" fill="none" stroke="#008174" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="purple-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 2 L10 6 L2 10" fill="none" stroke="#7838ce" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></marker>
     <style>
-      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
-      .command { font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace; font-size: 19px; font-weight: 600; fill: #183c56; }
-      .detail { font-size: 15px; fill: #4b6373; }
-      .group { font-size: 13px; font-weight: 700; letter-spacing: 1.6px; fill: #587282; }
-      .side-command { font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace; font-size: 17px; font-weight: 600; fill: #183c56; }
+      text { font-family: Arial, Helvetica, sans-serif; font-weight: 400; fill: #14233d; }
+      .headline { font-size: 29px; font-weight: 700; }
+      .intro { font-size: 18px; }
+      .body { font-size: 16px; }
+      .step { font-size: 24px; font-weight: 700; }
+      .heading { font-size: 19px; font-weight: 700; }
+      .authority-heading { font-size: 20px; font-weight: 700; }
+      .principle { font-size: 14px; font-weight: 700; letter-spacing: .5px; }
+      .group { font-size: 15px; font-weight: 700; letter-spacing: .8px; }
+      .skill { font-family: 'Liberation Mono', Consolas, monospace; font-size: 18px; font-weight: 700; }
+      .purpose { font-size: 16px; fill: #3d4c63; }
+      .reply-label { font-size: 17px; font-weight: 700; fill: #ffffff; }
+      .reply-body { font-size: 17px; fill: #ffffff; }
+      .blue { fill: #194db3; }
+      .orange { fill: #a83d00; }
+      .teal { fill: #006b60; }
+      .purple { fill: #6730b2; }
     </style>
   </defs>
-  <rect width="1100" height="700" rx="20" fill="#f8fafc"/>
-  <text x="40" y="47" font-size="23" font-weight="700" fill="#183c56">Use the command the work needs</text>
-  <text x="40" y="76" class="detail">Enter or revisit anywhere. The cycle illustrates iteration, not required steps.</text>
-  <circle cx="324" cy="365" r="222" fill="none" stroke="#e1eaf0" stroke-width="2"/>
-  <path d="M 417.82 163.80 A 222 222 0 0 1 480.98 208.02" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M 535.13 296.40 A 222 222 0 0 1 538.44 422.46" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M 488.98 513.55 A 222 222 0 0 1 428.22 561.01" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M 230.18 566.20 A 222 222 0 0 1 167.02 521.98" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M 112.87 433.60 A 222 222 0 0 1 109.56 307.54" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M 159.02 216.45 A 222 222 0 0 1 219.78 168.99" fill="none" stroke="#59819a" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <g fill="none" stroke="#44677e" stroke-width="2.2" stroke-dasharray="7 6" stroke-linecap="round" marker-end="url(#optional-arrow)">
-    <path d="M 450 292 C 432 370 383 460 373 547"/>
-    <path d="M 275 549 C 268 465 225 365 194 294"/>
-    <path d="M 231 275 C 282 316 365 316 414 278"/>
-  </g>
-  <text x="324" y="359" text-anchor="middle" font-size="21" font-weight="700" fill="#214b65">Bounded work</text>
-  <text x="324" y="389" text-anchor="middle" font-size="16" fill="#44677e">Choose · act · check</text>
-  <text x="324" y="416" text-anchor="middle" font-size="16" fill="#44677e">Repeat as needed</text>
-  <g>
-    <rect x="226.00" y="107.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
-    <text x="324.00" y="139.00" text-anchor="middle" class="command">explore</text>
-    <text x="324.00" y="163.00" text-anchor="middle" class="detail">Ideas and tradeoffs</text>
-  </g>
-  <g>
-    <rect x="418.26" y="218.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
-    <text x="516.26" y="250.00" text-anchor="middle" class="command">specify</text>
-    <text x="516.26" y="274.00" text-anchor="middle" class="detail">Behavior and acceptance</text>
-  </g>
-  <g>
-    <rect x="418.26" y="440.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
-    <text x="516.26" y="472.00" text-anchor="middle" class="command">architect</text>
-    <text x="516.26" y="496.00" text-anchor="middle" class="detail">Boundaries and contracts</text>
-  </g>
-  <g>
-    <rect x="226.00" y="551.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
-    <text x="324.00" y="583.00" text-anchor="middle" class="command">implement</text>
-    <text x="324.00" y="607.00" text-anchor="middle" class="detail">Build and verify</text>
-  </g>
-  <g>
-    <rect x="33.74" y="440.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
-    <text x="131.74" y="472.00" text-anchor="middle" class="command">measure</text>
-    <text x="131.74" y="496.00" text-anchor="middle" class="detail">Magnitude and change</text>
-  </g>
-  <g>
-    <rect x="33.74" y="218.00" width="196" height="72" rx="13" fill="#fff" stroke="#c3d5e1" stroke-width="1.5"/>
-    <text x="131.74" y="250.00" text-anchor="middle" class="command">investigate</text>
-    <text x="131.74" y="274.00" text-anchor="middle" class="detail">Causes and unknowns</text>
-  </g>
-  <path d="M 661 112 V 625" stroke="#dce6ed" stroke-width="1.5"/>
-  <text x="698" y="132" class="group">PRODUCT DIRECTION</text>
-  <text x="698" y="162" class="side-command">frame-product</text>
-  <text x="698" y="184" class="detail">Vision, users, and outcomes</text>
-  <text x="698" y="216" class="side-command">map-capabilities</text>
-  <text x="698" y="238" class="detail">Coverage, dependencies, delivery order</text>
 
-  <text x="698" y="283" class="group">DELIVERY SUPPORT</text>
-  <text x="698" y="313" class="side-command">design</text>
-  <text x="838" y="313" class="detail">Mockups and flows</text>
-  <text x="698" y="345" class="side-command">review</text>
-  <text x="838" y="345" class="detail">Defects and evidence gaps</text>
-  <text x="698" y="377" class="side-command">refactor</text>
-  <text x="838" y="377" class="detail">Structure; preserve behavior</text>
+  <rect width="1100" height="830" rx="20" fill="#f8fafc"/>
+  <text x="34" y="48" class="headline">Refine the system and design with each pass</text>
+  <text x="35" y="78" class="intro">Choose the next bounded action. Use only the skills the work needs.</text>
 
-  <text x="698" y="425" class="group">EVALUATE ALTERNATIVES</text>
-  <text x="698" y="455" class="side-command">experiment</text>
-  <text x="698" y="477" class="detail">Test interventions against declared criteria</text>
+  <!-- Four equal action boxes, mirrored about the loop center (365,363). -->
+  <g fill="none" stroke-width="5" stroke-linecap="round">
+    <path d="M465 193 C540 208 610 249 610 297" stroke="#245fe5" marker-end="url(#blue-arrow)"/>
+    <path d="M610 419 C610 470 543 518 475 533" stroke="#c44b00" marker-end="url(#orange-arrow)"/>
+    <path d="M265 533 C190 518 120 470 120 429" stroke="#008174" marker-end="url(#teal-arrow)"/>
+    <path d="M120 307 C120 256 187 208 255 193" stroke="#7838ce" marker-end="url(#purple-arrow)"/>
+  </g>
+  <text x="365" y="119" text-anchor="middle" class="principle purple">REPEAT WITH WHAT YOU LEARN</text>
 
-  <rect x="682" y="510" width="390" height="116" rx="12" fill="#eaf0f5"/>
-  <text x="698" y="536" class="group">COORDINATION · ANYWHERE</text>
-  <text x="698" y="566" class="side-command">status</text>
-  <text x="804" y="566" class="detail">Progress and next action</text>
-  <text x="698" y="598" class="side-command">batch</text>
-  <text x="804" y="598" class="detail">Authorized unattended work</text>
-  <path d="M 40 650 H 84" fill="none" stroke="#59819a" stroke-width="2.4" marker-end="url(#arrow)"/>
-  <text x="100" y="655" class="detail">Illustrative cycle</text>
-  <path d="M 280 650 H 324" fill="none" stroke="#44677e" stroke-width="2.2" stroke-dasharray="7 6" marker-end="url(#optional-arrow)"/>
-  <text x="340" y="655" class="detail">Optional transitions</text>
-  <text x="40" y="682" class="detail">All links are examples, not required or exhaustive.</text>
+  <g id="choose">
+    <rect x="265" y="137" width="200" height="112" rx="16" fill="#e9f1ff" stroke="#245fe5" stroke-width="2"/>
+    <text x="365" y="168" text-anchor="middle" class="step blue">Choose</text>
+    <text x="365" y="190" text-anchor="middle" class="principle blue">P1 · SELECT BY NEED</text>
+    <text x="365" y="215" text-anchor="middle" class="body">Any skill can follow</text>
+    <text x="365" y="236" text-anchor="middle" class="body">any other skill</text>
+  </g>
+  <g id="act">
+    <rect x="510" y="307" width="200" height="112" rx="16" fill="#fff0e4" stroke="#c44b00" stroke-width="2"/>
+    <text x="610" y="338" text-anchor="middle" class="step orange">Act</text>
+    <text x="610" y="360" text-anchor="middle" class="principle orange">P7 · CONTINUE</text>
+    <text x="610" y="385" text-anchor="middle" class="body">Authorized bounded work</text>
+    <text x="610" y="406" text-anchor="middle" class="body">Pause only affected work</text>
+  </g>
+  <g id="check">
+    <rect x="265" y="477" width="200" height="112" rx="16" fill="#e4f6f1" stroke="#008174" stroke-width="2"/>
+    <text x="365" y="508" text-anchor="middle" class="step teal">Check</text>
+    <text x="365" y="530" text-anchor="middle" class="principle teal">P5 · USE EVIDENCE</text>
+    <text x="365" y="555" text-anchor="middle" class="body">Check against outcome</text>
+    <text x="365" y="576" text-anchor="middle" class="body">Failed / unrun ≠ complete</text>
+  </g>
+  <g id="refine">
+    <rect x="20" y="307" width="200" height="112" rx="16" fill="#f1eaff" stroke="#7838ce" stroke-width="2"/>
+    <text x="120" y="338" text-anchor="middle" class="step purple">Refine</text>
+    <text x="120" y="360" text-anchor="middle" class="principle purple">P2 · NEXT PASS</text>
+    <text x="120" y="385" text-anchor="middle" class="body">Facts vs. assumptions</text>
+    <text x="120" y="406" text-anchor="middle" class="body">Carry accepted context</text>
+  </g>
+
+  <!-- Centered authority box: equal 50px gaps to both side action boxes. -->
+  <g id="authority">
+    <rect x="270" y="294" width="190" height="138" rx="18" fill="#ffffff" stroke="#194db3" stroke-width="2"/>
+    <circle cx="365" cy="316" r="6" fill="#194db3"/>
+    <path d="M353 334 C353 322 377 322 377 334" fill="none" stroke="#194db3" stroke-width="3" stroke-linecap="round"/>
+    <text x="365" y="357" text-anchor="middle" class="authority-heading blue">Your authority</text>
+    <text x="365" y="379" text-anchor="middle" class="principle blue">P6 · YOU DECIDE</text>
+    <text x="365" y="400" text-anchor="middle" class="body">Outcome · scope · TDD</text>
+    <text x="365" y="421" text-anchor="middle" class="body">Records ≠ permission</text>
+  </g>
+  <g id="authority-arrow" fill="none" stroke="#c44b00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M465 363 H496"/>
+    <path d="M496 357 L504 363 L496 369"/>
+  </g>
+
+  <!-- Only a conflicting decision takes this conditional branch. -->
+  <path d="M365 591 V625" fill="none" stroke="#7838ce" stroke-width="2.5" stroke-dasharray="5 5" marker-end="url(#purple-arrow)"/>
+  <path d="M80 631 C64 554 78 475 108 427" fill="none" stroke="#7838ce" stroke-width="2.5" stroke-dasharray="5 5" marker-end="url(#purple-arrow)"/>
+  <rect x="20" y="633" width="690" height="108" rx="14" fill="#f1eaff" stroke="#7838ce" stroke-width="1.7"/>
+  <text x="40" y="658" class="principle purple">WHEN NEW INPUT CONFLICTS WITH A DECISION</text>
+  <text x="40" y="686" class="heading">P3 · Revisit the decision with you</text>
+  <text x="40" y="712" class="body">P4 · Mark the superseded choice with date and source.</text>
+  <text x="40" y="733" class="body">Keep its rationale; reconcile affected records.</text>
+
+  <!-- Unordered skill groups: every group is available on every pass. -->
+  <path d="M725 123 V741" stroke="#3d4c63" stroke-width="1.2"/>
+  <text x="739" y="119" class="heading">14 skills · no required sequence</text>
+
+  <rect x="739" y="136" width="327" height="119" rx="12" fill="#ffffff"/>
+  <rect x="739" y="136" width="6" height="119" rx="3" fill="#245fe5"/>
+  <text x="762" y="160" class="group blue">DIRECTION &amp; COVERAGE</text>
+  <text x="762" y="188" class="skill">explore</text><text x="947" y="188" class="purpose">Options</text>
+  <text x="762" y="214" class="skill">frame-product</text><text x="947" y="214" class="purpose">Vision</text>
+  <text x="762" y="240" class="skill">map-capabilities</text><text x="947" y="240" class="purpose">Coverage</text>
+
+  <rect x="739" y="268" width="327" height="119" rx="12" fill="#ffffff"/>
+  <rect x="739" y="268" width="6" height="119" rx="3" fill="#7838ce"/>
+  <text x="762" y="292" class="group purple">BEHAVIOR &amp; DESIGN</text>
+  <text x="762" y="320" class="skill">specify</text><text x="947" y="320" class="purpose">Criteria</text>
+  <text x="762" y="346" class="skill">architect</text><text x="947" y="346" class="purpose">Contracts</text>
+  <text x="762" y="372" class="skill">design</text><text x="947" y="372" class="purpose">Mockups</text>
+
+  <rect x="739" y="400" width="327" height="119" rx="12" fill="#ffffff"/>
+  <rect x="739" y="400" width="6" height="119" rx="3" fill="#c44b00"/>
+  <text x="762" y="424" class="group orange">IMPLEMENTATION &amp; REVIEW</text>
+  <text x="762" y="452" class="skill">implement</text><text x="947" y="452" class="purpose">Build</text>
+  <text x="762" y="478" class="skill">refactor</text><text x="947" y="478" class="purpose">Structure</text>
+  <text x="762" y="504" class="skill">review</text><text x="947" y="504" class="purpose">Defects</text>
+
+  <rect x="739" y="532" width="327" height="119" rx="12" fill="#ffffff"/>
+  <rect x="739" y="532" width="6" height="119" rx="3" fill="#008174"/>
+  <text x="762" y="556" class="group teal">QUESTIONS &amp; EVIDENCE</text>
+  <text x="762" y="584" class="skill">investigate</text><text x="947" y="584" class="purpose">Causes</text>
+  <text x="762" y="610" class="skill">measure</text><text x="947" y="610" class="purpose">Magnitude</text>
+  <text x="762" y="636" class="skill">experiment</text><text x="947" y="636" class="purpose">Trials</text>
+
+  <rect x="739" y="664" width="327" height="77" rx="12" fill="#e9f1ff"/>
+  <rect x="739" y="664" width="6" height="77" rx="3" fill="#245fe5"/>
+  <text x="762" y="688" class="group blue">COORDINATION · ANYWHERE</text>
+  <text x="762" y="710" class="skill">status</text><text x="947" y="710" class="purpose">Progress</text>
+  <text x="762" y="732" class="skill">batch</text><text x="947" y="732" class="purpose">Unattended</text>
+
+  <rect x="35" y="765" width="1031" height="42" rx="10" fill="#14233d"/>
+  <text x="54" y="792" class="reply-label">P8 · Every reply: next action + owner</text>
+  <text x="455" y="792" class="reply-body">Or state that none remains and why.</text>
 </svg>

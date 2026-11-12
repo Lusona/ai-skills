@@ -1,97 +1,194 @@
-<a id="lusona-ai-skills"></a>
 # Lusona Skills
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Lusona 的编程智能体技能围绕同一套工作循环协同运作：
-
-![Lusona 交互循环与辅助命令](plugins/lusona/assets/workflow-loop.svg)
-
-这是常见的交互循环。可从当前需要的步骤开始，并根据新证据返回相关步骤。
-
-- **选择、执行、检查，再继续。** 根据目标和现有依据选择下一步。按需重新讨论方案、调查问题、调整设计、实现或审查，无须按固定顺序使用技能。
-- **根据新发现修订决策。** 当证据与先前的决定不符时，在约定的授权范围内重新评估。同步更新相关记录，让后续工作以修订后的决定为准。
-- **在授权范围内持续推进。** 自行处理常规选择，继续工作，无须反复请求批准。决定超出现有授权时，再向你询问。
-- **验证后再确认完成。** 完成约定范围内的工作、必要的检查和审查，以及要求的验收或交付。无法完成时，明确说明剩余工作。
+Lusona 提供 14 项技能，用于与编程智能体协作开展产品和工程工作。每项技能负责一项职责，例如定义变更规格、实现或审查变更。所有技能遵循同样的八项循环原则，在项目的 `docs/lusona/` 下保存记录，并在每次任务回复末尾说明状态、证据和下一步行动。
 
 适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 编程智能体](INSTALL.md#xcode) 和 [Google Antigravity App、CLI 与 IDE](INSTALL.md#antigravity) · 当前工作副本的源码版本：**3.0.0**
 
 > [!WARNING]
-> 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#installation)。
+> 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#安装)。
 
-了解我们为什么开发 Lusona Skills：[Why we built Lusona Skills](https://blog.lusona.com/blog/why-we-built-lusona-skills/)（英文）。
+了解我们为什么开发 Lusona Skills：[Why we built Lusona Skills](https://blog.lusona.com/blog/why-we-built-lusona-skills/)。
 
 本 README 介绍当前工作副本中的源码。通过 GitHub 安装时使用的是已提交并推送的源码；本地修改不代表已发布版本。
 
-<a id="index"></a>
+![Lusona 工作循环、原则与技能分组](plugins/lusona/assets/workflow-loop.svg)
+
+圆环展示工作如何持续推进：选择、行动、检查，再重复。根据当前需求选择技能；任意技能之后都可以使用其他任意技能。
+
 ## 目录
 
-- [从哪里开始](#where-to-start)
-- [选择命令](#choose-a-command)
-- [安装](#installation)
-- [工作如何推进](#how-the-work-continues)
-- [提问与证据](#questions-and-evidence)
-- [恢复与继续工作](#recovery-and-resumption)
-- [结果与交接](#results-and-handoffs)
-- [参考资料](#reference)
-- [参与贡献](#contributing)
-- [许可证](#license)
-- [开发](#development)
+- [循环原则](#循环原则)
+- [开始工作并选择技能](#开始工作并选择技能)
+- [授权与TDD级别](#授权与tdd级别)
+- [决策与修订](#决策与修订)
+- [证据与完成](#证据与完成)
+- [记录与恢复工作](#记录与恢复工作)
+- [回复与下一步行动](#回复与下一步行动)
+- [安装](#安装)
+- [参考资料](#参考资料)
+- [参与贡献](#参与贡献)
+- [许可证](#许可证)
+- [开发](#开发)
 
-<a id="where-to-start"></a>
-## 从哪里开始
+## 循环原则
 
-刚接手项目、恢复工作，或不确定该先处理什么时，可以从 **status** 开始。它会查看现有记录和依据，说明剩余工作，并建议下一步。项目尚无 Lusona 记录时也可以使用。请求查看状态并不等于授权新的实现工作。
+所有技能都在同一循环中开展工作：选择下一项范围明确的行动，执行，检查结果，反复进行，直到达成请求的目标。循环的目的是随着理解加深，不断改进系统和设计。每项技能都应用以下八项原则，具体定义见[工作流指南](plugins/lusona/references/workflow-guide.md#loop-principles)。
 
-对于新想法，**explore** 帮助你比较可能的方案与取舍；**frame-product** 帮助明确用户、问题和产品方向。方向逐渐清晰后，**map-capabilities** 梳理产品需要具备的能力和合理的交付顺序。**specify** 明确行为和验收标准；**architect** 解决涉及边界、契约和职责归属的重要技术决策。**design** 专注于界面设计稿、界面流程和图示，可以直接请求，无须先完成其他阶段。**implement** 负责执行并验证已获授权的变更。
+| ID | 原则 | 对你的意义 |
+| --- | --- | --- |
+| P1 | 无固定顺序 | 智能体根据尚未解决的需求选择下一项技能。任意技能之后都可以使用其他任意技能；每项变更只使用其剩余工作需要的技能。 |
+| P2 | 逐步改进 | 每轮都将结果与预期目标比较，并区分事实与假设。目标、已确认的决策、授权、TDD 级别、证据和不确定性都会传递到下一轮。 |
+| P3 | 将既有决策作为输入 | 新输入与已确认的决策冲突时，智能体既不会拒绝新输入，也不会忽略原决策。它会说明冲突，并与你一起重新评估决策。 |
+| P4 | 记录失效 | 被取代的决策须标明日期和来源，并保留理由。相关记录须同步修正；过时的记录不能让已被取代的选择重新生效。 |
+| P5 | 以证据代替断言 | 智能体只能根据实际观察到的检查结果报告行为和完成情况。规定的检查失败或尚未执行时，不得宣称完成。 |
+| P6 | 决定权属于用户 | 规格说明、计划、ADR 和队列状态均不构成实现授权。修改已确认的目标、契约、TDD 级别或影响重大的承诺，需要你作出决定。 |
+| P7 | 继续范围明确的工作 | 智能体无须等待新指令，就会执行下一项已获授权的行动；当进一步询问无法改变下一步行动时停止询问，只暂停受影响的工作。 |
+| P8 | 每次回复都说明下一步行动 | 每次任务回复均以下一项行动及其负责人结尾；如果没有剩余行动，则说明这一点及原因。 |
 
-这些是工作通常的推进方式，并非必须依次完成的阶段。从当前需要的工作类别入手，跳过已经解决的问题，并在证据表明有必要时重新处理之前的问题。调查可以先于规格说明，也可以在实现过程中展开；审查也可能发现需要重新考虑设计的原因。
+## 开始工作并选择技能
 
-| 工作类别 | 技能及职责 |
+刚接手项目、恢复工作或决定哪些事项需要处理时，从 **status** 开始。它会评估可读取的记录和证据，列出所有已知的剩余工作，并建议下一步行动。项目尚无 Lusona 记录时也可以使用。请求查看状态既不会授予，也不会撤销执行权限。
+
+选择符合当前需求的技能（P1）。表中各行不代表执行顺序：已获授权且明确说明预期行为和范围的请求，可以直接使用 **implement**，无须先用 **specify**。
+
+| 技能 | 使用时机 |
 | --- | --- |
-| 了解现状 | [status](plugins/lusona/skills/status/SKILL.md)：评估进展、剩余工作及下一项有意义的行动 |
-| 明确方向 | [explore](plugins/lusona/skills/explore/SKILL.md)：比较可能的方案与取舍<br />[frame-product](plugins/lusona/skills/frame-product/SKILL.md)：明确用户、目标和边界<br />[map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md)：梳理能力覆盖、依赖关系和交付顺序 |
-| 定义变更 | [specify](plugins/lusona/skills/specify/SKILL.md)：就行为、验收标准和 TDD 策略达成一致<br />[architect](plugins/lusona/skills/architect/SKILL.md)：解决涉及边界、契约和职责归属的重要技术决策 |
-| 视觉设计 | [design](plugins/lusona/skills/design/SKILL.md)：创建界面设计稿、界面流程和图示 |
-| 实现与评估 | [implement](plugins/lusona/skills/implement/SKILL.md)：规划并交付行为变更或缺陷修复<br />[review](plugins/lusona/skills/review/SKILL.md)：检查实际代码差异，找出缺陷和验证遗漏<br />[refactor](plugins/lusona/skills/refactor/SKILL.md)：在保持行为不变的前提下改善代码结构 |
-| 获取依据 | [investigate](plugins/lusona/skills/investigate/SKILL.md)：查明原因或验证可行性<br />[measure](plugins/lusona/skills/measure/SKILL.md)：衡量规模、质量、成本或变化<br />[experiment](plugins/lusona/skills/experiment/SKILL.md)：检验某项措施或备选方案 |
-| 协调选定的工作 | [batch](plugins/lusona/skills/batch/SKILL.md)：在获得明确的无人值守执行授权后，协调多个选定目标的相关工作 |
+| [status](plugins/lusona/skills/status/SKILL.md) | 需要了解现状、进展、剩余工作或恢复方法 |
+| [explore](plugins/lusona/skills/explore/SKILL.md) | 希望先思考方向、选项或未来，再作选择 |
+| [frame-product](plugins/lusona/skills/frame-product/SKILL.md) | 产品的受众、问题、愿景、目标或边界尚未定义或正在改变 |
+| [map-capabilities](plugins/lusona/skills/map-capabilities/SKILL.md) | 需要明确能力覆盖、依赖关系或交付顺序 |
+| [specify](plugins/lusona/skills/specify/SKILL.md) | 需要定义变更的预期行为、范围或验收标准 |
+| [architect](plugins/lusona/skills/architect/SKILL.md) | 涉及边界、契约或职责归属且具有长期影响的技术决策尚未解决 |
+| [design](plugins/lusona/skills/design/SKILL.md) | 需要看到页面、流程、状态或关系，才能判断或选择 |
+| [implement](plugins/lusona/skills/implement/SKILL.md) | 变更已获实现授权，或只需要计划 |
+| [review](plugins/lusona/skills/review/SKILL.md) | 完成前需要对照预期行为审查差异 |
+| [refactor](plugins/lusona/skills/refactor/SKILL.md) | 现有代码存在具体的结构问题，且必须保持行为不变 |
+| [investigate](plugins/lusona/skills/investigate/SKILL.md) | 需要证据来回答原因、观测到的行为或可行性问题 |
+| [measure](plugins/lusona/skills/measure/SKILL.md) | 决策需要基线、基准测试或可比较的观测数据 |
+| [experiment](plugins/lusona/skills/experiment/SKILL.md) | 需要通过试验，决定采纳、拒绝或改进某种方法 |
+| [batch](plugins/lusona/skills/batch/SKILL.md) | 授权对选定的队列项开展无人值守工作，或继续已记录的批次 |
 
-角色、产出和路由规则的完整目录见[工作流指南](plugins/lusona/references/workflow-guide.md)。常规设计选择在实现或重构过程中解决。对于明确的实现或重构请求，只要范围、测试驱动开发（TDD）策略和前置条件已确定，就无须单独执行 `specify` 命令。
+[工作流指南](plugins/lusona/references/workflow-guide.md)列出了各技能的角色、产出、路由表和术语。技能之间的切换无须重新批准，也无须你指挥每次切换。
 
-<a id="choose-a-command"></a>
-## 选择命令
+在所用应用中调用技能：
 
-调用适合当前需要的技能。智能体会在你授予的权限范围内按需使用其他技能，无须你指挥每一次切换。
+- Claude Code：`/lusona:<skill>`，例如 `/lusona:status`。
+- Codex：从技能界面选择 Lusona 技能。
+- Cursor：在 Agent 聊天中输入 `/` 并选择技能。
+- Xcode：在智能体对话中输入 `/` 并选择已安装的技能。
+- Antigravity App 和 CLI：`/<skill>`，例如 `/status`。在独立 IDE 中查看 **Customizations**，并在请求中指定 Lusona 技能名称。
 
-在 Claude Code 中，输入 `/lusona:<command>`。在 Codex 中，从技能界面选择 Lusona 技能。在 Cursor 中，在 Agent 聊天中输入 `/` 并选择技能。在 Xcode 中，在智能体对话里输入 `/`，然后选择已安装的技能。在 Antigravity App/CLI 中使用 `/<skill-name>`；在独立 IDE 中查看 **Customizations**，并在请求中指定 Lusona 技能名称。使用这些命令前，请先[安装 Lusona](#installation)。
+使用这些技能前，请先[安装 Lusona](#安装)。技能请求应说明技能名称、目标或输入记录，以及授权范围。例如：
 
-说明要解决的问题或达成的目标，以及智能体的授权范围。例如：
+> **status:** 根据现有记录和工作区评估这个项目。告诉我还剩哪些工作，并建议从哪里开始。
 
-> **status：** 根据现有记录和工作区评估这个项目。告诉我还剩哪些工作，并建议从哪里开始。
+> **explore:** 帮我比较邀请链接与仅通过电子邮件邀请这两种方式。在做选择前，说明它们对支持团队的影响。只在对话中讨论，不要保存文件。
 
-> **explore：** 帮我比较邀请链接与仅通过电子邮件邀请这两种方式。在做选择前，说明它们对支持团队的影响。只在对话中讨论，不要保存文件。
+> **design:** 使用现有页面、导航和文案，比较两种邀请流程。展示各步骤和邀请过期状态，并说明每种方案的取舍。仅进行视觉设计，不要实现界面。
 
-> **design：** 使用现有页面、导航和文案，比较两种邀请流程。展示各步骤和邀请过期状态，并说明每种方案的取舍。仅进行视觉设计，不要实现界面。
+> **implement:** 将邀请的有效期设为七天。保留已接受的邀请。完成标准：拒绝超过七天的邀请，已接受的邀请保持不变，测试套件通过。针对有效期的边界条件采用 TDD 级别 `targeted`。在本地验证，不要部署。
 
-> **implement：** 将邀请的有效期设为七天。保留已接受的邀请。完成标准：拒绝超过七天的邀请，已接受的邀请不受影响，测试套件通过。针对有效期的边界条件采用 targeted TDD。在本地验证，不要部署。
+## 授权与TDD级别
 
-如果只需要计划，请让 `implement` 提出实现和验证方案，不要修改实现代码或依赖。讨论、规格说明、计划、架构决策和审查本身不构成实现授权。
+决定权属于你（P6）。以下规则适用于所有技能：
 
-在实现或重构前，请在请求中或长期偏好设置中明确选择 TDD 策略：
+- 规格说明、计划、ADR 和队列状态均不构成实现授权。讨论和只读审查也不构成实现授权。
+- 选择实现某项任务，并不代表授权实现其所属变更的其他部分。
+- 智能体在执行破坏性操作前，以及修改已确认的目标、契约、TDD 级别或影响重大的承诺前，会向你询问。
+- 智能体只有获得你的授权，才会提交、推送或发布。已获授权的实现和重构包括本地提交。
+- 仅要求 **implement** 制定计划时，工作以提出方案结束，不构成实现授权。
+- **batch** 只对你明确授权的固定一组队列项开展无人值守工作。并发分工最多为 4 项；如果你选择 5 项，则最多为 5 项，同时受应用容量限制。除非你批准其他次数，否则每项的修复预算为 2 轮纠正。
 
-- `none`：仍须验证，但不要求先写测试。
-- `targeted`：对指定行为先写测试，再实现。
-- `strict`：对每项发生变更且可测试的行为，先写测试，再实现。
+实现工作要求明确选择 TDD 级别，没有默认值。
 
-可将长期偏好写入项目的 `docs/lusona/README.md` 或智能体指令文件（`CLAUDE.md` 或 `AGENTS.md`），例如 `TDD: targeted for validation and persistence boundaries`。如果没有明确选择，智能体可以检查和规划，但会在实现前询问。
+| TDD 级别 | 要求 |
+| --- | --- |
+| `none` | 不要求先写测试；仍须执行约定的验证和仓库检查 |
+| `targeted` | 对指定行为先写测试 |
+| `strict` | 对每项新增或修改且可测试的行为先写测试 |
 
-<a id="installation"></a>
+可在请求中选择级别，也可将其作为长期偏好写入项目的 `docs/lusona/README.md` 或智能体指令文件（`CLAUDE.md` 或 `AGENTS.md`），例如 `TDD: targeted for validation and persistence boundaries`。在级别选定前，智能体只定义和规划，然后向你提问并推荐级别。它会记录级别及其来源；如果选定的执行顺序不可行，会请你重新选择级别。
+
+在上述授权范围内，智能体无须新指令就会继续工作（P7）。它会执行下一项范围明确的行动，在已获授权的工作中开展测量或实验时也无须新的请求；当答案无法改变下一步行动时，就停止询问。有应用原生提问工具时会使用该工具，并推荐答案，但不会将沉默或预选项视为同意。等待期间只暂停受影响的工作，并说明恢复条件。
+
+与你对话的智能体是协调者。无论任务规模如何，它都会将专业工作委派给下级智能体，并集成和验证其结果。如果禁止委派或无法委派，则自行处理并说明情况。任务分工见[委派规则](plugins/lusona/references/delegation.md)，模型选择见[模型路由](plugins/lusona/references/delegation.md#model-routing)。
+
+## 决策与修订
+
+已确认的决策是后续工作的输入（P3）。当新的需求、规格说明、测量或实验结果与已确认的决策冲突时，智能体会：
+
+1. 在回复和所属记录中说明原决策、来源、冲突以及受影响的假设。
+2. 向你提供选项和建议答案。
+3. 与你达成一种结果：保留、部分修订或取代原决策。重新评估决策本身不构成变更授权。
+4. 在继续依赖该决策的工作前，记录结果。
+5. 在现有授权范围内继续不受冲突影响的工作。
+
+记录须保留每项决策的历史（P4）。修订或被取代的决策保留原文和理由，标明你答复的日期和来源；被取代的决策还须链接到替代决策。智能体会在自己的写入职责范围内更新依赖记录、任务分工和交接，报告其他负责人需要作出的修正，并按修订后的决定继续。仍然包含被取代决策的记录应修正或报告，不能继续遵循。详见[修订规则](plugins/lusona/references/revisions.md)。
+
+后续请求会改变当前目标的范围，并保留已有进展。只有在明确取消或替换当前目标，或提出不兼容的目标时，才会替换当前目标。
+
+## 证据与完成
+
+智能体只根据实际观察到的检查结果报告行为，并列明尚未运行和失败的检查（P5）。完成需要达成已获授权的目标、满足其标准、通过规定的检查，并获得任何要求的人类验收。测试通过不代表已获人类验收。
+
+- **先写测试的证据。** 对每项要求先写测试的行为，智能体须在修改生产代码前观察到预期失败，然后观察到通过结果。环境设置失败不能证明预期失败。详见 [TDD](plugins/lusona/references/tdd.md)。
+- **纠错限制。** 连续 2 轮纠正没有实质进展时，智能体停止修正该失败，报告证据，并继续不受影响的工作。累计 4 轮后，再进行任何一轮前都须向你询问。批次内则适用修复预算。详见[纠错规则](plugins/lusona/references/corrections.md)。
+- **独立审查。** 用户或仓库规则要求时，或变更影响安全边界、持久化数据、共享契约，或涉及多个参与者协同修改时，须由未编写该变更的智能体审查。自行处理始终不能满足这一要求；无法安排独立审查时，智能体会报告该要求尚未满足。
+- **研究工作。** **investigate** 回答诊断问题；**measure** 和 **experiment** 开展研究工作。不确定性本身不构成启动研究的理由。请求未要求的研究需要你明确或长期授权，并须有有限的范围和资源预算。决策依据的证据保存在项目的 `docs/lusona/evidence/` 中。详见[证据规则](plugins/lusona/references/evidence.md)。
+- **视觉参考。** 当选择取决于布局、结构、流程或外观时，**explore**、**specify**、**architect** 和 **design** 会提供 2-4 个视觉选项。界面草稿在浏览器中打开，或由智能体报告 HTML 的绝对路径；图示使用 Mermaid 代码块。你选定后，参考资料及其约束要求保存在 `docs/lusona/visuals/<record-id>/` 中。**implement** 报告每项约束要求的状态，**review** 逐项报告满足、未满足或未检查。详见[视觉方案与参考](plugins/lusona/references/visuals.md)。
+
+## 记录与恢复工作
+
+智能体会在交接或完成之前主动保存实质性产出：后续工作所依赖的决策、约定、证据、结论、交接和讨论总结。后续工作不依赖的解释和状态更新无须记录。如果禁止保存，智能体会报告哪些内容没有保存。
+
+| 工作 | 项目 `docs/lusona/` 下的记录 |
+| --- | --- |
+| 需要规格说明的变更 | `specs/<change-id>.md` 和 `work.md` 中的一行 |
+| 无规格说明的直接实现或重构 | `notes/<change-slug>.md` |
+| 调查、测量或实验 | 笔记以及 `evidence/` 记录 |
+| 影响重大的架构决策 | `adr/<YYYYMMDD>-<decision-slug>.md` |
+| 产品概述和能力图谱 | `product.md` |
+| 批次 | `batches/<batch-slug>.md` |
+
+以下四种情况需要规格说明和对应的队列条目。规模不是判断依据。
+
+- 技能通过规格说明定义变更，例如 **specify**。
+- 你要求编写规格说明或跟踪工作。
+- 该变更已有规格说明。
+- 变更因其影响而需要独立审查。
+
+队列状态为 Ideas、Ready、Doing、Review 和 Done；任何状态都不构成实现授权。Icebox 是队列中存放暂缓条目的区域；暂缓条目保留原有队列状态。详见[队列规则](plugins/lusona/references/queue.md)。
+
+每份所属记录保留一份当前交接，包含目标、决策、授权、TDD 级别及其来源、证据、不确定性、纠错次数、阻碍因素、职责归属和下一步行动（P2）。应用提供上下文使用量时，智能体会在 40% 时准备交接，并在达到 50% 前完成。恢复时，它会读取保留下来的记录和工作区，只向你询问授权或会改变下一步行动的事实。授权在交接后继续有效。突然中断导致无法保存时，智能体不会声称已保存检查点。较早插件版本的记录仍然有效，并在原处更新。详见[记录保留规则](plugins/lusona/references/retention.md)和[文件规则](plugins/lusona/references/files.md)。
+
+恢复工作时，可以用 **status** 评估剩余工作，也可以指定要继续的任务：
+
+> 根据已保存的调查结果，继续调查邀请过期问题。用当前构建版本验证保留的复现案例。不要修改生产代码的行为。
+
+## 回复与下一步行动
+
+每次任务回复均以同样的格式结尾（P8），问候和确认收到消息的回复除外。状态为 **✅ 已完成**（已完成请求范围）、**🔄 进行中**（已获授权的工作继续）、**❓ 需要输入**（缺少前置条件）或 **⏸ 已暂停**（受影响的工作正在等待已说明的前置条件）。状态描述回复，而非队列状态。以下是假设的回复示例，不代表实际开展过工作：
+
+> **Result:** ❓ 需要输入：请在开始实现前选择 TDD 级别。规格说明和验收标准已记录。
+>
+> **Evidence:** 尚未运行检查；变更已定义，尚未实现。
+>
+> | Next action | Owner | Needs | Authority |
+> | --- | --- | --- | --- |
+> | 选择 `none`、`targeted` 或 `strict`；解析器变更建议采用 `targeted` | 用户 | 已记录的规格说明 | 尚未选择 TDD 级别 |
+
+- 负责人是用户、协调者或指明名称的技能。Authority 列填写 `Authorized` 或说明缺少的授权。
+- 阻碍工作推进的决策或审批放在最前面。如果作出了影响重大的决定，回复添加 **Decisions:**；如果仍有未解决的问题，则添加 **Open issues:**。
+- 请求范围已完成且后续工作有助于约定目标时，回复会提出该工作，并说明缺少的授权。没有剩余行动时，写明 `**Next action:** None for this request`，并用一句话说明原因。
+- 给另一会话的继续工作指令，放在表格下方的引用块中。
+- 你指定的格式和应用限制优先于上述格式；目标、证据、状态和下一步行动仍须保留。详见[完成示例](plugins/lusona/references/completion.md)。
+
 ## 安装
 
 选择你使用的应用。通过 HTTPS 从公开的 [lusona/ai-skills](https://github.com/lusona/ai-skills) 仓库安装；下载无须 GitHub 凭据。
 
-<a id="antigravity"></a>
 ### Antigravity
 
 直接从 GitHub 安装：
@@ -100,13 +197,8 @@ Lusona 的编程智能体技能围绕同一套工作循环协同运作：
 agy plugin install https://github.com/lusona/ai-skills.git
 ```
 
-此 URL 通过仓库根目录的清单安装 Lusona。
-App 和独立 IDE 用户在通过 CLI 全局安装后，查看 **Customizations**。
-在 App/CLI 中执行 `/status`；在 IDE 中要求使用 Lusona 的 `status` 技能。
-[Antigravity 安装指南](INSTALL.md#antigravity)涵盖本地工作副本、便携包、更新、移除和验证范围。
-GitHub 安装已通过 Linux 上的 CLI 1.4.12 验证；App/IDE 的交互行为尚未测试。
+此 URL 从仓库根目录的清单安装 Lusona。App 和独立 IDE 用户在通过 CLI 全局安装后，查看 **Customizations**。[Antigravity 安装指南](INSTALL.md#antigravity)涵盖本地工作副本、便携包、更新、移除和验证范围。其中记录了针对 Lusona 1.4.0、在 Linux 上使用 Antigravity CLI 1.4.12 完成的 GitHub 安装检查；App 和 IDE 的交互行为尚未测试。
 
-<a id="claude-code"></a>
 ### Claude Code
 
 ```bash
@@ -114,7 +206,6 @@ claude plugin marketplace add https://github.com/lusona/ai-skills.git
 claude plugin install lusona@lusona-ai-skills --scope user
 ```
 
-<a id="codex"></a>
 ### Codex
 
 ```bash
@@ -122,139 +213,44 @@ codex plugin marketplace add https://github.com/lusona/ai-skills.git
 codex plugin add lusona@lusona-ai-skills
 ```
 
-<a id="cursor"></a>
 ### Cursor
 
-打开 **Customize > From GitHub Repository**，输入 `https://github.com/lusona/ai-skills`，然后为项目或用户安装 **Lusona Skills**。在 Agent 聊天中输入 `/` 查找 Lusona 技能。[Cursor 安装步骤](INSTALL.md#cursor)包含最新官方文档链接和测试状态。
+打开 **Customize > From GitHub Repository**，输入 `https://github.com/lusona/ai-skills`，然后为项目或用户安装 **Lusona Skills**。在 Agent 聊天中输入 `/` 查找 Lusona 技能。[Cursor 安装步骤](INSTALL.md#cursor)提供当前 Cursor 文档的链接和测试状态。
 
-<a id="xcode"></a>
 ### Xcode
 
-在 Xcode 27 中，打开 **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**。
-选择 **Add from URL**，输入 `https://github.com/lusona/ai-skills`，然后选择要安装的 Lusona 技能。有关设置、本地导入和版本详情，请参阅 [Xcode 安装步骤](INSTALL.md#xcode)。
+在 Xcode 27 中，打开 **Settings > Intelligence > Agents > Plug-ins > Add Plug-in**。选择 **Add from URL**，输入 `https://github.com/lusona/ai-skills`，然后选择要安装的 Lusona 技能。有关设置、本地导入和版本详情，请参阅 [Xcode 安装步骤](INSTALL.md#xcode)。
 
 安装后，在项目中开启新会话。有关从本地工作副本安装、便携安装包、更新和移除的说明，请参阅[安装指南](INSTALL.md)。插件目录请选择单一来源：本地工作副本或 GitHub。
 
-<a id="how-the-work-continues"></a>
-## 工作如何推进
-
-所有工作类别都遵循同一套循环。下一步可能是讨论、实验、代码修改或审查，取决于当前问题和已有依据。依赖关系、共享状态、用户的明确要求和选定的 TDD 策略仍可能要求特定的执行顺序。
-
-规划是实现工作的一部分，会随进展调整。简单明确的变更只需确定目标和检查方法；涉及依赖、不确定性、协作或恢复时，可能需要明确的计划。你也可以只要求制定计划，而不授权执行。
-
-```mermaid
-flowchart TD
-    Assess{评估当前状态}
-    Assess -->|有可推进且已获授权的工作| Act[执行范围明确的操作]
-    Act --> Check[检查结果并更新依据]
-    Check --> Assess
-    Assess -->|证据与原有决策不符| Revise[重新评估决策]
-    Revise -->|按授权解决并更新记录| Assess
-    Revise -->|需要答复或授权| Blocked[提问或暂停受影响的工作]
-    Assess -->|缺少前置条件、要求暂停或达到纠错限制| Blocked
-    Blocked -->|可独立推进<br/>或满足恢复条件| Assess
-    Assess -->|已满足完成要求| Done[完成请求的目标]
-
-    classDef work fill:#dbeafe,stroke:#2563eb,color:#172554
-    classDef input fill:#fef3c7,stroke:#b45309,color:#451a03
-    classDef complete fill:#dcfce7,stroke:#15803d,color:#14532d
-    class Assess,Act,Check,Revise work
-    class Blocked input
-    class Done complete
-```
-
-图中展示的是[通用工作循环](plugins/lusona/README.md#the-loop)，不是技能的执行顺序。等待和暂停只影响相关工作；其他工作仍可在现有授权范围内独立推进。循环遵循以下四条规则：
-
-- **继续：** 只要还有能推动进展的已授权工作，就继续执行，无须你再调用下一项技能。
-- **提问：** 缺少决定或许可时向你询问，等待期间继续可独立推进的已授权工作。没有回复不代表答复或许可。
-- **暂停：** 你要求暂停、缺少前置条件或达到纠错限制时，停止受影响的工作，并说明恢复所需的条件。由你要求暂停的工作，须等你明确指示后才能恢复。
-- **完成：** 只有授权范围内的全部工作、规定的检查和审查，以及要求的验收或交付均已完成，才能认定完成。规定的检查失败或尚未执行时，不得宣称完成。
-
-当证据与已确认的决定不符时，智能体会指出冲突，并在现有授权范围内重新评估；修订超出授权时向你询问。它会同步更新受影响的记录和任务分工，保留有用的历史决策依据，并按修订后的约定继续工作。过时的记录不得让已被取代的决定重新生效。
-
-反复失败时，须遵守[纠错限制](plugins/lusona/references/corrections.md)；批处理任务使用约定的修复预算。因达到限制而停止某项工作时，智能体会报告依据和恢复条件。
-
-主智能体负责协调提问、分工、集成和验证，并将具体的产品与工程工作委派给专业智能体。探索和状态说明可以由主智能体直接处理。用户或仓库规则要求时，以及工作涉及安全边界、持久化数据、共享契约或多个参与者协同修改时，须进行独立审查。如果无法委派或不允许委派，主智能体可以自行继续已获授权的工作，但规定的独立审查仍须由另一位审查者完成。详见[委派规则](plugins/lusona/references/delegation.md)。
-
-<a id="questions-and-evidence"></a>
-## 提问与证据
-
-提问围绕工作中尚未解决的决策展开。智能体会沿用已经确定的答案，核查可查明的事实，并就意图和重要取舍向你询问。它会按你需要的深度解释方案；探索的结果可以是加深理解，不一定要作出决定。详见[意图沟通规则](plugins/lusona/references/interviews.md)。
-
-调查、测量和实验可以为任何类别的工作提供依据。进一步的工作必须在授权范围和适用的预算内回答有意义的问题。结论须区分证据、假设和不确定性；提出后续工作建议并不代表获得实现授权。
-
-多项技能都支持视觉工作：**explore** 比较视觉方案，帮助选择方向；**specify** 用视觉方案明确行为和验收标准；**architect** 用技术图示说明边界、契约和职责归属。需要专门制作界面设计稿、界面流程或图示时，使用 **design**；设计已确定时也可以直接使用。
-
-界面草稿会在浏览器中打开供你查看；如果无法打开，智能体会提供 HTML 文件的绝对路径。图示及其备选方案使用回复或 Markdown 文件中的 Mermaid 代码块。确认草稿或选定方案后，智能体会在写入权限和禁止保存等限制允许的范围内，将参考资料保存在 `docs/lusona/visuals/`，并从所属规格说明、ADR 或笔记链接到该资料。界面截图取决于可用工具；无法截图时，会保留 HTML 并说明缺少哪些图片。
-
-参考资料区分具有约束力的要求和仅供示意的细节。**implement** 报告每项约束要求的状态，**review** 逐项标记为满足、未满足或未检查。对于保留了图片的界面参考，有渲染和截图工具时，审查会比较截图；否则检查代码或标记，并说明尚未进行视觉比较。详见[视觉方案与参考](plugins/lusona/references/visuals.md)。
-
-重要的测量和实验记录保存在使用该插件的项目的 `docs/lusona/evidence/` 中。规格说明、笔记和历史记录须链接到其依据的具体运行记录；已有记录保留在原处。
-
-<a id="recovery-and-resumption"></a>
-## 恢复与继续工作
-
-智能体会在交接或完成工作之前，将实质性的决策、工作结论和验证依据保存到项目记录中。只要工作流需要规格说明、你要求编写规格说明或跟踪工作、已存在规格说明，或变更涉及安全边界、持久化数据、共享契约或多个参与者协同修改，就会记录规格说明和队列条目；规模不是判断依据。其他没有规格说明的直接工作使用笔记。普通对话和简短的状态说明无须写入文件。只读、禁止保存和保存位置方面的限制优先适用。
-
-记录保留目标、授权、TDD 策略、当前决策、有用依据、待解决问题和下一步行动，必要时还包括职责分工和纠错轮数。重要的架构决策须有架构决策记录（ADR）。规格说明须在 `docs/lusona/work.md` 中跟踪；没有规格说明的工作可以只使用笔记。队列状态表示进展，不决定下一步必须使用哪个技能，也不构成执行授权。详见[记录保留规则](plugins/lusona/references/retention.md)和[队列规则](plugins/lusona/references/queue.md)。
-
-恢复工作时，智能体会对照工作区检查已有记录，只询问无法还原的重要信息。已有授权继续有效。可以用 **status** 了解剩余工作，也可以直接指定要继续的任务：
-
-> 根据已保存的调查结果，继续调查邀请过期问题。用当前构建版本验证保留的复现案例。不要修改生产代码的行为。
-
-突然中断可能导致来不及保存。无法保存记录时，智能体会说明对恢复工作的影响，并在对话中提供工作结论。
-
-<a id="results-and-handoffs"></a>
-## 结果与交接
-
-正式的工作报告说明结果、支撑结果的依据，以及需要继续执行的行动，并区分已完成、进行中、等待信息和已暂停的工作。完成状态针对已获授权的请求：完成诊断不等于修复了缺陷。
-
-以下是交接示例，不代表已经执行了这些工作：
-
-> **✅ 已完成 · 结果：** 诊断已完成；复现结果确认，有效期检查使用了错误的时间戳。尚未获准修复生产代码。
->
-> **证据：** 已记录的案例与针对性检查的结果一致。尚未验证跨平台行为。
->
-> | 下一步行动 | 负责人 | 所需 | 授权 |
-> |---|---|---|---|
-> | 授权修正时间戳 | 你 | TDD 策略 | 实现尚未获授权 |
->
-> > 以 `targeted` TDD 实现时间戳修正。
-
-尚有工作未完成时，这张单行表格须写明范围明确的行动、负责人、所需信息，以及尚余或缺少的授权；表格下方引用的那一行是你可以直接作为下一条消息发送的提示。每个命令都须指出有用的下一步，或明确说明没有必要继续，并简述原因。评估完成后仍可建议后续工作，但建议不构成执行授权。只有没有有用的后续行动时，才使用 **下一步行动：** `None for this request`。普通对话无须采用报告格式；有实质内容的探索仍须提出具体问题或行动，并按记录保留规则保存可复用的结论。示例中的格式是固定的默认格式；你指定的格式和所用应用的限制优先适用。详见[审查与沟通规则](plugins/lusona/references/completion.md)。
-
-<a id="reference"></a>
 ## 参考资料
 
-- [更新日志（英文）](CHANGELOG.md)
+- [更新日志](CHANGELOG.md)
 - [安装与移除](INSTALL.md)
 - [隐私政策](PRIVACY.md)
 - [使用条款](TERMS.md)
-- [工作流规则与工作循环](plugins/lusona/README.md#the-loop)
-- [技能选择与术语](plugins/lusona/references/workflow-guide.md)
-- [TDD 策略与执行顺序](plugins/lusona/references/tdd.md)
-- [批处理执行与恢复](plugins/lusona/skills/batch/SKILL.md)
-- [记录与保留](plugins/lusona/references/retention.md)
+- [插件目录：技能、参考资料和模板](plugins/lusona/README.md)
+- [循环原则、技能、路由和术语](plugins/lusona/references/workflow-guide.md)
+- [TDD 级别与验证](plugins/lusona/references/tdd.md)
+- [批次协调](plugins/lusona/skills/batch/SKILL.md)
+- [记录、保留和交接](plugins/lusona/references/retention.md)
 - [收尾与重新开启](plugins/lusona/references/closeout.md)
 - [委派](plugins/lusona/references/delegation.md)
-- [模型路由](plugins/lusona/references/delegation.md#model-routing)
+- [意图访谈](plugins/lusona/references/interviews.md)
 
-<a id="contributing"></a>
 ## 参与贡献
 
 有关贡献范围、本地检查和拉取请求，请参阅 [CONTRIBUTING.md](CONTRIBUTING.md)。如需报告问题或提出改进建议，请使用[缺陷和功能请求表单](https://github.com/lusona/ai-skills/issues/new/choose)。`@lusona/core` 团队负责仓库审查。
 
-<a id="license"></a>
 ## 许可证
 
 技能、模板、文档和脚本采用 [MIT 许可证](LICENSE)。
 
-<a id="development"></a>
 ## 开发
 
-工作流的正式源文件位于 `plugins/lusona/`。使用该插件的项目应将自身数据放在该项目的 `docs/lusona/` 下；空队列结构见 `templates/work.md.template`。
+工作流的正式源文件位于 `plugins/lusona/`。使用该插件的项目应将自身数据放在该项目的 `docs/lusona/` 下；空队列结构见 `plugins/lusona/templates/work.md.template`。
 
-插件的记录创建脚本使用 Bash 或 PowerShell，详见[运行环境要求](INSTALL.md#requirements)。构建软件包和运行 Python 评估仍需 Python 3，日常使用插件则不需要。
+插件的记录辅助工具使用 Bash 或 PowerShell（[运行环境要求](INSTALL.md#requirements)）。只有打包和运行 Python 评估需要 Python 3，使用插件则不需要。
 
 ```bash
 claude plugin validate plugins/lusona
@@ -262,6 +258,7 @@ claude plugin validate .claude-plugin/marketplace.json
 python3 scripts/package.py
 ```
 
-打包工具会检查原生插件清单的标识与版本、链接、插件目录路径和打包文件范围，并将输出写入仓库内的 `tmp/lusona-package/`。如需输出到其他位置，使用 `--output tmp/<new-directory>`。所有原生清单必须使用相同版本。通过 GitHub 安装时使用已提交并推送的源码；发布前可使用本地工作副本。安装和打包都不会初始化项目记录。
+打包工具会检查原生清单的名称与版本、链接、插件目录路径和打包文件范围。所有原生清单必须使用相同版本。输出写入仓库内的 `tmp/lusona-package/`，且拒绝覆盖已有输出目录；再次构建时请使用 `--output tmp/<new-directory>`。安装和打包都不会初始化项目记录。
 
-源码体积缩小不代表 token 用量或延迟下降；要确认这些收益，需要把协调智能体和所有执行智能体都纳入测量。
+各 `SKILL.md` 中的通用任务规则和回复格式由仓库的 `shared/` 目录生成。请在该目录中编辑，然后运行 `python3 scripts/sync_shared.py --source shared
+plugins/lusona`；添加 `--check` 可仅验证而不写入。
