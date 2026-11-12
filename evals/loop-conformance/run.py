@@ -23,7 +23,7 @@ ROOT = HERE.parents[1]
 SUITE_FILES = ("scenarios.json", "rubric.md", "suite.lock.json")
 CODE_FILES = ("run.py", "checks.py", "compare.py")
 HOSTS = ("claude", "codex")
-CHECK_IDS = tuple(f"C{n}" for n in range(1, 12))
+CHECK_IDS = tuple(f"C{n}" for n in range(1, 18))
 STATES = ("pass", "fail", "inconclusive", "setup-blocked", "not-applicable", "invalid")
 JUDGED_STATES = ("pass", "fail", "inconclusive")
 INSTRUCTION_FILES = ("CLAUDE.md", "AGENTS.md")
@@ -253,6 +253,23 @@ def validate_scenarios(scenarios, rubric_text=None):
         for check, key in (("C10", "expect_reviewer"), ("C11", "expect_workers")):
             if check in case["checks"] and key not in expect:
                 problems.append(f"{sid}: {check} needs expect.{key}")
+        for check, key in (("C12", "decision_protected_globs"), ("C14", "decision_record_globs"),
+                           ("C16", "old_record_globs"), ("C17", "update_globs")):
+            if check in case["checks"] and not (isinstance(expect.get(key), list) and expect[key]):
+                problems.append(f"{sid}: {check} needs expect.{key} as a non-empty list")
+        if "C15" in case["checks"] and not expect.get("superseded_status"):
+            problems.append(f"{sid}: C15 needs expect.superseded_status as a non-empty object")
+        for key in ("decision_status", "superseded_status"):
+            value = expect.get(key)
+            if value is not None and not (isinstance(value, dict)
+                                          and all(isinstance(k, str) and isinstance(v, str) for k, v in value.items())):
+                problems.append(f"{sid}: expect.{key} must map record paths to a status word")
+        if "legacy_records" in expect and not (isinstance(expect["legacy_records"], list)
+                                               and all(isinstance(p, str) for p in expect["legacy_records"])):
+            problems.append(f"{sid}: expect.legacy_records must be a list of paths")
+        if ("C13" in case["checks"] and rubric_text is not None
+                and not any(c.startswith("C13.") for c in rubric_criteria(rubric_section(rubric_text, sid)))):
+            problems.append(f"{sid}: C13 needs a judged criterion in rubric.md")
         for key in ("spec_required", "expect_workers", "expect_reviewer"):
             if key in expect and not isinstance(expect[key], bool):
                 problems.append(f"{sid}: expect.{key} must be true or false")
@@ -262,6 +279,37 @@ def validate_scenarios(scenarios, rubric_text=None):
                 problems.append(f"{sid}: fixture path {path!r} is not a plain workspace path")
         if rubric_text is not None and rubric_section(rubric_text, sid) is None:
             problems.append(f"{sid}: rubric.md has no '## {sid}' section")
+    return problems
+
+
+def validate_pass_marks(data, scenarios):
+    """Return a list of problems in pass-marks.json: each mark names a scenario that lists the
+    check, a trial count, a minimum pass count per host within it, and a reason."""
+    marks = data.get("marks") if isinstance(data, dict) else None
+    if not isinstance(marks, list) or not marks:
+        return ["pass-marks.json must hold a non-empty marks list"]
+    problems, seen = [], set()
+    for mark in marks:
+        key = f"{mark.get('scenario')} {mark.get('check')}"
+        if (mark.get("scenario"), mark.get("check")) in seen:
+            problems.append(f"{key}: duplicate mark")
+        seen.add((mark.get("scenario"), mark.get("check")))
+        case = scenarios.get(mark.get("scenario"))
+        if case is None:
+            problems.append(f"{key}: unknown scenario")
+        elif mark.get("check") not in case.get("checks", []):
+            problems.append(f"{key}: check not listed for the scenario")
+        trials = mark.get("trials")
+        if not isinstance(trials, int) or trials < 1:
+            problems.append(f"{key}: trials must be a positive integer")
+            trials = None
+        minimum = mark.get("min_pass") if isinstance(mark.get("min_pass"), dict) else {}
+        for host in HOSTS:
+            value = minimum.get(host)
+            if not isinstance(value, int) or value < 0 or (trials is not None and value > trials):
+                problems.append(f"{key}: min_pass.{host} must be an integer from 0 to trials")
+        if not isinstance(mark.get("reason"), str) or not mark["reason"].strip():
+            problems.append(f"{key}: reason must be non-empty text")
     return problems
 
 
@@ -533,7 +581,8 @@ def codex_rollout_workers(thread, sessions_root):
 
 # ---------------------------------------------------------------- evaluator-material access
 
-EVALUATOR_NAMES = ("rubric.md", "scenarios.json", "judge-calibration.json", "suite.lock.json", "condition.json")
+EVALUATOR_NAMES = ("rubric.md", "scenarios.json", "judge-calibration.json", "suite.lock.json", "condition.json",
+                   "pass-marks.json")
 _TOKEN = re.compile(r"""[^\s'"`;|&<>()=,]+""")
 _OUTPUT_KEYS = {"aggregated_output", "output", "stdout", "stderr", "exit_code", "status", "text"}
 # Text the actor writes into files, hands to a subagent, or uses as a label is not a read.
@@ -783,6 +832,11 @@ def freeze(plugin, out, host, model, effort, timeout, judge_model, judge_effort,
     problems = validate_scenarios(load_json(suite_dir / "scenarios.json"), (suite_dir / "rubric.md").read_text())
     if problems:
         raise ValueError("invalid suite content: " + "; ".join(problems))
+    if "pass-marks.json" in names:
+        problems = validate_pass_marks(load_json(suite_dir / "pass-marks.json"),
+                                       load_json(suite_dir / "scenarios.json"))
+        if problems:
+            raise ValueError("invalid pass-marks.json: " + "; ".join(problems))
     out.mkdir(parents=True, exist_ok=False)
     shutil.copytree(plugin, out / "plugin", ignore=shutil.ignore_patterns("__pycache__", "*.pyc", ".git"))
     for name in names:

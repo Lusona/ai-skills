@@ -1,0 +1,148 @@
+{
+  "allowed_tools": [
+    "Read",
+    "Edit",
+    "Write",
+    "Skill",
+    "Task",
+    "Agent",
+    "Bash"
+  ],
+  "ambient_instruction_hashes": {},
+  "claude_settings": {
+    "permissions": {
+      "blockWritesOutsideWorkingDirectories": true
+    },
+    "sandbox": {
+      "allowUnsandboxedCommands": false,
+      "autoAllowBashIfSandboxed": true,
+      "enabled": true,
+      "failIfUnavailable": true,
+      "network": {
+        "allowedDomains": []
+      }
+    }
+  },
+  "cli_version": "2.1.322 (Claude Code)",
+  "code_hashes": {
+    "checks.py": "3a4ec0ddffd6c6500674288313bcdc3428ef653fa9f4fd49e5d065ed372d095e",
+    "compare.py": "04545d734bf32423f1b71efbbf8b05301b1e7b0b937e76bed4b7ed45e7920672",
+    "run.py": "b09516aaf4e11293c9c4073230b7363a7dda698c55dd1acb5b3e32817256ea8a"
+  },
+  "effort": "high",
+  "frozen_at_unix": 1794441726.6941626,
+  "host": "claude",
+  "isolation": "Workspace under a work root with no CLAUDE.md or AGENTS.md in any ancestor; --setting-sources project and --strict-mcp-config (no user settings, no MCP servers); frozen plugin via --plugin-dir, required in every init event; parent-session CLAUDE_CODE_* variables removed. Ambient instruction files: none.",
+  "judge_cli_version": "2.1.322 (Claude Code)",
+  "judge_effort": "medium",
+  "judge_model": "claude-fable-5-2",
+  "judge_prompt_sha256": "c840b39c53162f072ffd03d942c12e7f577eef4978458adee0785eaf9a104f57",
+  "max_trials": 5,
+  "model": "claude-opus-5-5",
+  "permission_config": {
+    "allowed_tools": [
+      "Read",
+      "Edit",
+      "Write",
+      "Skill",
+      "Task",
+      "Agent",
+      "Bash"
+    ],
+    "permission_mode": "dontAsk",
+    "setting_sources": "project",
+    "settings": {
+      "permissions": {
+        "blockWritesOutsideWorkingDirectories": true
+      },
+      "sandbox": {
+        "allowUnsandboxedCommands": false,
+        "autoAllowBashIfSandboxed": true,
+        "enabled": true,
+        "failIfUnavailable": true,
+        "network": {
+          "allowedDomains": []
+        }
+      }
+    },
+    "shell_env": {
+      "CLAUDE_CODE_SHELL": "/bin/bash"
+    },
+    "strict_mcp_config": true
+  },
+  "permissions": "--permission-mode dontAsk; allowed_tools for file, skill, subagent, and Bash tools; every Bash command runs in the Claude Code sandbox, writing only to the workspace and the sandbox temp directory, with no network; Write and Edit refused outside the workspace; refused calls listed in denied_actions",
+  "plugin_hashes": {
+    ".antigravity-plugin/plugin.json": "d4df5e950f03d3799c9cf67266356a6e8f3a61555959f5e37fd01e9af0fb4498",
+    ".claude-plugin/plugin.json": "3c0985c75cd9a4fbe970edfa60cda8bbc51754fd96030e63a5acc04824bb2bf6",
+    ".codex-plugin/plugin.json": "bfadfb0ec130776b0446e468232fd896424f490f4d3fc1ac87370ea1dc713303",
+    ".cursor-plugin/plugin.json": "26146ceba2ac6d142a27046a9d2b95a43980dfbb861018ade30c613ddd126d3c",
+    "LICENSE": "8f83ff2645dfed98fec3e70e8f1cf6bb9c0a869114d1b4beb45c3e944cdd4f37",
+    "README.md": "7698410b2878c03215ee19b67b5a1554ac562c42184584bed8e80c1436c5332a",
+    "assets/icon.png": "269d330f01e65167c523a23805f07df55a1924d7ec46c7eb66c5cbce33a86d24",
+    "assets/workflow-loop.svg": "3b7096fd1f8a5008b7a3d032e740661c63a6698f9ad9d00157df2b5fe7c73ba7",
+    "references/closeout.md": "1709e4a58c7240b33c6be5c9cadb4fab4934620612a8968038154b9af5d5388e",
+    "references/commits.md": "58383b1c7becbeed0f652dab1c29f287d34093b047d7b8fdc5fc9552e6dc2aac",
+    "references/completion.md": "b8ffda9343735452e2c00d68a101afe3aa4502b4f53e91707a759d3f789abd37",
+    "references/corrections.md": "9caf12dc4f525836f3b107829b81d2c2ecf3276662d81a5ed35811469574200e",
+    "references/delegation.md": "4647b8534f02517ba992062cdefc763c2aac8fe55c7806cbd12d22670d8d37cf",
+    "references/evidence.md": "043704ad161e64da148ffe11cb229d3fdfe2711c7dcd939393fa2fb418d39aca",
+    "references/files.md": "985abbf10303c48132f2c108855c218b2cd2bebc0d0f736cea115bcd21de1fb9",
+    "references/interviews.md": "06cb90d60801e49f8d22ae298b60e27e0f2fee1c0553c40ea8528fb00fc6302e",
+    "references/naming.md": "e632a87239de1a17e17cd2955f99a535fdbe4155160d8e13773f05f336b84015",
+    "references/queue.md": "0767b792f97517441d902f4333c558bd00a3a36071fbabbdf02dca34939665cb",
+    "references/retention.md": "c7150c55a78c6a77a59f8e35a2af2211677364227ee823e00ceb82cdc8e883e9",
+    "references/revisions.md": "3eadbcb346757cc99bd177ae91e34d622122a49d953c806062ddf19e85ece397",
+    "references/tdd.md": "cb085fd3385909dab1b2d2ec04ba7e110f436f73e2ab9650b5c5f00821bb9984",
+    "references/visuals.md": "e01cc7a8376c9b1218df86789eda12fdade0b3a0509fc8aad221e2b7e4c4b10f",
+    "references/workflow-guide.md": "e9338a4e7c26297cd15800c11875926f92325a6936ff08ee8f94f1220a4e5dd9",
+    "scripts/work-record.ps1": "25909c23beacf89a7fd2cacfa8782702746d4c7eb1fa4f5327cc75601d526d01",
+    "scripts/work-record.sh": "786222b1165eb7debad5c3630cfaf78194bcbb5d1a545e0ae69cb244f7600dfe",
+    "skills/architect/SKILL.md": "8a2305d0d75a7430035cb10e7ce9a9033dcd0008844cf6cc74ed57aa45073472",
+    "skills/batch/SKILL.md": "26c45e73ea6c719e4e6cb59055e02b8484ae00f8521c056a3755aed2283bbb11",
+    "skills/batch/references/assignments.md": "a62946abf8c4dc3e5448e3cd6d71a5a006f942a17e24b45bfa01740369651019",
+    "skills/batch/references/authority.md": "6f346df23f762d8c83eb212d948d8ec02bdd523185b08a0e1092145430e1412d",
+    "skills/batch/references/deferral-and-resumption.md": "48ba3936d3058b85afab9a1d0f6aa9afd76ebe8a25ba40ae7409e24e117fd145",
+    "skills/batch/references/integration.md": "62775d16fecc2f2be72dde733606b122d15f0c15c9cb171a853b9f6f1117d2fa",
+    "skills/batch/references/leaf-rules.md": "eb68362497b22f516ff40da2bdbfe12d11641cec22d1727c89a5691a4fea25c5",
+    "skills/batch/references/repairs.md": "ae57c03207a71d2465193ce537fcd315f33470b6f559b70e8bd71a0321508943",
+    "skills/batch/references/start-and-resume.md": "1aaa055a4a0cc4b68ff643c55391ec03cd7ca9530c161ef52fbc0b9e20cbe72b",
+    "skills/batch/references/workspaces.md": "ba153e420f05b257c8b8de6b6fbe9e433909c5babd24ab6777d33f3eb2c4f31a",
+    "skills/design/SKILL.md": "2b603df98bd6dbc9d3cca0abd91cf776053359bf7f129be27b674ec360cff52e",
+    "skills/experiment/SKILL.md": "73b2e3e9d50ad7db06933f9674ef563fe20077de10825fad55e3d819136c54fc",
+    "skills/explore/SKILL.md": "4cdf46a90274c1570289fd7fd4d8e52dc5e630de09342a6d77382b468763d280",
+    "skills/frame-product/SKILL.md": "080daa370bc0711167936fb47bea318eb319ad2466ddf8f8d1a83cbaa7415e9b",
+    "skills/implement/SKILL.md": "2981634adde354c562a75d505eeba3ee739c83fd3f30f826475051d2b1a573ac",
+    "skills/investigate/SKILL.md": "d94cedcf19e2275f2a28885dc204fe287739ef394bb4d3c587391e7c1730a689",
+    "skills/map-capabilities/SKILL.md": "b6ad0b6db7ed1f1dd2ffc6f77e07a6d652de53dbb0c8984ae5cfb8e2c7d0fb38",
+    "skills/measure/SKILL.md": "95177fb375f3562545ba7bea03b56ccd75531184fc5d77a7507307dcc0197923",
+    "skills/refactor/SKILL.md": "e20967821cf21fc840779d7e927229c95d609bbbf16f3dd39151d66ff371cc12",
+    "skills/review/SKILL.md": "5910e98d4a92f0c082d31e2bccc4163ad93fc1c6351a64405f6333ce8c731af3",
+    "skills/specify/SKILL.md": "9bd1375d9e30cce5068e50bd722cd920aedd6283ae043a5dbce15b190fa55d4b",
+    "skills/status/SKILL.md": "5314bca23c6ac472affdea3154486c1ee4c8bdee6eb2443e3270949291f11c67",
+    "templates/adr.md.template": "3016f89c180da0d98c55d780642c8d63889aabad361ead64ff5374f9096523ac",
+    "templates/batch.md.template": "be7abb61db8e592e033c1cdabe33f1c9e7007c998beea012049dd9243dc42b3b",
+    "templates/brainstorm.md.template": "12b2935fba967b104450a104df745a1cfb05ce1682301ad42d82f8e6c2ba0f8b",
+    "templates/evidence.md.template": "ef2ade22de329b562995b718352abb7b57a74e109236cff6fa0be0005b8a323a",
+    "templates/history.md.template": "8e5db833f04cc2f5e2a1edb451900406e496b106cec3df6a63e52acbab62337b",
+    "templates/notes.md.template": "5eb1cea3d150d6b727c255de01f46f88ae6e23efe84cc8b375a49dbaa5c366ae",
+    "templates/product.md.template": "1501c60e51497c9d8a52d111a19c33c7fe2390fa1efd9f9182737d40d0db6bd2",
+    "templates/review.md.template": "1ae09c828ace3d4bb33bf9e1b7b727fb8d3baf7f9a0f6aad2dd792bf34555009",
+    "templates/spec.md.template": "bac75427a70276248ac5c9baa7710b40576572a660bbe0c09dc451ea06c6a51a",
+    "templates/status.md.template": "16bcd7d10382149ca21bcc4218f6e0be20d642051cf3021d54265a93c9cde916",
+    "templates/visual-page.html.template": "5197e9153324bccfd4e2db6af27e4cc796dbdeb550464663949ddd17711ee5c0",
+    "templates/visual-reference.md.template": "5750837e9fe1d722ce93ab1b9ead0f032c2d83040f5b12a3f5f04064e5a25b65",
+    "templates/work.md.template": "6c7427c84e244e31ee94b4ca2670c8180aa4abcdf18ec1b1e9bc78902b4b72c9"
+  },
+  "plugin_path": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-draft/plugin",
+  "shell_env": {
+    "CLAUDE_CODE_SHELL": "/bin/bash"
+  },
+  "suite_hashes": {
+    "judge-calibration.json": "4ae5742a4835dfba8ff94b9670d1fbb2af83515b6a39110d977470fdaf28a9aa",
+    "pass-marks.json": "3615ee98e32aefe0266f2921eae72695a8266af3862a85cb28ff08dc72f0999c",
+    "rubric.md": "3f34f9d49ea8cc72ff7a189fb4d68e1705b2a194e928aeabd76e158bc05f9d44",
+    "scenarios.json": "b8051183437c60e87977f6579e37b627e9a910e1a4e6a1ef90efc7a11beae97e",
+    "suite.lock.json": "9d95fd3b3c5ab6c8e58b548b0b66c402cbef37ca521eb331eaebdb74999bce0f"
+  },
+  "timeout_seconds": 900
+}

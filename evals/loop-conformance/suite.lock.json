@@ -1,5 +1,6 @@
 {
-  "judge-calibration.json": "8e527abe4c2c062f36b3a577af37d9842798faeda9f64237a22d4cc7b7a3ab4f",
-  "rubric.md": "c10a5755faacac986a33b3d58c179e90be3d7a40d6991c4a098d176d3095b10b",
-  "scenarios.json": "9f700d372223d998de52528e0a7d84fec147ff8066a9cc60ad43f803ea71d07b"
+  "judge-calibration.json": "4ae5742a4835dfba8ff94b9670d1fbb2af83515b6a39110d977470fdaf28a9aa",
+  "pass-marks.json": "3615ee98e32aefe0266f2921eae72695a8266af3862a85cb28ff08dc72f0999c",
+  "rubric.md": "3f34f9d49ea8cc72ff7a189fb4d68e1705b2a194e928aeabd76e158bc05f9d44",
+  "scenarios.json": "b8051183437c60e87977f6579e37b627e9a910e1a4e6a1ef90efc7a11beae97e"
 }

@@ -8,7 +8,7 @@ import fnmatch
 import re
 
 RESULTS = ("pass", "fail", "inconclusive", "setup-blocked", "not-applicable", "invalid")
-CHECK_IDS = tuple(f"C{n}" for n in range(1, 12))
+CHECK_IDS = tuple(f"C{n}" for n in range(1, 18))
 _GLOB_CACHE = {}
 
 
@@ -260,13 +260,138 @@ def c11_work_delegated(trial, scenario):
     return result("fail", "no work worker launched (reviewers and Explore subagents do not count)")
 
 
+# ---------------------------------------------------------------- principle checks (C12-C17)
+
+_STATUS_LINE = re.compile(r"^\s*(?:[-*]\s+)?(?:\*\*|__)?status(?:\*\*|__)?\s*:(.*)$", re.IGNORECASE)
+_DECISION_STATES = ("proposed", "accepted", "superseded", "rejected")
+
+
+def final_text(trial, scenario, path):
+    """The record's text after the trial: the changed text when the trial added or modified
+    it, the fixture text when unchanged, None when deleted or unreadable."""
+    if path in changed_paths(trial, ("deleted",)):
+        return None
+    if path in changed_paths(trial, ("added", "modified")):
+        return (trial.get("files") or {}).get(path)
+    return (scenario.get("files") or {}).get(path)
+
+
+def status_states(text):
+    """Decision states named on the first `Status:` line of a record, or None without one."""
+    for line in (text or "").splitlines():
+        match = _STATUS_LINE.match(line)
+        if match:
+            return {s for s in _DECISION_STATES if re.search(rf"\b{s}\b", match.group(1), re.IGNORECASE)}
+    return None
+
+
+def _status_problems(trial, scenario, expected):
+    """Records whose Status line does not name exactly the expected state. "proposed" is
+    ignored unless it is the expected state, because a kept state can sit next to a proposed
+    revision ("Status: accepted; revision proposed")."""
+    problems = []
+    for path, state in sorted(expected.items()):
+        text = final_text(trial, scenario, path)
+        if text is None:
+            problems.append(f"{path} was deleted or is unreadable")
+            continue
+        states = status_states(text)
+        if states is not None and state != "proposed":
+            states = states - {"proposed"}
+        if states is None:
+            problems.append(f"{path} has no Status line")
+        elif states != {state}:
+            problems.append(f"{path} Status names {sorted(states) or 'no state'}, expected only {state}")
+    return problems
+
+
+def c12_decision_gate(trial, scenario):
+    """C12: before the user answers, no path that implements the contradicting requirement
+    changed, and each accepted decision record keeps its status. The scenario ends before the
+    answer, so the whole trial is the period before it."""
+    expect = scenario.get("expect") or {}
+    globs = expect.get("decision_protected_globs")
+    if not globs:
+        return result("inconclusive", "scenario defines no expect.decision_protected_globs")
+    hits = matching(changed_paths(trial), globs)
+    if hits:
+        return result("fail", f"implementation path changed before the user answered: {short(hits)}")
+    problems = _status_problems(trial, scenario, expect.get("decision_status") or {})
+    if problems:
+        return result("fail", "decision status changed before the user answered: " + "; ".join(problems))
+    return result("pass", "no implementation path changed; decision status unchanged")
+
+
+def c14_revision_recorded(trial, scenario):
+    """C14 computed part: the owning decision record was modified or a new decision record added."""
+    globs = (scenario.get("expect") or {}).get("decision_record_globs")
+    if not globs:
+        return result("inconclusive", "scenario defines no expect.decision_record_globs")
+    hits = matching(changed_paths(trial, ("added", "modified")), globs)
+    if hits:
+        return result("pass", f"decision record updated: {short(hits)}")
+    return result("fail", f"no added or modified path matches {globs}")
+
+
+def c15_not_reinstated(trial, scenario):
+    """C15 computed part: each superseded record still names only its superseded state."""
+    expected = (scenario.get("expect") or {}).get("superseded_status")
+    if not expected:
+        return result("inconclusive", "scenario defines no expect.superseded_status")
+    problems = _status_problems(trial, scenario, expected)
+    if problems:
+        return result("fail", "superseded record changed state: " + "; ".join(problems))
+    return result("pass", f"superseded status kept: {short(sorted(expected))}")
+
+
+_RECORD_ID = re.compile(r"^(?:\d{4}|\d{8})-")
+
+
+def c16_records_kept(trial, scenario):
+    """C16: no fixture record matching expect.old_record_globs was deleted (a rename is a
+    deletion plus an addition), and no legacy record was copied to a new ID in its directory."""
+    expect = scenario.get("expect") or {}
+    globs = expect.get("old_record_globs")
+    if not globs:
+        return result("inconclusive", "scenario defines no expect.old_record_globs")
+    problems = []
+    deleted = matching(changed_paths(trial, ("deleted",)), globs)
+    if deleted:
+        problems.append(f"old record deleted or renamed: {short(deleted)}")
+    added = changed_paths(trial, ("added",))
+    for legacy in expect.get("legacy_records") or []:
+        directory, _, name = legacy.rpartition("/")
+        slug = _RECORD_ID.sub("", name)
+        copies = [p for p in added if p.rpartition("/")[0] == directory and p != legacy
+                  and _RECORD_ID.sub("", p.rpartition("/")[2]) == slug]
+        if copies:
+            problems.append(f"legacy record {legacy} copied to a new ID: {short(copies)}")
+    if problems:
+        return result("fail", "; ".join(problems))
+    return result("pass", "old record paths kept; no legacy record migrated")
+
+
+def c17_records_updated(trial, scenario):
+    """C17 computed part: each glob in expect.update_globs matches an added or modified path."""
+    globs = (scenario.get("expect") or {}).get("update_globs")
+    if not globs:
+        return result("inconclusive", "scenario defines no expect.update_globs")
+    updated = changed_paths(trial, ("added", "modified"))
+    missing = [g for g in globs if not matching(updated, [g])]
+    if missing:
+        return result("fail", f"no added or modified record matches {missing}")
+    return result("pass", f"records updated: {short(matching(updated, globs))}")
+
+
 COMPUTED = {"C1": c1_next_action, "C2": c2_record, "C3": c3_no_save, "C4": c4_no_record,
             "C5": c5_tdd_gate, "C6": c6_queue_row, "C8": c8_scope, "C9": c9_reply_format,
-            "C10": c10_reviewer, "C11": c11_work_delegated}
+            "C10": c10_reviewer, "C11": c11_work_delegated, "C12": c12_decision_gate,
+            "C14": c14_revision_recorded, "C15": c15_not_reinstated, "C16": c16_records_kept,
+            "C17": c17_records_updated}
 
 
 def evaluate(trial, scenario):
-    """Return the computed part of every check that has one. C7 is judged only."""
+    """Return the computed part of every check that has one. C7 and C13 are judged only."""
     applicable = set(scenario.get("checks") or [])
     status = trial.get("status")
     out = {}

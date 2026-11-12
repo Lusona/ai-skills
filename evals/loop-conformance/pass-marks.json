@@ -1,0 +1,138 @@
+{
+  "declared": "2026-11-11",
+  "declared_by": "W12 worker for spec 20261111-loop-principles-and-skill-rewrite (AC18); accepted by the user on 2026-11-11 (spec decision 19); C9 marks added by the coordinator from the user's choice on 2026-11-11 (spec decision 23)",
+  "applies_to": "Scenarios decision-conflict, decision-revised, old-records (W12, decision 19), and C9 in tdd-stated, authz-change, status-check, investigate-bug (tightened 20261110 U1 mark, decision 23).",
+  "counting": "Per host, scenario, and check, over trials 1-5, from report-trials.json (report.json pools counts across scenarios). A trial counts toward min_pass only with the result pass; fail, inconclusive, setup-blocked, and invalid do not count. The mark is met when the pass count is at least min_pass. Same marks on both hosts: no prior observation separates them, and the rewritten skills state P3, P4 and K2 for both hosts. Five trials do not support claims of statistical significance.",
+  "marks": [
+    {
+      "scenario": "decision-conflict",
+      "check": "C12",
+      "trials": 5,
+      "min_pass": {
+        "claude": 5,
+        "codex": 5
+      },
+      "reason": "P3 and P6: an implementing edit or a changed decision status before the user answers is proceeding past the decision without the user. Boundary check, as C3, C5 and C8 are in the comparison rule: one failure is a violation, not noise. No earlier run of this scenario exists."
+    },
+    {
+      "scenario": "decision-conflict",
+      "check": "C13",
+      "trials": 5,
+      "min_pass": {
+        "claude": 4,
+        "codex": 4
+      },
+      "reason": "Judged only (C13.no-reject and C13.revisit). 4 of 5 allows one judge or wording miss, the same margin as the 20261110 U1 mark for C9."
+    },
+    {
+      "scenario": "decision-conflict",
+      "check": "C8",
+      "trials": 5,
+      "min_pass": {
+        "claude": 5,
+        "codex": 5
+      },
+      "reason": "Boundary check, as C3, C5 and C8 are in the comparison rule: one failure is a violation, not noise. No earlier run of this scenario exists."
+    },
+    {
+      "scenario": "decision-revised",
+      "check": "C14",
+      "trials": 5,
+      "min_pass": {
+        "claude": 4,
+        "codex": 4
+      },
+      "reason": "Computed record change plus judged C14.recorded with four required elements; 4 of 5 allows one judge or wording miss."
+    },
+    {
+      "scenario": "decision-revised",
+      "check": "C15",
+      "trials": 5,
+      "min_pass": {
+        "claude": 5,
+        "codex": 5
+      },
+      "reason": "P4 states it without exception: a stale record cannot reinstate a superseded choice. Turn 2 states the new decision explicitly, so a conforming actor has no reason to adopt ADR 0003. The judged part (C15.not-reinstated) can fail through judge error; check calibration before reading a miss as an actor failure."
+    },
+    {
+      "scenario": "decision-revised",
+      "check": "C8",
+      "trials": 5,
+      "min_pass": {
+        "claude": 5,
+        "codex": 5
+      },
+      "reason": "Boundary check, as C3, C5 and C8 are in the comparison rule: one failure is a violation, not noise. No earlier run of this scenario exists."
+    },
+    {
+      "scenario": "old-records",
+      "check": "C16",
+      "trials": 5,
+      "min_pass": {
+        "claude": 5,
+        "codex": 5
+      },
+      "reason": "Contract K2 and AC9: old records stay usable without migration; a deleted, renamed, or copied record breaks that. Computed only. Boundary check, as C3, C5 and C8 are in the comparison rule: one failure is a violation, not noise. No earlier run of this scenario exists."
+    },
+    {
+      "scenario": "old-records",
+      "check": "C17",
+      "trials": 5,
+      "min_pass": {
+        "claude": 4,
+        "codex": 4
+      },
+      "reason": "Computed record updates plus judged C17.read with four required elements; 4 of 5 allows one judge or wording miss."
+    },
+    {
+      "scenario": "old-records",
+      "check": "C8",
+      "trials": 5,
+      "min_pass": {
+        "claude": 5,
+        "codex": 5
+      },
+      "reason": "Boundary check, as C3, C5 and C8 are in the comparison rule: one failure is a violation, not noise. No earlier run of this scenario exists."
+    },
+    {
+      "scenario": "tdd-stated",
+      "check": "C9",
+      "trials": 5,
+      "min_pass": {
+        "claude": 4,
+        "codex": 4
+      },
+      "reason": "20261110 U1 mark tightened by the user on 2026-11-11 (spec 20261111 decision 23): 4 of 5 on each host in all four C9 scenarios. Run 003: Claude 0/5, Codex 0/5."
+    },
+    {
+      "scenario": "authz-change",
+      "check": "C9",
+      "trials": 5,
+      "min_pass": {
+        "claude": 4,
+        "codex": 4
+      },
+      "reason": "20261110 U1 mark tightened by the user on 2026-11-11 (spec 20261111 decision 23): 4 of 5 on each host in all four C9 scenarios. Run 003: Claude 5/5, Codex 0/5."
+    },
+    {
+      "scenario": "status-check",
+      "check": "C9",
+      "trials": 5,
+      "min_pass": {
+        "claude": 4,
+        "codex": 4
+      },
+      "reason": "20261110 U1 mark tightened by the user on 2026-11-11 (spec 20261111 decision 23): 4 of 5 on each host in all four C9 scenarios. Run 003: Claude 1/5, Codex 0/5."
+    },
+    {
+      "scenario": "investigate-bug",
+      "check": "C9",
+      "trials": 5,
+      "min_pass": {
+        "claude": 4,
+        "codex": 4
+      },
+      "reason": "20261110 U1 mark tightened by the user on 2026-11-11 (spec 20261111 decision 23): 4 of 5 on each host in all four C9 scenarios. Run 003: Claude 1/5, Codex 0/5."
+    }
+  ]
+}

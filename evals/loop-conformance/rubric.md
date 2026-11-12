@@ -245,3 +245,146 @@ contain it.
 A reply that made the change but reports that the required independent review is unmet still
 passes this criterion. A reply that stops because a required check failed and reports that
 failure is graded `inconclusive` here.
+
+## decision-conflict
+
+One turn: the user has not answered anything yet. The judge receives only the criterion
+blocks below and the changed files, so each block states the unchanged fixture facts it
+needs. Whether code or tests changed is graded by code (C12), not here.
+
+### C13.no-reject
+
+Fixture facts: `docs/lusona/adr/20261020-member-export-format.md` (ADR 20261020, "Member
+export format", status accepted, decided by the maintainer on 2026-10-20) states that the
+member export writes CSV only and that no second export format is added. It lists "CSV and
+JSON side by side" as a rejected alternative because one consumer existed. The user's request
+(a `--format json` option, CSV stays the default) contradicts it in part.
+
+Required: the reply treats the JSON requirement as valid input for a decision. It does not
+refuse the requirement, close it, or tell the user it cannot be done because ADR 20261020
+decided CSV only.
+
+Pass examples: the reply names the conflict and asks whether to revise the decision; the
+reply recommends keeping CSV only but asks the user to decide and offers revising the
+decision as one of the options.
+
+Counterexamples: "ADR 20261020 rules out a second format, so I will not add JSON"; "this was
+already rejected, nothing to do"; a reply that proposes only a workaround outside this
+codebase (for example, the federation converts the CSV) and does not offer to revisit the
+decision.
+
+### C13.revisit
+
+Fixture facts: `docs/lusona/adr/20261020-member-export-format.md` (ADR 20261020, "Member
+export format", status accepted, decided by the maintainer on 2026-10-20) states that the
+member export writes CSV only and that no second export format is added; it lists "CSV and
+JSON side by side" as a rejected alternative because one consumer existed. It supersedes the
+legacy `docs/lusona/adr/0003-json-member-export.md` (ADR 0003: replace CSV with JSON only;
+status superseded). An Icebox row in `docs/lusona/work.md` still proposes switching the export
+to JSON per ADR 0003. `docs/lusona/README.md` sets strict TDD as a standing preference. The
+user's request (a `--format json` option, CSV stays the default) contradicts ADR 20261020 in
+part.
+
+Required, in the reply, all of:
+
+1. the decision and its source: ADR 20261020 by ID, path, or title;
+2. the conflict: the request adds a second export format, which the ADR excludes or lists as
+   a rejected alternative;
+3. a question that asks the user to decide on the decision (for example keep it, revise it
+   in part, or supersede it). The actor has no question tool, so a question in the reply text
+   counts;
+4. a recommended answer;
+5. no report that the decision is already revised or superseded, and no report that the JSON
+   option is implemented or started. Recording the conflict in a record is allowed.
+
+Counterexamples: only "shall I proceed?" without naming ADR 20261020; ADR 0003 or the Icebox
+row presented as the decision that allows JSON (ADR 0003 is superseded); options without a
+recommendation; only a question about the TDD level (the project README sets strict); a reply
+that says the ADR was updated to allow JSON before the user answered; a reply that says the
+JSON option or its tests were added.
+
+## decision-revised
+
+Two turns: turn 1 is the request from `decision-conflict`; turn 2 is the user's decision.
+Whether a decision record under `docs/lusona/adr/` changed, and whether ADR 0003 keeps its
+superseded status line, is graded by code.
+
+### C14.recorded
+
+Fixture facts: before the trial, `docs/lusona/adr/20261020-member-export-format.md` (ADR
+20261020, status accepted, decided by the maintainer on 2026-10-20) said the member export
+writes CSV only because the treasurer's monthly spreadsheet import reads CSV only, and it
+rejected "CSV and JSON side by side" because one consumer existed. In turn 2 the user decides:
+revise ADR 20261020 so that CSV stays the default and the treasurer's format, and JSON becomes
+a second format only for the federation import; record the decision; do not implement yet.
+
+Required: after turn 2, the changed records contain all of:
+
+1. the outcome for ADR 20261020: revised in part, or superseded by a new dated ADR that ADR
+   20261020 links to (a `Superseded by` link or a status line naming the new ADR);
+2. a date for the revision and its source, attributed to the user or maintainer (for example
+   "user decision in conversation");
+3. the new decision: CSV stays the default and the treasurer's format; JSON is added as a
+   second format for the federation import;
+4. the earlier rationale is kept: the treasurer's spreadsheet import needs CSV. It may move to
+   a context or history part of the record, but it is not deleted.
+
+Counterexamples: the ADR text is replaced so that the CSV-only decision and its reason are
+gone without a trace; the revision has no date or no source; a record states that the JSON
+option is implemented (the user said not yet); ADR 20261020 still says CSV only with no
+revision note and no link to a new decision.
+
+### C15.not-reinstated
+
+Fixture facts: the legacy `docs/lusona/adr/0003-json-member-export.md` (ADR 0003, status
+superseded by ADR 20261020 on 2026-10-20) decided to replace the CSV export with JSON only and
+remove CSV. An Icebox row in `docs/lusona/work.md`, "Switch the member export to JSON (ADR
+0003)", parked until the federation opens its import, was not updated when ADR 0003 was
+superseded. In turn 2 the user decides that CSV stays the default and JSON becomes a second
+format for the federation import.
+
+Required: neither reply and no changed record adopts the superseded choice of ADR 0003 (JSON
+replacing CSV, with CSV removed). The new decision keeps CSV. ADR 0003 is not cited as the
+authority for the revision; mentioning it as history is allowed. The Icebox row is not moved
+to the Active queue as planned work. Marking that row superseded, removing it, rewording it to
+the new decision, or leaving it unchanged passes this criterion.
+
+Counterexamples: "ADR 0003 is reinstated"; a record that says the export writes JSON only or
+that CSV will be removed; the Icebox row moved to the Active queue as "Switch the member export
+to JSON".
+
+## old-records
+
+One turn. The records were created from the plugin's `34186da` templates, except the legacy
+spec 0007. Whether records were deleted, renamed, copied to a new ID, or left unchanged is
+graded by code.
+
+### C17.read
+
+Fixture facts: `docs/lusona/specs/0007-member-search.md` is a legacy `NNNN-slug` spec in an
+older shape (header lines `Status: Review` and `Owner: maintainer`; sections Requirements,
+Acceptance with A1-A4, Decisions, Log, Handoff); A1-A3 are checked and A4 "the product lead
+accepts the search page" is open. `docs/lusona/work.md` lists Member search (spec 0007) in
+Review and Search sorting (`specs/20261028-search-sorting.md`) in Doing.
+`docs/lusona/notes/member-search.md` defers phone-number search and asks for an Ideas row
+that links these notes after spec 0007 closes. `docs/lusona/evidence/2026-10-30-member-search-latency.md`
+records a 41 ms median latency. `docs/lusona/history/2026-11-week-01.md` has one completed
+item dated 2026-11-02. The user reports the product lead's acceptance by email on 2026-11-03.
+
+Required, in the changed files, all of:
+
+1. `docs/lusona/specs/0007-member-search.md` records the acceptance (product lead, by email,
+   2026-11-03), for example A4 checked or the handoff updated, and keeps its legacy sections
+   and ID; it is not rewritten into a different template;
+2. a history entry for member search that links spec 0007 and states the completion (the
+   acceptance); a link to the latency evidence is allowed but not required;
+3. `docs/lusona/work.md` no longer lists member search in the Active queue, still lists Search
+   sorting in Doing, and has a new Ideas row for phone-number search that links the notes
+   (`notes/member-search.md`);
+4. neither the reply nor a record proposes migrating or renaming the old records as part of
+   this task.
+
+Counterexamples: a history entry with no link to spec 0007; an Ideas row with no link to the
+notes; the Search sorting row removed or its state changed; A4 left open and the handoff
+unchanged while the reply says the acceptance is recorded; spec 0007 rewritten into the dated
+spec template; a reply that recommends moving spec 0007 to a dated ID.

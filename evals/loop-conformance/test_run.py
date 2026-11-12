@@ -214,6 +214,53 @@ class SuiteContentTest(unittest.TestCase):
         self.assertTrue(any("rubric" in p for p in problems))
 
 
+    def test_validation_requires_expectations_of_the_principle_checks(self):
+        bad = {"x": {"skill": "implement", "files": {}, "turns": ["hi"],
+                     "checks": ["C12", "C13", "C14", "C15", "C16", "C17"], "expect": {}}}
+        problems = runner.validate_scenarios(bad, RUBRIC.replace("## other", "## x\n\nNo judged criterion.\n\n## other"))
+        for needed in ("C12 needs expect.decision_protected_globs", "C14 needs expect.decision_record_globs",
+                       "C15 needs expect.superseded_status", "C16 needs expect.old_record_globs",
+                       "C17 needs expect.update_globs", "C13 needs a judged criterion"):
+            self.assertTrue(any(needed in p for p in problems), (needed, problems))
+        wrong = {"x": {"skill": "implement", "files": {}, "turns": ["hi"], "checks": ["C12", "C15", "C16"],
+                       "expect": {"decision_protected_globs": ["*.py"], "decision_status": ["accepted"],
+                                  "superseded_status": {}, "old_record_globs": ["docs/**"],
+                                  "legacy_records": "docs/lusona/specs/0001-a.md"}}}
+        problems = runner.validate_scenarios(wrong)
+        for needed in ("expect.decision_status", "expect.superseded_status", "expect.legacy_records"):
+            self.assertTrue(any(needed in p for p in problems), (needed, problems))
+        good = {"x": {"skill": "implement", "files": {}, "turns": ["hi"], "checks": ["C12", "C14", "C15", "C16", "C17"],
+                      "expect": {"decision_protected_globs": ["*.py"], "decision_status": {"a.md": "accepted"},
+                                 "decision_record_globs": ["docs/lusona/adr/*.md"],
+                                 "superseded_status": {"b.md": "superseded"}, "old_record_globs": ["docs/**"],
+                                 "legacy_records": ["docs/lusona/specs/0001-a.md"], "update_globs": ["docs/**"]}}}
+        self.assertEqual(runner.validate_scenarios(good), [])
+
+    def test_pass_marks_validation(self):
+        marks = {"marks": [{"scenario": "explore-a", "check": "C2", "trials": 5,
+                            "min_pass": {"claude": 4, "codex": 4}, "reason": "Judged content."}]}
+        self.assertEqual(runner.validate_pass_marks(marks, SCENARIOS), [])
+        bad = {"marks": [{"scenario": "explore-a", "check": "C4", "trials": 5, "min_pass": {"claude": 6}, "reason": ""},
+                         {"scenario": "missing", "check": "C1", "trials": 5,
+                          "min_pass": {"claude": 1, "codex": 1}, "reason": "x"}]}
+        problems = runner.validate_pass_marks(bad, SCENARIOS)
+        for needed in ("explore-a C4: check not listed", "explore-a C4: min_pass.claude", "explore-a C4: min_pass.codex",
+                       "explore-a C4: reason", "missing C1: unknown scenario"):
+            self.assertTrue(any(needed in p for p in problems), (needed, problems))
+        duplicate = {"marks": marks["marks"] * 2}
+        self.assertTrue(any("duplicate" in p for p in runner.validate_pass_marks(duplicate, SCENARIOS)))
+
+    def test_repository_pass_marks_cover_the_principle_scenarios(self):
+        path, scenarios = HERE / "pass-marks.json", HERE / "scenarios.json"
+        data, cases = json.loads(path.read_text()), json.loads(scenarios.read_text())
+        self.assertEqual(runner.validate_pass_marks(data, cases), [])
+        marked = {(m["scenario"], m["check"]) for m in data["marks"]}
+        for sid in ("decision-conflict", "decision-revised", "old-records"):
+            for check in cases[sid]["checks"]:
+                self.assertIn((sid, check), marked)
+        self.assertIn("pass-marks.json", json.loads((HERE / "suite.lock.json").read_text()))
+        self.assertIn("pass-marks.json", runner.EVALUATOR_NAMES)
+
 class FreezeAndPrepareTest(RunnerTestBase):
     def test_freeze_records_condition_and_detects_mutation(self):
         self.freeze()
@@ -240,6 +287,17 @@ class FreezeAndPrepareTest(RunnerTestBase):
         with self.assertRaisesRegex(ValueError, "suite.lock.json"):
             self.freeze()
         self.assertFalse(self.condition.exists(), "a refused freeze leaves no condition directory")
+
+    def test_freeze_refuses_invalid_pass_marks(self):
+        (self.suite / "pass-marks.json").write_text(json.dumps(
+            {"marks": [{"scenario": "greet", "check": "C1", "trials": 5, "min_pass": {"claude": 5, "codex": 5},
+                        "reason": "x"}]}))
+        lock = json.loads((self.suite / "suite.lock.json").read_text())
+        lock["pass-marks.json"] = runner.digest(self.suite / "pass-marks.json")
+        (self.suite / "suite.lock.json").write_text(json.dumps(lock))
+        with self.assertRaisesRegex(ValueError, "pass-marks.json"):
+            self.freeze()
+        self.assertFalse(self.condition.exists())
 
     def test_codex_ambient_agents_file_is_hashed_through_symlink(self):
         self.host = "codex"

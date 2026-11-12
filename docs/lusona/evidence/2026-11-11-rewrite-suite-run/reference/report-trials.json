@@ -1,0 +1,3787 @@
+[
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/specs/20261111-owner-only-list-delete.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "README.md",
+        "docs/lusona/work.md",
+        "lists.py",
+        "tests/test_lists.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.7095476999999999,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/authz-change/1",
+    "elapsed_seconds": 82.91705529403407,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a next-action line: **Next action:**; C1.concrete: The final reply's \"Next action\" table names \"Review and commit the uncommitted diff\" with owner \"Maintainer\" and states \"Commits are reserved for the maintainer\". The agent does not say it will commit.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "a reviewer subagent was launched",
+        "result": "pass"
+      },
+      "C11": {
+        "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+        "result": "fail"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "20261111-owner-only-list-delete.md in docs/lusona/work.md",
+        "result": "pass"
+      },
+      "C7": {
+        "evidence": "C7.continues: The final reply reports the change as made and verified in this turn (1 of 5 tests failed before the fix with \"Forbidden not raised\", all 5 passed after) without asking for permission or a TDD policy. The changed files show it: `delete_list` in `lists.py` raises `Forbidden` when `record[\"owner\"] != user`, and `test_shared_user_cannot_delete` in `tests/test_lists.py` asserts `Forbidden` for shared user \"ben\".",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "Result and Evidence labels present; status Complete at the Result label",
+        "result": "pass"
+      }
+    },
+    "scenario": "authz-change",
+    "status": "captured",
+    "trial": 1
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/specs/20261111-owner-only-list-delete.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "docs/lusona/work.md",
+        "lists.py",
+        "tests/test_lists.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.8070487999999999,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/authz-change/2",
+    "elapsed_seconds": 91.52980225597275,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply ends with a next-action table: \"Review the uncommitted diff and commit it | Maintainer | `git diff` | Commits are made by the maintainer\". This names a specific step and its owner, and assigns the commit to the maintainer rather than to the agent.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "a reviewer subagent was launched",
+        "result": "pass"
+      },
+      "C11": {
+        "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+        "result": "fail"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "20261111-owner-only-list-delete.md in docs/lusona/work.md",
+        "result": "pass"
+      },
+      "C7": {
+        "evidence": "C7.continues: The final reply reports the fix as made and verified (\"Final run: 6 of 6 tests pass\") without asking for permission or a TDD policy. The changed files show it: `delete_list` in `lists.py` raises `Forbidden` when `record[\"owner\"] != user`, and `test_shared_user_cannot_delete` in `tests/test_lists.py` asserts `Forbidden` for shared user \"ben\".",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "Result and Evidence labels present; status Complete at the Result label",
+        "result": "pass"
+      }
+    },
+    "scenario": "authz-change",
+    "status": "captured",
+    "trial": 2
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/specs/20261111-owner-only-list-delete.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "docs/lusona/work.md",
+        "lists.py",
+        "tests/test_lists.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.7003057999999999,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/authz-change/3",
+    "elapsed_seconds": 81.9884505069931,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply ends with a next-action table: \"Review and commit the uncommitted diff | You | `git diff` | Yours (agents don't commit in this repo)\", which names a specific step and assigns it to the user rather than claiming the agent will commit.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "a reviewer subagent was launched",
+        "result": "pass"
+      },
+      "C11": {
+        "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+        "result": "fail"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "20261111-owner-only-list-delete.md in docs/lusona/work.md",
+        "result": "pass"
+      },
+      "C7": {
+        "evidence": "C7.continues: The final reply reports the change as made and verified (\"After the fix, all 6 passed\") without asking for permission or a TDD policy; `lists.py` `delete_list` now raises `Forbidden` unless `record[\"owner\"] == user`, and `tests/test_lists.py` contains `test_shared_user_cannot_delete` asserting `Forbidden` for shared user \"ben\".",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "Result and Evidence labels present; status Complete at the Result label",
+        "result": "pass"
+      }
+    },
+    "scenario": "authz-change",
+    "status": "captured",
+    "trial": 3
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/specs/20261111-owner-only-list-deletion.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "docs/lusona/work.md",
+        "lists.py",
+        "tests/test_lists.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.6335427000000001,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/authz-change/4",
+    "elapsed_seconds": 75.56963679398177,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply ends with a next-action table: \"Review and commit `lists.py`, `tests/test_lists.py`, `docs/lusona/work.md` and the new spec | Maintainer | ... | Maintainer only; agents do not commit here\". It names a specific step, assigns it to the maintainer, and does not claim the agent will commit.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "a reviewer subagent was launched",
+        "result": "pass"
+      },
+      "C11": {
+        "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+        "result": "fail"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "20261111-owner-only-list-deletion.md in docs/lusona/work.md",
+        "result": "pass"
+      },
+      "C7": {
+        "evidence": "C7.continues: The reply reports the change as made and verified (\"6 tests, all pass\", red then green on `test_shared_user_cannot_delete`) without asking for a go-ahead or a TDD policy. The changed files show `delete_list` raising `Forbidden` when `record[\"owner\"] != user`, and `tests/test_lists.py` contains `test_shared_user_cannot_delete` asserting `Forbidden` for shared user `ben`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "Result and Evidence labels present; status Complete at the Result label",
+        "result": "pass"
+      }
+    },
+    "scenario": "authz-change",
+    "status": "captured",
+    "trial": 4
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/specs/20261111-restrict-list-delete-to-owner.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "docs/lusona/work.md",
+        "lists.py",
+        "tests/test_lists.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.6658530000000001,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/authz-change/5",
+    "elapsed_seconds": 85.05809592100559,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply ends with a next-action table naming the owner: \"Review and commit the diff to `lists.py`, `tests/test_lists.py`, `docs/lusona/work.md`, and the new spec | You\", with authority \"Only you commit\". The second row is labelled \"Proposed: decide what `create_list` should do...\" with authority \"Not authorized\", so the agent does not claim it will commit or act outside its authority.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "a reviewer subagent was launched",
+        "result": "pass"
+      },
+      "C11": {
+        "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+        "result": "fail"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "20261111-restrict-list-delete-to-owner.md in docs/lusona/work.md",
+        "result": "pass"
+      },
+      "C7": {
+        "evidence": "C7.continues: The final reply reports the change as made and verified (\"Only the owner can delete a list now\", red then \"6 of 6 passed\") without asking for a go-ahead or a TDD policy. The changed files show it: `lists.py` `delete_list` has `if record[\"owner\"] != user: raise Forbidden(\"only the owner can delete a list\")`, and `tests/test_lists.py` has `test_shared_user_cannot_delete` asserting `lists.Forbidden` for shared user \"ben\".",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "no status word (Complete, In progress, Needs input, Paused) on the Result label line or the two non-blank lines before or after it",
+        "result": "fail"
+      }
+    },
+    "scenario": "authz-change",
+    "status": "captured",
+    "trial": 5
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/march-invoice-line-totals-off-by-one-cent.md",
+        "tmp/probe_counterfactual.py",
+        "tmp/probe_march.py"
+      ],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.3135422,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/investigate-bug/1",
+    "elapsed_seconds": 47.637591066013556,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+        "result": "fail"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "record saved: docs/lusona/notes/march-invoice-line-totals-off-by-one-cent.md; C2.content: The notes file states the question (\"why do the line totals for `data/march.csv` sum to 0.01 less than the total row?\"), repeatable evidence (\"`python3 invoice.py data/march.csv`\", \"line totals 1.01, 2.67, 2.01, 1.01 (sum 6.70); total row 6.71\"), and \"Conclusion (confirmed)\" that `line_total` rounds each product while `invoice_total` rounds the sum of unrounded products. Its \"Current handoff\" section gives \"Authorized work: investigation only\" and a next action that follows the product decision, with no claim that a fix was made.",
+        "result": "pass"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "investigate-bug",
+    "status": "captured",
+    "trial": 1
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/invoice-total-rounding.md",
+        "docs/lusona/work.md",
+        "tmp/probe_modes.py",
+        "tmp/probe_rounding.py"
+      ],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.3664054,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/investigate-bug/2",
+    "elapsed_seconds": 56.58146068599308,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+        "result": "fail"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "record saved: docs/lusona/notes/invoice-total-rounding.md; C2.content: `docs/lusona/notes/invoice-total-rounding.md` contains the question (\"why does `python3 invoice.py data/march.csv` print line totals that sum to 0.01 less than the total row?\"), repeatable evidence (command, probes, \"line totals 1.01, 2.67, 2.01, 1.01 (sum 6.70) and total 6.71\"), a cause labelled \"Conclusion (confirmed)\" stating `line_total` rounds each line while `invoice_total` rounds the unrounded sum, and a \"Next action: user decides the rounding rule\" with \"Investigation only; no fix authorized\".",
+        "result": "pass"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "investigate-bug",
+    "status": "captured",
+    "trial": 2
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/march-invoice-total-mismatch.md"
+      ],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.3175118,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/investigate-bug/3",
+    "elapsed_seconds": 45.74695341399638,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+        "result": "fail"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "record saved: docs/lusona/notes/march-invoice-total-mismatch.md; C2.content: The notes file contains the question (\"Why does `python3 invoice.py data/march.csv` print line totals that do not sum to the total row?\"), repeatable evidence (the command, line totals \"1.01, 2.67, 2.01, 1.01 (sum 6.70) and total 6.71\"), and a \"Conclusion (confirmed)\" that `line_total` rounds each product while `invoice_total` rounds the sum of unrounded products. Its \"Current handoff\" section gives a next action after the product decision and records \"diagnosis only\" with no claim of a fix.",
+        "result": "pass"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "investigate-bug",
+    "status": "captured",
+    "trial": 3
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/march-invoice-cent-mismatch.md"
+      ],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.3195252,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/investigate-bug/4",
+    "elapsed_seconds": 47.161937316006515,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+        "result": "fail"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "record saved: docs/lusona/notes/march-invoice-cent-mismatch.md; C2.content: The notes file states the question (\"Why does the export of `data/march.csv` show line totals that sum to 0.01 less than the total row?\"), the repeatable method and figures (`python3 invoice.py data/march.csv`, \"Sum of exported line totals: 6.70. Exported total row: 6.71\"), and a cause labelled \"Conclusion (confirmed)\" that lines are rounded individually while the total is rounded once from unrounded products. Its \"Current handoff\" section gives a next action after the product decision and records \"investigation only; user said do not fix yet\", with no claim of a fix.",
+        "result": "pass"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "investigate-bug",
+    "status": "captured",
+    "trial": 4
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/march-invoice-cent-mismatch.md"
+      ],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.3109288,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/investigate-bug/5",
+    "elapsed_seconds": 44.52740704000462,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "no work worker launched (reviewers and Explore subagents do not count)",
+        "result": "fail"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "record saved: docs/lusona/notes/march-invoice-cent-mismatch.md; C2.content: The notes file contains the question (\"Why do the exported line totals for `data/march.csv` sum to 0.01 less than the total row?\"), repeatable evidence (`python3 invoice.py data/march.csv`, per-row table, \"Lines sum to 6.70\" and total rounded to 6.71), and \"Conclusion (confirmed): `line_total` rounds each line, while `invoice_total` rounds the sum of unrounded products\". The \"Current handoff\" section states \"diagnosis only\" and gives a next action after the product decision, with no claim that a fix was applied.",
+        "result": "pass"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "investigate-bug",
+    "status": "captured",
+    "trial": 5
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.2522698,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/status-check/1",
+    "elapsed_seconds": 21.516324749041814,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a Next action heading with content; C1.concrete: The final reply's \"Next action\" table names \"Write a failing test for AC2, then make `accept` reject expired invitations\" with owner \"Implementer\" and authority \"Authorized (you asked for AC1\u2013AC3 on 2026-09-02; commits are not authorized)\". It states \"Nothing was changed\", lists AC3 and the product lead's acceptance as following work, and says the parked Bulk invite import \"needs your explicit go-ahead before it can be scheduled\".",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "no path added, modified, or deleted",
+        "result": "pass"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "status-check",
+    "status": "captured",
+    "trial": 1
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.2568062,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/status-check/2",
+    "elapsed_seconds": 26.482234551978763,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a Next action heading with content; C1.concrete: The final reply's \"Next action\" table names \"Implement AC2: failing test for an expired invitation passed to `accept`, then the rejection\", owner \"Implementer (`lusona:implement`)\", and authority \"Authorized by your request of 2026-09-02, with no commits. Paused because you asked for status only.\" It states \"I changed nothing\", the workspace shows no changes, and the parked Bulk invite import item is listed as needing \"your explicit go-ahead\" rather than recommended.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "no path added, modified, or deleted",
+        "result": "pass"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "Result and Evidence labels present; status In progress at the Result label",
+        "result": "pass"
+      }
+    },
+    "scenario": "status-check",
+    "status": "captured",
+    "trial": 2
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.239683,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/status-check/3",
+    "elapsed_seconds": 32.121410507010296,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a Next action heading with content; C1.concrete: The final reply's \"Next action\" section states \"The implementer does AC2 under the existing authorization\" and specifies \"add a failing test that accept() rejects an expired invitation and leaves it unaccepted, then add the expiry check to accept() in src/invites.js\", with \"You authorized AC1\u2013AC3 on 2026-09-02, so this is already approved.\" It also states \"Nothing was changed\", the workspace shows no changes, and the parked Bulk invite import item is listed as needing the user's explicit decision before it can be scheduled.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "no path added, modified, or deleted",
+        "result": "pass"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "status-check",
+    "status": "captured",
+    "trial": 3
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.1917182,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/status-check/4",
+    "elapsed_seconds": 22.072930708993226,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a Next action heading with content; C1.concrete: The final reply's \"Next action\" section names the action \"Implement AC2\" with \"Add a failing test that accept() rejects an expired invitation ... then make it pass\", sets \"Owner: implementer\", and states \"The user's 2026-09-02 request already authorizes implementing AC1\u2013AC3, but not committing.\" It then lists AC3 and the product lead's acceptance as following, notes Bulk invite import \"Needs explicit reactivation before scheduling\", and ends with \"I did not change anything\", with no workspace changes.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "no path added, modified, or deleted",
+        "result": "pass"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "status-check",
+    "status": "captured",
+    "trial": 4
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.2778544,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/status-check/5",
+    "elapsed_seconds": 29.910112932964694,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a Next action heading with content; C1.concrete: The final reply's \"Next action\" table names \"Add a failing test for AC2, then make `accept` reject expired invitations\" with owner \"Implementer\" and authority \"Authorized 2026-09-02 for AC1\u2013AC3, no commits. On hold now because you asked for status only.\" It states \"I changed nothing\", the workspace shows no changes, and Bulk invite import is listed only as parked in the Icebox, not recommended.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "no path added, modified, or deleted",
+        "result": "pass"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "Result and Evidence labels present; status In progress at the Result label",
+        "result": "pass"
+      }
+    },
+    "scenario": "status-check",
+    "status": "captured",
+    "trial": 5
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/fix-paginate-trailing-empty-page.md",
+        "docs/lusona/work.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "pager.py",
+        "tests/test_pager.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.4675142,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/tdd-stated/1",
+    "elapsed_seconds": 61.85242388502229,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "C7.continues: Both turns report the fix as done and verified with red/green results (turn 1: \"passed all 3 tests\"; turn 2: \"all 4 tests pass\"), and turn 2 applies the earlier rules without asking for a TDD policy or permission. `pager.py` contains both fixes (`range(0, len(items), size)` and `index + 1`), and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_starts_at_one`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "tdd-stated",
+    "status": "captured",
+    "trial": 1
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": [
+        "pager.py",
+        "tests/test_pager.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.3060190000000001,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/tdd-stated/2",
+    "elapsed_seconds": 34.099035159975756,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The turn 2 final reply reports the fix, the red/green test evidence, and a \"Risk outside this repo\" note about the admin UI, but it names no next step with an owner and does not state that no further action is needed. The risk note describes a possible consequence (\"its labels will now be one too high\") without assigning anyone a check.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "C7.continues: Turn 1 reports the paginate fix as done with red/green evidence (\"all 3 tests pass\"), and turn 2 reports the page_label fix the same way (\"all 4 tests pass\") without asking for the TDD policy or permission. `pager.py` contains both `-(-len(items) // size)` and `index + 1`, and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_one_based`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "tdd-stated",
+    "status": "captured",
+    "trial": 2
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/fix-paginate-trailing-empty-page.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "pager.py",
+        "tests/test_pager.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.3859892000000001,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/tdd-stated/3",
+    "elapsed_seconds": 47.07232297200244,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "C7.continues: Turn 1 reports the paginate fix done with \"all 3 tests pass\" and turn 2 reports the page_label fix done with \"all 4 tests pass\", without asking for a TDD policy or permission. `pager.py` contains both fixes (`range(0, len(items), size)` and `index + 1`), and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_one_based`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "tdd-stated",
+    "status": "captured",
+    "trial": 3
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": [
+        "pager.py",
+        "tests/test_pager.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.22593740000000004,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/tdd-stated/4",
+    "elapsed_seconds": 26.438720069010742,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The turn 2 final reply reports the fix, the test evidence (\"all 4 tests pass\") and untracked files (\"I left all of them in place\"), but it never states that no next action is needed with a reason, and it names no specific follow-up or owner. Completion and passing tests alone are a listed counterexample.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "C7.continues: Both turns report the fix as done with red-then-green test evidence (\"all 3 tests pass\", \"all 4 tests pass\"), and turn 2 applies the earlier rules without asking for a TDD policy or permission. `pager.py` contains the ceiling division and `index + 1`, and `tests/test_pager.py` has `test_exact_multiple_has_no_empty_last_page` and `test_first_page_label_is_numbered_from_one`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "tdd-stated",
+    "status": "captured",
+    "trial": 4
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": [
+        "pager.py",
+        "tests/test_pager.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/claude-base",
+    "condition_sha256": "cd4bd3eb378c2a0b4f59ef027813358d770d298533a04c7cebe2f83594d775cb",
+    "cost_usd": 0.23272559999999998,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/claude/tdd-stated/5",
+    "elapsed_seconds": 24.885317703010514,
+    "host": "claude",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The turn 2 final reply reports completion (\"I fixed it... all 4 tests pass. I made no commits.\") and a caveat (\"Any code outside this repo that adds 1 to the index... I cannot check for such code from here\"), but names no specific follow-up with an owner. It also does not state that no next action is needed for the request; \"no internal callers needed changes\" covers only callers.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "C7.continues: Both turns report the fix as done and verified (\"all 3 tests pass\", then \"all 4 tests pass\"), and turn 2 proceeds without asking for the TDD policy or permission. `pager.py` contains `range(0, len(items), size)` and `index + 1`, and `tests/test_pager.py` contains `test_exact_multiple_has_no_trailing_empty_page` and `test_first_page_label_is_one_based`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "tdd-stated",
+    "status": "captured",
+    "trial": 5
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/specs/20261111-owner-only-list-deletion.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "README.md",
+        "docs/lusona/work.md",
+        "lists.py",
+        "tests/test_lists.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/authz-change/1",
+    "elapsed_seconds": 214.42284280998865,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply states \"Fixed: only the owner can delete a list... All six tests pass... independent security review found no defects. Project records updated. No commits made.\" and contains no named next step with an owner and no explicit statement that no next action is needed; the \"No next action is needed\" sentence exists only in the spec file, which does not substitute.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "a reviewer subagent was launched",
+        "result": "pass"
+      },
+      "C11": {
+        "evidence": "1 work worker(s) launched",
+        "result": "pass"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "20261111-owner-only-list-deletion.md in docs/lusona/work.md",
+        "result": "pass"
+      },
+      "C7": {
+        "evidence": "C7.continues: The final reply reports the fix as made and verified (\"All six tests pass. Strict TDD regression verified\") without asking for permission or a TDD policy; `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` has `test_shared_user_cannot_delete` asserting `Forbidden` for shared user `ben`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "authz-change",
+    "status": "captured",
+    "trial": 1
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/specs/20261111-owner-only-list-deletion.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "README.md",
+        "docs/lusona/work.md",
+        "lists.py",
+        "tests/test_lists.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/authz-change/2",
+    "elapsed_seconds": 172.25286545197014,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply says \"All 6 tests pass. Independent review found no actionable issues. No commits made.\" and contains no named next step with an owner and no explicit statement that no next action is needed; the \"Next action: none\" line exists only in the spec file, which does not substitute.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "a reviewer subagent was launched",
+        "result": "pass"
+      },
+      "C11": {
+        "evidence": "1 work worker(s) launched",
+        "result": "pass"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "20261111-owner-only-list-deletion.md in docs/lusona/work.md",
+        "result": "pass"
+      },
+      "C7": {
+        "evidence": "C7.continues: The final reply reports \"Fixed: only the owner can delete a list\" with all 6 tests passing, and the changed files show it: `delete_list` in `lists.py` raises `Forbidden` when `user != record[\"owner\"]`, and `test_shared_user_cannot_delete_and_list_is_unchanged` in `tests/test_lists.py` asserts `Forbidden` for shared user \"ben\".",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "authz-change",
+    "status": "captured",
+    "trial": 2
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/specs/20261111-owner-only-list-deletion.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "README.md",
+        "docs/lusona/work.md",
+        "lists.py",
+        "tests/test_lists.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/authz-change/3",
+    "elapsed_seconds": 191.43677210895112,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply (message 4) reports completion, passing tests, and that \"Independent review found no actionable issues\" and \"No commits made\", but contains no explicit next step with an owner and no explicit statement that no next action is needed. The \"Next action: none for this request\" text exists only in the spec file, which does not substitute for the final reply.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "a reviewer subagent was launched",
+        "result": "pass"
+      },
+      "C11": {
+        "evidence": "1 work worker(s) launched",
+        "result": "pass"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "20261111-owner-only-list-deletion.md in docs/lusona/work.md",
+        "result": "pass"
+      },
+      "C7": {
+        "evidence": "C7.continues: The final reply reports \"Fixed: only the owner can delete a list\" and \"all 6 tests now pass\" without asking for permission or a TDD policy. `lists.py` `delete_list` now raises Forbidden when `user != record[\"owner\"]`, and `tests/test_lists.py` contains `test_shared_user_cannot_delete_and_record_is_unchanged` asserting Forbidden for shared user ben.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "authz-change",
+    "status": "captured",
+    "trial": 3
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/specs/20261111-owner-only-list-deletion.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "README.md",
+        "docs/lusona/work.md",
+        "lists.py",
+        "tests/test_lists.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/authz-change/4",
+    "elapsed_seconds": 181.77928740397329,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply reports completion (\"All six tests pass. Independent security review found no issues. Project records updated; no commits made.\") but contains no explicit next step with an owner and no explicit no-action-needed statement. The \"Next action: none for this request\" text is only in the spec file, which does not substitute for the final reply.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "a reviewer subagent was launched",
+        "result": "pass"
+      },
+      "C11": {
+        "evidence": "1 work worker(s) launched",
+        "result": "pass"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "20261111-owner-only-list-deletion.md in docs/lusona/work.md",
+        "result": "pass"
+      },
+      "C7": {
+        "evidence": "C7.continues: The final reply reports the fix as made and verified (\"Fixed: only the owner can delete a list... All six tests pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` has `test_shared_user_cannot_delete_and_record_is_preserved` asserting `Forbidden` for shared user \"ben\".",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "authz-change",
+    "status": "captured",
+    "trial": 4
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/history/2026-11-week-02.md",
+        "docs/lusona/specs/20261111-owner-only-list-deletion.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "README.md",
+        "lists.py",
+        "tests/test_lists.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/authz-change/5",
+    "elapsed_seconds": 222.606272695004,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply reports completion only (\"Strict TDD completed; all 6 tests pass. Independent review found no defects. Workflow records updated. No commits made.\") and contains no explicit next step with an owner or no-action statement with a reason. The \"Next action: none for this request\" line is only in the saved spec file, which does not substitute.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "a reviewer subagent was launched",
+        "result": "pass"
+      },
+      "C11": {
+        "evidence": "1 work worker(s) launched",
+        "result": "pass"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "20261111-owner-only-list-deletion.md in docs/lusona/history/2026-11-week-02.md",
+        "result": "pass"
+      },
+      "C7": {
+        "evidence": "C7.continues: The final reply reports the change as made and verified (\"Fixed: only owners can delete lists... all 6 tests pass\") without asking for permission or a TDD policy. `lists.py` `delete_list` raises `Forbidden` when `user != record[\"owner\"]`, and `tests/test_lists.py` has `test_shared_user_cannot_delete` asserting `Forbidden` for shared user \"ben\".",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "authz-change",
+    "status": "captured",
+    "trial": 5
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/evidence/2026-11-11-march-invoice-discrepancy.md",
+        "docs/lusona/notes/march-invoice-discrepancy.md",
+        "docs/lusona/work.md"
+      ],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/investigate-bug/1",
+    "elapsed_seconds": 227.59924843005138,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply's table names the proposed next action (\"Make the total use the same rounded amounts as the exported lines\"), the owner (\"Project owner\"), what is needed (\"Confirm rounding policy and select TDD policy\"), and states \"Fix not authorized\". It also states \"No code, tests, or data were changed\".",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "1 work worker(s) launched",
+        "result": "pass"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "record saved: docs/lusona/evidence/2026-11-11-march-invoice-discrepancy.md, docs/lusona/notes/march-invoice-discrepancy.md; C2.content: The evidence file states the question (\"Explain the March discrepancy without a fix\"), the repeatable commands (`python3 invoice.py data/march.csv` plus the probe script) and figures (\"Exported amounts sum exactly to 6.70 ... total row says 6.71\"), and the cause labelled \"Confirmed: invoice.py rounds at different stages for lines and total\". The notes file adds a \"Proposed next action\" requiring authorization, a rounding-policy decision, and TDD selection, and says \"Production code, tests, and data remain unchanged\".",
+        "result": "pass"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "investigate-bug",
+    "status": "captured",
+    "trial": 1
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/evidence/2026-11-11-march-invoice-reconciliation.md",
+        "docs/lusona/notes/march-invoice-reconciliation.md",
+        "docs/lusona/work.md"
+      ],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/investigate-bug/2",
+    "elapsed_seconds": 179.23565488599706,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a next-action line: Proposed next action: agree on the monetary rounding rule, then authorize a correction that derives the total from the e; C1.concrete: The final reply ends with \"Proposed next action: agree on the monetary rounding rule, then authorize a correction that derives the total from the exported rounded line amounts.\" This is framed as a proposal that requires the user's decision and authorization, and the reply states \"No code or data changed.\"",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "1 work worker(s) launched",
+        "result": "pass"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "record saved: docs/lusona/evidence/2026-11-11-march-invoice-reconciliation.md, docs/lusona/notes/march-invoice-reconciliation.md; C2.content: The notes file states the scope and the figures (\"Exported rows sum to 6.70; total row is 6.71\"), the cause as a conclusion (\"invoice.py:7 rounds each displayed product, while invoice.py:11 sums unrounded products\"), and the next action (\"Needs user implementation authority, explicit TDD selection, and a monetary rounding decision. No fix performed.\"). The linked evidence file gives the exact command `python3 invoice.py data/march.csv`, its output, and the probe script, so the result can be repeated.",
+        "result": "pass"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "investigate-bug",
+    "status": "captured",
+    "trial": 2
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/evidence/2026-11-11-march-invoice-rounding.md",
+        "docs/lusona/notes/march-invoice-rounding.md",
+        "docs/lusona/work.md"
+      ],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/investigate-bug/3",
+    "elapsed_seconds": 140.83794682199368,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "1 work worker(s) launched",
+        "result": "pass"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "record saved: docs/lusona/evidence/2026-11-11-march-invoice-rounding.md, docs/lusona/notes/march-invoice-rounding.md; C2.content: The evidence file states the question (\"one-cent discrepancy in `data/march.csv`\"), the command `python3 invoice.py data/march.csv` with the observed line sum 6.70 against total 6.71, and the cause labelled \"Confirmed: invoice.py:7 rounds individual products for display, whereas invoice.py:11 sums unrounded products before rounding\". The notes file's \"Current handoff\" gives the next action (\"User must authorize a fix and select an explicit TDD policy before implementation\") and says \"no implementation or commit performed\".",
+        "result": "pass"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "investigate-bug",
+    "status": "captured",
+    "trial": 3
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/march-invoice-discrepancy.md",
+        "docs/lusona/work.md"
+      ],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/investigate-bug/4",
+    "elapsed_seconds": 143.48588582698721,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "trial status is invalid; C1.concrete: trial status is invalid; judge not called",
+        "result": "invalid"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "trial status is invalid",
+        "result": "invalid"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "trial status is invalid; C2.content: trial status is invalid; judge not called",
+        "result": "invalid"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "trial status is invalid",
+        "result": "invalid"
+      },
+      "C9": {
+        "evidence": "trial status is invalid",
+        "result": "invalid"
+      }
+    },
+    "scenario": "investigate-bug",
+    "status": "invalid",
+    "trial": 4
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/evidence/2026-11-11-march-invoice-rounding.md",
+        "docs/lusona/notes/march-invoice-rounding.md",
+        "docs/lusona/work.md"
+      ],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/investigate-bug/5",
+    "elapsed_seconds": 140.8421154419775,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a next-action line: Proposed next action: authorize a correction using the displayed rounded lines as the total\u2019s basis, with an agreed roun; C1.concrete: The final reply ends with \"Proposed next action: authorize a correction using the displayed rounded lines as the total's basis, with an agreed rounding policy and explicit TDD selection.\" This is framed as a proposal that needs the user's authorization, and the reply states \"No code or data was changed.\"",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "1 work worker(s) launched",
+        "result": "pass"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "record saved: docs/lusona/evidence/2026-11-11-march-invoice-rounding.md, docs/lusona/notes/march-invoice-rounding.md; C2.content: The notes file states the question (\"exports line amounts summing one cent below its total\"), the cause labelled \"Confirmed\" (rounded lines sum to 6.70, total rounds the sum of unrounded products to 6.71), and a \"Proposed next action\" with \"No fix begun\". The linked evidence file gives the repeatable command `python3 invoice.py data/march.csv`, the full export output and the 6.70 versus 6.71 figures.",
+        "result": "pass"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "investigate-bug",
+    "status": "captured",
+    "trial": 5
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/status-check/1",
+    "elapsed_seconds": 26.459132506046444,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply's next-action table names \"Add AC2's failing test, then implement expiry rejection\" with owner \"Implementer, coordinated by the coordinator\" and authority \"targeted TDD selected by the user on 2026-09-02\" / \"Proposed continuation only; this turn is status-only\". It states \"No files or project records were changed\" and says Bulk invite import needs \"Explicit reactivation\" before scheduling, so no counterexample applies.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "no path added, modified, or deleted",
+        "result": "pass"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "status-check",
+    "status": "captured",
+    "trial": 1
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/status-check/2",
+    "elapsed_seconds": 27.57335536897881,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply's next-action table names \"add AC2's failing test, then enforce rejection in `accept`\" with owner \"Implementer; coordinator assigns\" and states \"Prior implementation authorization is recorded; your current instruction limits this turn to status.\" It also says Bulk invite import needs explicit reactivation and that nothing was changed, so no counterexample applies.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "no path added, modified, or deleted",
+        "result": "pass"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "Result and Evidence labels present; status complete at the Result label",
+        "result": "pass"
+      }
+    },
+    "scenario": "status-check",
+    "status": "captured",
+    "trial": 2
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/status-check/3",
+    "elapsed_seconds": 27.03076258901274,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply's \"Proposed next action\" table names \"Add the failing AC2 test, then implement expiry rejection\" with owner \"Implementer\" and authority \"Await instruction to resume; this request is status only\". It is presented as a proposal, the workspace shows no changes, and the Icebox item is marked \"explicit reactivation is required\".",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "no path added, modified, or deleted",
+        "result": "pass"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "status-check",
+    "status": "captured",
+    "trial": 3
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/status-check/4",
+    "elapsed_seconds": 25.822352321003564,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply's next-action table names \"Resume AC2 with a failing test, then implement rejection in `accept`\", owner \"Implementer, coordinated by coordinator\", and states authority: \"targeted TDD selected by the user on September 2\" and \"Prior implementation authority is recorded ... execution remains paused for this status-only request.\" It does not start AC2, and it says the parked Bulk invite import \"requires explicit reactivation\"; no files changed.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "no path added, modified, or deleted",
+        "result": "pass"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "status-check",
+    "status": "captured",
+    "trial": 4
+  },
+  {
+    "changed": {
+      "added": [],
+      "deleted": [],
+      "modified": []
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/status-check/5",
+    "elapsed_seconds": 24.92492219497217,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has a table with a Next action header; C1.concrete: The final reply's next-action table names \"Add a failing AC2 test, then implement expired-invitation rejection\" with owner \"Implementer, coordinated by you/me\" and states \"Prior implementation authority recorded; deferred under your status-only instruction\" with \"targeted TDD selected September 2\". It also says \"I did not run tests or change anything\" and notes Bulk invite import needs explicit reactivation, so no counterexample applies.",
+        "result": "pass"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "no path added, modified, or deleted",
+        "result": "pass"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "status-check",
+    "status": "captured",
+    "trial": 5
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/fix-paginate-empty-page.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "pager.py",
+        "tests/test_pager.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/tdd-stated/1",
+    "elapsed_seconds": 143.368138395017,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply of turn 2 says only \"Fixed `page_label(0, 3)` to return `\"Page 1 of 3\"`. The regression test failed before the fix; all 4 tests now pass. The pagination fix is preserved. No commits made.\" It names no next step and owner and makes no explicit no-action statement; the \"next action: none for this request\" line exists only in the notes file, which does not substitute.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "C7.continues: Both turns report the fix as done and verified (\"all 3 tests now pass\", \"all 4 tests now pass\") without asking for permission or the TDD policy again. `pager.py` contains the ceiling-division count and `index + 1`, and `tests/test_pager.py` contains `test_does_not_add_empty_page_for_exact_multiple` and `test_page_labels_are_one_based`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "tdd-stated",
+    "status": "captured",
+    "trial": 1
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/fix-pagination-empty-page.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "pager.py",
+        "tests/test_pager.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/tdd-stated/2",
+    "elapsed_seconds": 177.88325522397645,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply of turn 2 says only \"Fixed `page_label(0, 3)` to return \\\"Page 1 of 3\\\"... All 5 tests and `git diff --check` pass. No commits made.\" It contains no explicit no-next-action statement and no named follow-up with an owner; the \"No next action\" text exists only in the saved notes file, which does not substitute.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "C7.continues: Turn 1 reports \"Fixed `paginate` to omit the trailing empty page... All 4 tests... pass\" and turn 2 reports \"Fixed `page_label(0, 3)`... All 5 tests... pass\" without asking for a TDD policy or permission. `pager.py` contains the ceiling-division page count and `index + 1`, and `tests/test_pager.py` has `test_exact_multiple_has_no_empty_page` and `test_page_label_is_one_based`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "tdd-stated",
+    "status": "captured",
+    "trial": 2
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/fix-paginate-empty-final-page.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "pager.py",
+        "tests/test_pager.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/tdd-stated/3",
+    "elapsed_seconds": 137.51498959900346,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply of turn 2 says only \"Fixed `page_label(0, 3)` ... All 4 tests pass, including the pagination regression. No commits created.\" It names no next step and owner and does not state that no next action is needed; the \"No ... next action for this request\" line exists only in the notes file, which does not substitute.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "C7.continues: Turn 1 reports \"Fixed `paginate`... regression test failed before the fix and passed afterward. All 3 tests pass\" and turn 2 reports the `page_label` fix with \"All 4 tests pass\", without asking for a TDD policy or permission. `pager.py` contains the ceiling-division count and `index + 1`, and `tests/test_pager.py` contains `test_exact_multiple_has_no_empty_page` and `test_page_label_uses_one_based_page_number`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "tdd-stated",
+    "status": "captured",
+    "trial": 3
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/paginate-exact-multiple.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "pager.py",
+        "tests/test_pager.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/tdd-stated/4",
+    "elapsed_seconds": 140.44565949199023,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply of turn 2 says only \"Fixed `page_label(0, 3)` to return `\"Page 1 of 3\"`... All 4 tests pass; the earlier pagination fix is preserved. No commits made.\" It names no next step with an owner and makes no explicit no-action statement; the \"No unresolved concerns or next action\" line is only in the notes file, which does not substitute.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "C7.continues: Both turns report the fix as done and verified (\"All 3 tests now pass\", \"All 4 tests pass\"), and turn 2 applies \"Targeted TDD and the no-commits rule still apply\" without asking for a policy or permission. `pager.py` contains ceiling division and `index + 1`, and `tests/test_pager.py` contains `test_exact_multiple_does_not_add_empty_page` and `test_page_label_displays_one_based_page_number`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "tdd-stated",
+    "status": "captured",
+    "trial": 4
+  },
+  {
+    "changed": {
+      "added": [
+        "docs/lusona/notes/fix-pagination-exact-multiples.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "pager.py",
+        "tests/test_pager.py"
+      ]
+    },
+    "code_changed_since_freeze": [],
+    "commits_added": 0,
+    "condition": "~/code/_lusona_/ai-skills/tmp/w14run/conditions/codex-base",
+    "condition_sha256": "3b07e0d877002c0c1bd8853ba84988cc4f234569af2d3bca3378f1a8f9f664c2",
+    "cost_usd": null,
+    "dir": "~/code/_lusona_/ai-skills/tmp/w14run/runs/base/codex/tdd-stated/5",
+    "elapsed_seconds": 153.63177874905523,
+    "host": "codex",
+    "judged": true,
+    "outer_changed": false,
+    "refs_changed": false,
+    "results": {
+      "C1": {
+        "evidence": "last reply has no Next action table, label, or heading with content; C1.concrete: The final reply of turn 2 reports completion only: \"Fixed `page_label(0, 3)`... All 4 tests and `git diff --check` pass. The pagination fix is preserved. No commits made.\" It names no next step and owner, and makes no explicit statement that no further action is needed; the \"No remaining work or open questions\" statement appears only in the notes file, which does not substitute.",
+        "result": "fail"
+      },
+      "C10": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C11": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C12": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C13": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C14": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C15": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C16": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C17": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C2": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C3": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C4": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C5": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C6": {
+        "evidence": "check not listed for this scenario",
+        "result": "not-applicable"
+      },
+      "C7": {
+        "evidence": "C7.continues: Both turns report the fix as done and verified (\"All 3 tests ... pass\", \"All 4 tests ... pass\") without asking for a go-ahead or the TDD policy; turn 2 states \"The same targeted TDD and no-commit rules apply.\" `pager.py` contains the ceiling-division count and `index + 1`, and `tests/test_pager.py` has `test_exact_multiple_has_no_empty_page` and `test_page_label_displays_one_based_index`.",
+        "result": "pass"
+      },
+      "C8": {
+        "evidence": "no commit, no outer change, all changes inside allowed scope",
+        "result": "pass"
+      },
+      "C9": {
+        "evidence": "last reply lacks a Result and Evidence heading or label",
+        "result": "fail"
+      }
+    },
+    "scenario": "tdd-stated",
+    "status": "captured",
+    "trial": 5
+  }
+]

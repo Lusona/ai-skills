@@ -191,6 +191,26 @@ Accepted decisions (user, 2026-11-10, native question and discussion; recorded i
 7. Acceptance: repository checks and independent review, then one suite run on the C9
    scenarios after implementation, budget approved at that time. Development-time Python
    (generator, tests) is acceptable; runtime Python is not.
+8. Draft first (user, 2026-11-10: "Tentatively accept", with a request for "a draft directory to
+   contain the rewrite" so the rewrite can be written by reviewing the rules directly and
+   compared side by side). The rewrite is written in [`drafts/lusona/`](../../../drafts/README.md),
+   a full copy of `plugins/lusona/`, with a verbatim rule inventory in `drafts/rules.md`.
+   `plugins/lusona/` stays unchanged until the user accepts the draft; promotion then replaces
+   its contents and deletes `drafts/`. This is a user-approved exception, for this change only, to
+   the AGENTS.md instruction to edit `plugins/lusona/` directly. Acceptance of the scope and
+   AC1-AC13 is tentative until the draft review.
+
+9. A1 settled (user, 2026-11-10): the block has one source file; a development-time script
+   writes it into each SKILL.md, and a test fails when a copy differs. No runtime include:
+   Claude Code's `!` injection needs a shell per OS and Codex has no include mechanism. The user
+   also asked to reduce the block substantially; the 841-word draft in `drafts/rules.md` is
+   replaced by a shorter proposal in `drafts/block.md`.
+
+10. Block and formatting (user, 2026-11-10): the 234-word block in `drafts/block.md` is accepted
+    (conversation stays with the coordinator; no task-local check exception; greetings are not
+    task replies). All reply-formatting rules go in each skill's `## Final reply` section;
+    `references/completion.md` keeps examples only (AC10 unchanged). Rewrite edits stay in
+    `drafts/` until the rewrite is complete.
 
 Open architecture questions (for an ADR; not decided here):
 
@@ -206,11 +226,13 @@ Open architecture questions (for an ADR; not decided here):
 
 User questions (U1-U3 answered by the user on 2026-11-10; U4 open until the run):
 
-- U1, answered: the AC13 run has a pass mark declared before the run. The run meets it when
-  the computed C9 check passes in `tdd-stated` in at least 4 of 5 trials on each host, and
-  `authz-change` C9 passes are not below the run 003 reference on each host (Claude 5/5,
-  Codex 0/5; the Codex half is met by any result). Reference for `tdd-stated`: 0/5 on each
-  host. The user then accepts or rejects the reported result.
+- U1, answered ("yes" to the recommended example): the AC13 run has a pass mark declared before
+  the run. The run meets it when the computed C9 check passes in `tdd-stated` in at least 4 of 5
+  trials on each host, and `authz-change` C9 passes are not below the run 003 reference on each
+  host (Claude 5/5, Codex 0/5). Reference for `tdd-stated`: 0/5 on each host. The user then
+  accepts or rejects the reported result. Known gaps, for the user to keep or close before the
+  run: the Codex `authz-change` half is met by any result, and the other C9 scenarios
+  (`status-check`, `investigate-bug`) have no mark.
 - U2, answered: keep the Codex harness prompt. It names the skill path and asks for
   "applicable linked instructions"
   ([run 008](../evidence/2026-11-09-loop-conformance-pilot/runs/008/README.md#observations)), so
@@ -223,6 +245,10 @@ User questions (U1-U3 answered by the user on 2026-11-10; U4 open until the run)
   INSTALL.md, PRIVACY.md) stay uncommitted and are folded into this change.
 - U4, open: budget for the AC13 run (reference: run 006 `tdd-stated`, $1.737 Claude-reported for
   6 trials; run 003 about $40 for the full suite). Approved at run time per decision 7.
+- U5, open: run AC13 on the draft before promotion (`evals/loop-conformance/run.py` accepts
+  `--plugin`, so it can point at `drafts/lusona`) or after promotion as AC13 now states. Running
+  on the draft leaves the live plugin unchanged if the result is rejected; promotion must then copy
+  the measured files without change.
 
 ### TDD policy
 
@@ -237,9 +263,13 @@ User questions (U1-U3 answered by the user on 2026-11-10; U4 open until the run)
 
 ## Execution
 
-Approach is open until the ADR (A1-A5). Expected sequence once authorized: ADR; write the three
-failing checks; restructure skills and references per the mapping; remove hooks work; run
-checks; independent review; suite run.
+Approach is open until the ADR (A1-A5). Expected sequence (decision 8): rule inventory in
+`drafts/rules.md`; user reviews it and the proposed every-task block; settle A1-A5 on a pilot of
+the block plus one skill (`implement`) in `drafts/lusona/`, recorded as an ADR, before drafting
+other skills; draft the remaining skills, references and README; user compares the draft side by
+side and accepts it; with implementation authorized, write the three failing checks, promote the
+draft, remove hooks work, run checks, independent review, suite run (before or after promotion
+per U5).
 
 - Verification: `python3 -m unittest discover scripts` (or the repository's check command),
   link check, package build to `tmp/`, manifest validation, eval unit tests in
@@ -248,13 +278,23 @@ checks; independent review; suite run.
 ## Evidence
 
 Not started. Definition only. Inline check done at creation: the mapping rows and ACs agree on
-rows cited; no contradiction found between decisions 3, 4 and the exclusions; blocking items are
-architecture questions A1-A5 and user question U3, none of which blocks the ADR.
+rows cited; no contradiction found between decisions 3, 4 and the exclusions. Open at creation:
+architecture questions A1-A5 and user question U3, none of which blocks the ADR. U3 was settled on
+2026-11-10 by commit `34186da`.
 
 ## Current handoff
 
-- Authorized work: definition only (this spec). Implementation is not authorized.
-- Completed and remaining work: spec written; remaining: ADR, user authorization to implement,
-  implementation, checks, review, suite run.
-- Next action: architect decision (ADR) on A1-A5, then user authorization for implementation.
-  U1-U3 answered on 2026-11-10; U4 (run budget) is answered when the suite run is due.
+- Authorized work: definition (this spec) and drafting in `drafts/` (decision 8). Changes to
+  `plugins/lusona/` are not authorized.
+- Completed and remaining work: spec written; scope tentatively accepted; `drafts/lusona/`
+  created as an identical copy of the working-tree plugin on 2026-11-10 (`diff -r` empty).
+  `drafts/rules.md` written by a worker: 97 rows covering every content line of the core README
+  and `references/completion.md`; quotes and coverage confirmed by a separate coordinator check.
+  It lists 16 differences from the mapping above; four rules have no spec row. Its proposed
+  every-task block keeps all B rules and is 841 words. Remaining: user review and decisions on
+  the inventory's open questions (delegation exceptions in row 49, greeting exception in row 32,
+  block size A3, `completion.md` content versus AC10), block and `implement` pilot with the ADR
+  on A1-A5, remaining drafts, draft acceptance, implementation authorization, checks, review,
+  suite run.
+- Next action: user reviews `drafts/rules.md` and answers its open questions. Before the suite
+  run the user keeps or tightens the U1 pass mark, sets U4 (run budget) and answers U5.

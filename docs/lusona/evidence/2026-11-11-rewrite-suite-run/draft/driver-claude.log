@@ -1,0 +1,46 @@
+16:08:10 start host=claude condition=tmp/w14run/conditions/claude-draft trials=5 cap=40.0 scenarios=7
+16:10:01 done tdd-stated 1 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=111 cost=0.889 host_total=0.89 all_hosts=1.80
+16:11:43 done authz-change 1 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=101 cost=0.932 host_total=1.82 all_hosts=2.95
+16:13:05 done status-check 1 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=83 cost=0.712 host_total=2.53 all_hosts=3.66
+16:14:30 done investigate-bug 1 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=85 cost=0.726 host_total=3.26 all_hosts=4.39
+16:15:09 done decision-conflict 1 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=39 cost=0.471 host_total=3.73 all_hosts=4.86
+16:16:26 done decision-revised 1 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=77 cost=0.793 host_total=4.52 all_hosts=5.66
+16:17:40 done old-records 1 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=75 cost=0.839 host_total=5.36 all_hosts=6.49
+16:17:40 STOP file present; exiting
+16:19:39 start host=claude condition=tmp/w14run/conditions/claude-draft trials=5 cap=60.0 scenarios=7
+16:19:39 skip existing tdd-stated 1
+16:19:39 skip existing authz-change 1
+16:19:39 skip existing status-check 1
+16:19:39 skip existing investigate-bug 1
+16:19:39 skip existing decision-conflict 1
+16:19:39 skip existing decision-revised 1
+16:19:39 skip existing old-records 1
+16:21:22 done tdd-stated 2 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=103 cost=0.859 host_total=6.22 all_hosts=7.35
+16:23:10 done authz-change 2 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=108 cost=1.006 host_total=7.23 all_hosts=8.60
+16:23:50 done status-check 2 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=40 cost=0.499 host_total=7.73 all_hosts=9.28
+16:25:12 done investigate-bug 2 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=83 cost=0.759 host_total=8.48 all_hosts=10.04
+16:25:55 done decision-conflict 2 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=42 cost=0.556 host_total=9.04 all_hosts=10.60
+16:27:06 done decision-revised 2 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=71 cost=0.754 host_total=9.80 all_hosts=11.80
+16:28:26 done old-records 2 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=80 cost=0.847 host_total=10.64 all_hosts=12.89
+16:30:01 done tdd-stated 3 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=95 cost=0.800 host_total=11.44 all_hosts=13.69
+16:31:45 done authz-change 3 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=104 cost=0.938 host_total=12.38 all_hosts=14.87
+16:32:49 done status-check 3 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=64 cost=0.637 host_total=13.02 all_hosts=15.73
+16:34:28 done investigate-bug 3 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=99 cost=0.858 host_total=13.88 all_hosts=16.59
+16:35:12 done decision-conflict 3 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=43 cost=0.566 host_total=14.44 all_hosts=17.15
+16:36:40 done decision-revised 3 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=89 cost=0.841 host_total=15.28 all_hosts=18.39
+16:37:55 done old-records 3 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=75 cost=0.842 host_total=16.12 all_hosts=19.24
+16:39:34 done tdd-stated 4 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=99 cost=0.857 host_total=16.98 all_hosts=20.32
+16:41:45 done authz-change 4 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=131 cost=1.132 host_total=18.11 all_hosts=21.68
+16:42:47 done status-check 4 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=61 cost=0.617 host_total=18.73 all_hosts=22.55
+16:44:29 done investigate-bug 4 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=103 cost=0.822 host_total=19.55 all_hosts=23.61
+16:45:10 done decision-conflict 4 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=41 cost=0.572 host_total=20.12 all_hosts=24.18
+16:46:29 done decision-revised 4 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=79 cost=0.772 host_total=20.90 all_hosts=24.96
+16:47:50 done old-records 4 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=81 cost=0.838 host_total=21.74 all_hosts=26.01
+16:49:36 done tdd-stated 5 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=106 cost=0.865 host_total=22.60 all_hosts=26.88
+16:51:47 done authz-change 5 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=130 cost=1.069 host_total=23.67 all_hosts=28.35
+16:52:58 done status-check 5 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=71 cost=0.657 host_total=24.33 all_hosts=29.00
+16:54:43 done investigate-bug 5 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=105 cost=0.840 host_total=25.17 all_hosts=30.28
+16:55:21 done decision-conflict 5 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=38 cost=0.567 host_total=25.73 all_hosts=30.85
+16:56:53 done decision-revised 5 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=92 cost=0.889 host_total=26.62 all_hosts=31.99
+16:58:16 done old-records 5 status=captured outer_changed=False codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=82 cost=0.867 host_total=27.49 all_hosts=32.86
+16:58:16 finished all trials

@@ -1,0 +1,1404 @@
+[
+ {
+  "trial": "claude-L1-bare-1",
+  "host": "claude",
+  "condition": "L1-bare",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.12434600000000001,
+  "usage": {
+   "input_tokens": 10,
+   "cache_creation_input_tokens": 11122,
+   "cache_read_input_tokens": 99250,
+   "output_tokens": 774,
+   "output_tokens_details": {
+    "thinking_tokens": 57
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 11122,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 225,
+     "cache_read_input_tokens": 22531,
+     "cache_creation_input_tokens": 252,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 252
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 4,
+  "returned": false,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": false,
+  "first_path_error": true,
+  "searches_before": 1,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\"}",
+   "{\"command\": \"ls -R <repo>/tmp/w4/fixtures/L1-bare/skills/release-note; ls -la; find . -name 'release-format.md' -not -path './.git/*'\", \"description\": \"List skill directory and search for format reference\"}"
+  ],
+  "class": "not read",
+  "applied": false,
+  "release_first_line": "# Release 1.4.0"
+ },
+ {
+  "trial": "claude-L1-bare-2",
+  "host": "claude",
+  "condition": "L1-bare",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.12112440000000001,
+  "usage": {
+   "input_tokens": 8,
+   "cache_creation_input_tokens": 11184,
+   "cache_read_input_tokens": 77702,
+   "output_tokens": 804,
+   "output_tokens_details": {
+    "thinking_tokens": 92
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 11184,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 201,
+     "cache_read_input_tokens": 22537,
+     "cache_creation_input_tokens": 308,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 308
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 4,
+  "returned": false,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": false,
+  "first_path_error": true,
+  "searches_before": 2,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\"}",
+   "{\"command\": \"find <repo>/tmp/w4/fixtures/L1-bare/skills/release-note -type f; find . -name 'release-format*' -not -path './.git/*' 2>/dev/null; cat CHANGES.txt\", \"description\": \"Search for the format reference file and show CHANGES.txt\"}"
+  ],
+  "class": "not read",
+  "applied": false,
+  "release_first_line": "# Release 1.4.0"
+ },
+ {
+  "trial": "claude-L1-bare-3",
+  "host": "claude",
+  "condition": "L1-bare",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.127438,
+  "usage": {
+   "input_tokens": 10,
+   "cache_creation_input_tokens": 11338,
+   "cache_read_input_tokens": 99670,
+   "output_tokens": 838,
+   "output_tokens_details": {
+    "thinking_tokens": 56
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 11338,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 231,
+     "cache_read_input_tokens": 22728,
+     "cache_creation_input_tokens": 271,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 271
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 4,
+  "returned": false,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": false,
+  "first_path_error": true,
+  "searches_before": 1,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\"}",
+   "{\"command\": \"ls -la <repo>/tmp/w4/fixtures/L1-bare/skills/release-note/ <repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references 2>&1; ls -la; find . -name 'release-format*' -not -path './.git/*' 2>/dev/null\", \"description\": \"Look for the rele"
+  ],
+  "class": "not read",
+  "applied": false,
+  "release_first_line": "# Release 1.4.0"
+ },
+ {
+  "trial": "claude-L1-bare-4",
+  "host": "claude",
+  "condition": "L1-bare",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.1278868,
+  "usage": {
+   "input_tokens": 10,
+   "cache_creation_input_tokens": 11422,
+   "cache_read_input_tokens": 100554,
+   "output_tokens": 818,
+   "output_tokens_details": {
+    "thinking_tokens": 21
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 11422,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 178,
+     "cache_read_input_tokens": 22818,
+     "cache_creation_input_tokens": 265,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 265
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 5,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": false,
+  "first_path_error": true,
+  "searches_before": 2,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\"}",
+   "{\"command\": \"ls -la <repo>/tmp/w4/fixtures/L1-bare/skills/release-note/ 2>&1; find <repo>/tmp/w4/fixtures/L1-bare .claude -name 'release-format*' 2>&1; cat CHANGES.txt\", \"description\": \"Look for the release format reference file\"}",
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-bare/references/release-format.md\"}"
+  ],
+  "class": "recovered",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-bare-2676b1ca"
+ },
+ {
+  "trial": "claude-L1-link-1",
+  "host": "claude",
+  "condition": "L1-link",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.09937420000000001,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10064,
+   "cache_read_input_tokens": 54391,
+   "output_tokens": 398,
+   "output_tokens_details": {
+    "thinking_tokens": 44
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10064,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 151,
+     "cache_read_input_tokens": 21466,
+     "cache_creation_input_tokens": 259,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 259
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 2,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-link/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-link/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-link-37c921a7"
+ },
+ {
+  "trial": "claude-L1-link-2",
+  "host": "claude",
+  "condition": "L1-link",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.1072304,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10844,
+   "cache_read_input_tokens": 55172,
+   "output_tokens": 471,
+   "output_tokens_details": {
+    "thinking_tokens": 0
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10844,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 114,
+     "cache_read_input_tokens": 22244,
+     "cache_creation_input_tokens": 261,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 261
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-link/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-link/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-link-37c921a7"
+ },
+ {
+  "trial": "claude-L1-link-3",
+  "host": "claude",
+  "condition": "L1-link",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.0981574,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10074,
+   "cache_read_input_tokens": 54407,
+   "output_tokens": 333,
+   "output_tokens_details": {
+    "thinking_tokens": 0
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10074,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 86,
+     "cache_read_input_tokens": 21474,
+     "cache_creation_input_tokens": 261,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 261
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 2,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-link/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-link/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-link-37c921a7"
+ },
+ {
+  "trial": "claude-L1-link-4",
+  "host": "claude",
+  "condition": "L1-link",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.10631320000000001,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10842,
+   "cache_read_input_tokens": 55166,
+   "output_tokens": 426,
+   "output_tokens_details": {
+    "thinking_tokens": 0
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10842,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 80,
+     "cache_read_input_tokens": 22239,
+     "cache_creation_input_tokens": 264,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 264
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-link/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L1-link/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-link-37c921a7"
+ },
+ {
+  "trial": "claude-L2-bare-1",
+  "host": "claude",
+  "condition": "L2-bare",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.10663639999999999,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10852,
+   "cache_read_input_tokens": 55182,
+   "output_tokens": 438,
+   "output_tokens_details": {
+    "thinking_tokens": 0
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10852,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 87,
+     "cache_read_input_tokens": 22249,
+     "cache_creation_input_tokens": 264,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 264
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-bare-ccd95443"
+ },
+ {
+  "trial": "claude-L2-bare-2",
+  "host": "claude",
+  "condition": "L2-bare",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.1066832,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10826,
+   "cache_read_input_tokens": 55156,
+   "output_tokens": 451,
+   "output_tokens_details": {
+    "thinking_tokens": 0
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10826,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 123,
+     "cache_read_input_tokens": 22221,
+     "cache_creation_input_tokens": 266,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 266
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-bare-ccd95443"
+ },
+ {
+  "trial": "claude-L2-bare-3",
+  "host": "claude",
+  "condition": "L2-bare",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.1067764,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10852,
+   "cache_read_input_tokens": 55182,
+   "output_tokens": 445,
+   "output_tokens_details": {
+    "thinking_tokens": 0
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10852,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 94,
+     "cache_read_input_tokens": 22249,
+     "cache_creation_input_tokens": 264,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 264
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-bare-ccd95443"
+ },
+ {
+  "trial": "claude-L2-bare-4",
+  "host": "claude",
+  "condition": "L2-bare",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.10672740000000001,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10856,
+   "cache_read_input_tokens": 55177,
+   "output_tokens": 441,
+   "output_tokens_details": {
+    "thinking_tokens": 0
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10856,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 90,
+     "cache_read_input_tokens": 22247,
+     "cache_creation_input_tokens": 270,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 270
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-bare-ccd95443"
+ },
+ {
+  "trial": "claude-L2-link-1",
+  "host": "claude",
+  "condition": "L2-link",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.107352,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10869,
+   "cache_read_input_tokens": 55180,
+   "output_tokens": 467,
+   "output_tokens_details": {
+    "thinking_tokens": 0
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10869,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 86,
+     "cache_read_input_tokens": 22252,
+     "cache_creation_input_tokens": 278,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 278
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-link-bfbc567d"
+ },
+ {
+  "trial": "claude-L2-link-2",
+  "host": "claude",
+  "condition": "L2-link",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.1066956,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10852,
+   "cache_read_input_tokens": 55178,
+   "output_tokens": 441,
+   "output_tokens_details": {
+    "thinking_tokens": 0
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10852,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 76,
+     "cache_read_input_tokens": 22251,
+     "cache_creation_input_tokens": 262,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 262
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-link-bfbc567d"
+ },
+ {
+  "trial": "claude-L2-link-3",
+  "host": "claude",
+  "condition": "L2-link",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.1068028,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10848,
+   "cache_read_input_tokens": 55174,
+   "output_tokens": 448,
+   "output_tokens_details": {
+    "thinking_tokens": 0
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10848,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 83,
+     "cache_read_input_tokens": 22249,
+     "cache_creation_input_tokens": 260,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 260
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-link-bfbc567d"
+ },
+ {
+  "trial": "claude-L2-link-4",
+  "host": "claude",
+  "condition": "L2-link",
+  "rc": 0,
+  "plugin_loaded": true,
+  "cost_usd": 0.09837219999999999,
+  "usage": {
+   "input_tokens": 6,
+   "cache_creation_input_tokens": 10076,
+   "cache_read_input_tokens": 54401,
+   "output_tokens": 343,
+   "output_tokens_details": {
+    "thinking_tokens": 0
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 10076,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "global",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 88,
+     "cache_read_input_tokens": 21475,
+     "cache_creation_input_tokens": 262,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 262
+     },
+     "type": "message"
+    }
+   ],
+   "speed": "standard",
+   "fallback_credit": null
+  },
+  "result_subtype": "success",
+  "base_dir_given": null,
+  "skill_text_seen": false,
+  "marker_in_injected_text": false,
+  "status": "captured",
+  "tool_calls": 2,
+  "returned": true,
+  "first_path_call": "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md\"}",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "{\"file_path\": \"<repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md\"}"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-link-bfbc567d"
+ },
+ {
+  "trial": "codex-L1-bare-1",
+  "host": "codex",
+  "condition": "L1-bare",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 103454,
+   "cached_input_tokens": 87936,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 496,
+   "reasoning_output_tokens": 13
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 4,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\npwd\nrg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\"",
+  "first_path_returned": false,
+  "first_path_error": true,
+  "searches_before": 2,
+  "calls_naming_reference": [
+   "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\npwd\nrg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\"",
+   "/bin/zsh -lc \"rg --files --hidden <repo>/tmp/w4/fixtures/L1-bare <repo>/tmp/w4/ws/codex-L1-bare-1 ~/.codex/skills -g 'release-format.md' -g 'AGENTS.md' -g 'RELEASE.md' -g 'SKILL.md'\"",
+   "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-bare/references/release-format.md'"
+  ],
+  "class": "recovered",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-bare-2676b1ca"
+ },
+ {
+  "trial": "codex-L1-bare-2",
+  "host": "codex",
+  "condition": "L1-bare",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 103393,
+   "cached_input_tokens": 92544,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 506,
+   "reasoning_output_tokens": 8
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 5,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md'",
+  "first_path_returned": false,
+  "first_path_error": true,
+  "searches_before": 2,
+  "calls_naming_reference": [
+   "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md'",
+   "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-bare/references/release-format.md'"
+  ],
+  "class": "recovered",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-bare-2676b1ca"
+ },
+ {
+  "trial": "codex-L1-bare-3",
+  "host": "codex",
+  "condition": "L1-bare",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 103044,
+   "cached_input_tokens": 92800,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 479,
+   "reasoning_output_tokens": 16
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 4,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\npwd\nrg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!.git'\"'\"",
+  "first_path_returned": false,
+  "first_path_error": true,
+  "searches_before": 2,
+  "calls_naming_reference": [
+   "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md\npwd\nrg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!.git'\"'\"",
+   "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-bare/references/release-format.md'"
+  ],
+  "class": "recovered",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-bare-2676b1ca"
+ },
+ {
+  "trial": "codex-L1-bare-4",
+  "host": "codex",
+  "condition": "L1-bare",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 103465,
+   "cached_input_tokens": 92800,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 530,
+   "reasoning_output_tokens": 24
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 5,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md'",
+  "first_path_returned": false,
+  "first_path_error": true,
+  "searches_before": 2,
+  "calls_naming_reference": [
+   "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-bare/skills/release-note/references/release-format.md'",
+   "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-bare/references/release-format.md'"
+  ],
+  "class": "recovered",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-bare-2676b1ca"
+ },
+ {
+  "trial": "codex-L1-link-1",
+  "host": "codex",
+  "condition": "L1-link",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 85121,
+   "cached_input_tokens": 74752,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 332,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-link/references/release-format.md'",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-link/references/release-format.md'"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-link-37c921a7"
+ },
+ {
+  "trial": "codex-L1-link-2",
+  "host": "codex",
+  "condition": "L1-link",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 64516,
+   "cached_input_tokens": 56320,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 307,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 2,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L1-link/references/release-format.md\npwd\nrg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!.git'\"'\"",
+  "first_path_returned": true,
+  "first_path_error": true,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L1-link/references/release-format.md\npwd\nrg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!.git'\"'\""
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-link-37c921a7"
+ },
+ {
+  "trial": "codex-L1-link-3",
+  "host": "codex",
+  "condition": "L1-link",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 68037,
+   "cached_input_tokens": 57856,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 333,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-link/references/release-format.md'",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L1-link/references/release-format.md'"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-link-37c921a7"
+ },
+ {
+  "trial": "codex-L1-link-4",
+  "host": "codex",
+  "condition": "L1-link",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 67900,
+   "cached_input_tokens": 62592,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 307,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 2,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L1-link/references/release-format.md; pwd; rg --files -g 'AGENTS.md' -g 'RELEASE.md' -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\"",
+  "first_path_returned": true,
+  "first_path_error": true,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L1-link/references/release-format.md; pwd; rg --files -g 'AGENTS.md' -g 'RELEASE.md' -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\""
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L1-link-37c921a7"
+ },
+ {
+  "trial": "codex-L2-bare-1",
+  "host": "codex",
+  "condition": "L2-bare",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 68021,
+   "cached_input_tokens": 62720,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 327,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md'",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md'"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-bare-ccd95443"
+ },
+ {
+  "trial": "codex-L2-bare-2",
+  "host": "codex",
+  "condition": "L2-bare",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 67930,
+   "cached_input_tokens": 62720,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 312,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 2,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md\npwd\nrg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\"",
+  "first_path_returned": true,
+  "first_path_error": true,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md\npwd\nrg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\""
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-bare-ccd95443"
+ },
+ {
+  "trial": "codex-L2-bare-3",
+  "host": "codex",
+  "condition": "L2-bare",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 67921,
+   "cached_input_tokens": 58240,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 310,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 2,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md; pwd; rg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\"",
+  "first_path_returned": true,
+  "first_path_error": true,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md; pwd; rg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\""
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-bare-ccd95443"
+ },
+ {
+  "trial": "codex-L2-bare-4",
+  "host": "codex",
+  "condition": "L2-bare",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 67936,
+   "cached_input_tokens": 62720,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 317,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 2,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md; pwd; rg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\"",
+  "first_path_returned": true,
+  "first_path_error": true,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L2-bare/skills/release-note/references/release-format.md; pwd; rg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\""
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-bare-ccd95443"
+ },
+ {
+  "trial": "codex-L2-link-1",
+  "host": "codex",
+  "condition": "L2-link",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 68097,
+   "cached_input_tokens": 57984,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 356,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md'",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md'"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-link-bfbc567d"
+ },
+ {
+  "trial": "codex-L2-link-2",
+  "host": "codex",
+  "condition": "L2-link",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 67901,
+   "cached_input_tokens": 62592,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 309,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 2,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md\npwd\nrg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!.git'\"'\"",
+  "first_path_returned": true,
+  "first_path_error": true,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc \"cat <repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md\npwd\nrg --files -g AGENTS.md -g RELEASE.md -g '\"'!node_modules'\"' -g '\"'!.git'\"'\""
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-link-bfbc567d"
+ },
+ {
+  "trial": "codex-L2-link-3",
+  "host": "codex",
+  "condition": "L2-link",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 67885,
+   "cached_input_tokens": 58112,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 301,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 2,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc 'pwd; rg --files -g AGENTS.md -g RELEASE.md; cat <repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md'",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc 'pwd; rg --files -g AGENTS.md -g RELEASE.md; cat <repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md'"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-link-bfbc567d"
+ },
+ {
+  "trial": "codex-L2-link-4",
+  "host": "codex",
+  "condition": "L2-link",
+  "rc": 0,
+  "cost_usd": null,
+  "usage": {
+   "input_tokens": 68082,
+   "cached_input_tokens": 62848,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 350,
+   "reasoning_output_tokens": 0
+  },
+  "error": null,
+  "status": "captured",
+  "tool_calls": 3,
+  "returned": true,
+  "first_path_call": "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md'",
+  "first_path_returned": true,
+  "first_path_error": false,
+  "searches_before": 0,
+  "calls_naming_reference": [
+   "/bin/zsh -lc 'cat <repo>/tmp/w4/fixtures/L2-link/skills/release-note/references/release-format.md'"
+  ],
+  "class": "resolved",
+  "applied": true,
+  "release_first_line": "Format-ID: W4REF-L2-link-bfbc567d"
+ }
+]

@@ -363,5 +363,152 @@
       "expect_workers": true,
       "expect_reviewer": true
     }
+  },
+  "decision-conflict": {
+    "skill": "implement",
+    "files": {
+      "README.md": "# Club roster\n\nMember records for a rowing club.\n\n    python3 export.py members.json > members.csv\n\nwrites the member export. The treasurer imports that CSV into the club's spreadsheet each month.\n",
+      "members.json": "[\n  {\"name\": \"Ana Silva\", \"email\": \"ana@example.org\",\n   \"address\": {\"street\": \"Quay 4\", \"city\": \"Porto\", \"postcode\": \"4050-001\"}},\n  {\"name\": \"Ben Okafor\", \"email\": \"ben@example.org\",\n   \"address\": {\"street\": \"Rua Nova 12\", \"city\": \"Gaia\", \"postcode\": \"4400-002\"}}\n]\n",
+      "export.py": "\"\"\"Member export.\"\"\"\nimport csv\nimport json\nimport sys\n\nFIELDS = [\"name\", \"email\", \"street\", \"city\", \"postcode\"]\n\n\ndef rows(members):\n    for member in members:\n        address = member[\"address\"]\n        yield [member[\"name\"], member[\"email\"], address[\"street\"], address[\"city\"], address[\"postcode\"]]\n\n\ndef export_csv(members, out):\n    writer = csv.writer(out, lineterminator=\"\\n\")\n    writer.writerow(FIELDS)\n    writer.writerows(rows(members))\n\n\ndef main(argv=None, out=sys.stdout):\n    argv = sys.argv[1:] if argv is None else argv\n    with open(argv[0]) as handle:\n        members = json.load(handle)\n    export_csv(members, out)\n\n\nif __name__ == \"__main__\":\n    main()\n",
+      "tests/test_export.py": "import io\nimport sys\nimport unittest\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[1]))\nimport export\n\nMEMBERS = [{\"name\": \"Ana Silva\", \"email\": \"ana@example.org\",\n            \"address\": {\"street\": \"Quay 4\", \"city\": \"Porto\", \"postcode\": \"4050-001\"}}]\n\n\nclass ExportTests(unittest.TestCase):\n    def test_csv_has_header_and_one_row_per_member(self):\n        out = io.StringIO()\n        export.export_csv(MEMBERS, out)\n        self.assertEqual(out.getvalue(),\n                         \"name,email,street,city,postcode\\nAna Silva,ana@example.org,Quay 4,Porto,4050-001\\n\")\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n",
+      "docs/lusona/README.md": "# Project workflow notes\n\n- TDD: strict. Standing preference, selected by the maintainer on 2026-08-12.\n- Commits are made by the maintainer, not by agents.\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas → Ready → Doing → Review → Done. Prefer finishing active work before\nstarting another item. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes remain safely separated.\nRows are ordered by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: safely deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements remain.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their lifecycle state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n| Switch the member export to JSON ([ADR 0003](adr/0003-json-member-export.md)) | Ideas | The export writes JSON only and the federation import accepts it | Parked 2026-06-10 until the federation opens its member import |\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one short row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing split ownership.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write a compact entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+      "docs/lusona/adr/0003-json-member-export.md": "# ADR 0003: JSON member export\n\nDate: 2026-06-02\nStatus: superseded by [ADR 20261020](20261020-member-export-format.md) on 2026-10-20\n\n## Context\n\nThe regional federation plans a member import that reads JSON. One export format is less work for a volunteer-run club.\n\n## Decision\n\nWhen the federation opens its import, replace the CSV export with a JSON export. The CSV export is then removed.\n\n## Consequences\n\n- One export format to maintain.\n- The treasurer's spreadsheet import must move to JSON.\n",
+      "docs/lusona/adr/20261020-member-export-format.md": "# ADR 20261020-member-export-format: Member export format\n\nCreated: 2026-10-20\nUpdated: 2026-10-20\n\nStatus: accepted\nScope: shared product; the member export (`export.py`)\nDecision authority: maintainer, conversation on 2026-10-20\nSupersedes: [ADR 0003](0003-json-member-export.md)\nSuperseded by: none\n\n## Context\n\nThe treasurer imports the member export into the club's spreadsheet every month, and that import reads CSV only. ADR 0003 planned to replace CSV with JSON once the federation opened its import; that would break the treasurer's monthly import.\n\n## Decision\n\nThe member export writes CSV only: UTF-8, comma-separated, header row `name,email,street,city,postcode`. No second export format is added.\n\n## Alternatives considered\n\n- JSON only (ADR 0003): breaks the treasurer's spreadsheet import. Superseded by this decision.\n- CSV and JSON side by side: rejected. One consumer exists, and a second serializer with its own tests would be maintained without a user.\n\n## Consequences\n\n- Benefits and tradeoffs: one serializer and one test file; the federation import is not served.\n- Compatibility, migration, or recovery needs: none; CSV is the current format.\n- Verification implications: `tests/test_export.py` covers the CSV header and rows.\n\n## Open questions and next action\n\n- Unresolved questions: none\n- Next action: none; the decision is complete.\n"
+    },
+    "turns": [
+      "The regional rowing federation has opened its member import and wants our member export as JSON, with each member's address as a nested object. Add a `--format json` option to the export command; CSV stays the default. TDD as usual. No commits."
+    ],
+    "checks": [
+      "C8",
+      "C12",
+      "C13"
+    ],
+    "expect": {
+      "decision_protected_globs": [
+        "*.py",
+        "tests/*",
+        "members.json"
+      ],
+      "decision_status": {
+        "docs/lusona/adr/20261020-member-export-format.md": "accepted"
+      },
+      "allowed_globs": [
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**"
+      ]
+    }
+  },
+  "decision-revised": {
+    "skill": "implement",
+    "files": {
+      "README.md": "# Club roster\n\nMember records for a rowing club.\n\n    python3 export.py members.json > members.csv\n\nwrites the member export. The treasurer imports that CSV into the club's spreadsheet each month.\n",
+      "members.json": "[\n  {\"name\": \"Ana Silva\", \"email\": \"ana@example.org\",\n   \"address\": {\"street\": \"Quay 4\", \"city\": \"Porto\", \"postcode\": \"4050-001\"}},\n  {\"name\": \"Ben Okafor\", \"email\": \"ben@example.org\",\n   \"address\": {\"street\": \"Rua Nova 12\", \"city\": \"Gaia\", \"postcode\": \"4400-002\"}}\n]\n",
+      "export.py": "\"\"\"Member export.\"\"\"\nimport csv\nimport json\nimport sys\n\nFIELDS = [\"name\", \"email\", \"street\", \"city\", \"postcode\"]\n\n\ndef rows(members):\n    for member in members:\n        address = member[\"address\"]\n        yield [member[\"name\"], member[\"email\"], address[\"street\"], address[\"city\"], address[\"postcode\"]]\n\n\ndef export_csv(members, out):\n    writer = csv.writer(out, lineterminator=\"\\n\")\n    writer.writerow(FIELDS)\n    writer.writerows(rows(members))\n\n\ndef main(argv=None, out=sys.stdout):\n    argv = sys.argv[1:] if argv is None else argv\n    with open(argv[0]) as handle:\n        members = json.load(handle)\n    export_csv(members, out)\n\n\nif __name__ == \"__main__\":\n    main()\n",
+      "tests/test_export.py": "import io\nimport sys\nimport unittest\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[1]))\nimport export\n\nMEMBERS = [{\"name\": \"Ana Silva\", \"email\": \"ana@example.org\",\n            \"address\": {\"street\": \"Quay 4\", \"city\": \"Porto\", \"postcode\": \"4050-001\"}}]\n\n\nclass ExportTests(unittest.TestCase):\n    def test_csv_has_header_and_one_row_per_member(self):\n        out = io.StringIO()\n        export.export_csv(MEMBERS, out)\n        self.assertEqual(out.getvalue(),\n                         \"name,email,street,city,postcode\\nAna Silva,ana@example.org,Quay 4,Porto,4050-001\\n\")\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n",
+      "docs/lusona/README.md": "# Project workflow notes\n\n- TDD: strict. Standing preference, selected by the maintainer on 2026-08-12.\n- Commits are made by the maintainer, not by agents.\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas → Ready → Doing → Review → Done. Prefer finishing active work before\nstarting another item. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes remain safely separated.\nRows are ordered by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: safely deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements remain.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their lifecycle state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n| Switch the member export to JSON ([ADR 0003](adr/0003-json-member-export.md)) | Ideas | The export writes JSON only and the federation import accepts it | Parked 2026-06-10 until the federation opens its member import |\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one short row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing split ownership.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write a compact entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+      "docs/lusona/adr/0003-json-member-export.md": "# ADR 0003: JSON member export\n\nDate: 2026-06-02\nStatus: superseded by [ADR 20261020](20261020-member-export-format.md) on 2026-10-20\n\n## Context\n\nThe regional federation plans a member import that reads JSON. One export format is less work for a volunteer-run club.\n\n## Decision\n\nWhen the federation opens its import, replace the CSV export with a JSON export. The CSV export is then removed.\n\n## Consequences\n\n- One export format to maintain.\n- The treasurer's spreadsheet import must move to JSON.\n",
+      "docs/lusona/adr/20261020-member-export-format.md": "# ADR 20261020-member-export-format: Member export format\n\nCreated: 2026-10-20\nUpdated: 2026-10-20\n\nStatus: accepted\nScope: shared product; the member export (`export.py`)\nDecision authority: maintainer, conversation on 2026-10-20\nSupersedes: [ADR 0003](0003-json-member-export.md)\nSuperseded by: none\n\n## Context\n\nThe treasurer imports the member export into the club's spreadsheet every month, and that import reads CSV only. ADR 0003 planned to replace CSV with JSON once the federation opened its import; that would break the treasurer's monthly import.\n\n## Decision\n\nThe member export writes CSV only: UTF-8, comma-separated, header row `name,email,street,city,postcode`. No second export format is added.\n\n## Alternatives considered\n\n- JSON only (ADR 0003): breaks the treasurer's spreadsheet import. Superseded by this decision.\n- CSV and JSON side by side: rejected. One consumer exists, and a second serializer with its own tests would be maintained without a user.\n\n## Consequences\n\n- Benefits and tradeoffs: one serializer and one test file; the federation import is not served.\n- Compatibility, migration, or recovery needs: none; CSV is the current format.\n- Verification implications: `tests/test_export.py` covers the CSV header and rows.\n\n## Open questions and next action\n\n- Unresolved questions: none\n- Next action: none; the decision is complete.\n"
+    },
+    "turns": [
+      "The regional rowing federation has opened its member import and wants our member export as JSON, with each member's address as a nested object. Add a `--format json` option to the export command; CSV stays the default. TDD as usual. No commits.",
+      "About the CSV-only decision in ADR 20261020: revise it. CSV stays the default and the format the treasurer imports; JSON becomes a second format, only for the federation import. Record that decision where it belongs. Don't implement the option yet; I'll start that tomorrow. No commits."
+    ],
+    "checks": [
+      "C8",
+      "C14",
+      "C15"
+    ],
+    "expect": {
+      "decision_record_globs": [
+        "docs/lusona/adr/2*.md"
+      ],
+      "superseded_status": {
+        "docs/lusona/adr/0003-json-member-export.md": "superseded"
+      },
+      "allowed_globs": [
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**"
+      ]
+    }
+  },
+  "old-records": {
+    "skill": "implement",
+    "files": {
+      "README.md": "# Club roster\n\nMember records for a rowing club. `search.py` finds members by name or email.\n",
+      "search.py": "\"\"\"Member search.\"\"\"\n\n\ndef search(members, text):\n    \"\"\"Members whose name or email contains text, ignoring case.\"\"\"\n    needle = text.casefold()\n    return [m for m in members if needle in m[\"name\"].casefold() or needle in m[\"email\"].casefold()]\n",
+      "tests/test_search.py": "import sys\nimport unittest\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parents[1]))\nimport search\n\nMEMBERS = [{\"name\": \"Ana Silva\", \"email\": \"ana@example.org\"}, {\"name\": \"Ben Okafor\", \"email\": \"ben@example.org\"}]\n\n\nclass SearchTests(unittest.TestCase):\n    def test_name_is_case_insensitive(self):\n        self.assertEqual(search.search(MEMBERS, \"silva\"), [MEMBERS[0]])\n\n    def test_email(self):\n        self.assertEqual(search.search(MEMBERS, \"ben@\"), [MEMBERS[1]])\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n",
+      "docs/lusona/README.md": "# Project workflow notes\n\n- TDD: targeted. Standing preference, selected by the maintainer on 2026-08-12.\n- Commits are made by the maintainer, not by agents.\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas → Ready → Doing → Review → Done. Prefer finishing active work before\nstarting another item. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes remain safely separated.\nRows are ordered by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: safely deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements remain.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n| [Member search](specs/0007-member-search.md) | Review | A1–A3 pass and the product lead accepts the search page (A4) | Waiting for the product lead's acceptance |\n| [Search sorting](specs/20261028-search-sorting.md) | Doing | AC1–AC2 pass | Add the failing test for AC1 |\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their lifecycle state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one short row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing split ownership.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write a compact entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+      "docs/lusona/specs/0007-member-search.md": "# 0007 — Member search\n\nStatus: Review\nOwner: maintainer\n\n## Requirements\n\n- R1: search members by name, ignoring case, matching part of the name.\n- R2: search members by email.\n- R3: results within 200 ms for 5,000 members.\n\n## Acceptance\n\n- [x] A1: name search (R1), `tests/test_search.py`.\n- [x] A2: email search (R2), `tests/test_search.py`.\n- [x] A3: latency (R3): 41 ms median, see [latency evidence](../evidence/2026-10-30-member-search-latency.md).\n- [ ] A4: the product lead accepts the search page.\n\n## Decisions\n\n- Index: SQLite full-text search, see [ADR 20261012](../adr/20261012-member-search-index.md).\n- Phone-number search: deferred, see [notes](../notes/member-search.md).\n\n## Log\n\n- 2026-10-14: started.\n- 2026-10-30: A1–A3 done; latency measured.\n- 2026-10-31: sent to the product lead for acceptance.\n\n## Handoff\n\n- Next: the product lead accepts the search page (A4); then the item is closed.\n",
+      "docs/lusona/specs/20261028-search-sorting.md": "# Spec 20261028-search-sorting: Search sorting\n\nCreated: 2026-10-28\nUpdated: 2026-10-28\n\nKind: feature\nWork item: [Work queue](../work.md)\n\n## Agreement\n\n- User and problem: coaches scan long result lists; results come back in storage order.\n- Desired behavior or structural outcome: `search` returns members sorted by name, ignoring case.\n- Scope and exclusions: no other sort keys.\n- Completion condition: AC1–AC2 pass.\n\n### Acceptance criteria\n\n- [ ] AC1: results are sorted by name, ignoring case.\n- [ ] AC2: members with the same name keep their storage order.\n\n### TDD policy\n\n- Level: targeted\n- Selected by user: request on 2026-10-28\n- Test-first behaviors: AC1.\n\n## Evidence\n\n- Checks and outcomes: none yet.\n\n## Current handoff\n\n- Authorized work: AC1–AC2; source: request on 2026-10-28. No commits.\n- Completed and remaining work: not started.\n- Next action: implementer adds the failing test for AC1.\n",
+      "docs/lusona/adr/20261012-member-search-index.md": "# ADR 20261012-member-search-index: Member search index\n\nCreated: 2026-10-12\nUpdated: 2026-10-12\n\nStatus: accepted\nScope: change; [spec 0007](../specs/0007-member-search.md)\nDecision authority: maintainer, 2026-10-12\nSupersedes: none\nSuperseded by: none\n\n## Context\n\nSearch must answer within 200 ms for 5,000 members (spec 0007, R3).\n\n## Decision\n\nUse SQLite full-text search on name and email.\n\n## Alternatives considered\n\n- Scan every member in Python: measured at 380 ms for 5,000 members.\n\n## Consequences\n\n- Benefits and tradeoffs: fast search; the index is rebuilt on import.\n- Verification implications: latency measured in [evidence](../evidence/2026-10-30-member-search-latency.md).\n\n## Open questions and next action\n\n- Unresolved questions: none\n- Next action: none\n",
+      "docs/lusona/notes/member-search.md": "# Notes: member-search\n\nContext: [spec 0007](../specs/0007-member-search.md)\n\n## 2026-10-30 — Search by phone number\n\n### Question and scope\n\n- Question: should member search also match phone numbers?\n- Scope: the member search page; phone numbers are stored in `members.phone`.\n\n### Conclusion and decisions\n\n- Conclusion: the coaches asked for phone search during the review; it is outside spec 0007.\n- Decision: deferred; queue it as a separate idea after spec 0007 closes (maintainer, 2026-10-30).\n\n## Current handoff\n\n- Next action: after spec 0007 closes, the coordinator adds an Ideas row for phone-number search that links these notes.\n",
+      "docs/lusona/notes/import-encoding.md": "# Notes: import-encoding\n\nContext: member import fails on files saved by the spreadsheet\n\n## 2026-11-01 — Byte order mark in imported files\n\n### Evidence\n\n- Method: imported `sample-bom.csv`.\n- Result: the first column name was read as `\\ufeffname`.\n\n### Conclusion and decisions\n\n- Conclusion: open the file with `utf-8-sig`. Fixed on 2026-11-02.\n\n## Current handoff\n\n- Next action: none; done.\n",
+      "docs/lusona/evidence/2026-10-30-member-search-latency.md": "# Member search latency — 2026-10-30\n\n## Decision and scope\n\n- Decision this evidence informs, scope, and owner: spec 0007 R3 (results within 200 ms); maintainer.\n- Quantity or quality, metric, unit, direction, and meaningful difference: search latency, median ms, lower is better; the limit is 200 ms.\n- Population/workload, sample selection and size, and reference: 5,000 generated members; 200 queries.\n\n## Method and provenance\n\n- Revision or artifact for each alternative; local modifications: working tree on 2026-10-30.\n- Procedure or commands; instrument validity checks: `python3 bench_search.py --members 5000 --queries 200`.\n\n## Observations\n\n| Run / alternative | Result and unit | Variation / uncertainty | Exact evidence |\n| --- | --- | --- | --- |\n| SQLite full-text search | 41 ms median | 95th percentile 63 ms | run log 2026-10-30 |\n\n## Interpretation and decision\n\n- Supported conclusion: R3 is met with a margin of 159 ms at the median.\n\n## Next action\n\nNone.\n\n## Related records\n\n[Spec 0007](../specs/0007-member-search.md), [ADR 20261012](../adr/20261012-member-search-index.md).\n",
+      "docs/lusona/history/2026-11-week-01.md": "# Work history: 2026-11-week-01\n\n## Recording rules\n\nRecord completed outcomes only, ordered by completion date, oldest first. Use one item\nsection per completion, following the structure below. Keep each entry concise; link\nthe change record, existing plan, notes, or ADR that owns the detail. Resolve links relative to this file.\nKeep existing item headings stable so completion links remain valid. If an item completes\nagain on the same date after reopening, append a numeric suffix to its heading.\n\n## Completed items\n\n<!-- Copy this item structure for each completion, outside this comment.\nReplace all placeholders. Do not add task logs or weekly narrative sections.\n\n### YYYY-MM-DD — <existing-item-slug>\n\n- Item: <title and link to its durable owning record>\n- State: Done\n\n#### Outcome\n\n<One or two sentences describing the delivered result.>\n\n#### Completion and evidence\n\n- Completion condition: <durable reference, or the exact condition if no other owner exists>\n- Verification: <brief result and link to the recorded evidence>\n- Acceptance and delivery: <required acceptance/delivery evidence, or not required>\n\n#### Related records\n\n- <Links to relevant notes, decisions, or separately queued follow-ups; omit this\n  subsection when there are no additional records. Do not repeat the evidence above.>\n-->\n\n### 2026-11-02 — import-encoding\n\n- Item: [Import encoding](../notes/import-encoding.md)\n- State: Done\n\n#### Outcome\n\nThe member import reads UTF-8 files with a byte order mark.\n\n#### Completion and evidence\n\n- Completion condition: [notes](../notes/import-encoding.md#current-handoff)\n- Verification: `python3 -m unittest` passed on 2026-11-02; see the notes.\n- Acceptance and delivery: not required\n"
+    },
+    "turns": [
+      "The product lead accepted the member search page by email on 2026-11-03, so spec 0007 is done. Record her acceptance in the spec, close the item out in the queue and history, and add the follow-up from its notes to the queue as an idea. No commits."
+    ],
+    "checks": [
+      "C8",
+      "C16",
+      "C17"
+    ],
+    "expect": {
+      "old_record_globs": [
+        "docs/lusona/**"
+      ],
+      "legacy_records": [
+        "docs/lusona/specs/0007-member-search.md"
+      ],
+      "update_globs": [
+        "docs/lusona/specs/0007-member-search.md",
+        "docs/lusona/work.md",
+        "docs/lusona/history/*.md"
+      ],
+      "allowed_globs": [
+        "docs/lusona/notes/*.md",
+        "docs/lusona/specs/*.md",
+        "docs/lusona/work.md",
+        "docs/lusona/evidence/*.md",
+        "docs/lusona/evidence/*/*.md",
+        "docs/lusona/evidence/**",
+        "docs/lusona/history/*.md",
+        "docs/lusona/adr/*.md",
+        "__pycache__/*",
+        "*/__pycache__/*",
+        ".pytest_cache/*",
+        ".pytest_cache/**",
+        "tmp/*",
+        "tmp/**"
+      ]
+    }
   }
 }

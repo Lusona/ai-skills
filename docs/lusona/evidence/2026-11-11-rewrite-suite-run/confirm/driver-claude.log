@@ -1,0 +1,3 @@
+16:05:54 start host=claude condition=tmp/w14run/conditions/claude-draft trials=1 cap=40.0 scenarios=1
+16:07:42 done tdd-stated 1 status=captured outer_changed=True codes={'prepare': 0, 'run': 0, 'grade': 0, 'judge': 0} seconds=107 cost=0.913 host_total=0.91 all_hosts=0.91
+16:07:42 finished all trials

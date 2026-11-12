@@ -1,0 +1,615 @@
+# Voice pass round 3: replacements for the remaining audit findings
+
+Basis lines that name files under `tmp/voice-pass/` refer to session scratch files that are not retained. All classes except O are applied or closed. Class O is listed in [round 4](round-4-open-words.md).
+
+
+## N. New criterion: no line of the plugin states the test
+
+APPLIED 2026-11-11 on the user's instruction. 34 rows.
+
+- [2] `skills/batch/SKILL.md`
+  - Before: concurrent scopes keep known shared constraints and return possible coupling
+  - Proposed: give each concurrent assignment the known shared constraints and require it to return possible coupling
+  - Basis: The column header is "Inputs and dispatch condition", so the constraints are an input the coordinator supplies; leaf-rules.md:8 gives the return duty to the leaf: "Return possible dependencies, shared assumptions, unresolved shared behavior and newly found coupling to the coordinator."
+- [8] `skills/batch/references/assignments.md`
+  - Before: No surviving leaf keeps an unrecorded claim on a scope.
+  - Proposed: Before dispatch, for each leaf that has not stopped, record the scope it holds in the batch record or stop the leaf.
+  - Basis: The original names no action; recording the scope and stopping the leaf are the two actions that remove an unrecorded claim. delegation.md:147 "Record surviving leaves, ownership and pending lifecycle actions in the existing handoff." and batch/SKILL.md:82 "reports as not stopped" supply the wording.
+- [9] `skills/batch/references/assignments.md`
+  - Before: Before further dispatch or waiting, and once an in-progress serialized operation reaches a safe boundary:
+  - Proposed: When a serialized operation is in progress, first complete it or, for an integration, record its next phase. Then, before further dispatch or waiting:
+  - Basis: No line defines the boundary. batch/SKILL.md:88 lists the serialized operations, and integration.md:5 "Record each phase in the batch record" is the only line that defines a recorded point inside a serialized operation.
+- [12] `skills/batch/references/authority.md`
+  - Before: Apply these rules to the questions, queue handling, delegation and next action of each skill the batch dispatches.
+  - Proposed: Apply the batch rules to the questions, queue handling, delegation and next action of each skill the batch dispatches.
+  - Basis: authority.md:11 "Other contract and repository rules still apply." contrasts "these rules" with other rule sets, which fits the batch rules, not the Authorization section alone. commits.md:61 uses the phrase: "defer the item under the batch rules."
+- [14] `skills/batch/references/authority.md`
+  - Before: An unresolved concern that can be shared blocks affected design and implementation, not unrelated reconciled work.
+  - Proposed: While a shared decision, shared assumption or possible coupling is unresolved, hold the design and implementation it affects. Continue unrelated reconciled work.
+  - Basis: "Concern" occurs nowhere else. The section names shared assumptions (:20) and shared decisions (:22), and leaf-rules.md:8 lists "possible dependencies, shared assumptions, unresolved shared behavior and newly found coupling".
+- [26] `skills/batch/references/integration.md`
+  - Before: Alternatively, restore only its attributable changes after proving that no other writer's changes will be lost.
+  - Proposed: Alternatively, restore the destination by removing only the candidate's attributable changes, after proving that no other writer's changes will be lost.
+  - Basis: integration.md:29 allows "a candidate already materialized in the destination", and :42 calls the action "restoration" of that destination; :23 records "the destination's identity before transfer" as its target.
+- [27] `skills/batch/references/integration.md`
+  - Before: Stop when attribution remains unsafe.
+  - Proposed: Stop when the differing content still cannot be attributed to the item or to another writer.
+  - Basis: No line defines unsafe attribution. integration.md:40 separates the candidate's "attributable changes" from "other writer's changes", so the observable condition is content that neither accounts for.
+- [29] `skills/batch/references/repairs.md`
+  - Before: Do not spend rounds on speculation.
+  - Proposed: Do not charge or dispatch a round that assumes the missing decision or authority.
+  - Basis: "Speculation" is not defined. The first sentence of the line defers the item for the missing decision or authority, so the work it excludes is work that proceeds as if that decision or authority existed; corrections.md:26 "Escalate a missing decision or authority."
+- [30] `skills/batch/references/repairs.md`
+  - Before: Environment failures prevent completion. A changed environment can justify a charged retry, never an unbounded loop.
+  - Proposed: On an environment failure, do not close the item. Retry only after the environment has changed, and charge each retry as a round.
+  - Basis: delegation.md:128 "Do not retry a blocked assignment with unchanged inputs and approach." supports reading the changed environment as required. Charging each retry to the repair budget (repairs.md:7) is what limits the retries.
+- [32] `skills/batch/references/repairs.md`
+  - Before: Resume its declared set only where evidence supports safe continuation.
+  - Proposed: Resume its declared set only after you stop or reattach its writers and confirm that its recorded inputs match the actual content.
+  - Basis: No line names the evidence for a round. The resume steps require it for any earlier work: deferral-and-resumption.md:23 "Reattach to or stop surviving writers before dispatching again." and :26 "Reuse completed checks and decisions only when their inputs match."
+- [34] `skills/batch/references/start-and-resume.md`
+  - Before: The host's tools determine concurrency and session continuity. The batch skill gives no background execution guarantee.
+  - Proposed: Do not promise background execution. The host's tools determine concurrency and session continuity.
+  - Basis: assignments.md:34 states the parallel prohibition: "Do not promise immediate background updates." No line says that the agent must tell the user about host limits, so the first sentence stays a fact and only the guarantee becomes an action.
+- [37] `skills/batch/references/workspaces.md`
+  - Before: Tasks within one item share its workspace only with compatible behavior, disjoint writes and safe check resources.
+  - Proposed: Tasks within one item share its workspace only when they have no unresolved shared behavior, their writes are disjoint and they share no mutable check resource.
+  - Basis: batch/SKILL.md:64 screens for "shared behavior ... write scopes and mutable check environments" and :88 serializes "mutable check resources"; leaf-rules.md:8 uses "unresolved shared behavior". No line defines "compatible behavior" for tasks.
+- [41] `skills/status/SKILL.md`
+  - Before: For overall status or remaining-work requests, include the broader queue and capability-map scope.
+  - Proposed: For overall status or remaining-work requests, cover the whole queue and the capability map.
+  - Basis: "Broader" compares with the requested scope of the first sentence. status/SKILL.md:81 (mapped capabilities absent from the queue) and :84 (Icebox items reported separately) show that an overall report spans every queue row and the capability map.
+- [44] `skills/explore/SKILL.md`
+  - Before: Include the current approach when it is credible.
+  - Proposed: Include the current approach unless the user or the evidence has ruled it out.
+  - Basis: No line states a test for "credible". plugins/lusona/skills/explore/SKILL.md:33 limits evidence to "cited sources, inspected project facts and the user's stated preferences", so the observable exclusion is that one of them rules the current approach out.
+- [46] `skills/explore/SKILL.md`
+  - Before: When options are clear enough to assess, propose a direction with reasons and invite correction.
+  - Proposed: When each option has a stated benefit and cost, and no missing preference could change the direction, propose a direction with reasons and invite correction.
+  - Basis: plugins/lusona/skills/explore/SKILL.md:70 (step 2) asks for "one missing preference [that] could change the direction" before this step. plugins/lusona/templates/brainstorm.md.template:26 gives each option a "benefit, and material cost or limitation".
+- [49] `skills/frame-product/SKILL.md`
+  - Before: Separate long-term ambition from initial scope, and deferred outcomes from deliberate exclusions. Apply delivery constraints to the first outcome, not to the ambition.
+  - Proposed: Separate the long-term vision from initial scope, and deferred outcomes from deliberate exclusions. Apply delivery constraints to the first outcome, not to the vision.
+  - Basis: plugins/lusona/templates/product.md.template:11 heads the section "Long-term vision", and plugins/lusona/skills/frame-product/SKILL.md:3, 43 and 56 say "vision" for the same thing. plugins/lusona/references/interviews.md:44 and 60 keep "ambition" and are outside this file.
+- [50] `skills/frame-product/SKILL.md`
+  - Before: The ambition reduced to the first delivery.
+  - Proposed: The vision reduced to the first delivery.
+  - Basis: Same term choice as id 49: plugins/lusona/templates/product.md.template:11 "Long-term vision".
+- [54] `skills/specify/SKILL.md`
+  - Before: Resolve routine details from the request and existing constraints, and label the assumptions that matter.
+  - Proposed: Resolve routine details from the request and existing constraints, and label the assumptions that could change the scope or acceptance criteria.
+  - Basis: plugins/lusona/skills/specify/SKILL.md:31 names scope and acceptance criteria as what the skill agrees. The form follows plugins/lusona/skills/frame-product/SKILL.md:33 "assumptions that could change the direction" and plugins/lusona/skills/architect/SKILL.md:33 "assumptions that could change the design".
+- [57] `skills/specify/SKILL.md`
+  - Before: Agree the completion condition, including human acceptance or delivery when required.
+  - Proposed: Agree the completion condition. Include human acceptance or delivery when the user or a repository rule requires it.
+  - Basis: No line names who requires acceptance or delivery. plugins/lusona/references/delegation.md:72 names the sources of a required review as "user or repository rules", and plugins/lusona/skills/specify/SKILL.md:62 says "user-required" for constraints.
+- [60] `skills/architect/SKILL.md`
+  - Before: Focus on consequential contracts and boundaries. Include implementation detail only when it supports the design.
+  - Proposed: Decide the consequential contracts and boundaries. Include an implementation detail only when the decision depends on it.
+  - Basis: plugins/lusona/skills/architect/SKILL.md:31 gives the action ("decide the boundaries, contracts and ownership") and :76 sends coding detail to the spec's Execution section. No line states the test for including implementation detail; "the decision depends on it" is the narrowest reading of "supports the design".
+- [62] `skills/architect/SKILL.md`
+  - Before: Keep one or two sentences of integration context there; do not copy the rationale or the criteria.
+  - Proposed: Keep one or two sentences of integration context beside each link; do not copy the rationale or the criteria.
+  - Basis: plugins/lusona/templates/product.md.template:52 puts a sentence beside each ADR link in Architecture ("relative links and one sentence on what each decides"), and the spec is the nearest antecedent, so the text supports both link locations.
+- [72] `skills/refactor/SKILL.md`
+  - Before: When its scope is unsettled, use [specify](../specify/SKILL.md).
+  - Proposed: When the scope of that part is unsettled, use [specify](../specify/SKILL.md).
+  - Basis: The nearest antecedent is "that part" in the preceding sentence, and it is the narrower reading. plugins/lusona/skills/refactor/SKILL.md:31 "Do not ... decide missing scope" already covers the rest of the requested outcome.
+- [74] `skills/refactor/SKILL.md`
+  - Before: Do not turn incidental findings into a product-wide cleanup backlog.
+  - Proposed: Do not audit code outside the bounded target for more structural problems.
+  - Basis: plugins/lusona/references/retention.md:64 "Do not invent requirements. Do not audit the whole product unless the user asks." Follow-up rows for supported outcomes stay under plugins/lusona/references/retention.md:65, which this row does not restate.
+- [75] `skills/review/SKILL.md`
+  - Before: Do not turn every diff into a full audit.
+  - Proposed: Do not run all the practices below as a checklist.
+  - Basis: The wording follows plugins/lusona/skills/architect/SKILL.md:57 "do not run them all as a checklist".
+- [82] `skills/measure/SKILL.md`
+  - Before: Statistical confidence claimed from too few observations.
+  - Proposed: Statistical confidence claimed from fewer observations than the defined sample size.
+  - Basis: plugins/lusona/skills/measure/SKILL.md:46 "Define the metric, unit and direction, the population or workload, the sample selection and size" is the only observation count the file defines; no line states a minimum.
+- [96] `references/delegation.md`
+  - Before: Instructions are clear, scope is isolated
+  - Proposed: The assignment leaves no implementation decision to the leaf, scope is isolated
+  - Basis: No line tests "clear". plugins/lusona/references/delegation.md:51 "Work requires implementation judgment within established boundaries" defines the next tier, so `fast` is the assignment that needs no such judgment.
+- [97] `references/delegation.md`
+  - Before: Work involves substantial uncertainty,
+  - Proposed: Work involves uncertainty outside established boundaries,
+  - Basis: No line tests "substantial". plugins/lusona/references/delegation.md:51 "Work requires implementation judgment within established boundaries" bounds `standard`, so `deep` starts where the uncertainty lies outside those boundaries.
+- [98] `references/delegation.md`
+  - Before: Record routing in the owning change or batch record only when it changes execution.
+  - Proposed: Record routing in the owning change or batch record only when the dispatch uses a model or reasoning override.
+  - Basis: No line tests "changes execution". plugins/lusona/templates/batch.md.template:48 "<identity; model override, or none>" records the override, and plugins/lusona/references/delegation.md:65 "When you drop a selected override to keep full history, report it." uses "override" for a selection that differs from the inherited settings.
+- [102] `references/delegation.md`
+  - Before: Follow up on missing checks or material contradictions.
+  - Proposed: When a required check is missing, or the result contradicts the assignment or its evidence, apply step 4.
+  - Basis: No line tests "material". plugins/lusona/references/delegation.md:118 "Ask a reachable leaf for missing information, or reconcile artifacts and host evidence." gives the action; plugins/lusona/references/delegation.md:116 "Inspect it against the assignment." names what a result is compared with.
+- [109] `references/evidence.md`
+  - Before: Measurements and experiments inside authorized work need no new command.
+  - Proposed: Measurements and experiments inside authorized work need no new user request.
+  - Basis: Two readings exist: a user instruction (HEAD README.md:33 "Continue without another command") or a skill invocation (assets/workflow-loop.svg "Use the command the work needs"). "User request" holds under both when the user is the one who issues it, and matches plugins/lusona/references/evidence.md:7 "that the request does not require"; same choice in ids 109 and 129.
+- [110] `references/evidence.md`
+  - Before: Repeated runs or substantial artifacts:
+  - Proposed: More than one run, or artifacts stored as separate files:
+  - Basis: No line tests "substantial". plugins/lusona/references/evidence.md:27 "One result from one run: `YYYY-MM-DD-<topic>.md`." The directory layout on the next line exists to hold more than one file.
+- [117] `references/interviews.md`
+  - Before: Do not weaken decisions or evidence to do so.
+  - Proposed: Do not change a decision, or what the evidence shows, to do so.
+  - Basis: No line tests "weaken". "Change" is the observable act: the adapted explanation must state the same decision and the same evidence as the record.
+- [122] `references/queue.md`
+  - Before: Move work to Review when its evidence is ready.
+  - Proposed: Move work to Review when its verification evidence is saved in the owning record and review or acceptance remains.
+  - Basis: No line tests "ready"; plugins/lusona/references/queue.md:14 "Evidence ready for review or acceptance" and plugins/lusona/skills/implement/SKILL.md:81 "Record the results, the evidence from checks and reviews, the limitations and the current handoff in the owning record" give the two parts. The next sentence ("List outstanding checks explicitly.") shows that some checks can still be open.
+- [129] `references/workflow-guide.md`
+  - Before: A measurement or experiment inside authorized work needs no new command.
+  - Proposed: A measurement or experiment inside authorized work needs no new user request.
+  - Basis: Two readings exist: a user instruction (HEAD README.md:33 "Continue without another command") or a skill invocation (assets/workflow-loop.svg "Use the command the work needs"). "User request" holds under both when the user is the one who issues it, and matches plugins/lusona/references/evidence.md:7 "that the request does not require"; same choice in ids 109 and 129.
+
+## R. Reworded: same rule, same trigger, action and scope
+
+APPLIED 2026-11-11. 26 rows.
+
+- [1] `skills/batch/SKILL.md`
+  - Before: Record both limits, the actual pool slots and the delegation grants.
+  - After: Record the requested assignment ceiling, the host limit, the actual pool slots and the delegation grants.
+  - Basis: batch/SKILL.md:55 names "the requested assignment ceiling" and :56 "a host limit of 4 agents"; the batch template holds the two fields "Requested assignment cap" (line 10) and "Host capacity and coordinator occupancy" (line 11).
+- [4] `skills/batch/SKILL.md`
+  - Before: decomposition belongs here
+  - After: implement owns decomposition
+  - Basis: workflow-guide.md:59 routes "Defined work needs decomposition or execution" to implement. The cell stays in the table: scripts/check_voice.py excludes table rows from sentence length, and rows 3 and 5 edit the adjacent text.
+- [10] `skills/batch/references/authority.md`
+  - Before: Read before recording a batch's authorization, before settling a routine decision inside a batch, and before deferring an item for a missing decision, authority or TDD level, or for new input that contradicts an accepted decision.
+  - After: Read before recording a batch's authorization and before settling a routine decision inside a batch. Also read before deferring an item for a missing decision, authority or TDD level, or for new input that contradicts an accepted decision.
+  - Basis: Same three triggers in two sentences of 16 and 23 words; the original sentence has 36 words.
+- [20] `skills/batch/references/deferral-and-resumption.md`
+  - Before: Reattach to or stop surviving writers before dispatching again.
+  - After: Reattach to or stop each writer that has not stopped before dispatching again.
+  - Basis: batch/SKILL.md:82 and assignments.md:26 use "not stopped" for the same state.
+- [22] `skills/batch/references/deferral-and-resumption.md`
+  - Before: Keep the requested ceiling, and account for surviving leaves and the coordinator's own occupancy.
+  - After: Keep the requested ceiling. Count each leaf that has not stopped and the coordinator's own occupancy as occupied host capacity.
+  - Basis: batch/SKILL.md:56 "Reserve the coordinator's own occupancy when the host counts it" and :57 "Waiting leaves still occupy host capacity." state what is counted.
+- [28] `skills/batch/references/leaf-rules.md`
+  - Before: Do not start another assignment or manage shared state on your own.
+  - After: Do not start another assignment or manage shared state without an instruction from the coordinator.
+  - Basis: delegation.md:83 "Additional work requires a new assignment." leaf-rules.md:13 still forbids editing the queue, the batch record and the batch handoff.
+- [40] `skills/status/SKILL.md`
+  - Before: When recommending that a batch start or resume, name [batch](../batch/SKILL.md) with the exact queue titles or IDs or the batch record path, the authorized scope, and the TDD level or its source.
+  - After: When recommending that a batch start or resume, name [batch](../batch/SKILL.md). Give the exact queue titles or IDs or the batch record path, the authorized scope, and the TDD level or its source.
+  - Basis: Same rule in two sentences of 12 and 22 words; the original sentence has 32 words.
+- [43] `skills/explore/SKILL.md`
+  - Before: Compare lasting consequences with immediate value: support for that future, later constraints, and assumptions that could change direction.
+  - After: Compare lasting consequences with immediate value: support for the future the user wants, later constraints, and assumptions that could change direction.
+  - Basis: plugins/lusona/skills/explore/SKILL.md:55 names the antecedent: "develop the future the user wants beyond the immediate decision".
+- [52] `skills/map-capabilities/SKILL.md`
+  - Before: Name choices that constrain later capabilities, without prescribing their implementation.
+  - After: Name choices that constrain later capabilities, without prescribing an implementation.
+  - Basis: plugins/lusona/skills/map-capabilities/SKILL.md:39 lists "Speculative implementation prescribed" as a failure without naming whose implementation, so the form without a pronoun matches the existing rule for both readings.
+- [77] `skills/investigate/SKILL.md`
+  - Before: any existing
+  - After: the
+  - Basis: "when they exist" in the same sentence already states the condition. The fragment leaves the term "execution record" unchanged, so the row does not depend on the pending term decision.
+- [90] `references/completion.md`
+  - Before: No checks run;
+  - After: No checks were run;
+  - Basis: Adds the missing auxiliary verb to the hypothetical reply. No rule changes.
+- [92] `references/corrections.md`
+  - Before: One more round without material progress stops the affected work again.
+  - After: After one more round without material progress, stop the affected work again.
+  - Basis: Imperative form of the same sentence. The scope words "the affected work" are unchanged (plugins/lusona/references/corrections.md:25 "After 4 total rounds, stop the affected work."); whether they equal "stop correcting that failure" at corrections.md:19 is left as written.
+- [94] `references/delegation.md`
+  - Before: Read before dispatching an assignment, after each leaf result, before closing or handing off responsibility for leaves, when deciding whether independent review is required, and as a leaf before returning a result.
+  - After: Read before dispatching an assignment, after each leaf result, and before closing or handing off responsibility for leaves. Read when deciding whether independent review is required. Read as a leaf before returning a result.
+  - Basis: Same five triggers, each phrase verbatim, in three sentences on line 3 (one 32-word sentence before; longest now 19 words). plugins/lusona/README.md:46 repeats the one-sentence wording; no script compares the two lines.
+- [95] `references/delegation.md`
+  - Before: Coordinate questions to the user, assignments, reconciliation of results, integration, verification and shared state.
+  - After: Ask the user questions, dispatch assignments, reconcile results, integrate, verify and write shared state.
+  - Basis: Each noun becomes its verb; the heading "Coordinator duties" names the actor. plugins/lusona/references/delegation.md:19 "Keep integration and verification with the coordinator." states the same ownership.
+- [99] `references/delegation.md`
+  - Before: Planned tasks need no tier or rationale each.
+  - After: A planned task needs no tier or rationale of its own.
+  - Basis: Moves the quantifier to the subject. No rule changes.
+- [104] `references/delegation.md`
+  - Before: Reconcile results against acceptance and the verification rules.
+  - After: Reconcile results against acceptance and the TDD and verification rules.
+  - Basis: Commit 6bcd4b0 wrote this sentence as "Reconcile against acceptance and [verification rules](tdd.md)"; plain words here, because a reference may not link another reference. plugins/lusona/references/tdd.md:1 "# TDD and verification"
+- [111] `references/evidence.md`
+  - Before: A link to a changing topic summary does not identify the run that supports a claim.
+  - After: Do not link a claim to a changing topic summary. Link the run that supports the claim.
+  - Basis: Imperative form. plugins/lusona/references/evidence.md:70 "link each claim to the exact evidence files or runs it relies on" states the same rule positively.
+- [112] `references/files.md`
+  - Before: still valid, not created for new changes
+  - After: still valid; do not create one for a new change
+  - Basis: plugins/lusona/references/naming.md:12 "Do not create a companion plan for a new change." `old` omits the reserved term for the file; the term edit in tmp/voice-pass/r3/t_terms.py contains this fragment in its own `old`, so it must run before this row.
+- [113] `references/revisions.md`
+  - Before: Resume work from the revision.
+  - After: Resume work under the revised decision.
+  - Basis: plugins/lusona/references/revisions.md:45 "Update those within your write ownership to the revised decision." uses the same noun for the same object.
+- [118] `references/interviews.md`
+  - Before: Develop the intended long-term experience.
+  - After: Ask about the intended long-term experience.
+  - Basis: plugins/lusona/references/interviews.md:21 "Ask the user about desired outcomes, priorities, experience and tradeoffs." names the action.
+- [121] `references/queue.md`
+  - Before: add its row from the supported current state before planning handoff or execution.
+  - After: add its row in the queue state that the evidence supports, before the planning handoff or before execution starts.
+  - Basis: Commit 61ec6da changed "before execution" to "before planning handoff or execution, using supported current state"; "planning handoff" is one noun phrase, and the trigger names planning as one of three activities.
+- [123] `references/queue.md`
+  - Before: Done requires the whole item's completion condition, acceptance criteria, required checks, and any required acceptance or delivery.
+  - After: Move an item to Done only when its whole completion condition and acceptance criteria are met, its required checks pass, and any required acceptance or delivery has happened.
+  - Basis: Imperative form with one verb per condition. plugins/lusona/references/queue.md:49 "Failed or unrun required checks block Done." supports "pass".
+- [128] `references/workflow-guide.md`
+  - Before: Defined work needs decomposition or execution, or changed behavior or defect correction
+  - After: Defined work needs decomposition or execution, or behavior needs changing or a defect needs correcting
+  - Basis: plugins/lusona/skills/refactor/SKILL.md:3 "Not for new behavior or bug fixes; use implement." The second clause gets a subject and a verb parallel to the first.
+- [130] `templates/batch.md.template`
+  - Before: inputs, resume this record>
+  - After: inputs; then resume this record>
+  - Basis: plugins/lusona/skills/batch/SKILL.md:141 "Environment failure: the named repair, owner user or coordinator, then resume the batch record." The placeholder gets the same sequence; no name is coined for the resume instruction.
+- [132] `templates/notes.md.template`
+  - Before: Notes are the owner for direct implement or refactor work without a spec and for investigations, measurements, and experiments: retain agreement, decisions, explicit TDD/source, checks/evidence, and in-session handoffs here without queue tracking.
+  - After: Notes are the owning record for direct implement or refactor work without a spec, and for investigations, measurements and experiments. Record the agreement, decisions, TDD level and source, checks, evidence and in-session handoffs here. Notes alone do not require queue tracking.
+  - Basis: Splits one 32-word sentence into three. plugins/lusona/references/retention.md:35 "holding its agreement, decisions, TDD level and source, checks, evidence and handoff" plugins/lusona/references/retention.md:54 "Notes alone do not require tracking."
+- [201] `templates/evidence.md.template`
+  - Before: - Experiment disposition when applicable: adopt
+  - After: - Experiment disposition, for an experiment: adopt
+  - Basis: The section serves measurements and experiments; only an experiment has a disposition (experiment/SKILL.md:66).
+
+## X. Existing test: an untested word replaced by a test that another line of the plugin already states
+
+APPLIED 2026-11-11. 64 rows.
+
+- [3] `skills/batch/SKILL.md`
+  - Before: a safe workspace
+  - After: a workspace that meets the rules in [workspaces](references/workspaces.md)
+  - Basis: workspaces.md:7 "Give each item a separate workspace: a worktree or an isolated copy." and :28 "Without isolation, work in sequence only where unfinished edits stay separated." state the workspace test; batch/SKILL.md:83 already links that file with a trigger.
+- [5] `skills/batch/SKILL.md`
+  - Before: Fresh independent review of the integration candidate
+  - After: Independent review of the materialized integration candidate
+  - Basis: integration.md:18 "Record `candidate materialized` with the candidate's actual identity" precedes :19, which runs the review, so the review covers the candidate as materialized. integration.md:20 "without the implementer's conclusions" and delegation.md:75 "A persona change is not independence." state the reviewer reading.
+- [6] `skills/batch/SKILL.md`
+  - Before: When safe separation or ownership cannot be established, stop the batch and preserve the recoverable state.
+  - After: When you cannot establish ownership, or that writers and unfinished changes stay separated, stop the batch and preserve the recoverable state.
+  - Basis: queue.md:45 "when writers and unfinished changes stay separated" and workspaces.md:28 "work in sequence only where unfinished edits stay separated. Otherwise stop the batch." state the separation test.
+- [7] `skills/batch/references/assignments.md`
+  - Before: Stop old writers before reassignment, deferral or integration.
+  - After: Stop the writers of the affected scope before reassignment, deferral or integration.
+  - Basis: Each trigger names its writers elsewhere: delegation.md:129 "stop the previous writer" (reassignment), deferral-and-resumption.md:7 "stop or reconcile its writers" (deferral), integration.md:13 "Stop the writers of the item and of the destination." batch/SKILL.md:86 uses "affected writers".
+- [11] `skills/batch/references/authority.md`
+  - Before: concurrency limit
+  - After: requested assignment ceiling
+  - Basis: batch/SKILL.md:55 "Record the requested assignment ceiling: 4 by default, or 5 when the user selects 5". The line lists what the user authorized, and the ceiling is the limit the user selects; the host limit is observed, not authorized.
+- [16] `skills/batch/references/authority.md`
+  - Before: Proceed through authorized work without asking for new role approvals.
+  - After: Proceed through authorized work without asking the user for a new approval when an item moves to another responsibility.
+  - Basis: workflow-guide.md:67 "Moving from one skill to another needs no new approval." The batch dispatch table names each dispatched skill a responsibility.
+- [19] `skills/batch/references/deferral-and-resumption.md`
+  - Before: Inspect the actual agents
+  - After: Inspect the actual leaves
+  - Basis: delegation.md:134 calls the agents of an earlier run leaves: "This includes inherited, reassigned or earlier-session leaves". Step 9 of the same list (:27) says "surviving leaves".
+- [21] `skills/batch/references/deferral-and-resumption.md`
+  - Before: cannot establish ownership safely
+  - After: cannot establish ownership
+  - Basis: workspaces.md:27 states the condition without a qualifier: "When required inputs or ownership cannot be established, defer the affected work."
+- [23] `skills/batch/references/deferral-and-resumption.md`
+  - Before: Work in sequence where that is safe.
+  - After: Work in sequence only where unfinished edits stay separated.
+  - Basis: workspaces.md:28 "Without isolation, work in sequence only where unfinished edits stay separated. Otherwise stop the batch."
+- [24] `skills/batch/references/integration.md`
+  - Before: Run required verification and fresh independent review on the candidate.
+  - After: Run required verification and independent review on the materialized candidate.
+  - Basis: Step 6 (integration.md:18) records `candidate materialized` with the candidate's actual identity before this step, and step 8 (:20) withholds the implementer's conclusions; delegation.md:75 states reviewer independence. Same wording as row 5.
+- [25] `skills/batch/references/integration.md`
+  - Before: Reconcile it before acceptance.
+  - After: Reconcile the candidate and the affected evidence before acceptance.
+  - Basis: integration.md:25 names the object of the same action: "On drift, reconcile the candidate and affected evidence before proceeding."
+- [31] `skills/batch/references/repairs.md`
+  - Before: Do not add unbounded fixes to an open round.
+  - After: Do not add a correction or experiment outside the declared set to an open round.
+  - Basis: repairs.md:22 "One round covers that declared set and its checks and review." and :26 "A failed round that needs a different correction or experiment consumes the next round."
+- [38] `skills/status/SKILL.md`
+  - Before: Before flagging excess concurrent assignments, check the actual assignment capacity and host limits.
+  - After: Before flagging excess concurrent assignments, check the assignment ceiling and the host limit recorded in the batch record.
+  - Basis: batch/SKILL.md:55 "Record the requested assignment ceiling" and :56 "a host limit of 4 agents" name the two values; status/SKILL.md:48 sends the agent to the batch record, whose template holds them at lines 10-12.
+- [42] `skills/status/SKILL.md`
+  - Before: Do not invent queue items or expand them into detailed tickets.
+  - After: Do not invent queue items for those capabilities or expand the capabilities into tasks or tickets.
+  - Basis: "Them" follows "queue items", but only the mapped capabilities of the first sentence exist to be expanded. "Tickets" is an existing term: map-capabilities/SKILL.md:31 and :66 list "tasks, tickets", and status/SKILL.md:37 lists "Invented tasks" as a failure mode.
+- [45] `skills/explore/SKILL.md`
+  - Before: When a visual option or diagram makes a choice easier to judge, read [visuals](../../references/visuals.md) before drawing it.
+  - After: When a choice depends on layout, structure, flow or appearance that a description does not show, read [visuals](../../references/visuals.md) before drawing a visual option or diagram.
+  - Basis: plugins/lusona/references/visuals.md:7 "Offer 2-4 visual options when a concept, architecture or UI choice depends on layout, structure, flow or appearance that a description does not show." Same test in explore, specify and architect (ids 45, 56, 59).
+- [47] `skills/explore/SKILL.md`
+  - Before: name the smallest probe and the authority it needs
+  - After: name the smallest probe (an investigation, measurement or experiment) and the authority it needs
+  - Basis: plugins/lusona/skills/explore/SKILL.md:104 "proposed [investigate], [measure] or [experiment] with the named probe and the missing authority". Defining the term at line 72 keeps "the named probe" at line 104 valid without a second edit; the fragment leaves the rest of the sentence unchanged.
+- [48] `skills/explore/SKILL.md`
+  - Before: Update the saved synthesis when understanding changes materially.
+  - After: Update the saved synthesis when content that met a save condition in retention changes.
+  - Basis: plugins/lusona/references/retention.md:13 "Save it as soon as it holds one of them. Update it when one of them changes." plugins/lusona/skills/explore/SKILL.md:39 already uses the phrase "a save condition in retention".
+- [51] `skills/map-capabilities/SKILL.md`
+  - Before: A clear existing product
+  - After: An existing product whose direction is resolved
+  - Basis: plugins/lusona/skills/map-capabilities/SKILL.md:48 "When product direction is unresolved, use [frame-product]" states the opposite case with the same test. The fragment replaces only "clear" because the unchanged remainder ("needs no new brief") contains a word the validator bans; the sentence stays declarative.
+- [55] `skills/specify/SKILL.md`
+  - Before: A clear authorized request needs no spec first; use [implement](../implement/SKILL.md).
+  - After: When an authorized request states its intended behavior and scope, use [implement](../implement/SKILL.md) without specifying it first.
+  - Basis: plugins/lusona/skills/implement/SKILL.md:55 "When intended behavior or scope is missing, use [specify]" states the opposite case. Same test as id 66; plugins/lusona/references/tdd.md:10 ("A clear request needs no definition first") holds the same word in another findings file.
+- [56] `skills/specify/SKILL.md`
+  - Before: When a visual option or diagram clarifies a choice, read [visuals](../../references/visuals.md) before drawing it.
+  - After: When a choice depends on layout, structure, flow or appearance that a description does not show, read [visuals](../../references/visuals.md) before drawing a visual option or diagram.
+  - Basis: plugins/lusona/references/visuals.md:7 "Offer 2-4 visual options when a concept, architecture or UI choice depends on layout, structure, flow or appearance that a description does not show." Same test in explore, specify and architect (ids 45, 56, 59).
+- [58] `skills/architect/SKILL.md`
+  - Before: choose the smallest sufficient design within accepted constraints.
+  - After: choose the smallest design that meets the accepted requirements within accepted constraints.
+  - Basis: plugins/lusona/skills/architect/SKILL.md:32 "Justify added complexity with a concrete requirement." and :33 "accepted requirements" name what the design must meet.
+- [59] `skills/architect/SKILL.md`
+  - Before: When a visual option or diagram clarifies the decision, read [visuals](../../references/visuals.md) before drawing it.
+  - After: When the decision depends on layout, structure, flow or appearance that a description does not show, read [visuals](../../references/visuals.md) before drawing a visual option or diagram.
+  - Basis: plugins/lusona/references/visuals.md:7 "Offer 2-4 visual options when a concept, architecture or UI choice depends on layout, structure, flow or appearance that a description does not show." Same test in explore, specify and architect (ids 45, 56, 59).
+- [61] `skills/architect/SKILL.md`
+  - Before: Set Status `accepted` only with existing authorization or an explicit decision; otherwise `proposed`.
+  - After: Set Status `accepted` only with existing authorization or the user's explicit decision; otherwise `proposed`.
+  - Basis: plugins/lusona/skills/architect/SKILL.md:106 "An ADR is proposed: the user accepts, revises or rejects it, owner user." The failure mode at line 40 has the same unnamed actor and is not in this row.
+- [63] `skills/implement/SKILL.md`
+  - Before: A task list written for clear work.
+  - After: A task list written for work that meets no condition for an execution section.
+  - Basis: plugins/lusona/skills/implement/SKILL.md:60 "Add an execution section to the record only when sequencing, dependencies, uncertainty, coordination or recovery need it." and plugins/lusona/templates/spec.md.template:71 "Include tasks only under the Execution conditions above; clear work needs no task list." Same test in ids 63 and 67.
+- [66] `skills/implement/SKILL.md`
+  - Before: A clear authorized request needs no specification first.
+  - After: When an authorized request states its intended behavior and scope, do not run specify first.
+  - Basis: plugins/lusona/skills/implement/SKILL.md:55 "When intended behavior or scope is missing, use [specify]" states the opposite case; plugins/lusona/templates/spec.md.template:12 ("Specify is not a prerequisite") shows that "specification" means a run of specify. Same test as id 55 and as plugins/lusona/references/tdd.md:10 in another findings file.
+- [67] `skills/implement/SKILL.md`
+  - Before: For clear work, state the outcome and its checks; write no task list.
+  - After: When the work meets no condition for an execution section, state the outcome and its checks; write no task list.
+  - Basis: plugins/lusona/skills/implement/SKILL.md:60 "Add an execution section to the record only when sequencing, dependencies, uncertainty, coordination or recovery need it." and plugins/lusona/templates/spec.md.template:71 "Include tasks only under the Execution conditions above; clear work needs no task list." Same test in ids 63 and 67.
+- [68] `skills/implement/SKILL.md`
+  - Before: Fix routine plan omissions inline; add no approval step.
+  - After: Fix a plan omission inline when known evidence resolves it; add no approval step.
+  - Basis: plugins/lusona/skills/specify/SKILL.md:85 "Fix routine omissions from known evidence. Keep unknowns as explicit questions." states the test for the same kind of check.
+- [69] `skills/implement/SKILL.md`
+  - Before: Planning-only request: the proposed execution section, owner user, Authority: implementation not authorized.
+  - After: Planning-only request: the user authorizes implementation of the proposed execution section, owner user, Authority: implementation not authorized.
+  - Basis: plugins/lusona/skills/specify/SKILL.md:116 "Spec ready and implementation not authorized: the user authorizes [implement] for the spec, Authority: implementation not authorized." states the user's action for the parallel case.
+- [73] `skills/refactor/SKILL.md`
+  - Before: Do not fix a discovered bug silently.
+  - After: Do not fix a discovered bug.
+  - Basis: plugins/lusona/skills/refactor/SKILL.md:31 "Do not change behavior, fix defects or decide missing scope." and :36 "A behavior change or bug fix inside a refactoring increment." allow no fix, announced or not.
+- [76] `skills/review/SKILL.md`
+  - Before: Recorded completion conditions are met: the recommended queue state, owner coordinator.
+  - After: Recorded completion conditions are met: set the item to the recommended queue state, owner coordinator.
+  - Basis: plugins/lusona/references/queue.md:26 "In a review, recommend a state; do not write the queue." and plugins/lusona/references/delegation.md:18 "Only the coordinator writes shared queues".
+- [79] `skills/investigate/SKILL.md`
+  - Before: While a material uncertainty remains and an authorized distinguishing experiment is available, run it.
+  - After: While an uncertainty that can change the next action remains and an authorized distinguishing experiment is available, run it.
+  - Basis: plugins/lusona/skills/investigate/SKILL.md:19 (Progress rule) "Stop inquiry that cannot change the next action."; plugins/lusona/references/corrections.md:12 applies the same test to "material": "establishes a new fact that changes the next action". Same test in ids 79 and 80.
+- [80] `skills/investigate/SKILL.md`
+  - Before: A material uncertainty remains and an authorized distinguishing experiment is available: run it, owner investigate.
+  - After: An uncertainty that can change the next action remains and an authorized distinguishing experiment is available: run it, owner investigate.
+  - Basis: plugins/lusona/skills/investigate/SKILL.md:19 (Progress rule) "Stop inquiry that cannot change the next action."; plugins/lusona/references/corrections.md:12 applies the same test to "material": "establishes a new fact that changes the next action". Same test in ids 79 and 80.
+- [81] `skills/measure/SKILL.md`
+  - Before: Results compared across materially different revisions, workloads, instruments or environments.
+  - After: Results that differ in a condition that affects comparability, compared without a stated limit or a matched reference.
+  - Basis: plugins/lusona/skills/measure/SKILL.md:56 "Record instrument and method versions, inputs, environment, commands or procedure, and the conditions that affect comparability."; the agent compares those recorded conditions. Same test in ids 81 and 83.
+- [83] `skills/measure/SKILL.md`
+  - Before: When revisions, workload, instrumentation or environment differ materially, state the limit or obtain a matched reference.
+  - After: When a result and its reference differ in revision, workload, instrument, environment or another recorded condition that affects comparability, state the limit or obtain a matched reference.
+  - Basis: plugins/lusona/skills/measure/SKILL.md:56 "Record instrument and method versions, inputs, environment, commands or procedure, and the conditions that affect comparability."; the agent compares those recorded conditions. Same test in ids 81 and 83.
+- [85] `references/closeout.md`
+  - Before: Pass the actual completion date for older work.
+  - After: When the work was completed before today, pass its actual completion date.
+  - Basis: plugins/lusona/references/naming.md:81 "`DATE` is `YYYY-MM-DD` and defaults to today in the local timezone." The argument differs from the default only when the work was completed before today.
+- [86] `references/commits.md`
+  - Before: Include the related change records, verification evidence, queue updates and justified completion records in the increment's commit.
+  - After: Include the related change records, verification evidence and queue updates in the increment's commit. Include a completion record only when the saved evidence shows its completion condition is met.
+  - Basis: plugins/lusona/references/commits.md:26 "Do not mark completion before its condition is met to fit a commit boundary." The committed text (HEAD commits.md:9-10) read "completion records already justified by the evidence".
+- [87] `references/commits.md` (same or close to an edit reverted in round 1)
+  - Before: Use squash integration only when explicitly selected or required by the project's workflow.
+  - After: Use squash integration only when the user explicitly selects it or the project's workflow requires it.
+  - Basis: plugins/lusona/references/commits.md:52 "Do not add merge commits to the target unless the user explicitly requests that topology." names the user as the actor who selects a topology; same text as the round-2 edit that tmp/voice-pass/edits_revert.py reverted.
+- [88] `references/commits.md` (same or close to an edit reverted in round 1)
+  - Before: Do not discard meaningful commit boundaries only to avoid resolving a divergence.
+  - After: Do not discard the commit boundaries between verified increments only to avoid resolving a divergence.
+  - Basis: plugins/lusona/references/commits.md:10 "A successful commit records a verified increment." The reverted round-2 edit deleted "meaningful"; this row replaces it with the line-10 test, which leaves a requested checkpoint commit (commits.md:17) outside the rule.
+- [93] `references/corrections.md`
+  - Before: Escalate a missing decision or authority.
+  - After: Ask the user for a missing decision or authority; as a leaf, report it to the coordinator. Inside a batch, defer the item under the batch rules.
+  - Basis: plugins/lusona/references/delegation.md:127 "Ask the user only for decisions or authority you cannot supply." plugins/lusona/references/delegation.md:87 "Report missing or contradictory context, questions and recommended next actions to the coordinator." plugins/lusona/references/commits.md:61 "ask the user. Inside a batch, defer the item under the batch rules." Step 8 still applies inside a batch, because corrections.md:15 replaces only the counts.
+- [100] `references/delegation.md`
+  - Before: Reusing a leaf for review must keep that independence.
+  - After: Reuse a leaf for review only when it did not write the change and has not received the implementer's conclusions.
+  - Basis: plugins/lusona/skills/review/SKILL.md:47 "When you wrote the change, state that the review is not independent." plugins/lusona/references/delegation.md:74 "without the implementer's conclusions"
+- [103] `references/delegation.md`
+  - Before: Assess `DONE_WITH_CONCERNS` against the completion criteria without rewriting history.
+  - After: Assess `DONE_WITH_CONCERNS` against the assigned scope and required checks. Do not edit the legacy report.
+  - Basis: plugins/lusona/references/delegation.md:105 "| `complete` | Assigned scope and required checks satisfied |" Commit 6bcd4b0 shortened "For older reports ... Do not rewrite history.", so "history" is the older report, not `docs/lusona/history/`.
+- [105] `references/delegation.md` (same or close to an edit reverted in round 1)
+  - Before: Reuse adequate checks on unchanged inputs. Rerun them for
+  - After: Reuse a valid check result when its inputs are unchanged. Rerun the check for
+  - Basis: plugins/lusona/references/tdd.md:43 "Reuse a valid check result when its inputs are unchanged." "adequate" has no test in the plugin; the first sentence equals the round-2 edit that tmp/voice-pass/edits_revert.py reverted, and the rest of step 8 is unchanged.
+- [108] `references/evidence.md`
+  - Before: Keep routine evidence with its task. Retain material evidence and its provenance under the rules below.
+  - After: Keep routine evidence (test, build and verification logs) with its task. Evidence is material when a decision relies on it; retain it and its provenance under the rules below.
+  - Basis: plugins/lusona/references/evidence.md:74 "Routine test, build and verification logs stay with the task's existing evidence owner." plugins/lusona/references/evidence.md:61 "Retain the methods, provenance, results and material artifacts that support the decision."
+- [114] `references/tdd.md`
+  - Before: A clear request needs no definition first.
+  - After: A request that states its intended behavior and scope needs no definition first.
+  - Basis: plugins/lusona/skills/implement/SKILL.md:55 "When intended behavior or scope is missing, use [specify](../specify/SKILL.md)." Same test for "clear" as ids 55 and 66 in tmp/voice-pass/r3/draft-skills.json.
+- [115] `references/tdd.md` (same or close to an edit reverted in round 1)
+  - Before: Reuse adequate existing coverage.
+  - After: Reuse existing coverage that exercises the change.
+  - Basis: plugins/lusona/references/tdd.md:27 "Add coverage when the agreement requires it or no existing check exercises the change." Same text as the round-2 edit that tmp/voice-pass/edits_revert.py reverted.
+- [119] `references/interviews.md` (same or close to an edit reverted in round 1)
+  - Before: Keep a narrow question narrow.
+  - After: Keep your questions within the requested scope.
+  - Basis: plugins/lusona/skills/explore/SKILL.md:56 "Keep narrow questions within the requested scope." Differs from the reverted round-2 text ("Do not expand a narrow question into a broader interview").
+- [120] `references/naming.md`
+  - Before: Queue updates, shared handoffs and overlapping edits still require coordinated ownership.
+  - After: As a leaf, return queue updates and shared handoff changes to the coordinator. Do not edit files that another writer owns.
+  - Basis: plugins/lusona/references/queue.md:24 "As a leaf, return required queue changes and new rows to the coordinator." plugins/lusona/references/delegation.md:18 "Only the coordinator writes shared queues, batch records and the handoffs saved in them." plugins/lusona/references/delegation.md:129 "Do not let two leaves write the same files."
+- [124] `references/visuals.md` (same or close to an edit reverted in round 1)
+  - Before: Match fidelity to the question: wireframe for structure, closer styling for look and feel.
+  - After: Match fidelity to the question: wireframe for a question about structure, target-platform or project-theme styling for a question about appearance.
+  - Basis: plugins/lusona/references/visuals.md:14 "Style option content for the target platform or the project's theme" plugins/lusona/references/visuals.md:7 "depends on layout, structure, flow or appearance" Close to the round-2 edit that tmp/voice-pass/edits_revert.py reverted.
+- [125] `references/visuals.md`
+  - Before: keep no rejected draft assets and offer revised options.
+  - After: do not retain the rejected draft pages, and offer revised options.
+  - Basis: plugins/lusona/references/visuals.md:57 "Do not retain the index or rejected option files." Commit 84a8911 wrote "retain no rejected draft assets"; visuals.md:46 calls the files "draft pages", and no line states a duty to delete them.
+- [126] `references/visuals.md`
+  - Before: Save consequential rejection reasons and new constraints in the owning record.
+  - After: Save in the owning record each new constraint and each rejection reason that later options depend on.
+  - Basis: plugins/lusona/references/retention.md:7 "An output is substantive when later work or another session depends on it" The revised options at visuals.md:41 are the later work.
+- [127] `references/visuals.md`
+  - Before: Binding items (V1, V2, ...) default to layout regions, element order, which controls exist, and information hierarchy.
+  - After: Binding items (V1, V2, ...) default to layout regions, element order, which controls exist, and information hierarchy. Add another aspect only when the user marks it binding.
+  - Basis: plugins/lusona/templates/visual-reference.md.template:22 "controls exist, and information hierarchy. Add other aspects only when the user marks them binding." The reference stated the default without this exception; "default to" stays.
+- [131] `templates/evidence.md.template`
+  - Before: Record unfavorable and null results where material.
+  - After: Record unfavorable and null results that affect the decision.
+  - Basis: plugins/lusona/references/evidence.md:61 "Include unfavorable results that affect it."
+- [134] `templates/product.md.template`
+  - Before: Optional capability map covering the intended long-term experience and nearer deliveries;
+  - After: Fill this section when the user asks for a map or an update. The map covers the intended long-term experience and nearer deliveries;
+  - Basis: plugins/lusona/skills/map-capabilities/SKILL.md:64 "When the user asks for a map or an update, write the Capability map section of `docs/lusona/product.md`"
+- [135] `templates/product.md.template`
+  - Before: Optional shared architecture context and ADR references.
+  - After: Shared architecture context and ADR references. Omit this section when the product has neither.
+  - Basis: plugins/lusona/skills/frame-product/SKILL.md:62 "Fill only the sections the work has content for." plugins/lusona/skills/architect/SKILL.md:74 "Link a shared ADR from Architecture in `docs/lusona/product.md`."
+- [136] `templates/review.md.template`
+  - Before: Use in the response by default.
+  - After: Give the report in the reply.
+  - Basis: plugins/lusona/skills/review/SKILL.md:71 "Give the report in the reply, structured by the [review template](../../templates/review.md.template)." The saving rule stays in the next sentences of the same comment.
+- [138] `templates/status.md.template`
+  - Before: Default to a response, not a saved document.
+  - After: Write the assessment in the reply. Save it only when the user authorizes saving.
+  - Basis: plugins/lusona/skills/status/SKILL.md:78 "the assessment is a reply, not a saved record. Save it only when the user authorizes saving"
+- [139] `templates/status.md.template`
+  - Before: Apply the shared presentation contract and host/user format overrides.
+  - After: Apply the status skill's final reply form. User and host formatting instructions override it.
+  - Basis: plugins/lusona/skills/status/SKILL.md:107 "User and host formatting instructions override this form." The reply-format rules of the committed README (HEAD README.md:143-181, "Review and communication") became the final-reply region of each SKILL.md.
+- [140] `templates/status.md.template`
+  - Before: Omit unrelated workflow stages.
+  - After: Name only the skills that the next action needs.
+  - Basis: plugins/lusona/references/workflow-guide.md:85 "Use only the skills that the change's unresolved work needs. Definition, planning, implementation and review are responsibilities, not mandatory phases."
+- [142] `README.md`
+  - Before: 2. P2 Refinement: each pass compares its result with the intended outcome and carries decisions, authority, TDD level and evidence forward. 3. P3 Prior decisions are inputs: new input that contradicts a decision leads to a revisit with the user, not a rejection. 4. P4 Recorded invalidation: a superseded decision is marked with date and source, and its rationale is kept. 5. P5 Evidence over assertion: behavior and completion are claimed only from observed checks. 6. P6 Authority stays with the user: specs, plans, ADRs and queue states do not authorize implementation. 7. P7 Continue bounded work: the agent takes the next authorized action and pauses only the affected work.
+  - After: 2. P2 Refinement: each pass compares its result with the intended outcome and carries outcome, decisions, authority, TDD level, evidence and uncertainty forward. 3. P3 Prior decisions are inputs: when new input contradicts a decision, the agent states the conflict and revisits the decision with the user. 4. P4 Recorded invalidation: a superseded decision is marked with date and source, and its rationale is kept. 5. P5 Evidence over assertion: behavior and completion are claimed only from observed checks. 6. P6 Authority stays with the user: specs, plans, ADRs and queue states do not authorize implementation. 7. P7 Continue bounded work: the agent takes the next authorized action unprompted and pauses only the affected work.
+  - Basis: plugins/lusona/references/workflow-guide.md:10 "carry outcome, decisions, authority, TDD level, evidence and uncertainty into the next pass" plugins/lusona/references/workflow-guide.md:11 "state the conflict and revisit it with the user" plugins/lusona/references/workflow-guide.md:15 "take the next authorized action unprompted" One block because P2, P3 and P7 are not adjacent; P4 to P6 are copied unchanged, P1 and P8 already match, and the list stays.
+- [200] `templates/batch.md.template`
+  - Before: no-commit method if applicable>
+  - After: no-commit method when commits are not permitted>
+  - Basis: batch/references/workspaces.md:24-25 "Commit only when project authorization permits it. Without commits, keep the uncommitted edits."
+- [202] `templates/notes.md.template`
+  - Before: TDD and source when applicable;
+  - After: TDD level and source when set;
+  - Basis: references/retention.md:44 "TDD level and source when set".
+- [203] `templates/spec.md.template`
+  - Before: include expected error status/output when applicable>
+  - After: include the expected error status or output for an error case>
+  - Basis: implement/SKILL.md:33 "including required error behavior".
+- [204] `templates/product.md.template`
+  - Before: and suggested skill prompt when ready>
+  - After: and skill prompt>
+  - Basis: Term defined in references/workflow-guide.md (Terminology); the spec and status templates already say "skill prompt" without a condition.
+- [205] `references/queue.md`
+  - Before: | Icebox | Deliberately parked outcome, kept in its own section with its queue state | coordinator, on user direction |
+  - After: - Icebox is a section of the queue, not a queue state. It holds deliberately parked outcomes; each parked row keeps its queue state. The coordinator parks and reactivates rows on user direction.
+  - Basis: references/workflow-guide.md Terminology "Queue state: Ideas, Ready, Doing, Review or Done; a row parked in Icebox keeps its queue state"; templates/work.md.template:3 lists five states; queue.md "Keep separate Active queue and Icebox sections."
+
+## D. Delete: the sentence repeats a rule that another line states completely
+
+APPLIED 2026-11-11. 9 rows.
+
+- [0] `skills/batch/SKILL.md`
+  - Before: This skill adds coordination; it is not a second implementation workflow and does not guarantee background execution.
+  - After: (deleted)
+  - Basis: batch/SKILL.md:60 states the first clause: "When a selected item needs work outside coordination, dispatch the owning skill; do not do it as batch work." start-and-resume.md:9 states the second: "The batch skill gives no background execution guarantee." (row 34 keeps that rule).
+- [13] `skills/batch/references/authority.md`
+  - Before: - Other contract and repository rules still apply.
+  - After: (deleted)
+  - Basis: authority.md:13 states the repository part: "Existing commit authority and repository restrictions apply." No plugin line defines "contract"; scripts/check_instructions.py calls the generated every-task lines (batch/SKILL.md:9-25) "core contract clauses", and those lines apply without this sentence.
+- [15] `skills/batch/references/authority.md`
+  - Before: - When new coupling appears, stop the affected work and reconcile it before rescheduling.
+  - After: (deleted)
+  - Basis: Only line 32 is stated completely, by batch/SKILL.md:86: "When new coupling appears, stop the affected writers. Reconcile and reassess designs, plans and evidence before dependent work resumes." Lines 28-31 stay: 28 adds the comparison with the intended outcome, 29 adds "required review still decide eligibility", 30 adds "without waiting for the whole batch" (SKILL.md:85 covers only "while other items' definitions continue"), and 31 has no counterpart.
+- [17] `skills/batch/references/authority.md`
+  - Before: - Close an item only when its completion conditions, required checks and independent review pass. - Required human acceptance and delivery still apply.
+  - After: (deleted)
+  - Basis: batch/SKILL.md:104 states lines 45 and 46 completely: "Close an item only when its completion gates pass on the item's final content: completion conditions, required checks, independent review, and any required human acceptance or delivery." Line 47 stays: batch/SKILL.md does not state "report it as unmet" or the persona sentence (delegation.md:75-76 do); line 48 is row 18.
+- [33] `skills/batch/references/start-and-resume.md`
+  - Before: - A batch starts or resumes explicitly authorized unattended work on a fixed selection of current queue items.
+  - After: (deleted)
+  - Basis: authority.md:7 states it: "A batch needs the user's explicit authorization of unattended work on a fixed selection of queue items." queue.md:60 covers "current": Icebox rows are excluded from "all current queue items".
+- [35] `skills/batch/references/start-and-resume.md`
+  - Before: - The coordinator owns `docs/lusona/batches/<batch-slug>.md`, the queue and the shared handoffs.
+  - After: (deleted)
+  - Basis: delegation.md:18 states it: "Only the coordinator writes shared queues, batch records and the handoffs saved in them." batch/SKILL.md:31 repeats it in the Responsibility field, and start-and-resume.md:31 keeps the record path rule.
+- [101] `references/delegation.md`
+  - Before: - Narrower loading does not add user interviews or responsibility.
+  - After: (deleted)
+  - Basis: plugins/lusona/references/delegation.md:82 "Do not interview the user or start another workflow skill on your own." plugins/lusona/references/delegation.md:83 "Additional work requires a new assignment." "Narrower loading" is defined nowhere; the committed README (HEAD README.md:187-188) used it for a leaf that reads only the leaf sections.
+- [116] `references/tdd.md`
+  - Before: - Implementation owns decomposition and its evidence. Refactoring owns behavior-preserving checks.
+  - After: (deleted)
+  - Basis: plugins/lusona/skills/implement/SKILL.md:31 "decompose the change only to the depth the decision criteria below require" plugins/lusona/skills/refactor/SKILL.md:68 "Run the checks that exercise the affected path before the first edit. Record the baseline." Each half is an instruction in the skill that performs it; "its evidence" has no certain antecedent to reword.
+- [137] `templates/spec.md.template`
+  - Before: Apply the core recording restrictions.
+  - After: (deleted)
+  - Basis: Every SKILL.md states the restriction in its Saving rule, for example plugins/lusona/skills/specify/SKILL.md:23 "When saving is prohibited, report what was not saved." The same paragraph keeps "subject to explicit no-save/read-only restrictions" (spec.md.template:13-14), and "core" names no current file.
+
+## K. Keep: no change
+
+CLOSED, text unchanged. 8 rows.
+
+- [39] `skills/status/SKILL.md`
+  - Basis: No file states a cost threshold for a check, and the brief forbids inventing one. Dropping "expensive" would narrow the rule to mutating checks, and extending it to every check would conflict with the status template line 16, which expects "fresh checks"; the files do not say which the user intends.
+- [53] `skills/specify/SKILL.md`
+  - Basis: Stale: the description is already split, and its first sentence now has 25 words. The text is also a frontmatter `description`, which the brief excludes.
+- [89] `references/completion.md`
+  - Basis: The example repeats the wording of the rule it illustrates: plugins/lusona/references/workflow-guide.md:63 "propose a follow-up that serves the agreed outcome" and shared/final-reply.md:12 "a follow-up serves the agreed outcome" (generated into all 14 SKILL.md files). Changing the example alone adds a second wording.
+- [91] `references/corrections.md`
+  - Basis: The second term is gone: plugins/lusona/references/corrections.md:7 "one bounded correction or diagnostic probe" and plugins/lusona/references/evidence.md:10 "for a diagnostic probe". "probing" matches "diagnostic probe".
+- [106] `references/delegation.md`
+  - Basis: No line states a size test for an assignment. "oversized" can refer to the leaf's context, the model's capability or the scope of one assignment, and the files do not select one. "separable" is the testable condition in the sentence.
+- [107] `references/evidence.md`
+  - Basis: Already defined at first use: plugins/lusona/references/evidence.md:8 "Uncertainty alone does not start a study (a measurement or experiment)."
+- [141] `README.md`
+  - Basis: The image itself and the repository README use "command" for the same caption; changing one alt text alone adds a second wording.
+- [143] `README.md`
+  - Basis: No separate edit: row 142 replaces this sentence (README.md:22) with the workflow-guide P3 wording. A second row on the same line would make tmp/voice-pass/apply.py abort.
+
+## T. Term rows
+
+RESOLVED by the term decisions (applied). 9 rows.
+
+- [18] `skills/batch/references/authority.md`
+  - Basis: The term for a file under docs/lusona/plans/ ("existing separate plan") is out of scope under the brief.
+- [36] `skills/batch/references/start-and-resume.md`
+  - Basis: The term for a file under docs/lusona/plans/ ("split records") is out of scope under the brief; the first sentence of the line stays until that term is chosen because batch/SKILL.md:107 uses the same term family.
+- [64] `skills/implement/SKILL.md`
+  - Basis: Out of scope: the term for a file under `docs/lusona/plans/` ("separate plan", "execution record", "companion plan") is with the user; the verb depends on that term.
+- [65] `skills/implement/SKILL.md`
+  - Basis: Out of scope: the choice between "settled decisions" and "accepted decisions" is with the user.
+- [70] `skills/refactor/SKILL.md`
+  - Basis: Out of scope: the term for a file under `docs/lusona/plans/` ("separate plan", "execution record", "companion plan") is with the user; the verb depends on that term.
+- [71] `skills/refactor/SKILL.md`
+  - Basis: Out of scope: the choice between "settled decisions" and "accepted decisions" is with the user.
+- [78] `skills/investigate/SKILL.md`
+  - Basis: Out of scope: the choice between "settled decisions" and "accepted decisions" is with the user.
+- [84] `skills/experiment/SKILL.md`
+  - Basis: Out of scope: the choice between "settled decisions" and "accepted decisions" is with the user.
+- [133] `templates/product.md.template`
+  - Basis: "when ready" conditions the "suggested skill prompt", a reserved term. tmp/voice-pass/r3/t_terms.py defines Skill prompt and Continuation directive separately, and plugins/lusona/references/retention.md:101 already gives the directive its trigger; the condition follows from the term chosen.
+
+## O. Open words found by a word sweep; no replacement drafted
+
+APPLIED 2026-11-11 from the [round 4 listing](round-4-open-words.md) (32 rows; 16 lines kept). The list below is the earlier inventory.
+
+- `safe` / `unsafe`: `skills/implement/SKILL.md` step 9 ("each new step that is safe to repeat"); `references/delegation.md` ("prevent a safe shutdown"); `skills/batch/references/deferral-and-resumption.md` ("When isolation or restoration is unsafe"); `skills/batch/references/integration.md` ("When safe restoration cannot be established"); `templates/batch.md.template` ("proving safe separation"). The batch outcome value "unsafe to continue" is a label and is not listed.
+- `disposable`: `skills/experiment/SKILL.md` ("your own disposable edits"); `references/evidence.md` ("Disposable work needs no record", "disposable outputs", "disposable scratch storage"); `references/retention.md` ("disposable questions").
+- `ordinary`: `skills/explore/SKILL.md` ("Ordinary dialogue needs no record"); `references/retention.md` ("Ordinary explanations"); `references/queue.md` ("An ordinary spec edit"); `references/delegation.md` ("An ordinary Claude Code agent outside a team").
+- `material` outside its two definitions (material progress in corrections, material evidence in evidence): `skills/explore/SKILL.md` ("a material external claim", "a material uncertainty" twice; investigate now says "an uncertainty that can change the next action"); `references/retention.md` ("material facts or authority"); `templates/brainstorm.md.template` ("material cost or limitation"); `templates/review.md.template` ("any material verification limitation").
+- `expensive`: `skills/status/SKILL.md` ("Do not rerun expensive or mutating checks for orientation"). Row 39: no file states a cost threshold.
+- `oversized`, `when allowed`, `insufficient`: `references/delegation.md` ("select a more capable model when allowed and reasoning was insufficient, or split an oversized separable outcome"). Row 106.
+- `broader`: `references/retention.md` ("without implying broader completion").
+- `fresh`: `templates/status.md.template` ("distinguish recorded claims from fresh checks").
+- `normal`: `references/naming.md` ("Do not start one during normal work").
+- `ready` as a condition (not the queue state Ready): next-action labels in `skills/design`, `skills/frame-product`, `skills/map-capabilities` and `skills/specify` ("A draft is ready", "Spec ready"), and the Review state meaning in `references/queue.md` ("Evidence ready for review or acceptance", tied to held row 122).

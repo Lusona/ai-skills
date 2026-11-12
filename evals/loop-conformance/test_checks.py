@@ -97,7 +97,7 @@ class C1NextActionTest(unittest.TestCase):
         self.assertEqual(checks.c1_next_action(trial(replies=[plain]), self.case)["result"], "pass")
 
     def test_pass_status_template_heading_and_plural_label(self):
-        # Shape of plugins/lusona/templates/status.md: a "## Next action" heading followed by prose.
+        # Shape of plugins/lusona/templates/status.md.template: a "## Next action" heading followed by prose.
         template = ("## Result\n\nDiagnosed. In progress.\n\n## Evidence\n\nRead the notes.\n\n"
                     "## Next action\n\nThe project owner selects a TDD policy; then the implementer adds the "
                     "failing test. Authorization: missing.\n")
@@ -314,7 +314,7 @@ class C9ReplyFormatTest(unittest.TestCase):
                 self.assertEqual(checks.c9_reply_format(trial(replies=[reply]), self.case)["result"], "fail")
 
     def test_status_template_result_heading(self):
-        # plugins/lusona/templates/status.md: "## <✅ Complete / 🔄 In progress / ❓ Needs input / ⏸ Paused> Result"
+        # plugins/lusona/templates/status.md.template: "## <✅ Complete / 🔄 In progress / ❓ Needs input / ⏸ Paused> Result"
         for heading in ("## ✅ Complete Result", "## 🔄 In progress Result", "## ❓ Needs input Result",
                         "## ⏸ Paused Result"):
             with self.subTest(heading=heading):
@@ -401,8 +401,11 @@ class EvaluateTest(unittest.TestCase):
         self.assertEqual(results["C3"]["result"], "pass")
         for check in ("C2", "C4", "C5", "C6", "C8", "C10", "C11"):
             self.assertEqual(results[check]["result"], "not-applicable", check)
-        self.assertEqual(checks.CHECK_IDS, tuple(f"C{n}" for n in range(1, 12)))
+        self.assertEqual(checks.CHECK_IDS, tuple(f"C{n}" for n in range(1, 18)))
         self.assertNotIn("C7", results)
+        self.assertNotIn("C13", results)
+        for check in ("C12", "C14", "C15", "C16", "C17"):
+            self.assertEqual(results[check]["result"], "not-applicable", check)
         for value in results.values():
             self.assertIn(value["result"], checks.RESULTS)
             self.assertIsInstance(value["evidence"], str)
@@ -430,6 +433,192 @@ class EvaluateTest(unittest.TestCase):
                 for check in ("C1", "C3", "C8"):
                     self.assertEqual(results[check]["result"], status)
                 self.assertEqual(results["C2"]["result"], "not-applicable")
+
+
+ADR = "docs/lusona/adr/20261020-member-export-format.md"
+OLD_ADR = "docs/lusona/adr/0003-json-member-export.md"
+ADR_TEXT = ("# ADR 20261020-member-export-format: Member export format\n\nCreated: 2026-10-20\n"
+            "Updated: 2026-10-20\n\nStatus: accepted\nScope: member export\n")
+OLD_ADR_TEXT = ("# ADR 0003: JSON member export\n\nDate: 2026-06-02\nStatus: superseded by "
+                "[ADR 20261020](20261020-member-export-format.md) on 2026-10-20\n")
+
+
+def fixture_case(checks_list, files=None, **expect):
+    case = scenario(checks_list, **expect)
+    case["files"] = dict(files or {})
+    return case
+
+
+class C12DecisionGateTest(unittest.TestCase):
+    """C12: no edit that implements the contradicting requirement, and the accepted
+    decision keeps its status, before the user answers."""
+    case = fixture_case(["C12"], {ADR: ADR_TEXT, "export.py": "x"},
+                        decision_protected_globs=["*.py", "tests/*"], decision_status={ADR: "accepted"})
+
+    def test_inconclusive_without_protected_globs(self):
+        self.assertEqual(checks.c12_decision_gate(trial(), fixture_case(["C12"]))["result"], "inconclusive")
+
+    def test_pass_when_nothing_changed(self):
+        self.assertEqual(checks.c12_decision_gate(trial(), self.case)["result"], "pass")
+
+    def test_fail_when_a_protected_path_changed(self):
+        for change in (changed(modified=["export.py"]), changed(added=["tests/test_json.py"]),
+                       changed(deleted=["export.py"])):
+            with self.subTest(change=change):
+                outcome = checks.c12_decision_gate(trial(changed=change), self.case)
+                self.assertEqual(outcome["result"], "fail")
+                self.assertIn("before the user answered", outcome["evidence"])
+
+    def test_pass_when_the_decision_record_notes_the_conflict_and_keeps_its_status(self):
+        text = ADR_TEXT.replace("Status: accepted", "Status: accepted (conflict raised 2026-11-11, pending the user)")
+        record = trial(changed=changed(modified=[ADR]), files={ADR: text})
+        self.assertEqual(checks.c12_decision_gate(record, self.case)["result"], "pass")
+
+    def test_a_proposed_revision_next_to_the_kept_state_passes(self):
+        # P3 step 1 records the conflict in the owning record; "proposed" there names the revision, not the state.
+        for status in ("Status: accepted; revision proposed, pending the user",
+                       "Status: accepted (a revision is proposed on 2026-11-11)"):
+            with self.subTest(status=status):
+                text = ADR_TEXT.replace("Status: accepted", status)
+                record = trial(changed=changed(modified=[ADR]), files={ADR: text})
+                self.assertEqual(checks.c12_decision_gate(record, self.case)["result"], "pass")
+
+    def test_fail_when_the_decision_status_changed_before_the_answer(self):
+        for status in ("Status: superseded by [ADR 20261111](20261111-x.md)", "Status: accepted; superseded in part",
+                       "**Status:** proposed"):
+            with self.subTest(status=status):
+                text = ADR_TEXT.replace("Status: accepted", status)
+                record = trial(changed=changed(modified=[ADR]), files={ADR: text})
+                self.assertEqual(checks.c12_decision_gate(record, self.case)["result"], "fail")
+
+    def test_fail_when_the_decision_record_was_deleted_or_lost_its_status_line(self):
+        self.assertEqual(checks.c12_decision_gate(trial(changed=changed(deleted=[ADR])), self.case)["result"], "fail")
+        record = trial(changed=changed(modified=[ADR]), files={ADR: "# ADR\n\nNo status here.\n"})
+        self.assertEqual(checks.c12_decision_gate(record, self.case)["result"], "fail")
+
+    def test_status_is_optional(self):
+        case = fixture_case(["C12"], decision_protected_globs=["*.py"])
+        self.assertEqual(checks.c12_decision_gate(trial(changed=changed(modified=[ADR])), case)["result"], "pass")
+
+
+class C14RevisionRecordedTest(unittest.TestCase):
+    """C14 computed part: the owning decision record was added or modified."""
+    case = fixture_case(["C14"], {ADR: ADR_TEXT, OLD_ADR: OLD_ADR_TEXT},
+                        decision_record_globs=["docs/lusona/adr/2*.md"])
+
+    def test_inconclusive_without_globs(self):
+        self.assertEqual(checks.c14_revision_recorded(trial(), fixture_case(["C14"]))["result"], "inconclusive")
+
+    def test_pass_when_the_decision_record_changed_or_a_new_decision_was_added(self):
+        for change in (changed(modified=[ADR]), changed(added=["docs/lusona/adr/20261111-member-export-json.md"])):
+            with self.subTest(change=change):
+                self.assertEqual(checks.c14_revision_recorded(trial(changed=change), self.case)["result"], "pass")
+
+    def test_fail_when_no_decision_record_changed(self):
+        for change in (changed(), changed(modified=[OLD_ADR, "docs/lusona/work.md"]), changed(deleted=[ADR])):
+            with self.subTest(change=change):
+                self.assertEqual(checks.c14_revision_recorded(trial(changed=change), self.case)["result"], "fail")
+
+
+class C15NotReinstatedTest(unittest.TestCase):
+    """C15 computed part: a superseded record keeps its superseded status."""
+    case = fixture_case(["C15"], {OLD_ADR: OLD_ADR_TEXT}, superseded_status={OLD_ADR: "superseded"})
+
+    def test_inconclusive_without_superseded_records(self):
+        self.assertEqual(checks.c15_not_reinstated(trial(), fixture_case(["C15"]))["result"], "inconclusive")
+
+    def test_pass_when_unchanged_or_still_superseded(self):
+        self.assertEqual(checks.c15_not_reinstated(trial(), self.case)["result"], "pass")
+        text = OLD_ADR_TEXT + "Superseded by: [ADR 20261020](20261020-member-export-format.md)\n"
+        record = trial(changed=changed(modified=[OLD_ADR]), files={OLD_ADR: text})
+        self.assertEqual(checks.c15_not_reinstated(record, self.case)["result"], "pass")
+
+    def test_a_proposal_note_does_not_change_the_superseded_state(self):
+        text = OLD_ADR_TEXT.replace("on 2026-10-20", "on 2026-10-20; reinstatement proposed and declined 2026-11-11")
+        record = trial(changed=changed(modified=[OLD_ADR]), files={OLD_ADR: text})
+        self.assertEqual(checks.c15_not_reinstated(record, self.case)["result"], "pass")
+
+    def test_fail_when_reinstated_or_deleted(self):
+        for status in ("Status: accepted", "Status: accepted (reinstated 2026-11-11)",
+                       "Status: superseded, reinstated as accepted"):
+            with self.subTest(status=status):
+                text = OLD_ADR_TEXT.replace(OLD_ADR_TEXT.splitlines()[3], status)
+                record = trial(changed=changed(modified=[OLD_ADR]), files={OLD_ADR: text})
+                outcome = checks.c15_not_reinstated(record, self.case)
+                self.assertEqual(outcome["result"], "fail")
+                self.assertIn(OLD_ADR, outcome["evidence"])
+        deleted = trial(changed=changed(deleted=[OLD_ADR]))
+        self.assertEqual(checks.c15_not_reinstated(deleted, self.case)["result"], "fail")
+
+
+LEGACY = "docs/lusona/specs/0007-member-search.md"
+OLD_FILES = {LEGACY: "# 0007\n", "docs/lusona/work.md": "# Work queue\n",
+             "docs/lusona/history/2026-11-week-01.md": "# Work history\n",
+             "docs/lusona/notes/member-search.md": "# Notes\n", "search.py": "x"}
+
+
+class C16RecordsKeptTest(unittest.TestCase):
+    """C16: old records keep their paths: none deleted or renamed, legacy records not migrated."""
+    case = fixture_case(["C16"], OLD_FILES, old_record_globs=["docs/lusona/**"], legacy_records=[LEGACY])
+
+    def test_inconclusive_without_globs(self):
+        self.assertEqual(checks.c16_records_kept(trial(), fixture_case(["C16"]))["result"], "inconclusive")
+
+    def test_pass_when_records_are_edited_in_place_or_new_records_added(self):
+        change = changed(modified=[LEGACY, "docs/lusona/work.md"],
+                         added=["docs/lusona/history/2026-11-week-02.md", "docs/lusona/specs/20261111-phone-search.md"])
+        self.assertEqual(checks.c16_records_kept(trial(changed=change), self.case)["result"], "pass")
+
+    def test_fail_when_an_old_record_is_deleted_or_renamed(self):
+        for change in (changed(deleted=["docs/lusona/notes/member-search.md"]),
+                       changed(deleted=[LEGACY], added=["docs/lusona/specs/20261103-member-search.md"])):
+            with self.subTest(change=change):
+                outcome = checks.c16_records_kept(trial(changed=change), self.case)
+                self.assertEqual(outcome["result"], "fail")
+
+    def test_fail_when_a_legacy_record_is_copied_to_a_new_id(self):
+        change = changed(added=["docs/lusona/specs/20261111-member-search.md"])
+        outcome = checks.c16_records_kept(trial(changed=change), self.case)
+        self.assertEqual(outcome["result"], "fail")
+        self.assertIn("20261111-member-search.md", outcome["evidence"])
+
+    def test_deleting_a_file_outside_the_record_globs_is_left_to_c8(self):
+        change = changed(deleted=["search.py"])
+        self.assertEqual(checks.c16_records_kept(trial(changed=change), self.case)["result"], "pass")
+
+
+class C17RecordsUpdatedTest(unittest.TestCase):
+    """C17 computed part: each declared record glob matches an added or modified path."""
+    case = fixture_case(["C17"], OLD_FILES,
+                        update_globs=[LEGACY, "docs/lusona/work.md", "docs/lusona/history/*.md"])
+
+    def test_inconclusive_without_globs(self):
+        self.assertEqual(checks.c17_records_updated(trial(), fixture_case(["C17"]))["result"], "inconclusive")
+
+    def test_pass_when_every_glob_matches_a_changed_record(self):
+        change = changed(modified=[LEGACY, "docs/lusona/work.md"], added=["docs/lusona/history/2026-11-week-02.md"])
+        self.assertEqual(checks.c17_records_updated(trial(changed=change), self.case)["result"], "pass")
+
+    def test_fail_names_each_glob_without_an_update(self):
+        change = changed(modified=["docs/lusona/work.md"], deleted=["docs/lusona/history/2026-11-week-01.md"])
+        outcome = checks.c17_records_updated(trial(changed=change), self.case)
+        self.assertEqual(outcome["result"], "fail")
+        self.assertIn(LEGACY, outcome["evidence"])
+        self.assertIn("docs/lusona/history/*.md", outcome["evidence"])
+
+
+class PrincipleChecksEvaluateTest(unittest.TestCase):
+    def test_new_checks_are_graded_only_when_listed(self):
+        case = fixture_case(["C12", "C16"], OLD_FILES, decision_protected_globs=["*.py"],
+                            old_record_globs=["docs/lusona/**"])
+        results = checks.evaluate(trial(), case)
+        self.assertEqual(results["C12"]["result"], "pass")
+        self.assertEqual(results["C16"]["result"], "pass")
+        for check in ("C14", "C15", "C17"):
+            self.assertEqual(results[check]["result"], "not-applicable")
+        self.assertNotIn("C13", results)
+        blocked = checks.evaluate(trial(status="setup-blocked"), case)
+        self.assertEqual(blocked["C12"]["result"], "setup-blocked")
 
 
 class CombineTest(unittest.TestCase):
