@@ -292,9 +292,10 @@ Warteschlangenstatus. Hypothetische Antwort, kein Nachweis geleisteter Arbeit:
   die Antwort sie vor und nennt die fehlende Befugnis. Bleibt keine Aktion, steht dort
   `**Next action:** None for this request` mit einer Begründung in einem Satz.
 - Eine Anweisung zur Fortsetzung in einer anderen Sitzung steht als Blockzitat unter der Tabelle.
-- Deine Formatvorgaben und die Einschränkungen der Anwendung haben Vorrang. Ergebnis, Belege,
-  Status und nächste Aktion bleiben erhalten. Siehe die
-  [Abschlussbeispiele](plugins/lusona/references/completion.md).
+- Die Antwort behält die erforderlichen Bezeichnungen und Felder, sofern weder du noch die
+  Anwendung ausdrücklich ein unvereinbares Format verlangen. Der Wunsch nach Kürze entfernt sie
+  nicht. In einem angepassten Format bleiben Ergebnis, Belege, Status und nächste Aktion
+  erhalten. Siehe die [Abschlussbeispiele](plugins/lusona/references/completion.md).
 
 ## Installation
 

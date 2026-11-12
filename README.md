@@ -274,8 +274,10 @@ that work occurred:
   and states the missing authority. When no action remains, it says
   `**Next action:** None for this request` with a one-sentence reason.
 - A continuation directive for another session goes in a blockquote below the table.
-- Your formatting instructions and host constraints override the form; the outcome, evidence,
-  status and next action remain. See the [completion examples](plugins/lusona/references/completion.md).
+- The reply keeps the required labels and fields unless you or the host explicitly require an
+  incompatible format. A preference for brevity does not remove them. In an adapted format, the
+  outcome, evidence, status and next action remain. See the
+  [completion examples](plugins/lusona/references/completion.md).
 
 ## Installation
 

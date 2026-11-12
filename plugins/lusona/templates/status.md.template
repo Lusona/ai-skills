@@ -8,7 +8,8 @@ execution record; link existing evidence rather than creating a second progress 
 
 <Current assessment within the requested scope. The label describes this assessment or
 authorized outcome, not a queue state or overall project completion. Put a blocking decision
-first. Apply the status skill's final reply form. User and host formatting instructions override it.>
+first. Apply the status skill's final reply form. Keep its required labels and fields unless a
+user or host instruction explicitly requires an incompatible format.>
 
 ## Evidence
 

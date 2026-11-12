@@ -390,6 +390,20 @@ Accepted decisions (user, 2026-11-11, native question tool, relayed by the coord
     names, and delegates research that needs other sources. The rationale of both decisions
     stands for the other 12 skills, which assign no work to the coordinator. Record:
     [notes](../notes/selective-delegation-for-status-and-explore.md).
+29. Final-reply formatting rule revised in part after closing (user, 2026-11-11, conversation:
+    "let's make the copy authorative"; scope "All of them" and TDD `none` through the native
+    question tool). GPT Astra suggested the text because Codex omitted required labels (user's
+    report). The rule "user and host formatting override" (readme-164; rule 46 of spec
+    20261110; row 10 of the table below) is revised in part. The final-reply form now reads
+    "Preserve the required labels and fields unless a user or host instruction explicitly
+    requires an incompatible format. Brevity preferences do not remove required fields. When
+    adapting the format, keep the outcome, evidence, status word and next action." (replaced:
+    "User and host formatting instructions override this form. Keep the outcome, evidence,
+    status word and next action in the permitted format."). The rationale stands for an
+    explicit incompatible format: it still overrides the form, and the four kept items are
+    unchanged. A preference such as brevity no longer removes labels or fields. Record:
+    [notes](../notes/final-reply-required-labels.md).
+
 20261110 decisions as inputs:
 
 | # | Decision (short) | Status |
@@ -403,7 +417,7 @@ Accepted decisions (user, 2026-11-11, native question tool, relayed by the coord
 | 7 | Acceptance by checks, review, one C9 suite run | Revised: adds contract checks and principle scenarios (AC18) |
 | 8 | Draft in `drafts/`; promote after acceptance | Kept, but the workspace restarts empty (decision 11) |
 | 9 | One block source, dev-time sync script, sync test | Kept for the mechanism; source location reopened under A6; the script is rewritten (decision 11) |
-| 10 | 234-word block accepted; formatting in Final reply; `completion.md` examples only | Revised: block text discarded (decision 11) and rewritten in W5 under P1-P8 and V1-V9; formatting in Final reply and `completion.md` examples only are kept |
+| 10 | 234-word block accepted; formatting in Final reply; `completion.md` examples only | Revised: block text discarded (decision 11) and rewritten in W5 under P1-P8 and V1-V9; formatting in Final reply and `completion.md` examples only are kept; the formatting-override sentence is revised in part 2026-11-11 (decision 29) |
 
 20261110 exclusions: "no change to policy meaning except decisions 3 and 4" is revised (accepted
 principles may change policy meaning; K1-K5 do not change). "No change to C1/C9 grading or the

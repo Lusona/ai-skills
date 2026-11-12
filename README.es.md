@@ -291,9 +291,11 @@ Ejemplo hipotético de respuesta; no demuestra que se haya realizado el trabajo:
   respuesta lo propone e indica la autoridad que falta. Cuando no queda ninguna acción, dice
   `**Next action:** None for this request` y explica el motivo en una frase.
 - Una instrucción para continuar en otra sesión va en una cita debajo de la tabla.
-- Tus instrucciones de formato y las restricciones de la aplicación tienen prioridad sobre el
-  formato; se mantienen el resultado, las evidencias, el estado y la siguiente acción. Consulta
-  los [ejemplos de finalización](plugins/lusona/references/completion.md).
+- La respuesta conserva las etiquetas y los campos obligatorios, salvo que una instrucción tuya
+  o de la aplicación exija explícitamente un formato incompatible. La preferencia por la
+  brevedad no los elimina. En un formato adaptado se mantienen el resultado, las evidencias, el
+  estado y la siguiente acción. Consulta los
+  [ejemplos de finalización](plugins/lusona/references/completion.md).
 
 ## Instalación
 

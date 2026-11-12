@@ -105,7 +105,7 @@ End every task reply with this form. Do not add this form or a follow-up action 
 - Put a continuation directive for another session in a blockquote below the table.
 - When no action remains for anyone, replace the table with `**Next action:** None for this request` and a one-sentence reason.
 - Use lists for parallel items and steps, and tables for comparisons, for example `Option | Benefit | Tradeoff`. Keep the tables and schemas that a skill or template defines.
-- User and host formatting instructions override this form. Keep the outcome, evidence, status word and next action in the permitted format.
+- Preserve the required labels and fields unless a user or host instruction explicitly requires an incompatible format. Brevity preferences do not remove required fields. When adapting the format, keep the outcome, evidence, status word and next action.
 - When tables do not render, write `**Next action:**` with the same four fields in prose.
 <!-- lusona:end final-reply -->
 

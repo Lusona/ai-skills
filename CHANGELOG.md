@@ -14,6 +14,9 @@ Local source update prepared on 2026-11-11. Publication and installation are not
   plugin README any more; it is human documentation and a catalog.
 - Every task reply states a status (Complete, In progress, Needs input or Paused), the
   evidence, and the next action with its owner, or states that none remains and why.
+- A task reply keeps the required labels and fields unless a user or host instruction
+  explicitly requires an incompatible format. A preference for brevity does not remove them.
+  Before, any user or host formatting instruction overrode the form.
 - Add eight loop principles to the workflow guide. A new requirement that contradicts an
   accepted decision leads to a revisit with the user and a recorded outcome, described in
   the new `revisions` reference.
