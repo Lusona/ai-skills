@@ -4,7 +4,7 @@ Completed 2026-10-27 (local date). [Decision and limits](../../README.md).
 
 - [Baseline independent grades](arm-a.json): 5 pass, 1 expected policy mismatch.
 - [Candidate independent grades](arm-b.json): 6 pass, no critical regression.
-- [Evidence archive](evidence.zip), verified by [SHA-256 manifest](manifest.json).
+- [Evidence archive](../../README.md#removed-archives), verified by [SHA-256 manifest](manifest.json).
 
 The archive preserves the original directory layout under `proportionate-work-20261027/`.
 Extract it into a scratch directory to follow the independent assessment's relative paths.

@@ -119,3 +119,16 @@ No canonical workflow edits, commits, or publication occurred. The isolated prot
 scratch package remain under repository-local `tmp/` for inspection; durable evidence is linked
 above. Setup and grading agents completed with no owned operations or children remaining;
 the host exposes no separate shutdown confirmation for these completed agents.
+
+## Removed archives
+
+The archives below were removed from the working tree on 2026-11-12 to reduce the checkout
+size. Commit `9f2260f` holds each one unchanged. Restore an archive from the repository root
+with `git show 9f2260f:docs/lusona/evidence/2026-10-27-proportionate-evidence-work/<path> > <file>`, then compare its SHA-256 with this table.
+Hashes recorded in the manifests of this topic apply to the restored files.
+
+| Path in this topic | Bytes | SHA-256 |
+| --- | --- | --- |
+| `refinement/checks.zip` | 70505 | `e6760b4d2c094c5d884bf212fb137377e29f485a3893bde9871ca74eb91348b7` |
+| `runs/001/evidence.zip` | 1886491 | `e0f429905bbf30175255a3a34466bb0e207b5c1897e27c553637139847f2197e` |
+| `runs/002/evidence.zip` | 1665444 | `3629bd558e2fa4fdcbd0543161e79f4fa5375b43d371cbde63c1c77c5ecf8feb` |

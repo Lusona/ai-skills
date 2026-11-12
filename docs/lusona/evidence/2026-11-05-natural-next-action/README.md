@@ -64,7 +64,7 @@ context. The editor and reviewer are separate agents.
 - [Initial fixture contents](initial-fixtures.json); `finished` started empty
 - [Baseline hashes](baseline-inputs.json) and [candidate hashes](candidate-inputs.json)
 - [Actual artifact differences](artifact-diff.json)
-- [Exact input plugin snapshots](inputs.zip), with the task requests
+- [Exact input plugin snapshots](#removed-archives), with the task requests
 
 Final project files are retained under each condition's case directory. Only the
 existing Explore note changed in each condition; Finished remained empty and Status
@@ -87,3 +87,14 @@ trial, installation test, repeated sampling, reliability estimate, or cross-host
 comparison was performed. Baseline Explore already exhibited the desired save and
 next-action behavior, so this trial does not reproduce the reported intermittent
 failure or establish its cause.
+
+## Removed archives
+
+The archives below were removed from the working tree on 2026-11-12 to reduce the checkout
+size. Commit `9f2260f` holds each one unchanged. Restore an archive from the repository root
+with `git show 9f2260f:docs/lusona/evidence/2026-11-05-natural-next-action/<path> > <file>`, then compare its SHA-256 with this table.
+Hashes recorded in the manifests of this topic apply to the restored files.
+
+| Path in this topic | Bytes | SHA-256 |
+| --- | --- | --- |
+| `inputs.zip` | 403663 | `164444e820c365d27b798dba029ae586c51500e4aeca0ead89eaf843b3402e9c` |

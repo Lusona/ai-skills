@@ -17,7 +17,7 @@ and evidence cleanup. No commit, push, publication or real-user-configuration in
 | Historical native lifecycle | Native fixture 1.3.2 install/list, helper execution, synthetic 1.3.3 replacement, uninstall, project/config preservation passed | captured-lifecycle/test.py, run.sh, output.txt |
 | Root-reference tests | Expected test-first failure then green; packaged-root strict validation discovers 13 skills | root-reference/ logs |
 
-[artifacts.zip](artifacts.zip) retains exact commands, outputs, scripts, source identities and
+[artifacts.zip](#removed-archives) retains exact commands, outputs, scripts, source identities and
 file hashes. Historical observations remain unchanged; their versions are not relabeled 1.4.0.
 
 ## GitHub installation decision
@@ -103,3 +103,14 @@ User subsequently explicitly selected the repository-root `.git` command as the 
 installation URL. Restored it in INSTALL.md and all five READMEs; retained the observed
 root-install project-record inclusion in INSTALL.md. This supersedes the preceding
 documentation URL choice, not the recorded installation observations.
+
+## Removed archives
+
+The archives below were removed from the working tree on 2026-11-12 to reduce the checkout
+size. Commit `9f2260f` holds each one unchanged. Restore an archive from the repository root
+with `git show 9f2260f:docs/lusona/evidence/2026-10-31-antigravity-support/<path> > <file>`, then compare its SHA-256 with this table.
+Hashes recorded in the manifests of this topic apply to the restored files.
+
+| Path in this topic | Bytes | SHA-256 |
+| --- | --- | --- |
+| `artifacts.zip` | 28746 | `24decce9dc1ccc8e412d7912e32fb9d4ed3a76fb468d1f9de9b67fbe2f0b0650` |

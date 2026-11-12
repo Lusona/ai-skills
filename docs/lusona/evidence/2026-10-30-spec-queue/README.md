@@ -43,7 +43,7 @@ spec/queue and missing-queue planning cases; candidate passes all four cases. Bo
 pass direct spec-free work and explicit no-save. Final-source planning follow-up also passes.
 These bounded observations establish the tested behavior, not reliability across models/hosts.
 Exact assignments, reports, inventories, intermediate and final artifacts are retained in
-[artifacts.zip](artifacts.zip), under `baseline/` and `candidate/`; hashes identify initial
+[artifacts.zip](#removed-archives), under `baseline/` and `candidate/`; hashes identify initial
 snapshots and final canonical source. Extract the archive to inspect those paths. On 2026-10-31,
 all original artifact bytes were verified against the archive before removing the loose copies.
 
@@ -72,3 +72,14 @@ after those trials. Version/package checks passed for 1.3.2: package/resource/te
 13 skill validators, native Claude plugin and marketplace validation, Bash helper checks, and
 reviewed-source hash comparison (only the three manifest versions differ). No skill
 instruction content changed after independent review. Installation and publication are outside scope.
+
+## Removed archives
+
+The archives below were removed from the working tree on 2026-11-12 to reduce the checkout
+size. Commit `9f2260f` holds each one unchanged. Restore an archive from the repository root
+with `git show 9f2260f:docs/lusona/evidence/2026-10-30-spec-queue/<path> > <file>`, then compare its SHA-256 with this table.
+Hashes recorded in the manifests of this topic apply to the restored files.
+
+| Path in this topic | Bytes | SHA-256 |
+| --- | --- | --- |
+| `artifacts.zip` | 42565 | `b1735df32f271e1bdcd70ea56a61d1aa8c5045691f3a3c036125fe458b66d5b9` |

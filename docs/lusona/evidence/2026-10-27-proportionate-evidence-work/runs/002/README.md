@@ -34,8 +34,8 @@ are individual observations, not general efficiency claims.
 ## Verification and records
 
 - [Initial candidate grades](candidate-grades.json) and [follow-up grades](followup-grades.json).
-- [Complete evidence archive](evidence.zip), verified by its [SHA-256 manifest](manifest.json).
-- [Earlier baselines](../001/README.md) and [refinement checks](../../refinement/checks.zip).
+- [Complete evidence archive](../../README.md#removed-archives), verified by its [SHA-256 manifest](manifest.json).
+- [Earlier baselines](../001/README.md) and [refinement checks](../../README.md#removed-archives).
 
 The archive preserves designs, approvals, locks, fixtures, source snapshots, commands, root/worker
 traces, artifacts, grades, adverse results, recovery and reviews under

@@ -5,7 +5,7 @@ Owner: [spec 20261028-visual-options-and-references](../../specs/20261028-visual
 ## Declared design
 
 Frozen on 2026-10-28 before canonical edits (`design.md`, `tasks/`, `fixture/`,
-`evaluator/criteria.md` in [evidence.zip](evidence.zip); hashes in `frozen.sha256`).
+`evaluator/criteria.md` in [evidence.zip](#removed-archives); hashes in `frozen.sha256`).
 
 - TDD: targeted (user, 2026-10-28). Test-first: TF-a = AC2 retention (C1); TF-b = AC6 binding
   acceptance in implement (C2). Regression, candidate-only: C3 explore diagrams (AC4, AC5),
@@ -31,7 +31,7 @@ Frozen on 2026-10-28 before canonical edits (`design.md`, `tasks/`, `fixture/`,
 | candidate-c5 | pass | Revised wizard options A–C written to `tmp/options/`; nothing saved under `docs/lusona`; asks for a letter. |
 | candidate-c6 | pass | Implemented AC1–AC2; no visual files and no invented binding checklist. |
 
-Full per-criterion grades and evidence: `evaluator/grades.md` in [evidence.zip](evidence.zip).
+Full per-criterion grades and evidence: `evaluator/grades.md` in [evidence.zip](#removed-archives).
 
 ## Interpretation and limits
 
@@ -61,3 +61,16 @@ run 2 after one source correction; AC12 pass. `implementation.patch` above preda
 After the user reviewed an example iOS mockup, AC9 and AC11 were revised and AC13-AC19 added.
 [Run 003](runs/003/README.md): TF-d and TF-e baseline fail, candidate pass; AC9, AC14-AC19 pass;
 F1-F8 fixed after grading.
+
+## Removed archives
+
+The archives below were removed from the working tree on 2026-11-12 to reduce the checkout
+size. Commit `9f2260f` holds each one unchanged. Restore an archive from the repository root
+with `git show 9f2260f:docs/lusona/evidence/2026-10-28-visual-references/<path> > <file>`, then compare its SHA-256 with this table.
+Hashes recorded in the manifests of this topic apply to the restored files.
+
+| Path in this topic | Bytes | SHA-256 |
+| --- | --- | --- |
+| `evidence.zip` | 89616 | `29d0c2523c465dc241973d246aa41f60e4cb39f813d1281a09f578df60423724` |
+| `runs/002/evidence.zip` | 112436 | `d020185d5a27dc408899949a1ecc087ed8021b85267c7633e82c4f35f0305607` |
+| `runs/003/evidence.zip` | 3785469 | `c02c810d2106c6e5d8aa493d8a1fcd9c49868fe3ecbf7d271b375cfde46ab7d4` |

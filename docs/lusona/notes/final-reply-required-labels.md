@@ -84,5 +84,5 @@ Codex replies that omit the `Result` and `Evidence` labels (check C9,
 - State: closed on 2026-11-11 without a Codex rerun of C9 (user, conversation, "accept and
   close without a rerun") and recorded in
   [history](../history/2026-11-week-02.md#2026-11-11--final-reply-required-labels). The change
-  is in the working tree, uncommitted.
+  is committed on `main` in `835c84f`.
 - Next action: none for this item.

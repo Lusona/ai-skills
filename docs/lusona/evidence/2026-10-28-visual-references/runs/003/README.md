@@ -1,6 +1,6 @@
 # Run 003 — platform-styled options, flows, states, PNG retention (AC9, AC11, AC13-AC19)
 
-Owner: [topic](../../README.md). Inputs, fixtures, trials, grades: [evidence.zip](evidence.zip)
+Owner: [topic](../../README.md). Inputs, fixtures, trials, grades: [evidence.zip](../../README.md#removed-archives)
 (`design.md`, `evaluator/criteria.md`, `evaluator/grades.md`; scratch screenshots excluded).
 Source delta from the pre-run working tree: [source.patch](source.patch) (includes F1-F8 fixes).
 

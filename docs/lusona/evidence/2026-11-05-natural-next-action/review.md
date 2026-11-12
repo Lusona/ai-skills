@@ -56,7 +56,7 @@ existing Explore note; no project files were added or removed. Both Status notes
 match their initial hash, and both Finished directories contain no files. The
 retained responses are capture output, separate from the case projects.
 
-Independently checked [the retained input archive](inputs.zip): both plugin snapshots
+Independently checked [the retained input archive](README.md#removed-archives): both plugin snapshots
 match their full input manifests, the baseline plugin matches Git
 `7df3739cf071aba241939076384ea0444920e5e1`, the candidate plugin matches the current
 canonical `plugins/lusona/` bytes, and archived `tasks.json` matches the frozen file.

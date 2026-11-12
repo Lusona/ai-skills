@@ -1,6 +1,6 @@
 # Run 002 — standard HTML template (AC9-AC12)
 
-Owner: [topic](../../README.md). Inputs, fixtures, trials, grades: [evidence.zip](evidence.zip)
+Owner: [topic](../../README.md). Inputs, fixtures, trials, grades: [evidence.zip](../../README.md#removed-archives)
 (`design.md` with run-2 addendum, `evaluator/criteria.md`, `evaluator/grades.md`).
 Source delta from the 1.3.0 working tree: [template.patch](template.patch) (includes the N1 line).
 

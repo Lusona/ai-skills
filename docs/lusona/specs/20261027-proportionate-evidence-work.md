@@ -117,7 +117,7 @@ catalog validation, packaging, and source hashes. A missing validator dependency
 using existing local PyYAML; an over-specific heading checker was corrected. No dependencies
 were installed. The native installation-line advisory remains. Exact changed sources, checks,
 recoveries, counts, and review reconciliation are retained in the
-[check archive](../evidence/2026-10-27-proportionate-evidence-work/refinement/checks.zip) and
+[check archive](../evidence/2026-10-27-proportionate-evidence-work/README.md#removed-archives) and
 [manifest](../evidence/2026-10-27-proportionate-evidence-work/refinement/manifest.json).
 
 Targeted TDD remains unchanged. The original experiment is preserved byte-for-byte; its 6/6

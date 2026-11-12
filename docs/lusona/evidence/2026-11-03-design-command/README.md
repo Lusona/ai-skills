@@ -13,7 +13,7 @@ Before implementation, the parent captured the baseline revision and canonical s
 The test worker froze the two new tests before the initial red run. Before actor dispatch,
 the parent froze the isolated candidate plugin, fixture hashes, three cases, outcome criteria,
 capabilities, and finite budget. Exact declarations, requests, responses, observations,
-source hashes, test logs, and review are retained in [artifacts.zip](artifacts.zip), with
+source hashes, test logs, and review are retained in [artifacts.zip](#removed-archives), with
 [SHA256](artifacts.sha256). The archive includes the exact frozen test file, source diff,
 runtime snapshot overrides, chosen/draft artifacts and unchanged fixtures. Baseline commit:
 `7e889a9ea0758261ed2d0bd3bedac89ef1e0622e`. Reconstruct sources from that commit plus
@@ -83,3 +83,14 @@ inspect artifacts statically; they establish no cross-host or visual-fidelity cl
 The user accepted the package TDD exception and closeout on 2026-11-03. The retained review
 describes the state before that decision; its original findings and limits remain unchanged.
 No next action for the authorized change.
+
+## Removed archives
+
+The archives below were removed from the working tree on 2026-11-12 to reduce the checkout
+size. Commit `9f2260f` holds each one unchanged. Restore an archive from the repository root
+with `git show 9f2260f:docs/lusona/evidence/2026-11-03-design-command/<path> > <file>`, then compare its SHA-256 with this table.
+Hashes recorded in the manifests of this topic apply to the restored files.
+
+| Path in this topic | Bytes | SHA-256 |
+| --- | --- | --- |
+| `artifacts.zip` | 71016 | `4cc2d90782fa9d81eda18912d940f847b056be5f9961641a8828410782bfcaf2` |

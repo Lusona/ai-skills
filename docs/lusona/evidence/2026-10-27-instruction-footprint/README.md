@@ -44,7 +44,7 @@ the frozen candidate. The native validator's informational installation-line adv
 
 - [Independent review](review.md) and [grades](review.json)
 - [Exact source diff](implementation.patch) and [counts](comparison.json)
-- [Frozen sources, tasks, responses, measurement code and check evidence](evidence.zip)
+- [Frozen sources, tasks, responses, measurement code and check evidence](#removed-archives)
 - [Archive and member hashes](manifest.json)
 
 The archive retains the original `instruction-footprint-20261027/` layout. Generated package
@@ -56,3 +56,14 @@ These checks establish bounded source/decision preservation, not live permission
 automatic host-loading behavior, latency, cost, installation or universal agent reliability.
 No commit or publication occurred. The implementation and independent review are complete;
 repository-local scratch remains available, with no active worker operations or children.
+
+## Removed archives
+
+The archives below were removed from the working tree on 2026-11-12 to reduce the checkout
+size. Commit `9f2260f` holds each one unchanged. Restore an archive from the repository root
+with `git show 9f2260f:docs/lusona/evidence/2026-10-27-instruction-footprint/<path> > <file>`, then compare its SHA-256 with this table.
+Hashes recorded in the manifests of this topic apply to the restored files.
+
+| Path in this topic | Bytes | SHA-256 |
+| --- | --- | --- |
+| `evidence.zip` | 443681 | `7da34ebd2db5437eca7335ef0bf2120cbca13db7994a2c3c730fad285b0f39b6` |
