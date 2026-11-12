@@ -375,6 +375,9 @@ Accepted decisions (user, 2026-11-11, native question tool, relayed by the coord
     section of the queue, not a queue state; the banned list extended (`check_voice.py`); the
     every-task block limit set to 300 words and enforced (supersedes the 250 words of decision
     15). These are rule changes agreed after AC19, so the AC18 run measured the earlier text.
+27. Closing (user, 2026-11-11, "close the rewrite item"): the item closes without a suite rerun on
+    the committed text and without independent review of the voice pass. The limits recorded
+    under Voice pass results stand. Push and publication stay unauthorized.
 
 20261110 decisions as inputs:
 
@@ -642,15 +645,21 @@ removed by the coordinator with user approval (decision 13).
 
 ## Current handoff
 
-- State: promoted into `plugins/lusona/` at 3.0.0 (decision 22); AC18 run accepted (decision 25);
-  W1-W15 done. Voice pass applied after AC19 (decision 26). Committed on 2026-11-11 by user
-  request on `main`, in three commits by path group: scripts and checks; plugin, shared sources,
-  root documents and manifests; suite changes and project records.
+- State: closed on 2026-11-11 by the user (decision 27) and recorded in
+  [history](../history/2026-11-week-02.md#2026-11-11--loop-principles-and-skill-rewrite).
+  Promoted into `plugins/lusona/` at 3.0.0 (decision 22); AC18 run accepted (decision 25); W1-W15
+  done; voice pass applied after AC19 (decision 26). Committed on `main` in `43b4341`, `ee7fa2a`,
+  `6eb0d26` and `70823d6`. The closing edits to this spec, spec 20261110, the queue and history
+  are in the commit that follows `70823d6`.
 - `drafts/` deleted on 2026-11-11 by user request; `drafts/lusona` equalled `plugins/lusona`. The
   drafting records it held (A2-A5 proposals, skill template, destination maps) moved to
   [notes/skill-rewrite-drafting](../notes/skill-rewrite-drafting/); earlier `drafts/` paths in this spec
   name that folder or the promoted plugin.
-- Remaining: AC1-AC19 verified on the text before the voice pass. Open: whether to rerun the
-  loop-conformance suite on the committed text (the AC18 run cost $52.65 Claude-reported), and
-  whether the voice pass needs independent review. Push and publication are not authorized.
-- Next action: the user decides on the suite rerun and review, or closes the item.
+- Limits carried at closing: AC1-AC19 were verified on the text before the voice pass; no
+  suite run and no independent review cover the text after it. At closing, `sync_shared.py
+  --check`, `check_voice.py`, `check_skill_template.py`, `check_contract.py` and
+  `check_instructions.py` exited 0 at `70823d6`; the tests, the package build and the suite were
+  not rerun.
+- Follow-ups are Ideas rows in the [work queue](../work.md). Push and publication are not
+  authorized.
+- Next action: none for this item.

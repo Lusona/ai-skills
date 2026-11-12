@@ -1,7 +1,7 @@
 # Spec 20261110-standard-skill-template-and-inline-rules: Standard skill template and inline every-task rules
 
 Created: 2026-11-10
-Updated: 2026-11-10
+Updated: 2026-11-11
 
 Kind: refactor (instruction structure), with two policy clarifications (decisions 3 and 4)
 Work item: [Work queue](../work.md) (row added by the coordinator; supersedes the row that links the missing `20261109-direct-instruction-checkpoints.md`)
@@ -284,17 +284,10 @@ architecture questions A1-A5 and user question U3, none of which blocks the ADR.
 
 ## Current handoff
 
-- Authorized work: definition (this spec) and drafting in `drafts/` (decision 8). Changes to
-  `plugins/lusona/` are not authorized.
-- Completed and remaining work: spec written; scope tentatively accepted; `drafts/lusona/`
-  created as an identical copy of the working-tree plugin on 2026-11-10 (`diff -r` empty).
-  `drafts/rules.md` written by a worker: 97 rows covering every content line of the core README
-  and `references/completion.md`; quotes and coverage confirmed by a separate coordinator check.
-  It lists 16 differences from the mapping above; four rules have no spec row. Its proposed
-  every-task block keeps all B rules and is 841 words. Remaining: user review and decisions on
-  the inventory's open questions (delegation exceptions in row 49, greeting exception in row 32,
-  block size A3, `completion.md` content versus AC10), block and `implement` pilot with the ADR
-  on A1-A5, remaining drafts, draft acceptance, implementation authorization, checks, review,
-  suite run.
-- Next action: user reviews `drafts/rules.md` and answers its open questions. Before the suite
-  run the user keeps or tightens the U1 pass mark, sets U4 (run budget) and answers U5.
+- State: superseded on 2026-11-11 by user decision and absorbed into
+  [spec 20261111](20261111-loop-principles-and-skill-rewrite.md), which carries decisions 1-10 of
+  this spec as inputs. Closed with that item on 2026-11-11
+  ([history](../history/2026-11-week-02.md#2026-11-11--loop-principles-and-skill-rewrite)).
+- The acceptance criteria of this spec were not verified under this spec. `drafts/` was deleted
+  on 2026-11-11; spec 20261111 records where its contents moved.
+- Next action: none for this spec.
