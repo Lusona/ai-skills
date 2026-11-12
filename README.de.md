@@ -158,8 +158,11 @@ Antwort. Weder Schweigen noch eine vorausgewählte Option gelten als Zustimmung.
 wartet, pausiert nur die betroffene Arbeit; der Agent nennt die Bedingung für ihre Fortsetzung.
 
 Der Agent, der mit dir spricht, ist der Koordinator. Bei Aufgaben jeder Größe delegiert er
-Facharbeit an untergeordnete Agenten und integriert und prüft ihre Ergebnisse. Ist Delegation
-verboten oder nicht verfügbar, arbeitet er lokal und sagt dies. Siehe
+Facharbeit an untergeordnete Agenten, außer Arbeit, die ein Skill dem Koordinator zuweist, und
+integriert und prüft ihre Ergebnisse. Zwei Skills weisen solche Arbeit zu: In **status** führt
+der Koordinator die Bewertung selbst durch, und in **explore** stützt er sich auf das Gespräch,
+die Projektaufzeichnungen und die Dateien, die du nennst. Ist Delegation verboten oder nicht
+verfügbar, arbeitet der Koordinator lokal und sagt dies. Siehe
 [Delegation](plugins/lusona/references/delegation.md) für Zuweisungen und
 [Modellzuordnung](plugins/lusona/references/delegation.md#model-routing).
 

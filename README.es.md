@@ -157,8 +157,11 @@ respuesta y no considera el silencio ni una opción preseleccionada como consent
 la espera, solo se pausa el trabajo afectado y el agente indica qué permite reanudarlo.
 
 El agente que habla contigo es el coordinador. Delega el trabajo especializado en agentes
-subordinados para tareas de cualquier tamaño, e integra y verifica sus resultados. Si la
-delegación está prohibida o no está disponible, trabaja por su cuenta y lo indica. Consulta
+subordinados para tareas de cualquier tamaño, salvo el trabajo que una habilidad asigna al
+coordinador, e integra y verifica sus resultados. Dos habilidades asignan ese trabajo: en
+**status** el coordinador hace la evaluación él mismo, y en **explore** razona a partir de la
+conversación, los registros del proyecto y los archivos que indicas. Si la delegación está
+prohibida o no está disponible, el coordinador trabaja por su cuenta y lo indica. Consulta
 [delegación](plugins/lusona/references/delegation.md) para las asignaciones y la
 [selección de modelos](plugins/lusona/references/delegation.md#model-routing).
 

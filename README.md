@@ -151,9 +151,12 @@ preselected option as consent. While it waits, only the affected work pauses, an
 states what resumes it.
 
 The agent that talks with you is the coordinator. It delegates specialist work to leaves at
-every task size and integrates and verifies their results; when delegation is prohibited or
-unavailable, it works locally and says so. See [delegation](plugins/lusona/references/delegation.md)
-for assignments and [model routing](plugins/lusona/references/delegation.md#model-routing).
+every task size, except work that a skill assigns to the coordinator, and integrates and
+verifies their results. Two skills assign such work: in **status** the coordinator does the
+assessment itself, and in **explore** it reasons from the conversation, the project records and
+the files you name. When delegation is prohibited or unavailable, the coordinator works locally
+and says so. See [delegation](plugins/lusona/references/delegation.md) for assignments and
+[model routing](plugins/lusona/references/delegation.md#model-routing).
 
 ## Decisions and revisions
 

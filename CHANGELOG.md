@@ -14,6 +14,11 @@ Local source update prepared on 2026-11-11. Publication and installation are not
   plugin README any more; it is human documentation and a catalog.
 - Every task reply states a status (Complete, In progress, Needs input or Paused), the
   evidence, and the next action with its owner, or states that none remains and why.
+- The coordinator delegates specialist work at every task size, except work the skill assigns
+  to the coordinator. `status` does its assessment as coordinator and delegates only an audit
+  of product source code that the question depends on. `explore` reasons from the
+  conversation, the project records and the files the user names, and delegates research that
+  needs other sources. The other 12 skills assign no work to the coordinator.
 - A task reply keeps the required labels and fields unless a user or host instruction
   explicitly requires an incompatible format. A preference for brevity does not remove them.
   Before, any user or host formatting instruction overrode the form.

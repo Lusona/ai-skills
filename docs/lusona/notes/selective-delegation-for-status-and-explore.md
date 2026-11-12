@@ -72,13 +72,52 @@ delegate at every task size.
   delegates "at every task size" with no exception; `CHANGELOG.md` has no line for this change;
   `AGENTS.md` and `references/delegation.md` were read and do not contradict the new texts.
 
+## 2026-11-11 — README sentence and changelog line
+
+Follow-up to the entry above, which left the README and the changelog unchanged.
+
+### Agreement
+
+- Authority (user, 2026-11-11, conversation: "fix the README delegation sentence and
+  changelog, TDD none"): state the exception in the delegation paragraph of `README.md` and its
+  four translations, and add a changelog line for the change. TDD level: `none`.
+- English text: "It delegates specialist work to leaves at every task size, except work that a
+  skill assigns to the coordinator, and integrates and verifies their results. Two skills
+  assign such work: in **status** the coordinator does the assessment itself, and in
+  **explore** it reasons from the conversation, the project records and the files you name.
+  When delegation is prohibited or unavailable, the coordinator works locally and says so."
+  (replaced: "It delegates specialist work to leaves at every task size and integrates and
+  verifies their results; when delegation is prohibited or unavailable, it works locally and
+  says so.")
+- The changelog line is in the 3.0.0 entry and restates the three accepted texts.
+
+### Evidence
+
+- Method: the coordinator applied six exact-match replacements without a leaf and wrote the
+  English and the four translated paragraphs itself. This is a deviation: the Role exception
+  covers only `status` and `explore`.
+- Result (2026-11-11, working tree on `4a1abaa`), all exit 0: `sync_shared.py --check`,
+  `check_voice.py`, `check_skill_template.py`, `check_contract.py`, `check_instructions.py`;
+  `test_package` (14 tests); `scripts/package.py --output tmp/readme-delegation-sentence-pkg`
+  built `lusona-3.0.0.zip`; `python3 -I tmp/readme-rewrite/check_links.py .` (69 relative
+  links, 12 index entries); `python3 -I tmp/final-reply-labels/check_translations.py` (72 links
+  and 12 index entries per translation; a copy of the earlier parity check without its pinned
+  hash of the English text); `git diff --check`. The longest sentence of the English paragraph
+  has 25 words. SHA-256 of `README.md`:
+  `db2074c5d1d87ce71c5e1da6fc8f2007dcf377834a57bdd9635926c8f1830fcc`.
+- Limitations: the four translated paragraphs have no independent or native-speaker review.
+  Rendered Markdown, installation and interactive behavior were not tested. The other unit
+  test files were not rerun; no plugin file changed.
+
 ## Current handoff
 
-- Authority: the three texts above, TDD `none` (user, 2026-11-11, conversation). Commits, the
-  README sentence, the changelog and a suite run are not authorized.
-- State: closed on 2026-11-11 and recorded in
+- Authority: the README paragraph in five languages and the changelog line, TDD `none` (user,
+  2026-11-11, conversation); local commit (user, 2026-11-11, conversation: "commit"). Push and
+  publication are not authorized.
+- State: the delegation texts are committed in `319fdde` and closed in
   [history](../history/2026-11-week-02.md#2026-11-11--selective-delegation-for-status-and-explore).
-  The change is in the working tree, uncommitted.
-- Next action: none for this item. The README sentence and the changelog line are an Ideas row
-  in the [work queue](../work.md).
+  The follow-up was accepted by the user on 2026-11-11 (conversation, "accept") and closed in
+  [history](../history/2026-11-week-02.md#2026-11-11--readme-delegation-sentence); it is in the
+  commit that follows `4a1abaa`.
+- Next action: none for this item.
 - Delegated assessment: /root/delegation_assessment, read-only workflow policy reviewer, gpt-6.1-sol with medium reasoning and bounded context. Returned complete with source findings; parent inspected and reconciled them. No writes or child agents. Host reported completed when interrupted. No close control is exposed, so host-capacity release is unconfirmed; the completed agent remains addressable.
