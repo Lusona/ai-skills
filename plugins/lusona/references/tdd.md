@@ -1,14 +1,16 @@
 # TDD and verification
 
-Read when selecting, recording, or applying a TDD policy.
+Read when selecting, recording or applying a TDD level.
 
-Implementation requires explicit user selection or a standing preference, with no implicit default.
-A standing preference is recorded in the project's `docs/lusona/README.md` or its agent
-instructions (`CLAUDE.md` or `AGENTS.md`). Record selection and source in the owning change
-record under [retention](retention.md); when saving is prevented, use conversation.
-Unset TDD permits definition
-and planning, not implementation; no definition phase is required for a clear request. When unset,
-recommend a level and ask under [Questions and next actions](../README.md#questions-and-next-actions).
+## Selection
+
+- Implementation requires a level selected explicitly by the user or a standing preference. There is no implicit default.
+- A standing preference is recorded in the project's `docs/lusona/README.md` or in its agent instructions (`CLAUDE.md` or `AGENTS.md`).
+- Record the level and its source in the owning change record. When saving is prevented, state them in the reply.
+- While the level is unset, define and plan only. A request that states its intended behavior and scope needs no definition first.
+- When the level is unset, recommend a level and ask the user.
+- When the selected sequence is infeasible, obtain a revised level from the user before using another approach.
+- Do not change the selected level to fit an approach.
 
 | Level | Requirement |
 | --- | --- |
@@ -16,21 +18,26 @@ recommend a level and ask under [Questions and next actions](../README.md#questi
 | `targeted` | Test first for named behaviors |
 | `strict` | Test first for every new or changed testable behavior |
 
-- For targeted TDD, name the test-first behaviors. Required regression coverage is separate
-  from test-first sequencing.
-- For test-first behaviors, observe the intended failure before production changes, then verify
-  passing behavior. Record red/green evidence; setup failures and skipped failing runs are not red
-  evidence. Under `none`, run agreed checks and add coverage when it usefully verifies the change
-  or is required.
-- Test through observable interfaces. Reuse adequate coverage; avoid tests that merely mirror the
-  implementation, and do not weaken assertions to fit a new structure.
-- Behavior-preserving restructuring starts green and stays green. Under targeted or strict TDD,
-  first add missing coverage for the affected boundary; characterization tests pass on existing
-  behavior and must exercise the relevant path. Do not manufacture a failing test or claim a
-  red/green cycle.
-- If the selected sequence is infeasible, obtain a revised policy before substituting another
-  approach. Do not silently change agreed TDD to fit an approach.
+## Applying the level
 
-Implementation owns decomposition and evidence; refactoring owns behavior-preserving checks.
-Reuse valid checks when inputs are unchanged; broaden or repeat them only for changed inputs,
-failures, or concrete unresolved risks.
+- Under `targeted`, name the test-first behaviors.
+- Required regression coverage is separate from test-first sequencing.
+- For each test-first behavior, observe the intended failure before changing production code. Then verify the passing behavior.
+- Record red and green evidence. A setup failure or a skipped failing run is not red evidence.
+- Under `none`, run the agreed checks. Add coverage when the agreement requires it or no existing check exercises the change.
+- Test through observable interfaces.
+- Reuse existing coverage that exercises the change.
+- Do not write tests that only restate the implementation.
+- Do not weaken assertions to fit a new structure.
+
+## Behavior-preserving changes
+
+- A behavior-preserving restructuring starts green and stays green.
+- Under `targeted` or `strict`, first add missing coverage for the affected boundary.
+- A characterization test passes on existing behavior and exercises the affected path.
+- Do not write a test only to obtain a failing run. Do not claim a red/green cycle that did not occur.
+
+## Ownership and reuse
+
+- Reuse a valid check result when its inputs are unchanged.
+- Broaden or repeat a check only for changed inputs, failures or a named unresolved risk.

@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-Lusona visual page. Apply the plugin's references/visuals.md. Copy this file, keep exactly one
+Lusona visual page. Apply the Lusona visual rules. Copy this file, keep exactly one
 body variant (mockup or index), delete the other variant, and delete this comment.
 Replace each {{name}} placeholder; delete an element or optional block whose value is unknown.
   record_id          owning spec or ADR basename, notes slug, or topic when no record exists
@@ -27,7 +27,7 @@ Mockup variant:
   data-value="a".."d", data-tradeoff, and data-recommended on one; toggles data-option elements.
 - Hash params set the initial view and combine: #option=b&state=failed. #full shows the header and
   notes inside an iframe.
-Pages are self-contained. Use Mermaid Markdown for diagrams under references/visuals.md.
+Pages are self-contained. Use Mermaid Markdown for diagrams under the Lusona visual rules.
 -->
 <html lang="en">
     <head>

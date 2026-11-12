@@ -1,21 +1,21 @@
 # Review: <change and diff scope>
 
-<!-- Use in the response by default. Omit irrelevant or empty sections and unnecessary
-headings for a small review. The coordinator saves the result, substantive findings, and verification
-limits in the owning record or concise notes before handoff or completion under retention rules.
-Delegated read-only reviewers return findings for the parent to save within its authority. Explicit
+<!-- Give the report in the reply. Omit empty sections. When there are
+no findings, omit the headings. The coordinator saves the result, findings, and verification
+limits in the owning record or notes before handoff or completion under retention rules.
+A leaf reviewer returns findings for the coordinator to save. Explicit
 no-save/read-only restrictions and write permissions prevail. Link evidence already recorded
 elsewhere. No findings is valid; review does not authorize fixes. -->
 
 ## Result
 
-<Main finding or no actionable findings, with any material verification limitation. Passing
+<Main finding or no actionable findings, with any unrun required check or verification gap. Passing
 checks or no findings alone does not establish acceptance or delivery.>
 
 ## Scope
 
-- Diff: <uncommitted changes, commits, or branch and identified base; include relevant new files>
-- Intended behavior: <change record, existing split records, or stated request>
+- Diff: <uncommitted changes, commits, or branch and identified base; include new files that belong to the change>
+- Intended behavior: <change record, existing execution record, or stated request>
 - Review coverage: <areas inspected and independent-review status; state limitations accurately>
 
 ## Findings
@@ -35,11 +35,11 @@ and omit this section. Keep unresolved questions and optional suggestions separa
 - Checked: <command or inspection, expected result, actual result; link existing evidence>
 - Not checked: <unrun required checks and remaining verification gaps>
 - Open questions: <uncertainties distinguished from confirmed defects>
-- Optional suggestions: <only relevant suggestions, separate from required corrections>
+- Optional suggestions: <suggestions, separate from required corrections, or none>
 
 ## Next action
 
-<Owner, highest-impact correction or missing check, required inputs, and useful skill prompt.
-If relevant, recommend queue state against the whole item's completion condition without
+<Owner, highest-impact correction or missing check, required inputs, and skill prompt.
+When the change has a queue row, recommend queue state against the whole item's completion condition without
 writing the queue. Name remaining acceptance or delivery only when required. If requested
-scope is complete, say so; no fixes, commits, or deployment are authorized by this review.>
+scope is complete, say so; this review authorizes no fixes, commits, or deployment.>

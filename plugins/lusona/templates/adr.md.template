@@ -11,7 +11,7 @@ Superseded by: <relative ADR link, or none>
 
 ## Context
 
-<Problem, relevant constraints, and evidence requiring this decision.>
+<Problem, constraints, and evidence requiring this decision.>
 
 ## Decision
 
@@ -24,7 +24,7 @@ Superseded by: <relative ADR link, or none>
 ## Consequences
 
 - Benefits and tradeoffs:
-- Compatibility, migration, or recovery needs: <only when relevant>
+- Compatibility, migration, or recovery needs: <or none>
 - Verification implications:
 
 ## Open questions and next action

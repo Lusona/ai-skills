@@ -19,7 +19,7 @@ Este es un ciclo de interacción habitual. Empieza donde lo necesites y vuelve a
 - **Verificar que el trabajo esté completo.** Completar el alcance acordado, las comprobaciones y la revisión
   obligatorias, y cualquier aceptación o entrega requerida. Indicar qué queda pendiente si algo impide terminar.
 
-Para Claude Code, Codex, [Cursor](INSTALL.md#cursor), [agentes de programación de Xcode 27](INSTALL.md#xcode) y [Google Antigravity App, CLI e IDE](INSTALL.md#antigravity) · Versión del código en esta copia de trabajo: **2.0.5**
+Para Claude Code, Codex, [Cursor](INSTALL.md#cursor), [agentes de programación de Xcode 27](INSTALL.md#xcode) y [Google Antigravity App, CLI e IDE](INSTALL.md#antigravity) · Versión del código en esta copia de trabajo: **3.0.0**
 
 > [!WARNING]
 > No instales Lusona mediante Vercel Skills (`npx skills@latest`); usa la [instalación nativa del plugin](#installation).
@@ -214,7 +214,7 @@ flowchart TD
     class Done complete
 ```
 
-El gráfico muestra el [ciclo de trabajo compartido](plugins/lusona/README.md#work-loop),
+El gráfico muestra el [ciclo de trabajo compartido](plugins/lusona/README.md#the-loop),
 no una secuencia de habilidades. Las esperas y las pausas se aplican al trabajo afectado; el
 trabajo independiente puede continuar dentro de sus permisos existentes. El ciclo se rige por cuatro reglas:
 
@@ -352,7 +352,7 @@ de informe; una exploración sustantiva sí propone una pregunta concreta o una 
 conclusiones reutilizables según las reglas de conservación.
 El formato ilustrado es el formato predeterminado permanente; el formato que solicites y las
 restricciones de la aplicación tienen prioridad.
-Consulta [revisión y comunicación](plugins/lusona/README.md#review-and-communication).
+Consulta [revisión y comunicación](plugins/lusona/references/completion.md).
 
 <a id="reference"></a>
 ## Referencias
@@ -361,14 +361,14 @@ Consulta [revisión y comunicación](plugins/lusona/README.md#review-and-communi
 - [Instalación y desinstalación](INSTALL.md)
 - [Política de privacidad](PRIVACY.md)
 - [Condiciones de uso](TERMS.md)
-- [Contrato del flujo de trabajo y ciclo de trabajo](plugins/lusona/README.md#work-loop)
+- [Contrato del flujo de trabajo y ciclo de trabajo](plugins/lusona/README.md#the-loop)
 - [Selección de habilidades y terminología](plugins/lusona/references/workflow-guide.md)
 - [Política de TDD y secuencia de trabajo](plugins/lusona/references/tdd.md)
-- [Ejecución de lotes y recuperación](plugins/lusona/references/batch-execution.md)
+- [Ejecución de lotes y recuperación](plugins/lusona/skills/batch/SKILL.md)
 - [Registros y conservación](plugins/lusona/references/retention.md)
 - [Cierre y reapertura](plugins/lusona/references/closeout.md)
 - [Delegación](plugins/lusona/references/delegation.md)
-- [Asignación de modelos](plugins/lusona/references/model-routing.md)
+- [Asignación de modelos](plugins/lusona/references/delegation.md#model-routing)
 
 <a id="contributing"></a>
 ## Contribuir
@@ -387,7 +387,7 @@ Las habilidades, plantillas, documentación y scripts están disponibles bajo la
 ## Desarrollo
 
 Los archivos originales del flujo de trabajo están en `plugins/lusona/`. Cada proyecto que utiliza
-el plugin guarda sus propios datos en `docs/lusona/`; la plantilla de una cola vacía está en `templates/work.md`.
+el plugin guarda sus propios datos en `docs/lusona/`; la plantilla de una cola vacía está en `templates/work.md.template`.
 
 Los scripts auxiliares para gestionar los registros del plugin usan Bash o PowerShell; consulta los [requisitos de ejecución](INSTALL.md#requirements). Python 3 sigue siendo necesario para crear paquetes y ejecutar las evaluaciones en Python, pero no para el uso habitual del plugin.
 

@@ -1,10 +1,30 @@
 # Changelog
 
 Changes in recent source versions. Dates for tagged versions use the tagged commit's
-local date, not a verified publication date. Versions 2.0.5, 2.0.4, 2.0.3, 2.0.2, 2.0.1, and 2.0.0 are untagged;
+local date, not a verified publication date. Versions 3.0.0, 2.0.5, 2.0.4, 2.0.3, 2.0.2, 2.0.1, and 2.0.0 are untagged;
 the entries distinguish source updates from published releases.
 
-## 2.0.5 — Current source, untagged
+## 3.0.0 — Current source, untagged
+
+Local source update prepared on 2026-11-11. Publication and installation are not implied.
+
+- Rewrite all 14 skills in one section layout. Skill names and commands do not change.
+- Put the rules that apply to every task, and the reply format, inside each `SKILL.md`.
+  Both are generated from one source file each by `scripts/sync_shared.py`. No skill requires the
+  plugin README any more; it is human documentation and a catalog.
+- Every task reply states a status (Complete, In progress, Needs input or Paused), the
+  evidence, and the next action with its owner, or states that none remains and why.
+- Add eight loop principles to the workflow guide. A new requirement that contradicts an
+  accepted decision leads to a revisit with the user and a recorded outcome, described in
+  the new `revisions` reference.
+- Merge references: `model-routing` and `worker-lifecycle` into `delegation`, `handoff`
+  into `retention`, `work-record` into `naming`, and `interview-examples` into `interviews`.
+  `batch-execution`, `batch-use` and the batch `execution` reference are replaced by eight
+  references in `skills/batch/references/`.
+- Rename templates to `name.ext.template` (for example `templates/spec.md.template`). The
+  record helpers read the new names; their commands, output and exit codes do not change.
+
+## 2.0.5 — Untagged source snapshot
 
 Local source update prepared on 2026-11-09. Publication and installation are not implied.
 

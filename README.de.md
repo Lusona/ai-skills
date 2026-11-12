@@ -21,7 +21,7 @@ Das ist ein üblicher Arbeitszyklus. Beginne dort, wo es nötig ist, und kehre z
   eine verlangte Abnahme oder Auslieferung müssen erfüllt sein. Ist der Abschluss blockiert,
   nennt der Agent die verbleibende Arbeit.
 
-Für Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Programmieragenten in Xcode 27](INSTALL.md#xcode) und [Google Antigravity App, CLI und IDE](INSTALL.md#antigravity) · Version des Quellcodes in dieser Arbeitskopie: **2.0.5**
+Für Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Programmieragenten in Xcode 27](INSTALL.md#xcode) und [Google Antigravity App, CLI und IDE](INSTALL.md#antigravity) · Version des Quellcodes in dieser Arbeitskopie: **3.0.0**
 
 > [!WARNING]
 > Installiere Lusona nicht mit Vercel Skills (`npx skills@latest`); nutze die [Installation als natives Plugin](#installation).
@@ -230,7 +230,7 @@ flowchart TD
     class Done complete
 ```
 
-Das Diagramm zeigt den [gemeinsamen Arbeitszyklus](plugins/lusona/README.md#work-loop), keine
+Das Diagramm zeigt den [gemeinsamen Arbeitszyklus](plugins/lusona/README.md#the-loop), keine
 Reihenfolge von Skills. Warten und Pausieren betreffen jeweils die betroffene Arbeit;
 unabhängige Aufgaben können innerhalb der bestehenden Freigabe weitergehen. Für den
 Arbeitszyklus gelten vier Regeln:
@@ -373,7 +373,7 @@ schlägt dennoch eine konkrete Frage oder Handlung vor und speichert wiederverwe
 gemäß den Aufbewahrungsregeln. Das gezeigte
 Format ist der feste Standard; dein gewünschtes
 Format und die Einschränkungen der Anwendung haben Vorrang. Siehe
-[Review und Kommunikation](plugins/lusona/README.md#review-and-communication).
+[Review und Kommunikation](plugins/lusona/references/completion.md).
 
 <a id="reference"></a>
 ## Referenzen
@@ -382,14 +382,14 @@ Format und die Einschränkungen der Anwendung haben Vorrang. Siehe
 - [Installation und Deinstallation](INSTALL.md)
 - [Datenschutzerklärung](PRIVACY.md)
 - [Nutzungsbedingungen](TERMS.md)
-- [Workflow-Regeln und Arbeitszyklus](plugins/lusona/README.md#work-loop)
+- [Workflow-Regeln und Arbeitszyklus](plugins/lusona/README.md#the-loop)
 - [Skill-Auswahl und Begriffe](plugins/lusona/references/workflow-guide.md)
 - [TDD-Vorgaben und Reihenfolge](plugins/lusona/references/tdd.md)
-- [Batch-Ausführung und Wiederherstellung](plugins/lusona/references/batch-execution.md)
+- [Batch-Ausführung und Wiederherstellung](plugins/lusona/skills/batch/SKILL.md)
 - [Aufzeichnungen und Aufbewahrung](plugins/lusona/references/retention.md)
 - [Abschluss und Wiederaufnahme](plugins/lusona/references/closeout.md)
 - [Delegation](plugins/lusona/references/delegation.md)
-- [Modellzuordnung](plugins/lusona/references/model-routing.md)
+- [Modellzuordnung](plugins/lusona/references/delegation.md#model-routing)
 
 <a id="contributing"></a>
 ## Mitwirken
@@ -409,7 +409,7 @@ Skills, Vorlagen, Dokumentation und Skripte stehen unter der [MIT-Lizenz](LICENS
 
 Die maßgeblichen Workflow-Quellen liegen in `plugins/lusona/`. Projektdaten gehören in
 `docs/lusona/` des Projekts, das Lusona nutzt. Die Vorlage für eine leere Warteschlange liegt
-in `templates/work.md`.
+in `templates/work.md.template`.
 
 Die Hilfsskripte für Projektaufzeichnungen verwenden Bash oder PowerShell; siehe
 [Laufzeitanforderungen](INSTALL.md#requirements). Python 3 wird weiterhin für die Paketerstellung

@@ -1,6 +1,6 @@
 # Visual reference: <record-id>
 
-<!-- Apply the visual rules in ../references/visuals.md. Save only after the user chooses and
+<!-- Apply the visuals reference. Save only after the user chooses and
 before recording the decision. Keep this file beside the chosen visual in
 docs/lusona/visuals/<record-id>/. Omit unused fields. -->
 
@@ -12,7 +12,7 @@ docs/lusona/visuals/<record-id>/. Omit unused fields. -->
 
 <!-- UI mockups only; omit for Mermaid diagrams. Capture after the user agrees to the design.
 One PNG per shown state of the whole page; each shows all screens. If capture was unavailable,
-say so here and keep the HTML source alone. -->
+say so here and retain only the HTML source. -->
 
 - <link to option-<letter>-<state>.png>: <state>; screens <names>
 

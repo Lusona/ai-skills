@@ -11,7 +11,7 @@ Status: draft | accepted
 ## Long-term vision
 
 - Intended future experience and enduring value:
-- Useful horizon, if established:
+- Horizon, if established:
 - Principles guiding future choices:
 - Assumptions that could change the direction:
 
@@ -31,12 +31,12 @@ Status: draft | accepted
 
 - Accepted decisions and brief rationale:
 - Next decision needed:
-- Next action: <owner, action, and suggested skill prompt when ready>
+- Next action: <owner, action, and skill prompt>
 
 ## Capability map
 
-Optional capability map covering the intended long-term experience and nearer deliveries;
-workflow state lives in the queue. Horizons express provisional sequence, not dates or commitments.
+Fill this section when the user asks for a map or an update. The map covers the intended long-term experience and nearer deliveries;
+workflow state is recorded in the queue. Horizons express provisional sequence, not dates or commitments.
 Mark uncertain capabilities and dependencies as assumptions.
 
 | Capability | User outcome / contribution to vision | Horizon | Depends on | Delivery order / rationale | Definition link |
@@ -45,11 +45,11 @@ Mark uncertain capabilities and dependencies as assumptions.
 
 ## Architecture
 
-Optional shared architecture context and ADR references.
+Shared architecture context and ADR references. Omit this section when the product has neither.
 
 - Boundaries, responsibilities, and data ownership:
 - Interfaces and constraints:
-- Architecture decision records: <relative links and brief relevance>
+- Architecture decision records: <relative links and one sentence on what each decides>
 - Proposals or unresolved questions:
 
 ## Current handoff
@@ -57,8 +57,8 @@ Optional shared architecture context and ADR references.
 - Authorized work:
 - Completed and supporting evidence:
 - Open decisions or blockers:
-- Next action: <owner, bounded action, required inputs, and usable continuation prompt>
+- Next action: <owner, bounded action, required inputs, and continuation directive>
 
 ## References
 
-- Link existing product context and specs only as needed.
+- Link existing product context and specs that this brief relies on.

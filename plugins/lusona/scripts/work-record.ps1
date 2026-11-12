@@ -81,7 +81,7 @@ function Assert-Regular($item, [string]$path) {
 }
 function Read-Template([string]$name) {
     $resourceRoot = Split-Path -Parent $PSScriptRoot
-    $path = Join-Path $resourceRoot "templates/$name.md"
+    $path = Join-Path $resourceRoot "templates/$name.md.template"
     try { return [IO.File]::ReadAllText($path).TrimEnd([char]10) + "`n" }
     catch { throw "Could not read $name template." }
 }

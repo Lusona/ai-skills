@@ -4,6 +4,14 @@
   do not edit generated packages or duplicate sources in consuming projects.
 - Preserve bounded tasks, explicit TDD, native question tools when permitted, and a
   concrete next action in every skill. Keep context and process small.
+- Write direct instructions with an action and trigger. Give each shared policy one
+  authoritative definition; repeat short local instructions when they make a skill easier
+  to execute. Replace overlapping wording, and avoid reference chains that obscure the action.
+  Avoiding duplication is a design preference, not a rule that overrides clarity.
+- Edit the every-task block and final reply in repository-level `shared/`, never inside the
+  generated `<!-- lusona:begin NAME -->` regions of a `SKILL.md`. Regenerate the regions with
+  `python3 scripts/sync_shared.py --source shared plugins/lusona`; add `--check` to verify.
+  `shared/` is not packaged, and no packaged file links to it.
 - Resolve bundled resources relative to the loaded skill. Paths under `docs/lusona/`
   refer to data in the consuming project, not to this plugin repository.
 - Keep native plugin manifests' identity and version aligned. Catalog plugin paths are

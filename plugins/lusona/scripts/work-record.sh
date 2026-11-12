@@ -47,7 +47,7 @@ fail() {
 read_template() {
   local resource_root
   resource_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)
-  cat "$resource_root/templates/$1.md"
+  cat "$resource_root/templates/$1.md.template"
 }
 
 validate_date() {

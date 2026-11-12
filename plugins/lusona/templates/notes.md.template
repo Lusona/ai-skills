@@ -1,0 +1,45 @@
+# Notes: {{slug}}
+
+Context: <work item or bounded question; link the owning record when one exists>
+
+Save understanding, alternatives, decisions, open questions, or findings without
+an existing owner. Notes are the owning record for direct implement or refactor work without a
+spec, and for investigations, measurements and experiments. Record the agreement, decisions, TDD level
+and source, checks, evidence and in-session handoffs here. Notes alone do not require queue tracking. A spec is
+required under "Spec and queue requirement" in the retention reference; size and scope do not decide this. Creating a spec requires tracking; existing
+tracked work remains tracked.
+Use one dated section per
+distinct question; update it as evidence changes instead of appending an entry per session.
+For material measurements and experiments, link exact saved runs;
+keep discussion and decisions here.
+Omit unused fields. Replace a finding with a link when another record becomes its owner.
+
+## YYYY-MM-DD — <question or finding>
+
+### Question and scope
+
+- Question: <what this investigation or measurement needs to establish>
+- Scope: <system, inputs, revision, and constraints>
+
+### Evidence
+
+- Method: <reproduction steps, command, or source that a reader needs to repeat the check>
+- Result: <observed facts and evidence references; distinguish reported from verified>
+- Limitations: <unmeasured cases or unavailable evidence>
+
+### Conclusion and decisions
+
+- Conclusion: <supported finding; distinguish hypotheses from confirmed causes>
+- Decision: <accepted decision and source, proposal, or deferred with reason>
+- Corrections: <refuted or superseded claims and supporting evidence>
+
+## Current handoff
+
+Use only when this record owns the handoff; otherwise link the existing one.
+Replace it at each update. Do not duplicate evidence or queue state here.
+
+- Authorized work: <outcome, scope and source; TDD level and source when set; findings alone do not authorize a fix>
+- Open questions or blockers:
+- Ownership: <current owner when recovery depends on it>
+- Correction rounds: <failure, consecutive and total counts, last material progress; omit when none>
+- Next action: <owner, bounded action, and required inputs>

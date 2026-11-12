@@ -1,6 +1,6 @@
 # <Question or topic> — <date / run identifier>
 
-Use only relevant sections. A small result can stay in one dated file; a topic README can
+Omit empty sections. One result from one run can stay in one dated file; a topic README can
 link run files using this structure without repeating their contents.
 Save material decision evidence before handoff
 or completion, subject to explicit no-save/read-only restrictions and write permissions.
@@ -13,7 +13,7 @@ or completion, subject to explicit no-save/read-only restrictions and write perm
 
 ## Declared trial design
 
-For experiments, record before observing results; omit for ordinary measurements when irrelevant.
+For experiments, record before observing results; omit for a measurement without a declared design.
 
 - Hypothesis and intervention/alternatives:
 - Comparison, controls, and evaluation criteria/guardrails:
@@ -23,7 +23,7 @@ For experiments, record before observing results; omit for ordinary measurements
 ## Method and provenance
 
 - Revision or artifact for each alternative; local modifications:
-- Inputs, instrument/method versions, environment, and relevant conditions:
+- Inputs, instrument/method versions, environment, and conditions that affect comparability:
 - Procedure or commands; instrument validity checks:
 - Material artifacts or durable references and access/reproduction information:
 
@@ -33,20 +33,20 @@ For experiments, record before observing results; omit for ordinary measurements
 | --- | --- | --- | --- |
 | <identifier> | <observed value or assessed quality> | <limits> | <run or artifact link> |
 
-Record unfavorable and null results where material. Preserve observations; add visible corrections
-with reasons rather than silently replacing earlier results.
+Record unfavorable and null results that affect the decision. Preserve observations; add each
+correction and its reason beside the original result instead of replacing it.
 
 ## Interpretation and decision
 
-- Comparability to the reference and relevant prior runs:
+- Comparability to the reference and prior runs:
 - Candidate or verified gain, magnitude, tradeoffs, uncertainty, and coverage limits:
 - Supported conclusion; exploratory/post-hoc findings labelled separately:
-- Experiment disposition when applicable: adopt / reject / refine / inconclusive.
+- Experiment disposition, for an experiment: adopt / reject / refine / inconclusive.
 - Latest comparable result: <exact run link and reason>; latest run if different: <link>.
 
 ## Next action
 
-<Smallest useful action or missing input, owner, and authority; none when complete.>
+<Next bounded action or missing input, owner, and authority; none when complete.>
 
 ## Related records
 

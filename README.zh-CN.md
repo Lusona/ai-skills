@@ -14,7 +14,7 @@ Lusona 的编程智能体技能围绕同一套工作循环协同运作：
 - **在授权范围内持续推进。** 自行处理常规选择，继续工作，无须反复请求批准。决定超出现有授权时，再向你询问。
 - **验证后再确认完成。** 完成约定范围内的工作、必要的检查和审查，以及要求的验收或交付。无法完成时，明确说明剩余工作。
 
-适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 编程智能体](INSTALL.md#xcode) 和 [Google Antigravity App、CLI 与 IDE](INSTALL.md#antigravity) · 当前工作副本的源码版本：**2.0.5**
+适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 编程智能体](INSTALL.md#xcode) 和 [Google Antigravity App、CLI 与 IDE](INSTALL.md#antigravity) · 当前工作副本的源码版本：**3.0.0**
 
 > [!WARNING]
 > 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#installation)。
@@ -163,7 +163,7 @@ flowchart TD
     class Done complete
 ```
 
-图中展示的是[通用工作循环](plugins/lusona/README.md#work-loop)，不是技能的执行顺序。等待和暂停只影响相关工作；其他工作仍可在现有授权范围内独立推进。循环遵循以下四条规则：
+图中展示的是[通用工作循环](plugins/lusona/README.md#the-loop)，不是技能的执行顺序。等待和暂停只影响相关工作；其他工作仍可在现有授权范围内独立推进。循环遵循以下四条规则：
 
 - **继续：** 只要还有能推动进展的已授权工作，就继续执行，无须你再调用下一项技能。
 - **提问：** 缺少决定或许可时向你询问，等待期间继续可独立推进的已授权工作。没有回复不代表答复或许可。
@@ -221,7 +221,7 @@ flowchart TD
 >
 > > 以 `targeted` TDD 实现时间戳修正。
 
-尚有工作未完成时，这张单行表格须写明范围明确的行动、负责人、所需信息，以及尚余或缺少的授权；表格下方引用的那一行是你可以直接作为下一条消息发送的提示。每个命令都须指出有用的下一步，或明确说明没有必要继续，并简述原因。评估完成后仍可建议后续工作，但建议不构成执行授权。只有没有有用的后续行动时，才使用 **下一步行动：** `None for this request`。普通对话无须采用报告格式；有实质内容的探索仍须提出具体问题或行动，并按记录保留规则保存可复用的结论。示例中的格式是固定的默认格式；你指定的格式和所用应用的限制优先适用。详见[审查与沟通规则](plugins/lusona/README.md#review-and-communication)。
+尚有工作未完成时，这张单行表格须写明范围明确的行动、负责人、所需信息，以及尚余或缺少的授权；表格下方引用的那一行是你可以直接作为下一条消息发送的提示。每个命令都须指出有用的下一步，或明确说明没有必要继续，并简述原因。评估完成后仍可建议后续工作，但建议不构成执行授权。只有没有有用的后续行动时，才使用 **下一步行动：** `None for this request`。普通对话无须采用报告格式；有实质内容的探索仍须提出具体问题或行动，并按记录保留规则保存可复用的结论。示例中的格式是固定的默认格式；你指定的格式和所用应用的限制优先适用。详见[审查与沟通规则](plugins/lusona/references/completion.md)。
 
 <a id="reference"></a>
 ## 参考资料
@@ -230,14 +230,14 @@ flowchart TD
 - [安装与移除](INSTALL.md)
 - [隐私政策](PRIVACY.md)
 - [使用条款](TERMS.md)
-- [工作流规则与工作循环](plugins/lusona/README.md#work-loop)
+- [工作流规则与工作循环](plugins/lusona/README.md#the-loop)
 - [技能选择与术语](plugins/lusona/references/workflow-guide.md)
 - [TDD 策略与执行顺序](plugins/lusona/references/tdd.md)
-- [批处理执行与恢复](plugins/lusona/references/batch-execution.md)
+- [批处理执行与恢复](plugins/lusona/skills/batch/SKILL.md)
 - [记录与保留](plugins/lusona/references/retention.md)
 - [收尾与重新开启](plugins/lusona/references/closeout.md)
 - [委派](plugins/lusona/references/delegation.md)
-- [模型路由](plugins/lusona/references/model-routing.md)
+- [模型路由](plugins/lusona/references/delegation.md#model-routing)
 
 <a id="contributing"></a>
 ## 参与贡献
@@ -252,7 +252,7 @@ flowchart TD
 <a id="development"></a>
 ## 开发
 
-工作流的正式源文件位于 `plugins/lusona/`。使用该插件的项目应将自身数据放在该项目的 `docs/lusona/` 下；空队列结构见 `templates/work.md`。
+工作流的正式源文件位于 `plugins/lusona/`。使用该插件的项目应将自身数据放在该项目的 `docs/lusona/` 下；空队列结构见 `templates/work.md.template`。
 
 插件的记录创建脚本使用 Bash 或 PowerShell，详见[运行环境要求](INSTALL.md#requirements)。构建软件包和运行 Python 评估仍需 Python 3，日常使用插件则不需要。
 

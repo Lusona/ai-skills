@@ -1,43 +1,50 @@
-# Record files and compatibility
+# Project records and compatibility
 
-Read when locating project records or maintaining legacy ones. The consuming project owns
-its data; paths are relative to that project. Bundled links are relative to the loaded resource.
+Read before locating, creating or maintaining a project record under `docs/lusona/`, including a record from an earlier plugin version.
 
-## Files
+## Ownership
+
+- The consuming project owns its data. Every `docs/lusona/` path is relative to that project.
+- Links in bundled plugin files resolve relative to the file that contains them.
+- Never write consuming-project data into installed plugin resources.
+- Installing the plugin does not create project data. Create a record only when authorized work needs it.
+
+## Paths
 
 | Path | Purpose |
 | --- | --- |
 | `docs/lusona/README.md` | Optional project-local contract, including a standing TDD preference |
 | `docs/lusona/product.md` | Product brief, capability map, shared architecture context and ADR links |
-| `docs/lusona/work.md` | Current queue; owns active state, priority, and concise completion conditions |
-| `docs/lusona/specs/<change-id>.md` | Change agreement, optional execution steps, evidence, and one current handoff |
-| `docs/lusona/plans/<change-id>.md` | Existing separate execution records remain valid; no new companion file by default |
-| `docs/lusona/batches/<batch-slug>.md` | Parent-owned fixed selection, authority, assignments, recovery pointers, and current batch handoff |
-| `docs/lusona/notes/<change-slug>.md` | Substantive findings, synthesis, or spec-free execution agreement and evidence without another owner |
-| `docs/lusona/visuals/<record-id>/` | Chosen UI option's HTML and PNGs per state, or diagram Mermaid Markdown, with its `reference.md` binding list under [visuals](visuals.md); `<record-id>` is the owning spec or ADR basename or notes slug |
-| `docs/lusona/evidence/` | Material measurement and experiment records, with exact-run references under [evidence](evidence.md) |
-| `docs/lusona/history/YYYY-MM-week-NN.md` | Compact completed-item index; owns archived state and completion references under [closeout](closeout.md) |
+| `docs/lusona/work.md` | Current queue; owns active state, priority and one-sentence completion conditions |
+| `docs/lusona/specs/<change-id>.md` | Change agreement, optional execution steps, evidence and one current handoff |
 | `docs/lusona/adr/<YYYYMMDD>-<decision-slug>.md` | Consequential architecture decision, shared or change-specific |
-| [Product template](../templates/product.md) | Product context |
-| [Change template](../templates/spec.md) | Agreement, optional execution, evidence, and current handoff |
-| [ADR template](../templates/adr.md) | Architecture decision |
-| [Queue template](../templates/work.md) | Work queue structure |
-| [Batch template](../templates/batch.md) | Batch coordination record; links owning requirements and evidence |
-| [History template](../templates/history.md) | Weekly sections and completed-item structure |
-| [Evidence template](../templates/evidence.md) | Measurement or experiment design, run results, limitations, and interpretation |
-| [Notes template](../templates/notes.md) | Durable questions, evidence, conclusions, and current handoff |
-| [Visual reference template](../templates/visual-reference.md) | Chosen option, source, UI images, binding and illustrative items, fidelity, rejected options |
-| [Visual page template](../templates/visual-page.html) | Page shell with notes and theme; UI mockup and index variants; device frames, flows, state and option switches; wireframe kit fallback |
+| `docs/lusona/notes/<change-slug>.md` | Findings, synthesis, or a spec-free execution agreement and evidence without another owner |
+| `docs/lusona/evidence/` | Material measurement and experiment records with exact-run references |
+| `docs/lusona/history/YYYY-MM-week-NN.md` | Completed-item index; owns archived state and completion references |
+| `docs/lusona/plans/<change-id>.md` | Existing execution records; still valid; do not create one for a new change |
+| `docs/lusona/batches/<batch-slug>.md` | Coordinator-owned batch selection, authority, assignments, recovery pointers and current batch handoff |
+| `docs/lusona/visuals/<record-id>/` | Chosen UI option's HTML and PNGs per state, or a diagram's Mermaid Markdown, with its `reference.md` binding list; `<record-id>` is the owning spec or ADR basename or the notes slug |
+
+## Templates
+
+| Template | Use |
+| --- | --- |
+| [Product](../templates/product.md.template) | Product context |
+| [Change](../templates/spec.md.template) | Agreement, optional execution, evidence and current handoff |
+| [ADR](../templates/adr.md.template) | Architecture decision |
+| [Queue](../templates/work.md.template) | Work queue structure |
+| [Batch](../templates/batch.md.template) | Batch coordination record; links owning requirements and evidence |
+| [History](../templates/history.md.template) | Weekly sections and completed-item structure |
+| [Evidence](../templates/evidence.md.template) | Measurement or experiment design, run results, limitations and interpretation |
+| [Notes](../templates/notes.md.template) | Durable questions, evidence, conclusions and current handoff |
+| [Visual reference](../templates/visual-reference.md.template) | Chosen option, source, UI images, binding and illustrative items, fidelity, rejected options |
+| [Visual page](../templates/visual-page.html.template) | Page shell with notes and theme; UI mockup and index variants; device frames, flows, state and option switches; wireframe kit fallback |
+
+Records created from earlier templates stay valid. New records may use the current templates.
 
 ## Existing records
 
-Existing combined specs, separate specs and plans, feature documents, and `docs/agent/` records remain valid inputs.
-Use an existing Feature map as the capability map; do not create a duplicate or rename
-consuming-project sections solely to adopt terminology.
-Use their execution sections or linked plans and handoff in place; do not automatically
-migrate them or create another maintained copy. Split or move existing records only when
-requested, preserving criterion and task IDs, decisions, TDD, evidence, authorization, and
-references. See [compatibility](https://github.com/lusona/ai-skills/blob/main/INSTALL.md#document-compatibility).
-
-Create documents only as the authorized work needs them. Installing the plugin does not
-initialize project data. Never write consuming-project data into installed plugin resources.
+- Read and update existing records in place, without migration. This includes combined specs, specs with execution records, feature documents, `docs/agent/` records and legacy `NNNN-slug` records.
+- Use an existing Feature map as the capability map. Do not create a duplicate. Do not rename consuming-project sections only to adopt the plugin's terms.
+- Use an existing record's execution section, linked execution record and handoff in place. Do not migrate them or create another maintained copy.
+- Split or move existing records only when the user requests it. Preserve criterion and task IDs, decisions, the TDD level, evidence, authorization and references.

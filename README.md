@@ -19,7 +19,7 @@ This is a common interaction loop. Start where needed and revisit steps as evide
 - **Verify completion.** Complete the agreed scope, required checks and review, and any
   required acceptance or delivery. Report what remains when completion is blocked.
 
-For Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Xcode 27 coding agents](INSTALL.md#xcode), and [Google Antigravity App, CLI, and IDE](INSTALL.md#antigravity) · Checked-out source version **2.0.5**
+For Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Xcode 27 coding agents](INSTALL.md#xcode), and [Google Antigravity App, CLI, and IDE](INSTALL.md#antigravity) · Checked-out source version **3.0.0**
 
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
@@ -205,7 +205,7 @@ flowchart TD
     class Done complete
 ```
 
-The graph shows the [shared work loop](plugins/lusona/README.md#work-loop), not a sequence
+The graph shows the [shared work loop](plugins/lusona/README.md#the-loop), not a sequence
 of skills. Waiting and pausing apply to the affected work; independent work can continue
 within its existing authority. The loop has four boundaries:
 
@@ -318,7 +318,7 @@ with a brief reason. A completed assessment can still recommend a follow-up with
 Use **Next action:** `None for this request` only when no useful follow-up remains.
 Ordinary conversation needs no report structure; substantive exploration still proposes a focused
 question or action and saves reusable conclusions under the retention rules. The illustrated format
-is the standing default; your requested format and host constraints take precedence. See [review and communication](plugins/lusona/README.md#review-and-communication).
+is the standing default; your requested format and host constraints take precedence. See [review and communication](plugins/lusona/references/completion.md).
 
 ## Reference
 
@@ -326,14 +326,14 @@ is the standing default; your requested format and host constraints take precede
 - [Installation and removal](INSTALL.md)
 - [Privacy policy](PRIVACY.md)
 - [Terms of use](TERMS.md)
-- [Workflow contract and work loop](plugins/lusona/README.md#work-loop)
+- [Workflow contract and work loop](plugins/lusona/README.md#the-loop)
 - [Skill selection and terminology](plugins/lusona/references/workflow-guide.md)
 - [TDD policy and sequencing](plugins/lusona/references/tdd.md)
-- [Batch execution and recovery](plugins/lusona/references/batch-execution.md)
+- [Batch execution and recovery](plugins/lusona/skills/batch/SKILL.md)
 - [Records and retention](plugins/lusona/references/retention.md)
 - [Closeout and reopening](plugins/lusona/references/closeout.md)
 - [Delegation](plugins/lusona/references/delegation.md)
-- [Model routing](plugins/lusona/references/model-routing.md)
+- [Model routing](plugins/lusona/references/delegation.md#model-routing)
 
 ## Contributing
 
@@ -348,7 +348,7 @@ Skills, templates, documentation, and scripts are available under the [MIT Licen
 ## Development
 
 Canonical workflow sources live in `plugins/lusona/`. Consuming-project data belongs under that
-project's `docs/lusona/`; the empty queue structure is `templates/work.md`.
+project's `docs/lusona/`; the empty queue structure is `templates/work.md.template`.
 
 Plugin record helpers use Bash or PowerShell; see [runtime requirements](INSTALL.md#requirements). Python 3 remains a development requirement for packaging and Python evaluations, not for ordinary plugin use.
 

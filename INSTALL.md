@@ -21,7 +21,7 @@ command namespace remain `lusona`, for example `/lusona:status`.
 
 Creating workflow records uses the bundled Bash or PowerShell helper. Use Bash in a
 Unix or WSL shell, or Windows PowerShell 5.1 / PowerShell 7 in a native Windows shell;
-see [helper invocation](plugins/lusona/references/work-record.md). Python is required only for
+see [helper invocation](plugins/lusona/references/naming.md#running-the-helper). Python is required only for
 building packages and running the repository's Python evaluations, not for plugin use.
 
 Lusona requires no API keys, tokens, or other credentials. Its bundled helpers create
@@ -229,7 +229,7 @@ TDD policy, and limits:
 
 You can start with any skill that fits your request. See the
 [command reference](plugins/lusona/references/workflow-guide.md#skills) for all skills and the
-[batch examples](plugins/lusona/references/batch-use.md) for authorized unattended work.
+[batch examples](plugins/lusona/skills/batch/references/start-and-resume.md) for authorized unattended work.
 
 During authorized work, the agent saves project records under that project's
 `docs/lusona/` when needed. Installation does not create or migrate project documents.

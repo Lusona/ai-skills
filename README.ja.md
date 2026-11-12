@@ -17,7 +17,7 @@ Lusona は、コーディングエージェントのスキルに共通の作業�
 - **完了条件を満たしたことを確認します。** 合意した範囲の作業、必須の確認とレビュー、必要な受け入れや
   納品をすべて終えます。完了できない場合は、残っている作業を報告します。
 
-Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](INSTALL.md#xcode)、[Google Antigravity App・CLI・IDE](INSTALL.md#antigravity)に対応 · チェックアウトしたソースのバージョン：**2.0.5**
+Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](INSTALL.md#xcode)、[Google Antigravity App・CLI・IDE](INSTALL.md#antigravity)に対応 · チェックアウトしたソースのバージョン：**3.0.0**
 
 > [!WARNING]
 > Lusona のインストールには Vercel Skills（`npx skills@latest`）を使わず、[ホスト標準のプラグイン機能](#installation)を使ってください。
@@ -203,7 +203,7 @@ flowchart TD
     class Done complete
 ```
 
-この図は、[共通の作業ループ](plugins/lusona/README.md#work-loop)を示しており、スキルの実行順序を
+この図は、[共通の作業ループ](plugins/lusona/README.md#the-loop)を示しており、スキルの実行順序を
 表すものではありません。待機や一時停止は該当する作業に適用します。独立した作業は、既存の権限の範囲で
 続けられます。このループでは、次の四つの条件に従います。
 
@@ -312,7 +312,7 @@ UI の草案はブラウザーで開いて確認します。開けない場合�
 焦点を絞った問いや行動を提案し、再利用できる結論を記録保存のルールに従って保存します。
 例に示した形式が標準の既定形式です。利用者が指定した形式と使用するアプリの
 制約を優先します。
-[レビューとコミュニケーション](plugins/lusona/README.md#review-and-communication)を参照してください。
+[レビューとコミュニケーション](plugins/lusona/references/completion.md)を参照してください。
 
 <a id="reference"></a>
 ## 参考資料
@@ -321,14 +321,14 @@ UI の草案はブラウザーで開いて確認します。開けない場合�
 - [インストールと削除](INSTALL.md)
 - [プライバシーポリシー](PRIVACY.md)
 - [利用規約](TERMS.md)
-- [ワークフローの契約と作業ループ](plugins/lusona/README.md#work-loop)
+- [ワークフローの契約と作業ループ](plugins/lusona/README.md#the-loop)
 - [スキルの選択と用語](plugins/lusona/references/workflow-guide.md)
 - [TDD 方針と実行順序](plugins/lusona/references/tdd.md)
-- [バッチ実行と復旧](plugins/lusona/references/batch-execution.md)
+- [バッチ実行と復旧](plugins/lusona/skills/batch/SKILL.md)
 - [記録と保持](plugins/lusona/references/retention.md)
 - [完了処理と再オープン](plugins/lusona/references/closeout.md)
 - [委任](plugins/lusona/references/delegation.md)
-- [モデルの割り当て](plugins/lusona/references/model-routing.md)
+- [モデルの割り当て](plugins/lusona/references/delegation.md#model-routing)
 
 <a id="contributing"></a>
 ## 貢献
@@ -346,7 +346,7 @@ UI の草案はブラウザーで開いて確認します。開けない場合�
 ## 開発
 
 ワークフローの正式なソースは `plugins/lusona/` にあります。利用先プロジェクトのデータは、
-そのプロジェクトの `docs/lusona/` に置きます。空のキュー構造は `templates/work.md` にあります。
+そのプロジェクトの `docs/lusona/` に置きます。空のキュー構造は `templates/work.md.template` にあります。
 
 プラグインの記録作成ヘルパーは Bash または PowerShell を使います。[実行環境の要件](INSTALL.md#requirements)を参照してください。パッケージ作成と Python による評価には引き続き Python 3 が必要ですが、通常のプラグイン利用には不要です。
 

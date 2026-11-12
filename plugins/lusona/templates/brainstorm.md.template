@@ -1,0 +1,40 @@
+# Discussion: <idea or decision>
+
+<!-- Use when the synthesis meets a "When to save" condition in the retention reference, not every
+turn. Omit empty sections. Save the synthesis, alternatives, decisions and open questions in the
+existing owning record, or in notes when none exists, without waiting for a save request. Update
+the saved text before handoff or completion when one of its items changed.
+Do not save discussion that meets no "When to save" condition.
+Honor no-save/read-only/destination restrictions. Link facts owned elsewhere.
+This structure does not require a decision, spec, plan, TDD selection, or execution. -->
+
+## Current understanding
+
+<Answer, clearer understanding, or direction; distinguish a recommendation from an accepted decision.>
+
+## Context and evidence
+
+<Goals, constraints, known facts and sources. Label assumptions and hypotheses.>
+
+## Long-term direction
+
+<Desired future and horizon. Distinguish aspirations from commitments;
+note how present choices support or constrain that future and which assumptions remain open.>
+
+## Options and tradeoffs
+
+- <Option: concrete scenario, benefit, and cost or limitation.>
+
+## Decisions and open questions
+
+- Accepted: <decision and source, only when accepted>
+- Proposed: <remaining option or recommendation and reason>
+- Unknown: <question that could change the direction>
+
+## Next action
+
+<Concrete next question, proposed direction, evidence probe, or bounded action and its purpose,
+with owner, required inputs, and any authority the action still requires.
+Carry forward existing authorization and policy when handing off to work; discussion alone
+does not authorize execution. When the discussion is complete, propose a follow-up that
+serves the agreed outcome, or state: None for this request, with a one-sentence reason.>

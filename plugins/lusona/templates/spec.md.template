@@ -1,0 +1,100 @@
+# Spec <change-id>: <name>
+
+Created: <YYYY-MM-DD>
+Updated: <YYYY-MM-DD>
+
+Kind: feature | bug fix | refactor | other
+Work item: <required queue item or historical completion entry; state is recorded there>
+Context: <existing product, issue, or ticket link, or none>
+
+Omit empty sections. This change record owns agreement, optional execution, evidence, and one current
+handoff.Preserve existing execution records in place; do not copy their
+evidence here or require a new one. Implement/refactor can create this record directly; Specify is not
+a prerequisite. Creating or updating a spec requires the coordinator to reconcile its queue row, subject to
+explicit no-save/read-only restrictions. Preserve existing state, Icebox, and history. A spec is required when
+"Spec and queue requirement" in the retention reference says so; size and scope do not decide this. Direct work without a spec uses notes
+and remains untracked. Follow user and host formatting constraints.
+
+## Agreement
+
+- User and problem:
+- Desired behavior or structural outcome:
+- Scope and exclusions:
+- Accepted constraints and invariants: <required behavior, compatibility, technical constraints, and sources>
+- Completion condition: <including human acceptance or delivery only when required>
+
+### Acceptance criteria
+
+- [ ] AC1: <Observable result and the failure or boundary behavior it covers>
+
+### Decisions and uncertainty
+
+- Accepted decisions and source: <link existing constraints rather than repeat them>
+- Assumptions and unresolved questions: <distinguish technical questions from user decisions>
+- Architecture: <ADR links, or none>
+
+### TDD policy
+
+- Level: unset | none | targeted | strict
+- Selected by user: <request or standing preference; unset until selected>
+- Test-first behaviors: <named behaviors for targeted; changed testable behavior for strict>
+- Required regression coverage: <independent of test-first sequencing>
+
+### Bug evidence
+
+Bug fixes only; otherwise omit this section.
+
+- Expected and observed behavior:
+- Reproduction and impact: <steps, environment, frequency; unknowns explicit>
+- Evidence and cause: <reported/reproduced; confirmed cause or hypothesis; links>
+
+## Execution
+
+Optional. Add steps when sequencing, dependencies, uncertainty, coordination, or recovery needs them,
+when a long run's earlier context will be summarized before it finishes, or when a plan is requested. Detail
+the next increment; expand later steps only to resolve a dependency or answer a planning request. Revise the approach from evidence within the agreement
+and authorization. Reuse valid results and update changed facts; do not add a log entry for every loop
+iteration. For an explicit planning-only request, stop before implementation. Add Work items only when the user
+asks to split the change; the table selects and authorizes no item.
+
+- Approach and open technical questions: <provisional; use an experiment when only evidence can settle a question>
+- Verification: <confirmed commands or manual actions → expected results; label unverified checks>
+
+### Work items (optional)
+
+| ID | Outcome | ACs | Depends on | Suggested skill |
+| --- | --- | --- | --- | --- |
+| W1 | <bounded observable outcome> | <AC IDs> | <item IDs or none> | <skill> |
+
+### T1: <Bounded observable outcome>
+
+Include tasks only under the Execution conditions above; other work needs no task list.
+
+- Acceptance criteria: <IDs or exact references; do not restate requirements>
+- Dependencies and interfaces: <required inputs/results and agreed shared contracts, or none>
+- Scope and constraints: <confirmed paths; proposed new paths labeled as proposals; ADR references>
+- Verification: <command/action → expected result; include the expected error status or output for an error case>
+- Ownership: <delegated persona, write/check boundaries, expected evidence; omit for local work>
+- [ ] Complete — evidence: <reference to actual results below; a completed task list alone is not success>
+
+## Evidence
+
+Record actual results even when no execution steps were needed. Link evidence owned elsewhere.
+
+- Checks and outcomes: <expected and actual result; red/green when selected TDD requires it>
+- Review: <findings, corrections and verification; independent reviewer or unmet requirement when required>
+- Remaining verification and limitations: <failed, unrun, or environment-blocked checks>
+- Changes: <diff/paths; commit hash or uncommitted status>
+
+## Current handoff
+
+Replace at each update. Keep authority here and evidence above rather than copying it.
+
+- Authorized work: <scope and source; a listed task or proposed approach is not authorization>
+- Completed and remaining work: <references; include blockers and pending decisions>
+- Try it: <location, actions, expected result for user-visible work; otherwise omit>
+- Human acceptance and delivery: <actual status and evidence when required>
+- Recovery: <method and limitations for persistent-data or deployment work; otherwise omit>
+- Resume context: <paths/diff base and active ownership, or none>
+- Correction rounds: <failure, consecutive and total counts, last material progress; omit when none>
+- Next action: <owner, bounded action, required inputs, skill prompt>
