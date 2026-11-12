@@ -43,16 +43,16 @@ equal "$history" "$project/docs/lusona/history/2026-09-week-02.md"
 bundle="$scratch/relocated plugin"
 mkdir -p "$bundle/scripts" "$bundle/templates"
 cp "$helper" "$bundle/scripts/work-record.sh"
-cp "$repository/plugins/lusona/templates/history.md" "$bundle/templates/history.md"
-printf '\nBundle-specific template content.\n' >> "$bundle/templates/history.md"
+cp "$repository/plugins/lusona/templates/history.md.template" "$bundle/templates/history.md.template"
+printf '\nBundle-specific template content.\n' >> "$bundle/templates/history.md.template"
 relocated_history=$(cd "$scratch" && bash "$bundle/scripts/work-record.sh" init-history "$project" 2026-09-15)
-expected=$(cat "$bundle/templates/history.md")
+expected=$(cat "$bundle/templates/history.md.template")
 expected=${expected//\{\{period\}\}/2026-09-week-03}
 equal "$(cat "$relocated_history")" "$expected"
-cp "$repository/plugins/lusona/templates/notes.md" "$bundle/templates/notes.md"
-printf '\nBundle-specific notes content.\n' >> "$bundle/templates/notes.md"
+cp "$repository/plugins/lusona/templates/notes.md.template" "$bundle/templates/notes.md.template"
+printf '\nBundle-specific notes content.\n' >> "$bundle/templates/notes.md.template"
 relocated_notes=$(cd "$scratch" && bash "$bundle/scripts/work-record.sh" init-notes "$project" investigation-probe)
-expected=$(cat "$bundle/templates/notes.md")
+expected=$(cat "$bundle/templates/notes.md.template")
 expected=${expected//\{\{slug\}\}/investigation-probe}
 equal "$(cat "$relocated_notes")" "$expected"
 printf 'Existing evidence\n' >> "$history"
@@ -147,16 +147,16 @@ mkdir "$unusual"
 response=$(bash "$helper" init-change "$unusual" json-path 2026-09-26)
 python3 -c 'import json,sys; r=json.load(sys.stdin); assert r["path"] == sys.argv[1]' "$unusual/docs/lusona/specs/20260926-json-path.md" <<< "$response"
 # Defaults use the local creation date and relocated templates stay self-contained.
-cp "$repository/plugins/lusona/templates/spec.md" "$bundle/templates/spec.md"
-printf '\nBundle-specific spec content.\n' >> "$bundle/templates/spec.md"
+cp "$repository/plugins/lusona/templates/spec.md.template" "$bundle/templates/spec.md.template"
+printf '\nBundle-specific spec content.\n' >> "$bundle/templates/spec.md.template"
 response=$(bash "$bundle/scripts/work-record.sh" init-change "$project" default-date)
 record=$(python3 -c 'import json,sys; print(json.load(sys.stdin)["path"])' <<< "$response")
 equal "$record" "$project/docs/lusona/specs/$(date +%Y%m%d)-default-date.md"
 [[ $(tail -n 1 "$record") == 'Bundle-specific spec content.' ]]
 # Templates must remain usable after being saved outside the plugin installation.
 mkdir -p "$project/docs/lusona/evidence/template-check"
-cp "$repository/plugins/lusona/templates/evidence.md" "$project/docs/lusona/evidence/template-check/README.md"
-cp "$repository/plugins/lusona/templates/work.md" "$project/docs/lusona/work.md"
+cp "$repository/plugins/lusona/templates/evidence.md.template" "$project/docs/lusona/evidence/template-check/README.md"
+cp "$repository/plugins/lusona/templates/work.md.template" "$project/docs/lusona/work.md"
 python3 - "$record" "$notes" "$project/docs/lusona/evidence/template-check/README.md" "$project/docs/lusona/work.md" <<'PYTEST'
 from pathlib import Path
 import re
@@ -204,7 +204,7 @@ equal "$(bash "$helper" next-adr "$numbered")" '0010'
 # Header stamping fills templates, preserves Created and body, and rejects stale dates.
 for kind in spec adr; do
   record="$scratch/$kind.md"
-  cp "$repository/plugins/lusona/templates/$kind.md" "$record"
+  cp "$repository/plugins/lusona/templates/$kind.md.template" "$record"
   bash "$helper" stamp-header "$record" 2026-09-10 > /dev/null
   [[ $(sed -n 's/^Created: //p' "$record") == 2026-09-10 ]]
   bash "$helper" stamp-header "$record" 2026-09-12 > /dev/null

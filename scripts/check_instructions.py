@@ -4,11 +4,18 @@
 Two checks over ``plugins/lusona``:
 
 1. Skills do not restate core contract clauses. Phrases that the core already owns
-   must not appear in any ``skills/*/SKILL.md`` outside Markdown link text, including
-   when Markdown wrapping splits a phrase across lines.
+   must not appear in any ``skills/*/SKILL.md`` outside Markdown link text and outside
+   generated ``<!-- lusona:begin NAME -->`` ... ``<!-- lusona:end NAME -->`` regions
+   (shared text written by ``scripts/sync_shared.py``), including when Markdown wrapping
+   splits a phrase across lines. A begin marker without its matching end marker is not
+   a region.
 2. The skill catalog table and the skill routing table exist once, in
    ``references/workflow-guide.md``. Batch-specific dispatch-condition tables are
-   not routing tables and are allowed.
+   not routing tables and are allowed. A catalog is found by its rows, whatever its
+   header: a table whose first cells link to the SKILL.md of at least half of the
+   plugin's skills (and at least 3), or a table with header ``Skill`` and 3 such rows.
+   Limit: a partial copy linking fewer than half of the skills under another header is
+   not detected; the batch dispatch table links 5 of 14 skills.
 
 Exit status 0 when both hold; 1 with findings otherwise. Run from the repository root
 or pass the plugin directory as the first argument.
@@ -27,6 +34,11 @@ RESTATED = re.compile('|'.join(r'\s+'.join(map(re.escape, p.split())) for p in P
                       re.IGNORECASE)
 LINK = re.compile(r'\[[^\]]*\]\([^)]*\)')
 SKILL_LINK = re.compile(r'\]\([^)]*\bSKILL\.md[^)]*\)')
+LINKED_SKILL = re.compile(r'\]\((?:[^)]*/)?([\w-]+)/SKILL\.md[^)]*\)')
+# Generated region; the end marker must name the same region.
+REGION = re.compile(r'^<!-- lusona:begin ([a-z0-9-]+) -->$'
+                    r'(?:(?!^<!-- lusona:begin \1 -->$).)*?^<!-- lusona:end \1 -->$',
+                    re.MULTILINE | re.DOTALL)
 ROUTING_HEADER = re.compile(r'evidence|gap|need|situation', re.IGNORECASE)
 GUIDE = Path('references/workflow-guide.md')
 
@@ -50,12 +62,14 @@ def body(text):
 def restated_clauses(plugin):
     """Find restated phrases in skill bodies, matching across wrapped lines.
 
-    Link text is blanked rather than removed so line numbers stay exact.
+    Generated regions and link text are blanked rather than removed so line numbers
+    stay exact.
     """
     findings = []
     for skill in sorted(plugin.glob('skills/*/SKILL.md')):
         first, text = body(skill.read_text(encoding='utf-8'))
-        unlinked = LINK.sub(lambda m: re.sub(r'\S', ' ', m.group(0)), text)
+        blank = lambda m: re.sub(r'\S', ' ', m.group(0))
+        unlinked = LINK.sub(blank, REGION.sub(blank, text))
         for match in RESTATED.finditer(unlinked):
             number = first + unlinked.count('\n', 0, match.start())
             findings.append((skill.relative_to(plugin), number, ' '.join(match.group(0).split())))
@@ -79,10 +93,13 @@ def tables(text):
             i += 1
 
 
-def classify(header, rows):
+def classify(header, rows, skill_count=0):
     if len(rows) < 3:
         return None
     if header and header[0].lower() == 'skill' and any(SKILL_LINK.search(r[0]) for r in rows):
+        return 'catalog'
+    linked = {m.group(1) for r in rows if r for m in LINKED_SKILL.finditer(r[0])}
+    if skill_count and len(linked) >= max(3, (skill_count + 1) // 2):
         return 'catalog'
     second_links = sum(1 for r in rows if len(r) > 1 and SKILL_LINK.search(r[1]))
     if header and ROUTING_HEADER.search(header[0]) and second_links >= 3:
@@ -92,9 +109,10 @@ def classify(header, rows):
 
 def table_owners(plugin):
     owners = {'catalog': [], 'routing': []}
+    skill_count = len(list(plugin.glob('skills/*/SKILL.md')))
     for path in sorted(plugin.rglob('*.md')):
         for header, rows in tables(path.read_text(encoding='utf-8')):
-            kind = classify(header, rows)
+            kind = classify(header, rows, skill_count)
             if kind:
                 owners[kind].append(path.relative_to(plugin))
     return owners

@@ -59,6 +59,15 @@ class InstructionTests(unittest.TestCase):
             f.write(CATALOG)
         self.assertIn('catalog table duplicated in references/files.md', check.table_findings(self.copy))
 
+    def test_rejects_duplicate_catalog_table_with_other_header(self):
+        # Reviewer fixtures tmp/w13v/b3a, b3b: the catalog is found by its rows, not its header.
+        skills = sorted(p.name for p in (self.copy / 'skills').iterdir() if (p / 'SKILL.md').is_file())
+        rows = ''.join(f'| [{s}](skills/{s}/SKILL.md) | x | y |\n' for s in skills)
+        for header in ('Name', 'Skills'):
+            with self.subTest(header=header):
+                (self.copy / 'README.md').write_text(f'# R\n\n| {header} | Role | Output |\n| --- | --- | --- |\n{rows}')
+                self.assertIn('catalog table duplicated in README.md', check.table_findings(self.copy))
+
     def test_rejects_duplicate_routing_table(self):
         with (self.copy / 'skills/status/SKILL.md').open('a') as f:
             f.write(ROUTING)
@@ -109,6 +118,36 @@ class InstructionTests(unittest.TestCase):
         skill = self.copy / 'skills/explore/SKILL.md'
         skill.write_text('# Explore\n\nSee [why discussion does not\nauthorize work](../../README.md#contract).\n')
         self.assertEqual([f for f in check.restated_clauses(self.copy) if 'explore' in str(f[0])], [])
+
+    def test_restatement_inside_generated_region_is_skipped(self):
+        skill = self.copy / 'skills/explore/SKILL.md'
+        skill.write_text('---\nname: explore\n---\n# Explore\n\n<!-- lusona:begin every-task -->\n'
+                         'Discussion does not authorize implementation.\nUse the native question tool.\n'
+                         '<!-- lusona:end every-task -->\n')
+        self.assertEqual([f for f in check.restated_clauses(self.copy) if 'explore' in str(f[0])], [])
+
+    def test_restatement_after_generated_region_keeps_line_number(self):
+        skill = self.copy / 'skills/explore/SKILL.md'
+        skill.write_text('---\nname: explore\n---\n# Explore\n\n<!-- lusona:begin every-task -->\n'
+                         'Discussion does not authorize implementation.\n<!-- lusona:end every-task -->\n\n'
+                         'Discussion does not authorize implementation.\n')
+        self.assertEqual([(f[0], f[1]) for f in check.restated_clauses(self.copy) if 'explore' in str(f[0])],
+                         [(Path('skills/explore/SKILL.md'), 10)])
+
+    def test_unterminated_region_is_not_skipped(self):
+        skill = self.copy / 'skills/explore/SKILL.md'
+        skill.write_text('---\nname: explore\n---\n# Explore\n\n<!-- lusona:begin every-task -->\n'
+                         'Discussion does not authorize implementation.\n<!-- lusona:end final-reply -->\n')
+        self.assertEqual([(f[0], f[1]) for f in check.restated_clauses(self.copy) if 'explore' in str(f[0])],
+                         [(Path('skills/explore/SKILL.md'), 7)])
+
+    def test_unterminated_region_before_complete_region_is_not_skipped(self):
+        skill = self.copy / 'skills/explore/SKILL.md'
+        skill.write_text('---\nname: explore\n---\n# Explore\n\n<!-- lusona:begin every-task -->\n'
+                         'Discussion does not authorize implementation.\n<!-- lusona:begin every-task -->\n'
+                         'Generated.\n<!-- lusona:end every-task -->\n')
+        self.assertEqual([(f[0], f[1]) for f in check.restated_clauses(self.copy) if 'explore' in str(f[0])],
+                         [(Path('skills/explore/SKILL.md'), 7)])
 
     def test_restatement_outside_link_is_found(self):
         skill = self.copy / 'skills/explore/SKILL.md'

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a portable catalog from the canonical plugins/lusona sources."""
+"""Build a portable catalog from a plugin directory (default: the canonical plugins/lusona)."""
 
 import argparse
 import json
@@ -16,13 +16,15 @@ CATALOGS = (Path('.agents/plugins/marketplace.json'), Path('.claude-plugin/marke
 
 
 def check_links(root):
-    for file in root.rglob('*.md'):
+    # Markdown templates are named `name.md.template` (A8); plain `name.md` names are also checked.
+    for file in (*root.rglob('*.md'), *root.rglob('*.md.template')):
         for target in re.findall(r'\]\(([^)]+)\)', file.read_text()):
             if '://' not in target and not (file.parent / target.split('#')[0]).exists():
                 raise ValueError(f'Broken resource link: {file}: {target}')
 
 
 def check_skill_templates(source):
+    # Any file in templates/ counts, so `name.md` and `name.md.template` both pass.
     templates = (source / 'templates').resolve()
     for skill in (source / 'skills').glob('*/SKILL.md'):
         targets = re.findall(r'\]\(([^)]+)\)', skill.read_text())
@@ -33,8 +35,9 @@ def check_skill_templates(source):
             raise ValueError(f'Skill must link an existing output template: {skill}')
 
 
-def build(output):
-    source = ROOT / PLUGIN
+def build(output, source_dir=PLUGIN):
+    """Package the plugin at `source_dir` (relative to ROOT or absolute) as catalog path PLUGIN."""
+    source = ROOT / source_dir
     if (ROOT / 'LICENSE').read_bytes() != (source / 'LICENSE').read_bytes():
         raise ValueError('Repository and plugin LICENSE files must match.')
     check_skill_templates(source)
@@ -102,9 +105,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, default=ROOT / 'tmp/lusona-package',
                         help='New output directory; defaults to repository-local tmp/lusona-package.')
+    parser.add_argument('--plugin', type=Path, default=PLUGIN,
+                        help=f'Plugin source directory, relative to the repository root; '
+                             f'defaults to {PLUGIN}. It is packaged as {PLUGIN}.')
     args = parser.parse_args()
     try:
-        catalog, plugin, archive = build(args.output.expanduser().resolve())
+        catalog, plugin, archive = build(args.output.expanduser().resolve(), args.plugin)
     except (OSError, ValueError, KeyError) as error:
         parser.exit(1, f'Package build failed: {error}\n')
     print(f'Catalog: {catalog}\nPlugin: {plugin}\nArchive: {archive}')

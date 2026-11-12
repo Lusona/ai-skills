@@ -84,8 +84,8 @@ class PackageTests(unittest.TestCase):
         resources = {(skill.parent / target.split('#')[0]).resolve()
                      for target in targets if '://' not in target}
         expected = {plugin / relative for relative in
-                    ('README.md', 'references/visuals.md', 'templates/visual-page.html',
-                     'templates/visual-reference.md')}
+                    ('references/visuals.md', 'templates/visual-page.html.template',
+                     'templates/visual-reference.md.template')}
         self.assertTrue({path.resolve() for path in expected} <= resources)
         with ZipFile(archive) as bundle:
             for resource in resources | {skill.resolve()}:
@@ -181,6 +181,79 @@ class PackageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Native manifest versions must match'):
             package.build(self.output)
         self.assertFalse(self.output.exists())
+
+
+    def make_draft(self, relative='drafts/lusona'):
+        """Copy the fixture plugin to another directory, keeping its `.template` names."""
+        draft = self.root / relative
+        shutil.copytree(self.source, draft)
+        names = [template.name for template in (draft / 'templates').iterdir()]
+        self.assertTrue(names and all(name.endswith('.template') for name in names), names)
+        return draft
+
+    def make_plain_names(self, relative='plain/lusona'):
+        """Copy the fixture plugin with `.template` removed from template names and links."""
+        plain = self.root / relative
+        shutil.copytree(self.source, plain)
+        names = [template.name for template in (plain / 'templates').iterdir()]
+        for name in names:
+            (plain / 'templates' / name).rename(plain / 'templates' / name.removesuffix('.template'))
+        pattern = re.compile(r'(templates/(?:%s))\.template(?=[)#])'
+                             % '|'.join(re.escape(name.removesuffix('.template')) for name in names))
+        for file in plain.rglob('*.md'):
+            file.write_text(pattern.sub(r'\1', file.read_text()))
+        return plain
+
+    def test_template_suffix_names_pass_template_and_link_checks(self):
+        # Canonical templates use `name.ext.template` (A8); plain `name.ext` names still pass.
+        plain = self.make_plain_names()
+        for plugin in (self.source, plain):
+            with self.subTest(plugin=plugin.relative_to(self.root)):
+                package.check_skill_templates(plugin)
+                package.check_links(plugin)
+        self.assertTrue(any(name.endswith('.md.template')
+                            for name in (path.name for path in (self.source / 'templates').iterdir())))
+        self.assertFalse(any((plain / 'templates').glob('*.template')))
+
+    def test_rejects_broken_link_in_template_file(self):
+        draft = self.make_draft()
+        template = next((draft / 'templates').glob('*.md.template'))
+        template.write_text(template.read_text() + '\n[missing](missing.md)\n')
+        with self.assertRaisesRegex(ValueError, 'Broken resource link'):
+            package.check_links(draft)
+
+    def test_builds_given_plugin_directory_without_unselected_directories(self):
+        draft = self.make_draft()
+        for relative in ('hooks/hooks.json', 'docs/lusona/work.md'):
+            unwanted = draft / relative
+            unwanted.parent.mkdir(parents=True, exist_ok=True)
+            unwanted.write_text('not packaged')
+        shared = self.root / 'shared/every-task.md'
+        shared.parent.mkdir(parents=True)
+        shared.write_text('not packaged')
+        catalog, plugin, archive = package.build(self.output, Path('drafts/lusona'))
+        self.assertEqual(plugin, catalog / package.PLUGIN)
+        selected = {file.relative_to(draft) for file in draft.rglob('*') if file.is_file()
+                    and file.relative_to(draft).parts[0] not in ('hooks', 'docs')}
+        packaged = {file.relative_to(plugin) for file in plugin.rglob('*') if file.is_file()}
+        self.assertEqual(packaged, selected)
+        self.assertTrue(any(name.endswith('.md.template')
+                            for name in (path.name for path in packaged)))
+        for relative in packaged:
+            self.assertEqual((plugin / relative).read_bytes(), (draft / relative).read_bytes())
+        self.assertFalse((catalog / 'shared').exists())
+        with ZipFile(archive) as bundle:
+            names = bundle.namelist()
+        self.assertFalse(any('/hooks/' in name or '/shared/' in name for name in names))
+
+    def test_command_line_plugin_option_defaults_to_canonical_plugin(self):
+        for argv, expected in ((['package.py'], package.PLUGIN),
+                               (['package.py', '--plugin', 'drafts/lusona'], Path('drafts/lusona'))):
+            with self.subTest(argv=argv), patch('sys.argv', argv + ['--output', str(self.output)]), \
+                    patch.object(package, 'build', return_value=(Path(), Path(), Path())) as build:
+                with patch('builtins.print'):
+                    package.main()
+                self.assertEqual(build.call_args.args[1], expected)
 
 
 if __name__ == '__main__':

@@ -81,8 +81,8 @@ try {
     [IO.Directory]::CreateDirectory((Join-Path $bundle 'templates')) | Out-Null
     Copy-Item -LiteralPath $helper -Destination (Join-Path $bundle 'scripts/work-record.ps1')
     foreach ($name in @('history', 'notes', 'spec', 'adr')) {
-        $original = [IO.File]::ReadAllText((Join-Path $repository "plugins/lusona/templates/$name.md"))
-        Write-Text (Join-Path $bundle "templates/$name.md") ($original + "`nBundle-specific $name content.`n")
+        $original = [IO.File]::ReadAllText((Join-Path $repository "plugins/lusona/templates/$name.md.template"))
+        Write-Text (Join-Path $bundle "templates/$name.md.template") ($original + "`nBundle-specific $name content.`n")
     }
     $relocated = Join-Path $bundle 'scripts/work-record.ps1'
     $relocatedHistory = Invoke-Helper @('init-history', $project, '2026-09-15') 0 $relocated
