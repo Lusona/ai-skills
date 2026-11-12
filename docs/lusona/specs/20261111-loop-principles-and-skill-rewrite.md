@@ -310,7 +310,7 @@ Accepted decisions (user, 2026-11-11, native question tool, relayed by the coord
     the completion examples (Q4). Q1: `model-routing` and `worker-lifecycle` merge into
     `delegation`, `handoff` into `retention` (W9). Q2: host and project restriction rules
     (readme-015, readme-066) are removed. Q3: explore and status conversation stays with the
-    coordinator; substantive work is delegated. Q5: greetings are not task replies, and there is
+    coordinator; substantive work is delegated (revised in part 2026-11-11, decision 28). Q5: greetings are not task replies, and there is
     no task-local check exception; accepted on the coordinator's recommendation, may be revisited.
     A2, A3, A5 accepted as proposed in `drafts/README.md`. A4: `batch` and `status` may add H2
     sections through a named exception list in the template check.
@@ -378,7 +378,18 @@ Accepted decisions (user, 2026-11-11, native question tool, relayed by the coord
 27. Closing (user, 2026-11-11, "close the rewrite item"): the item closes without a suite rerun on
     the committed text and without independent review of the voice pass. The limits recorded
     under Voice pass results stand. Push and publication stay unauthorized.
-
+28. Delegation revised in part after closing (user, 2026-11-11, conversation: "accept the three
+    texts, TDD none"), on the user's report that `status` is slow under delegation.
+    Decision 4 of spec 20261110 (delegation at every task size; row 4 of the table below) is
+    revised in part: the Role line now reads "Delegate specialist work at every task size, except
+    work the skill assigns to the coordinator" (replaced: "Delegate specialist work at every
+    task size"). Decision 16 Q3 is revised in part for two skills. `status` (replaced: "Delegate
+    inventory and inspection work") does the assessment itself and delegates only an audit of
+    product source code that the question depends on. `explore` (replaced: "Delegate research
+    and analysis") reasons from the conversation, the project records and the files the user
+    names, and delegates research that needs other sources. The rationale of both decisions
+    stands for the other 12 skills, which assign no work to the coordinator. Record:
+    [notes](../notes/selective-delegation-for-status-and-explore.md).
 20261110 decisions as inputs:
 
 | # | Decision (short) | Status |
@@ -386,7 +397,7 @@ Accepted decisions (user, 2026-11-11, native question tool, relayed by the coord
 | 1 | Every-task rules in each skill; others in references | Kept; extended by user decision 3 (README not contract) |
 | 2 | One template for 14 skills, persona each | Kept as input; see Skill template table |
 | 3 | Full final reply form at every task size | Kept |
-| 4 | Delegation at every task size, local fallback stated | Kept |
+| 4 | Delegation at every task size, local fallback stated | Kept; revised in part 2026-11-11 (decision 28) |
 | 5 | No runtime hooks or Python; remove hooks work | Kept (W11) |
 | 6 | TDD `targeted` | Revised: reselected 2026-11-11 with new test-first behaviors |
 | 7 | Acceptance by checks, review, one C9 suite run | Revised: adds contract checks and principle scenarios (AC18) |

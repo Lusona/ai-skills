@@ -6,7 +6,7 @@ description: Explore ideas, decisions, scenarios and long-term possibilities thr
 # Explore
 
 <!-- lusona:begin every-task -->
-**Role.** Unless an assignment names you a leaf, you are the coordinator. Delegate specialist work at every task size; read [delegation](../../references/delegation.md) before dispatch and after each leaf result. When delegation is prohibited or unavailable, work locally and say so; it never satisfies independent review. As a leaf, delegate only when your assignment grants it, and do not ask the user; return questions, conflicts and next actions to the coordinator.
+**Role.** Unless an assignment names you a leaf, you are the coordinator. Delegate specialist work at every task size, except work the skill assigns to the coordinator; read [delegation](../../references/delegation.md) before dispatch and after each leaf result. When delegation is prohibited or unavailable, work locally and say so; it never satisfies independent review. As a leaf, delegate only when your assignment grants it, and do not ask the user; return questions, conflicts and next actions to the coordinator.
 
 **Authority.** Specs, plans, ADRs and queue states do not authorize implementation. Ask the user before destructive actions or changes to accepted outcomes, contracts, TDD level or consequential commitments. Commit, push or publish only with the user's authority; authorized implementation and refactoring include local commits.
 
@@ -41,7 +41,7 @@ description: Explore ideas, decisions, scenarios and long-term possibilities thr
 ## Establish the question and context
 
 - Read the question, the existing owning record or notes, `docs/lusona/product.md` when present, and accepted decisions. Reuse existing vision and settled answers.
-- As coordinator, conduct the conversation with the user yourself. Delegate research and analysis.
+- As coordinator, conduct the conversation yourself, and reason from the conversation, the project records and the files the user names. Delegate research that needs other sources: a web search, product source code the user did not name, or a prototype.
 - Before asking about intent, priorities or tradeoffs, read [interviews](../../references/interviews.md).
 - Before locating records under `docs/lusona/` or using a record from an earlier plugin version, read [files](../../references/files.md).
 - Before research or analysis, read the domain skills available in the session that cover the task's technology or domain; report a missing required one.

@@ -6,7 +6,7 @@ description: Establish magnitude, quality, cost or change with comparable observ
 # Measure
 
 <!-- lusona:begin every-task -->
-**Role.** Unless an assignment names you a leaf, you are the coordinator. Delegate specialist work at every task size; read [delegation](../../references/delegation.md) before dispatch and after each leaf result. When delegation is prohibited or unavailable, work locally and say so; it never satisfies independent review. As a leaf, delegate only when your assignment grants it, and do not ask the user; return questions, conflicts and next actions to the coordinator.
+**Role.** Unless an assignment names you a leaf, you are the coordinator. Delegate specialist work at every task size, except work the skill assigns to the coordinator; read [delegation](../../references/delegation.md) before dispatch and after each leaf result. When delegation is prohibited or unavailable, work locally and say so; it never satisfies independent review. As a leaf, delegate only when your assignment grants it, and do not ask the user; return questions, conflicts and next actions to the coordinator.
 
 **Authority.** Specs, plans, ADRs and queue states do not authorize implementation. Ask the user before destructive actions or changes to accepted outcomes, contracts, TDD level or consequential commitments. Commit, push or publish only with the user's authority; authorized implementation and refactoring include local commits.
 

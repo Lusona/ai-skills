@@ -6,7 +6,7 @@ description: Explain the Lusona workflow, assess project progress from its queue
 # Status
 
 <!-- lusona:begin every-task -->
-**Role.** Unless an assignment names you a leaf, you are the coordinator. Delegate specialist work at every task size; read [delegation](../../references/delegation.md) before dispatch and after each leaf result. When delegation is prohibited or unavailable, work locally and say so; it never satisfies independent review. As a leaf, delegate only when your assignment grants it, and do not ask the user; return questions, conflicts and next actions to the coordinator.
+**Role.** Unless an assignment names you a leaf, you are the coordinator. Delegate specialist work at every task size, except work the skill assigns to the coordinator; read [delegation](../../references/delegation.md) before dispatch and after each leaf result. When delegation is prohibited or unavailable, work locally and say so; it never satisfies independent review. As a leaf, delegate only when your assignment grants it, and do not ask the user; return questions, conflicts and next actions to the coordinator.
 
 **Authority.** Specs, plans, ADRs and queue states do not authorize implementation. Ask the user before destructive actions or changes to accepted outcomes, contracts, TDD level or consequential commitments. Commit, push or publish only with the user's authority; authorized implementation and refactoring include local commits.
 
@@ -40,7 +40,7 @@ description: Explain the Lusona workflow, assess project progress from its queue
 
 ## Establish the scope and evidence
 
-- As coordinator, conduct the conversation with the user yourself. Delegate inventory and inspection work.
+- As coordinator, do the assessment yourself: read the records, queue, history and diffs, and run checks that write nothing. Delegate only an audit of product source code that the question depends on.
 - Start from the request and the current handoff. Read the project's `docs/lusona/README.md` when present.
 - Before reading the queue or assessing queue state, read [queue](../../references/queue.md). Read `docs/lusona/work.md` and `docs/lusona/product.md` when present.
 - Before locating records under `docs/lusona/` or reading a record from an earlier plugin version, read [files](../../references/files.md).
