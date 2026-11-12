@@ -23,6 +23,21 @@ Local source update prepared on 2026-11-11. Publication and installation are not
   references in `skills/batch/references/`.
 - Rename templates to `name.ext.template` (for example `templates/spec.md.template`). The
   record helpers read the new names; their commands, output and exit codes do not change.
+- Rename template labels. In the batch template, the field "Repair allowance" is now
+  "Repair budget", the table headers "Allowance and source" and "Remaining allowance" are now
+  "Budget and source" and "Remaining budget", and the column "Relevant items" is now "Items".
+  In the product template, the field "Useful horizon, if established" is now "Horizon, if
+  established". Records created from earlier templates stay readable.
+- Use one term for each concept: "repair budget", "queue state", and "execution record" for
+  an existing file in `docs/lusona/plans/`. The terminology table in the workflow guide
+  defines these, plus accepted decision, settled decision, skill prompt and continuation
+  directive.
+- Describe Icebox as a section of the queue, not a queue state. A parked row keeps its
+  queue state.
+- State conditions as tests. Words such as "relevant", "useful", "safe" and "small" are
+  replaced by a condition the agent can check, or deleted. `scripts/check_voice.py` fails
+  on a list of banned terms, and `scripts/sync_shared.py` fails when the every-task block
+  exceeds 300 words.
 
 ## 2.0.5 — Untagged source snapshot
 
