@@ -20,7 +20,7 @@ ANTIGRAVITY = Path('.antigravity-plugin/plugin.json')
 
 
 class PackageTests(unittest.TestCase):
-    def assert_design_discoverable(self, catalog):
+    def assert_discoverable(self, catalog, name):
         plugin = catalog / package.PLUGIN
         manifests = [plugin / host / 'plugin.json' for host in
                      ('.codex-plugin', '.claude-plugin', '.cursor-plugin')]
@@ -29,10 +29,13 @@ class PackageTests(unittest.TestCase):
             with self.subTest(manifest=manifest.relative_to(catalog)):
                 skills = manifest.parent.parent / json.loads(manifest.read_text())['skills']
                 commands = {entry.parent.name: entry for entry in skills.glob('*/SKILL.md')}
-                self.assertIn('design', commands,
-                              'The native skills directory must expose the design command.')
-                frontmatter = commands['design'].read_text().split('---', 2)[1]
-                self.assertRegex(frontmatter, r'(?m)^name: design$')
+                self.assertIn(name, commands,
+                              f'The native skills directory must expose the {name} command.')
+                frontmatter = commands[name].read_text().split('---', 2)[1]
+                self.assertRegex(frontmatter, rf'(?m)^name: {name}$')
+
+    def assert_design_discoverable(self, catalog):
+        self.assert_discoverable(catalog, 'design')
 
     def setUp(self):
         (ROOT / 'tmp').mkdir(exist_ok=True)
@@ -87,6 +90,32 @@ class PackageTests(unittest.TestCase):
                     ('references/visuals.md', 'templates/visual-page.html.template',
                      'templates/visual-reference.md.template')}
         self.assertTrue({path.resolve() for path in expected} <= resources)
+        with ZipFile(archive) as bundle:
+            for resource in resources | {skill.resolve()}:
+                relative = resource.relative_to(plugin.resolve())
+                self.assertTrue(resource.is_file(), str(relative))
+                self.assertEqual(resource.read_bytes(), (self.source / relative).read_bytes())
+                archived = (plugin / relative).relative_to(self.output).as_posix()
+                self.assertEqual(bundle.read(archived), resource.read_bytes(), archived)
+
+    def test_setup_is_discoverable_through_native_skill_directories(self):
+        self.assert_discoverable(ROOT, 'setup')
+
+    def test_package_exposes_setup_with_linked_resources(self):
+        catalog, plugin, archive = package.build(self.output)
+        self.assert_discoverable(catalog, 'setup')
+        skill = plugin / 'skills/setup/SKILL.md'
+        self.assertTrue(skill.is_file(), 'The portable package must include setup.')
+        targets = re.findall(r'\]\(([^)]+)\)', skill.read_text())
+        resources = {(skill.parent / target.split('#')[0]).resolve()
+                     for target in targets if '://' not in target}
+        expected = {plugin / relative for relative in
+                    ('references/naming.md', 'references/workflow-guide.md',
+                     'templates/agents-section.md.template', 'templates/work.md.template')}
+        self.assertTrue({path.resolve() for path in expected} <= resources)
+        # Setup creates the queue with the helper command; both shells must carry it.
+        for helper in ('scripts/work-record.sh', 'scripts/work-record.ps1'):
+            self.assertIn('init-queue', (plugin / helper).read_text(), helper)
         with ZipFile(archive) as bundle:
             for resource in resources | {skill.resolve()}:
                 relative = resource.relative_to(plugin.resolve())

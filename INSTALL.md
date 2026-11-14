@@ -166,6 +166,10 @@ codex plugin add lusona@lusona-ai-skills
 Start a new Codex session in your project and select Lusona's `status` skill from
 the skill UI. Ask it to explain the workflow or assess your project's current work.
 
+In Codex CLI, invoke a skill with `$lusona:<skill>`, for example `$lusona:status`. The Codex
+desktop app accepts both `$lusona:<skill>` and `/lusona:<skill>` (reported by the maintainer on
+2026-11-12; not tested as part of this update).
+
 For marketplace configuration options, see the [OpenAI plugin documentation](https://developers.openai.com/plugins/build/plugins).
 
 ## Cursor
@@ -215,7 +219,15 @@ have not been tested as part of this documentation update.
 ## First use
 
 Installation registers the skills. You choose what work to authorize in your project.
-For example, select `explore` and ask:
+
+In a new project, start with the optional `setup` skill: `/lusona:setup` in Claude Code,
+`$lusona:setup` in Codex CLI, or `setup` in your host's skill interface. It creates
+`docs/lusona/` and the work queue `docs/lusona/work.md`. It writes a "Lusona skills" section to
+the project's `AGENTS.md`, and an `@AGENTS.md` import to `CLAUDE.md` when needed, only after you
+confirm the text. No skill requires setup; without it, skills create the records their work
+needs.
+
+To discuss an idea, select `explore` and ask:
 
 > Help me compare invitation links and email-only invitations. Explain the tradeoffs.
 > Keep this discussion in chat; do not save files.

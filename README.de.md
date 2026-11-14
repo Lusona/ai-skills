@@ -2,13 +2,13 @@
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Lusona umfasst 14 Skills für Produkt- und Entwicklungsarbeit mit Programmieragenten. Jeder
+Lusona umfasst 15 Skills für Produkt- und Entwicklungsarbeit mit Programmieragenten. Jeder
 Skill deckt eine Verantwortung ab, etwa eine Änderung zu spezifizieren, umzusetzen oder zu
 prüfen. Alle Skills folgen denselben acht Prinzipien des Arbeitszyklus, führen Aufzeichnungen
 unter `docs/lusona/` im Projekt und beenden jede Aufgabenantwort mit Status, Belegen und der
 nächsten Aktion.
 
-Für Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Programmieragenten in Xcode 27](INSTALL.md#xcode) und [Google Antigravity App, CLI und IDE](INSTALL.md#antigravity) · Version des Quellcodes in dieser Arbeitskopie: **3.0.0**
+Für Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Programmieragenten in Xcode 27](INSTALL.md#xcode) und [Google Antigravity App, CLI und IDE](INSTALL.md#antigravity) · Version des Quellcodes in dieser Arbeitskopie: **3.1.0**
 
 > [!WARNING]
 > Installiere Lusona nicht mit Vercel Skills (`npx skills@latest`); nutze die [Installation als natives Plugin](#installation).
@@ -60,6 +60,12 @@ definiert sie.
 
 ## Beginnen und einen Skill wählen
 
+Führe in einem neuen Projekt einmal **setup** aus. Es ist optional; kein Skill setzt es voraus. Es
+legt `docs/lusona/` und die Arbeitswarteschlange an, fragt nach einer dauerhaften TDD-Vorgabe und
+einer Zuordnung von Modellstufen (beides optional) und ergänzt einen Abschnitt „Lusona skills“ in
+`AGENTS.md`, nachdem du den Text bestätigt hast. Dieser Abschnitt teilt Agenten in späteren
+Sitzungen mit, dass das Projekt Lusona-Skills nutzt und welche TDD-Vorgabe gilt.
+
 Beginne mit **status**, wenn du in ein Projekt einsteigst, Arbeit wieder aufnimmst oder
 entscheidest, was Aufmerksamkeit braucht. Der Skill bewertet lesbare Aufzeichnungen und Belege,
 nennt alle bekannten Restarbeiten und empfiehlt die nächste Aktion. Er funktioniert auch ohne
@@ -70,6 +76,7 @@ freigegebene Anfrage mit benanntem Verhalten und Umfang geht ohne **specify** zu
 
 | Skill | Verwenden, wenn |
 | --- | --- |
+| [setup](plugins/lusona/skills/setup/SKILL.md) | Du ein Projekt für Lusona vorbereiten möchtest: `docs/lusona/` und die Arbeitswarteschlange anlegen und einen Lusona-Abschnitt in `AGENTS.md` ergänzen (optional) |
 | [status](plugins/lusona/skills/status/SKILL.md) | Du Orientierung, Fortschritt, Restarbeit oder Möglichkeiten zur Fortsetzung wissen möchtest |
 | [explore](plugins/lusona/skills/explore/SKILL.md) | Du vor einer Wahl über eine Richtung, Option oder Zukunft nachdenken möchtest |
 | [frame-product](plugins/lusona/skills/frame-product/SKILL.md) | Zielgruppe, Problem, Vision, Ergebnisse oder Grenzen eines Produkts undefiniert sind oder sich ändern |
@@ -92,7 +99,7 @@ braucht keine neue Freigabe; du musst nicht jeden Übergang anweisen.
 Rufe einen Skill in deiner Anwendung auf:
 
 - Claude Code: `/lusona:<skill>`, zum Beispiel `/lusona:status`.
-- Codex: Wähle den Lusona-Skill in der Skill-Oberfläche.
+- Codex CLI: `$lusona:<skill>`, zum Beispiel `$lusona:status`. Codex-Desktop-App: `$lusona:<skill>` oder `/lusona:<skill>`. Du kannst den Skill auch in der Skill-Oberfläche wählen.
 - Cursor: Gib `/` im Agent-Chat ein und wähle den Skill.
 - Xcode: Gib `/` in einer Agentenunterhaltung ein und wähle den installierten Skill.
 - Antigravity App und CLI: `/<skill>`, zum Beispiel `/status`. Prüfe in der eigenständigen IDE
@@ -100,6 +107,8 @@ Rufe einen Skill in deiner Anwendung auf:
 
 [Installiere Lusona](#installation), bevor du die Skills nutzt. Eine Skill-Anfrage nennt den
 Skill, das Ergebnis oder die Eingabeaufzeichnung und den freigegebenen Umfang. Zum Beispiel:
+
+> **setup:** Richte Lusona in diesem Projekt ein. Zeige mir den Text für `AGENTS.md`, bevor du ihn schreibst.
 
 > **status:** Bewerte dieses Projekt anhand der vorhandenen Aufzeichnungen und des Arbeitsbaums.
 > Nenne die verbleibende Arbeit und empfiehl, wo ich anfangen sollte.
@@ -144,11 +153,12 @@ Implementierung erfordert eine ausdrücklich gewählte TDD-Stufe. Es gibt keinen
 | `targeted` | Für benannte Verhaltensweisen zuerst Tests schreiben |
 | `strict` | Für jedes neue oder geänderte testbare Verhalten zuerst Tests schreiben |
 
-Wähle die Stufe in deiner Anfrage oder als dauerhafte Vorgabe in der `docs/lusona/README.md`
-des Projekts oder den Agentenanweisungen (`CLAUDE.md` oder `AGENTS.md`), zum Beispiel
-`TDD: targeted for validation and persistence boundaries`. Bis eine Stufe gewählt ist, definiert
-und plant der Agent nur; dann fragt er dich mit einer Empfehlung. Er dokumentiert Stufe und
-Quelle und bittet um eine geänderte Stufe, wenn die gewählte Abfolge nicht umsetzbar ist.
+Wähle die Stufe in deiner Anfrage oder als dauerhafte Vorgabe in der `docs/lusona/README.md` des
+Projekts oder den Agentenanweisungen (`CLAUDE.md` oder `AGENTS.md`), zum Beispiel
+`TDD: targeted for validation and persistence boundaries`. **setup** kann die Vorgabe in `AGENTS.md`
+festhalten. Bis eine Stufe gewählt ist, definiert und plant der Agent nur; dann fragt er dich mit
+einer Empfehlung. Er dokumentiert Stufe und Quelle und bittet um eine geänderte Stufe, wenn die
+gewählte Abfolge nicht umsetzbar ist.
 
 Innerhalb dieser Befugnisse arbeitet der Agent ohne weiteren Befehl weiter (P7). Er führt die
 nächste begrenzte Aktion aus, nimmt innerhalb freigegebener Arbeit ohne neue Anfrage Messungen
@@ -159,9 +169,10 @@ wartet, pausiert nur die betroffene Arbeit; der Agent nennt die Bedingung für i
 
 Der Agent, der mit dir spricht, ist der Koordinator. Bei Aufgaben jeder Größe delegiert er
 Facharbeit an untergeordnete Agenten, außer Arbeit, die ein Skill dem Koordinator zuweist, und
-integriert und prüft ihre Ergebnisse. Zwei Skills weisen solche Arbeit zu: In **status** führt
-der Koordinator die Bewertung selbst durch, und in **explore** stützt er sich auf das Gespräch,
-die Projektaufzeichnungen und die Dateien, die du nennst. Ist Delegation verboten oder nicht
+integriert und prüft ihre Ergebnisse. Drei Skills weisen solche Arbeit zu: In **status** führt
+der Koordinator die Bewertung selbst durch, in **explore** stützt er sich auf das Gespräch,
+die Projektaufzeichnungen und die Dateien, die du nennst, und in **setup** führt der
+Koordinator die Einrichtung selbst durch. Ist Delegation verboten oder nicht
 verfügbar, arbeitet der Koordinator lokal und sagt dies. Siehe
 [Delegation](plugins/lusona/references/delegation.md) für Zuweisungen und
 [Modellzuordnung](plugins/lusona/references/delegation.md#model-routing).
@@ -232,6 +243,10 @@ Der Agent speichert wesentliche Ergebnisse vor Übergabe oder Abschluss unaufgef
 Entscheidungen, Vereinbarungen, Belege, Erkenntnisse, Übergaben und Gesprächssynthesen, von
 denen spätere Arbeit abhängt. Erklärungen und Statusmeldungen ohne solche Abhängigkeiten
 brauchen keine Aufzeichnung. Ist Speichern verboten, nennt der Agent, was nicht gespeichert wurde.
+
+**setup** legt `docs/lusona/` und die Arbeitswarteschlange an, wenn du ein Projekt vorbereitest
+(siehe [Beginnen und einen Skill wählen](#beginnen-und-einen-skill-wählen)). Ohne setup legen die
+Skills die Aufzeichnungen an, die ihre Arbeit braucht.
 
 | Arbeit | Aufzeichnung unter `docs/lusona/` im Projekt |
 | --- | --- |

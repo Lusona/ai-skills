@@ -247,6 +247,12 @@ case $command_name in
     template=$(read_template notes)
     initialize "$root/docs/lusona/notes/$2.md" "${template//\{\{slug\}\}/$2}"
     ;;
+  init-queue)
+    [[ $# -eq 1 ]] || fail 'init-queue requires a project root'
+    root=$(project_root "$1")
+    template=$(read_template work)
+    initialize "$root/docs/lusona/work.md" "$template"
+    ;;
   init-change|init-adr)
     record_json=1
     [[ $# -ge 2 && $# -le 3 ]] || fail "$command_name requires a project root, functional slug, and optional date"

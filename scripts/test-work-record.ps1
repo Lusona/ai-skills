@@ -89,6 +89,30 @@ try {
     Equal ([IO.File]::ReadAllText($relocatedHistory).Contains('Bundle-specific history content.')) $true
     $relocatedNotes = Invoke-Helper @('init-notes', $project, 'probe') 0 $relocated
     Equal ([IO.File]::ReadAllText($relocatedNotes).Contains('Bundle-specific notes content.')) $true
+    # init-queue creates only the bundled work queue and preserves an existing one.
+    $queueProject = Join-Path $scratch 'queue project'
+    [IO.Directory]::CreateDirectory($queueProject) | Out-Null
+    $queueTemplate = Join-Path $repository 'plugins/lusona/templates/work.md.template'
+    $queue = Invoke-Helper @('init-queue', $queueProject)
+    Equal $queue (Join-Path $queueProject 'docs/lusona/work.md')
+    Equal ([Convert]::ToBase64String([IO.File]::ReadAllBytes($queue))) ([Convert]::ToBase64String([IO.File]::ReadAllBytes($queueTemplate)))
+    Equal ((@(Get-ChildItem -LiteralPath (Join-Path $queueProject 'docs') -Recurse -Force | ForEach-Object { $_.FullName }) | Sort-Object) -join '|') ((Join-Path $queueProject 'docs/lusona'), $queue -join '|')
+    Write-Text $queue "Existing queue content`n"
+    Equal (Invoke-Helper @('init-queue', $queueProject)) $queue
+    Equal ([IO.File]::ReadAllText($queue)) "Existing queue content`n"
+    Equal @(Get-ChildItem -LiteralPath (Join-Path $queueProject 'docs/lusona') -Force).Count 1
+    Reject @('init-queue')
+    Reject @('init-queue', $queueProject, 'extra')
+    Reject @('init-queue', (Join-Path $scratch 'missing'))
+    Reject @('init-queue', $queue)
+    [IO.File]::Delete($queue)
+    [IO.Directory]::CreateDirectory($queue) | Out-Null
+    Reject @('init-queue', $queueProject)
+    [IO.Directory]::Delete($queue)
+    Write-Text (Join-Path $bundle 'templates/work.md.template') ([IO.File]::ReadAllText($queueTemplate) + "`nBundle-specific queue content.`n")
+    $relocatedQueue = Invoke-Helper @('init-queue', $queueProject) 0 $relocated
+    Equal ([IO.File]::ReadAllText($relocatedQueue).Contains('Bundle-specific queue content.')) $true
+    [IO.File]::Delete($queue)
     foreach ($kind in @('change', 'adr')) {
         $response = (Invoke-Helper @("init-$kind", $project, 'add-python-support', '2026-09-26')) | ConvertFrom-Json
         $directory = if ($kind -eq 'change') { 'specs' } else { 'adr' }
@@ -228,6 +252,9 @@ function New-Object {
         $notesLink = Join-Path $project 'docs/lusona/notes/linked.md'
         New-Item -ItemType SymbolicLink -Path $notesLink -Target $target | Out-Null
         Reject @('init-notes', $project, 'linked')
+        New-Item -ItemType SymbolicLink -Path $queue -Target $target | Out-Null
+        Reject @('init-queue', $queueProject)
+        [IO.File]::Delete($queue)
         $legacyLink = Join-Path $numbered 'docs/lusona/adr/0010-linked.md'
         New-Item -ItemType SymbolicLink -Path $legacyLink -Target $target | Out-Null
         Reject @('next-adr', $numbered)

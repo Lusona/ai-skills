@@ -46,7 +46,7 @@ retain any required third-party notices.
 
 ## Edit the text that every skill shares
 
-Two blocks of text appear in all 14 `SKILL.md` files. Each block has one source file in the
+Two blocks of text appear in all 15 `SKILL.md` files. Each block has one source file in the
 repository-level `shared/` directory, and `scripts/sync_shared.py` copies that source into
 every skill.
 

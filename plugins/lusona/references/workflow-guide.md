@@ -21,6 +21,7 @@ Read before explaining the workflow, a skill's responsibility or a workflow term
 | --- | --- | --- |
 | [explore](../skills/explore/SKILL.md) | Discussion partner: selective questions, domain context, scenarios and tradeoffs | [Discussion synthesis](../templates/brainstorm.md.template) in the owning record or notes, when the synthesis meets a save condition in retention |
 | [status](../skills/status/SKILL.md) | Workflow guide: current evidence, dependencies, next action, total known remainder | Read-only [status assessment](../templates/status.md.template) |
+| [setup](../skills/setup/SKILL.md) | Project setup guide: the record directory, the work queue and the Lusona section of the project's agent instructions; optional, no skill requires it | `docs/lusona/work.md` from the [queue template](../templates/work.md.template) and the confirmed [Lusona section](../templates/agents-section.md.template) |
 | [batch](../skills/batch/SKILL.md) | Batch coordinator: authorized selected outcomes, dependencies and ownership | Coordinator-owned [batch record](../templates/batch.md.template), linking owning evidence |
 | [frame-product](../skills/frame-product/SKILL.md) | Product strategist: long-term vision, users, problem, outcomes, boundaries | [Product brief](../templates/product.md.template) |
 | [map-capabilities](../skills/map-capabilities/SKILL.md) | Product planner: long-term capability coverage, dependencies, delivery order | Capability map in the [product template](../templates/product.md.template) |
@@ -37,7 +38,7 @@ Read before explaining the workflow, a skill's responsibility or a workflow term
 - Skills supply expertise, not authority or mandatory phases.
 - Use each skill's linked template for its output. Apply the sections the work has content for, in the reply or in the existing owning record.
 - Preserve project-local conventions.
-- In Claude Code, invoke a skill as `/lusona:<skill>`. In other hosts, use the host's skill interface.
+- Invoke a skill as `/lusona:<skill>` in Claude Code and as `$lusona:<skill>` in Codex CLI. The Codex desktop app accepts both forms. In other hosts, use the host's skill interface.
 - A prompt that invokes a skill names the skill, the selected outcome or input record, and the authorized scope.
 
 ## Routing
@@ -48,6 +49,7 @@ Choose the row that matches the observed need. The rows separate responsibilitie
 | --- | --- | --- |
 | Start or resume unattended selected work | [batch](../skills/batch/SKILL.md) | Exact selection or batch record, and execution authority |
 | Explore possibilities or tradeoffs | [explore](../skills/explore/SKILL.md) | The idea or decision |
+| The user asks to prepare a project for Lusona | [setup](../skills/setup/SKILL.md); optional, no other action depends on it | The project root and the user's confirmation of the agent-instruction text |
 | Product audience, outcome or boundaries unclear | [frame-product](../skills/frame-product/SKILL.md) | The missing decision |
 | Capabilities or delivery order unclear | [map-capabilities](../skills/map-capabilities/SKILL.md) | Product context |
 | Change behavior or acceptance criteria unclear | [specify](../skills/specify/SKILL.md) | The selected outcome |
@@ -85,6 +87,8 @@ Choose the row that matches the observed need. The rows separate responsibilitie
 | Settled decision | An accepted decision, or a routine decision recorded within delegated authority |
 | Skill prompt | Text that invokes a skill; it names the skill, the selected outcome or input record, and the authorized scope |
 | Continuation directive | An instruction for another actor or session that must continue the work |
+| Lusona section | The `## Lusona skills` section that setup writes to a project's `AGENTS.md` |
+| Model tier mapping | The project's assignment of a model and reasoning setting to each of the tiers `fast`, `standard` and `deep` |
 
 - A change can contain one task.
 - Use only the skills that the change's unresolved work needs. Definition, planning, implementation and review are responsibilities, not mandatory phases.

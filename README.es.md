@@ -2,13 +2,13 @@
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Lusona es un conjunto de 14 habilidades para trabajar en producto e ingeniería con agentes de
+Lusona es un conjunto de 15 habilidades para trabajar en producto e ingeniería con agentes de
 programación. Cada habilidad cubre una responsabilidad, como especificar, implementar o revisar
 un cambio. Todas siguen los mismos ocho principios del ciclo, mantienen registros en
 `docs/lusona/` del proyecto y terminan cada respuesta de trabajo con el estado, las evidencias
 y la siguiente acción.
 
-Para Claude Code, Codex, [Cursor](INSTALL.md#cursor), [agentes de programación de Xcode 27](INSTALL.md#xcode) y [Google Antigravity App, CLI e IDE](INSTALL.md#antigravity) · Versión del código fuente de esta copia de trabajo: **3.0.0**
+Para Claude Code, Codex, [Cursor](INSTALL.md#cursor), [agentes de programación de Xcode 27](INSTALL.md#xcode) y [Google Antigravity App, CLI e IDE](INSTALL.md#antigravity) · Versión del código fuente de esta copia de trabajo: **3.1.0**
 
 > [!WARNING]
 > No instales Lusona con Vercel Skills (`npx skills@latest`); usa la [instalación como plugin nativo](#instalación).
@@ -60,6 +60,12 @@ habilidades aplican estos ocho principios, definidos en la
 
 ## Empezar y elegir una habilidad
 
+En un proyecto nuevo, ejecuta **setup** una vez. Es opcional; ninguna habilidad lo exige. Crea
+`docs/lusona/` y la cola de trabajo, pregunta por una preferencia permanente de TDD y por una
+asignación de niveles de modelo (ambas opcionales), y añade una sección «Lusona skills» a
+`AGENTS.md` después de que confirmes el texto. Esa sección indica a los agentes de sesiones
+posteriores que el proyecto usa habilidades de Lusona y qué preferencia de TDD se aplica.
+
 Empieza por **status** cuando te incorporas a un proyecto, reanudas el trabajo o decides qué
 requiere atención. Evalúa los registros y las evidencias que puede leer, enumera todo el trabajo
 pendiente conocido y recomienda la siguiente acción. También sirve cuando el proyecto aún no
@@ -70,6 +76,7 @@ una petición autorizada con comportamiento y alcance definidos pasa a **impleme
 
 | Habilidad | Cuándo usarla |
 | --- | --- |
+| [setup](plugins/lusona/skills/setup/SKILL.md) | Quieres preparar un proyecto para Lusona: crear `docs/lusona/` y la cola de trabajo, y añadir una sección de Lusona a `AGENTS.md` (opcional) |
 | [status](plugins/lusona/skills/status/SKILL.md) | Quieres orientación, conocer el progreso, saber qué queda o cómo reanudar |
 | [explore](plugins/lusona/skills/explore/SKILL.md) | Quieres razonar sobre una dirección, opción o futuro antes de elegir |
 | [frame-product](plugins/lusona/skills/frame-product/SKILL.md) | El público, el problema, la visión, los resultados o los límites de un producto están sin definir o cambian |
@@ -92,7 +99,7 @@ a otra no requiere una nueva aprobación, y no necesitas dirigir cada transició
 Invoca una habilidad en la aplicación que utilizas:
 
 - Claude Code: `/lusona:<skill>`, por ejemplo `/lusona:status`.
-- Codex: selecciona la habilidad de Lusona en la interfaz de habilidades.
+- Codex CLI: `$lusona:<skill>`, por ejemplo `$lusona:status`. Aplicación de escritorio de Codex: `$lusona:<skill>` o `/lusona:<skill>`. También puedes seleccionar la habilidad en la interfaz de habilidades.
 - Cursor: escribe `/` en el chat de Agent y selecciona la habilidad.
 - Xcode: escribe `/` en una conversación con el agente y selecciona la habilidad instalada.
 - Antigravity App y CLI: `/<skill>`, por ejemplo `/status`. En el IDE independiente, consulta
@@ -100,6 +107,8 @@ Invoca una habilidad en la aplicación que utilizas:
 
 [Instala Lusona](#instalación) antes de usar estas habilidades. Una petición indica la habilidad,
 el resultado o el registro de entrada y el alcance autorizado. Por ejemplo:
+
+> **setup:** Configura Lusona en este proyecto. Muéstrame el texto para `AGENTS.md` antes de escribirlo.
 
 > **status:** Evalúa este proyecto a partir de los registros disponibles y del árbol de trabajo.
 > Dime qué queda pendiente y recomienda por dónde empezar.
@@ -143,11 +152,12 @@ La implementación requiere un nivel de TDD elegido expresamente. No hay un valo
 | `targeted` | Escribir primero las pruebas de los comportamientos indicados |
 | `strict` | Escribir primero las pruebas de cada comportamiento comprobable nuevo o modificado |
 
-Elige el nivel en tu petición o como preferencia permanente en `docs/lusona/README.md` del
-proyecto o en las instrucciones para agentes (`CLAUDE.md` o `AGENTS.md`), por ejemplo
-`TDD: targeted for validation and persistence boundaries`. Hasta que elijas un nivel, el agente
-solo define y planifica, y después te pregunta y recomienda un nivel. Registra el nivel y su
-fuente, y te pide revisarlo cuando la secuencia elegida no sea viable.
+Elige el nivel en tu petición o como preferencia permanente en `docs/lusona/README.md` del proyecto
+o en las instrucciones para agentes (`CLAUDE.md` o `AGENTS.md`), por ejemplo
+`TDD: targeted for validation and persistence boundaries`. **setup** puede registrar la preferencia
+en `AGENTS.md`. Hasta que elijas un nivel, el agente solo define y planifica, y después te pregunta
+y recomienda un nivel. Registra el nivel y su fuente, y te pide revisarlo cuando la secuencia
+elegida no sea viable.
 
 Dentro de esa autoridad, el agente continúa sin otro comando (P7). Ejecuta la siguiente acción
 acotada, realiza una medición o un experimento dentro del trabajo autorizado sin una nueva
@@ -158,9 +168,10 @@ la espera, solo se pausa el trabajo afectado y el agente indica qué permite rea
 
 El agente que habla contigo es el coordinador. Delega el trabajo especializado en agentes
 subordinados para tareas de cualquier tamaño, salvo el trabajo que una habilidad asigna al
-coordinador, e integra y verifica sus resultados. Dos habilidades asignan ese trabajo: en
-**status** el coordinador hace la evaluación él mismo, y en **explore** razona a partir de la
-conversación, los registros del proyecto y los archivos que indicas. Si la delegación está
+coordinador, e integra y verifica sus resultados. Tres habilidades asignan ese trabajo: en
+**status** el coordinador hace la evaluación él mismo, en **explore** razona a partir de la
+conversación, los registros del proyecto y los archivos que indicas, y en **setup** el
+coordinador hace la configuración él mismo. Si la delegación está
 prohibida o no está disponible, el coordinador trabaja por su cuenta y lo indica. Consulta
 [delegación](plugins/lusona/references/delegation.md) para las asignaciones y la
 [selección de modelos](plugins/lusona/references/delegation.md#model-routing).
@@ -231,6 +242,10 @@ lo pidas: decisiones, acuerdos, evidencias, conclusiones, traspasos y síntesis 
 de las que depende el trabajo posterior. Las explicaciones y los avisos de estado de los que no
 depende trabajo posterior no necesitan registro. Si está prohibido guardar, el agente informa
 de lo que no se ha guardado.
+
+**setup** crea `docs/lusona/` y la cola de trabajo cuando preparas un proyecto (consulta
+[Empezar y elegir una habilidad](#empezar-y-elegir-una-habilidad)). Sin setup, las habilidades
+crean los registros que necesita su trabajo.
 
 | Trabajo | Registro en `docs/lusona/` del proyecto |
 | --- | --- |

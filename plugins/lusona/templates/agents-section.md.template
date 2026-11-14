@@ -1,0 +1,8 @@
+## Lusona skills
+
+This project uses Lusona skills for product and engineering work.
+
+- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.
+- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.
+- TDD: <standing preference, for example "targeted for validation and persistence boundaries"; omit this line when the user gave none>
+- Model tiers: <`fast`, `standard` and `deep`, each mapped to a model and reasoning setting; omit this line when the user gave none>

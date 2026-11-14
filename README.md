@@ -2,12 +2,12 @@
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Lusona is a set of 14 skills for product and engineering work with coding agents. Each skill
+Lusona is a set of 15 skills for product and engineering work with coding agents. Each skill
 covers one responsibility, such as specifying, implementing or reviewing a change. All skills
 follow the same eight loop principles, keep records under the project's `docs/lusona/`, and end
 every task reply with a status, the evidence and the next action.
 
-For Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Xcode 27 coding agents](INSTALL.md#xcode), and [Google Antigravity App, CLI, and IDE](INSTALL.md#antigravity) · Checked-out source version **3.0.0**
+For Claude Code, Codex, [Cursor](INSTALL.md#cursor), [Xcode 27 coding agents](INSTALL.md#xcode), and [Google Antigravity App, CLI, and IDE](INSTALL.md#antigravity) · Checked-out source version **3.1.0**
 
 > [!WARNING]
 > Do not install Lusona using Vercel Skills (`npx skills@latest`); use the [native plugin installation](#installation).
@@ -57,6 +57,12 @@ system and design as understanding develops. Every skill applies these eight pri
 
 ## Start and choose a skill
 
+In a new project, run **setup** once. It is optional; no skill requires it. It creates
+`docs/lusona/` and the work queue, asks for a standing TDD preference and a model tier mapping
+(both optional), and adds a "Lusona skills" section to `AGENTS.md` after you confirm the text.
+That section tells agents in later sessions that the project uses Lusona skills and which TDD
+preference applies.
+
 Start with **status** when you join a project, resume work or decide what needs attention. It
 assesses the records and evidence it can read, lists all known remaining work and recommends
 the next action. It also works when the project has no Lusona records yet. A status request
@@ -67,6 +73,7 @@ request that states its intended behavior and scope goes to **implement** withou
 
 | Skill | Use when |
 | --- | --- |
+| [setup](plugins/lusona/skills/setup/SKILL.md) | You want to prepare a project for Lusona: create `docs/lusona/` and the work queue, and add a Lusona section to `AGENTS.md` (optional) |
 | [status](plugins/lusona/skills/status/SKILL.md) | You want orientation, progress, what is left, or how to resume |
 | [explore](plugins/lusona/skills/explore/SKILL.md) | You want to reason about a direction, option or future before choosing it |
 | [frame-product](plugins/lusona/skills/frame-product/SKILL.md) | A product's audience, problem, vision, outcomes or boundaries are undefined or changing |
@@ -89,7 +96,7 @@ approval, and you do not need to direct each transition.
 Invoke a skill in your host:
 
 - Claude Code: `/lusona:<skill>`, for example `/lusona:status`.
-- Codex: select the Lusona skill from the skill UI.
+- Codex CLI: `$lusona:<skill>`, for example `$lusona:status`. Codex desktop app: `$lusona:<skill>` or `/lusona:<skill>`. You can also select the skill from the skill UI.
 - Cursor: type `/` in Agent chat and select the skill.
 - Xcode: type `/` in an agent conversation and select the installed skill.
 - Antigravity App and CLI: `/<skill>`, for example `/status`. In the standalone IDE, inspect
@@ -97,6 +104,8 @@ Invoke a skill in your host:
 
 [Install Lusona](#installation) before using these skills. A skill prompt names the skill,
 the outcome or input record, and the authorized scope. For example:
+
+> **setup:** Set up Lusona in this project. Show me the text for `AGENTS.md` before you write it.
 
 > **status:** Assess this project from the available records and working tree. Tell me what
 > remains and recommend where to start.
@@ -139,9 +148,10 @@ Implementation requires an explicitly selected TDD level. There is no default.
 
 Select the level in your request or as a standing preference in the project's
 `docs/lusona/README.md` or agent instructions (`CLAUDE.md` or `AGENTS.md`), for example
-`TDD: targeted for validation and persistence boundaries`. Until a level is selected, the agent
-only defines and plans, then asks you, recommending a level. The agent records the level and
-its source, and asks you for a revised level when the selected sequence is infeasible.
+`TDD: targeted for validation and persistence boundaries`. **setup** can record the preference in
+`AGENTS.md`. Until a level is selected, the agent only defines and plans, then asks you,
+recommending a level. The agent records the level and its source, and asks you for a revised level
+when the selected sequence is infeasible.
 
 Within that authority, the agent continues without another command (P7). It takes the next
 bounded action, runs a measurement or experiment inside authorized work without a new request,
@@ -152,10 +162,10 @@ states what resumes it.
 
 The agent that talks with you is the coordinator. It delegates specialist work to leaves at
 every task size, except work that a skill assigns to the coordinator, and integrates and
-verifies their results. Two skills assign such work: in **status** the coordinator does the
-assessment itself, and in **explore** it reasons from the conversation, the project records and
-the files you name. When delegation is prohibited or unavailable, the coordinator works locally
-and says so. See [delegation](plugins/lusona/references/delegation.md) for assignments and
+verifies their results. Three skills assign such work: in **status** the coordinator does the
+assessment itself, in **explore** it reasons from the conversation, the project records and
+the files you name, and in **setup** the coordinator does the setup itself. When delegation is
+prohibited or unavailable, the coordinator works locally and says so. See [delegation](plugins/lusona/references/delegation.md) for assignments and
 [model routing](plugins/lusona/references/delegation.md#model-routing).
 
 ## Decisions and revisions
@@ -217,6 +227,10 @@ The agent saves substantive outputs before handoff or completion without being a
 agreements, evidence, findings, handoffs, and discussion syntheses that later work depends on.
 Explanations and status updates that no later work depends on need no record. When saving is
 prohibited, the agent reports what was not saved.
+
+**setup** creates `docs/lusona/` and the work queue when you prepare a project (see
+[Start and choose a skill](#start-and-choose-a-skill)). Without setup, skills create the
+records their work needs.
 
 | Work | Record in the project's `docs/lusona/` |
 | --- | --- |

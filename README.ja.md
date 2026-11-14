@@ -2,11 +2,11 @@
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Lusona は、コーディングエージェントによるプロダクト開発とエンジニアリングのための 14 のスキルです。
+Lusona は、コーディングエージェントによるプロダクト開発とエンジニアリングのための 15 のスキルです。
 各スキルは、変更の仕様定義、実装、レビューなど、一つの責任を担います。すべてのスキルは同じ八つの
 ループ原則に従い、プロジェクトの `docs/lusona/` に記録を残し、各作業の返信を状態、根拠、次の作業で締めくくります。
 
-Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](INSTALL.md#xcode)、[Google Antigravity App・CLI・IDE](INSTALL.md#antigravity)に対応 · チェックアウトしたソースのバージョン：**3.0.0**
+Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 のコーディングエージェント](INSTALL.md#xcode)、[Google Antigravity App・CLI・IDE](INSTALL.md#antigravity)に対応 · チェックアウトしたソースのバージョン：**3.1.0**
 
 > [!WARNING]
 > Lusona のインストールには Vercel Skills（`npx skills@latest`）を使わず、[ホスト標準のプラグイン機能](#インストール)を使ってください。
@@ -56,6 +56,11 @@ Lusona Skills を開発した背景：[Why we built Lusona Skills](https://blog.
 
 ## 作業を始めてスキルを選ぶ
 
+新しいプロジェクトでは、**setup** を一度実行します。これは任意であり、どのスキルもこれを必要としません。
+`docs/lusona/` と作業キューを作成し、継続的な TDD の設定とモデル階層の割り当て（どちらも任意）を尋ね、
+テキストをあなたが確認した後に、`AGENTS.md` に「Lusona skills」セクションを追加します。このセクションは、
+後のセッションのエージェントに、このプロジェクトが Lusona のスキルを使うことと、どの TDD の設定が適用されるかを伝えます。
+
 プロジェクトに参加するとき、作業を再開するとき、何に取り組むべきかを考えるときは、**status** から始めます。
 読み取れる記録と根拠を評価し、把握できた残作業をすべて挙げ、次の作業を提案します。Lusona の記録がまだない
 プロジェクトでも使えます。状況確認の依頼は、実行権限を与えるものでも取り消すものでもありません。
@@ -65,6 +70,7 @@ Lusona Skills を開発した背景：[Why we built Lusona Skills](https://blog.
 
 | スキル | 使う場面 |
 | --- | --- |
+| [setup](plugins/lusona/skills/setup/SKILL.md) | プロジェクトを Lusona 用に準備したいとき：`docs/lusona/` と作業キューを作成し、`AGENTS.md` に Lusona のセクションを追加します（任意） |
 | [status](plugins/lusona/skills/status/SKILL.md) | 状況、進捗、残作業、再開方法を知りたいとき |
 | [explore](plugins/lusona/skills/explore/SKILL.md) | 選択する前に、方向性、選択肢、将来像を検討したいとき |
 | [frame-product](plugins/lusona/skills/frame-product/SKILL.md) | プロダクトの対象者、課題、ビジョン、成果、境界が未定義または変更中のとき |
@@ -86,7 +92,7 @@ Lusona Skills を開発した背景：[Why we built Lusona Skills](https://blog.
 使用するホストでスキルを呼び出します。
 
 - Claude Code：`/lusona:<skill>`。例：`/lusona:status`。
-- Codex：スキル選択画面から Lusona のスキルを選びます。
+- Codex CLI：`$lusona:<skill>`。例：`$lusona:status`。Codex デスクトップアプリ：`$lusona:<skill>` または `/lusona:<skill>`。スキル選択画面から Lusona のスキルを選ぶこともできます。
 - Cursor：Agent チャットで `/` を入力し、スキルを選びます。
 - Xcode：エージェントとの会話で `/` を入力し、インストール済みのスキルを選びます。
 - Antigravity App と CLI：`/<skill>`。例：`/status`。スタンドアロン IDE では **Customizations** を確認し、
@@ -94,6 +100,8 @@ Lusona Skills を開発した背景：[Why we built Lusona Skills](https://blog.
 
 これらのスキルを使う前に、[Lusona をインストール](#インストール)してください。依頼には、スキル名、成果または
 入力となる記録、許可する範囲を示します。例：
+
+> **setup:** このプロジェクトに Lusona をセットアップしてください。`AGENTS.md` に書き込む前に、そのテキストを見せてください。
 
 > **status:** 現在の記録と作業ツリーから、このプロジェクトの状況を確認してください。
 > 残っている作業を示し、どこから始めるべきか提案してください。
@@ -134,7 +142,7 @@ Lusona Skills を開発した背景：[Why we built Lusona Skills](https://blog.
 
 レベルは依頼の中で選択するか、プロジェクトの `docs/lusona/README.md` またはエージェントへの指示
 （`CLAUDE.md` や `AGENTS.md`）に継続的な設定として記載してください。
-例：`TDD: targeted for validation and persistence boundaries`。選択されるまでは、エージェントは定義と計画だけを行い、
+例：`TDD: targeted for validation and persistence boundaries`。**setup** は、この設定を `AGENTS.md` に記録できます。選択されるまでは、エージェントは定義と計画だけを行い、
 推奨レベルを示して質問します。選んだレベルとその情報源を記録し、その手順を実行できない場合はレベルの見直しを求めます。
 
 その権限の範囲内では、エージェントは新たな指示を待たずに作業を続けます（P7）。範囲を絞った次の作業に進み、
@@ -144,8 +152,9 @@ Lusona Skills を開発した背景：[Why we built Lusona Skills](https://blog.
 
 利用者と話すエージェントがコーディネーターです。スキルがコーディネーターに割り当てる作業を除き、
 タスクの規模を問わず専門作業を担当エージェントに委任し、その結果を統合して検証します。
-そのような作業を割り当てるスキルは二つです。**status** ではコーディネーターが自分で評価を行い、
-**explore** では会話、プロジェクトの記録、利用者が指定したファイルをもとに検討します。
+そのような作業を割り当てるスキルは三つです。**status** ではコーディネーターが自分で評価を行い、
+**explore** では会話、プロジェクトの記録、利用者が指定したファイルをもとに検討し、
+**setup** ではコーディネーターが自分でセットアップを行います。
 委任が禁止されているか利用できない場合は、コーディネーターがローカルで作業し、そのことを報告します。
 割り当てについては[委任](plugins/lusona/references/delegation.md)、モデルについては
 [モデルの振り分け](plugins/lusona/references/delegation.md#model-routing)を参照してください。
@@ -200,6 +209,8 @@ Lusona Skills を開発した背景：[Why we built Lusona Skills](https://blog.
 エージェントは引き継ぎや完了の前に、後続作業が依存する重要な成果を、依頼されなくても保存します。
 判断、合意、根拠、調査結果、引き継ぎ、対話の整理結果などが対象です。後続作業が依存しない説明や状況報告には
 記録は不要です。保存が禁止されている場合は、何を保存しなかったかを報告します。
+
+**setup** は、プロジェクトを準備するときに `docs/lusona/` と作業キューを作成します（[作業を始めてスキルを選ぶ](#作業を始めてスキルを選ぶ)を参照してください）。setup を使わない場合、各スキルは作業に必要な記録を自分で作成します。
 
 | 作業 | プロジェクトの `docs/lusona/` 内の記録 |
 | --- | --- |

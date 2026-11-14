@@ -14,6 +14,7 @@ Usage: powershell -NoProfile -File work-record.ps1 COMMAND ARGS
   history-path [YYYY-MM-DD]           Print the project-relative history path.
   init-history PROJECT_ROOT [DATE]    Create a weekly history file if absent.
   init-notes PROJECT_ROOT SLUG        Create an item's notes file if absent.
+  init-queue PROJECT_ROOT             Create the work queue if absent.
   init-change PROJECT_ROOT SLUG [DATE] Create a new YYYYMMDD-slug spec.
   init-adr PROJECT_ROOT SLUG [DATE]    Create a new YYYYMMDD-slug ADR.
   next-adr PROJECT_ROOT               Legacy: print the next four-digit ADR number.
@@ -24,7 +25,7 @@ DATE is YYYY-MM-DD, defaulting to today in the local timezone.
 Weeks are month-local: 01 = days 1-7, 02 = 8-14, ... 05 = 29-end.
 init-change and init-adr print JSON status/path/message: created (exit 0), conflict
 (exit 3), or error (exit 1). They reject existing paths, including symlinks.
-init-history and init-notes print the absolute native path and preserve existing regular files.
+init-history, init-notes and init-queue print the absolute native path and preserve existing regular files.
 Reuse an item's existing slug; initialization never overwrites or merges records.
 New specs and ADRs use the creation date and a functional slug; no counter is shared.
 Legacy sequence commands are read-only, ignore dated records, and reserve nothing.
@@ -268,6 +269,12 @@ try {
             Assert-Slug $script:operands[1]
             $root = Get-ProjectRoot $script:operands[0]
             Initialize-File (Join-Path $root "docs/lusona/notes/$($script:operands[1]).md") ((Read-Template 'notes').Replace('{{slug}}', $script:operands[1]))
+            break
+        }
+        'init-queue' {
+            Require-Count 1 1 'init-queue requires a project root.'
+            $root = Get-ProjectRoot $script:operands[0]
+            Initialize-File (Join-Path $root 'docs/lusona/work.md') (Read-Template 'work')
             break
         }
         { $_ -ceq 'init-change' -or $_ -ceq 'init-adr' } {

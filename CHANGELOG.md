@@ -1,10 +1,30 @@
 # Changelog
 
 Changes in recent source versions. Dates for tagged versions use the tagged commit's
-local date, not a verified publication date. Versions 3.0.0, 2.0.5, 2.0.4, 2.0.3, 2.0.2, 2.0.1, and 2.0.0 are untagged;
-the entries distinguish source updates from published releases.
+local date, not a verified publication date. Version 3.1.0 is untagged. Versions 2.0.0 to
+2.0.5 were tagged after their entries were written; their headings keep the wording of that
+time. The entries distinguish source updates from published releases.
 
-## 3.0.0 — Current source, untagged
+## 3.1.0 — Current source, untagged
+
+Local source update prepared on 2026-11-13. Publication and installation are not implied.
+
+- Add the optional `setup` skill (15 skills in total). It creates `docs/lusona/` and the work
+  queue `docs/lusona/work.md`, asks for a standing TDD preference and a model tier mapping (both
+  optional, and it recommends no value for either), and writes a "Lusona skills" section to the
+  project's `AGENTS.md` (and an `@AGENTS.md` import to `CLAUDE.md` when needed) after you
+  confirm the text. No skill requires or asks for it; without it, skills keep creating the
+  records their work needs. It leaves existing files under `docs/lusona/` unchanged, authorizes
+  no work and makes no commit. `setup` does its work as coordinator and delegates nothing.
+- Add the `init-queue PROJECT_ROOT` command to the Bash and PowerShell record helpers. It creates
+  `docs/lusona/work.md` from the bundled template when the file is absent.
+- Add the template `templates/agents-section.md.template` for the "Lusona skills" section.
+- The workflow guide names the Codex invocation forms: `$lusona:<skill>` in Codex CLI, and
+  either `$lusona:<skill>` or `/lusona:<skill>` in the Codex desktop app. Its Terminology table
+  gains the rows "Lusona section" and "Model tier mapping".
+- `README.md` and `INSTALL.md` name `setup` as the optional first step in a new project.
+
+## 3.0.0 — 2026-11-12
 
 Local source update prepared on 2026-11-11. Publication and installation are not implied.
 

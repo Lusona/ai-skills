@@ -39,6 +39,7 @@ contains the task rules and links its references with the point at which to read
 Skills link these templates for their output records.
 
 - [adr.md.template](templates/adr.md.template): architecture decision record.
+- [agents-section.md.template](templates/agents-section.md.template): Lusona section for a project's agent instructions.
 - [batch.md.template](templates/batch.md.template): batch record.
 - [brainstorm.md.template](templates/brainstorm.md.template): discussion synthesis.
 - [evidence.md.template](templates/evidence.md.template): measurement or experiment evidence.
@@ -55,5 +56,5 @@ Skills link these templates for their output records.
 ## Record helper
 
 [work-record.sh](scripts/work-record.sh) (Bash) and [work-record.ps1](scripts/work-record.ps1)
-(PowerShell) create dated specs, ADRs, notes and history files, and stamp record headers. The
+(PowerShell) create the work queue, dated specs, ADRs, notes and history files, and stamp record headers. The
 [naming](references/naming.md) reference lists their commands.

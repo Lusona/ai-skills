@@ -7,7 +7,7 @@ Read before locating, creating or maintaining a project record under `docs/luson
 - The consuming project owns its data. Every `docs/lusona/` path is relative to that project.
 - Links in bundled plugin files resolve relative to the file that contains them.
 - Never write consuming-project data into installed plugin resources.
-- Installing the plugin does not create project data. Create a record only when authorized work needs it.
+- Installing the plugin does not create project data. Create a record only when authorized work needs it. The one exception is the queue: [setup](../skills/setup/SKILL.md) creates it when the user asks for setup.
 
 ## Paths
 
@@ -33,6 +33,7 @@ Read before locating, creating or maintaining a project record under `docs/luson
 | [Change](../templates/spec.md.template) | Agreement, optional execution, evidence and current handoff |
 | [ADR](../templates/adr.md.template) | Architecture decision |
 | [Queue](../templates/work.md.template) | Work queue structure |
+| [Lusona section](../templates/agents-section.md.template) | Lusona section for a project's `AGENTS.md`, with the standing TDD preference and model tier mapping |
 | [Batch](../templates/batch.md.template) | Batch coordination record; links owning requirements and evidence |
 | [History](../templates/history.md.template) | Weekly sections and completed-item structure |
 | [Evidence](../templates/evidence.md.template) | Measurement or experiment design, run results, limitations and interpretation |

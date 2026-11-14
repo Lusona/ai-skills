@@ -86,6 +86,7 @@ Pass a command followed by its arguments to the resolved helper. Quote titles an
 | `history-path` | `[DATE]` | Print the project-relative weekly history path |
 | `init-history` | `PROJECT_ROOT [DATE]` | Create a weekly history file if absent |
 | `init-notes` | `PROJECT_ROOT SLUG` | Create an item's notes file if absent |
+| `init-queue` | `PROJECT_ROOT` | Create the work queue if absent |
 | `init-change` | `PROJECT_ROOT SLUG [DATE]` | Create a new `YYYYMMDD-slug` spec |
 | `init-adr` | `PROJECT_ROOT SLUG [DATE]` | Create a new `YYYYMMDD-slug` ADR |
 | `next-adr` | `PROJECT_ROOT` | Legacy: print the next four-digit ADR number |
@@ -94,5 +95,5 @@ Pass a command followed by its arguments to the resolved helper. Quote titles an
 | `help` | None | Show help; `-h` and `--help` are aliases |
 
 - Weeks are month-local: 01 covers days 1–7, 02 covers 8–14, through 05 for 29–end.
-- `init-history` and `init-notes` print the absolute path and preserve existing regular files.
+- `init-history`, `init-notes` and `init-queue` print the absolute path and preserve existing regular files.
 - Initialization never overwrites or merges records.

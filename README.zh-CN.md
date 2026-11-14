@@ -2,9 +2,9 @@
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Lusona 提供 14 项技能，用于与编程智能体协作开展产品和工程工作。每项技能负责一项职责，例如定义变更规格、实现或审查变更。所有技能遵循同样的八项循环原则，在项目的 `docs/lusona/` 下保存记录，并在每次任务回复末尾说明状态、证据和下一步行动。
+Lusona 提供 15 项技能，用于与编程智能体协作开展产品和工程工作。每项技能负责一项职责，例如定义变更规格、实现或审查变更。所有技能遵循同样的八项循环原则，在项目的 `docs/lusona/` 下保存记录，并在每次任务回复末尾说明状态、证据和下一步行动。
 
-适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 编程智能体](INSTALL.md#xcode) 和 [Google Antigravity App、CLI 与 IDE](INSTALL.md#antigravity) · 当前工作副本的源码版本：**3.0.0**
+适用于 Claude Code、Codex、[Cursor](INSTALL.md#cursor)、[Xcode 27 编程智能体](INSTALL.md#xcode) 和 [Google Antigravity App、CLI 与 IDE](INSTALL.md#antigravity) · 当前工作副本的源码版本：**3.1.0**
 
 > [!WARNING]
 > 请勿通过 Vercel Skills（`npx skills@latest`）安装 Lusona；请使用[原生插件安装方式](#安装)。
@@ -49,12 +49,15 @@ Lusona 提供 14 项技能，用于与编程智能体协作开展产品和工程
 
 ## 开始工作并选择技能
 
+在新项目中，先运行一次 **setup**。它是可选的，没有任何技能要求先运行它。它会创建 `docs/lusona/` 和工作队列，询问长期 TDD 偏好和模型层级对应关系（均为可选），并在你确认文本后，把“Lusona skills”部分添加到 `AGENTS.md`。该部分告诉后续会话中的智能体：此项目使用 Lusona 技能，以及适用哪种 TDD 偏好。
+
 刚接手项目、恢复工作或决定哪些事项需要处理时，从 **status** 开始。它会评估可读取的记录和证据，列出所有已知的剩余工作，并建议下一步行动。项目尚无 Lusona 记录时也可以使用。请求查看状态既不会授予，也不会撤销执行权限。
 
 选择符合当前需求的技能（P1）。表中各行不代表执行顺序：已获授权且明确说明预期行为和范围的请求，可以直接使用 **implement**，无须先用 **specify**。
 
 | 技能 | 使用时机 |
 | --- | --- |
+| [setup](plugins/lusona/skills/setup/SKILL.md) | 需要为项目配置 Lusona：创建 `docs/lusona/` 和工作队列，并在 `AGENTS.md` 中添加 Lusona 部分（可选） |
 | [status](plugins/lusona/skills/status/SKILL.md) | 需要了解现状、进展、剩余工作或恢复方法 |
 | [explore](plugins/lusona/skills/explore/SKILL.md) | 希望先思考方向、选项或未来，再作选择 |
 | [frame-product](plugins/lusona/skills/frame-product/SKILL.md) | 产品的受众、问题、愿景、目标或边界尚未定义或正在改变 |
@@ -75,12 +78,14 @@ Lusona 提供 14 项技能，用于与编程智能体协作开展产品和工程
 在所用应用中调用技能：
 
 - Claude Code：`/lusona:<skill>`，例如 `/lusona:status`。
-- Codex：从技能界面选择 Lusona 技能。
+- Codex CLI：`$lusona:<skill>`，例如 `$lusona:status`。Codex 桌面应用：`$lusona:<skill>` 或 `/lusona:<skill>`。也可以从技能界面选择 Lusona 技能。
 - Cursor：在 Agent 聊天中输入 `/` 并选择技能。
 - Xcode：在智能体对话中输入 `/` 并选择已安装的技能。
 - Antigravity App 和 CLI：`/<skill>`，例如 `/status`。在独立 IDE 中查看 **Customizations**，并在请求中指定 Lusona 技能名称。
 
 使用这些技能前，请先[安装 Lusona](#安装)。技能请求应说明技能名称、目标或输入记录，以及授权范围。例如：
+
+> **setup:** 在这个项目中设置 Lusona。写入 `AGENTS.md` 之前，先给我看要写入的文本。
 
 > **status:** 根据现有记录和工作区评估这个项目。告诉我还剩哪些工作，并建议从哪里开始。
 
@@ -109,11 +114,11 @@ Lusona 提供 14 项技能，用于与编程智能体协作开展产品和工程
 | `targeted` | 对指定行为先写测试 |
 | `strict` | 对每项新增或修改且可测试的行为先写测试 |
 
-可在请求中选择级别，也可将其作为长期偏好写入项目的 `docs/lusona/README.md` 或智能体指令文件（`CLAUDE.md` 或 `AGENTS.md`），例如 `TDD: targeted for validation and persistence boundaries`。在级别选定前，智能体只定义和规划，然后向你提问并推荐级别。它会记录级别及其来源；如果选定的执行顺序不可行，会请你重新选择级别。
+可在请求中选择级别，也可将其作为长期偏好写入项目的 `docs/lusona/README.md` 或智能体指令文件（`CLAUDE.md` 或 `AGENTS.md`），例如 `TDD: targeted for validation and persistence boundaries`。**setup** 可以把该偏好记录到 `AGENTS.md`。在级别选定前，智能体只定义和规划，然后向你提问并推荐级别。它会记录级别及其来源；如果选定的执行顺序不可行，会请你重新选择级别。
 
 在上述授权范围内，智能体无须新指令就会继续工作（P7）。它会执行下一项范围明确的行动，在已获授权的工作中开展测量或实验时也无须新的请求；当答案无法改变下一步行动时，就停止询问。有应用原生提问工具时会使用该工具，并推荐答案，但不会将沉默或预选项视为同意。等待期间只暂停受影响的工作，并说明恢复条件。
 
-与你对话的智能体是协调者。无论任务规模如何，它都会将专业工作委派给下级智能体，并集成和验证其结果，但技能指定由协调者完成的工作除外。有两个技能指定了这类工作：在 **status** 中，协调者自行完成评估；在 **explore** 中，协调者根据对话、项目记录和你指定的文件进行分析。如果禁止委派或无法委派，协调者自行处理并说明情况。任务分工见[委派规则](plugins/lusona/references/delegation.md)，模型选择见[模型路由](plugins/lusona/references/delegation.md#model-routing)。
+与你对话的智能体是协调者。无论任务规模如何，它都会将专业工作委派给下级智能体，并集成和验证其结果，但技能指定由协调者完成的工作除外。有三个技能指定了这类工作：在 **status** 中，协调者自行完成评估；在 **explore** 中，协调者根据对话、项目记录和你指定的文件进行分析；在 **setup** 中，协调者自行完成设置。如果禁止委派或无法委派，协调者自行处理并说明情况。任务分工见[委派规则](plugins/lusona/references/delegation.md)，模型选择见[模型路由](plugins/lusona/references/delegation.md#model-routing)。
 
 ## 决策与修订
 
@@ -142,6 +147,8 @@ Lusona 提供 14 项技能，用于与编程智能体协作开展产品和工程
 ## 记录与恢复工作
 
 智能体会在交接或完成之前主动保存实质性产出：后续工作所依赖的决策、约定、证据、结论、交接和讨论总结。后续工作不依赖的解释和状态更新无须记录。如果禁止保存，智能体会报告哪些内容没有保存。
+
+**setup** 会在你准备项目时创建 `docs/lusona/` 和工作队列（见[开始工作并选择技能](#开始工作并选择技能)）。不运行 setup 时，各技能会自行创建其工作所需的记录。
 
 | 工作 | 项目 `docs/lusona/` 下的记录 |
 | --- | --- |

@@ -15,7 +15,7 @@ Two checks over ``plugins/lusona``:
    header: a table whose first cells link to the SKILL.md of at least half of the
    plugin's skills (and at least 3), or a table with header ``Skill`` and 3 such rows.
    Limit: a partial copy linking fewer than half of the skills under another header is
-   not detected; the batch dispatch table links 5 of 14 skills.
+   not detected; the batch dispatch table links 5 of 15 skills.
 
 Exit status 0 when both hold; 1 with findings otherwise. Run from the repository root
 or pass the plugin directory as the first argument.

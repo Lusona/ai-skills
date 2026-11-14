@@ -71,6 +71,34 @@ reject init-notes "$project" linked
 mkdir "$project/docs/lusona/notes/directory.md"
 reject init-notes "$project" directory
 
+# init-queue creates only the bundled work queue and preserves an existing one.
+queue_project="$scratch/queue project"
+mkdir "$queue_project"
+queue=$(bash "$helper" init-queue "$queue_project")
+equal "$queue" "$queue_project/docs/lusona/work.md"
+cmp "$queue" "$repository/plugins/lusona/templates/work.md.template"
+equal "$(find "$queue_project/docs" -mindepth 1 | LC_ALL=C sort)" "$queue_project/docs/lusona"$'\n'"$queue"
+printf 'Existing queue content\n' > "$queue"
+cp "$queue" "$scratch/queue-before"
+equal "$(bash "$helper" init-queue "$queue_project")" "$queue"
+cmp "$queue" "$scratch/queue-before"
+equal "$(find "$queue_project/docs" -mindepth 1 | LC_ALL=C sort)" "$queue_project/docs/lusona"$'\n'"$queue"
+reject init-queue
+reject init-queue "$queue_project" extra
+reject init-queue "$scratch/missing"
+reject init-queue "$queue"
+rm "$queue"
+ln -s "$scratch/queue-before" "$queue"
+reject init-queue "$queue_project"
+rm "$queue"
+mkdir "$queue"
+reject init-queue "$queue_project"
+rmdir "$queue"
+cp "$repository/plugins/lusona/templates/work.md.template" "$bundle/templates/work.md.template"
+printf '\nBundle-specific queue content.\n' >> "$bundle/templates/work.md.template"
+relocated_queue=$(cd "$scratch" && bash "$bundle/scripts/work-record.sh" init-queue "$queue_project")
+cmp "$relocated_queue" "$bundle/templates/work.md.template"
+
 # Sequence lookup preserves combined-record and legacy split-record identities.
 numbered="$scratch/numbered project"
 mkdir "$numbered"
