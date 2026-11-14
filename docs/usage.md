@@ -78,13 +78,34 @@ skill responsibilities, and terminology.
 
 ## Example requests
 
-After invoking the skill or selecting it in your host's UI, describe the outcome:
+These examples use Claude Code syntax. For other applications, use the
+[host invocation](#host-invocation) method above. Replace bracketed text with details
+from your project before sending; for review, attach or identify the diff.
 
-- **status:** What remains in this project, and what should we do next?
-- **explore:** Compare ways to let customers invite their team. Keep the comparison in chat.
-- **investigate:** Find why expired invitations are still accepted. Do not change production behavior.
-- **review:** Review this diff for regressions. Report findings without editing the implementation.
-- **design:** Show two invitation-screen options before we choose one. Do not implement them yet.
+```text
+/lusona:status
+What remains in this project, and what should we do next? Do not change files yet.
+```
+
+```text
+/lusona:explore
+Compare ways to [describe the outcome you want and who it is for]. Keep the comparison in chat.
+```
+
+```text
+/lusona:investigate
+Find why [describe the observed bug and expected behavior]. Do not change production behavior.
+```
+
+```text
+/lusona:review
+Review [identify the diff or commit range] for regressions. Report findings without editing the implementation.
+```
+
+```text
+/lusona:design
+Show two layout options for [identify the screen and user task] before we choose one. Do not implement them yet.
+```
 
 A status request assesses and recommends; it does not authorize new implementation. Once you
 authorize a bounded change, the agent continues within that scope and asks for decisions it
@@ -93,11 +114,15 @@ cannot make under the existing agreement.
 ## More specific requests
 
 Name the skill, outcome or input record, authorized scope, and completion criteria. For
-implementation, also select a TDD level and state any delivery boundary:
+implementation, also select a TDD level and state any delivery boundary. Replace every
+bracketed field before sending this template:
 
-> **implement:** Add invitation expiry after seven days. Preserve existing accepted invitations.
-> Done means: invitations older than seven days are rejected, accepted invitations are unchanged,
-> and the test suite passes. Use TDD level `targeted` for the expiry boundary. Verify locally; do not deploy.
+```text
+/lusona:implement
+Implement [one bounded change]. Preserve [existing behavior that must remain unchanged].
+Done means: [observable acceptance criteria] and the required checks pass.
+Use TDD level targeted for [named behaviors to test first]. Verify locally; do not commit or deploy.
+```
 
 A request for discussion or design can set different boundaries, such as keeping a comparison
 in chat or producing visual options without implementing them. A planning-only request to
@@ -107,9 +132,13 @@ You can state constraints in ordinary language. If testing requirements or anoth
 decision are missing, the agent asks. See [scope and testing](workflow.md#scope-and-testing)
 for the details, including the three TDD levels and standing preferences.
 
-For resumption, name the saved work:
+For resumption, identify the actual saved findings rather than assuming the agent knows
+which investigation you mean:
 
-> Continue investigating invitation expiry from the saved findings. Check the retained
-> reproduction against the current build. Do not change production behavior.
+```text
+/lusona:investigate
+Continue the investigation from [path to saved findings]. Check the retained reproduction
+against the current build. Do not change production behavior.
+```
 
 See [records and resumption](workflow.md#records-and-resumption) for what another session retains.

@@ -76,10 +76,15 @@ uncertainty, and next action. Authorization carries across handoffs. On resumpti
 checks surviving records and the working tree; earlier-version records remain valid. See
 [retention and handoff](../plugins/lusona/references/retention.md).
 
-Use **status** to assess what remains, or name the saved work:
+Use **status** to assess what remains, or name the saved work. For an investigation,
+replace the bracketed field with the actual findings path before sending. This example
+uses Claude Code syntax; see [host invocation](usage.md#host-invocation) for other applications.
 
-> Continue investigating invitation expiry from the saved findings. Check the retained
-> reproduction against the current build. Do not change production behavior.
+```text
+/lusona:investigate
+Continue the investigation from [path to saved findings]. Check the retained reproduction
+against the current build. Do not change production behavior.
+```
 
 ## Revising decisions
 

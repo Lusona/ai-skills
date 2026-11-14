@@ -144,11 +144,10 @@ Setup creates `docs/lusona/` and the work queue. It asks you to approve the exac
 text before adding Lusona instructions to `AGENTS.md` or an import to `CLAUDE.md`.
 Setup is optional; each skill creates the records it needs.
 
-Select `explore` to discuss an idea, or `implement` for a defined change. For example:
-
-> Add invitation expiry after seven days. Preserve accepted invitations.
-> Done means expired invitations are rejected and the test suite passes.
-> Use targeted TDD for the expiry boundary. Verify locally; do not deploy.
+Select `explore` to discuss an idea, or `implement` for a defined change.
+Use the [quickstart examples](README.md#2-get-a-recommendation) for a request with
+the skill invocation included, or the [usage guide](docs/usage.md#more-specific-requests)
+to specify behavior, testing, and delivery limits.
 
 See the [skill reference](plugins/lusona/references/workflow-guide.md#skills) for
 all skills. Project records are saved under your project's `docs/lusona/` during

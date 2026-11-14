@@ -2,8 +2,16 @@
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Lusona ayuda a los agentes de programación a llevar una petición de producto o ingeniería
-hasta un resultado comprobado. Empieza en un proyecto existente con un cambio pequeño.
+Lusona ofrece a los agentes de programación un flujo de trabajo compartido para decidir qué
+construir, hacer cambios acotados y verificar el resultado. Mantiene tus decisiones y restricciones
+disponibles entre sesiones, hace explícitas las decisiones pendientes y exige evidencia para
+afirmar que el trabajo está terminado.
+
+Sus [principios de trabajo](docs/workflow.md#principles) te permiten mantener el control del alcance
+y de las decisiones con consecuencias importantes, mientras el agente lleva el trabajo autorizado
+hasta un resultado comprobado.
+
+Empieza con una idea, un proyecto existente o un problema concreto.
 
 > [!TIP]
 > ¿Ya lo instalaste? Empieza con `/status` usando el [comando para tu aplicación](#2-obtén-una-recomendación).
@@ -50,7 +58,8 @@ Una instalación de la CLI independiente no instala el plugin en Xcode.
 
 ## 2. Obtén una recomendación
 
-Inicia una nueva sesión del agente en tu proyecto e invoca **status**:
+Inicia una nueva sesión del agente en tu proyecto. Usa **status** para evaluar un proyecto existente;
+usa **explore** para hablar sobre una idea para un proyecto vacío.
 
 | Aplicación | Cómo invocar status |
 | --- | --- |
@@ -61,24 +70,37 @@ Inicia una nueva sesión del agente en tu proyecto e invoca **status**:
 | IDE independiente de Antigravity | Pide: `Usa la habilidad status de Lusona.` |
 | Cursor o Xcode | Escribe `/` y selecciona la habilidad `status` de Lusona |
 
-Después pega esta petición, adaptando la función a tu proyecto:
+Los ejemplos siguientes usan la sintaxis de Claude Code. En otras aplicaciones, usa el método
+de invocación de la tabla; para **explore**, sustituye `status` por `explore`.
 
-> Quiero que las invitaciones al equipo caduquen después de siete días. Inspecciona este proyecto
-> y recomienda un siguiente cambio pequeño. Dime qué existe y qué falta. No cambies archivos todavía.
+Para un proyecto existente:
+
+```text
+/lusona:status
+Inspecciona este proyecto y recomienda un siguiente cambio pequeño según sus objetivos y su estado actual.
+Dime qué existe y qué falta. No cambies archivos todavía.
+```
 
 Recibirás una evaluación del proyecto actual y una siguiente acción recomendada. Si el agente
-necesita una decisión, responde con palabras sencillas. Por ejemplo:
+necesita una decisión, responde con palabras sencillas sobre tu proyecto y el comportamiento que quieres.
 
-> Cuenta siete días desde el envío de la invitación. Mantén sin cambios las invitaciones aceptadas.
+Para un proyecto vacío, sustituye el texto entre corchetes por tu propia idea antes de enviarlo:
 
-Para un proyecto vacío, prueba: «Quiero crear un servicio de invitaciones a equipos. Ayúdame a elegir el primer cambio pequeño».
+```text
+/lusona:explore
+Quiero crear [describe tu proyecto y para quién es]. Ayúdame a elegir el primer cambio pequeño.
+No cambies archivos todavía.
+```
 
 ## 3. Empieza el trabajo
 
 Cuando la recomendación coincida con lo que quieres, responde:
 
-> Implementa esa recomendación. Limita el cambio a la caducidad de las invitaciones y conserva
-> las invitaciones aceptadas. Verifícalo localmente. No hagas commits ni despliegues.
+```text
+/lusona:implement
+Implementa esa recomendación. Limita el alcance al cambio acordado.
+Verifícalo localmente. No hagas commits ni despliegues.
+```
 
 El agente puede pedirte que aclares el comportamiento o elijas cómo probarlo antes de implementar.
 Al terminar, comprueba qué cambió, qué verificaciones se ejecutaron y sus resultados, y qué límites

@@ -2,8 +2,14 @@
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Lusona helps coding agents take a product or engineering request through to a checked result.
-Start in an existing project with one small change.
+Lusona gives coding agents a shared workflow for deciding what to build, making bounded
+changes, and verifying the result. It keeps your decisions and constraints available across
+sessions, makes missing decisions explicit, and requires evidence for claims of completion.
+
+Its [workflow principles](docs/workflow.md#principles) keep you in control of scope and
+consequential decisions while the agent carries authorized work through to a checked result.
+
+Start with an idea, an existing project, or a specific problem.
 
 > [!TIP]
 > Already installed? Start with `/status` using the [command for your application](#2-get-a-recommendation).
@@ -50,7 +56,8 @@ A standalone CLI install does not install the plugin in Xcode.
 
 ## 2. Get a recommendation
 
-Start a new agent session in your project and invoke **status**:
+Start a new agent session in your project. Use **status** to assess an existing project;
+use **explore** to discuss an idea for an empty project.
 
 | Application | Invoke status |
 | --- | --- |
@@ -61,24 +68,37 @@ Start a new agent session in your project and invoke **status**:
 | Antigravity standalone IDE | Ask: `Use Lusona's status skill.` |
 | Cursor or Xcode | Type `/` and select Lusona's `status` skill |
 
-Then paste this request, adapting the feature to your project:
+The examples below use Claude Code syntax. For other applications, use the invocation
+method in the table; for **explore**, replace `status` with `explore`.
 
-> I want team invitations to expire after seven days. Inspect this project and recommend
-> one small next change. Tell me what already exists and what is missing. Do not change files yet.
+For an existing project:
+
+```text
+/lusona:status
+Inspect this project and recommend one small next change based on its goals and current state.
+Tell me what already exists and what is missing. Do not change files yet.
+```
 
 Expect an assessment of the current project and a recommended next action. If the agent needs
-a decision, answer in plain language. For example:
+a decision, answer in plain language about your project and the behavior you want.
 
-> Count seven days from when the invitation was sent. Keep accepted invitations unchanged.
+For an empty project, replace the bracketed text with your own idea before sending:
 
-For an empty project, try: “I want to build a team invitation service. Help me choose the first small change.”
+```text
+/lusona:explore
+I want to build [describe your project and who it is for]. Help me choose the first small change.
+Do not change files yet.
+```
 
 ## 3. Start the work
 
 Once the recommendation matches what you want, reply:
 
-> Implement that recommendation. Keep the change limited to invitation expiry and preserve
-> accepted invitations. Verify it locally. Do not commit or deploy.
+```text
+/lusona:implement
+Implement that recommendation. Keep the scope limited to the agreed change.
+Verify it locally. Do not commit or deploy.
+```
 
 The agent may ask you to settle missing behavior or choose a testing approach before implementing.
 At the end, look for what changed, which checks ran and their results, and any remaining limits

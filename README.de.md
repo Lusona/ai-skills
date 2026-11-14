@@ -2,8 +2,16 @@
 
 [English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Lusona hilft Programmieragenten, eine Produkt- oder Entwicklungsanfrage bis zu einem geprüften
-Ergebnis umzusetzen. Beginne in einem bestehenden Projekt mit einer kleinen Änderung.
+Lusona gibt Programmieragenten einen gemeinsamen Arbeitsablauf, um zu entscheiden, was entwickelt
+werden soll, klar begrenzte Änderungen umzusetzen und das Ergebnis zu prüfen. Deine Entscheidungen
+und Rahmenbedingungen bleiben über Sitzungen hinweg verfügbar. Offene Entscheidungen werden
+ausdrücklich benannt, und Aussagen über abgeschlossene Arbeit müssen belegt werden.
+
+Die [Workflow-Prinzipien](docs/workflow.md#principles) lassen dir die Kontrolle über den Umfang
+und folgenreiche Entscheidungen, während der Agent die autorisierte Arbeit bis zu einem geprüften
+Ergebnis ausführt.
+
+Beginne mit einer Idee, einem bestehenden Projekt oder einem konkreten Problem.
 
 > [!TIP]
 > Bereits installiert? Beginne mit `/status` und verwende den [Befehl für deine Anwendung](#2-eine-empfehlung-erhalten).
@@ -50,7 +58,8 @@ Eine Installation in der eigenständigen CLI installiert das Plugin nicht in Xco
 
 ## 2. Eine Empfehlung erhalten
 
-Starte eine neue Agentensitzung in deinem Projekt und rufe **status** auf:
+Starte eine neue Agentensitzung in deinem Projekt. Verwende **status**, um ein bestehendes Projekt einzuschätzen;
+verwende **explore**, um eine Idee für ein leeres Projekt zu besprechen.
 
 | Anwendung | status aufrufen |
 | --- | --- |
@@ -61,24 +70,37 @@ Starte eine neue Agentensitzung in deinem Projekt und rufe **status** auf:
 | Eigenständige Antigravity IDE | Bitte: `Verwende Lusonas status-Skill.` |
 | Cursor oder Xcode | `/` eingeben und Lusonas `status`-Skill auswählen |
 
-Füge dann diese Anfrage ein und passe die Funktion an dein Projekt an:
+Die folgenden Beispiele verwenden die Syntax von Claude Code. Nutze in anderen Anwendungen die
+Aufrufmethode aus der Tabelle; ersetze für **explore** `status` durch `explore`.
 
-> Teameinladungen sollen nach sieben Tagen ablaufen. Untersuche dieses Projekt und empfehle
-> eine kleine nächste Änderung. Sag mir, was bereits vorhanden ist und was fehlt. Ändere noch keine Dateien.
+Für ein bestehendes Projekt:
+
+```text
+/lusona:status
+Untersuche dieses Projekt und empfehle anhand seiner Ziele und seines aktuellen Stands eine kleine nächste Änderung.
+Sag mir, was bereits vorhanden ist und was fehlt. Ändere noch keine Dateien.
+```
 
 Du erhältst eine Einschätzung des aktuellen Projekts und eine empfohlene nächste Aktion.
-Wenn der Agent eine Entscheidung braucht, antworte in einfachen Worten. Zum Beispiel:
+Wenn der Agent eine Entscheidung braucht, antworte in einfachen Worten zu deinem Projekt und dem gewünschten Verhalten.
 
-> Zähle sieben Tage ab dem Versand der Einladung. Lass angenommene Einladungen unverändert.
+Ersetze bei einem leeren Projekt vor dem Absenden den Text in eckigen Klammern durch deine eigene Idee:
 
-Für ein leeres Projekt: „Ich möchte einen Dienst für Teameinladungen entwickeln. Hilf mir, die erste kleine Änderung auszuwählen.“
+```text
+/lusona:explore
+Ich möchte [beschreibe dein Projekt und seine Zielgruppe] entwickeln. Hilf mir, die erste kleine Änderung auszuwählen.
+Ändere noch keine Dateien.
+```
 
 ## 3. Die Arbeit starten
 
 Wenn die Empfehlung deinem Wunsch entspricht, antworte:
 
-> Setze diese Empfehlung um. Beschränke die Änderung auf den Ablauf von Einladungen und erhalte
-> angenommene Einladungen. Prüfe das Ergebnis lokal. Erstelle keinen Commit und führe kein Deployment durch.
+```text
+/lusona:implement
+Setze diese Empfehlung um. Beschränke den Umfang auf die vereinbarte Änderung.
+Prüfe das Ergebnis lokal. Erstelle keinen Commit und führe kein Deployment durch.
+```
 
 Der Agent kann dich vor der Umsetzung bitten, fehlendes Verhalten zu klären oder ein Testvorgehen
 zu wählen. Achte am Ende darauf, was geändert wurde, welche Prüfungen mit welchen Ergebnissen
