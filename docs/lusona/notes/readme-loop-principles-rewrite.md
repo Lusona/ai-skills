@@ -303,7 +303,86 @@ English first, translations after the user approves the English text.
   setup failures; coordinator's previously approved escalation supplied the browser check.
   No code changes, commits, push or publication. SVG ownership released; review complete.
 
-## Current handoff
+## 2026-11-13 — Human engineer readability proposal
+
+- Authority: user requested rereading `README.md` and proposing an update. This authorizes
+  assessment and a saved proposal, not a README rewrite. No TDD selection is needed for
+  this discussion; the earlier implementation selection does not expand current authority.
+- Baseline: `dac7ebb`, clean working tree at entry. README has 397 lines and 3,333
+  whitespace-delimited words; Installation starts at line 299.
+- Prior decision: the principles-first English outline was accepted on 2026-11-11 above.
+  Recommendation: revise its presentation to put first use before procedural detail.
+  The prior decision remains accepted until the user accepts a revision. No principle,
+  workflow rule, skill responsibility, command or supported-host claim is being changed.
+
+### Findings and recommended changes
+
+| Current passage | Reading problem | Proposed update |
+| --- | --- | --- |
+| Opening and Loop principles, lines 5-56 | Introduces eight policy concepts before showing a first use | Explain purpose in two short paragraphs, then provide installation and one first request |
+| Start and choose a skill, lines 58-122 | Combines setup, resumption, catalog, invocation syntax and five examples | Separate getting started from skill selection; keep one complete request near the start |
+| Installation, line 299 | Instructions for starting appear after most operating policy | Move concise host installation instructions before invocation, keeping warning and testing caveats visible |
+| Authority and TDD, lines 124-169 | Mixes user decisions, testing requirements, batch limits and delegation | Keep authority and the three TDD levels prominent; link detailed coordination rules |
+| Decisions through Replies, lines 171-297 | Requires readers to process record mechanics and edge cases during onboarding | Summarize expected behavior and link the existing authoritative references |
+
+Recommended order:
+
+1. What Lusona does: purpose, hosts, version and source/release distinction.
+2. Get started: native installation, new session, host invocation syntax, optional setup,
+   and a first status request. State that users can choose another skill directly.
+3. Choose a skill: retain all 15 skills, group them by reader intent, and add a short output
+   column. Say explicitly that the groups are not stages or a required sequence.
+4. Work on a change: one complete request showing outcome, scope, acceptance criteria,
+   TDD level and delivery boundary. Retain the invitation-expiry example.
+5. What to expect: authority, TDD table, observed verification, decision revisions, saved
+   records and result/evidence/next-action replies. Use short explanations and links.
+6. Workflow principles: retain the diagram and a compact explanation; link the P1-P8 table.
+7. Further reading, contributing and license. Link contributor commands from CONTRIBUTING.
+
+Existing destinations for detail:
+
+- Full P1-P8 definitions and routing: `plugins/lusona/references/workflow-guide.md`.
+- Revision procedure: `plugins/lusona/references/revisions.md`.
+- Correction budgets: `plugins/lusona/references/corrections.md`.
+- Delegation and model routing: `plugins/lusona/references/delegation.md`.
+- Record fields, save conditions and handoffs: `plugins/lusona/references/retention.md`.
+- Reply-format rules and examples: `plugins/lusona/references/completion.md`.
+- Installation detail and verification limits: `INSTALL.md`; contributor commands:
+  `CONTRIBUTING.md`. Preserve current limitations beside any retained host instructions.
+
+Proposed opening:
+
+> Lusona provides 15 skills for product and engineering work with coding agents. Use them
+> to explore an idea, define a change, investigate a failure, implement a feature, or review
+> a diff. Choose the skill that matches the work; there is no required sequence.
+>
+> Each skill tells the agent how to carry out its part of the work, verify the result, and
+> record what another session needs. You control the authorized scope. Task replies report
+> the result, evidence, and next action.
+
+Alternative: keep all policy detail and only reorder the sections. This preserves a
+single-page reference, but retains most of the reading burden. The recommended option
+uses concise explanations with links; it adds navigation when a reader needs the full rule.
+
+### Proposal evidence and limits
+
+- Coordinator and technical-editor leaf `/root/readme_proposal` read the whole README.
+  Leaf routing: `gpt-6.1-sol`, medium reasoning, standard tier for editorial judgment within
+  an existing document. Leaf returned findings, an outline and sample wording, without edits.
+- Coordinator checked the cited section positions, current word count, existing references,
+  contributor translation requirement and prior acceptance. Integrated the leaf's ordering
+  findings; additionally recommends reducing duplicated procedural detail.
+- No independent implementation review is required for this proposal-only task. No plugin
+  sources, shared blocks, templates, commands, manifests or README files changed, so the
+  addition audit in `docs/skill-audit.md` is not applicable to this saved discussion.
+- No readability user test, rendered Markdown review, installation or interactive test ran.
+  Readability benefits are editorial judgments, not measured results. No correction rounds.
+- Future rewrite checks: preserve rule meaning and installation caveats; check links and
+  incoming anchors; synchronize four translations; inspect rendered Markdown and final diff.
+- Leaf completed and released file ownership; no active operations. Host has no shutdown
+  control, so process termination is not claimed.
+
+## Previous handoff (2026-11-11)
 
 - Authorized work: English accepted, four translations synchronized and circular SVG revision
   implemented under user authorization; TDD `none` from the recorded selection.
@@ -312,3 +391,262 @@ English first, translations after the user approves the English text.
 - Ownership: writer released SVG; coordinator owns integration and this record. Reviewer
   completed its assignment; no active file operations remain.
 - Next action: none for this refinement. No commit, push or publication is authorized.
+
+## 2026-11-13 — Apply readability revision
+
+- User accepted the proposal and authorized applying it: "apply this, and let me read it
+  before committing". Revise the accepted principles-first presentation in part: use the
+  proposed reader-first order and concise summaries, preserving workflow meaning. The earlier
+  outline and its rationale remain above as history.
+- Scope: five root READMEs and this owning record. TDD `none` carries over from the user's
+  2026-11-11 selection for this documentation change. Verify links, commands, skill coverage,
+  translated meaning, rendered layout and packaging. No test-first behavior changes.
+- Independent review will cover the coordinated English and translation edits. No skill,
+  reference, template, shared text or record helper command is changing; the plugin addition
+  audit does not apply. No new spec is needed for a presentation-only documentation change.
+- Commit, push and publication are prohibited pending the user's review and later instruction.
+
+### English rewrite and checks
+
+- English writer `/root/readme_edit`, `gpt-6.1-sol`, medium reasoning, standard tier,
+  changed only README.md. Coordinator inspected the full draft. It has 2,103 words versus
+  3,333 before (36.9% fewer); all 15 skills remain, with intent groups and output descriptions.
+  Installation precedes invocation and the first request. Legacy heading anchors are retained.
+- Baseline: English link/index check passed (71 relative links, 12 index entries), diff
+  whitespace check passed, and baseline package built as 3.1.0. Scratch is in
+  `tmp/readme-human/`; `before.md` preserves the English baseline.
+- English checks: 61 links resolve; all previous anchors, 15 skill links and language
+  navigation remain; installation commands match HEAD; `git diff --check` passes. Package
+  validation built 3.1.0 successfully after the English rewrite.
+- Independent reviewer `/root/readme_review`, `gpt-6.1-sol`, medium reasoning, wrote none
+  of the change. It compared the diff and summary claims with canonical references and
+  reported no findings; independently verified links, skill coverage, commands and whitespace.
+- Local rendering: Bun.markdown HTML plus headless Chromium at 1100 pixels. Coordinator
+  inspected sampled opening, skill-table, expectations and closing sections: no clipping.
+  This is a local approximation of Markdown layout, not live GitHub rendering. Initial
+  Chromium sandbox run failed on a socket operation; one approved escalation succeeded
+  (environment correction: total 1, consecutive without progress 0).
+- Translation assignments: `/root/translate_europe` owns Spanish/German;
+  `/root/translate_asia` owns Simplified Chinese/Japanese. Both use `gpt-6.1-sol`, medium
+  reasoning, standard tier for translation within a fixed English source. Coordinator owns
+  the record and integration; independent review follows translation.
+- Installation and interactive host behavior were not tested. No plugin behavior changed.
+
+### Final translation and integration evidence
+
+- Both translation writers completed their assigned files and released ownership. Independent
+  reviewer `/root/readme_review` read all four translations against the final English text
+  and reported no findings. It checked authorization, TDD, commit semantics, independent
+  review, optional setup, studies, installation caveats, scope boundaries and skill outputs.
+- `python3 tmp/readme-human/check.py` passes all five READMEs: 61 links each, all legacy
+  heading anchors preserved, all 15 skills present, identical language navigation and Bash
+  commands, matching heading hierarchy and nonlocal link targets. Each local link resolves.
+- `python3 scripts/package.py --output tmp/readme-human/translated-package` built the
+  3.1.0 archive successfully. `git diff --check` passes. Only the five root READMEs and
+  this existing notes file are modified. No commit, push or publication occurred.
+- All writer and reviewer assignments are complete, with no active file operations.
+  The host exposes no shutdown control; process termination is not claimed for
+  `/root/readme_edit`, `/root/translate_europe`, `/root/translate_asia` or `/root/readme_review`.
+- Human reading and acceptance remain pending as requested. Translation rendering, live
+  GitHub rendering, installation and interactive host behavior were not tested. No content
+  correction rounds; the single environment correction is recorded above.
+
+## 2026-11-13 — Remove HTML anchors and introduce status
+
+- User reports that raw HTML anchors render visibly and requests a one-line `/status`
+  introduction plus GitHub notice annotations. This revises the earlier choice to preserve
+  legacy bookmarks with explicit anchors: remove those tags and use current heading anchors.
+  Historical bookmark compatibility is no longer a criterion; current document links must work.
+- Add one opening TIP with `/status` and a link to host-specific invocation syntax; remove
+  the repeated multi-paragraph status introduction. Use NOTE for the source/release distinction
+  and IMPORTANT for explicit TDD selection; keep the existing installation WARNING.
+- Scope remains five READMEs and this record, TDD `none`; no commit authorized. Specialist
+  writer `/root/readme_callouts`, `gpt-6.1-sol`, medium reasoning, owns the five READMEs.
+  Coordinator owns checks and records. Before-images are in `tmp/readme-callouts/`.
+- Result: all five READMEs now have no raw anchor tags, one translated opening TIP line,
+  source NOTE, TDD IMPORTANT and installation WARNING. The status authority sentence moved
+  into the existing authority paragraph. One reconciliation round preserved that explicit
+  meaning; total 1, consecutive unresolved 0.
+- Final checks: all five pass the updated link/heading/notice/skill/command checker (62 links
+  each), and `git diff --check` passes. Package validation built 3.1.0 at
+  `tmp/readme-callouts/package`. Legacy-anchor assertions were removed to match the user's
+  requested correction; current heading-link checks remain.
+- Independent reviewer `/root/readme_review` checked the exact correction delta in all five
+  files and reported no findings, including final status authority wording. Writer and
+  reviewer released ownership, with no active operations. Host shutdown remains unavailable.
+  Live rendering and installation were not tested for this correction. No commit occurred.
+
+## 2026-11-13 — Make first use the README's focus
+
+- User reports that readers feel they must learn the workflow before using it and requests
+  a more direct README with secondary documents for deep dives. This revises the prior
+  decision to retain the full skill catalog and workflow summaries in the README.
+- Authorized scope: shorten all five root READMEs; create `docs/usage.md` for invocation,
+  skill selection and examples, and `docs/workflow.md` for operating details and principles.
+  Keep the one-line status TIP and GitHub notices, no raw HTML anchors. Detailed guides are
+  initially English, explicitly labeled from translated READMEs. Existing INSTALL.md is
+  the installation destination and remains unchanged by this work.
+- Baseline: working-tree READMEs and INSTALL.md saved under `tmp/readme-simple/` before
+  editing. INSTALL.md has pre-existing edits, as does Antigravity wording in README.md;
+  preserve these rather than restoring HEAD. Baseline five-README link checks and
+  `git diff --check` pass.
+- TDD `none` continues from the user's 2026-11-11 documentation selection. No behavioral
+  rules change; this is human-facing documentation, outside the bundled-plugin addition
+  audit. Verify destinations, translated meaning, current links, rendering and packaging;
+  independent review covers coordinated writing. No commit, push or publication authorized.
+- Writer `/root/simple_entry_docs`, `gpt-6.1-sol`, medium reasoning, owns English README
+  and the two guides. Coordinator owns record/integration; translations follow stable English.
+- Packaging dependency: the portable catalog includes the root README through an explicit
+  allowlist, so its two new linked guides must be included there. `/root/package_guides`,
+  `gpt-6.1-sol`, medium reasoning, owns only `scripts/package.py` and its test file to add
+  those two paths. Preserve exclusion of `docs/lusona/` and all other project data. Baseline
+  `python3 scripts/test_package.py` passes 16 tests. Existing TDD `none` remains applicable;
+  verify exact public-guide selection, project-data exclusion and archive contents.
+- English result: 299 whitespace-delimited words, down from the 2,034-word working-tree
+  baseline (85.3% fewer). README retains first action, installation link, one plain-language
+  example, user control and optional deeper reading. Guide destinations: host syntax,
+  setup, 15 skills and examples in usage; authority/TDD, evidence, records, decisions,
+  replies and diagram/principles in workflow. Installation remains in INSTALL.md.
+- Writer finished and released ownership. Coordinator read all three documents and inspected
+  a 1100-pixel local Chromium rendering of the short README: no clipping. GitHub callouts
+  appear as ordinary labeled blockquotes in this local renderer; live GitHub was not tested.
+- Package maintainer finished and released ownership. All 16 package tests pass after its
+  change, including exact public-doc selection, source/archive bytes and project-data
+  exclusion. No correction rounds. `/root/translate_short_readmes`, `gpt-6.1-sol`, medium
+  reasoning, owns only four translated READMEs; guides remain English and are labeled as such.
+- Final verification: `python3 tmp/readme-simple/check.py` passes all five READMEs (17 links
+  each), usage (27 links) and workflow (28 links), including current headings, translated
+  link/notice/code parity, 15-skill coverage, no raw anchors, and unchanged INSTALL.md.
+  `python3 scripts/package.py --output tmp/readme-simple/final-package` builds 3.1.0 with
+  working resource links; `git diff --check` passes. The two new guides are untracked files
+  ready for later inclusion in a user-authorized commit.
+- Independent reviewer `/root/simple_docs_review`, `gpt-6.1-sol`, medium reasoning, wrote
+  none of the change. Reviewed English, both guides, packaging code/tests, then all four
+  translations: no findings. It verified preservation of workflow meaning, first-use focus,
+  exact guide packaging and explicit English labels in translated links.
+- Existing INSTALL.md edits are byte-identical to the entry snapshot. No plugin rule,
+  manifest, version, or installed skill changed. No commits, push or publication occurred.
+- All four assignments (English writer, package maintainer, translator and reviewer) are
+  complete with no active file operations. Host shutdown controls remain unavailable;
+  termination is not claimed. Installation, interactive behavior, live GitHub rendering
+  and translated rendering were not tested. No content correction rounds were needed.
+
+## 2026-11-13 — Make the first task self-contained
+
+- User rejected relocation/shortening as insufficient: first use still requires following
+  links to learn what to do. Revise the presentation criterion from word reduction to a
+  complete first-use path on the README: install, invoke status, make one request, understand
+  the expected response and continue. Detailed guides remain optional.
+- Scope: five READMEs plus this record. Preserve existing INSTALL, guides and packaging
+  changes. Keep exact supported host syntax inline, no raw HTML anchors, short GitHub
+  callouts, user authority and verification accuracy. No fixed word ceiling; avoid catalogs
+  and procedural explanations. TDD `none` continues; no commit/push/publication authorized.
+- Baseline saved in `tmp/readme-first-use/`; five-README/guide checks and whitespace pass.
+  Verification will include walking the reader's first task without following a guide,
+  command/link/translation parity, independent review and local rendering.
+- Writer `/root/first_task_readme`, `gpt-6.1-sol`, medium reasoning, owns the five READMEs.
+  English now provides inline installation and host-specific status syntax, one invitation
+  expiry request, expected assessment, a plain-language behavior decision, a bounded
+  implementation reply and final-check expectations. Guides remain optional reference.
+- Independent reviewer `/root/first_use_review`, same model and reasoning, wrote no text.
+  English review found no defects: first task can be followed without documentation links,
+  commands match INSTALL and invocation matches usage, status assessment stays read-only
+  until the implementation follow-up. Shortcut TIP and translations await final review.
+- Final result: five READMEs now walk through a first task on the same page, with a shortcut
+  for existing installations. Writer applied one coordinator correction to that TIP before
+  translation; total 1, consecutive unresolved 0. English is 586 whitespace-delimited words;
+  added runnable commands and continuation examples intentionally replace the shorter
+  page's required navigation. No claim that shorter alone means easier onboarding.
+- Final independent review includes the TIP and all translations: no findings. It confirmed
+  exact command parity, host distinctions, example meaning, read-only assessment, bounded
+  authorization, testing question, final-result expectations and localized shortcut anchors.
+- `python3 tmp/readme-first-use/check.py` passes: 16 links per README, 27 usage and 28
+  workflow links, all current anchors, translation/notice/command parity, 15 retained skills,
+  unchanged INSTALL.md and all three inline command blocks matching INSTALL.md.
+  Packaging to `tmp/readme-first-use/package` succeeds; `git diff --check` passes.
+- Local English HTML/Chromium rendering inspected at 1100 pixels: invocation table and
+  walkthrough display without clipping. Renderer shows GitHub notices as labeled blockquotes.
+  Installation, interactive behavior, live GitHub, translated rendering and a real-user
+  onboarding trial were not tested. Earlier package unit checks remain applicable; packaging
+  code did not change in this increment. Guides, INSTALL and package scripts were preserved.
+- Writer and reviewer assignments complete, ownership released, no active operations.
+  Host shutdown remains unavailable; no termination claim. Nothing committed or published.
+
+## 2026-11-13 — Add light everyday usage
+
+- User requested a light usage section. Added a compact Everyday use section before optional
+  reading in all five READMEs: four plain-language requests for exploring, investigating,
+  reviewing and resuming, plus one sentence about constraints. No new commands or links.
+- Writer `/root/light_usage`, `gpt-6.1-sol`, medium reasoning, owned only the READMEs.
+  TDD `none` carries over. Baselines are in `tmp/readme-light-usage/`; coordinator read each
+  translated insertion and confirmed the other content is unchanged. No independent review
+  trigger applies to this single-writer, presentation-only addition; earlier reviews remain
+  valid for untouched text.
+- Verification: each file has only the 13-line insertion; existing content remains byte-for-byte
+  recoverable by removing it. Current link/heading/notice/command parity check and
+  `git diff --check` pass. No added links or packaging code changes justify rerunning package
+  tests. Rendered layout, installation and interactive behavior were not tested this increment.
+- Writer complete, ownership released, no active operations; shutdown control unavailable.
+  No correction rounds or commits. Guides, INSTALL, scripts and plugin sources unchanged.
+
+## 2026-11-13 — Expand usage into grouped commands
+
+- User requested commands and groups because the light examples provided insufficient data.
+  Replace only Everyday use in all five READMEs with five intent groups and all 15 commands,
+  each with a short purpose. This revises the earlier choice to keep the command catalog only
+  in the optional guide; the first-task walkthrough remains intact.
+- Groups: start/resume; explore/plan; define a change; build/check; investigate/compare.
+  Short `/name` forms explicitly identify Antigravity App/CLI syntax, with Claude Code and
+  Codex CLI prefixes and a reference to the existing invocation method for other hosts.
+  Groups are not mandatory stages. Optional setup, authorization and review boundaries stay.
+- Writer `/root/usage_commands`, `gpt-6.1-sol`, medium reasoning, owned the five sections.
+  Coordinator checked purposes against current skill descriptions and requested one wording
+  correction: design creates visuals, rather than merely inspecting them. All translations
+  corrected; total 1, consecutive unresolved 0. TDD `none` carries over; no plugin rules change.
+- Checks pass: exactly 15 canonical command names and five groups per README, matching order,
+  translated heading/notice/command parity, current links and `git diff --check`. Comparison
+  with `tmp/readme-command-groups/` confirms all text outside these sections is unchanged.
+  No links, package paths or scripts changed; previous package evidence remains applicable.
+- Single-writer presentation change has no independent-review trigger. Coordinator reviewed
+  final content. Rendering, installation and interactive invocation were not tested in this
+  increment. Writer completed and released ownership; no active operations, shutdown control
+  unavailable. No commit, push or publication.
+
+## 2026-11-13 — Double-check README links
+
+- User requested link verification, specifically the opening TIP's
+  `#2-get-a-recommendation`. Read-only audit: README.md line 9 matches the heading at line 51.
+  GitHub's documented section-link rules remove the period, lowercase letters and replace
+  spaces with hyphens; the fragment is correct. Source:
+  https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#section-links
+- Independent verifier `/root/readme_link_audit`, `gpt-6.1-sol`, medium reasoning, checked
+  all five READMEs and both guides: 125 local link/image occurrences, including 20 fragments,
+  resolve; no duplicate heading slugs. Translated TIP fragments match their localized headings.
+  The existing checker also passes. No document source changes were needed.
+- Two unique external URLs (10 occurrences) checked by public GET with curl: blog returns
+  HTTP 200; GitHub issue chooser redirects to login and returns HTTP 200. Initial web-tool
+  fetches returned cache misses; curl supplied the missing evidence (one bounded fallback).
+- Preview limitation found: earlier scratch HTML in `tmp/readme-first-use/` has no heading
+  IDs, keeps file links relative to its scratch directory, and predates the grouped usage
+  section. It is evidence for the earlier layout only, not for working link navigation.
+  This does not establish which renderer the user is using. No claim of live GitHub click
+  testing or user-viewer testing. Do not reuse that preview to validate links.
+- Verifier complete, no edits or active operations. Host shutdown unavailable. No commits.
+
+## 2026-11-13 — Final translation synchronization
+
+- User requested updating translations after the link check. `/root/final_translation_sync`,
+  `gpt-6.1-sol`, medium reasoning, compared all four complete translations with final English.
+  They already contain the incremental changes; no further edits were needed. Full semantic
+  comparison found no omissions or drift in examples, commands, groups, scope or caveats.
+- Checks pass: links/anchors, headings, inline-command spellings and occurrence counts,
+  all 15 commands in five groups, English-guide labels, scoped whitespace and byte comparison
+  with `tmp/readme-translation-final/`. No source file changed in this pass. No installation
+  or interactive test ran. Leaf complete, no active work, no commits; shutdown unavailable.
+
+## Current handoff
+
+- First-use walkthrough plus grouped command reference applied and verified in all five READMEs.
+  Coordinator owns integrated working tree and this record; no active operations remain.
+- Next action: user reads the README and supplies feedback or later commit
+  instructions. No commit, push or publication authorized. TDD remains `none`.
