@@ -20,6 +20,8 @@
   in repo-local `tmp/`, never system `/tmp`.
 - Validate changed skills, native manifests/catalogs, links, and packaging as appropriate.
   Say when installation or interactive behavior has not been tested.
+- Before accepting a new or changed skill, reference, template, shared text or record helper
+  command, audit it with [docs/skill-audit.md](docs/skill-audit.md).
 - The coordinator delegates substantive specialist work to bounded subagents and owns
   questions, reconciliation, integration, verification, and shared state. Give each
   subagent a persona, minimal context, and disjoint write ownership. Local execution is
