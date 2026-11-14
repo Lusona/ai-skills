@@ -1,0 +1,326 @@
+{
+  "auto_checks": {
+    "C4-created-aid": {
+      "created": [
+        "docs/lusona/specs/20261112-reject-empty-greet-name.md"
+      ],
+      "outcome": "aid"
+    },
+    "C4-memory-paths": {
+      "memory_paths": [
+        {
+          "auto": "~/.claude/projects/-<home>--cache-lusona-evals-setup-C4-t1-aac02518/memory/"
+        }
+      ],
+      "outcome": "recorded"
+    },
+    "C4-unchanged": {
+      "detail": [],
+      "outcome": "pass"
+    },
+    "G-commit": {
+      "detail": [
+        1,
+        1
+      ],
+      "outcome": "pass"
+    },
+    "G-run": {
+      "detail": [
+        "captured"
+      ],
+      "outcome": "pass"
+    },
+    "G-scope": {
+      "detail": {
+        "host_artifacts": [
+          ".claude",
+          ".claude/.cc-writes"
+        ],
+        "outside_allowed": []
+      },
+      "outcome": "pass"
+    }
+  },
+  "budget_remaining_at_start_usd": 23.255794,
+  "case": "C4",
+  "cli_version": "2.1.323 (Claude Code)",
+  "condition": {
+    "allowed_tools": [
+      "Read",
+      "Edit",
+      "Write",
+      "Skill",
+      "Task",
+      "Agent",
+      "Bash"
+    ],
+    "effort": "high",
+    "host": "claude",
+    "model": "claude-opus-5-5",
+    "plugin_path": "<plugin>",
+    "timeout_seconds": 1200
+  },
+  "design_lock_sha256": "676c0727bc50403959d9356df1948150ec6540858cd7e2dab8d40136bbe93a9e",
+  "driver_sha256": "ff7afb63ff08f12578635637cfc3cf1256ca0f345fc0bc9693232b346c4a8804",
+  "finished_at": "2026-11-13T01:11:10+00:00",
+  "fixture_source": "C1-t1",
+  "host": "claude",
+  "snapshots": [
+    {
+      "commits": 1,
+      "entries": {
+        "AGENTS.md": {
+          "sha256": "b5b57c18cb9136c7e3d1f62aa4998dff5b06d1c9c299f6f5afa0e43c3827a572",
+          "size": 476,
+          "text": "## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: targeted for validation and persistence boundaries\n",
+          "type": "file"
+        },
+        "CLAUDE.md": {
+          "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+          "size": 11,
+          "text": "@AGENTS.md\n",
+          "type": "file"
+        },
+        "README.md": {
+          "sha256": "82be3a778e1d664c9e0f734e57c6a1c0221615cac88106e3317b98f4277eb498",
+          "size": 102,
+          "type": "file"
+        },
+        "docs": {
+          "type": "dir"
+        },
+        "docs/lusona": {
+          "type": "dir"
+        },
+        "docs/lusona/work.md": {
+          "sha256": "9b178fd354cbf2106aa58b800a3db80a274d42893f4487c5e43fee2750098203",
+          "size": 2182,
+          "text": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+          "type": "file"
+        },
+        "greet.py": {
+          "sha256": "0f2c07b8716daf4678b478e2f8828b3384aa084c9d32fe8c9fe1c84973028e88",
+          "size": 269,
+          "type": "file"
+        },
+        "test_greet.py": {
+          "sha256": "780964884f8e89ab136414fb8600409e43f31b92c6368fb825bd0e64db2b36bb",
+          "size": 462,
+          "type": "file"
+        }
+      },
+      "label": "before turn 1"
+    },
+    {
+      "commits": 1,
+      "entries": {
+        ".claude": {
+          "type": "dir"
+        },
+        ".claude/.cc-writes": {
+          "type": "dir"
+        },
+        "AGENTS.md": {
+          "sha256": "b5b57c18cb9136c7e3d1f62aa4998dff5b06d1c9c299f6f5afa0e43c3827a572",
+          "size": 476,
+          "text": "## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: targeted for validation and persistence boundaries\n",
+          "type": "file"
+        },
+        "CLAUDE.md": {
+          "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+          "size": 11,
+          "text": "@AGENTS.md\n",
+          "type": "file"
+        },
+        "README.md": {
+          "sha256": "82be3a778e1d664c9e0f734e57c6a1c0221615cac88106e3317b98f4277eb498",
+          "size": 102,
+          "type": "file"
+        },
+        "docs": {
+          "type": "dir"
+        },
+        "docs/lusona": {
+          "type": "dir"
+        },
+        "docs/lusona/specs": {
+          "type": "dir"
+        },
+        "docs/lusona/specs/20261112-reject-empty-greet-name.md": {
+          "sha256": "85977339f1a57ade9da580cf6d8653c388d8f968077e294acafcd02657193084",
+          "size": 3718,
+          "text": "# Spec 20261112-reject-empty-greet-name: Reject empty greet name\n\nCreated: 2026-11-12\nUpdated: 2026-11-12\n\nKind: feature\nWork item: `docs/lusona/work.md` row \"Reject empty greet name\"\nContext: none\n\n## Agreement\n\n- User and problem: `python3 greet.py \"\"` is accepted: it prints `Hello, !` to stdout and exits 0 (reproduced, see Evidence). The user wants an empty name rejected.\n- Desired behavior: `python3 greet.py \"\"` exits 2, prints `error: name must not be empty` to stderr, and prints nothing to stdout. A non-empty name keeps the current behavior.\n- Scope and exclusions: `greet.py` and `test_greet.py` only. Excluded: `README.md` and all other files. The request does not require a change to the contract of the `greet()` function.\n- Accepted constraints and invariants:\n  - The usage error for a wrong argument count stays unchanged: stderr `usage: greet.py NAME\\n`, exit code 1, empty stdout, as observed for zero and two arguments (source: user request 2026-11-12).\n  - `python3 greet.py Ada` prints `Hello, Ada!` and exits 0 (source: user request 2026-11-12).\n- Completion condition: all acceptance criteria pass via `python3 -m unittest`. The user and repo rules require no human acceptance step.\n\n### Acceptance criteria\n\n- [ ] AC1: `python3 greet.py \"\"` exits with code 2, stderr is exactly `error: name must not be empty\\n`, and stdout is empty.\n- [ ] AC2: `python3 greet.py Ada` prints `Hello, Ada!\\n` to stdout and exits 0 (regression).\n- [ ] AC3: A wrong argument count keeps the current behavior (regression). With zero arguments and with two arguments (`a b`), stderr is exactly `usage: greet.py NAME\\n`, the exit code is 1, and stdout is empty.\n- [ ] AC4: `python3 -m unittest` passes, and `test_greet.py` covers AC1 to AC3 through the CLI.\n\n### Decisions and uncertainty\n\n- Assumptions and unresolved questions:\n  - Assumption (could change scope): a whitespace-only name such as `\" \"` is not treated as empty and keeps the current behavior. Only the zero-length string is rejected.\n  - Assumption: the request specifies CLI behavior only. Whether `greet.greet(\"\")` raises is unspecified.\n- Architecture: none.\n\n### TDD level\n\n- Level: targeted\n- Selected by user: standing preference in AGENTS.md: \"TDD: targeted for validation and persistence boundaries\". This change is input validation.\n- Test-first behaviors: AC1 (empty-name rejection: exit code, stderr text, empty stdout).\n- Required regression coverage: AC2 and AC3. AC3 currently has no test.\n\n## Evidence\n\nBaseline before change, reproduced on 2026-11-12 from the project root:\n\n| Command | Exit code | stdout | stderr |\n| --- | --- | --- | --- |\n| `python3 greet.py \"\"` | 0 | `Hello, !\\n` | empty |\n| `python3 greet.py Ada` | 0 | `Hello, Ada!\\n` | empty |\n| `python3 greet.py` | 1 | empty | `usage: greet.py NAME\\n` |\n| `python3 greet.py a b` | 1 | empty | `usage: greet.py NAME\\n` |\n\n`python3 -m unittest`: ran 2 tests, OK. The existing tests cover `greet.greet(\"Ada\")` and the CLI with `Ada` only.\n\n## Current handoff\n\n- Authorized work: definition only (source: `/lusona:specify` request, 2026-11-12). Implementation is not authorized.\n- Completed and remaining work: spec defined with AC1\u2013AC4 and TDD level `targeted`; queue row is Ready. No blocking questions. The whitespace-only assumption is non-blocking; the user can override it before implementation.\n- Resume context: spec is untracked in the working tree; `greet.py` and `test_greet.py` are unchanged.\n- Next action: user authorizes `implement` for this spec. Prompt: `/lusona:implement docs/lusona/specs/20261112-reject-empty-greet-name.md` \u2014 write the AC1 test first and observe it fail, then change `greet.py`, add AC3 regression tests, run `python3 -m unittest`.\n",
+          "type": "file"
+        },
+        "docs/lusona/work.md": {
+          "sha256": "4e44d211076d86f19a8f95dc887262125582d818ba254064668d3823419b9073",
+          "size": 2323,
+          "text": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n| [Reject empty greet name](specs/20261112-reject-empty-greet-name.md) | Ready | AC1\u2013AC4 pass via `python3 -m unittest` | User authorizes `implement` for the spec |\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+          "type": "file"
+        },
+        "greet.py": {
+          "sha256": "0f2c07b8716daf4678b478e2f8828b3384aa084c9d32fe8c9fe1c84973028e88",
+          "size": 269,
+          "type": "file"
+        },
+        "test_greet.py": {
+          "sha256": "780964884f8e89ab136414fb8600409e43f31b92c6368fb825bd0e64db2b36bb",
+          "size": 462,
+          "type": "file"
+        }
+      },
+      "label": "after session 1 turn 1"
+    }
+  ],
+  "started_at": "2026-11-13T01:09:56+00:00",
+  "status": "complete",
+  "trial": "C4-t1",
+  "turns": [
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "<plugin>",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash"
+      ],
+      "cost_usd": 0.6090279999999999,
+      "cumulative_claude_cost_usd": 2.7714276,
+      "denied_actions": [],
+      "elapsed_seconds": 74.3,
+      "exit_code": 0,
+      "init": {
+        "claude_code_version": "2.1.323",
+        "cwd": "<workspace>",
+        "memory_paths": {
+          "auto": "~/.claude/projects/-<home>--cache-lusona-evals-setup-C4-t1-aac02518/memory/"
+        },
+        "model": "claude-opus-5-5",
+        "permissionMode": "dontAsk",
+        "plugins": [
+          {
+            "name": "lusona",
+            "path": "<plugin>",
+            "source": "lusona@inline",
+            "version": "3.0.0"
+          },
+          {
+            "name": "cc-plugin-agents-md",
+            "path": "builtin",
+            "source": "cc-plugin-agents-md@builtin"
+          },
+          {
+            "name": "cc-plugin-telemetry",
+            "path": "builtin",
+            "source": "cc-plugin-telemetry@builtin"
+          },
+          {
+            "name": "cc-plugin-privacy",
+            "path": "builtin",
+            "source": "cc-plugin-privacy@builtin"
+          },
+          {
+            "name": "cc-plugin-plugin-authoring",
+            "path": "builtin",
+            "source": "cc-plugin-plugin-authoring@builtin"
+          }
+        ]
+      },
+      "input": "/lusona:specify Change greet.py so that an empty name argument is rejected: `python3 greet.py \"\"` exits with code 2, prints `error: name must not be empty` to stderr and prints nothing to stdout. A non-empty name keeps the current behavior (`python3 greet.py Ada` prints `Hello, Ada!` and exits 0), and the usage error for a wrong argument count stays as it is. Scope: greet.py and test_greet.py only.\n",
+      "plugin_paths": [
+        "<plugin>"
+      ],
+      "removed_env": [
+        "CLAUDECODE",
+        "CLAUDE_CODE_BRIDGE_SESSION_ID",
+        "CLAUDE_CODE_CHILD_SESSION",
+        "CLAUDE_CODE_ENTRYPOINT",
+        "CLAUDE_CODE_EXECPATH",
+        "CLAUDE_CODE_MESSAGING_SOCKET",
+        "CLAUDE_CODE_MESSAGING_TOKEN",
+        "CLAUDE_CODE_SESSION_ATTENDED",
+        "CLAUDE_CODE_SESSION_ID",
+        "CLAUDE_EFFORT",
+        "CLAUDE_PID"
+      ],
+      "reply": "**Result:** \u2705 Complete: I wrote the spec at `docs/lusona/specs/20261112-reject-empty-greet-name.md` and added it to the work queue as Ready. Implementation has not been authorized.\n\n**Evidence:** I ran the current code before writing the spec. A leaf agent drafted the spec, and I checked its draft and filled in the queue row.\n- `python3 greet.py \"\"` exits 0 and prints `Hello, !`. This is the behavior to change.\n- `python3 greet.py Ada` exits 0 and prints `Hello, Ada!`.\n- `python3 greet.py` and `python3 greet.py a b` both exit 1 and print `usage: greet.py NAME` to stderr.\n- `python3 -m unittest` runs 2 tests and passes. No test covers the wrong-argument-count case yet.\n- Nothing is implemented yet, so the acceptance criteria have not been checked.\n\n**Decisions:**\n- **Acceptance criteria:**\n  - AC1: `python3 greet.py \"\"` exits 2, prints `error: name must not be empty` to stderr and prints nothing to stdout.\n  - AC2: `python3 greet.py Ada` still prints `Hello, Ada!` and exits 0.\n  - AC3: zero or two arguments still exit 1 with the same usage message on stderr.\n  - AC4: `python3 -m unittest` passes, and the tests run AC1\u2013AC3 as commands.\n- **TDD level:** `targeted`, taken from the line in `AGENTS.md` that says \"TDD: targeted for validation and persistence boundaries\". The AC1 test is written first and must fail before `greet.py` changes. AC2 and AC3 get regression tests.\n- **Assumption, not blocking:** a name made only of spaces, such as `\" \"`, is not treated as empty and still gets the greeting. Only `\"\"` is rejected. Tell me if spaces-only names should also be rejected, and I will update AC1.\n- **Assumption, not blocking:** the request covers only the command-line behavior. It does not say what `greet.greet(\"\")` should do when called directly.\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Run `/lusona:implement docs/lusona/specs/20261112-reject-empty-greet-name.md` | user | The recorded spec | Implementation not authorized |",
+      "resumed_session": null,
+      "session": "fdd5e396-0109-4c10-aa42-a51c46075864",
+      "session_index": 1,
+      "started_at": "2026-11-13T01:09:56+00:00",
+      "status": "captured",
+      "texts": [
+        "Spec drafted by a leaf; I am now fixing its Work item line and adding the queue row.",
+        "**Result:** \u2705 Complete: I wrote the spec at `docs/lusona/specs/20261112-reject-empty-greet-name.md` and added it to the work queue as Ready. Implementation has not been authorized.\n\n**Evidence:** I ran the current code before writing the spec. A leaf agent drafted the spec, and I checked its draft and filled in the queue row.\n- `python3 greet.py \"\"` exits 0 and prints `Hello, !`. This is the behavior to change.\n- `python3 greet.py Ada` exits 0 and prints `Hello, Ada!`.\n- `python3 greet.py` and `python3 greet.py a b` both exit 1 and print `usage: greet.py NAME` to stderr.\n- `python3 -m unittest` runs 2 tests and passes. No test covers the wrong-argument-count case yet.\n- Nothing is implemented yet, so the acceptance criteria have not been checked.\n\n**Decisions:**\n- **Acceptance criteria:**\n  - AC1: `python3 greet.py \"\"` exits 2, prints `error: name must not be empty` to stderr and prints nothing to stdout.\n  - AC2: `python3 greet.py Ada` still prints `Hello, Ada!` and exits 0.\n  - AC3: zero or two arguments still exit 1 with the same usage message on stderr.\n  - AC4: `python3 -m unittest` passes, and the tests run AC1\u2013AC3 as commands.\n- **TDD level:** `targeted`, taken from the line in `AGENTS.md` that says \"TDD: targeted for validation and persistence boundaries\". The AC1 test is written first and must fail before `greet.py` changes. AC2 and AC3 get regression tests.\n- **Assumption, not blocking:** a name made only of spaces, such as `\" \"`, is not treated as empty and still gets the greeting. Only `\"\"` is rejected. Tell me if spaces-only names should also be rejected, and I will update AC1.\n- **Assumption, not blocking:** the request covers only the command-line behavior. It does not say what `greet.greet(\"\")` should do when called directly.\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Run `/lusona:implement docs/lusona/specs/20261112-reject-empty-greet-name.md` | user | The recorded spec | Implementation not authorized |"
+      ],
+      "tool_calls": {
+        "Agent": 1,
+        "Bash": 3,
+        "Edit": 3,
+        "Read": 2
+      },
+      "turn": 1,
+      "turn_cost_usd": 0.609028,
+      "turn_in_session": 1,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 40820,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 40820,
+        "cache_read_input_tokens": 295003,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 16,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 354,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 354,
+            "cache_read_input_tokens": 52115,
+            "input_tokens": 2,
+            "output_tokens": 873,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 5707,
+        "output_tokens_details": {
+          "thinking_tokens": 1206
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      },
+      "workers": 1
+    }
+  ],
+  "workspace": "<workspace>",
+  "workspace_name": "setup-C4-t1-aac02518"
+}

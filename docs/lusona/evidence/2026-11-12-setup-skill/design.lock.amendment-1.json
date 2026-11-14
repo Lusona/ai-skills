@@ -1,0 +1,9 @@
+{
+  "files": {
+    "README.md#amendment-1": "3e9e17ea2a66304535bb938e6f2a052de3cb82621ebda33d8a2cd01e8f7cc590",
+    "candidate.sha256": "4399b72260dff3543959be02f6c6c14b79874d5cd970972ada42b58e911bc1f0",
+    "cases.json": "d2d41e5028fd461c387783a8a04e69caa6fa97347e000a6d69bfe9ec6fade48e"
+  },
+  "locked_at_utc": "2026-11-13T01:27:19+00:00",
+  "note": "README.md#amendment-1 is the README text from the line \"## Amendment 1\" up to, not including, the line \"### Amendment 1 results\". The original design.lock.json verifies cases.v1.json in place of cases.json."
+}

@@ -1,0 +1,9 @@
+{
+  "files": {
+    "README.md": "029de6b161a5e39438fd22576c1945667d78d7a37ab2d64b420cbf5c86993f4d",
+    "candidate.sha256": "4399b72260dff3543959be02f6c6c14b79874d5cd970972ada42b58e911bc1f0",
+    "cases.json": "f41c9e21b5d9de3f663333806c93f29b7a62553d2a274a4a9c0cfdea764e878c"
+  },
+  "locked_at_utc": "2026-11-13T01:02:59+00:00",
+  "plugin_patch_vs_6243701": "see candidate.sha256; base commit 6243701982d33d45b3aafd33db4885899af234fd"
+}

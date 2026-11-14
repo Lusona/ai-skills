@@ -1,0 +1,20 @@
+import sys
+
+
+def greet(name):
+    return f"Hello, {name}!"
+
+
+def main(argv):
+    if len(argv) != 2:
+        print("usage: greet.py NAME", file=sys.stderr)
+        return 1
+    if not argv[1]:
+        print("error: name must not be empty", file=sys.stderr)
+        return 2
+    print(greet(argv[1]))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

@@ -1,0 +1,602 @@
+{
+  "C1": {
+    "allowed_writes": [
+      "docs/lusona/work.md",
+      "AGENTS.md",
+      "CLAUDE.md"
+    ],
+    "confirm_turn": [
+      3
+    ],
+    "description": "New project: no docs/lusona/, AGENTS.md or CLAUDE.md.",
+    "fixture": {
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "tdd": "targeted for validation and persistence boundaries",
+      "tiers": null
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "My answers: standing TDD preference: targeted for validation and persistence boundaries. Model tier mapping: none, I do not want one.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trial_overrides": {
+      "3": {
+        "amendment": 2,
+        "candidate": "v2"
+      }
+    },
+    "trials": 2
+  },
+  "C10": {
+    "allowed_writes": [
+      "docs/lusona/work.md",
+      "AGENTS.md"
+    ],
+    "amendment": 3,
+    "candidate": "v3",
+    "confirm_turn": [
+      3
+    ],
+    "description": "New project; the user confirms AGENTS.md and declines CLAUDE.md.",
+    "fixture": {
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "tdd": "targeted for validation and persistence boundaries",
+      "tiers": null
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "Standing TDD preference: targeted for validation and persistence boundaries. No model tier mapping.",
+          "I confirm the text for AGENTS.md. I decline CLAUDE.md; do not create it."
+        ]
+      }
+    ],
+    "trials": 1
+  },
+  "C11": {
+    "allowed_writes": [
+      "docs/lusona/work.md",
+      "AGENTS.md",
+      "CLAUDE.md"
+    ],
+    "amendment": 3,
+    "candidate": "v3",
+    "confirm_turn": [
+      3
+    ],
+    "description": "Legacy records; the user accepts creating docs/lusona/.",
+    "fixture": {
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "docs/agent/specs/0001-example.md": "# 0001 Example\n\nPrint the total word count of several files with `wordcount.py FILE...`.\n",
+      "docs/agent/work.md": "# Work\n\n| Item | State | Next action |\n| --- | --- | --- |\n| [0001 Example](specs/0001-example.md) | Ready | Implement the example change |\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "tdd": null,
+      "tiers": null
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "Yes, create docs/lusona/ next to the existing records. No preferences.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trials": 1
+  },
+  "C12": {
+    "allowed_writes": [
+      "AGENTS.md"
+    ],
+    "amendment": 4,
+    "candidate": "v4",
+    "confirm_turn": [
+      3
+    ],
+    "description": "Two TDD values that differ (section and docs/lusona/README.md); the user keeps the section's value.",
+    "fixture": {
+      "AGENTS.md": "## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: targeted for validation and persistence boundaries\n",
+      "CLAUDE.md": "@AGENTS.md\n",
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "docs/lusona/README.md": "# Project records\n\nRecords for this project live in this directory.\n\nTDD: strict for parser changes\n\nThe work queue is `work.md`.\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "readme_value": "strict for parser changes",
+      "tdd": "targeted for validation and persistence boundaries",
+      "tiers": null
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "Keep the value in the Lusona section of AGENTS.md. No model tier mapping.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trials": 1
+  },
+  "C13": {
+    "allowed_writes": [
+      "AGENTS.md"
+    ],
+    "amendment": 4,
+    "candidate": "v4",
+    "confirm_turn": [
+      3
+    ],
+    "description": "Two TDD values that differ; the user answers the location question with a new value and names no location.",
+    "fixture": {
+      "AGENTS.md": "## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: targeted for validation and persistence boundaries\n",
+      "CLAUDE.md": "@AGENTS.md\n",
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "docs/lusona/README.md": "# Project records\n\nRecords for this project live in this directory.\n\nTDD: strict for parser changes\n\nThe work queue is `work.md`.\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "old_tdd": "targeted for validation and persistence boundaries",
+      "readme_value": "strict for parser changes",
+      "tdd": "targeted for command-line argument handling",
+      "tiers": null
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "My standing TDD preference is now: targeted for command-line argument handling. No model tier mapping.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trials": 1
+  },
+  "C14": {
+    "allowed_writes": [
+      "docs/lusona/work.md",
+      "AGENTS.md",
+      "CLAUDE.md"
+    ],
+    "amendment": 4,
+    "candidate": "v4",
+    "confirm_turn": [
+      3
+    ],
+    "description": "New project; the user declines both preferences (the tier question may name models).",
+    "fixture": {
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "tdd": null,
+      "tiers": null
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "No standing TDD preference, and no model tier mapping.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trials": 1
+  },
+  "C15": {
+    "allowed_writes": [
+      "docs/lusona/work.md",
+      "AGENTS.md",
+      "CLAUDE.md"
+    ],
+    "amendment": 4,
+    "candidate": "v4",
+    "confirm_turn": [
+      3
+    ],
+    "description": "New project; the user declines the TDD preference and chooses tier models from the models the question named.",
+    "fixture": {
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "reasoning": "high",
+      "tdd": null,
+      "tiers": "chosen from the question's list by position"
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "No standing TDD preference. For the model tier mapping, use the models your question named, in the order they first appear in your question: `fast` gets the first, `deep` gets the last, and `standard` gets the one just before the last; if your question named only one model, all three tiers get it. Reasoning setting: high for every tier.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trial_overrides": {
+      "2": {
+        "given": {
+          "reasoning": "high",
+          "tdd": null,
+          "tiers": {
+            "deep": "opus",
+            "fast": "haiku",
+            "standard": "sonnet"
+          }
+        },
+        "rerun_condition": "only when the C15-t1 tier question named no model",
+        "sessions": [
+          {
+            "skill": "setup",
+            "turns": [
+              "Set up Lusona in this project.",
+              "No standing TDD preference. Model tier mapping: `fast` = haiku, `standard` = sonnet, `deep` = opus. Reasoning setting: high for every tier.",
+              "I confirm the text and the target paths you showed. Go ahead and write them."
+            ]
+          }
+        ]
+      }
+    },
+    "trials": 1
+  },
+  "C2": {
+    "allowed_writes": [
+      "AGENTS.md",
+      "CLAUDE.md"
+    ],
+    "confirm_turn": [
+      3,
+      3
+    ],
+    "description": "Existing records and agent instructions; session A, then a new session B.",
+    "fixture": {
+      "AGENTS.md": "# Agent instructions\n\n## Build\n\nRun `make build` to build the project.\n\n## Style\n\nUse four spaces for indentation in Python files.",
+      "CLAUDE.md": "# Claude instructions\n\nRead [AGENTS.md](AGENTS.md) for the project's build and style rules.\n",
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "docs/lusona/specs/20260301-add-csv-export.md": "# Spec 20260301-add-csv-export: Add CSV export\n\nCreated: 2026-03-01\n\n## Agreement\n\n- Desired behavior: `python3 wordcount.py --csv FILE` prints one line `FILE,COUNT`.\n- Open question: whether the output starts with a header row.\n",
+      "docs/lusona/work.md": "# Work queue\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n| [Add CSV export](specs/20260301-add-csv-export.md) | Ideas | `wordcount.py --csv` prints `file,words` | Decide the header row |\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "tdd_a": "strict",
+      "tdd_b": "targeted for parsing boundaries",
+      "tiers_labels": [
+        "model-small",
+        "model-medium",
+        "model-large"
+      ]
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "My answers: standing TDD preference: strict. Model tiers: fast is model-small with low reasoning, standard is model-medium with medium reasoning, deep is model-large with high reasoning.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      },
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "Change the standing TDD preference to: targeted for parsing boundaries.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trials": 1
+  },
+  "C3": {
+    "allowed_writes": [
+      "docs/lusona/work.md"
+    ],
+    "confirm_turn": [
+      3
+    ],
+    "description": "New project; the user declines both agent-instruction files.",
+    "fixture": {
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "tdd": null,
+      "tiers": null
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "No standing TDD preference, and no model tier mapping.",
+          "I decline both files. Do not write AGENTS.md or CLAUDE.md."
+        ]
+      }
+    ],
+    "trial_overrides": {
+      "2": {
+        "amendment": 3,
+        "candidate": "v3"
+      }
+    },
+    "trials": 1
+  },
+  "C4": {
+    "allowed_writes": [
+      "docs/lusona/**"
+    ],
+    "confirm_turn": [
+      null
+    ],
+    "description": "Later session in the end state of C1 trial 1 plus a Python CLI; specify a validation change.",
+    "fixture": {
+      "README.md": "# greet\n\nA tiny command-line greeting.\n\nUsage: `python3 greet.py NAME`. Tests: `python3 -m unittest`.\n",
+      "greet.py": "import sys\n\n\ndef greet(name):\n    return f\"Hello, {name}!\"\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: greet.py NAME\", file=sys.stderr)\n        return 1\n    print(greet(argv[1]))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n",
+      "test_greet.py": "import subprocess\nimport sys\nimport unittest\n\nimport greet\n\n\nclass GreetTest(unittest.TestCase):\n    def test_greet(self):\n        self.assertEqual(greet.greet(\"Ada\"), \"Hello, Ada!\")\n\n    def test_cli(self):\n        result = subprocess.run([sys.executable, \"greet.py\", \"Ada\"], capture_output=True, text=True)\n        self.assertEqual(result.returncode, 0)\n        self.assertEqual(result.stdout, \"Hello, Ada!\\n\")\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    "fixture_from": {
+      "paths": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "docs/lusona/work.md"
+      ],
+      "trial": "C1-t1"
+    },
+    "given": {
+      "tdd": "targeted for validation and persistence boundaries"
+    },
+    "sessions": [
+      {
+        "skill": "specify",
+        "turns": [
+          "Change greet.py so that an empty name argument is rejected: `python3 greet.py \"\"` exits with code 2, prints `error: name must not be empty` to stderr and prints nothing to stdout. A non-empty name keeps the current behavior (`python3 greet.py Ada` prints `Hello, Ada!` and exits 0), and the usage error for a wrong argument count stays as it is. Scope: greet.py and test_greet.py only."
+        ]
+      }
+    ],
+    "trials": 1,
+    "unchanged": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "greet.py",
+      "test_greet.py",
+      "README.md"
+    ]
+  },
+  "C5": {
+    "allowed_writes": [
+      "AGENTS.md",
+      "CLAUDE.md"
+    ],
+    "confirm_turn": [
+      3
+    ],
+    "description": "Legacy records under docs/agent/; no docs/lusona/, AGENTS.md or CLAUDE.md.",
+    "fixture": {
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "docs/agent/specs/0001-example.md": "# 0001 Example\n\nPrint the total word count of several files with `wordcount.py FILE...`.\n",
+      "docs/agent/work.md": "# Work\n\n| Item | State | Next action |\n| --- | --- | --- |\n| [0001 Example](specs/0001-example.md) | Ready | Implement the example change |\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "tdd": null,
+      "tiers": null
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "Do not create docs/lusona/. I have no standing TDD preference and no model tier mapping. Continue with the agent-instruction text.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trial_overrides": {
+      "2": {
+        "amendment": 3,
+        "candidate": "v3"
+      },
+      "3": {
+        "amendment": 4,
+        "candidate": "v4"
+      }
+    },
+    "trials": 1
+  },
+  "C6": {
+    "allowed_writes": [
+      "docs/lusona/work.md",
+      "CLAUDE.md"
+    ],
+    "condition": "run only if at least 5 USD of the Claude budget remains after C1-C5",
+    "confirm_turn": [
+      3
+    ],
+    "description": "CLAUDE.md with two sections; AGENTS.md is a symbolic link to CLAUDE.md.",
+    "fixture": {
+      "AGENTS.md": {
+        "symlink": "CLAUDE.md"
+      },
+      "CLAUDE.md": "# Project instructions\n\n## Build\n\nRun `make build` to build the project.\n\n## Style\n\nUse four spaces for indentation in Python files.\n",
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "tdd": null,
+      "tiers": null
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "No standing TDD preference, and no model tier mapping.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trials": 1
+  },
+  "C7": {
+    "allowed_writes": [
+      "AGENTS.md",
+      "CLAUDE.md"
+    ],
+    "amendment": 1,
+    "confirm_turn": [
+      3
+    ],
+    "description": "R2: docs/lusona/README.md holds a TDD preference; no AGENTS.md or CLAUDE.md.",
+    "fixture": {
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "docs/lusona/README.md": "# Project records\n\nRecords for this project live in this directory.\n\nTDD: strict for parser changes\n\nThe work queue is `work.md`.\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "recorded_tdd": "strict for parser changes",
+      "tdd": null,
+      "tiers": null
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "No model tier mapping. Continue.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trial_overrides": {
+      "2": {
+        "amendment": 2,
+        "candidate": "v2"
+      }
+    },
+    "trials": 1
+  },
+  "C8": {
+    "allowed_writes": [
+      "AGENTS.md"
+    ],
+    "amendment": 1,
+    "confirm_turn": [
+      3
+    ],
+    "description": "R5 and R6: an inline @./AGENTS.md import; an existing section with a user line; a fenced '## Lusona skills' line in another section.",
+    "fixture": {
+      "AGENTS.md": "## Build\n\nBuild the project with:\n\n```sh\nmake build\n# The next line is sample text, not a heading:\n## Lusona skills\n```\n\n## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: targeted for validation and persistence boundaries\n- Team note: run the linter before review.\n\n## Release\n\nTag the release with `git tag vX.Y.Z`.\nPush the tag with `git push --tags`.\n",
+      "CLAUDE.md": "# Claude instructions\n\nShared rules are in @./AGENTS.md for every agent.\n\nKeep replies short and name the files you changed.\n",
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "tdd": "strict",
+      "tiers": null,
+      "user_line": "- Team note: run the linter before review."
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "Change the TDD preference to strict. No model tier mapping.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trial_overrides": {
+      "2": {
+        "amendment": 4,
+        "candidate": "v4"
+      }
+    },
+    "trials": 1
+  },
+  "C9": {
+    "allowed_writes": [
+      "AGENTS.md"
+    ],
+    "amendment": 3,
+    "candidate": "v3",
+    "confirm_turn": [
+      3
+    ],
+    "description": "A TDD value both in the section and in docs/lusona/README.md (finding C).",
+    "fixture": {
+      "AGENTS.md": "## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: targeted for validation and persistence boundaries\n",
+      "CLAUDE.md": "@AGENTS.md\n",
+      "README.md": "# wordcount\n\nA small command-line tool that counts the words in a text file.\n\nUsage: `python3 wordcount.py FILE`\n",
+      "docs/lusona/README.md": "# Project records\n\nRecords for this project live in this directory.\n\nTDD: strict for parser changes\n\nThe work queue is `work.md`.\n",
+      "docs/lusona/work.md": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+      "wordcount.py": "import sys\n\n\ndef count_words(text):\n    return len(text.split())\n\n\ndef main(argv):\n    if len(argv) != 2:\n        print(\"usage: wordcount.py FILE\", file=sys.stderr)\n        return 2\n    with open(argv[1], encoding=\"utf-8\") as handle:\n        print(count_words(handle.read()))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))\n"
+    },
+    "given": {
+      "tdd": null,
+      "tiers": null
+    },
+    "sessions": [
+      {
+        "skill": "setup",
+        "turns": [
+          "Set up Lusona in this project.",
+          "Keep the value in docs/lusona/README.md. No model tier mapping.",
+          "I confirm the text and the target paths you showed. Go ahead and write them."
+        ]
+      }
+    ],
+    "trials": 1
+  },
+  "X1": {
+    "host": "codex",
+    "same_as": "C1",
+    "trials": 1
+  },
+  "X2": {
+    "fixture_from_order": [
+      "X1-t1",
+      "C1-t1"
+    ],
+    "host": "codex",
+    "same_as": "C4",
+    "trial_overrides": {
+      "2": {
+        "amendment": 1,
+        "fixture_from_order": [
+          "X1-t1"
+        ],
+        "sessions": [
+          {
+            "skill": "specify",
+            "turns": [
+              "Write the spec for this change; do not implement it: `greet.py` rejects an empty name argument: `python3 greet.py \"\"` exits with code 2, prints `error: name must not be empty` to stderr and prints nothing to stdout. A non-empty name keeps the current behavior (`python3 greet.py Ada` prints `Hello, Ada!` and exits 0), and the usage error for a wrong argument count stays as it is. Scope of the change: greet.py and test_greet.py."
+            ]
+          }
+        ]
+      }
+    },
+    "trials": 1
+  }
+}

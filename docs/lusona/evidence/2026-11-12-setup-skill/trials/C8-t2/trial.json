@@ -1,0 +1,730 @@
+{
+  "auto_checks": {
+    "AC3-bytes": {
+      "detail": [],
+      "outcome": "pass"
+    },
+    "AC4-order": {
+      "detail": [],
+      "outcome": "pass"
+    },
+    "AC4-shown-aid": {
+      "equal_line_for_line": true,
+      "outcome": "aid",
+      "reply_turn": 2,
+      "shown": [
+        "## Lusona skills",
+        "",
+        "This project uses Lusona skills for product and engineering work.",
+        "",
+        "- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.",
+        "- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.",
+        "- TDD: strict",
+        "- Team note: run the linter before review."
+      ],
+      "shown_found": true,
+      "user_line_shown": true,
+      "written": [
+        "## Lusona skills",
+        "",
+        "This project uses Lusona skills for product and engineering work.",
+        "",
+        "- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.",
+        "- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.",
+        "- TDD: strict",
+        "- Team note: run the linter before review."
+      ]
+    },
+    "AC5-outside": {
+      "detail": {
+        "AGENTS.md": "## Build\n\nBuild the project with:\n\n```sh\nmake build\n# The next line is sample text, not a heading:\n## Lusona skills\n```\n\n## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: strict\n- Team note: run the linter before review.\n\n## Release\n\nTag the release with `git tag vX.Y.Z`.\nPush the tag with `git push --tags`.\n"
+      },
+      "outcome": "pass"
+    },
+    "AC8": {
+      "detail": {
+        "tdd": [
+          "- TDD: strict"
+        ],
+        "tiers": []
+      },
+      "outcome": "pass"
+    },
+    "G-commit": {
+      "detail": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outcome": "pass"
+    },
+    "G-run": {
+      "detail": [
+        "captured",
+        "captured",
+        "captured"
+      ],
+      "outcome": "pass"
+    },
+    "G-scope": {
+      "detail": {
+        "host_artifacts": [
+          ".claude",
+          ".claude/.cc-writes"
+        ],
+        "outside_allowed": []
+      },
+      "outcome": "pass"
+    },
+    "R5-noimport-files": {
+      "detail": [],
+      "outcome": "pass"
+    },
+    "R6-one": {
+      "detail": {
+        "count": 1
+      },
+      "outcome": "pass"
+    },
+    "R6-userline": {
+      "detail": {
+        "section": "## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: strict\n- Team note: run the linter before review.\n\n"
+      },
+      "outcome": "pass"
+    }
+  },
+  "budget_remaining_at_start_usd": 1.7012822000000005,
+  "candidate": "v4",
+  "case": "C8",
+  "cli_version": "2.1.325 (Claude Code)",
+  "condition": {
+    "allowed_tools": [
+      "Read",
+      "Edit",
+      "Write",
+      "Skill",
+      "Task",
+      "Agent",
+      "Bash"
+    ],
+    "effort": "high",
+    "host": "claude",
+    "model": "claude-opus-5-5",
+    "plugin_path": "<plugin>",
+    "timeout_seconds": 1200
+  },
+  "design_lock_sha256": "676c0727bc50403959d9356df1948150ec6540858cd7e2dab8d40136bbe93a9e",
+  "driver_sha256": "d97602b3b7b73071044554070c8faee12901912482ba84888ecbbe05927333a2",
+  "finished_at": "2026-11-13T23:58:07+00:00",
+  "fixture_source": null,
+  "host": "claude",
+  "snapshots": [
+    {
+      "commits": 1,
+      "entries": {
+        "AGENTS.md": {
+          "sha256": "0e9f5b1e5c173cb706e467aea051638d6d848ef42e1e2488e0893d0e7ebd8738",
+          "size": 729,
+          "text": "## Build\n\nBuild the project with:\n\n```sh\nmake build\n# The next line is sample text, not a heading:\n## Lusona skills\n```\n\n## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: targeted for validation and persistence boundaries\n- Team note: run the linter before review.\n\n## Release\n\nTag the release with `git tag vX.Y.Z`.\nPush the tag with `git push --tags`.\n",
+          "type": "file"
+        },
+        "CLAUDE.md": {
+          "sha256": "3e1fb232c9352c26d137af6dae9b9b88bdf11ddee2238f14c0210020f046e996",
+          "size": 125,
+          "text": "# Claude instructions\n\nShared rules are in @./AGENTS.md for every agent.\n\nKeep replies short and name the files you changed.\n",
+          "type": "file"
+        },
+        "README.md": {
+          "sha256": "5248bb4a17d20accd0b42c4b77fdebb99af515eed1499bb75be9fb9a356e7a33",
+          "size": 113,
+          "type": "file"
+        },
+        "docs": {
+          "type": "dir"
+        },
+        "docs/lusona": {
+          "type": "dir"
+        },
+        "docs/lusona/work.md": {
+          "sha256": "9b178fd354cbf2106aa58b800a3db80a274d42893f4487c5e43fee2750098203",
+          "size": 2182,
+          "text": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+          "type": "file"
+        },
+        "wordcount.py": {
+          "sha256": "582b71fb18550e4a6894e9a2c65d5d31e0202ea3b9e22a06f14d2fb02b81d2e7",
+          "size": 347,
+          "type": "file"
+        }
+      },
+      "label": "before turn 1"
+    },
+    {
+      "commits": 1,
+      "entries": {
+        ".claude": {
+          "type": "dir"
+        },
+        ".claude/.cc-writes": {
+          "type": "dir"
+        },
+        "AGENTS.md": {
+          "sha256": "0e9f5b1e5c173cb706e467aea051638d6d848ef42e1e2488e0893d0e7ebd8738",
+          "size": 729,
+          "text": "## Build\n\nBuild the project with:\n\n```sh\nmake build\n# The next line is sample text, not a heading:\n## Lusona skills\n```\n\n## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: targeted for validation and persistence boundaries\n- Team note: run the linter before review.\n\n## Release\n\nTag the release with `git tag vX.Y.Z`.\nPush the tag with `git push --tags`.\n",
+          "type": "file"
+        },
+        "CLAUDE.md": {
+          "sha256": "3e1fb232c9352c26d137af6dae9b9b88bdf11ddee2238f14c0210020f046e996",
+          "size": 125,
+          "text": "# Claude instructions\n\nShared rules are in @./AGENTS.md for every agent.\n\nKeep replies short and name the files you changed.\n",
+          "type": "file"
+        },
+        "README.md": {
+          "sha256": "5248bb4a17d20accd0b42c4b77fdebb99af515eed1499bb75be9fb9a356e7a33",
+          "size": 113,
+          "type": "file"
+        },
+        "docs": {
+          "type": "dir"
+        },
+        "docs/lusona": {
+          "type": "dir"
+        },
+        "docs/lusona/work.md": {
+          "sha256": "9b178fd354cbf2106aa58b800a3db80a274d42893f4487c5e43fee2750098203",
+          "size": 2182,
+          "text": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+          "type": "file"
+        },
+        "wordcount.py": {
+          "sha256": "582b71fb18550e4a6894e9a2c65d5d31e0202ea3b9e22a06f14d2fb02b81d2e7",
+          "size": 347,
+          "type": "file"
+        }
+      },
+      "label": "after session 1 turn 1"
+    },
+    {
+      "commits": 1,
+      "entries": {
+        ".claude": {
+          "type": "dir"
+        },
+        ".claude/.cc-writes": {
+          "type": "dir"
+        },
+        "AGENTS.md": {
+          "sha256": "0e9f5b1e5c173cb706e467aea051638d6d848ef42e1e2488e0893d0e7ebd8738",
+          "size": 729,
+          "text": "## Build\n\nBuild the project with:\n\n```sh\nmake build\n# The next line is sample text, not a heading:\n## Lusona skills\n```\n\n## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: targeted for validation and persistence boundaries\n- Team note: run the linter before review.\n\n## Release\n\nTag the release with `git tag vX.Y.Z`.\nPush the tag with `git push --tags`.\n",
+          "type": "file"
+        },
+        "CLAUDE.md": {
+          "sha256": "3e1fb232c9352c26d137af6dae9b9b88bdf11ddee2238f14c0210020f046e996",
+          "size": 125,
+          "text": "# Claude instructions\n\nShared rules are in @./AGENTS.md for every agent.\n\nKeep replies short and name the files you changed.\n",
+          "type": "file"
+        },
+        "README.md": {
+          "sha256": "5248bb4a17d20accd0b42c4b77fdebb99af515eed1499bb75be9fb9a356e7a33",
+          "size": 113,
+          "type": "file"
+        },
+        "docs": {
+          "type": "dir"
+        },
+        "docs/lusona": {
+          "type": "dir"
+        },
+        "docs/lusona/work.md": {
+          "sha256": "9b178fd354cbf2106aa58b800a3db80a274d42893f4487c5e43fee2750098203",
+          "size": 2182,
+          "text": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+          "type": "file"
+        },
+        "wordcount.py": {
+          "sha256": "582b71fb18550e4a6894e9a2c65d5d31e0202ea3b9e22a06f14d2fb02b81d2e7",
+          "size": 347,
+          "type": "file"
+        }
+      },
+      "label": "after session 1 turn 2"
+    },
+    {
+      "commits": 1,
+      "entries": {
+        ".claude": {
+          "type": "dir"
+        },
+        ".claude/.cc-writes": {
+          "type": "dir"
+        },
+        "AGENTS.md": {
+          "sha256": "a242259f1646652704d77f89aecf0290a29593a5c484118be8a69bc3addf0fa5",
+          "size": 685,
+          "text": "## Build\n\nBuild the project with:\n\n```sh\nmake build\n# The next line is sample text, not a heading:\n## Lusona skills\n```\n\n## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: strict\n- Team note: run the linter before review.\n\n## Release\n\nTag the release with `git tag vX.Y.Z`.\nPush the tag with `git push --tags`.\n",
+          "type": "file"
+        },
+        "CLAUDE.md": {
+          "sha256": "3e1fb232c9352c26d137af6dae9b9b88bdf11ddee2238f14c0210020f046e996",
+          "size": 125,
+          "text": "# Claude instructions\n\nShared rules are in @./AGENTS.md for every agent.\n\nKeep replies short and name the files you changed.\n",
+          "type": "file"
+        },
+        "README.md": {
+          "sha256": "5248bb4a17d20accd0b42c4b77fdebb99af515eed1499bb75be9fb9a356e7a33",
+          "size": 113,
+          "type": "file"
+        },
+        "docs": {
+          "type": "dir"
+        },
+        "docs/lusona": {
+          "type": "dir"
+        },
+        "docs/lusona/work.md": {
+          "sha256": "9b178fd354cbf2106aa58b800a3db80a274d42893f4487c5e43fee2750098203",
+          "size": 2182,
+          "text": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+          "type": "file"
+        },
+        "wordcount.py": {
+          "sha256": "582b71fb18550e4a6894e9a2c65d5d31e0202ea3b9e22a06f14d2fb02b81d2e7",
+          "size": 347,
+          "type": "file"
+        }
+      },
+      "label": "after session 1 turn 3"
+    }
+  ],
+  "started_at": "2026-11-13T23:57:02+00:00",
+  "status": "complete",
+  "trial": "C8-t2",
+  "turns": [
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "<plugin>",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash"
+      ],
+      "cost_usd": 0.265398,
+      "cumulative_claude_cost_usd": 9.4037682,
+      "denied_actions": [],
+      "elapsed_seconds": 29.3,
+      "exit_code": 0,
+      "init": {
+        "claude_code_version": "2.1.325",
+        "cwd": "<workspace>",
+        "memory_paths": {
+          "auto": "~/.claude/projects/-<home>--cache-lusona-evals-setup-C8-t2-0ebbaddb/memory/"
+        },
+        "model": "claude-opus-5-5",
+        "permissionMode": "dontAsk",
+        "plugins": [
+          {
+            "name": "lusona",
+            "path": "<plugin>",
+            "source": "lusona@inline",
+            "version": "3.0.0"
+          },
+          {
+            "name": "cc-plugin-agents-md",
+            "path": "builtin",
+            "source": "cc-plugin-agents-md@builtin"
+          },
+          {
+            "name": "cc-plugin-telemetry",
+            "path": "builtin",
+            "source": "cc-plugin-telemetry@builtin"
+          },
+          {
+            "name": "cc-plugin-privacy",
+            "path": "builtin",
+            "source": "cc-plugin-privacy@builtin"
+          },
+          {
+            "name": "cc-plugin-plugin-authoring",
+            "path": "builtin",
+            "source": "cc-plugin-plugin-authoring@builtin"
+          }
+        ]
+      },
+      "input": "/lusona:setup Set up Lusona in this project.\n",
+      "plugin_paths": [
+        "<plugin>"
+      ],
+      "removed_env": [
+        "CLAUDECODE",
+        "CLAUDE_CODE_BRIDGE_SESSION_ID",
+        "CLAUDE_CODE_CHILD_SESSION",
+        "CLAUDE_CODE_ENTRYPOINT",
+        "CLAUDE_CODE_EXECPATH",
+        "CLAUDE_CODE_MESSAGING_SOCKET",
+        "CLAUDE_CODE_MESSAGING_TOKEN",
+        "CLAUDE_CODE_SESSION_ATTENDED",
+        "CLAUDE_CODE_SESSION_ID",
+        "CLAUDE_EFFORT",
+        "CLAUDE_PID"
+      ],
+      "reply": "Two questions before I can finish setup. I don't recommend an answer to either; they are your choice.\n\n1. **TDD standing preference.** The Lusona section in `AGENTS.md` (line 17) already has `TDD: targeted for validation and persistence boundaries`. Do you want to keep it, replace it with a different value (`none`, `targeted` or `strict`, with an optional scope), or remove it?\n2. **Model tier mapping.** No mapping is recorded anywhere. Do you want one? If so, give the model and reasoning setting for each tier:\n   - `fast`: fully specified, isolated work that checks can verify\n   - `standard`: work that needs implementation judgment within established boundaries\n   - `deep`: work with uncertainty, interacting invariants or serious failure consequences\n\n   If you decline, I record no mapping.\n\nAfter you answer, I will show you the final section text for `AGENTS.md` and wait for your confirmation before writing it.\n\nWhat I found:\n- `docs/lusona/work.md` already exists, so I did not run the helper. Nothing else is under `docs/lusona/`, and there is no `docs/lusona/README.md`.\n- There are no legacy records (`docs/agent/` does not exist).\n- `AGENTS.md` and `CLAUDE.md` are separate regular files, not symbolic links.\n- `AGENTS.md` has one real Lusona section, from line 11 to line 19. The `## Lusona skills` on line 8 is inside a fenced code block, so it is not a heading. The line `- Team note: run the linter before review.` is your own text, and I will keep it.\n- `CLAUDE.md` line 3 already imports the file through `@./AGENTS.md`, so it needs no new import line.\n\n**Result:** \u2753 Needs input: Answer or decline the TDD and model tier questions. After that, the section text goes to you for confirmation.\n\n**Evidence:** I read `AGENTS.md`, `CLAUDE.md` and `docs/lusona/work.md` and listed the project root and `docs/`. I did not run the helper because the queue already exists. I have not written anything.\n\n**Files:**\n- `docs/lusona/work.md`: already existed, unchanged\n- `AGENTS.md`: unchanged (waiting on your answers and confirmation)\n- `CLAUDE.md`: unchanged (already imports `AGENTS.md`)\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Keep, replace or remove the TDD preference | user | Question 1 | Preference question open |\n| Give or decline a model and reasoning setting for `fast`, `standard` and `deep` | user | Question 2 | Preference question open |",
+      "resumed_session": null,
+      "session": "e2c4023c-0cbd-4708-9723-5ca48836a75b",
+      "session_index": 1,
+      "started_at": "2026-11-13T23:57:02+00:00",
+      "status": "captured",
+      "texts": [
+        "Two questions before I can finish setup. I don't recommend an answer to either; they are your choice.\n\n1. **TDD standing preference.** The Lusona section in `AGENTS.md` (line 17) already has `TDD: targeted for validation and persistence boundaries`. Do you want to keep it, replace it with a different value (`none`, `targeted` or `strict`, with an optional scope), or remove it?\n2. **Model tier mapping.** No mapping is recorded anywhere. Do you want one? If so, give the model and reasoning setting for each tier:\n   - `fast`: fully specified, isolated work that checks can verify\n   - `standard`: work that needs implementation judgment within established boundaries\n   - `deep`: work with uncertainty, interacting invariants or serious failure consequences\n\n   If you decline, I record no mapping.\n\nAfter you answer, I will show you the final section text for `AGENTS.md` and wait for your confirmation before writing it.\n\nWhat I found:\n- `docs/lusona/work.md` already exists, so I did not run the helper. Nothing else is under `docs/lusona/`, and there is no `docs/lusona/README.md`.\n- There are no legacy records (`docs/agent/` does not exist).\n- `AGENTS.md` and `CLAUDE.md` are separate regular files, not symbolic links.\n- `AGENTS.md` has one real Lusona section, from line 11 to line 19. The `## Lusona skills` on line 8 is inside a fenced code block, so it is not a heading. The line `- Team note: run the linter before review.` is your own text, and I will keep it.\n- `CLAUDE.md` line 3 already imports the file through `@./AGENTS.md`, so it needs no new import line.\n\n**Result:** \u2753 Needs input: Answer or decline the TDD and model tier questions. After that, the section text goes to you for confirmation.\n\n**Evidence:** I read `AGENTS.md`, `CLAUDE.md` and `docs/lusona/work.md` and listed the project root and `docs/`. I did not run the helper because the queue already exists. I have not written anything.\n\n**Files:**\n- `docs/lusona/work.md`: already existed, unchanged\n- `AGENTS.md`: unchanged (waiting on your answers and confirmation)\n- `CLAUDE.md`: unchanged (already imports `AGENTS.md`)\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Keep, replace or remove the TDD preference | user | Question 1 | Preference question open |\n| Give or decline a model and reasoning setting for `fast`, `standard` and `deep` | user | Question 2 | Preference question open |"
+      ],
+      "tool_calls": {
+        "Bash": 4
+      },
+      "turn": 1,
+      "turn_cost_usd": 0.265398,
+      "turn_in_session": 1,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 24649,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 24649,
+        "cache_read_input_tokens": 104770,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 8,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 1542,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 1542,
+            "cache_read_input_tokens": 34756,
+            "input_tokens": 2,
+            "output_tokens": 920,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 2361,
+        "output_tokens_details": {
+          "thinking_tokens": 718
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      },
+      "workers": 0
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "<plugin>",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--resume",
+        "e2c4023c-0cbd-4708-9723-5ca48836a75b",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash"
+      ],
+      "cost_usd": 0.2958096,
+      "cumulative_claude_cost_usd": 9.8022796,
+      "denied_actions": [],
+      "elapsed_seconds": 8.8,
+      "exit_code": 0,
+      "init": {
+        "claude_code_version": "2.1.325",
+        "cwd": "<workspace>",
+        "memory_paths": {
+          "auto": "~/.claude/projects/-<home>--cache-lusona-evals-setup-C8-t2-0ebbaddb/memory/"
+        },
+        "model": "claude-opus-5-5",
+        "permissionMode": "dontAsk",
+        "plugins": [
+          {
+            "name": "lusona",
+            "path": "<plugin>",
+            "source": "lusona@inline",
+            "version": "3.0.0"
+          },
+          {
+            "name": "cc-plugin-agents-md",
+            "path": "builtin",
+            "source": "cc-plugin-agents-md@builtin"
+          },
+          {
+            "name": "cc-plugin-telemetry",
+            "path": "builtin",
+            "source": "cc-plugin-telemetry@builtin"
+          },
+          {
+            "name": "cc-plugin-privacy",
+            "path": "builtin",
+            "source": "cc-plugin-privacy@builtin"
+          },
+          {
+            "name": "cc-plugin-plugin-authoring",
+            "path": "builtin",
+            "source": "cc-plugin-plugin-authoring@builtin"
+          }
+        ]
+      },
+      "input": "Change the TDD preference to strict. No model tier mapping.\n",
+      "plugin_paths": [
+        "<plugin>"
+      ],
+      "removed_env": [
+        "CLAUDECODE",
+        "CLAUDE_CODE_BRIDGE_SESSION_ID",
+        "CLAUDE_CODE_CHILD_SESSION",
+        "CLAUDE_CODE_ENTRYPOINT",
+        "CLAUDE_CODE_EXECPATH",
+        "CLAUDE_CODE_MESSAGING_SOCKET",
+        "CLAUDE_CODE_MESSAGING_TOKEN",
+        "CLAUDE_CODE_SESSION_ATTENDED",
+        "CLAUDE_CODE_SESSION_ID",
+        "CLAUDE_EFFORT",
+        "CLAUDE_PID"
+      ],
+      "reply": "I need your confirmation before I write anything. This is the final text for the Lusona section of `AGENTS.md`. It replaces the current section, lines 11 to 18 of `<workspace>/AGENTS.md`:\n\n```markdown\n## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: strict\n- Team note: run the linter before review.\n```\n\n- The only line that changes is `- TDD: targeted for validation and persistence boundaries`, which becomes `- TDD: strict`.\n- There is no `Model tiers:` line, as you asked.\n- Your `Team note` line, the `## Build` section above, and the `## Release` section below stay as they are.\n- I propose no change to `CLAUDE.md`, because it already imports `AGENTS.md`.\n\nReply \"confirm\" to write `AGENTS.md`, or tell me what to change.\n\n**Result:** \u2753 Needs input: Confirm or decline the shown text for `AGENTS.md`.\n\n**Evidence:** I composed the text from the section template, your answers and the existing section. I have not written anything yet.\n\n**Files:**\n- `docs/lusona/work.md`: already existed, unchanged\n- `AGENTS.md`: unchanged (waiting for confirmation)\n- `CLAUDE.md`: unchanged (already imports `AGENTS.md`)\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Confirm or decline the section text for `AGENTS.md` | user | The text shown above | Section text not confirmed |",
+      "resumed_session": "e2c4023c-0cbd-4708-9723-5ca48836a75b",
+      "session": "e2c4023c-0cbd-4708-9723-5ca48836a75b",
+      "session_index": 1,
+      "started_at": "2026-11-13T23:57:31+00:00",
+      "status": "captured",
+      "texts": [
+        "I need your confirmation before I write anything. This is the final text for the Lusona section of `AGENTS.md`. It replaces the current section, lines 11 to 18 of `<workspace>/AGENTS.md`:\n\n```markdown\n## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: strict\n- Team note: run the linter before review.\n```\n\n- The only line that changes is `- TDD: targeted for validation and persistence boundaries`, which becomes `- TDD: strict`.\n- There is no `Model tiers:` line, as you asked.\n- Your `Team note` line, the `## Build` section above, and the `## Release` section below stay as they are.\n- I propose no change to `CLAUDE.md`, because it already imports `AGENTS.md`.\n\nReply \"confirm\" to write `AGENTS.md`, or tell me what to change.\n\n**Result:** \u2753 Needs input: Confirm or decline the shown text for `AGENTS.md`.\n\n**Evidence:** I composed the text from the section template, your answers and the existing section. I have not written anything yet.\n\n**Files:**\n- `docs/lusona/work.md`: already existed, unchanged\n- `AGENTS.md`: unchanged (waiting for confirmation)\n- `CLAUDE.md`: unchanged (already imports `AGENTS.md`)\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Confirm or decline the section text for `AGENTS.md` | user | The text shown above | Section text not confirmed |"
+      ],
+      "tool_calls": {},
+      "turn": 2,
+      "turn_cost_usd": 0.0304116,
+      "turn_in_session": 2,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 942,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 942,
+        "cache_read_input_tokens": 36298,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 4,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 942,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 942,
+            "cache_read_input_tokens": 36298,
+            "input_tokens": 4,
+            "output_tokens": 780,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 780,
+        "output_tokens_details": {
+          "thinking_tokens": 97
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      },
+      "workers": 0
+    },
+    {
+      "command": [
+        "claude",
+        "-p",
+        "--plugin-dir",
+        "<plugin>",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "high",
+        "--setting-sources",
+        "project",
+        "--strict-mcp-config",
+        "--settings",
+        "{\"permissions\": {\"blockWritesOutsideWorkingDirectories\": true}, \"sandbox\": {\"allowUnsandboxedCommands\": false, \"autoAllowBashIfSandboxed\": true, \"enabled\": true, \"failIfUnavailable\": true, \"network\": {\"allowedDomains\": []}}}",
+        "--permission-mode",
+        "dontAsk",
+        "--resume",
+        "e2c4023c-0cbd-4708-9723-5ca48836a75b",
+        "--allowedTools",
+        "Read",
+        "Edit",
+        "Write",
+        "Skill",
+        "Task",
+        "Agent",
+        "Bash"
+      ],
+      "cost_usd": 0.398485,
+      "cumulative_claude_cost_usd": 10.1099986,
+      "denied_actions": [],
+      "elapsed_seconds": 26.6,
+      "exit_code": 0,
+      "init": {
+        "claude_code_version": "2.1.325",
+        "cwd": "<workspace>",
+        "memory_paths": {
+          "auto": "~/.claude/projects/-<home>--cache-lusona-evals-setup-C8-t2-0ebbaddb/memory/"
+        },
+        "model": "claude-opus-5-5",
+        "permissionMode": "dontAsk",
+        "plugins": [
+          {
+            "name": "lusona",
+            "path": "<plugin>",
+            "source": "lusona@inline",
+            "version": "3.0.0"
+          },
+          {
+            "name": "cc-plugin-agents-md",
+            "path": "builtin",
+            "source": "cc-plugin-agents-md@builtin"
+          },
+          {
+            "name": "cc-plugin-telemetry",
+            "path": "builtin",
+            "source": "cc-plugin-telemetry@builtin"
+          },
+          {
+            "name": "cc-plugin-privacy",
+            "path": "builtin",
+            "source": "cc-plugin-privacy@builtin"
+          },
+          {
+            "name": "cc-plugin-plugin-authoring",
+            "path": "builtin",
+            "source": "cc-plugin-plugin-authoring@builtin"
+          }
+        ]
+      },
+      "input": "I confirm the text and the target paths you showed. Go ahead and write them.\n",
+      "plugin_paths": [
+        "<plugin>"
+      ],
+      "removed_env": [
+        "CLAUDECODE",
+        "CLAUDE_CODE_BRIDGE_SESSION_ID",
+        "CLAUDE_CODE_CHILD_SESSION",
+        "CLAUDE_CODE_ENTRYPOINT",
+        "CLAUDE_CODE_EXECPATH",
+        "CLAUDE_CODE_MESSAGING_SOCKET",
+        "CLAUDE_CODE_MESSAGING_TOKEN",
+        "CLAUDE_CODE_SESSION_ATTENDED",
+        "CLAUDE_CODE_SESSION_ID",
+        "CLAUDE_EFFORT",
+        "CLAUDE_PID"
+      ],
+      "reply": "I changed the TDD preference in `AGENTS.md` to `strict`, and that completes setup.\n\n**Result:** \u2705 Complete: Lusona is set up. The queue was already there, and the section in `AGENTS.md` now reads `TDD: strict` with no model tier mapping.\n\n**Evidence:**\n- `git diff AGENTS.md` shows one changed line: line 17, from `- TDD: targeted for validation and persistence boundaries` to `- TDD: strict`. No other text changed.\n- I counted `## Lusona skills` headings outside fenced code blocks: there is 1. The sample line inside the `## Build` code block is unchanged.\n- `git status` shows only `AGENTS.md` modified. `CLAUDE.md` and `docs/lusona/` are unchanged.\n- I ran no build, lint or tests, because setup changes no code.\n\n**Files:**\n- `AGENTS.md`: changed (TDD line only)\n- `CLAUDE.md`: unchanged (already imports `AGENTS.md` through `@./AGENTS.md`)\n- `docs/lusona/work.md`: already existed, unchanged\n\nI did not commit.\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Proposed: write the product brief for the word-count tool with `/lusona:frame-product Frame the product for the wordcount CLI described in README.md` | frame-product | Your product idea: who uses it, what problem it solves, what is out of scope | Needs your request |\n| Proposed: get an overview of the project's state with `/lusona:status` | status | None | Needs your request |",
+      "resumed_session": "e2c4023c-0cbd-4708-9723-5ca48836a75b",
+      "session": "e2c4023c-0cbd-4708-9723-5ca48836a75b",
+      "session_index": 1,
+      "started_at": "2026-11-13T23:57:40+00:00",
+      "status": "captured",
+      "texts": [
+        "I changed the TDD preference in `AGENTS.md` to `strict`, and that completes setup.\n\n**Result:** \u2705 Complete: Lusona is set up. The queue was already there, and the section in `AGENTS.md` now reads `TDD: strict` with no model tier mapping.\n\n**Evidence:**\n- `git diff AGENTS.md` shows one changed line: line 17, from `- TDD: targeted for validation and persistence boundaries` to `- TDD: strict`. No other text changed.\n- I counted `## Lusona skills` headings outside fenced code blocks: there is 1. The sample line inside the `## Build` code block is unchanged.\n- `git status` shows only `AGENTS.md` modified. `CLAUDE.md` and `docs/lusona/` are unchanged.\n- I ran no build, lint or tests, because setup changes no code.\n\n**Files:**\n- `AGENTS.md`: changed (TDD line only)\n- `CLAUDE.md`: unchanged (already imports `AGENTS.md` through `@./AGENTS.md`)\n- `docs/lusona/work.md`: already existed, unchanged\n\nI did not commit.\n\n| Next action | Owner | Needs | Authority |\n| --- | --- | --- | --- |\n| Proposed: write the product brief for the word-count tool with `/lusona:frame-product Frame the product for the wordcount CLI described in README.md` | frame-product | Your product idea: who uses it, what problem it solves, what is out of scope | Needs your request |\n| Proposed: get an overview of the project's state with `/lusona:status` | status | None | Needs your request |"
+      ],
+      "tool_calls": {
+        "Bash": 2,
+        "Edit": 1,
+        "Read": 1
+      },
+      "turn": 3,
+      "turn_cost_usd": 0.1026754,
+      "turn_in_session": 3,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4770,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4770,
+        "cache_read_input_tokens": 191737,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 12,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 2743,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 2743,
+            "cache_read_input_tokens": 39267,
+            "input_tokens": 2,
+            "output_tokens": 581,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1306,
+        "output_tokens_details": {
+          "thinking_tokens": 61
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      },
+      "workers": 0
+    }
+  ],
+  "workspace": "<workspace>",
+  "workspace_name": "setup-C8-t2-0ebbaddb"
+}

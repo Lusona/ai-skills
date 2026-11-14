@@ -1,0 +1,221 @@
+{
+  "auto_checks": {
+    "C4-created-aid": {
+      "created": [],
+      "outcome": "aid"
+    },
+    "C4-memory-paths": {
+      "memory_paths": [
+        null
+      ],
+      "outcome": "recorded"
+    },
+    "C4-unchanged": {
+      "detail": [
+        "greet.py",
+        "test_greet.py"
+      ],
+      "outcome": "fail"
+    },
+    "G-commit": {
+      "detail": [
+        1,
+        1
+      ],
+      "outcome": "pass"
+    },
+    "G-run": {
+      "detail": [
+        "captured"
+      ],
+      "outcome": "pass"
+    },
+    "G-scope": {
+      "detail": {
+        "host_artifacts": [],
+        "outside_allowed": [
+          "greet.py",
+          "test_greet.py"
+        ]
+      },
+      "outcome": "fail"
+    }
+  },
+  "budget_remaining_at_start_usd": null,
+  "case": "X2",
+  "cli_version": "codex-cli 0.167.2",
+  "condition": {
+    "effort": "medium",
+    "host": "codex",
+    "model": "gpt-6.1-sol",
+    "plugin_path": "<plugin>",
+    "timeout_seconds": 1200
+  },
+  "design_lock_sha256": "676c0727bc50403959d9356df1948150ec6540858cd7e2dab8d40136bbe93a9e",
+  "driver_sha256": "ff7afb63ff08f12578635637cfc3cf1256ca0f345fc0bc9693232b346c4a8804",
+  "finished_at": "2026-11-13T01:19:09+00:00",
+  "fixture_source": "X1-t1",
+  "host": "codex",
+  "snapshots": [
+    {
+      "commits": 1,
+      "entries": {
+        "AGENTS.md": {
+          "sha256": "b5b57c18cb9136c7e3d1f62aa4998dff5b06d1c9c299f6f5afa0e43c3827a572",
+          "size": 476,
+          "text": "## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: targeted for validation and persistence boundaries\n",
+          "type": "file"
+        },
+        "CLAUDE.md": {
+          "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+          "size": 11,
+          "text": "@AGENTS.md\n",
+          "type": "file"
+        },
+        "README.md": {
+          "sha256": "82be3a778e1d664c9e0f734e57c6a1c0221615cac88106e3317b98f4277eb498",
+          "size": 102,
+          "type": "file"
+        },
+        "docs": {
+          "type": "dir"
+        },
+        "docs/lusona": {
+          "type": "dir"
+        },
+        "docs/lusona/work.md": {
+          "sha256": "9b178fd354cbf2106aa58b800a3db80a274d42893f4487c5e43fee2750098203",
+          "size": 2182,
+          "text": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+          "type": "file"
+        },
+        "greet.py": {
+          "sha256": "0f2c07b8716daf4678b478e2f8828b3384aa084c9d32fe8c9fe1c84973028e88",
+          "size": 269,
+          "type": "file"
+        },
+        "test_greet.py": {
+          "sha256": "780964884f8e89ab136414fb8600409e43f31b92c6368fb825bd0e64db2b36bb",
+          "size": 462,
+          "type": "file"
+        }
+      },
+      "label": "before turn 1"
+    },
+    {
+      "commits": 1,
+      "entries": {
+        "AGENTS.md": {
+          "sha256": "b5b57c18cb9136c7e3d1f62aa4998dff5b06d1c9c299f6f5afa0e43c3827a572",
+          "size": 476,
+          "text": "## Lusona skills\n\nThis project uses Lusona skills for product and engineering work.\n\n- Invoke the Lusona skill that matches the task: `/lusona:<skill>` in Claude Code, `$lusona:<skill>` in Codex CLI, either form in the Codex desktop app, and the host's skill interface elsewhere. Use `status` when it is unclear which skill applies.\n- Project records are under `docs/lusona/`. The work queue is `docs/lusona/work.md`.\n- TDD: targeted for validation and persistence boundaries\n",
+          "type": "file"
+        },
+        "CLAUDE.md": {
+          "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+          "size": 11,
+          "text": "@AGENTS.md\n",
+          "type": "file"
+        },
+        "README.md": {
+          "sha256": "82be3a778e1d664c9e0f734e57c6a1c0221615cac88106e3317b98f4277eb498",
+          "size": 102,
+          "type": "file"
+        },
+        "docs": {
+          "type": "dir"
+        },
+        "docs/lusona": {
+          "type": "dir"
+        },
+        "docs/lusona/work.md": {
+          "sha256": "9b178fd354cbf2106aa58b800a3db80a274d42893f4487c5e43fee2750098203",
+          "size": 2182,
+          "text": "# Work queue\n\nStates: Ideas \u2192 Ready \u2192 Doing \u2192 Review \u2192 Done. Finish active work before\nstarting another item, unless the user authorized independent work. Blockers or pending acceptance do not prevent independent authorized\nwork when writers and unfinished changes stay separated.\nOrder rows by priority within each state.\nBlocked is a flag with a reason and next action, not a separate state.\nExplicit batch authorization may override scheduling defaults: deferred items release\nexecution capacity while retaining their actual state and blocker. Completion requirements still apply.\n\n## Active queue\n\n| Item / change | State | Completion condition | Current blocker or next action |\n| --- | --- | --- | --- |\n\nNo active work selected.\n\n## Icebox\n\nParked outcomes are excluded from active planning and default batch selection. Move them\nback to Active queue only on explicit reactivation; retain their queue state and links.\n\n| Item / change | State when parked | Completion condition | Parking reason / revisit condition |\n| --- | --- | --- | --- |\n\nNo parked work.\n\n## Record keeping\n\nEvery new spec requires a row; reconcile updates with the same item, preserving existing state,\nIcebox, and archived history. New drafts start Ideas; Ready requires accepted scope and criteria,\nexplicit TDD, and no blocking definition questions. Planning alone never enters Doing.\nDirect work without a spec may remain untracked in notes; a follow-up it finds takes an Ideas row\nlinking those notes. Explicit no-save/read-only restrictions\nand coordinator-only shared writes prevail.\n\nKeep one row per open outcome across both sections. Agreement, optional execution steps, evidence,\nand one current handoff belong in the linked change record; preserve existing execution records.\nOptional `notes/<change-slug>.md` holds durable findings without another owner; do not add\nactivity logs or evidence paragraphs here. Before removing a completed row, preserve its\ncompletion condition and unique facts, write an entry in `history/YYYY-MM-week-NN.md`,\nand verify its evidence links. History owns archived state; reopened work returns here with\na backlink to its historical completion entry.\n",
+          "type": "file"
+        },
+        "greet.py": {
+          "sha256": "7cb6b8f2046a189adc4002cd9ffb9bf68ca2e8e8c62accdf2429679c6a2716b8",
+          "size": 370,
+          "type": "file"
+        },
+        "test_greet.py": {
+          "sha256": "bb6a7e9d0862cfe24bbbe6486a6bf5e4de00173b4a212bce58ccacfa181434b7",
+          "size": 1123,
+          "type": "file"
+        }
+      },
+      "label": "after session 1 turn 1"
+    }
+  ],
+  "started_at": "2026-11-13T01:17:11+00:00",
+  "status": "complete",
+  "trial": "X2-t1",
+  "turns": [
+    {
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--enable",
+        "multi_agent",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--model",
+        "gpt-6.1-sol",
+        "-c",
+        "model_reasoning_effort=\"medium\"",
+        "-C",
+        "<workspace>",
+        "--skip-git-repo-check",
+        "-"
+      ],
+      "denied_actions": [],
+      "elapsed_seconds": 118.0,
+      "exit_code": 0,
+      "input": "Use the Lusona specify skill at <plugin>/skills/specify/SKILL.md and applicable linked instructions. Role: coordinator for this isolated project task. The synthetic workspace is your consuming project. Own questions, assignments, reconciliation, integration, verification, and shared project records within user authority; apply the workflow's normal delegation rules and local fallback when delegation is prohibited or unavailable. Read only this workspace and the frozen plugin resources.\n\nChange greet.py so that an empty name argument is rejected: `python3 greet.py \"\"` exits with code 2, prints `error: name must not be empty` to stderr and prints nothing to stdout. A non-empty name keeps the current behavior (`python3 greet.py Ada` prints `Hello, Ada!` and exits 0), and the usage error for a wrong argument count stays as it is. Scope: greet.py and test_greet.py only.\n",
+      "item_types": {
+        "agent_message": 4,
+        "collab_tool_call": 5,
+        "command_execution": 11
+      },
+      "removed_env": [
+        "CLAUDECODE",
+        "CLAUDE_CODE_BRIDGE_SESSION_ID",
+        "CLAUDE_CODE_CHILD_SESSION",
+        "CLAUDE_CODE_ENTRYPOINT",
+        "CLAUDE_CODE_EXECPATH",
+        "CLAUDE_CODE_MESSAGING_SOCKET",
+        "CLAUDE_CODE_MESSAGING_TOKEN",
+        "CLAUDE_CODE_SESSION_ATTENDED",
+        "CLAUDE_CODE_SESSION_ID",
+        "CLAUDE_EFFORT",
+        "CLAUDE_PID"
+      ],
+      "reply": "**Result:** \u2705 Complete: Empty names now exit 2 with the required stderr message and no stdout. Non-empty greetings and wrong-count usage errors remain unchanged.\n\n**Evidence:** All 4 tests pass. Direct CLI checks and `git diff --check` pass. Only `greet.py` and `test_greet.py` changed.\n\nLusona records were not saved because of the two-file scope. No commit was created because Git metadata is read-only.\n\n**Next action:** None for this request. All requested behavior is verified.",
+      "resumed_session": null,
+      "session": "01a1d27a-e476-7d73-8e3a-256a82a2fbec",
+      "session_index": 1,
+      "started_at": "2026-11-13T01:17:11+00:00",
+      "status": "captured",
+      "texts": [
+        "The requested scope is `greet.py` and `test_greet.py`. I\u2019m applying the Lusona specify skill and its linked instructions.\n",
+        "The skill routes this fully specified request to implementation. The project\u2019s standing TDD level is `targeted`; empty-name rejection will be tested first. The two-file scope prevents saving Lusona records.\n",
+        "The empty-name test failed before the fix and passes now. The implementation diff contains only the requested validation and regression tests. Coordinator verification remains, along with removing test-generated bytecode.\n",
+        "**Result:** \u2705 Complete: Empty names now exit 2 with the required stderr message and no stdout. Non-empty greetings and wrong-count usage errors remain unchanged.\n\n**Evidence:** All 4 tests pass. Direct CLI checks and `git diff --check` pass. Only `greet.py` and `test_greet.py` changed.\n\nLusona records were not saved because of the two-file scope. No commit was created because Git metadata is read-only.\n\n**Next action:** None for this request. All requested behavior is verified."
+      ],
+      "turn": 1,
+      "turn_in_session": 1,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 555776,
+        "input_tokens": 609450,
+        "output_tokens": 1999,
+        "reasoning_output_tokens": 313
+      }
+    }
+  ],
+  "workspace": "<workspace>",
+  "workspace_name": "setup-X2-t1-035ecb06"
+}
