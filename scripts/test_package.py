@@ -47,7 +47,7 @@ class PackageTests(unittest.TestCase):
         for relative in (*package.CATALOGS, *(Path(name) for name in (
             'README.md', 'README.es.md', 'README.de.md', 'README.zh-CN.md', 'README.ja.md',
             'CHANGELOG.md', 'CONTRIBUTING.md', 'INSTALL.md', 'PRIVACY.md', 'TERMS.md', 'LICENSE',
-            'scripts/package.py', 'scripts/test_package.py',
+            'scripts/package.py', 'scripts/test_package.py', 'docs/usage.md', 'docs/workflow.md',
         ))):
             destination = self.root / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
@@ -179,7 +179,13 @@ class PackageTests(unittest.TestCase):
         for relative in package.CATALOGS:
             self.assertEqual((catalog / relative).read_bytes(),
                              (self.root / relative).read_bytes())
-        self.assertFalse((catalog / 'docs').exists())
+        guides = {Path('usage.md'), Path('workflow.md')}
+        self.assertEqual({file.relative_to(catalog / 'docs')
+                          for file in (catalog / 'docs').rglob('*') if file.is_file()}, guides)
+        for relative in guides:
+            self.assertEqual((catalog / 'docs' / relative).read_bytes(),
+                             (self.root / 'docs' / relative).read_bytes(), str(relative))
+        self.assertFalse((catalog / 'docs/lusona').exists())
         self.assertFalse((catalog / 'tmp').exists())
         with ZipFile(archive) as bundle:
             files = {file.relative_to(self.output).as_posix(): file.read_bytes()

@@ -87,7 +87,7 @@ def build(output, source_dir=PLUGIN):
     for relative in (*CATALOGS, ANTIGRAVITY_REFERENCE, *(Path(name) for name in (
         'README.md', 'README.es.md', 'README.de.md', 'README.zh-CN.md', 'README.ja.md',
         'CHANGELOG.md', 'CONTRIBUTING.md', 'INSTALL.md', 'PRIVACY.md', 'TERMS.md', 'LICENSE', 'scripts/package.py',
-        'scripts/test_package.py',
+        'scripts/test_package.py', 'docs/usage.md', 'docs/workflow.md',
     ))):
         destination = catalog / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
