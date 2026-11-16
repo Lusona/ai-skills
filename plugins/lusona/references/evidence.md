@@ -29,7 +29,7 @@ Use the sections of the [evidence template](../templates/evidence.md.template) t
 - The topic README states the question and links the runs. It does not copy every result.
 - When continuing the same question, reuse its topic record.
 - Give each run an identifier that is unique within the topic.
-- A dated single file is itself an exact run.
+- For a result saved in one dated file, link that file as the exact run.
 - Do not create a directory tree or migrate existing notes only to match this layout.
 
 ## Provenance and observations
@@ -53,7 +53,7 @@ Record the method and provenance that a reader needs to interpret and reproduce 
 - Preserve earlier observations and the design that preceded them.
 - Add a new run for new observations. Do not overwrite an earlier result with a more favorable one.
 - Correct a transcription error or a refuted interpretation visibly beside the original claim. State the correction and its reason.
-- Keep a topic's current conclusion and latest comparable result distinct from its chronologically latest run.
+- Identify the current conclusion and latest comparable result separately from the most recent run. The most recent run need not support that conclusion or comparison.
 - Link the exact supporting runs and state the limits of each comparison.
 
 ## Artifacts and scratch

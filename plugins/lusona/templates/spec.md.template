@@ -8,7 +8,7 @@ Work item: <required queue item or historical completion entry; state is recorde
 Context: <existing product, issue, or ticket link, or none>
 
 Omit empty sections. This change record owns agreement, optional execution, evidence, and one current
-handoff.Preserve existing execution records in place; do not copy their
+handoff. Preserve existing execution records in place; do not copy their
 evidence here or require a new one. Implement/refactor can create this record directly; Specify is not
 a prerequisite. Creating or updating a spec requires the coordinator to reconcile its queue row, subject to
 explicit no-save/read-only restrictions. Preserve existing state, Icebox, and history. A spec is required when

@@ -26,7 +26,7 @@ Read before recording a batch's authorization and before settling a routine deci
 
 - After each result, compare each affected item's result with its intended outcome and schedule its next eligible bounded action.
 - Do not hold an item until other items finish the same responsibility. Shared dependencies, ownership and required review still decide eligibility.
-- Advance independent settled work without waiting for the whole batch. Disjoint files do not prove independence.
+- Advance independent settled work without waiting for the whole batch. Do not assume two items are independent because they edit different files.
 - More than one selected item can be Doing or in Review at the same time.
 - Proceed through authorized work without asking the user for a new approval when an item moves to another responsibility.
 

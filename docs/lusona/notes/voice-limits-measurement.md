@@ -176,7 +176,7 @@ User, 2026-11-11, round 3 of the voice pass ("address the still open items"; dec
 the native question tool). Listing per class, with the basis of each row:
 [round 3](voice-pass/round-3-remaining-findings.md):
 
-10. The every-task block keeps its text (285 words) and gets an enforced limit of 300 words:
+10. (Limit revised on 2026-11-15; see decision 22 below.) The every-task block keeps its text (285 words) and gets an enforced limit of 300 words:
     `WORD_LIMITS` in `scripts/sync_shared.py`, counted as `wc -w` counts. Test written first
     (2 failures observed, then 18 tests pass). This replaces the 250 words stated in spec
     decision 15, which no script enforced.
@@ -281,3 +281,7 @@ These are expected before the skill rewrite and are not a W2 failure.
 - The check cannot verify AC3's "passes on the draft" because no draft exists.
 - Remaining voice rules (V1-V4, V6 idioms, V7-V9) are not script-checkable here and stay
   with review.
+
+## Decision 22 — shared-block space for concrete language
+
+User, 2026-11-15, conversation: the every-task limit may rise from 300 to 400 words when the wording rewrite needs it. The preferred example already makes the block 302 words. The implementation therefore sets 400 as the ceiling, not a target. Sentence limits and banned terms are unchanged. See [the owning spec](../specs/20261115-concrete-instruction-language.md). This revises only the limit in decision 10.

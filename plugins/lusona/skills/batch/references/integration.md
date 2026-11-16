@@ -45,7 +45,7 @@ Record each phase in the batch record with one of these labels: `intent recorded
 
 ## Recovery of interrupted transfers
 
-- An intent is not evidence of transfer. Missing result metadata is not permission to apply again.
+- Do not treat a recorded transfer intent as proof that the transfer happened. When result metadata is missing, do not assume you may apply the transfer again.
 - Recover candidate materialization and destination promotion separately.
 - Compare each operation's actual target with its recorded identity before transfer and its expected identity after transfer.
 - A retained external candidate proves nothing about promotion.

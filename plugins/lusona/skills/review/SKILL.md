@@ -10,15 +10,15 @@ description: Review a specified diff against intended behavior, repository stand
 
 **Authority.** Specs, plans, ADRs and queue states do not authorize implementation. Ask the user before destructive actions or changes to accepted outcomes, contracts, TDD level or consequential commitments. Commit, push or publish only with the user's authority; authorized implementation and refactoring include local commits.
 
-**Decisions.** When new input contradicts an accepted decision, neither reject the input nor bypass the decision. Before revisiting, read [revisions](../../references/revisions.md). State the decision, source and conflict; revisit it with the user; record the outcome.
+**Decisions.** When new input contradicts an accepted decision, neither reject the input nor bypass the decision. Before revisiting, read [revisions](../../references/revisions.md). Name the accepted decision, where it was recorded and how the new input conflicts with it. Revisit the decision with the user and record the outcome.
 
-**TDD.** Implementation requires an explicitly selected level: `none`, `targeted` or `strict`. Until selected, only define and plan; ask, recommending a level. Read [TDD](../../references/tdd.md) before selecting or applying it.
+**TDD.** Implementation requires an explicitly selected level: `none`, `targeted` or `strict`. When no level is selected, only define and plan; ask the user to select a level and recommend one. Read [TDD](../../references/tdd.md) before selecting or applying it.
 
 **Questions.** Answer direct questions first. Ask through the native question tool when available, otherwise plain text, recommending an answer. State assumptions for optional preferences and continue.
 
-**Progress.** Take the next bounded authorized action unprompted. Stop inquiry that cannot change the next action. Pause only affected work; state what resumes it.
+**Progress.** Take the next bounded authorized action unprompted. Stop inquiry that cannot change the next action. Continue work that is not blocked. For blocked work, name the input or decision needed to continue.
 
-**Evidence.** Claim behavior only from observed checks; report unrun and failed checks. Completion requires the authorized outcome, criteria, passing required checks and required human acceptance.
+**Evidence.** Describe behavior only when observed checks support the claim. Name checks that failed or were not run. Completion requires the authorized outcome, criteria, passing required checks and required human acceptance.
 
 **Saving.** Save substantive outputs under [retention](../../references/retention.md) before handoff or completion, unasked. When saving is prohibited, report what was not saved. At 40% context use, read [retention](../../references/retention.md).
 
@@ -72,7 +72,7 @@ Select checks from the changed behavior and its risks. Do not run all the practi
 6. Give each finding a file location, a concrete consequence or failure scenario, a severity and its evidence. Separate confirmed defects, open questions and optional suggestions.
 7. State zero findings when there are none. Report verification gaps separately; passing checks or zero findings do not establish product acceptance.
 8. Before recommending the item's next state, read [queue](../../references/queue.md). Evaluate completion for the whole item, including required checks, acceptance and delivery.
-9. Use one reviewer unless defect subtlety or consequences require more. As coordinator with more than one reviewer, reconcile, deduplicate and consolidate the returned findings. Mechanical checks do not replace semantic review.
+9. Use one reviewer unless defect subtlety or consequences require more. As coordinator with more than one reviewer, resolve conflicting findings, remove duplicates and combine the findings into one report. Mechanical checks do not replace semantic review.
 10. As coordinator, record the result, findings and verification limits in the owning record, or notes when no owning record exists, under [retention](../../references/retention.md). Before creating notes, read [naming](../../references/naming.md). As a leaf reviewer, return them for the coordinator to save. Link existing evidence instead of copying it. Save the report as a separate review document only when the user requests one.
 
 ## Final reply

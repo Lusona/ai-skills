@@ -62,7 +62,7 @@ After the user chooses, retain the reference before recording the decision. When
 ## Implementing and reviewing against a reference
 
 - Read `reference.md` and its source: Mermaid Markdown for diagrams; HTML and any retained PNGs for UI mockups.
-- Binding items are acceptance input. Illustrative items are not.
+- Use binding items to judge acceptance. Do not require the result to match illustrative items.
 - When implementing, report the status of each binding item.
 - When reviewing, check each binding item against the result. Report it as met, unmet or unchecked. A partly met item is unmet; state what differs.
 - Check diagrams against their Mermaid source.

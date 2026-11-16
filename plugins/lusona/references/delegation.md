@@ -13,7 +13,7 @@ Read before dispatching an assignment, after each leaf result, and before closin
 - Ask the user questions, dispatch assignments, reconcile results, integrate, verify and write shared state.
 - Delegate the specialist outcome, not only an inspection.
 - One leaf working in sequence satisfies delegation.
-- Occupied capacity is not unavailability. Wait for working leaves; reuse or release finished ones.
+- When all agent slots are occupied, wait for working leaves. Reuse or release finished leaves; occupied slots do not make delegation unavailable.
 - Apply the host's capacity accounting.
 - Only the coordinator writes shared queues, batch records and the handoffs saved in them.
 - Keep parallel assignments independent of each other. Keep integration and verification with the coordinator.
@@ -36,7 +36,7 @@ Supply context this way:
 
 - Name the source of each supplied text, and of text the leaf demonstrably inherits. That text satisfies the read requirement.
 - Reuse unchanged instructions across skills and assignments. Supply missing or changed text when the role, operation or source changes.
-- Installation, an anchor link, or another leaf's read does not prove that the leaf has the text.
+- Do not assume a leaf has the text because the plugin is installed or an anchor link exists. Another leaf reading it does not establish that this leaf has the text.
 - Give bounded context instead of full history. Keep accepted intent, constraints, evidence, correction counts and recovery inputs.
 - Include only the procedures that apply to the assignment.
 
@@ -113,7 +113,7 @@ Return these fields, with `none` where a field does not apply:
 
 1. Preserve each result and its recovery evidence.
 2. Inspect it against the assignment. Decide acceptance separately from the leaf's status.
-3. A status label alone is not evidence. When a required check is missing, or the result contradicts the assignment or its evidence, apply step 4.
+3. Check the reported results; do not accept a status label as evidence. When a required check is missing, or the result contradicts the assignment or its evidence, apply step 4.
 4. Missing or malformed reports, idle notifications and crashes are not success. Ask a reachable leaf for missing information, or reconcile artifacts and host evidence. Leave the result unresolved until that information or evidence establishes it.
 5. Map a legacy `DONE` to `complete` only after the evidence checks. Map `NEEDS_CONTEXT` and `BLOCKED` to `blocked`. Assess `DONE_WITH_CONCERNS` against the assigned scope and required checks. Do not edit the legacy report.
 6. Verify the completed scope, resolve concerns, supply or defer blocked prerequisites, and schedule bounded continuation of incomplete work.

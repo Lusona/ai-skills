@@ -21,7 +21,7 @@ Read when selecting, recording or applying a TDD level.
 ## Applying the level
 
 - Under `targeted`, name the test-first behaviors.
-- Required regression coverage is separate from test-first sequencing.
+- Keep the required regression coverage regardless of whether tests must be written first.
 - For each test-first behavior, observe the intended failure before changing production code. Then verify the passing behavior.
 - Record red and green evidence. A setup failure or a skipped failing run is not red evidence.
 - Under `none`, run the agreed checks. Add coverage when the agreement requires it or no existing check exercises the change.

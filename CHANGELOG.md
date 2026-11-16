@@ -9,6 +9,10 @@ time. The entries distinguish source updates from published releases.
 
 Local source update prepared on 2026-11-13. Publication and installation are not implied.
 
+- Clarify shared, skill, reference and template instructions while preserving workflow
+  requirements. Raise the every-task ceiling from 300 to 400 words to allow concrete
+  wording; keep sentence limits and banned terms unchanged.
+
 - Add the optional `setup` skill (15 skills in total). It creates `docs/lusona/` and the work
   queue `docs/lusona/work.md`, asks for a standing TDD preference and a model tier mapping (both
   optional, and it recommends no value for either), and writes a "Lusona skills" section to the

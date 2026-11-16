@@ -16,7 +16,7 @@ Read before the first production edit of a batch item, before choosing an item's
 - Retain a baseline identifiable by content. Distinguish user-owned starting content from batch-owned edits.
 - Record workspace paths, ownership, baseline identity, dependencies and the method to reconstruct the item delta.
 - Check content identity with repository tools or retained manifests or snapshots, including paths, bytes and file modes.
-- A branch name or a plain status listing does not establish content identity.
+- Do not use a branch name or a plain status listing as proof of content identity.
 
 ## Unrelated changes and transfer
 

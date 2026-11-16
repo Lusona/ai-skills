@@ -35,9 +35,9 @@ from pathlib import Path
 
 BEGIN = re.compile(r'^<!-- lusona:begin ([a-z0-9-]+) -->\n', re.MULTILINE)
 END = '<!-- lusona:end {name} -->'
-# Source stem -> maximum words. Set by the user 2026-11-11 for the every-task block, which is
-# copied into every skill (docs/lusona/notes/voice-limits-measurement.md, decision 10).
-WORD_LIMITS = {'every-task': 300}
+# Source stem -> maximum words. Revised by the user 2026-11-15 for the every-task block,
+# copied into every skill (docs/lusona/notes/voice-limits-measurement.md, decision 22).
+WORD_LIMITS = {'every-task': 400}
 
 
 def normalized(text):

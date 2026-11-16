@@ -14,7 +14,7 @@ Repair budget: <corrective rounds per item and source>
 
 Only the coordinator edits this record. Membership, grants, deferral, and integration phases are
 coordination facts, not queue states. Link requirements and evidence in their owning records.
-Replace obsolete transient entries while retaining recovery identities and durable round charges.
+Replace transient entries that no longer describe current coordination. Keep the identifiers needed to resume work and the recorded charges against the repair budget.
 
 ## Fixed membership
 

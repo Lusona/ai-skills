@@ -15,7 +15,7 @@ Read before saving findings, evidence or a handoff, before choosing a record for
 - Consolidate evidence, queue and handoff edits at the end of each increment and before handoff, completion or a pause.
 - Write only changed facts. Do not write every turn, and do not refresh records only because a skill ended.
 - Save authorization, blockers, ownership changes and batch recovery state when another session needs them to continue.
-- These saves are working-tree edits, not commit boundaries. Commit them with the increment they belong to.
+- Save these records in the working tree. Commit them with the increment they belong to; saving a record does not require a separate commit.
 - Missing directories or a missing queue do not waive saving. Create the record directories within permitted writes.
 
 ## No-record cases
@@ -81,7 +81,7 @@ Reuse the existing owning record. Without one, choose by this table.
 - Split a new record only for separate ownership, reuse or readability. Keep the links and one owner for each fact.
 - Keep the facts needed to resume, explain a decision, reproduce a result, or avoid repeating an investigation. Omit routine narration.
 - When a finding is refuted, correct it beside the original claim and revise the resulting recommendation.
-- When a fact gains a change record or ADR owner, replace the notes copy with a link.
+- When a change record or ADR becomes the owner of a fact, replace that fact in notes with a link.
 
 ## Create notes
 

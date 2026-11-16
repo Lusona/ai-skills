@@ -142,25 +142,25 @@ class SyncTests(unittest.TestCase):
         self.assertIn('skills/b/SKILL.md', result.stdout)
         self.assertEqual(self.snapshot(), before)
 
-    # Word limit of the every-task block (user decision 2026-11-11: at most 300 words).
+    # Word limit of the every-task block (user decision 2026-11-15: at most 400 words).
     def test_every_task_at_the_word_limit_passes(self):
-        (self.source / 'every-task.md').write_text('word ' * 300 + '\n')
+        (self.source / 'every-task.md').write_text('word ' * 400 + '\n')
         self.assertEqual(self.run_sync().returncode, 0)
         self.assertEqual(self.run_sync('--check').returncode, 0)
 
     def test_check_reports_every_task_over_the_word_limit(self):
         self.run_sync()
-        (self.source / 'every-task.md').write_text('word ' * 301 + '\n')
+        (self.source / 'every-task.md').write_text('word ' * 401 + '\n')
         result = self.run_sync('--check')
         self.assertEqual(result.returncode, 1)
-        self.assertIn('every-task.md: 301 words exceeds 300', result.stdout)
+        self.assertIn('every-task.md: 401 words exceeds 400', result.stdout)
 
     def test_sync_rejects_every_task_over_the_word_limit_and_writes_nothing(self):
-        (self.source / 'every-task.md').write_text('word ' * 301 + '\n')
+        (self.source / 'every-task.md').write_text('word ' * 401 + '\n')
         before = self.snapshot()
         result = self.run_sync()
         self.assertEqual(result.returncode, 1)
-        self.assertIn('every-task.md: 301 words exceeds 300', result.stdout)
+        self.assertIn('every-task.md: 401 words exceeds 400', result.stdout)
         self.assertEqual(self.snapshot(), before)
 
     def test_other_sources_have_no_word_limit(self):

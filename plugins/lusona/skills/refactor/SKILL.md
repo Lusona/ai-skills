@@ -10,15 +10,15 @@ description: Restructure implemented product code in bounded, behavior-preservin
 
 **Authority.** Specs, plans, ADRs and queue states do not authorize implementation. Ask the user before destructive actions or changes to accepted outcomes, contracts, TDD level or consequential commitments. Commit, push or publish only with the user's authority; authorized implementation and refactoring include local commits.
 
-**Decisions.** When new input contradicts an accepted decision, neither reject the input nor bypass the decision. Before revisiting, read [revisions](../../references/revisions.md). State the decision, source and conflict; revisit it with the user; record the outcome.
+**Decisions.** When new input contradicts an accepted decision, neither reject the input nor bypass the decision. Before revisiting, read [revisions](../../references/revisions.md). Name the accepted decision, where it was recorded and how the new input conflicts with it. Revisit the decision with the user and record the outcome.
 
-**TDD.** Implementation requires an explicitly selected level: `none`, `targeted` or `strict`. Until selected, only define and plan; ask, recommending a level. Read [TDD](../../references/tdd.md) before selecting or applying it.
+**TDD.** Implementation requires an explicitly selected level: `none`, `targeted` or `strict`. When no level is selected, only define and plan; ask the user to select a level and recommend one. Read [TDD](../../references/tdd.md) before selecting or applying it.
 
 **Questions.** Answer direct questions first. Ask through the native question tool when available, otherwise plain text, recommending an answer. State assumptions for optional preferences and continue.
 
-**Progress.** Take the next bounded authorized action unprompted. Stop inquiry that cannot change the next action. Pause only affected work; state what resumes it.
+**Progress.** Take the next bounded authorized action unprompted. Stop inquiry that cannot change the next action. Continue work that is not blocked. For blocked work, name the input or decision needed to continue.
 
-**Evidence.** Claim behavior only from observed checks; report unrun and failed checks. Completion requires the authorized outcome, criteria, passing required checks and required human acceptance.
+**Evidence.** Describe behavior only when observed checks support the claim. Name checks that failed or were not run. Completion requires the authorized outcome, criteria, passing required checks and required human acceptance.
 
 **Saving.** Save substantive outputs under [retention](../../references/retention.md) before handoff or completion, unasked. When saving is prohibited, report what was not saved. At 40% context use, read [retention](../../references/retention.md).
 
@@ -56,7 +56,7 @@ description: Restructure implemented product code in bounded, behavior-preservin
 
 ## Refactoring practices
 
-- Before selecting or applying TDD for the restructuring, writing a characterization test or changing an assertion, read [TDD](../../references/tdd.md). Restructuring starts green and stays green.
+- Before selecting or applying TDD for the restructuring, writing a characterization test or changing an assertion, read [TDD](../../references/tdd.md). Start restructuring with passing checks and keep those checks passing.
 - Under `targeted` or `strict`, add missing coverage for the affected boundary first.
 - Under `none`, still verify the restructuring.
 - Do not fix a discovered bug. Record it and propose [implement](../implement/SKILL.md) or [investigate](../investigate/SKILL.md).

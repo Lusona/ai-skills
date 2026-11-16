@@ -23,7 +23,7 @@ Create each spec with `init-change` and each ADR with `init-adr`. The helper gen
 | `conflict` | 3 | Inspect the existing path. Resume only if it is the intended existing record and ownership permits it; for distinct work choose a more specific functional slug and retry. |
 | `error` | 1 | Correct the reported input or filesystem problem before retrying; `path` is empty if no destination was resolved. |
 
-- Branch on status and exit code, not on the `message` text.
+- Choose the next action from the returned status and exit code. Do not use the `message` text to choose it.
 - Creation never overwrites or silently resumes an existing path, including a symlink or directory.
 - Identical inputs resolve to the same path. There is no automatic numeric or random suffix, and no shared counter.
 - Independent records can be created concurrently without a shared allocator.
