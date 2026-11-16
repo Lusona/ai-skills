@@ -94,8 +94,12 @@ Proposed initial bound: six trials, at most 10 minutes per trial and 60 minutes 
 
 ## Current handoff
 
-- Authorized: implementation, user invocation on 2026-11-15. Targeted TDD selected. Trial resources are pending the native question; commit, push and publication remain unauthorized.
+- Authorized: implementation, user invocation on 2026-11-15. Targeted TDD selected. Trial resources are pending the native question. Grouped local checkpoint commits are authorized by the user on 2026-11-16; push and publication remain unauthorized.
 - Next action: run the retained matched trials after the pending resource decision. User decision pending for six trials, 10 minutes each, 60 minutes total, $10 total cap, configured Claude model. Only trials wait on this decision. Implementation is authorized; do not request it again. Keep queue in Review until required behavioral evidence and audit acceptance are satisfied.
+
+### Local test version
+
+User, 2026-11-16: authorized version preparation without push, and will test locally first. Local tag 3.1.0 exists at 2244a6a; prepared 3.1.1 as an untagged local candidate. At version preparation, no commit, tag or push was authorized; the later checkpoint decision below authorizes local commits only. User testing is pending and does not yet satisfy behavioral acceptance.
 
 ### Commit checkpoint authority
 

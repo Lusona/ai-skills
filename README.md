@@ -161,7 +161,7 @@ Add constraints naturally, such as “keep the public API unchanged” or “do 
 - [Workflow details](docs/workflow.md): testing, evidence, and resuming work.
 - [Why we built Lusona](https://blog.lusona.com/blog/why-we-built-lusona-skills/).
 
-Checked-out source version: **3.1.0**. GitHub installation uses committed, pushed sources;
+Checked-out source version: **3.1.1**. GitHub installation uses committed, pushed sources;
 local changes do not establish a published release. See the [changelog](CHANGELOG.md).
 
 [Contributing](CONTRIBUTING.md) · [Report an issue](https://github.com/lusona/ai-skills/issues/new/choose) · [Privacy](PRIVACY.md) · [Terms](TERMS.md) · [MIT License](LICENSE)

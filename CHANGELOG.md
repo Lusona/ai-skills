@@ -1,21 +1,25 @@
 # Changelog
 
 Changes in recent source versions. Dates for tagged versions use the tagged commit's
-local date, not a verified publication date. Version 3.1.0 is untagged. Versions 2.0.0 to
+local date, not a verified publication date. Version 3.1.1 is an untagged local test candidate. Versions 2.0.0 to
 2.0.5 were tagged after their entries were written; their headings keep the wording of that
 time. The entries distinguish source updates from published releases.
 
-## 3.1.0 — Current source, untagged
+## 3.1.1 — Local test candidate, untagged
 
-- Reconcile owned background commands and agents before handback or completion.
-  Preserve inherited ownership and distinguish report delivery from termination.
-  Add lifecycle evaluation; behavioral validation remains pending.
+Prepared on 2026-11-16. Behavioral validation remains pending; not published.
 
-Local source update prepared on 2026-11-13. Publication and installation are not implied.
+- Reconcile owned background commands and agents before handback or completion. Preserve
+  inherited ownership, distinguish delivered reports from terminated work, and report
+  unresolved or intentionally retained operations. Add lifecycle evaluation coverage.
 
-- Clarify shared, skill, reference and template instructions while preserving workflow
-  requirements. Raise the every-task ceiling from 300 to 400 words to allow concrete
-  wording; keep sentence limits and banned terms unchanged.
+- On 2026-11-15, clarify instruction wording in shared text, skills, references and templates
+  while preserving workflow requirements. Raise the every-task block ceiling from 300 to
+  400 words to allow concrete wording; keep sentence limits and banned terms unchanged.
+
+## 3.1.0 — 2026-11-13
+
+Date from the local tag’s commit; publication is not verified.
 
 - Add the optional `setup` skill (15 skills in total). It creates `docs/lusona/` and the work
   queue `docs/lusona/work.md`, asks for a standing TDD preference and a model tier mapping (both

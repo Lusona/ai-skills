@@ -164,7 +164,7 @@ Ergänze Einschränkungen in eigenen Worten, etwa „Lass die öffentliche API u
 - [Workflow-Details (Englisch)](docs/workflow.md): Tests, Belege und Fortsetzen der Arbeit.
 - [Warum wir Lusona entwickelt haben (Englisch)](https://blog.lusona.com/blog/why-we-built-lusona-skills/).
 
-Version des Quellcodes in dieser Arbeitskopie: **3.1.0**. Die Installation über GitHub verwendet
+Version des Quellcodes in dieser Arbeitskopie: **3.1.1**. Die Installation über GitHub verwendet
 committete und gepushte Quellen; lokale Änderungen begründen keine veröffentlichte Version.
 Siehe das [Änderungsprotokoll (Englisch)](CHANGELOG.md).
 

@@ -160,7 +160,7 @@ agy plugin list --json
 - [ワークフローの詳細（英語）](docs/workflow.md)：テスト、根拠、作業の再開。
 - [Lusona を開発した理由（英語）](https://blog.lusona.com/blog/why-we-built-lusona-skills/)。
 
-この作業コピーのソースバージョン：**3.1.0**。GitHub からのインストールでは、コミットしてプッシュしたソースを
+この作業コピーのソースバージョン：**3.1.1**。GitHub からのインストールでは、コミットしてプッシュしたソースを
 使用します。ローカルの変更は、公開済みのリリースを意味しません。[変更履歴（英語）](CHANGELOG.md)を参照してください。
 
 [貢献（英語）](CONTRIBUTING.md) · [問題の報告（英語）](https://github.com/lusona/ai-skills/issues/new/choose) · [プライバシー（英語）](PRIVACY.md) · [利用規約（英語）](TERMS.md) · [MIT ライセンス（英語）](LICENSE)
