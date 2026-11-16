@@ -12,6 +12,7 @@ End every task reply with this form. Do not add this form or a follow-up action 
 - When scope is complete and a follow-up serves the agreed outcome, use the table, label the action proposed, and state the missing authority.
 - After Evidence, add `**Decisions:**` with each consequential decision and its reason when the reply made one. Add `**Open issues:**` when unresolved issues remain. Omit a field that has no content.
 - Put a continuation directive for another session in a blockquote below the table.
+- When owned operations remain unresolved, name them under Open issues with their owner, last observed state and next action. Do not describe cleanup as complete.
 - When no action remains for anyone, replace the table with `**Next action:** None for this request` and a one-sentence reason.
 - Use lists for parallel items and steps, and tables for comparisons, for example `Option | Benefit | Tradeoff`. Keep the tables and schemas that a skill or template defines.
 - Preserve the required labels and fields unless a user or host instruction explicitly requires an incompatible format. Brevity preferences do not remove required fields. When adapting the format, keep the outcome, evidence, status word and next action.

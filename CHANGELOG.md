@@ -7,6 +7,10 @@ time. The entries distinguish source updates from published releases.
 
 ## 3.1.0 — Current source, untagged
 
+- Reconcile owned background commands and agents before handback or completion.
+  Preserve inherited ownership and distinguish report delivery from termination.
+  Add lifecycle evaluation; behavioral validation remains pending.
+
 Local source update prepared on 2026-11-13. Publication and installation are not implied.
 
 - Clarify shared, skill, reference and template instructions while preserving workflow

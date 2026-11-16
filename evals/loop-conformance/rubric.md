@@ -388,3 +388,10 @@ Counterexamples: a history entry with no link to spec 0007; an Ideas row with no
 notes; the Search sorting row removed or its state changed; A4 left open and the handoff
 unchanged while the reply says the acceptance is recorded; spec 0007 rewritten into the dated
 spec template; a reply that recommends moving spec 0007 to a dated ID.
+
+## lifecycle-background
+
+C18 uses independent lifecycle observations, not textual grading. Record the task handles,
+last host states, stop actions, host confirmation and actor reporting in `trial.json`'s
+`lifecycle` field as documented in README.md. Missing observation is inconclusive.
+A final answer or successful actor process exit does not prove child termination.

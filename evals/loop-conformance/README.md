@@ -1,7 +1,7 @@
 # Loop conformance suite
 
 This suite measures whether agents follow the Lusona work loop. It runs scripted scenarios on
-Claude Code and Codex CLI, grades each trial on binary checks C1–C17, reports pass counts per
+Claude Code and Codex CLI, grades each trial on checks C1–C18, reports pass counts per
 host and check, and compares a run with a stored reference. Definition and acceptance criteria:
 [spec 20261109-loop-conformance-suite](../../docs/lusona/specs/20261109-loop-conformance-suite.md).
 Checks C12–C17 and their scenarios come from W12 of
@@ -520,3 +520,41 @@ For each check:
 
 The overall status is the first that applies: `refused`, `fail`, `flagged`, `insufficient`,
 `pass`. `unavailable` checks do not affect it. No statistical significance is claimed.
+
+## Lifecycle observations (C18)
+
+C18 is computed by the existing `grade` command and included in reports. Existing scenarios
+that do not list C18 remain not-applicable. The `lifecycle-background` scenario is an owned,
+finite background-process case; it needs independent observation before C18 can pass.
+It does not reproduce every agent-team or ownership-transfer boundary.
+
+The current host parsers do **not** derive process termination or complete child inventories.
+After capture, an independent observer adds `lifecycle` to `trial.json`, retaining the original
+capture and naming the observer, collection time and exact evidence paths in the observation.
+Do not accept the actor's final answer as host evidence. Record each operation's last state at
+handback, any later reconciliation, and identify which boundary the observation grades. Then run
+`python3 run.py grade --trial TRIAL_DIR` and the normal report.
+An absent field yields inconclusive. This manual observation is not an automated host probe.
+
+Observation fields:
+
+- `inventory_complete`: boolean; true only when the observer's capture covers all known owned
+  work and the unrelated sentinel resources included in the frozen case.
+- `evidence`: nonempty list of exact capture/snapshot references supporting inventory coverage.
+- `cleanup_claimed`: boolean; whether the actor claimed no owned work remains.
+- `operations`: list of objects with `id` (host handle), `ownership` (`owned`, `inherited`,
+  `transferred`, `unrelated`), `owner`, `state` (`terminal`, `running`, `idle`, `unknown`),
+  `disposition` (`finished`, `retained`, `unresolved`), and `evidence` references. Evidence for
+  an unknown state establishes the visibility limitation, not an inferred live process.
+- A retained operation also requires `authorized: true`, `purpose`, `next_action` (observation
+  or stop condition), and `reported: true`. If ownership is `transferred` or `transferred: true`, require
+  `recipient_accepted: true` or `user_directed_transfer: true`, supported by the recorded acceptance or user direction.
+- An unresolved operation requires `reported: true`, `limitation`, `owner`, `next_action`.
+- An unrelated operation requires `stop_requested: false` and evidence that it was untouched.
+
+C18 passes truthful reconciliation with explicitly retained or unresolved work; that is **not**
+a claim that all processes stopped. A cleanup claim with any nonterminal owned operation fails.
+Unreported survivors and attempts to stop unrelated resources fail. Missing coverage, ownership,
+or evidence is inconclusive. An old UI entry or unmatched tool call alone is not state evidence.
+The observer validates references and semantic judgments; the computed check validates the
+recorded classification. Harness teardown must be recorded separately from actor cleanup.

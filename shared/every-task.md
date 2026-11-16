@@ -10,6 +10,8 @@
 
 **Progress.** Take the next bounded authorized action unprompted. Stop inquiry that cannot change the next action. Continue work that is not blocked. For blocked work, name the input or decision needed to continue.
 
+**Lifecycle.** Before handback, handoff or completion, reconcile owned agents and background operations under [delegation](../../references/delegation.md). Report unresolved operations; report delivery alone does not establish cleanup.
+
 **Evidence.** Describe behavior only when observed checks support the claim. Name checks that failed or were not run. Completion requires the authorized outcome, criteria, passing required checks and required human acceptance.
 
 **Saving.** Save substantive outputs under [retention](../../references/retention.md) before handoff or completion, unasked. When saving is prohibited, report what was not saved. At 40% context use, read [retention](../../references/retention.md).

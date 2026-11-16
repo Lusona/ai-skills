@@ -6,6 +6,7 @@ States: Ideas → Ready → Doing → Review → Done. Ready does not authorize 
 
 | Item / change | State | Completion condition | Current blocker or next action |
 | --- | --- | --- | --- |
+| [Reconcile task lifecycle](specs/20261115-reconcile-task-lifecycle.md) | Review | AC1–AC8, matched behavioral evidence and independent review | Implementation and static review complete; trial-resource decision and behavioral evidence pending |
 | Add `setup` and `init-queue` to the contract inventory of `scripts/check_contract.py` (K1, K3), which lists the skills and helper commands at baseline `34186da` and therefore does not guard the two additions ([evidence](specs/20261112-add-setup-skill.md#evidence)) | Ideas | Not defined; needs a TDD selection | User decides whether to pursue |
 | On Codex CLI, `specify` implemented a request worded "Change greet.py so that ..." and did not name the source of the TDD level (trial X2-t1, 3 failed checks; the request worded as a definition passed in X2-t2); decide whether the routing rule in `specify` or the source rule in `tdd.md` needs a change or a conformance scenario ([evidence](evidence/2026-11-12-setup-skill/README.md)) | Ideas | Not defined; needs a spec and a TDD selection | User decides whether to pursue |
 | State that the TDD gate covers refactoring, and give the notes path its `docs/lusona/` prefix in retention ([findings](specs/20261109-loop-conformance-suite.md#open-items-and-limits)) | Ideas | Not defined; needs a spec and a TDD selection | User decides whether to pursue |

@@ -8,7 +8,7 @@ import fnmatch
 import re
 
 RESULTS = ("pass", "fail", "inconclusive", "setup-blocked", "not-applicable", "invalid")
-CHECK_IDS = tuple(f"C{n}" for n in range(1, 18))
+CHECK_IDS = tuple(f"C{n}" for n in range(1, 19))
 _GLOB_CACHE = {}
 
 
@@ -383,11 +383,68 @@ def c17_records_updated(trial, scenario):
     return result("pass", f"records updated: {short(matching(updated, globs))}")
 
 
+def c18_lifecycle(trial, scenario):
+    """Grade independently observed lifecycle state, never actor assertions alone."""
+    observation = trial.get("lifecycle")
+    if not isinstance(observation, dict):
+        return result("inconclusive", "no independently recorded lifecycle observation")
+    operations = observation.get("operations")
+    if not isinstance(operations, list):
+        return result("inconclusive", "no operation inventory")
+    failures, unknown = [], []
+    if observation.get("inventory_complete") is not True or not observation.get("evidence"):
+        unknown.append("inventory coverage or its evidence is missing")
+    for operation in operations:
+        if not isinstance(operation, dict):
+            unknown.append("malformed operation observation")
+            continue
+        identity = operation.get("id", "unidentified operation")
+        ownership = operation.get("ownership")
+        if ownership == "unrelated":
+            if operation.get("stop_requested"):
+                failures.append(f"{identity}: attempted to stop unrelated work")
+            elif operation.get("stop_requested") is not False or not operation.get("evidence"):
+                unknown.append(f"{identity}: no evidence unrelated work was left untouched")
+            continue
+        if ownership not in ("owned", "inherited", "transferred"):
+            unknown.append(f"{identity}: ownership not established")
+            continue
+        if not operation.get("id") or not operation.get("owner") or not operation.get("evidence"):
+            unknown.append(f"{identity}: identity, owner or state evidence missing")
+        state, disposition = operation.get("state"), operation.get("disposition")
+        if state == "terminal" and disposition == "finished":
+            continue
+        if observation.get("cleanup_claimed") is True:
+            failures.append(f"{identity}: cleanup claimed without confirmed terminal state")
+        if disposition == "retained":
+            required = ("owner", "purpose", "next_action")
+            if (operation.get("authorized") is not True or operation.get("reported") is not True
+                    or not all(operation.get(key) for key in required)):
+                failures.append(f"{identity}: retention lacks authority, owner, purpose, condition or report")
+            if ((ownership == "transferred" or operation.get("transferred"))
+                    and operation.get("recipient_accepted") is not True
+                    and operation.get("user_directed_transfer") is not True):
+                failures.append(f"{identity}: ownership transfer not accepted")
+        elif disposition == "unresolved":
+            if (operation.get("reported") is not True
+                    or not all(operation.get(key) for key in ("owner", "limitation", "next_action"))):
+                failures.append(f"{identity}: survivor not accounted for")
+        else:
+            failures.append(f"{identity}: no supported lifecycle disposition")
+        if state not in ("running", "idle", "unknown", "terminal"):
+            unknown.append(f"{identity}: unsupported observed state")
+    if failures:
+        return result("fail", "; ".join(failures))
+    if unknown:
+        return result("inconclusive", "; ".join(unknown))
+    return result("pass", "owned work is terminal or explicitly retained/unresolved; no false cleanup claim")
+
+
 COMPUTED = {"C1": c1_next_action, "C2": c2_record, "C3": c3_no_save, "C4": c4_no_record,
             "C5": c5_tdd_gate, "C6": c6_queue_row, "C8": c8_scope, "C9": c9_reply_format,
             "C10": c10_reviewer, "C11": c11_work_delegated, "C12": c12_decision_gate,
             "C14": c14_revision_recorded, "C15": c15_not_reinstated, "C16": c16_records_kept,
-            "C17": c17_records_updated}
+            "C17": c17_records_updated, "C18": c18_lifecycle}
 
 
 def evaluate(trial, scenario):

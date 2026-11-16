@@ -1,12 +1,12 @@
 # Delegation
 
-Read before dispatching an assignment, after each leaf result, and before closing or handing off responsibility for leaves. Read when deciding whether independent review is required. Read as a leaf before returning a result.
+Read before dispatching an assignment and after each leaf result. Read before final handback, task completion or handoff with owned agents or background operations. Read when deciding whether independent review is required. Read as a leaf before returning a result.
 
 ## Roles
 
 - An assignment that names you a leaf makes you a leaf. A separate host task or a prohibition on further delegation does not.
 - Your role follows the responsibilities the assignment names.
-- As a leaf, read Assigned leaves and Assignment results. Apply each other section only when the assignment grants the responsibilities that section covers.
+- As a leaf, read Assigned leaves, Assignment results and Task lifecycle. Apply each other section only when the assignment grants the responsibilities that section covers.
 
 ## Coordinator duties
 
@@ -81,12 +81,12 @@ Supply context this way:
 - Execute the bounded assignment. Return results before waiting or ending.
 - Do not interview the user or start another workflow skill on your own.
 - Additional work requires a new assignment.
-- Under a delegation grant, before returning, stop each leaf you dispatched and include its results in your result. Report any leaf you could not stop.
+- Before returning, reconcile owned work under Task lifecycle and include delegated results in your result.
 - Domain skills add to the assigned scope without expanding responsibility or authority.
 - Report missing or contradictory context, questions and recommended next actions to the coordinator.
 - Return findings for the coordinator to save, unless you have write ownership of the record.
 - With write ownership of a change record or notes, update that record's current handoff. Return other handoff changes to the coordinator.
-- Before cooperating with shutdown, preserve the result and stop owned work. Report each operation that you cannot finish or pause in a recoverable state.
+- Before cooperating with shutdown, preserve the result and apply Task lifecycle to owned work.
 
 ## Assignment results
 
@@ -96,7 +96,7 @@ Return these fields, with `none` where a field does not apply:
 - Outcome: the accomplished scope and the changed paths and artifacts.
 - Verification: checks and results, naming required checks that failed or did not run.
 - Remaining work and concerns: unfinished scope, findings, limits and blockers.
-- Recovery: retained work, active operations and leaves, and the next action or input.
+- Recovery: retained work, active operations and leaves, their lifecycle dispositions under Task lifecycle, and the next action or input.
 - Correction rounds: for correction or diagnostic work, each round, its material progress, and the consecutive and total counts for the failure. Inside a batch, give the charged rounds under the repair budget.
 
 | Status | Meaning |
@@ -128,20 +128,39 @@ For blocked work:
 - Before transferring edits to another leaf, stop the previous writer and transfer ownership explicitly. Do not let two leaves write the same files.
 - Preserve edits and evidence. Give the successor the current state, the remaining outcome, the authority and the TDD level.
 
-## Leaf lifecycle
+## Task lifecycle
 
-Apply after each result and before closing or handing off responsibility for leaves. This includes inherited, reassigned or earlier-session leaves, even when you dispatch no new leaf.
+Apply after each leaf result and before final handback, task completion, deferral, interruption or handoff.
 
-- You own lifecycle decisions for the leaves you dispatched. The leaf that dispatched leaves under a delegation grant owns their lifecycle.
-- After each result, either assign concrete authorized follow-up work with explicit ownership, or release the leaf through the host's shutdown or close mechanism.
-- Do not keep a persistent leaf idle in case more work appears.
-- Inspect the actual agent type and its available controls.
-- For a persistent Claude Code agent team member, request shutdown and wait for acknowledgment or host-confirmed termination.
-- A Claude Code agent outside a team ends by itself. Observe the host result; do not invent a team cleanup operation.
-- On other hosts, use the exposed lifecycle controls.
-- Confirm termination or closure through host evidence. An idle notification, a final report or a sent shutdown request does not prove shutdown.
-- Track pending or rejected shutdowns and resolve the stated reason. Do not report capacity as released before the host confirms it.
-- When shutdown or its confirmation is unavailable, report the limitation and the surviving leaf's identity. Do not claim cleanup, and do not delete transcripts, workspaces or team directories as a substitute.
-- At batch completion, deferral, interruption or handoff, reconcile every leaf within that responsibility.
-- Preserve unfinished work before shutdown. Record surviving leaves, ownership and pending lifecycle actions in the existing handoff.
-- Assignment completion, release of write ownership and release of host capacity are separate facts.
+### Ownership and inventory
+
+- Account for known agents, shells and background commands within your responsibility. Include inherited, reassigned and earlier-session work, even when you launched nothing.
+- Identify each operation by its task ID or equivalent host handle. Inspect its last observed state and available controls.
+- As a leaf, reconcile your owned operations and granted descendants. Return any unresolved descendant to the coordinator with its identity and recovery information.
+- As coordinator, reconcile returned survivors and operations assigned to you. Do not assume that receiving a result ends this responsibility.
+- Stop only operations attributable to this task and within its authority. Do not stop unrelated user processes, shared services or another task's agents.
+- When ownership or stopping authority is unclear, report the uncertainty. Ask only for the missing decision; as a leaf, return it to the coordinator.
+
+### Resolve or retain
+
+- Preserve results and recoverable work before stopping an operation.
+- Continue or wait for work the authorized assignment still requires, within its existing limits.
+- Stop or close owned operations no longer required, using supported host controls. Confirm the resulting state through host evidence.
+- Do not stop a command again when its exit is confirmed. Do not keep a persistent leaf idle in case more work appears.
+- For a persistent Claude Code team member, request shutdown and verify acknowledgment or host-confirmed termination.
+- For an agent outside a team, inspect host evidence rather than assuming automatic exit. Do not invent a team cleanup operation.
+- Retain a running operation only for an authorized continuing purpose with an explicit owner. Record its identity, purpose, owner and next observation or stop condition.
+- Transfer ownership only when the recipient accepts it or the user directs the transfer. Ending a turn does not transfer ownership.
+- Report retained work as an intentional handoff, not as terminated work or released capacity.
+
+### Confirm and report
+
+- Distinguish report delivery, assignment completion, write-ownership release and host-capacity release.
+- Do not treat a final report, idle notification, shutdown request or completed status alone as termination evidence.
+- When a completion notification reports running child work, keep lifecycle reconciliation open. Resolve or explicitly report that work before claiming full completion.
+- Track pending or rejected shutdowns and resolve the stated reason within existing limits. Do not retry indefinitely or invent a reset of correction limits.
+- When inspection, shutdown or confirmation is unavailable, report the operation's identity, owner and last observed state. Name the missing capability and next action.
+- Preserve unresolved operations and recovery information in the existing handoff. Distinguish finished deliverables from unresolved cleanup; do not claim termination or released capacity.
+- Continue unrelated authorized work while an operation remains unresolved.
+- Do not infer a running process from a retained UI entry or unmatched transcript call alone.
+- Do not delete transcripts, workspaces or team directories as a substitute for termination evidence.

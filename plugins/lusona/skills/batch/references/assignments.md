@@ -30,5 +30,5 @@ When a serialized operation is in progress, first complete it or, for an integra
 - A leaf's `complete` describes its assignment, not the queue item.
 - Keep remaining implementation, integration, checks, review, acceptance or delivery visible in the row.
 - Apply the queue state criteria and completion gates. Close and archive an item once its gates pass, even while unrelated items continue.
-- Reporting a result does not integrate changes, release write ownership or release host capacity. Apply integration and leaf lifecycle separately.
+- Reporting a result does not integrate changes, release write ownership or release host capacity. Apply integration and task lifecycle separately.
 - On hosts without asynchronous notifications, collect results at assignment boundaries. Do not promise immediate background updates.
