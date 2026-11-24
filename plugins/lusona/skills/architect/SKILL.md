@@ -64,7 +64,7 @@ Apply each practice that matches the selected decision; do not run them all as a
 - For interface or schema changes, account for existing consumers and mixed-version operation. Identify migration order, recovery options and irreversible steps.
 - Base performance and availability choices on stated workloads or targets. When feasibility depends on unknown behavior, name a bounded experiment instead of assuming capacity.
 - Where the design crosses trust or deployment boundaries, identify authorization ownership, sensitive data handling and the signals needed to diagnose failures.
-- When the decision depends on layout, structure, flow or appearance that a description does not show, read [visuals](../../references/visuals.md) before drawing a visual option or diagram.
+- Before presenting a proposal, identify what a diagram would help the reader understand, compare or verify. Draw that diagram alongside the decision it explains. Choose its type, scope and detail to fit the question. Use multiple views when distinct concerns matter, such as ownership and recovery order. Before drawing diagrams or offering visual options, read [visuals](../../references/visuals.md).
 
 ## Decision and record
 
