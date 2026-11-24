@@ -5,6 +5,11 @@ local date, not a verified publication date. Version 3.1.1 is an untagged local 
 2.0.5 were tagged after their entries were written; their headings keep the wording of that
 time. The entries distinguish source updates from published releases.
 
+## 3.1.2 — 2026-11-24
+
+- Architect now draws diagrams when they help explain, compare or verify a decision. It
+  chooses the diagram type and detail for the question and draws multiple views when distinct concerns matter.
+
 ## 3.1.1 — Local test candidate, untagged
 
 Prepared on 2026-11-16. Behavioral validation remains pending; not published.
