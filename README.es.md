@@ -163,7 +163,7 @@ Añade restricciones de forma natural, como «mantén la API pública sin cambio
 - [Detalles del flujo de trabajo (en inglés)](docs/workflow.md): pruebas, evidencias y reanudación del trabajo.
 - [Por qué creamos Lusona (en inglés)](https://blog.lusona.com/blog/why-we-built-lusona-skills/).
 
-Versión del código fuente de esta copia de trabajo: **3.1.2**. La instalación desde GitHub usa
+Versión del código fuente de esta copia de trabajo: **3.1.3**. La instalación desde GitHub usa
 el código incluido en commits y enviado al repositorio remoto; los cambios locales no constituyen
 una versión publicada. Consulta el [historial de cambios (en inglés)](CHANGELOG.md).
 

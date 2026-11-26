@@ -5,6 +5,11 @@ local date, not a verified publication date. Version 3.1.1 is an untagged local 
 2.0.5 were tagged after their entries were written; their headings keep the wording of that
 time. The entries distinguish source updates from published releases.
 
+## 3.1.3 — 2026-11-25
+
+- Specify now splits a change into work items whenever each part has a distinct outcome and its own check.
+  Implement uses the same rule for tasks. Both prefer splits that let agents work and verify results independently.
+
 ## 3.1.2 — 2026-11-24
 
 - Architect now draws diagrams when they help explain, compare or verify a decision. It

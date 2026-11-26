@@ -157,7 +157,7 @@ agy plugin list --json
 - [工作流程详解（英文）](docs/workflow.md)：测试、证据和恢复工作。
 - [我们为什么开发 Lusona（英文）](https://blog.lusona.com/blog/why-we-built-lusona-skills/)。
 
-当前工作副本的源码版本：**3.1.2**。从 GitHub 安装时，使用的是已提交并推送的源码；
+当前工作副本的源码版本：**3.1.3**。从 GitHub 安装时，使用的是已提交并推送的源码；
 本地变更不代表已发布版本。请参阅[变更日志（英文）](CHANGELOG.md)。
 
 [参与贡献（英文）](CONTRIBUTING.md) · [报告问题（英文）](https://github.com/lusona/ai-skills/issues/new/choose) · [隐私政策（英文）](PRIVACY.md) · [使用条款（英文）](TERMS.md) · [MIT 许可证（英文）](LICENSE)
