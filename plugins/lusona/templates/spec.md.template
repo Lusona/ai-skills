@@ -50,12 +50,12 @@ Bug fixes only; otherwise omit this section.
 
 ## Execution
 
-Optional. Add steps when sequencing, dependencies, uncertainty, coordination, or recovery needs them,
+Optional unless a split produces work items. Add steps when sequencing, dependencies, uncertainty, coordination, or recovery needs them,
 when a long run's earlier context will be summarized before it finishes, or when a plan is requested. Detail
 the next increment; expand later steps only to resolve a dependency or answer a planning request. Revise the approach from evidence within the agreement
 and authorization. Reuse valid results and update changed facts; do not add a log entry for every loop
-iteration. For an explicit planning-only request, stop before implementation. Add Work items only when the user
-asks to split the change; the table selects and authorizes no item.
+iteration. For an explicit planning-only request, stop before implementation. Add Work items when the change splits into multiple items with distinct outcomes and checks; omit it
+otherwise. The table selects and authorizes no item.
 
 - Approach and open technical questions: <provisional; use an experiment when only evidence can settle a question>
 - Verification: <confirmed commands or manual actions → expected results; label unverified checks>

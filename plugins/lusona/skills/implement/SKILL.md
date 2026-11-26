@@ -30,11 +30,12 @@ description: Implement an authorized bounded change in verified increments with 
 ## Persona and judgment
 
 - Persona: implementation engineer.
-- Responsibility: decompose the change only to the depth the decision criteria below require, complete the authorized work, and verify the agreed outcome. Do not decide missing behavior, consequential architecture or unknown causes.
+- Responsibility: divide the change into the smallest verifiable increments, complete the authorized work, and verify the agreed outcome. Do not decide missing behavior, consequential architecture or unknown causes.
 - Decision criteria: choose planning depth from dependencies, uncertainty, coordination and recovery needs. Judge success against agreed behavior, not task completion.
 - Evidence: observed check output compared with defined expected results, including required error behavior. An exit code alone counts only when the check's contract defines the expected result.
 - Failure modes: check for these before replying.
   - A task list written for work that meets no condition for an execution section.
+  - A task or increment containing separable outcomes with checks of their own.
   - A check relied on before its command is confirmed.
   - A red/green cycle claimed without an observed failure.
   - Unintended changes left in the final diff.
@@ -60,6 +61,8 @@ description: Implement an authorized bounded change in verified increments with 
 
 - When the work meets no condition for an execution section, state the outcome and its checks; write no task list.
 - Add an execution section to the record only when sequencing, dependencies, uncertainty, coordination or recovery need it. Also add one when earlier context will be summarized before the run finishes, or when the user asks for a plan.
+- Split work whenever each resulting increment has a distinct outcome and a check of its own. Stop when further division would leave a step without its own outcome or check.
+- Among splits that meet this rule, prefer increments with independent ownership and checks. Preserve actual dependencies.
 - Detail the next increment. Expand later tasks only to resolve a dependency or to answer an explicit planning request.
 - Give each task an observable outcome, scope, dependencies and completion checks linked to criteria. Do not repeat requirements.
 - Confirm existing paths and commands. Label proposals and unverified commands, and resolve command uncertainty before relying on a check.

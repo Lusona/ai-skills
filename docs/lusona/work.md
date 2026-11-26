@@ -16,7 +16,7 @@ States: Ideas → Ready → Doing → Review → Done. Ready does not authorize 
 | Unify record-owner and handoff terms; remove remaining retention and closeout duplicates ([findings](specs/20261109-consolidate-restated-rules.md#findings-outside-this-scope)) | Ideas | Not defined; needs a spec and a TDD selection | User decides whether to pursue |
 | Add the missing next-action items to two skills (audit item P8): `review` has none for a missing input (`skills/review/SKILL.md:45` asks about an ambiguous scope) and `batch` has none for a complete scope (`skills/batch/SKILL.md:110`, outcome "all selected complete") ([gaps](../skill-audit.md#13-known-gaps-in-enforcement)) | Ideas | Not defined; needs a spec and a TDD selection | User decides whether to pursue |
 
-Completed outcomes are recorded in [history](history/2026-11-week-03.md), [week 02](history/2026-11-week-02.md) and earlier
+Completed outcomes are recorded in [history](history/2026-11-week-04.md), [week 03](history/2026-11-week-03.md), [week 02](history/2026-11-week-02.md) and earlier
 completions in [2026-11-week-01](history/2026-11-week-01.md), [2026-10-week-05](history/2026-10-week-05.md) and
 [2026-10-week-04](history/2026-10-week-04.md).
 

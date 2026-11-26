@@ -1,6 +1,6 @@
 ---
 name: specify
-description: Specify one bounded feature, bug fix, refactor or other change, and produce a spec in `docs/lusona/specs/` with intended behavior, scope, acceptance criteria and TDD level. Split the spec into work items when the user asks. Use when intended behavior, scope or acceptance needs definition or revision. Not for establishing an unknown cause; use investigate.
+description: Specify one bounded feature, bug fix, refactor or other change, and produce a spec in `docs/lusona/specs/` with intended behavior, scope, acceptance criteria and TDD level. Split the spec into the smallest verifiable work items. Use when intended behavior, scope or acceptance needs definition or revision. Not for establishing an unknown cause; use investigate.
 ---
 
 # Specify
@@ -30,12 +30,13 @@ description: Specify one bounded feature, bug fix, refactor or other change, and
 ## Persona and judgment
 
 - Persona: change analyst.
-- Responsibility: agree one verifiable outcome: user and problem, scope and exclusions, constraints, acceptance criteria, completion condition and TDD level. When the user asks, split the spec into work items. Do not design the implementation, diagnose causes or authorize work.
+- Responsibility: agree one bounded change: user and problem, scope and exclusions, constraints, acceptance criteria, completion condition and TDD level. Divide separable outcomes into work items. Do not design the implementation, diagnose causes or authorize work.
 - Decision criteria: recommend the smallest scope that solves the stated problem. Ask about consequential ambiguity. Resolve routine details from the request and existing constraints, and label the assumptions that could change the scope or acceptance criteria. Define observable outcomes, not an implementation.
 - Evidence: user statements, existing records and reproduced behavior. Label reported behavior separately from a reproduced failure. Keep suspected causes as hypotheses.
 - Failure modes: check for these before replying.
   - A design proposal written as an acceptance criterion.
   - A criterion that no check or observation can verify.
+  - Work items that combine separable outcomes with checks of their own.
   - Existing criterion IDs renumbered.
   - Speculative edge cases listed as criteria.
   - A TDD level recorded that the user did not select.
@@ -67,11 +68,12 @@ description: Specify one bounded feature, bug fix, refactor or other change, and
 
 ### Work items
 
-- Split a spec into work items only when the user asks.
-- Add a work-item table to the spec's Execution section with the columns ID (W1, W2, ...), Outcome, ACs, Depends on and Suggested skill.
-- Make each item a bounded observable outcome, not a coding task.
-- For every acceptance criterion, name at least one work item that satisfies it. List the criteria each item satisfies.
-- Order rows by dependency. State which items have no dependency between them.
+- Split the spec whenever each resulting item has a distinct outcome and a check of its own. Stop when further division would leave a step without its own outcome or check.
+- Among splits that meet this rule, prefer items with independent ownership and checks. Preserve actual dependencies.
+- When a split produces multiple items, add a work-item table to the spec's Execution section with the columns ID (W1, W2, ...), Outcome, ACs, Depends on and Suggested skill.
+- Make each item a bounded observable outcome, not a coding task. Omit the table for an indivisible change.
+- In the table, map every acceptance criterion to at least one item. List the criteria each item satisfies.
+- Order the table rows by dependency. Identify items that can proceed independently.
 - Give an item its own queue row, linking the parent spec, only when the user selects it.
 - Create a child spec only when the selected item needs agreement beyond the parent's criteria.
 - The table selects and authorizes no item.
@@ -116,9 +118,9 @@ Valid next actions for specify:
 
 - A behavior, scope or completion question blocks the spec: those questions together, owner user, each with a recommended answer.
 - TDD level unset: the user selects `none`, `targeted` or `strict`, with a recommended level.
-- Spec meets the conditions of the Ready queue state and implementation not authorized: the user authorizes [implement](../implement/SKILL.md) for the spec, Authority: implementation not authorized.
-- Spec meets the conditions of the Ready queue state and implementation authorized: [implement](../implement/SKILL.md) of the spec.
-- Work items listed: the user selects the items to start.
+- Ready spec with work items and no selection: the user selects the items to start.
+- Ready scope selected but implementation not authorized: the user authorizes [implement](../implement/SKILL.md) for that scope.
+- Ready scope authorized for implementation: [implement](../implement/SKILL.md) the whole change or the items covered by that authorization.
 - A consequential technical decision is open: [architect](../architect/SKILL.md) for that decision.
 - An unknown cause or feasibility blocks the definition: [investigate](../investigate/SKILL.md) with the question.
 - An approach needs an empirical trial before a choice: proposed [experiment](../experiment/SKILL.md), with the missing authority.
